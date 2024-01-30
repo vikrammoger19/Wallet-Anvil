@@ -66,3 +66,7 @@ class admin(adminTemplate):
 
     # Open the admin.user_support form and pass the serves_data
     user_support_form = open_form('admin.user_support', serves_data=serves_data)
+
+  def button_8_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Login')
