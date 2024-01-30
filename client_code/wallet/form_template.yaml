@@ -74,11 +74,6 @@ components:
         type: Link
         layout_properties: {grid_position: 'MNPBPI,LADGEM'}
         event_bindings: {click: link_13_click}
-  - name: label_2
-    properties: {text: '" The Best way to handle your money "', bold: true, align: left,
-      foreground: white, font: a, font_size: 25}
-    type: Label
-    layout_properties: {grid_position: 'THSXQB,GFMQYJ'}
   - name: image_1
     properties: {source: 'https://cdni.iconscout.com/illustration/premium/thumb/e-wallet-4487367-3722728.png',
       background: '#258ee1', horizontal_align: center, height: 274.39996337890625}

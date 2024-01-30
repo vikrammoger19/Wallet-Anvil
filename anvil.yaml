@@ -64,7 +64,7 @@ db_schema:
       type: datetime
     title: wallet_users
   wallet_users_account:
-    client: none
+    client: full
     server: full
     columns:
     - name: account_number
