@@ -1,0 +1,179 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
+    role: null, html: ''}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - name: grid_panel_2
+    properties: {}
+    type: GridPanel
+    layout_properties: {grid_position: 'AZISFL,LGHAHH'}
+    components:
+    - name: label_1
+      properties: {text: Create your account, align: center, bold: true, font_size: 18,
+        italic: false, underline: true}
+      type: Label
+      layout_properties: {row: TXSXKA, width_xs: 3, col_xs: 4}
+    - name: label_7
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Enter your email:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {row: JNWJIC, width_xs: 3, col_xs: 1}
+    - name: text_box_1
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Email,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: email, spacing_below: small, italic: false,
+        background: white, bold: false, underline: false}
+      type: TextBox
+      layout_properties: {row: JNWJIC, width_xs: 3, col_xs: 5}
+      data_bindings:
+      - {code: 'self.item[''email'']', writeback: true, property: text}
+    - name: label_8
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Enter your Username:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {row: OKSRAS, width_xs: 3, col_xs: 1}
+    - name: text_box_2
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Username,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: white, bold: false, underline: false}
+      type: TextBox
+      layout_properties: {row: OKSRAS, width_xs: 3, col_xs: 5}
+      data_bindings:
+      - {code: 'self.item[''username'']', writeback: true, property: text}
+    - name: label_9
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Enter your Password:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {row: TWWXRE, width_xs: 3, col_xs: 1}
+    - name: text_box_3
+      properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: Password,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: white, bold: false, underline: false}
+      type: TextBox
+      layout_properties: {row: TWWXRE, width_xs: 3, col_xs: 5}
+      data_bindings:
+      - {code: 'self.item[''password'']', writeback: true, property: text}
+    - name: label_13
+      properties: {text: 'Enter Password Again:', bold: true}
+      type: Label
+      layout_properties: {row: LFWAVZ, width_xs: 3, col_xs: 1}
+    - name: text_box_7
+      properties: {align: left, hide_text: true, tooltip: '', placeholder: Retype Password,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font: '',
+        spacing_above: small, type: text, spacing_below: small, italic: false, background: white,
+        bold: false, underline: false}
+      type: TextBox
+      layout_properties: {row: LFWAVZ, width_xs: 3, col_xs: 5}
+    - name: label_17
+      properties: {}
+      type: Label
+      layout_properties: {row: PXKQTG, width_xs: 3, col_xs: 5}
+      event_bindings: {}
+    - name: label_10
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Enter your Pan No, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {row: FSKRJU, width_xs: 3, col_xs: 1}
+    - name: text_box_4
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Pan,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: white, bold: false, underline: false}
+      type: TextBox
+      layout_properties: {row: FSKRJU, width_xs: 3, col_xs: 5}
+      data_bindings:
+      - {code: 'self.item[''pan'']', writeback: true, property: text}
+      event_bindings: {change: text_box_4_change}
+    - name: label_14
+      properties: {}
+      type: Label
+      layout_properties: {row: OFNJKW, width_xs: 3, col_xs: 5}
+    - name: label_12
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Enter your Phone Number:', font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: ''}
+      type: Label
+      layout_properties: {row: KBZFJO, width_xs: 3, col_xs: 1}
+    - name: text_box_6
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Phone Number,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: white, bold: false, underline: false}
+      type: TextBox
+      layout_properties: {row: KBZFJO, width_xs: 3, col_xs: 5}
+      data_bindings:
+      - {code: 'self.item[''phone'']', writeback: true, property: text}
+      event_bindings: {pressed_enter: validate_button_click}
+    - name: label_15
+      properties: {}
+      type: Label
+      layout_properties: {row: UNBUEE, width_xs: 3, col_xs: 5}
+    - name: label_11
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Enter your Address:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {row: ETEKJY, width_xs: 3, col_xs: 1}
+    - name: text_box_5
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Address,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: white, bold: false, underline: false}
+      type: TextBox
+      layout_properties: {row: ETEKJY, width_xs: 3, col_xs: 5}
+      data_bindings:
+      - {code: 'self.item[''address'']', writeback: true, property: text}
+    - name: label_6
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Enter your Aadhar details:', font_size: null, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: ''}
+      type: Label
+      layout_properties: {row: WRSBCI, width_xs: 3, col_xs: 1}
+    - name: text_box_8
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Aadhar detalis,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+        background: white, bold: false, underline: false}
+      type: TextBox
+      layout_properties: {row: WRSBCI, width_xs: 3, col_xs: 5}
+      data_bindings:
+      - {code: 'self.item[''aadhar'']', writeback: true, property: text}
+    - name: label_16
+      properties: {}
+      type: Label
+      layout_properties: {row: NWUQXF, width_xs: 3, col_xs: 5}
+    - name: button_1
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: Signup, font_size: 16, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '#2196f3',
+        bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {row: XQJCOQ, width_xs: 3, col_xs: 3}
+      event_bindings: {click: button_1_click}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+  components:
+  - name: grid_panel_1
+    properties: {}
+    type: GridPanel

@@ -1,0 +1,136 @@
+correct_dependency_ids: {}
+dependencies: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/email.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/secrets.yml
+  client_config: {}
+  server_config: {}
+startup: {type: form, module: Login}
+package_name: d1
+allow_embedding: false
+name: Clone of d1
+runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
+  server_spec: null}
+metadata: {}
+startup_form: null
+db_schema:
+  wallet_users:
+    client: full
+    server: full
+    columns:
+    - name: username
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: phone
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: email
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: password
+      admin_ui: {width: 200, order: 3}
+      type: string
+    - name: confirm_email
+      admin_ui: {width: 200, order: 4}
+      type: bool
+    - name: aadhar
+      admin_ui: {width: 200, order: 5}
+      type: number
+    - name: pan
+      admin_ui: {width: 200, order: 6}
+      type: string
+    - name: address
+      admin_ui: {width: 200, order: 7}
+      type: string
+    - name: usertype
+      admin_ui: {width: 200, order: 8}
+      type: string
+    - name: banned
+      admin_ui: {width: 200, order: 9}
+      type: bool
+    - name: user_limit
+      admin_ui: {width: 200, order: 10}
+      type: number
+    - name: daily_limit
+      admin_ui: {width: 200, order: 11}
+      type: number
+    - name: last_login
+      admin_ui: {width: 200, order: 12}
+      type: datetime
+    title: wallet_users
+  wallet_users_account:
+    client: none
+    server: full
+    columns:
+    - name: account_number
+      admin_ui: {width: 200, order: 0}
+      type: number
+    - name: account_holder_name
+      admin_ui: {width: 200, order: 1}
+      type: string
+    - name: bank_name
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: branch_name
+      admin_ui: {width: 200, order: 3}
+      type: string
+    - name: ifsc_code
+      admin_ui: {width: 200, order: 4}
+      type: string
+    - name: account_type
+      admin_ui: {width: 200, order: 5}
+      type: string
+    - name: status_confirm
+      admin_ui: {width: 200, order: 6}
+      type: bool
+    - name: phone
+      admin_ui: {width: 200, order: 7}
+      type: number
+    title: wallet_users_account
+  wallet_users_balance:
+    client: none
+    server: full
+    columns:
+    - name: currency_type
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: balance
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: phone
+      admin_ui: {width: 200, order: 2}
+      type: number
+    title: wallet_users_balance
+  wallet_users_transaction:
+    client: none
+    server: full
+    columns:
+    - name: date
+      admin_ui: {width: 200, order: 0}
+      type: datetime
+    - name: fund
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: transaction_type
+      admin_ui: {width: 200, order: 2}
+      type: string
+    - name: transaction_status
+      admin_ui: {width: 200, order: 3}
+      type: string
+    - name: receiver_phone
+      admin_ui: {width: 200, order: 4}
+      type: number
+    - name: phone
+      admin_ui: {width: 200, order: 5}
+      type: number
+    title: wallet_users_transaction
+secrets:
+  ? ''
+  : value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}
+    type: key
+renamed: true

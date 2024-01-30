@@ -1,0 +1,35 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
+    role: null, html: ''}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - name: label_1
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '#2270ad',
+      visible: true, text: '', font_size: 23, font: a, spacing_above: small, icon_align: left,
+      spacing_below: small, italic: false, background: '', bold: true, underline: true,
+      icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'BEMZSE,PSJYIB'}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+  components:
+  - name: button_1
+    properties: {role: elevated-button, align: left, foreground: white, text: 'Viewprofile           ',
+      font_size: 15, font: '', spacing_above: small, spacing_below: small, background: '#1d6eae',
+      bold: true, icon: 'fa:address-card'}
+    type: Button
+    event_bindings: {click: button_1_click}
+  - name: button_2
+    properties: {role: elevated-button, align: right, foreground: white, text: 'Create
+        wallet       ', font_size: 15, font: '', spacing_above: small, spacing_below: small,
+      background: '#1d6eae', bold: true, icon: 'fa:money'}
+    type: Button
+    event_bindings: {click: button_2_click}

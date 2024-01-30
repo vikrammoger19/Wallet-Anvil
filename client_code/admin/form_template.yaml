@@ -1,0 +1,86 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
+    role: null, html: ''}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+  components: []
+- type: ColumnPanel
+  properties: {role: card}
+  name: card_1
+  layout_properties: {slot: default}
+  components:
+  - name: label_5
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: black,
+      visible: true, text: '', font_size: 17, font: '', spacing_above: small, icon_align: left,
+      spacing_below: small, italic: true, background: white, bold: true, underline: false,
+      icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'VQULOT,CGRUHU'}
+  - name: outlined_card_1
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: none, spacing_above: large, col_widths: '{}',
+      spacing_below: large, background: ''}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'GVIJRN,IDJQHC'}
+    components:
+    - name: button_1
+      properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: '  User Management  ', font_size: 13,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+        background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'YAMGBP,QVZJRW'}
+      event_bindings: {click: button_1_click}
+    - name: button_7
+      properties: {role: elevated-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: white, visible: true, text: '  Audit Trail    ',
+        font_size: 13, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: true, background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'YAMGBP,LSHMDU'}
+      event_bindings: {click: button_7_click}
+    - name: button_5
+      properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: Account Balance Management, font_size: 13,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+        background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'YAMGBP,GQOBVK'}
+      event_bindings: {click: button_5_click}
+    - name: button_3
+      properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: Report and Analysis, font_size: 13,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+        background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'BTGZKK,NMCAIH'}
+      event_bindings: {click: button_3_click}
+    - name: button_4
+      properties: {role: elevated-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: white, visible: true, text: User Support, font_size: 13,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'BTGZKK,IDLPLN VMUJHO,UGQTUR'}
+      event_bindings: {click: button_4_click}
+    - name: spacer_1
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'BTGZKK,IDLPLN VXCLKQ,LCBLQT'}
+    - name: button_2
+      properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: '     Transaction Monitoring       ',
+        font_size: 13, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: true, background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'BTGZKK,WWTXPP'}
+      event_bindings: {click: button_2_click}
