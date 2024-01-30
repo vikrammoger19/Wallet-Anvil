@@ -17,11 +17,11 @@ class account_management(account_managementTemplate):
   def refresh_users(self, username_filter=None):
         # If a username filter is provided, filter users based on the username
         if username_filter:
-            customer_type_filter = [user for user in app_tables.users.search()
+            customer_type_filter = [user for user in app_tables.wallet_users.search()
                                     if user['usertype'] == 'customer' and user['username'].lower().startswith(username_filter.lower())]
         else:
             # If no username filter, show all customers
-            customer_type_filter = [user for user in app_tables.users.search() if user['usertype'] == 'customer']
+            customer_type_filter = [user for user in app_tables.wallet_users.search() if user['usertype'] == 'customer']
 
         # Set items in the repeating panel
         self.repeating_panel_1.items = customer_type_filter
