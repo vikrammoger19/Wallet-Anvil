@@ -13,7 +13,7 @@ services:
 startup: {type: form, module: Login}
 package_name: d1
 allow_embedding: false
-name: Clone of d1
+name: Wallet Anvil
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox,
   server_spec: null}
 metadata: {}
