@@ -66,7 +66,9 @@ def get_user_by_phone(phone_number):
         return None
  
 
-
+@anvil.server.callable
+def get_wallet_transactions():
+    return app_tables.wallet_users_transaction.search()
 
 
 
