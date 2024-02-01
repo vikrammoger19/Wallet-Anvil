@@ -49,8 +49,6 @@ def add_info(email, username, password, pan, address, phone, aadhar):
 #     users = app_tables.wallet_users.search(phone=phone_number)
 #     return users[0] if users else None
 
-
-
 @anvil.server.callable
 def get_user_by_phone(phone_number):
     try:
@@ -83,7 +81,6 @@ def get_user_currency(phone):
   currency= app_tables.wallet_users_balance.search(phone=phone)
   return currency
 
-    
 
 
 

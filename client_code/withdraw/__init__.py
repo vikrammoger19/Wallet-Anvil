@@ -5,6 +5,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from datetime import datetime
+
 class withdraw(withdrawTemplate):
   def __init__(self, user=None, **properties):
     # Initialize self.user as a dictionary
