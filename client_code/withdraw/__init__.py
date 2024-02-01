@@ -13,7 +13,7 @@ class withdraw(withdrawTemplate):
     # Set Form properties and Data Bindings.
     username = anvil.server.call('get_username', self.user['phone'])
     self.label_1.text = f"Welcome to Green Gate Financial, {username}"
-    user_account_numbers = anvil.server.call('get_user_account_numbers', self.user['phone'])
+    user_account_numbers = anvil.server.call('get_user_bank_name', self.user['phone'])
     self.drop_down_1.items = list(map(str, user_account_numbers)) if user_account_numbers is not None else []
     self.display()
     # Any code you write here will run before the form opens.
