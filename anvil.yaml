@@ -20,7 +20,7 @@ metadata: {}
 startup_form: null
 db_schema:
   wallet_users:
-    client: full
+    client: search
     server: full
     columns:
     - name: username

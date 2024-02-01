@@ -9,5 +9,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    transactions = anvil.server.call('get_wallet_transactions')
+        # Assuming you have a repeating panel named repeating_panel_1
+    self.repeating_panel_1.items = transactions
 
     # Any code you write here will run before the form opens.
