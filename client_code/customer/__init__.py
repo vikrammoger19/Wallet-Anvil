@@ -1,6 +1,6 @@
 from ._anvil_designer import customerTemplate
 from anvil import open_form
-import datetime
+from datetime import datetime
 
 class customer(customerTemplate):
     def __init__(self, user=None, **properties):
