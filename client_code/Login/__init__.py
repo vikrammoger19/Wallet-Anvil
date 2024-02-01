@@ -1,15 +1,3 @@
-# from ._anvil_designer import LoginTemplate
-# from anvil import *
-# import anvil.server
-# import anvil.tables as tables
-# import anvil.tables.query as q
-# from anvil.tables import app_tables
-
-# class Login(LoginTemplate):
-#   def __init__(self, **properties):
-#     # Set Form properties and Data Bindings.
-#     self.init_components(**properties)
-
 from ._anvil_designer import LoginTemplate
 from anvil import *
 import anvil.server
@@ -26,7 +14,6 @@ class Login(LoginTemplate):
         # Get the login input (username, phone number, or email)
         login_input = self.text_box_1.text.strip()
       
-        
         # Get the password
         password = self.text_box_2.text.strip()
 
@@ -39,12 +26,7 @@ class Login(LoginTemplate):
             if user['banned'] is not None and user['banned']:
                 open_form('LOGIN.banned_form')
                 return
-
-            # # Check if the user is on hold/freeze
-            # if user['hold'] is not None and user['hold']:
-            #     alert("Your account is on hold/freeze. Please try again later.", title="Account On Hold")
-            #     return
-
+              
             user_type = user['usertype']
 
             if user_type == 'admin':

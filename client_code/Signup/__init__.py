@@ -1,19 +1,5 @@
-# from ._anvil_designer import SignupTemplate
-# from anvil import *
-# import anvil.server
-# import anvil.tables as tables
-# import anvil.tables.query as q
-# from anvil.tables import app_tables
-
-# class Signup(SignupTemplate):
-#   def __init__(self, **properties):
-#     # Set Form properties and Data Bindings.
-#     self.init_components(**properties)
-
-#     # Any code you write here will run before the form opens.
 from ._anvil_designer import SignupTemplate
 from anvil import *
-
 import anvil.server
 import re
 
@@ -89,8 +75,6 @@ class Signup(SignupTemplate):
     converted_text = current_text.upper()
     self.text_box_4.text = converted_text
     
-    
-   
   def is_pan_card_detail(self, text):
         if (
             len(text) == 10 and
@@ -105,8 +89,6 @@ class Signup(SignupTemplate):
   def validate_button_click(self, **event_args):
     phone_number = str(self.text_box_6.text).strip()  # Remove leading/trailing whitespace
   
-  
-
   def validate_phone_number(self, phone_number):
     pattern = r'^[6-9]\d{9}$'
     if re.match(pattern, str(phone_number)):
