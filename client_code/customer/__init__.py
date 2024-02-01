@@ -25,3 +25,6 @@ class customer(customerTemplate):
 
     def button_2_click(self, **event_args):
       open_form('wallet', user=self.user)
+
+    def link_4_click(self, **event_args):
+      open_form('withdraw',user=self.user)

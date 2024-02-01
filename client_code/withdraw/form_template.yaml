@@ -3,7 +3,7 @@ components:
 - name: card_1
   properties: {role: card}
   type: ColumnPanel
-  layout_properties: {grid_position: 'VJDTXG,XOCFLN'}
+  layout_properties: {grid_position: 'YWQUMJ,PAJXYF'}
   components:
   - name: flow_panel_1_copy
     properties: {}
@@ -37,7 +37,7 @@ components:
         layout_properties: {grid_position: 'MNPBPI,DZACHX'}
         event_bindings: {click: link_2_click}
       - name: link_3
-        properties: {text: Money Transfer, bold: true, align: center, foreground: black}
+        properties: {text: Transfer, bold: true, align: center, foreground: black}
         type: Link
         layout_properties: {grid_position: 'MNPBPI,EQLJSK'}
         event_bindings: {click: link_3_click}
@@ -106,15 +106,24 @@ components:
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     type: Label
-    layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,YYOVNO'}
+    layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,YYOVNO ZNZUUO,LWEITG'}
+    data_bindings: []
+  - name: label_8_copy
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Choose Currency:', font_size: 16, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,YYOVNO XIMQIC,MDYJAY'}
+    data_bindings: []
   - name: drop_down_1
     properties: {}
     type: DropDown
-    layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,DJNLKG IDEQXF,UFZECZ'}
-  - name: label_2
+    layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,DJNLKG VLIQTU,HYLOWR'}
+  - name: drop_down_2
     properties: {}
-    type: Label
-    layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,DJNLKG UIGTKN,TDMVUN'}
+    type: DropDown
+    layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,DJNLKG YHWOFZ,HDLNNF'}
   - name: spacer_7
     properties: {height: 40}
     type: Spacer
@@ -125,7 +134,7 @@ components:
       spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '#258ee1', bold: true, underline: false, icon: ''}
     type: Button
-    layout_properties: {grid_position: 'GDLRHW,ZUZJAK TIVYHZ,JDTEQW'}
+    layout_properties: {grid_position: 'GDLRHW,ZUZJAK LAAXQE,JJXQTO'}
     event_bindings: {click: button_1_click}
   - name: image_1
     properties: {source: 'https://assets.materialup.com/uploads/13095f7d-682d-4b12-84c7-531a27caa732/preview.jpg',
@@ -133,7 +142,7 @@ components:
     type: Image
     layout_properties: {grid_position: 'GDLRHW,MLNEOX'}
   - name: spacer_3
-    properties: {height: 149.25}
+    properties: {height: '100.25'}
     type: Spacer
     layout_properties: {grid_position: 'AAZMDP,RHPDBS'}
 is_package: true
