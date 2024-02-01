@@ -80,10 +80,7 @@ def get_username(phone):
 def get_user_currency(phone):
   currency= app_tables.wallet_users_balance.search(phone=phone)
   return currency
-  
-  
-  
-    
+
 
 
 

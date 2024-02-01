@@ -75,5 +75,4 @@ class withdraw(withdrawTemplate):
 
   def link_8_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form("service",user=self.user)      
-    
+    open_form("service",user=self.user)  # Any code you write here will run before the form opens.
