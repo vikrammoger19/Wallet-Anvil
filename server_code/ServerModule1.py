@@ -73,10 +73,16 @@ def get_user_bank_name():
   pass
 @anvil.server.callable
 def get_username(phone):
-  user=app_tables.wallet_users.search(phone=phone)
-  print(user[usrnname])
-  # username=user['username']
-  # return username
+  print(phone)
+  user = app_tables.wallet_users.get(phone=phone)
+
+    # Check if any row was found
+  if user:
+      
+      else:
+          print("The 'username' column does not exist in the 'wallet_users' table.")
+  else:
+      print("No user found for the given phone number.")
   
     
 
