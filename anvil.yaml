@@ -105,6 +105,9 @@ db_schema:
     - name: phone
       admin_ui: {width: 200, order: 2}
       type: number
+    - name: sanc
+      admin_ui: {width: 200, order: 3}
+      type: string
     title: wallet_users_balance
   wallet_users_transaction:
     client: none
@@ -128,6 +131,9 @@ db_schema:
     - name: phone
       admin_ui: {width: 200, order: 5}
       type: number
+    - name: asba
+      admin_ui: {width: 200, order: 4.5}
+      type: string
     title: wallet_users_transaction
 secrets:
   ? ''
