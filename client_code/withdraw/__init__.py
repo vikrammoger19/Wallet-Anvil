@@ -35,23 +35,45 @@ class withdraw(withdrawTemplate):
       money_value = float(entered_amount) if entered_amount else 0.0
      # Check if a balance row already exists for the user
       existing_balance = app_tables.wallet_users_balance.get(phone=self.user['phone'],currency_type=cur) 
-      if existing_balance >=money_value:
-        existing_balance['e_money'] -= money_value
+      if existing_balance['balance'] >=money_value:
+        existing_balance['balance'] -= money_value
         new_transaction = app_tables.wallet_users_transaction.add_row(
                 phone=self.user['phone'],
                 fund=money_value,
                 date=current_datetime,
                 transaction_type="Debit",
-                transaction_status="Wallet-Topup",
+                transaction_status="Withdrawn",
                 receiver_phone=None
             )
-        self.label_1.text = "Money added successfully to the account."
-        print("money added successfully")
+        self.label_2.text = "Money Withdrawn successfully to the account."
+        
       else:
         anvil.alert("Insufficient balance. Please add funds.")
         print("fund illa")
     else:
-      self.label_1.text = "Error: No matching accounts found for the user or invalid account number."
+      self.label_2.text = "Error: No matching accounts found for the user or invalid account number."
       print("enaitho gottilla")
-        
-      
+  def link_2_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form("deposit",user=self.user)
+
+  def link_3_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("transfer",user=self.user)
+
+  def link_7_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("service",user=self.user)
+
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("customer",user=self.user)
+
+  def link_13_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("Home")
+
+  def link_8_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("service",user=self.user)      
+    
