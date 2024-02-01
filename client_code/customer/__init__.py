@@ -23,7 +23,7 @@ class customer(customerTemplate):
         # Open the Viewprofile form and pass the user information
         open_form('Viewprofile', user=self.user)
 
-    def button_2_click(self, **event_args):
+    def button_6_click(self, **event_args):
       open_form('wallet', user=self.user)
 
     def link_4_click(self, **event_args):
