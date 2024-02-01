@@ -20,7 +20,7 @@ metadata: {}
 startup_form: null
 db_schema:
   wallet_users:
-    client: search
+    client: full
     server: full
     columns:
     - name: username
@@ -93,7 +93,7 @@ db_schema:
       type: number
     title: wallet_users_account
   wallet_users_balance:
-    client: none
+    client: full
     server: full
     columns:
     - name: currency_type
@@ -107,7 +107,7 @@ db_schema:
       type: number
     title: wallet_users_balance
   wallet_users_transaction:
-    client: none
+    client: full
     server: full
     columns:
     - name: date

@@ -70,7 +70,18 @@ def get_user_by_phone(phone_number):
 def get_wallet_transactions():
     return app_tables.wallet_users_transaction.search()
 
-
+@anvil.server.callable
+def get_user_bank_name(phone):
+  bank_names = app_tables.wallet_users_account.search(phone=phone)
+  return bank_names
+@anvil.server.callable
+def get_username(phone):
+  user = app_tables.wallet_users.get(phone=phone)
+  return user['username'] 
+@anvil.server.callable
+def get_user_currency(phone):
+  currency= app_tables.wallet_users_balance.search(phone=phone)
+  return currency
 
     
 
