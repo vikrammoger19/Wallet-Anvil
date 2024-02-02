@@ -48,6 +48,30 @@ def add_info(email, username, password, pan, address, phone, aadhar):
 #     phone_number = int(phone_number)
 #     users = app_tables.wallet_users.search(phone=phone_number)
 #     return users[0] if users else None
+###
+
+@anvil.server.callable
+def get_acc_data(phone):
+    user_accounts = app_tables.wallet_users_account.search(phone=phone)
+    return [acc['account_number'] for acc in user_accounts]
+
+@anvil.server.callable
+def get_user_account_numbers(phone):
+    user_accounts = app_tables.wallet_users_account.search(phone=phone)
+    return [acc['account_number'] for acc in user_accounts]
+
+@anvil.server.callable
+def get_username(phone):
+    user = app_tables.wallet_users.get(phone=phone)
+    if user:
+        return user['username']
+    else:
+        return "Username Not Found"      
+
+
+
+
+###
 
 @anvil.server.callable
 def get_user_by_phone(phone_number):

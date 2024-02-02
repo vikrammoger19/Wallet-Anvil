@@ -9,9 +9,9 @@ from datetime import datetime
 
 class deposit(depositTemplate):
 
-    def __init__(self, phone=None, **properties):
+    def __init__(self, user=None, **properties):
         # Initialize self.user as a dictionary
-        self.user = {'phone': phone} if phone else {}
+        self.user = user
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
         # Assuming you have a 'get_username' function in your server module
@@ -25,7 +25,7 @@ class deposit(depositTemplate):
         current_datetime = datetime.now()
         acc = self.drop_down_1.selected_value
 
-        if self.user and 'phone' in self.user:
+        if self.user:
             entered_amount = ''.join(filter(str.isdigit, str(self.text_box_2.text)))
             money_value = float(entered_amount) if entered_amount else 0.0
 
@@ -34,12 +34,12 @@ class deposit(depositTemplate):
 
             if existing_balance:
                 # Update the existing balance
-                existing_balance['e_money'] += money_value
+                existing_balance['balance'] += money_value
             else:
                 # Add a new row for the user if no existing balance
                 balance = app_tables.wallet_users_balance.add_row(
                     currency_type="INR",  # Replace with the actual currency type
-                    e_money=money_value,
+                    balance=money_value,
                     phone=self.user['phone']
                 )
 
@@ -48,7 +48,7 @@ class deposit(depositTemplate):
                 phone=self.user['phone'],
                 fund=money_value,
                 date=current_datetime,
-                transaction_type="Debit",
+                transaction_type="Credit",
                 transaction_status="Wallet-Topup",
                 receiver_phone=None
             )
