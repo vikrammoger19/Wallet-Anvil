@@ -36,3 +36,7 @@ class show_users(show_usersTemplate):
     """This method is called when the button is clicked"""
     username_filter = self.text_box_1.text
     self.refresh_users(username_filter)
+
+  def button_1_copy_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('admin.admin_add_user')

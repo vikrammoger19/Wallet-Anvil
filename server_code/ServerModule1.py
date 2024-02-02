@@ -105,6 +105,73 @@ def get_user_currency(phone):
   currency= app_tables.wallet_users_balance.search(phone=phone)
   return currency
 
+@anvil.server.callable
+def get_wallet_transactions():
+    return app_tables.wallet_users_transaction.search()
+
+@anvil.server.callable
+def get_transaction_proofs():
+    # Fetch proof data from the 'transactions' table
+    transaction_proofs = app_tables.wallet_users_transaction.search()
+
+    return transaction_proofs
+
+
+@anvil.server.callable
+def get_transactions():
+    return app_tables.wallet_users_transaction.search()
+
+@anvil.server.callable
+def get_user_data():
+    # Fetch user data from the 'users' table
+    users_data = app_tables.wallet_users.search()
+
+    # Create a list to store user information
+    user_list = []
+
+    # Iterate through each user's data
+    for user_row in users_data:
+        # Check the 'banned' column to determine if the user is active or non-active
+        if user_row['banned'] is None:
+            status = 'Active'
+        else:
+            status = 'Non-Active'
+
+        # Append user information to the list
+        user_info = {
+            'username': user_row['username'],
+            'banned': user_row['banned'],
+            'status': status  # Include the 'status' information based on the 'banned' column
+        }
+        user_list.append(user_info)
+
+    return user_list
+
+@anvil.server.callable
+def update_daily_limit(name, emoney_value):
+    user_row = app_tables.users.get(username=name)  # Use get() instead of search() if username is unique
+
+    if user_row is not None:
+        user_row['user_limit'] = emoney_value
+        user_row.update()
+        return "Daily limit updated successfully"
+    else:
+        return "User not found"
+@anvil.server.callable
+def user_detail(name, no):
+    user_row = app_tables.wallet_users.get(username=name)
+    
+    if user_row is not None:
+        try:
+            # Try to convert 'no' to a numeric type
+            numeric_no = float(no)
+            user_row['daily_limit'] = numeric_no
+            user_row.update()
+            return "Daily limit updated successfully"
+        except ValueError:
+            return "Invalid daily limit value. Please provide a numeric value."
+    else:
+        return "User not found"
 
 
 

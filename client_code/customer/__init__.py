@@ -1,3 +1,4 @@
+import anvil.server
 from ._anvil_designer import customerTemplate
 from anvil import open_form
 from datetime import datetime
@@ -29,10 +30,13 @@ class customer(customerTemplate):
     def link_4_click(self, **event_args):
       open_form('withdraw',user=self.user)
 
+
+    def link_2_click(self, **event_args):
+      open_form('deposit',user=self.user)
+     
+
     def link_7_click(self, **event_args):
       """This method is called when the link is clicked"""
       pass
 
-    def button_2_click(self, **event_args):
-      """This method is called when the button is clicked"""
-      pass
+   

@@ -9,7 +9,9 @@ from datetime import datetime
 class Login(LoginTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
-
+    def text_box_2_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
     def button_1_click(self, **event_args):
         # Get the login input (username, phone number, or email)
         login_input = self.text_box_1.text.strip()
@@ -42,6 +44,8 @@ class Login(LoginTemplate):
 
     def button_2_click(self, **event_args):
         open_form('Signup')
+
+    
 
 
 
