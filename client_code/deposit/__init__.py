@@ -25,7 +25,7 @@ class deposit(depositTemplate):
         current_datetime = datetime.now()
         acc = self.drop_down_1.selected_value
 
-        if self.user and 'phone' in self.user:
+        if self.user:
             entered_amount = ''.join(filter(str.isdigit, str(self.text_box_2.text)))
             money_value = float(entered_amount) if entered_amount else 0.0
 
@@ -39,7 +39,7 @@ class deposit(depositTemplate):
                 # Add a new row for the user if no existing balance
                 balance = app_tables.wallet_users_balance.add_row(
                     currency_type="INR",  # Replace with the actual currency type
-                    e_money=money_value,
+                    balance=money_value,
                     phone=self.user['phone']
                 )
 
