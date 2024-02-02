@@ -191,7 +191,7 @@ def get_username(phone_number):
 @anvil.server.callable
 # anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number)
 @anvil.server.callable
-def get_accounts_emoney_using_phone_number(phone_number, currency_type):
+def get_balance_using_phone_number(phone_number, currency_type):
     # Convert the phone_number to a numeric type
     phone_number = int(phone_number)
     

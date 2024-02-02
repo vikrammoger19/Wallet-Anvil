@@ -19,8 +19,8 @@ class transfer(transferTemplate):
         # Set Form properties and Data Bindings.
         username = anvil.server.call('get_username', self.user['phone'])
         self.label_1.text = f"Welcome to Green Gate Financial, {username}"
-        #currencies=anvil.server.call('get_user_currency',self.user['phone'])
-        self.drop_down_2.items= ["INR","USD","EUR","GBP"]
+        currencies=anvil.server.call('get_user_currency',self.user['phone'])
+        self.drop_down_2.items= [str(row['currency_type']) for row in currencies]
         self.display()
         # Any code you write here will run before the form opens.
 
@@ -38,10 +38,10 @@ class transfer(transferTemplate):
         
         # Use the phone number of the depositor to identify their account
         depositor_phone_number = self.user['phone']
-        depositor_balance = anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number, self.drop_down_2.selected_value)
+        depositor_balance = anvil.server.call('get_balance_using_phone_number', depositor_phone_number, self.drop_down_2.selected_value)
 
         # Use the entered phone number to identify the receiver's account
-        receiver_balance = anvil.server.call('get_accounts_emoney_using_phone_number', entered_phone_number, self.drop_down_2.selected_value)
+        receiver_balance = anvil.server.call('get_balance_using_phone_number', entered_phone_number, self.drop_down_2.selected_value)
 
         # Check if 'e_money' is not None and not an empty string
         if receiver_balance['balance'] is not None:
@@ -50,7 +50,7 @@ class transfer(transferTemplate):
             recieve = 0.0  # or set a default value based on your application logic
 
         if receiver_balance['balance'] is None:
-            anvil.server.call('update_rows_emoney_trasaction', entered_phone_number, str(0))
+            anvil.server.call('update_balance_trasaction', entered_phone_number, str(0))
         
         if (transfer_amount < 5) or (transfer_amount > 50000):
             app_tables.wallet_users_transaction.add_row(
