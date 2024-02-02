@@ -28,3 +28,7 @@ class customer(customerTemplate):
 
     def link_4_click(self, **event_args):
       open_form('withdraw',user=self.user)
+
+    def link_2_click(self, **event_args):
+      open_form('deposit',user=self.user)
+     
