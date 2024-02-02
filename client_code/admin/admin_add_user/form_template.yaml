@@ -5,7 +5,7 @@ components:
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
     spacing_below: small, background: 'theme:On Primary'}
   type: ColumnPanel
-  layout_properties: {grid_position: 'AFEVIQ,TNUTUJ'}
+  layout_properties: {grid_position: 'AFEVIQ,TNUTUJ', full_width_row: true}
   components:
   - name: flow_panel_1
     properties: {}
@@ -247,4 +247,37 @@ components:
     properties: {height: 49.24993896484375}
     type: Spacer
     layout_properties: {grid_position: 'NISQOJ,HIRXXH'}
+  - name: outlined_card_1
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: none, spacing_above: none, col_widths: '{"VMILPR":8,"FDANOO":15,"HAKDVS":15}',
+      spacing_below: none, background: '#2270ad'}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'VWEJAA,PZTXCG', full_width_row: true}
+    components:
+    - name: label_1
+      properties: {text: CopyRight2023@Gwallet, align: left, bold: true, font_size: 16,
+        visible: true, role: input-prompt, foreground: 'theme:On Primary'}
+      type: Label
+      layout_properties: {grid_position: 'XSXLAE,XVKBKL'}
+    - name: label_2
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Primary', visible: true, text: Disclaimer, font_size: 18, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {grid_position: 'XSXLAE,VMILPR'}
+    - name: label_3
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
+          Primary', visible: true, text: Privacy Policy, font_size: 18, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: ''}
+      type: Label
+      layout_properties: {grid_position: 'XSXLAE,FDANOO'}
+    - name: label_4
+      properties: {role: null, align: right, tooltip: '', border: '', foreground: 'theme:On
+          Primary', visible: true, text: Code Of Commitment, font_size: 18, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: ''}
+      type: Label
+      layout_properties: {grid_position: 'XSXLAE,HAKDVS'}
 is_package: true

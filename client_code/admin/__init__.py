@@ -70,3 +70,7 @@ class admin(adminTemplate):
   def button_8_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('Login')
+
+  def button_6_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('admin.admin_add_user')
