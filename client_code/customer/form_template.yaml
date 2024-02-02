@@ -4,14 +4,15 @@ container:
   properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
     role: null, html: ''}
 components:
-- type: FlowPanel
-  properties: {}
-  name: navbar_links
-  layout_properties: {slot: nav-right}
+- name: column_panel_2
+  properties: {col_widths: '{}'}
+  type: ColumnPanel
+  layout_properties: {x: 866.6500366218388, y: 241, width: 200, slot: default}
   components:
   - name: flow_panel_1
     properties: {}
     type: FlowPanel
+    layout_properties: {grid_position: 'XQYPGA,NZCPUH', full_width_row: true}
     components:
     - name: image_1_copy
       properties: {role: null, vertical_align: center, height: 44.80000305175781,
@@ -25,90 +26,90 @@ components:
         font: a, italic: false, underline: false, foreground: black}
       type: Label
       layout_properties: {}
-    - name: column_panel_1
-      properties: {foreground: '', col_spacing: none, col_widths: '{"DZACHX":15,"EQLJSK":10,"IYMZZI":10,"QMIILD":10,"YSLIKN":5,"LADGEM":10}'}
-      type: ColumnPanel
-      layout_properties: {width: 739.337}
-      components:
-      - name: link_2
-        properties: {text: Deposit, align: center, bold: true, foreground: black,
-          font_size: 18}
-        type: Link
-        layout_properties: {grid_position: 'MNPBPI,DZACHX'}
-        event_bindings: {click: link_2_click}
-      - name: link_3
-        properties: {text: Money Transfer, bold: true, align: center, foreground: black}
-        type: Link
-        layout_properties: {grid_position: 'MNPBPI,EQLJSK'}
-        event_bindings: {click: link_3_click}
-      - name: link_4
-        properties: {text: Withdraw, bold: true, align: center, foreground: black}
-        type: Link
-        layout_properties: {grid_position: 'MNPBPI,IYMZZI'}
-        event_bindings: {click: link_4_click}
-      - name: link_5
-        properties: {align: center, bold: true, text: Company, foreground: black}
-        type: Link
-        layout_properties: {grid_position: 'MNPBPI,QMIILD'}
-      - name: link_7
-        properties: {text: Help, align: center, bold: true, foreground: black}
-        type: Link
-        layout_properties: {grid_position: 'MNPBPI,YSLIKN'}
-        event_bindings: {click: link_7_click}
-      - name: link_13
-        properties: {align: center, bold: true, text: Logout, foreground: black, icon: 'fa:sign-out'}
-        type: Link
-        layout_properties: {grid_position: 'MNPBPI,LADGEM'}
-        event_bindings: {click: link_13_click}
-      - name: spacer_3_copy
-        properties: {height: 10.79998779296875}
-        type: Spacer
-        layout_properties: {grid_position: 'VMRKKY,XFHDMP'}
-    layout_properties: {expand: false}
-  - name: xy_panel_1
-    properties: {height: 294.79998779296875, spacing_above: large, spacing_below: large}
-    type: XYPanel
+    - name: spacer_3_copy
+      properties: {height: -1.800018310546875}
+      type: Spacer
+      layout_properties: {width: 787.297}
+  - name: column_panel_1
+    properties: {foreground: '', col_spacing: small, col_widths: '{"DZACHX":25,"EQLJSK":10,"IYMZZI":5,"QMIILD":5,"YSLIKN":5,"YNQRER":10}',
+      background: 'theme:Gray 50', spacing_above: small}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'MLKTMV,IQAQYP', full_width_row: true}
     components:
-    - name: canvas_1
-      properties: {height: 100}
-      type: Canvas
-      layout_properties: {x: 38.45001678541303, y: 17.21249084547162, width: 200}
-    - name: xy_panel_1_copy
-      properties: {height: 286, spacing_above: large, spacing_below: large, background: '#1e75b9'}
+    - name: link_2
+      properties: {text: Deposit, align: right, bold: true, foreground: black, font_size: 15}
+      type: Link
+      layout_properties: {grid_position: 'MNPBPI,DZACHX'}
+      event_bindings: {click: link_2_click}
+    - name: link_3
+      properties: {text: Money Transfer, bold: true, align: center, foreground: black,
+        font_size: 15}
+      type: Link
+      layout_properties: {grid_position: 'MNPBPI,EQLJSK'}
+      event_bindings: {click: link_3_click}
+    - name: link_4
+      properties: {text: Withdraw, bold: true, align: center, foreground: black, font_size: null}
+      type: Link
+      layout_properties: {grid_position: 'MNPBPI,IYMZZI'}
+      event_bindings: {click: link_4_click}
+    - name: link_5
+      properties: {align: center, bold: true, text: Company, foreground: black}
+      type: Link
+      layout_properties: {grid_position: 'MNPBPI,QMIILD'}
+    - name: link_7
+      properties: {text: Help, align: center, bold: true, foreground: black}
+      type: Link
+      layout_properties: {grid_position: 'MNPBPI,YSLIKN'}
+      event_bindings: {click: link_7_click}
+    - name: link_13
+      properties: {align: center, bold: true, text: Logout, foreground: black, icon: 'fa:sign-out'}
+      type: Link
+      layout_properties: {grid_position: 'MNPBPI,YNQRER'}
+      event_bindings: {click: link_13_click}
+  - type: FlowPanel
+    properties: {}
+    name: navbar_links
+    layout_properties: {grid_position: 'QJYDYE,ZBTPSD', full_width_row: true}
+    components:
+    - name: xy_panel_1
+      properties: {height: 294.79998779296875, spacing_above: large, spacing_below: large}
       type: XYPanel
-      layout_properties: {x: 0, y: 0, width: 1504.1900244140625}
       components:
-      - name: canvas_1_copy
+      - name: canvas_1
         properties: {height: 100}
         type: Canvas
         layout_properties: {x: 38.45001678541303, y: 17.21249084547162, width: 200}
-      - name: label_7
-        properties: {text: "Welcome to \n", font_size: 37, align: left, bold: false,
-          foreground: white, spacing_below: none}
-        type: Label
-        layout_properties: {x: 138.612484741956, y: 29.900006104260683, width: 547.0499877929688}
-      - name: label_7_copy_3
-        properties: {text: 'G-Wallet Payment App
+      - name: xy_panel_1_copy
+        properties: {height: 286, spacing_above: large, spacing_below: large, background: '#1e75b9'}
+        type: XYPanel
+        layout_properties: {x: 0, y: 0, width: 1504.1900244140625}
+        components:
+        - name: canvas_1_copy
+          properties: {height: 100}
+          type: Canvas
+          layout_properties: {x: 38.45001678541303, y: 17.21249084547162, width: 200}
+        - name: label_7
+          properties: {text: "Welcome to \n", font_size: 37, align: left, bold: false,
+            foreground: white, spacing_below: none}
+          type: Label
+          layout_properties: {x: 138.612484741956, y: 29.900006104260683, width: 547.0499877929688}
+        - name: label_7_copy_3
+          properties: {text: 'G-Wallet Payment App
 
-            ', font_size: 41, align: left, bold: true, foreground: white, font: a,
-          spacing_above: none, spacing_below: none}
-        type: Label
-        layout_properties: {x: 136.1874950416386, y: 72.18749694898725, width: 510.8000183105469}
-      - name: label_6
-        properties: {text: '   No Wallet KYC Required to pay using UPI on G-Wallet.',
-          align: left, bold: false, spacing_above: large, spacing_below: large, background: white,
-          font_size: 15, italic: true}
-        type: Label
-        layout_properties: {x: 144.27502136304975, y: 139.69999389722943, width: 391.98798779296874}
-      - name: image_3
-        properties: {height: 263.1999816894531, source: 'https://www.temenos.com/wp-content/uploads/2023/05/Genie-Wallet-pic1-768x432.png'}
-        type: Image
-        layout_properties: {x: 980.0625732429326, y: 7.362500000745058, width: 411.1875}
-- name: column_panel_2
-  properties: {col_widths: '{}'}
-  type: ColumnPanel
-  layout_properties: {x: 866.6500366218388, y: 241, width: 200, slot: default}
-  components:
+              ', font_size: 41, align: left, bold: true, foreground: white, font: a,
+            spacing_above: none, spacing_below: none}
+          type: Label
+          layout_properties: {x: 136.1874950416386, y: 72.18749694898725, width: 510.8000183105469}
+        - name: label_6
+          properties: {text: '   No Wallet KYC Required to pay using UPI on G-Wallet.',
+            align: left, bold: false, spacing_above: large, spacing_below: large,
+            background: white, font_size: 15, italic: true}
+          type: Label
+          layout_properties: {x: 144.27502136304975, y: 139.69999389722943, width: 391.98798779296874}
+        - name: image_3
+          properties: {height: 263.1999816894531, source: 'https://www.temenos.com/wp-content/uploads/2023/05/Genie-Wallet-pic1-768x432.png'}
+          type: Image
+          layout_properties: {x: 980.0625732429326, y: 7.362500000745058, width: 411.1875}
   - name: label_1
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '#2270ad',
       visible: true, text: '', font_size: 23, font: a, spacing_above: small, icon_align: left,
@@ -120,11 +121,11 @@ components:
     properties: {source: 'https://static.vecteezy.com/system/resources/previews/012/976/256/original/financial-illustration-set-saving-money-in-cash-credit-card-or-savings-in-bank-accounts-payment-transactions-transfer-e-wallet-finance-management-and-savings-concept-flat-illustration-free-vector.jpg',
       height: 272.25}
     type: Image
-    layout_properties: {grid_position: 'ZZJWUQ,IVRHZX'}
+    layout_properties: {grid_position: 'ZZJWUQ,IVRHZX', full_width_row: true}
   - name: spacer_3
     properties: {height: 5.5999755859375}
     type: Spacer
-    layout_properties: {grid_position: 'FOGDZT,XDRTTO'}
+    layout_properties: {grid_position: 'FOGDZT,XDRTTO', full_width_row: true}
   - name: button_6
     properties: {text: Add Bank Account, bold: true, role: outlined-button, background: '#1d6eae',
       foreground: white, font_size: 15, align: full}
@@ -140,8 +141,12 @@ components:
     properties: {text: Transaction History, role: outlined-button, background: '#1d6eae',
       foreground: white, bold: true, align: full, font_size: 16}
     type: Button
-    layout_properties: {grid_position: 'RHEAMB,XKEAIK'}
+    layout_properties: {grid_position: 'RHEAMB,XKEAIK IMFTAJ,QDEIIH'}
     event_bindings: {click: button_3_click}
+  - name: spacer_1
+    properties: {height: 80}
+    type: Spacer
+    layout_properties: {grid_position: 'RHEAMB,XKEAIK BVHMNW,QMFUJP'}
   - name: button_2
     properties: {role: elevated-button, align: full, foreground: white, text: Wallet,
       font_size: 15, font: '', spacing_above: small, spacing_below: small, background: '#1d6eae',
@@ -156,10 +161,6 @@ components:
     type: Button
     event_bindings: {click: button_1_click}
     layout_properties: {grid_position: 'RHEAMB,KDUXSJ XTWQAL,RZJWWF'}
-  - name: spacer_1
-    properties: {height: 80}
-    type: Spacer
-    layout_properties: {grid_position: 'HNNQYA,MXPWMR'}
   - name: image_2
     properties: {height: 227.5999755859375, source: 'https://www.pngitem.com/pimgs/m/730-7301546_digital-wallet-top-up-bill-payments-banner-img.png'}
     type: Image
@@ -174,15 +175,16 @@ components:
         a safer alternative.', align: center, italic: true, background: '', foreground: '#216aa3',
       font_size: 18, font: a, bold: true}
     type: Label
-    layout_properties: {grid_position: 'OGHSLE,ESOOEH'}
+    layout_properties: {grid_position: 'OGHSLE,ESOOEH', full_width_row: true}
   - name: spacer_2
-    properties: {height: 216}
+    properties: {height: 28.399993896484375}
     type: Spacer
-    layout_properties: {grid_position: 'QGQIEX,DYMQIR'}
+    layout_properties: {grid_position: 'QGQIEX,DYMQIR', full_width_row: true, row_background: 'theme:Gray
+        100'}
   - name: outlined_card_3
     properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: none, spacing_above: none, col_widths: '{}', spacing_below: none,
-      background: 'theme:Dark Overlay 2'}
+      background: 'theme:Gray 100'}
     type: ColumnPanel
     layout_properties: {grid_position: 'GLYBGT,EDAODQ', full_width_row: true}
     components:
