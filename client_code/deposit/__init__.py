@@ -5,7 +5,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from datetime import datetime
-import anvil.http
+import requests
 class deposit(depositTemplate):
 
     def __init__(self,user=None, **properties):
@@ -24,26 +24,7 @@ class deposit(depositTemplate):
         current_datetime = datetime.now()
         acc = self.drop_down_1.selected_value
         cur=self.drop_down_2.selected_value
-        #get the currency rates
-        base_url= "https://api.currencybeacon.com/v3/exchange-rates"
-        api_key ="a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT"
-        from_currency = "INR"
-        to_currency = cur
-        params = {
-    "apikey": api_key,
-    "base": from_currency,
-    "symbols": to_currency
-                }
-        url = f"{base_url}?{requests.utils.urlencode(params)}"
-        response= anvil.http.request(url)
-        if response.status_code == 200:
-          data = json.loads(response.text)
-          exchange_rate = data['rates'][to_currency]
-          print(f"The exchange rate from {from_currency} to {to_currency} is: {exchange_rate}")
-        else:
-            print("Error fetching exchange rates:", response.text)
-        
-        
+    
         if self.user :
             entered_amount = ''.join(filter(str.isdigit, str(self.text_box_2.text)))
             money_value = float(entered_amount) if entered_amount else 0.0
