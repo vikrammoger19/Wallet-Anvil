@@ -48,6 +48,30 @@ def add_info(email, username, password, pan, address, phone, aadhar):
 #     phone_number = int(phone_number)
 #     users = app_tables.wallet_users.search(phone=phone_number)
 #     return users[0] if users else None
+###
+
+@anvil.server.callable
+def get_acc_data(phone):
+    user_accounts = app_tables.wallet_users_account.search(phone=phone)
+    return [acc['account_number'] for acc in user_accounts]
+
+@anvil.server.callable
+def get_user_account_numbers(phone):
+    user_accounts = app_tables.wallet_users_account.search(phone=phone)
+    return [acc['account_number'] for acc in user_accounts]
+
+@anvil.server.callable
+def get_username(phone):
+    user = app_tables.wallet_users.get(phone=phone)
+    if user:
+        return user['username']
+    else:
+        return "Username Not Found"      
+
+
+
+
+###
 
 @anvil.server.callable
 def get_user_by_phone(phone_number):
@@ -81,6 +105,47 @@ def get_user_currency(phone):
   currency= app_tables.wallet_users_balance.search(phone=phone)
   return currency
 
+@anvil.server.callable
+def get_wallet_transactions():
+    return app_tables.wallet_users_transaction.search()
+
+@anvil.server.callable
+def get_transaction_proofs():
+    # Fetch proof data from the 'transactions' table
+    transaction_proofs = app_tables.wallet_users_transaction.search()
+
+    return transaction_proofs
+
+
+@anvil.server.callable
+def get_transactions():
+    return app_tables.wallet_users_transaction.search()
+
+@anvil.server.callable
+def get_user_data():
+    # Fetch user data from the 'users' table
+    users_data = app_tables.wallet_users.search()
+
+    # Create a list to store user information
+    user_list = []
+
+    # Iterate through each user's data
+    for user_row in users_data:
+        # Check the 'banned' column to determine if the user is active or non-active
+        if user_row['banned'] is None:
+            status = 'Active'
+        else:
+            status = 'Non-Active'
+
+        # Append user information to the list
+        user_info = {
+            'username': user_row['username'],
+            'banned': user_row['banned'],
+            'status': status  # Include the 'status' information based on the 'banned' column
+        }
+        user_list.append(user_info)
+
+    return user_list
 
 
 

@@ -54,11 +54,6 @@ components:
         properties: {align: center, bold: true, text: Company, foreground: black}
         type: Link
         layout_properties: {grid_position: 'MNPBPI,QMIILD'}
-      - name: link_6
-        properties: {text: Career, align: center, bold: true, foreground: black}
-        type: Link
-        layout_properties: {grid_position: 'MNPBPI,PIMIYE'}
-        event_bindings: {click: link_6_click}
       - name: link_7
         properties: {text: Help, align: center, bold: true, foreground: black}
         type: Link
@@ -129,42 +124,37 @@ components:
     properties: {height: 5.5999755859375}
     type: Spacer
     layout_properties: {grid_position: 'FOGDZT,XDRTTO'}
+  - name: button_6
+    properties: {text: Add Bank Account, bold: true, role: outlined-button, background: '#1d6eae',
+      foreground: white, font_size: 15, align: left}
+    type: Button
+    layout_properties: {grid_position: 'RHEAMB,LKQWXH LSKKBM,FEDZCM'}
+    event_bindings: {click: button_6_click}
+  - name: button_5
+    properties: {text: 'UPI                          ', bold: true, role: outlined-button,
+      background: '#1d6eae', foreground: white, font_size: 15, align: center}
+    type: Button
+    layout_properties: {grid_position: 'RHEAMB,LKQWXH MSJWQJ,AOJPLX'}
+  - name: button_3
+    properties: {text: Transaction History, role: outlined-button, background: '#1d6eae',
+      foreground: white, bold: true, align: center, font_size: 16}
+    type: Button
+    layout_properties: {grid_position: 'RHEAMB,XKEAIK'}
+    event_bindings: {click: button_3_click}
+  - name: button_2
+    properties: {role: elevated-button, align: right, foreground: white, text: Wallet,
+      font_size: 15, font: '', spacing_above: small, spacing_below: small, background: '#1d6eae',
+      bold: true, icon: 'fa:money'}
+    type: Button
+    event_bindings: {click: button_2_click}
+    layout_properties: {grid_position: 'RHEAMB,KDUXSJ DNMBXT,GWOTML'}
   - name: button_1
     properties: {role: secondary-color, align: left, foreground: white, text: 'Viewprofile           ',
       font_size: 15, font: '', spacing_above: small, spacing_below: small, background: '#1d6eae',
       bold: true, icon: 'fa:address-card'}
     type: Button
     event_bindings: {click: button_1_click}
-    layout_properties: {grid_position: 'RHEAMB,LKQWXH UECNGV,NUZVXQ'}
-  - name: button_6
-    properties: {text: Secure Transactions, bold: true, role: outlined-button, background: '#1d6eae',
-      foreground: white, font_size: 15, align: left}
-    type: Button
-    layout_properties: {grid_position: 'RHEAMB,LKQWXH WJHQEM,YDJAXA'}
-    event_bindings: {click: button_6_click}
-  - name: button_3
-    properties: {text: 'Invest                     ', role: outlined-button, background: '#1d6eae',
-      foreground: white, bold: true, align: center, font_size: 16}
-    type: Button
-    layout_properties: {grid_position: 'RHEAMB,XKEAIK RZVFLN,YXQAUU'}
-    event_bindings: {click: button_3_click}
-  - name: button_5
-    properties: {text: 'UPI                          ', bold: true, role: outlined-button,
-      background: '#1d6eae', foreground: white, font_size: 15, align: center}
-    type: Button
-    layout_properties: {grid_position: 'RHEAMB,XKEAIK NJBEAG,LQKGFK'}
-  - name: button_2
-    properties: {role: elevated-button, align: right, foreground: white, text: 'Create
-        wallet       ', font_size: 15, font: '', spacing_above: small, spacing_below: small,
-      background: '#1d6eae', bold: true, icon: 'fa:money'}
-    type: Button
-    event_bindings: {click: button_2_click}
-    layout_properties: {grid_position: 'RHEAMB,KDUXSJ OBDKHJ,FQLLXG'}
-  - name: button_4
-    properties: {text: 'Mutual Funds           ', role: outlined-button, background: '#1d6eae',
-      foreground: white, bold: true, icon_align: right, align: right, font_size: 15}
-    type: Button
-    layout_properties: {grid_position: 'RHEAMB,KDUXSJ SZFZYH,TOTXCP'}
+    layout_properties: {grid_position: 'RHEAMB,KDUXSJ XTWQAL,RZJWWF'}
   - name: spacer_1
     properties: {height: 80}
     type: Spacer

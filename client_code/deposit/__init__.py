@@ -23,7 +23,7 @@ class deposit(depositTemplate):
         current_datetime = datetime.now()
         acc = self.drop_down_1.selected_value
         cur=self.drop_down_2.selected_value
-    
+ 
         if self.user :
             entered_amount = ''.join(filter(str.isdigit, str(self.text_box_2.text)))
             money_value = float(entered_amount) if entered_amount else 0.0
@@ -46,7 +46,7 @@ class deposit(depositTemplate):
                 phone=self.user['phone'],
                 fund=money_value,
                 date=current_datetime,
-                transaction_type="credit",
+                transaction_type="Credit",
                 transaction_status="Wallet-Topup",
                 receiver_phone=None
             )
