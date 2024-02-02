@@ -181,10 +181,10 @@ def get_username(phone_number):
     return user['username'] if user else None
 
 # anvil.server.call('get_user_currency', self.user['phone'])
-@anvil.server.callable
-def get_user_currency(phone_number):
-    user = app_tables.wallet_users.get(phone=phone_number)
-    return user['currency'] if user else None
+# @anvil.server.callable
+# def get_user_currency(phone_number):
+#     user = app_tables.wallet_users.get(phone=phone_number)
+#     return user['currency'] if user else None
 
 # anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number)
 # anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number)

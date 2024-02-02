@@ -63,9 +63,9 @@ class transfer(transferTemplate):
             )
             self.label_4.text = "Transfer amount should be between 5 and 50000 for a transfer Funds." 
         else:
-            if float(depositor_balance['balance']) < transfer_amount:
-                self.label_4.text = "Insufficient Funds in E-Wallet."
-            else: 
+            # if float(depositor_balance['balance']) < transfer_amount:
+            #     self.label_4.text = "Insufficient Funds in E-Wallet."
+             
                 # calculating the money to be added in the receiver's end
                 transfer_final_receive_amount = recieve + transfer_amount
                 # calculating the money to be deducted in the depositor's end
@@ -80,11 +80,11 @@ class transfer(transferTemplate):
 
                 app_tables.wallet_users_transaction.add_row(
                   phone=depositor_phone_number,
-                  fund=money_value,
+                  fund=transfer_amount,
                   date=current_datetime,
                   transaction_type="Debit",
                   transaction_status="Transfer",
-                  receiver_phone=entered_phone_number
+                  receiver_phone=int(entered_phone_number)
                      
                 )
 
