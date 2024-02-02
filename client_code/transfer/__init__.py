@@ -19,65 +19,72 @@ class transfer(transferTemplate):
         # Set Form properties and Data Bindings.
         username = anvil.server.call('get_username', self.user['phone'])
         self.label_1.text = f"Welcome to Green Gate Financial, {username}"
-        currencies=anvil.server.call('get_user_currency',self.user['phone'])
-        self.drop_down_2.items= [str(row['currency_type']) for row in currencies]
+        #currencies=anvil.server.call('get_user_currency',self.user['phone'])
+        self.drop_down_2.items= ["INR","USD","EUR","GBP"]
         self.display()
         # Any code you write here will run before the form opens.
+
+    def drop_down_1_change(self, **event_args):
+      self.display()
+
+    def display(self, **event_args):
+      acc = self.drop_down_2.selected_value
 
     def button_1_click(self, **event_args):
         current_datetime = datetime.now()
         entered_phone_number = self.text_box_2.text
         transfer_amount = self.text_box_3.text
+        cur=self.drop_down_2.selected_value
         
         # Use the phone number of the depositor to identify their account
         depositor_phone_number = self.user['phone']
-        fore_money_depositor = anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number)
+        depositor_balance = anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number)
 
         # Use the entered phone number to identify the receiver's account
-        fore_money_sent = anvil.server.call('get_accounts_emoney_using_phone_number', entered_phone_number)
+        receiver_balance = anvil.server.call('get_accounts_emoney_using_phone_number', entered_phone_number)
 
         # Check if 'e_money' is not None and not an empty string
-        if fore_money_sent['e_money'] is not None and fore_money_sent['e_money'].strip() != '':
-            recieve = float(fore_money_sent['e_money'])
+        if receiver_balance['balance'] is not None and receiver_balance['balance'].strip() != '':
+            recieve = float(receiver_balance['balance'])
         else:
             recieve = 0.0  # or set a default value based on your application logic
 
-        if fore_money_sent['e_money'] is None:
+        if receiver_balance['balance'] is None:
             anvil.server.call('update_rows_emoney_trasaction', entered_phone_number, str(0))
         
         if (transfer_amount < 5) or (transfer_amount > 50000):
-            app_tables.transactions.add_row(
-                 user=self.user['username'],
-                 e_wallet=f"{depositor_phone_number} to {entered_phone_number}",
-                 money=f"₹-{transfer_amount}",
-                 date=current_datetime,
-                 transaction_type="E-wallet to E-wallet",
-                 proof="failed"
+            app_tables.wallet_users_transaction.add_row(
+                  phone=depositor_phone_number,
+                  fund=money_value,
+                  date=current_datetime,
+                  transaction_type="Debit",
+                  transaction_status="Transfer",
+                  receiver_phone=entered_phone_number
             )
             self.label_4.text = "Transfer amount should be between 5 and 50000 for a transfer Funds." 
         else:
-            if float(fore_money_depositor['e_money']) < transfer_amount:
+            if float(depositor_balance['balance']) < transfer_amount:
                 self.label_4.text = "Insufficient Funds in E-Wallet."
             else: 
                 # calculating the money to be added in the receiver's end
-                transfer_final_sent_amount = recieve + transfer_amount
+                transfer_final_receive_amount = recieve + transfer_amount
                 # calculating the money to be deducted in the depositor's end
-                transfer_amount_final = float(fore_money_depositor['e_money']) - transfer_amount
+                transfer_depositor_amount_final = float(depositor_balance['balance']) - transfer_amount
                 # setting the value
-                anvil.server.call('update_rows_emoney_trasaction', depositor_phone_number, str(transfer_amount_final))
-                anvil.server.call('update_rows_emoney_trasaction', entered_phone_number, str(transfer_final_sent_amount))
+                anvil.server.call('update_rows_emoney_trasaction', depositor_phone_number, str(transfer_depositor_amount_final))
+                anvil.server.call('update_rows_emoney_trasaction', entered_phone_number, str(transfer_final_receive_amount))
                 # Updating the daily limit
                 answer = float(self.user['limit']) - transfer_amount
                 anvil.server.call('update_daily_limit', self.user['username'], str(answer))
                 self.label_4.text = "Money transferred successfully"
 
                 app_tables.wallet_users_transaction.add_row(
-                  phone=fore_money_depositor,
+                  phone=depositor_phone_number,
                   fund=money_value,
                   date=current_datetime,
                   transaction_type="Debit",
                   transaction_status="Transfer",
-                  receiver_phone=fore_money_sent
+                  receiver_phone=entered_phone_number
                      
                 )
 

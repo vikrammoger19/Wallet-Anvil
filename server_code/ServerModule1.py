@@ -173,6 +173,56 @@ def user_detail(name, no):
     else:
         return "User not found"
 
+####1111111#####
+# anvil.server.call('get_username', self.user['phone'])
+@anvil.server.callable
+def get_username(phone_number):
+    user = app_tables.wallet_users.get(phone=phone_number)
+    return user['username'] if user else None
+
+# anvil.server.call('get_user_currency', self.user['phone'])
+@anvil.server.callable
+def get_user_currency(phone_number):
+    user = app_tables.wallet_users.get(phone=phone_number)
+    return user['currency'] if user else None
+
+# anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number)
+@anvil.server.callable
+def get_accounts_emoney_using_phone_number(phone_number):
+    phone_number = int(phone_number)
+    balance = app_tables.wallet_users_balance.get(phone=phone_number)
+    return balance if balance else {'balance': None}
+
+# anvil.server.call('update_rows_emoney_trasaction', phone_number, new_balance)
+@anvil.server.callable
+def update_rows_emoney_trasaction(phone_number, new_balance):
+    balance = app_tables.wallet_users_balance.get(phone=phone_number)
+    if balance:
+        balance['balance'] = new_balance
+        balance.save()
+
+# anvil.server.call('update_daily_limit', self.user['username'], str(answer))
+@anvil.server.callable
+def update_daily_limit(username, new_limit):
+    user = app_tables.wallet_users.get(username=username)
+    if user:
+        user['limit'] = new_limit
+        user.save()
+
+# Additional function, assuming money_value is a variable not defined in the code snippet
+# This function isn't called in your provided code, so please adjust accordingly.
+@anvil.server.callable
+def add_transaction_record(depositor_phone, money_value, current_datetime, transaction_type, transaction_status, receiver_phone):
+    app_tables.wallet_users_transaction.add_row(
+        phone=depositor_phone,
+        fund=money_value,
+        date=current_datetime,
+        transaction_type=transaction_type,
+        transaction_status=transaction_status,
+        receiver_phone=receiver_phone
+    )
+
+
 
 
 
