@@ -136,4 +136,5 @@ secrets:
   ? ''
   : value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}
     type: key
+uplink_visible: true
 renamed: true
