@@ -72,17 +72,12 @@ class transfer(transferTemplate):
                 self.label_4.text = "Money transferred successfully"
 
                 app_tables.wallet_users_transaction.add_row(
-                     
-                     balance=f"{depositor_phone_number} to {entered_phone_number}",
-                     money=f"₹-{transfer_amount}",
-                     date=current_datetime,
-                     transaction_type="Debit"
-                     phone=self.user['phone'],
-                     fund=money_value,
-                     date=current_datetime,
-                     transaction_type="Credit",
-                     transaction_status="Wallet-Topup",
-                     receiver_phone=None
+                  phone=fore_money_depositor,
+                  fund=money_value,
+                  date=current_datetime,
+                  transaction_type="Debit",
+                  transaction_status="Transfer",
+                  receiver_phone=fore_money_sent
                      
                 )
 
