@@ -38,10 +38,10 @@ class transfer(transferTemplate):
         
         # Use the phone number of the depositor to identify their account
         depositor_phone_number = self.user['phone']
-        depositor_balance = anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number)
+        depositor_balance = anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number, self.drop_down_2.selected_value)
 
         # Use the entered phone number to identify the receiver's account
-        receiver_balance = anvil.server.call('get_accounts_emoney_using_phone_number', entered_phone_number)
+        receiver_balance = anvil.server.call('get_accounts_emoney_using_phone_number', entered_phone_number, self.drop_down_2.selected_value)
 
         # Check if 'e_money' is not None and not an empty string
         if receiver_balance['balance'] is not None and receiver_balance['balance'].strip() != '':

@@ -187,11 +187,23 @@ def get_user_currency(phone_number):
     return user['currency'] if user else None
 
 # anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number)
+# anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number)
 @anvil.server.callable
-def get_accounts_emoney_using_phone_number(phone_number):
+# anvil.server.call('get_accounts_emoney_using_phone_number', depositor_phone_number)
+@anvil.server.callable
+def get_accounts_emoney_using_phone_number(phone_number, currency_type):
+    # Convert the phone_number to a numeric type
     phone_number = int(phone_number)
-    balance = app_tables.wallet_users_balance.get(phone=phone_number)
-    return balance if balance else {'balance': None}
+    
+    # Use query to filter rows based on both 'phone' and 'currency_type'
+    account = app_tables.wallet_users_balance.search(
+        phone=phone_number,
+        currency_type=currency_type
+    )
+    
+    return account[0] if account else {'balance': None, 'phone': phone_number, 'currency_type': currency_type}
+
+
 
 # anvil.server.call('update_rows_emoney_trasaction', phone_number, new_balance)
 @anvil.server.callable
