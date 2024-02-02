@@ -6,7 +6,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class ItemTemplate6(ItemTemplate6Template):
-  def __init__(self, **properties):
+  def __init__(self,,user = None **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.user= user
