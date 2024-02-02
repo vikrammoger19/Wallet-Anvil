@@ -207,10 +207,11 @@ components:
       type: Button
       layout_properties: {grid_position: 'BTGZKK,IDLPLN VMUJHO,UGQTUR'}
       event_bindings: {click: button_4_click}
-    - name: spacer_1
-      properties: {height: 32}
-      type: Spacer
-      layout_properties: {grid_position: 'BTGZKK,IDLPLN VXCLKQ,LCBLQT'}
+    - name: button_6
+      properties: {text: ADD USERS, role: primary-color, icon: 'fa:address-book'}
+      type: Button
+      layout_properties: {grid_position: 'BTGZKK,IDLPLN XSXAUR,QWTXXX'}
+      event_bindings: {click: button_6_click}
     - name: button_2
       properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
         foreground: white, visible: true, text: '     Transaction Monitoring       ',
