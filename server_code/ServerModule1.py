@@ -124,10 +124,32 @@ def get_user_data():
     return user_list
 
 @anvil.server.callable
+def update_daily_limit(name, emoney_value):
+    user_row = app_tables.users.get(username=name)  # Use get() instead of search() if username is unique
+
+    if user_row is not None:
+        user_row['user_limit'] = emoney_value
+        user_row.update()
+        return "Daily limit updated successfully"
+    else:
+        return "User not found"
+@anvil.server.callable
 def user_detail(name, no):
-  user_row = app_tables.wallet_users.get(username=name)
-  user_row['daily_limit']= str(no)
-  user_row.update()
+    user_row = app_tables.wallet_users.get(username=name)
+    
+    if user_row is not None:
+        try:
+            # Try to convert 'no' to a numeric type
+            numeric_no = float(no)
+            user_row['daily_limit'] = numeric_no
+            user_row.update()
+            return "Daily limit updated successfully"
+        except ValueError:
+            return "Invalid daily limit value. Please provide a numeric value."
+    else:
+        return "User not found"
+
+
 
 
 
