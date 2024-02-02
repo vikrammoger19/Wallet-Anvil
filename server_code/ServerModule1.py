@@ -205,13 +205,27 @@ def get_accounts_emoney_using_phone_number(phone_number, currency_type):
 
 
 
-# anvil.server.call('update_rows_emoney_trasaction', phone_number, new_balance)
+# anvil.server.call('update_rows_emoney_trasaction', depositor_phone_number, str(transfer_depositor_amount_final))
 @anvil.server.callable
-def update_rows_emoney_trasaction(phone_number, new_balance):
-    balance = app_tables.wallet_users_balance.get(phone=phone_number)
-    if balance:
-        balance['balance'] = new_balance
-        balance.save()
+def update_rows_emoney_trasaction(depositor_phone_number, new_balance):
+    # Convert the depositor_phone_number to a numeric type
+    depositor_phone_number = int(depositor_phone_number)
+    
+    # Use search to get all rows matching the query
+    balances = app_tables.wallet_users_balance.search(phone=depositor_phone_number)
+
+    # Iterate through the list of balances or choose the appropriate row based on your criteria
+    for balance in balances:
+        # Convert new_balance to the appropriate type (number)
+        new_balance = float(new_balance)
+        # Your existing logic to update the balance goes here
+        # Your existing logic to update the balance goes here
+        balance.update(balance=new_balance)
+
+    # If you want to handle the case where no rows matched the query
+    if not balances:
+        # Create a new row with the provided information
+        app_tables.wallet_users_balance.add_row(phone=depositor_phone_number, balance=new_balance)
 
 # anvil.server.call('update_daily_limit', self.user['username'], str(answer))
 @anvil.server.callable

@@ -44,7 +44,7 @@ class transfer(transferTemplate):
         receiver_balance = anvil.server.call('get_accounts_emoney_using_phone_number', entered_phone_number, self.drop_down_2.selected_value)
 
         # Check if 'e_money' is not None and not an empty string
-        if receiver_balance['balance'] is not None and receiver_balance['balance'].strip() != '':
+        if receiver_balance['balance'] is not None:
             recieve = float(receiver_balance['balance'])
         else:
             recieve = 0.0  # or set a default value based on your application logic
@@ -74,8 +74,8 @@ class transfer(transferTemplate):
                 anvil.server.call('update_rows_emoney_trasaction', depositor_phone_number, str(transfer_depositor_amount_final))
                 anvil.server.call('update_rows_emoney_trasaction', entered_phone_number, str(transfer_final_receive_amount))
                 # Updating the daily limit
-                answer = float(self.user['limit']) - transfer_amount
-                anvil.server.call('update_daily_limit', self.user['username'], str(answer))
+                # answer = float(self.user['limit']) - transfer_amount
+                # anvil.server.call('update_daily_limit', self.user['username'], str(answer))
                 self.label_4.text = "Money transferred successfully"
 
                 app_tables.wallet_users_transaction.add_row(
