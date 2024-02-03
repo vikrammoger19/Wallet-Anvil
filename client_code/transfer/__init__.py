@@ -52,9 +52,9 @@ class transfer(transferTemplate):
         if (transfer_amount < 5) or (transfer_amount > 50000):
             self.label_4.text = "Transfer amount should be between 5 and 50000 for a transfer Funds." 
         else:
-            # if float(depositor_balance['balance']) < transfer_amount:
-            #     self.label_4.text = "Insufficient Funds in E-Wallet."
-             
+             if float(depositor_balance['balance']) < transfer_amount:
+                self.label_4.text = "Insufficient Funds in E-Wallet."
+             else:
                 # calculating the money to be added in the receiver's end
                 transfer_final_receive_amount = recieve + transfer_amount
                 # calculating the money to be deducted in the depositor's end
