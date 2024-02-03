@@ -199,8 +199,33 @@ def get_balance_using_phone_number(phone_number, currency_type):
         # If IndexError occurs (empty list), return a default value
         return {'balance': None, 'phone': phone_number, 'currency_type': currency_type}
 
+# @anvil.server.callable
+# def update_balance_transaction(phone_number, new_balance, currency_type):
+#     # Convert the phone_number to a numeric type
+#     phone_number = int(phone_number)
+
+#     # Use search to get all rows matching the query
+#     balances = app_tables.wallet_users_balance.search(
+#         phone=phone_number,
+#         currency_type=currency_type
+#     )
+
+#     # Iterate through the list of balances or choose the appropriate row based on your criteria
+#     for balance in balances:
+#         # Convert new_balance to the appropriate type (number)
+#         new_balance = float(new_balance)
+#         # Your existing logic to update the balance goes here
+#         balance.update(balance=new_balance)
+
+#     # If you want to handle the case where no rows matched the query
+#     if not balances:
+#         # Create a new row with the provided information
+#         app_tables.wallet_users_balance.add_row(phone=phone_number, balance=new_balance, currency_type=currency_type)
+
 @anvil.server.callable
 def update_balance_transaction(phone_number, new_balance, currency_type):
+    print(f"Updating balance for {phone_number} with new balance {new_balance} in currency {currency_type}")
+    
     # Convert the phone_number to a numeric type
     phone_number = int(phone_number)
 
@@ -219,9 +244,13 @@ def update_balance_transaction(phone_number, new_balance, currency_type):
 
     # If you want to handle the case where no rows matched the query
     if not balances:
+        print("Adding a new row...")
         # Create a new row with the provided information
         app_tables.wallet_users_balance.add_row(phone=phone_number, balance=new_balance, currency_type=currency_type)
+    else:
+        print("Row already exists.")
 
+    print("Update complete.")
 
 
 
