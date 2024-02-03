@@ -68,8 +68,8 @@ class transfer(transferTemplate):
                 # calculating the money to be deducted in the depositor's end
                 transfer_depositor_amount_final = float(depositor_balance['balance']) - transfer_amount
                 # setting the value
-                anvil.server.call('update_rows_emoney_trasaction', depositor_phone_number, str(transfer_depositor_amount_final))
-                anvil.server.call('update_rows_emoney_trasaction', receiver_phone_number, str(transfer_final_receive_amount))
+                anvil.server.call('update_balance_trasaction', depositor_phone_number, str(transfer_depositor_amount_final))
+                anvil.server.call('update_balance_trasaction', receiver_phone_number, str(transfer_final_receive_amount))
                 # Updating the daily limit
                 # answer = float(self.user['limit']) - transfer_amount
                 # anvil.server.call('update_daily_limit', self.user['username'], str(answer))
