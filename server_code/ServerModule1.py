@@ -242,7 +242,7 @@ def update_balance_trasaction(depositor_phone_number, new_balance, currency_type
 
     # Use search to get all rows matching the query for receiver
     receiver_balances = app_tables.wallet_users_balance.search(
-        phone=int(receiver_phone_),
+        phone=int(receiver_phone_number),
         currency_type=currency_type
     )
 
