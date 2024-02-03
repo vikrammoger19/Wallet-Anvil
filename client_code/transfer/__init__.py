@@ -47,7 +47,7 @@ class transfer(transferTemplate):
             recieve = 0.0  # or set a default value based on your application logic
 
         if receiver_balance['balance'] is None:
-            anvil.server.call('update_balance_trasaction', receiver_phone_number, str(0), cur)
+            anvil.server.call('update_balance_transaction', receiver_phone_number, str(0), cur)
         
         if (transfer_amount < 5) or (transfer_amount > 50000):
             self.label_4.text = "Transfer amount should be between 5 and 50000 for a transfer Funds." 
@@ -60,8 +60,8 @@ class transfer(transferTemplate):
                 # calculating the money to be deducted in the depositor's end
                 transfer_depositor_amount_final = float(depositor_balance['balance']) - transfer_amount
                 # setting the value
-                anvil.server.call('update_balance_trasaction', depositor_phone_number, str(transfer_depositor_amount_final), cur)
-                anvil.server.call('update_balance_trasaction', receiver_phone_number, str(transfer_final_receive_amount))
+                anvil.server.call('update_depositor_balance', depositor_phone_number, str(transfer_depositor_amount_final), cur)
+                anvil.server.call('update_receiver_balance', receiver_phone_number, str(transfer_final_receive_amount), cur)
                 # Updating the daily limit
                 # answer = float(self.user['limit']) - transfer_amount
                 # anvil.server.call('update_daily_limit', self.user['username'], str(answer))
