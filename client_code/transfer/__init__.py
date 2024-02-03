@@ -29,7 +29,7 @@ class transfer(transferTemplate):
 
     def button_1_click(self, **event_args):
         current_datetime = datetime.now()
-        entered_phone_number = self.text_box_2.text
+        receiver_phone_number = self.text_box_2.text
         transfer_amount = self.text_box_3.text
         cur=self.drop_down_2.selected_value
         
@@ -38,16 +38,16 @@ class transfer(transferTemplate):
         depositor_balance = anvil.server.call('get_balance_using_phone_number', depositor_phone_number, self.drop_down_2.selected_value)
 
         # Use the entered phone number to identify the receiver's account
-        receiver_balance = anvil.server.call('get_balance_using_phone_number', entered_phone_number, self.drop_down_2.selected_value)
+        receiver_balance = anvil.server.call('get_balance_using_phone_number', receiver_phone_number, self.drop_down_2.selected_value)
 
-        # Check if 'e_money' is not None and not an empty string
+        # Check if 'balance' is not None and not an empty string
         if receiver_balance['balance'] is not None:
             recieve = float(receiver_balance['balance'])
         else:
             recieve = 0.0  # or set a default value based on your application logic
 
         if receiver_balance['balance'] is None:
-            anvil.server.call('update_balance_trasaction', entered_phone_number, str(0))
+            anvil.server.call('update_balance_trasaction', receiver_phone_number, str(0))
         
         if (transfer_amount < 5) or (transfer_amount > 50000):
             app_tables.wallet_users_transaction.add_row(
@@ -56,7 +56,7 @@ class transfer(transferTemplate):
                   date=current_datetime,
                   transaction_type="Debit",
                   transaction_status="Transfer",
-                  receiver_phone=entered_phone_number
+                  receiver_phone=receiver_phone_number
             )
             self.label_4.text = "Transfer amount should be between 5 and 50000 for a transfer Funds." 
         else:
@@ -69,7 +69,7 @@ class transfer(transferTemplate):
                 transfer_depositor_amount_final = float(depositor_balance['balance']) - transfer_amount
                 # setting the value
                 anvil.server.call('update_rows_emoney_trasaction', depositor_phone_number, str(transfer_depositor_amount_final))
-                anvil.server.call('update_rows_emoney_trasaction', entered_phone_number, str(transfer_final_receive_amount))
+                anvil.server.call('update_rows_emoney_trasaction', receiver_phone_number, str(transfer_final_receive_amount))
                 # Updating the daily limit
                 # answer = float(self.user['limit']) - transfer_amount
                 # anvil.server.call('update_daily_limit', self.user['username'], str(answer))
@@ -81,7 +81,7 @@ class transfer(transferTemplate):
                   date=current_datetime,
                   transaction_type="Debit",
                   transaction_status="Transfer",
-                  receiver_phone=int(entered_phone_number)
+                  receiver_phone=int(receiver_phone_number)
                      
                 )
 
