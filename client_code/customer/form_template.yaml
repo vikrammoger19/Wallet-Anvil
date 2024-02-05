@@ -5,14 +5,14 @@ container:
     role: null, html: ''}
 components:
 - name: column_panel_2
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"HKTOIV":34,"JWQUQI":25}', visible: true}
   type: ColumnPanel
   layout_properties: {x: 866.6500366218388, y: 241, width: 200, slot: default}
   components:
   - name: flow_panel_1
     properties: {}
     type: FlowPanel
-    layout_properties: {grid_position: 'XQYPGA,NZCPUH', full_width_row: true}
+    layout_properties: {grid_position: 'AWAQJY,JWQUQI'}
     components:
     - name: image_1_copy
       properties: {role: null, vertical_align: center, height: 44.80000305175781,
@@ -31,13 +31,13 @@ components:
       type: Spacer
       layout_properties: {width: 787.297}
   - name: column_panel_1
-    properties: {foreground: '', col_spacing: small, col_widths: '{"DZACHX":25,"EQLJSK":10,"IYMZZI":5,"QMIILD":5,"YSLIKN":5,"YNQRER":10}',
+    properties: {foreground: '', col_spacing: medium, col_widths: '{"DZACHX":10,"EQLJSK":15,"IYMZZI":10,"QMIILD":10,"YSLIKN":10,"YNQRER":5}',
       background: 'theme:Gray 50', spacing_above: small}
     type: ColumnPanel
-    layout_properties: {grid_position: 'MLKTMV,IQAQYP', full_width_row: true}
+    layout_properties: {grid_position: 'AWAQJY,HKTOIV'}
     components:
     - name: link_2
-      properties: {text: Deposit, align: right, bold: true, foreground: black, font_size: 15}
+      properties: {text: Deposit, align: left, bold: true, foreground: black, font_size: 15}
       type: Link
       layout_properties: {grid_position: 'MNPBPI,DZACHX'}
       event_bindings: {click: link_2_click}
