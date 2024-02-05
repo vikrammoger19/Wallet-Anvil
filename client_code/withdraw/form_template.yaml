@@ -3,13 +3,8 @@ components:
 - name: card_1
   properties: {role: card}
   type: ColumnPanel
-  layout_properties: {grid_position: 'YWQUMJ,PAJXYF'}
+  layout_properties: {grid_position: 'YWQUMJ,PAJXYF', full_width_row: true}
   components:
-  - name: link_6
-    properties: {text: Career, align: center, bold: true, foreground: black}
-    type: Link
-    layout_properties: {grid_position: 'SWLNUB,VZKEOY'}
-    event_bindings: {click: link_6_click}
   - name: flow_panel_1_copy
     properties: {}
     type: FlowPanel
@@ -30,7 +25,7 @@ components:
     - name: spacer_3_copy_copy
       properties: {height: 58.19996643066406}
       type: Spacer
-      layout_properties: {width: 415.2499755859375}
+      layout_properties: {width: 552.0499267578125}
     - name: link_2
       properties: {text: Deposit, align: center, bold: true, foreground: black}
       type: Link
