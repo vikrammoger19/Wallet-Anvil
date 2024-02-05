@@ -10,7 +10,6 @@ class Login(LoginTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
     def text_box_2_pressed_enter(self, **event_args):
-        """This method is called when the user presses Enter in this text box"""
         self.button_1_click()
     def button_1_click(self, **event_args):
         # Get the login input (username, phone number, or email)
