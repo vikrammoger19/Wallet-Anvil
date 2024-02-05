@@ -9,7 +9,7 @@ from datetime import datetime
 class Login(LoginTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
-    def text_box_2_pressed_enter(self, **event_args)
+    def text_box_2_pressed_enter(self, **event_args):
         self.button_1_click()
 
     def button_1_click(self, **event_args):
