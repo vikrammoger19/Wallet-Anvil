@@ -113,9 +113,7 @@ def get_wallet_transactions():
 def get_transaction_proofs():
     # Fetch proof data from the 'transactions' table
     transaction_proofs = app_tables.wallet_users_transaction.search()
-
     return transaction_proofs
-
 
 @anvil.server.callable
 def get_transactions():
@@ -173,75 +171,41 @@ def user_detail(name, no):
     else:
         return "User not found"
 
-####1111111#####
+
 # anvil.server.call('get_username', self.user['phone'])
 @anvil.server.callable
 def get_username(phone_number):
     user = app_tables.wallet_users.get(phone=phone_number)
     return user['username'] if user else None
 
-
-
 @anvil.server.callable
 def get_balance_using_phone_number(phone_number, currency_type):
     # Convert the phone_number to a numeric type
     phone_number = int(phone_number)
-
     # Use query to filter rows based on both 'phone' and 'currency_type'
     account = app_tables.wallet_users_balance.search(
         phone=phone_number,
         currency_type=currency_type
     )
-
     try:
         return account[0]
     except IndexError:
         # If IndexError occurs (empty list), return a default value
         return {'balance': None, 'phone': phone_number, 'currency_type': currency_type}
 
-# @anvil.server.callable
-# def update_balance_transaction(phone_number, new_balance, currency_type):
-#     # Convert the phone_number to a numeric type
-#     phone_number = int(phone_number)
-
-#     # Use search to get all rows matching the query
-#     balances = app_tables.wallet_users_balance.search(
-#         phone=phone_number,
-#         currency_type=currency_type
-#     )
-
-#     # Iterate through the list of balances or choose the appropriate row based on your criteria
-#     for balance in balances:
-#         # Convert new_balance to the appropriate type (number)
-#         new_balance = float(new_balance)
-#         # Your existing logic to update the balance goes here
-#         balance.update(balance=new_balance)
-
-#     # If you want to handle the case where no rows matched the query
-#     if not balances:
-#         # Create a new row with the provided information
-#         app_tables.wallet_users_balance.add_row(phone=phone_number, balance=new_balance, currency_type=currency_type)
-
 @anvil.server.callable
 def update_balance_transaction(phone_number, new_balance, currency_type):
     print(f"Updating balance for {phone_number} with new balance {new_balance} in currency {currency_type}")
-    
-    # Convert the phone_number to a numeric type
     phone_number = int(phone_number)
-
-    # Use search to get all rows matching the query
     balances = app_tables.wallet_users_balance.search(
         phone=phone_number,
         currency_type=currency_type
     )
-
     # Iterate through the list of balances or choose the appropriate row based on your criteria
     for balance in balances:
         # Convert new_balance to the appropriate type (number)
         new_balance = float(new_balance)
-        # Your existing logic to update the balance goes here
         balance.update(balance=new_balance)
-
     # If you want to handle the case where no rows matched the query
     if not balances:
         print("Adding a new row...")
@@ -249,7 +213,6 @@ def update_balance_transaction(phone_number, new_balance, currency_type):
         app_tables.wallet_users_balance.add_row(phone=phone_number, balance=new_balance, currency_type=currency_type)
     else:
         print("Row already exists.")
-
     print("Update complete.")
 
 
@@ -258,20 +221,15 @@ def update_balance_transaction(phone_number, new_balance, currency_type):
 def update_depositor_balance(depositor_phone_number, new_balance, currency_type):
     # Convert the depositor_phone_number to a numeric type
     depositor_phone_number = int(depositor_phone_number)
-
     # Use search to get all rows matching the query for depositor
     depositor_balances = app_tables.wallet_users_balance.search(
         phone=depositor_phone_number,
         currency_type=currency_type
     )
-
     # Iterate through the list of depositor_balances or choose the appropriate row based on your criteria
     for depositor_balance in depositor_balances:
-        # Convert new_balance to the appropriate type (number)
         new_balance = float(new_balance)
-        # Your existing logic to update the balance goes here
         depositor_balance.update(balance=new_balance)
-
     # If you want to handle the case where no rows matched the query for depositor
     if not depositor_balances:
         # Create a new row with the provided information for depositor
@@ -282,20 +240,15 @@ def update_depositor_balance(depositor_phone_number, new_balance, currency_type)
 def update_receiver_balance(receiver_phone_number, new_balance, currency_type):
     # Convert the receiver_phone_number to a numeric type
     receiver_phone_number = int(receiver_phone_number)
-
     # Use search to get all rows matching the query for receiver
     receiver_balances = app_tables.wallet_users_balance.search(
         phone=receiver_phone_number,
         currency_type=currency_type
     )
-
     # Iterate through the list of receiver_balances or choose the appropriate row based on your criteria
     for receiver_balance in receiver_balances:
-        # Convert new_balance to the appropriate type (number)
         new_balance = float(new_balance)
-        # Your existing logic to update the balance goes here
         receiver_balance.update(balance=new_balance)
-
     # If you want to handle the case where no rows matched the query for receiver
     if not receiver_balances:
         # Create a new row with the provided information for receiver
@@ -304,26 +257,6 @@ def update_receiver_balance(receiver_phone_number, new_balance, currency_type):
 
 
 
-# anvil.server.call('update_daily_limit', self.user['username'], str(answer))
-@anvil.server.callable
-def update_daily_limit(username, new_limit):
-    user = app_tables.wallet_users.get(username=username)
-    if user:
-        user['limit'] = new_limit
-        user.save()
-
-# Additional function, assuming money_value is a variable not defined in the code snippet
-# This function isn't called in your provided code, so please adjust accordingly.
-@anvil.server.callable
-def add_transaction_record(depositor_phone, money_value, current_datetime, transaction_type, transaction_status, receiver_phone):
-    app_tables.wallet_users_transaction.add_row(
-        phone=depositor_phone,
-        fund=money_value,
-        date=current_datetime,
-        transaction_type=transaction_type,
-        transaction_status=transaction_status,
-        receiver_phone=receiver_phone
-    )
 
 
 
@@ -331,7 +264,3 @@ def add_transaction_record(depositor_phone, money_value, current_datetime, trans
 
 
 
-
-
-
-#https://menu-email.anvil.app

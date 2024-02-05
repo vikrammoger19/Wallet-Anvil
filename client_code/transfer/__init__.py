@@ -1,6 +1,5 @@
 from ._anvil_designer import transferTemplate
 from anvil import *
-#import anvil.users
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -19,7 +18,7 @@ class transfer(transferTemplate):
         currencies=anvil.server.call('get_user_currency',self.user['phone'])
         self.drop_down_2.items= [str(row['currency_type']) for row in currencies]
         self.display()
-        # Any code you write here will run before the form opens.
+     
 
     def drop_down_1_change(self, **event_args):
       self.display()
@@ -32,7 +31,7 @@ class transfer(transferTemplate):
         receiver_phone_number = self.text_box_2.text
         transfer_amount = self.text_box_3.text
         cur=self.drop_down_2.selected_value
-        
+      
         # Use the phone number of the depositor to identify their account
         depositor_phone_number = self.user['phone']
         depositor_balance = anvil.server.call('get_balance_using_phone_number', depositor_phone_number, self.drop_down_2.selected_value)
@@ -62,9 +61,6 @@ class transfer(transferTemplate):
                 # setting the value
                 anvil.server.call('update_depositor_balance', depositor_phone_number, str(transfer_depositor_amount_final), cur)
                 anvil.server.call('update_receiver_balance', receiver_phone_number, str(transfer_final_receive_amount), cur)
-                # Updating the daily limit
-                # answer = float(self.user['limit']) - transfer_amount
-                # anvil.server.call('update_daily_limit', self.user['username'], str(answer))
                 self.label_4.text = "Money transferred successfully"
 
                 app_tables.wallet_users_transaction.add_row(
@@ -73,8 +69,7 @@ class transfer(transferTemplate):
                   date=current_datetime,
                   transaction_type="Debit",
                   transaction_status="Transfer",
-                  receiver_phone=int(receiver_phone_number)
-                     
+                  receiver_phone=int(receiver_phone_number)       
                 )
           
     def link_8_click(self, **event_args):
