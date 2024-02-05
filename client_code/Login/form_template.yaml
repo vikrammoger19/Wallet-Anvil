@@ -9,6 +9,18 @@ components:
   name: grid_panel_1
   layout_properties: {slot: default}
   components:
+  - name: image_1_copy
+    properties: {role: null, vertical_align: center, height: 44.80000305175781, tooltip: '',
+      border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+      source: _/theme/letter-g.png, spacing_below: small, background: 'theme:Gray
+        50', horizontal_align: right}
+    type: Image
+    layout_properties: {row: HYYCDD, width_xs: 1, col_xs: 0}
+  - name: label_7_copy_2
+    properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
+      font: a, italic: false, underline: false, foreground: black}
+    type: Label
+    layout_properties: {row: HYYCDD, width_xs: 5, col_xs: 1}
   - name: spacer_2
     properties: {height: 47}
     type: Spacer
