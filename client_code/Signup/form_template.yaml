@@ -28,10 +28,50 @@ components:
       properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
         font: a, italic: false, underline: false, foreground: black}
       type: Label
+    - name: spacer_2
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {width: 690.5999755859375}
+    - name: link_10_copy
+      properties: {text: 'Withdraw ', bold: false, align: center, foreground: black,
+        font_size: 15, background: white}
+      type: Link
+      event_bindings: {}
+    - name: link_9_copy
+      properties: {text: Money Transfer, align: center, bold: false, foreground: black,
+        font_size: 15, col_spacing: tiny}
+      type: Link
+    - name: link_8_copy
+      properties: {text: Deposit, align: right, bold: false, foreground: '#000', font_size: 15}
+      type: Link
+      event_bindings: {}
+    - name: link_11_copy
+      properties: {text: 'Company  ', align: center, bold: false, foreground: black,
+        font_size: 15}
+      type: Link
+    - name: button_3
+      properties: {text: Home, bold: false, foreground: black, font_size: 15, role: null,
+        background: ''}
+      type: Button
+      event_bindings: {click: button_3_click}
   - name: spacer_1
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'PTIALC,OIHRKL'}
+  - name: image_1
+    properties: {source: 'https://as1.ftcdn.net/v2/jpg/02/58/08/00/1000_F_258080094_ZZBJctFXuoz3GweY4mzGN5nGCXHEsRTI.jpg',
+      background: '', display_mode: zoom_to_fill}
+    type: Image
+    layout_properties: {grid_position: 'YXXBNI,QZAJPZ', full_width_row: true}
+  - name: label_5
+    properties: {text: Login / Signup, align: center, bold: true, font_size: 25, underline: true,
+      font: a, foreground: white, background: '#2196f3'}
+    type: Label
+    layout_properties: {grid_position: 'WYQTSA,LUPMHT', full_width_row: true}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'UVGDSM,FRQEZI'}
   - name: grid_panel_2
     properties: {}
     type: GridPanel

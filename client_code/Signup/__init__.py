@@ -95,3 +95,6 @@ class Signup(SignupTemplate):
         return True  
     else:
         return False  
+
+  def button_3_click(self, **event_args):
+      open_form('Home')

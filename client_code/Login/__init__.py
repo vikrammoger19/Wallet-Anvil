@@ -45,6 +45,12 @@ class Login(LoginTemplate):
     def button_2_click(self, **event_args):
         open_form('Signup')
 
+    def button_3_click(self, **event_args):
+        open_form('Home')
+
+    def link_11_copy_click(self, **event_args):
+        open_form('Home')
+
     
 
 
