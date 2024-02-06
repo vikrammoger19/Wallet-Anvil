@@ -11,3 +11,8 @@ class raise_a_complaint(raise_a_complaintTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+    #email = anvil.server.call('email')
+
+    
+    self.text_box_1.text = {user['email']}
+    
