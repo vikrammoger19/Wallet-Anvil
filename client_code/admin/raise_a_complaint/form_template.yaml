@@ -8,7 +8,92 @@ components:
   properties: {}
   name: content_panel
   layout_properties: {slot: default}
-- type: FlowPanel
-  properties: {}
-  name: navbar_links
-  layout_properties: {slot: nav-right}
+  components:
+  - name: flow_panel_1
+    properties: {role: null, vertical_align: full, spacing: medium, align: left, tooltip: '',
+      border: '', foreground: '', visible: true, spacing_above: small, spacing_below: large,
+      background: ''}
+    type: FlowPanel
+    layout_properties: {grid_position: 'VZYVCS,YGAPAK', full_width_row: true}
+    components:
+    - name: image_1
+      properties: {role: null, vertical_align: center, height: 44.80000305175781,
+        tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
+        spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
+        background: white, horizontal_align: right}
+      type: Image
+      layout_properties: {width: 89.19999694824219}
+    - name: label_7_copy_2
+      properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
+        font: a, italic: false, underline: false, foreground: black}
+      type: Label
+      layout_properties: {}
+    - name: spacer_1
+      properties: {height: 46.75}
+      type: Spacer
+      layout_properties: {width: 644.5869755859375}
+    - name: link_8_copy
+      properties: {text: Home, align: right, bold: false, foreground: '#000', font_size: 15}
+      type: Link
+      event_bindings: {click: link_8_copy_click}
+    - name: link_9_copy
+      properties: {text: About, align: center, bold: false, foreground: black, font_size: 15,
+        col_spacing: tiny}
+      type: Link
+    - name: link_10_copy
+      properties: {text: User Support, bold: false, align: center, foreground: black,
+        font_size: 15, background: white}
+      type: Link
+      event_bindings: {click: link_10_copy_click}
+    - name: button_8
+      properties: {text: Logout, role: filled-button, background: '#1d86da'}
+      type: Button
+      event_bindings: {click: button_8_click}
+  - name: headline_1
+    properties: {role: headline, text: Report a bug, bold: true, italic: true, align: center}
+    type: Label
+    layout_properties: {grid_position: 'XCEXLR,UFDLRC'}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'XTEINH,FGHWPD'}
+  - name: label_1
+    properties: {text: 'Email:'}
+    type: Label
+    layout_properties: {grid_position: 'HBXXPW,KUBCJX'}
+  - name: text_box_1
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'HBXXPW,CEZDOI'}
+  - name: label_2
+    properties: {text: Issue name}
+    type: Label
+    layout_properties: {grid_position: 'QTYVDZ,SMUXIQ'}
+  - name: text_box_2
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'QTYVDZ,KMSHQV'}
+  - name: label_3
+    properties: {text: 'Specific issue:'}
+    type: Label
+    layout_properties: {grid_position: 'NEZXHZ,LQHIRR'}
+  - name: text_box_3
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'NEZXHZ,PLDCFK'}
+  - name: label_4
+    properties: {text: Description}
+    type: Label
+    layout_properties: {grid_position: 'TGUPCX,DEJXGR'}
+  - name: text_box_4
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'TGUPCX,XSMABO'}
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'KVBEOP,GVFVOG'}
+  - name: button_1
+    properties: {text: Submit}
+    type: Button
+    layout_properties: {grid_position: 'CQJXHU,MEWYNC'}
