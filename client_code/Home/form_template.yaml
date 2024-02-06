@@ -12,7 +12,7 @@ components:
   - name: column_panel_2
     properties: {col_widths: '{}', background: 'theme:On Secondary'}
     type: ColumnPanel
-    layout_properties: {grid_position: 'WILUMV,TDLUDB'}
+    layout_properties: {grid_position: 'WILUMV,TDLUDB', full_width_row: true}
     components:
     - name: flow_panel_1
       properties: {}
@@ -77,7 +77,7 @@ components:
   - name: xy_panel_1
     properties: {height: 286, spacing_above: large, spacing_below: large, background: '#1e75b9'}
     type: XYPanel
-    layout_properties: {grid_position: 'IVNOLX,YTTVIK'}
+    layout_properties: {grid_position: 'IVNOLX,YTTVIK', full_width_row: true}
     components:
     - name: canvas_1
       properties: {height: 100}
@@ -118,7 +118,7 @@ components:
         G-Wallet, where simplicity meets the future of financial convenience.', foreground: '#1e75b9',
       bold: false, italic: true, font_size: 16, align: left}
     type: Label
-    layout_properties: {grid_position: 'MTREQV,UMHDBF'}
+    layout_properties: {grid_position: 'MTREQV,UMHDBF', full_width_row: true}
   - name: image_6
     properties: {source: 'https://cdni.iconscout.com/illustration/premium/thumb/man-verifying-using-one-time-password-5597838-4678341.png',
       height: 216.60000610351562, horizontal_align: center}
@@ -142,7 +142,7 @@ components:
     properties: {text: Features, align: center, font_size: 30, font: a, bold: true,
       underline: true, foreground: white, background: '#1e75b9'}
     type: Label
-    layout_properties: {grid_position: 'BWEIMY,RVMDMU'}
+    layout_properties: {grid_position: 'BWEIMY,RVMDMU', full_width_row: true}
   - name: image_1_copy
     properties: {source: 'https://img.freepik.com/premium-vector/secure-payment-with-mobile-banking-application_258153-435.jpg',
       height: 180.5}
@@ -213,7 +213,7 @@ components:
   - name: grid_panel_1
     properties: {background: '#2270ad'}
     type: GridPanel
-    layout_properties: {grid_position: 'AZAPTM,AVKUGM'}
+    layout_properties: {grid_position: 'AZAPTM,AVKUGM', full_width_row: true}
     components:
     - name: spacer_9
       properties: {height: 61.600006103515625}
@@ -271,7 +271,7 @@ components:
       wrap_on: mobile, col_spacing: none, spacing_above: none, col_widths: '{}', spacing_below: none,
       background: 'theme:Dark Overlay 2'}
     type: ColumnPanel
-    layout_properties: {grid_position: 'GQOYSM,MECIGT'}
+    layout_properties: {grid_position: 'GQOYSM,MECIGT', full_width_row: true}
     components:
     - name: label_10
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
@@ -408,7 +408,7 @@ components:
         wrap_on: mobile, col_spacing: none, spacing_above: none, col_widths: '{"VMILPR":11,"FDANOO":17,"HAKDVS":16,"XVKBKL":16}',
         spacing_below: none, background: '#2270ad'}
       type: ColumnPanel
-      layout_properties: {grid_position: 'GMKCXE,NFJAIG'}
+      layout_properties: {grid_position: 'GMKCXE,NFJAIG', full_width_row: true}
       components:
       - name: label_1
         properties: {text: CopyRight2023@Gwallet, align: left, bold: true, font_size: 16,

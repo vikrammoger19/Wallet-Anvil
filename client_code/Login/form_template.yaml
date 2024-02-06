@@ -9,22 +9,71 @@ components:
   name: grid_panel_1
   layout_properties: {slot: default}
   components:
-  - name: image_1_copy
-    properties: {role: null, vertical_align: center, height: 44.80000305175781, tooltip: '',
-      border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
-      source: _/theme/letter-g.png, spacing_below: small, background: 'theme:Gray
-        50', horizontal_align: right}
-    type: Image
-    layout_properties: {row: HYYCDD, width_xs: 1, col_xs: 0}
-  - name: label_7_copy_2
-    properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
-      font: a, italic: false, underline: false, foreground: black}
-    type: Label
-    layout_properties: {row: HYYCDD, width_xs: 5, col_xs: 1}
+  - name: navbar_links
+    properties: {}
+    type: FlowPanel
+    layout_properties: {row: DSZJWF, width_xs: 12, col_xs: 0}
+    components:
+    - name: grid_panel_1_copy
+      properties: {}
+      type: GridPanel
+    - name: image_1_copy_copy
+      properties: {role: null, vertical_align: center, height: 44.80000305175781,
+        tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
+        spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
+        background: 'theme:Gray 50', horizontal_align: right}
+      type: Image
+      layout_properties: {width: 71.60000610351562}
+    - name: label_7_copy_2_copy
+      properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
+        font: a, italic: false, underline: false, foreground: black}
+      type: Label
+    - name: spacer_2_copy_2
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {width: 690.5999755859375}
+    - name: link_10_copy
+      properties: {text: 'Withdraw ', bold: false, align: center, foreground: black,
+        font_size: 15, background: white}
+      type: Link
+      event_bindings: {}
+    - name: link_9_copy
+      properties: {text: Money Transfer, align: center, bold: false, foreground: black,
+        font_size: 15, col_spacing: tiny}
+      type: Link
+    - name: link_8_copy
+      properties: {text: Deposit, align: right, bold: false, foreground: '#000', font_size: 15}
+      type: Link
+      event_bindings: {}
+    - name: link_11_copy
+      properties: {text: 'Company  ', align: center, bold: false, foreground: black,
+        font_size: 15}
+      type: Link
+    - name: button_3
+      properties: {text: Home, bold: false, foreground: black, font_size: 15, role: null,
+        background: ''}
+      type: Button
+      event_bindings: {click: button_3_click}
   - name: spacer_2
-    properties: {height: 47}
+    properties: {height: 9.199981689453125}
     type: Spacer
     layout_properties: {row: ZIYYKR, width_xs: 11, col_xs: 1}
+  - name: image_1
+    properties: {source: 'https://as1.ftcdn.net/v2/jpg/02/58/08/00/1000_F_258080094_ZZBJctFXuoz3GweY4mzGN5nGCXHEsRTI.jpg',
+      background: '', display_mode: zoom_to_fill, height: 172.39999389648438}
+    type: Image
+    layout_properties: {row: DHTTHS, width_xs: 12, col_xs: 0}
+    data_bindings:
+    - {property: height, code: 'self.item['''']', writeback: false}
+  - name: spacer_2_copy
+    properties: {height: 8.600006103515625}
+    type: Spacer
+    layout_properties: {row: UCSTZA, width_xs: 3, col_xs: 4}
+  - name: label_5
+    properties: {text: Login / Signup, align: center, bold: true, font_size: 25, underline: true,
+      font: a, foreground: white, background: '#2196f3'}
+    type: Label
+    layout_properties: {row: VSXFLH, width_xs: 12, col_xs: 0}
   - name: label_8
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Existing user ?', font_size: 16, font: '', spacing_above: small,
