@@ -4,15 +4,11 @@ container:
   properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
     role: null, html: ''}
 components:
-- type: Label
-  properties: {role: headline}
-  name: headline_1
-  layout_properties: {slot: default}
 - type: ColumnPanel
-  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '', spacing_below: small,
-    background: ''}
-  name: card_1
+  properties: {}
+  name: content_panel
   layout_properties: {slot: default}
-custom_component: true
-custom_component_container: false
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
