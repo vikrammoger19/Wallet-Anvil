@@ -16,39 +16,71 @@ components:
     type: FlowPanel
     layout_properties: {grid_position: 'VZYVCS,YGAPAK', full_width_row: true}
     components:
-    - name: image_1
-      properties: {role: null, vertical_align: center, height: 44.80000305175781,
-        tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
-        spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
-        background: white, horizontal_align: right}
-      type: Image
-      layout_properties: {width: 89.19999694824219}
-    - name: label_7_copy_2
-      properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
-        font: a, italic: false, underline: false, foreground: black}
-      type: Label
-      layout_properties: {}
-    - name: spacer_1
-      properties: {height: 46.75}
-      type: Spacer
-      layout_properties: {width: 644.5869755859375}
-    - name: link_8_copy
-      properties: {text: Home, align: right, bold: false, foreground: '#000', font_size: 15}
-      type: Link
-      event_bindings: {click: link_8_copy_click}
-    - name: link_9_copy
-      properties: {text: About, align: center, bold: false, foreground: black, font_size: 15,
-        col_spacing: tiny}
-      type: Link
-    - name: link_10_copy
-      properties: {text: User Support, bold: false, align: center, foreground: black,
-        font_size: 15, background: white}
-      type: Link
-      event_bindings: {click: link_10_copy_click}
-    - name: button_8
-      properties: {text: Logout, role: filled-button, background: '#1d86da'}
-      type: Button
-      event_bindings: {click: button_8_click}
+    - name: flow_panel_1_copy
+      properties: {role: null, vertical_align: full, spacing: large, align: left,
+        tooltip: '', border: '', foreground: '', visible: true, spacing_above: medium,
+        spacing_below: small, background: ''}
+      type: FlowPanel
+      components:
+      - name: image_1_copy
+        properties: {role: null, vertical_align: center, height: 44.80000305175781,
+          tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
+          spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
+          background: white, horizontal_align: right}
+        type: Image
+        layout_properties: {width: 89.19999694824219}
+      - name: label_7_copy_2_copy
+        properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
+          font: a, italic: false, underline: false, foreground: black}
+        type: Label
+        layout_properties: {}
+      - name: spacer_1_copy
+        properties: {height: 32}
+        type: Spacer
+        layout_properties: {width: 96.98801220703126}
+      - name: link_1
+        properties: {text: Report & Analysis, visible: true, bold: false, foreground: '#000'}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: link_1_click}
+      - name: link_2
+        properties: {text: Account Management, foreground: '#000'}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: link_2_click}
+      - name: link_7
+        properties: {text: Transaction Monitoring, foreground: '#000'}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: link_7_click}
+      - name: link_6
+        properties: {foreground: '#000', text: Add User}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: link_6_click}
+      - name: link_5
+        properties: {text: Audit Trail, foreground: '#000'}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: link_5_click}
+      - name: link_4
+        properties: {foreground: '#000', text: User Support}
+        type: Link
+        layout_properties: {}
+        event_bindings: {click: link_4_click}
+      - name: link_3
+        properties: {text: User Management, foreground: '#000'}
+        type: Link
+        event_bindings: {click: link_3_click}
+      - name: link_8_copy_copy
+        properties: {text: 'Home ', align: center, bold: false, foreground: '#000',
+          font_size: 15}
+        type: Link
+        event_bindings: {click: link_8_copy_click}
+      - name: button_8_copy
+        properties: {text: Logout, role: filled-button, background: '#1d86da', foreground: black}
+        type: Button
+        event_bindings: {click: button_8_click}
   - name: headline_1
     properties: {role: headline, text: Report a bug, bold: true, italic: true, align: center}
     type: Label
