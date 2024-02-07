@@ -30,8 +30,8 @@ class deposit(depositTemplate):
         # Set base currency and any other parameters (replace 'USD' with your desired base currency)
         base_currency = 'INR'
         resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
+        money_value=resp['response']['value']
         if self.user :
-            
             # Check if a balance row already exists for the user
             existing_balance = app_tables.wallet_users_balance.get(phone=self.user['phone'],currency_type=cur)
 
