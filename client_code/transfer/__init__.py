@@ -49,7 +49,7 @@ class transfer(transferTemplate):
                 fund=money_value,
                 date=current_datetime,
                 transaction_type="Debit",
-                transaction_status="transfered",
+                transaction_status="transfered-to",
                 receiver_phone=receiver_phone_number
             )
               new_transaction = app_tables.wallet_users_transaction.add_row(
@@ -57,9 +57,10 @@ class transfer(transferTemplate):
                 fund=money_value,
                 date=current_datetime,
                 transaction_type="Credit",
-                transaction_status="recieved",
+                transaction_status="recieved-from",
                 receiver_phone=self.user['phone']
             )
+              self.label_4.text = "Money transferred successfully to the account."
             else:
               reciver = app_tables.wallet_users.get(phone=receiver_phone_number)
               if reciver:
@@ -74,7 +75,7 @@ class transfer(transferTemplate):
                   fund=money_value,
                   date=current_datetime,
                   transaction_type="Debit",
-                  transaction_status="transfered",
+                  transaction_status="transfered-to",
                   receiver_phone=receiver_phone_number
               )
                 new_transaction = app_tables.wallet_users_transaction.add_row(
@@ -82,7 +83,7 @@ class transfer(transferTemplate):
                   fund=money_value,
                   date=current_datetime,
                   transaction_type="Credit",
-                  transaction_status="recieved",
+                  transaction_status="recieved-from",
                   receiver_phone=self.user['phone']
               )
                 self.label_4.text = "Money transferred successfully to the account."

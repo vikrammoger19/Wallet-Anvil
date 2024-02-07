@@ -42,7 +42,7 @@ class withdraw(withdrawTemplate):
                 fund=money_value,
                 date=current_datetime,
                 transaction_type="Debit",
-                transaction_status="Withdrawn",
+                transaction_status="Wallet-Withdrawn",
                 receiver_phone=None
             )
         self.label_2.text = "Money Withdrawn successfully to the account."
