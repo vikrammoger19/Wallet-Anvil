@@ -19,8 +19,8 @@ components:
     - name: image_1_copy
       properties: {role: null, vertical_align: center, height: 44.80000305175781,
         tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
-        spacing_above: small, source: _/theme/GW-logo.jpg, spacing_below: small, background: white,
-        horizontal_align: right}
+        spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
+        background: white, horizontal_align: right}
       type: Image
       layout_properties: {width: 89.19999694824219}
     - name: label_7_copy_2
@@ -32,6 +32,30 @@ components:
       properties: {height: 46.75}
       type: Spacer
       layout_properties: {width: 336}
+    - name: link_1
+      properties: {text: Report & Analysis, visible: true, bold: false, foreground: '#000'}
+      type: Link
+      layout_properties: {}
+    - name: link_2
+      properties: {text: Account Management, foreground: '#000'}
+      type: Link
+      layout_properties: {}
+    - name: link_7
+      properties: {text: Transaction Monitoring}
+      type: Link
+      layout_properties: {}
+    - name: link_6
+      properties: {}
+      type: Link
+    - name: link_5
+      properties: {}
+      type: Link
+    - name: link_4
+      properties: {}
+      type: Link
+    - name: link_3
+      properties: {}
+      type: Link
     - name: column_panel_1
       properties: {background: white, col_widths: '{"FKFVNM":26,"DAOHBK":12}', col_spacing: medium}
       type: ColumnPanel
@@ -47,66 +71,66 @@ components:
         type: Button
         layout_properties: {grid_position: 'JXFFNM,DAOHBK'}
         event_bindings: {click: button_8_click}
-  - name: button_1
-    properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
-      foreground: white, visible: true, text: '  User Management  ', font_size: 13,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
-      background: '#1d86da', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {grid_position: 'HFIGWC,AOOPCE'}
-    event_bindings: {click: button_1_click}
-  - name: button_3
-    properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
-      foreground: white, visible: true, text: Report and Analysis, font_size: 13,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
-      background: '#1d86da', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {grid_position: 'HFIGWC,FJBURJ'}
-    event_bindings: {click: button_3_click}
-  - name: button_5
-    properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
-      foreground: white, visible: true, text: Account Balance Management, font_size: 13,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
-      background: '#1d86da', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {grid_position: 'HFIGWC,QDIDQC', full_width_row: true}
-    event_bindings: {click: button_5_click}
-  - name: button_6
-    properties: {text: ADD USERS, role: primary-color, icon: 'fa:address-book'}
-    type: Button
-    layout_properties: {grid_position: 'HFIGWC,BQTHSR', full_width_row: true}
-    event_bindings: {click: button_6_click}
-  - name: button_2
-    properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
-      foreground: white, visible: true, text: '     Transaction Monitoring       ',
-      font_size: 13, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-      italic: true, background: '#1d86da', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {grid_position: 'HFIGWC,GYJVYZ', full_width_row: true}
-    event_bindings: {click: button_2_click}
-  - name: button_4
-    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: white, visible: true, text: User Support, font_size: 13, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#1d86da', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {grid_position: 'HFIGWC,DDLZJF', full_width_row: true}
-    event_bindings: {click: button_4_click}
-  - name: button_7
-    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: white, visible: true, text: '  Audit Trail    ', font_size: 13,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
-      background: '#1d86da', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {grid_position: 'HFIGWC,SDLMLH', full_width_row: true}
-    event_bindings: {click: button_7_click}
   - name: outlined_card_1
     properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"ZRTWNI":15,"DAJORT":17,"LKPZGV":20,"MHRNHW":15,"SWGVTP":15,"YBHUVT":15,"KTOYCY":15}',
       spacing_below: none, background: ''}
     type: ColumnPanel
-    layout_properties: {grid_position: 'CFWEEN,RQYIRA', full_width_row: true}
-    components: []
+    layout_properties: {grid_position: 'OAGYEA,LLDLYJ', full_width_row: true}
+    components:
+    - name: button_3
+      properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: Report and Analysis, font_size: 13,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+        background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'VIPKVV,ZRTWNI', full_width_row: true}
+      event_bindings: {click: button_3_click}
+    - name: button_5
+      properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: Account Balance Management, font_size: 13,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+        background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'VIPKVV,LKPZGV'}
+      event_bindings: {click: button_5_click}
+    - name: button_2
+      properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: '     Transaction Monitoring       ',
+        font_size: 13, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: true, background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'VIPKVV,MHRNHW'}
+      event_bindings: {click: button_2_click}
+    - name: button_6
+      properties: {text: ADD USERS, role: primary-color, icon: 'fa:address-book'}
+      type: Button
+      layout_properties: {grid_position: 'VIPKVV,SWGVTP'}
+      event_bindings: {click: button_6_click}
+    - name: button_7
+      properties: {role: elevated-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: white, visible: true, text: '  Audit Trail    ',
+        font_size: 13, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: true, background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'VIPKVV,YBHUVT'}
+      event_bindings: {click: button_7_click}
+    - name: button_4
+      properties: {role: elevated-button, align: center, tooltip: '', border: '',
+        enabled: true, foreground: white, visible: true, text: User Support, font_size: 13,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'VIPKVV,KTOYCY'}
+      event_bindings: {click: button_4_click}
+    - name: button_1
+      properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: '  User Management  ', font_size: 13,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+        background: '#1d86da', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'VIPKVV,DAJORT', full_width_row: false}
+      event_bindings: {click: button_1_click}
   - name: xy_panel_1
     properties: {role: null, width: 1446, align: center, height: 286, tooltip: '',
       border: '', foreground: '', visible: true, spacing_above: medium, spacing_below: small,
@@ -140,10 +164,6 @@ components:
       properties: {height: 263.1999816894531, source: 'https://www.temenos.com/wp-content/uploads/2023/05/Genie-Wallet-pic1-768x432.png'}
       type: Image
       layout_properties: {x: 1227.25, y: 14.953125, width: 411.1875}
-    - name: image_3_copy
-      properties: {height: 268.7777404785156, source: 'https://www.temenos.com/wp-content/uploads/2023/05/Genie-Wallet-pic1-768x432.png'}
-      type: Image
-      layout_properties: {x: 673.8888893127441, y: 17.22222900390625, width: 272.76043701171875}
   - name: label_5
     properties: {role: null, align: center, tooltip: '', border: '', foreground: black,
       visible: true, text: '', font_size: 17, font: '', spacing_above: small, icon_align: left,
