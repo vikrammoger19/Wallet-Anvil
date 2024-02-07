@@ -14,7 +14,7 @@ components:
       border: '', foreground: '', visible: true, spacing_above: medium, spacing_below: small,
       background: ''}
     type: FlowPanel
-    layout_properties: {grid_position: 'IGBQFJ,LJPBON', full_width_row: true}
+    layout_properties: {grid_position: 'CGTIYO,FNRKMS', full_width_row: true}
     components:
     - name: image_1_copy
       properties: {role: null, vertical_align: center, height: 44.80000305175781,
@@ -33,8 +33,7 @@ components:
       type: Spacer
       layout_properties: {width: 336}
     - name: column_panel_1
-      properties: {background: white, col_widths: '{"FKFVNM":26,"LDONGM":11,"EKRNNM":9,"DAOHBK":12}',
-        col_spacing: medium}
+      properties: {background: white, col_widths: '{"FKFVNM":26,"DAOHBK":12}', col_spacing: medium}
       type: ColumnPanel
       layout_properties: {width: 833.1500244140625, expand: true}
       components:
@@ -43,22 +42,71 @@ components:
         type: Link
         layout_properties: {grid_position: 'JXFFNM,FKFVNM'}
         event_bindings: {click: link_8_copy_click}
-      - name: link_9_copy
-        properties: {text: About, align: center, bold: false, foreground: black, font_size: 15,
-          col_spacing: tiny}
-        type: Link
-        layout_properties: {grid_position: 'JXFFNM,LDONGM'}
-      - name: link_10_copy
-        properties: {text: User Support, bold: false, align: center, foreground: black,
-          font_size: 15, background: white}
-        type: Link
-        layout_properties: {grid_position: 'JXFFNM,EKRNNM', full_width_row: true}
-        event_bindings: {click: link_10_copy_click}
       - name: button_8
         properties: {text: Logout, role: filled-button, background: '#1d86da', foreground: black}
         type: Button
         layout_properties: {grid_position: 'JXFFNM,DAOHBK'}
         event_bindings: {click: button_8_click}
+  - name: button_1
+    properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
+      foreground: white, visible: true, text: '  User Management  ', font_size: 13,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+      background: '#1d86da', bold: true, underline: false, icon: ''}
+    type: Button
+    layout_properties: {grid_position: 'HFIGWC,AOOPCE'}
+    event_bindings: {click: button_1_click}
+  - name: button_3
+    properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
+      foreground: white, visible: true, text: Report and Analysis, font_size: 13,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+      background: '#1d86da', bold: true, underline: false, icon: ''}
+    type: Button
+    layout_properties: {grid_position: 'HFIGWC,FJBURJ'}
+    event_bindings: {click: button_3_click}
+  - name: button_5
+    properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+      foreground: white, visible: true, text: Account Balance Management, font_size: 13,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+      background: '#1d86da', bold: true, underline: false, icon: ''}
+    type: Button
+    layout_properties: {grid_position: 'HFIGWC,QDIDQC', full_width_row: true}
+    event_bindings: {click: button_5_click}
+  - name: button_6
+    properties: {text: ADD USERS, role: primary-color, icon: 'fa:address-book'}
+    type: Button
+    layout_properties: {grid_position: 'HFIGWC,BQTHSR', full_width_row: true}
+    event_bindings: {click: button_6_click}
+  - name: button_2
+    properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+      foreground: white, visible: true, text: '     Transaction Monitoring       ',
+      font_size: 13, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: true, background: '#1d86da', bold: true, underline: false, icon: ''}
+    type: Button
+    layout_properties: {grid_position: 'HFIGWC,GYJVYZ', full_width_row: true}
+    event_bindings: {click: button_2_click}
+  - name: button_4
+    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: white, visible: true, text: User Support, font_size: 13, font: '',
+      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '#1d86da', bold: true, underline: false, icon: ''}
+    type: Button
+    layout_properties: {grid_position: 'HFIGWC,DDLZJF', full_width_row: true}
+    event_bindings: {click: button_4_click}
+  - name: button_7
+    properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: white, visible: true, text: '  Audit Trail    ', font_size: 13,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+      background: '#1d86da', bold: true, underline: false, icon: ''}
+    type: Button
+    layout_properties: {grid_position: 'HFIGWC,SDLMLH', full_width_row: true}
+    event_bindings: {click: button_7_click}
+  - name: outlined_card_1
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: none, background: ''}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'CFWEEN,RQYIRA', full_width_row: true}
+    components: []
   - name: xy_panel_1
     properties: {role: null, width: 1446, align: center, height: 286, tooltip: '',
       border: '', foreground: '', visible: true, spacing_above: medium, spacing_below: small,
@@ -92,58 +140,6 @@ components:
       properties: {height: 263.1999816894531, source: 'https://www.temenos.com/wp-content/uploads/2023/05/Genie-Wallet-pic1-768x432.png'}
       type: Image
       layout_properties: {x: 1227.25, y: 14.953125, width: 411.1875}
-    - name: flow_panel_1_copy
-      properties: {role: null, vertical_align: full, spacing: medium, align: left,
-        tooltip: '', border: '', foreground: '', visible: true, spacing_above: medium,
-        spacing_below: small, background: ''}
-      type: FlowPanel
-      layout_properties: {grid_position: 'OXAJUJ,OOSXSC', full_width_row: true, x: 9.305556297302246,
-        y: -56.006948947906494, width: 1436.67}
-      components:
-      - name: image_1_copy_copy
-        properties: {role: null, vertical_align: center, height: 44.80000305175781,
-          tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
-          spacing_above: small, source: _/theme/GW-logo.jpg, spacing_below: small,
-          background: white, horizontal_align: right}
-        type: Image
-        layout_properties: {width: 89.19999694824219}
-      - name: label_7_copy_2_copy
-        properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
-          font: a, italic: false, underline: false, foreground: black}
-        type: Label
-        layout_properties: {}
-      - name: spacer_4_copy
-        properties: {height: 46.75}
-        type: Spacer
-        layout_properties: {width: 336}
-      - name: column_panel_1_copy
-        properties: {background: white, col_widths: '{"FKFVNM":26,"LDONGM":11,"EKRNNM":9,"DAOHBK":12}',
-          col_spacing: medium}
-        type: ColumnPanel
-        layout_properties: {width: 833.1500244140625, expand: true}
-        components:
-        - name: link_8_copy_copy
-          properties: {text: Home, align: right, bold: false, foreground: '#000',
-            font_size: 15}
-          type: Link
-          layout_properties: {grid_position: 'JXFFNM,FKFVNM'}
-          event_bindings: {click: link_8_copy_click}
-        - name: link_9_copy_copy
-          properties: {text: About, align: center, bold: false, foreground: black,
-            font_size: 15, col_spacing: tiny}
-          type: Link
-          layout_properties: {grid_position: 'JXFFNM,LDONGM'}
-        - name: link_10_copy_copy
-          properties: {text: User Support, bold: false, align: center, foreground: black,
-            font_size: 15, background: white}
-          type: Link
-          layout_properties: {grid_position: 'JXFFNM,EKRNNM', full_width_row: true}
-          event_bindings: {click: link_10_copy_click}
-        - name: button_8_copy
-          properties: {text: Logout, role: filled-button, background: '#1d86da'}
-          type: Button
-          layout_properties: {grid_position: 'JXFFNM,DAOHBK'}
-          event_bindings: {click: button_8_click}
     - name: image_3_copy
       properties: {height: 268.7777404785156, source: 'https://www.temenos.com/wp-content/uploads/2023/05/Genie-Wallet-pic1-768x432.png'}
       type: Image
@@ -160,66 +156,6 @@ components:
       height: 272.25}
     type: Image
     layout_properties: {grid_position: 'TVEJWC,YBJEBM', full_width_row: true}
-  - name: outlined_card_1
-    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: none, spacing_above: large, col_widths: '{}',
-      spacing_below: large, background: ''}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'ERVPOZ,BUWAZL', full_width_row: true}
-    components:
-    - name: button_1
-      properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
-        foreground: white, visible: true, text: '  User Management  ', font_size: 13,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
-        background: '#1d86da', bold: true, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'YAMGBP,QVZJRW'}
-      event_bindings: {click: button_1_click}
-    - name: button_7
-      properties: {role: elevated-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: white, visible: true, text: '  Audit Trail    ',
-        font_size: 13, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: true, background: '#1d86da', bold: true, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'YAMGBP,LSHMDU'}
-      event_bindings: {click: button_7_click}
-    - name: button_5
-      properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
-        foreground: white, visible: true, text: Account Balance Management, font_size: 13,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
-        background: '#1d86da', bold: true, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'YAMGBP,GQOBVK'}
-      event_bindings: {click: button_5_click}
-    - name: button_3
-      properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
-        foreground: white, visible: true, text: Report and Analysis, font_size: 13,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
-        background: '#1d86da', bold: true, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'BTGZKK,NMCAIH'}
-      event_bindings: {click: button_3_click}
-    - name: button_4
-      properties: {role: elevated-button, align: center, tooltip: '', border: '',
-        enabled: true, foreground: white, visible: true, text: User Support, font_size: 13,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '#1d86da', bold: true, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'BTGZKK,IDLPLN VMUJHO,UGQTUR'}
-      event_bindings: {click: button_4_click}
-    - name: button_6
-      properties: {text: ADD USERS, role: primary-color, icon: 'fa:address-book'}
-      type: Button
-      layout_properties: {grid_position: 'BTGZKK,IDLPLN XSXAUR,QWTXXX'}
-      event_bindings: {click: button_6_click}
-    - name: button_2
-      properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
-        foreground: white, visible: true, text: '     Transaction Monitoring       ',
-        font_size: 13, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: true, background: '#1d86da', bold: true, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'BTGZKK,WWTXPP'}
-      event_bindings: {click: button_2_click}
   - name: image_2
     properties: {role: null, vertical_align: center, height: '200', tooltip: '', border: '',
       foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: large,
