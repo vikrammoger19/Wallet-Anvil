@@ -18,16 +18,23 @@ class deposit(depositTemplate):
       bank_names = anvil.server.call('get_user_bank_name', self.user['phone'])
       self.drop_down_1.items = [str(row['bank_name']) for row in bank_names]
       self.drop_down_2.items= ["INR","USD","EUR","GBP"]
+      money= 500
+      currency_type= "USD"
+      
+      print(resp['response']['value'])
       self.display()
 
     def button_1_click(self, **event_args):
         current_datetime = datetime.now()
         acc = self.drop_down_1.selected_value
         cur=self.drop_down_2.selected_value
- 
+        endpoint = 'convert'
+        api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
+        # Set base currency and any other parameters (replace 'USD' with your desired base currency)
+        base_currency = 'INR'
+        resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
         if self.user :
-            entered_amount = ''.join(filter(str.isdigit, str(self.text_box_2.text)))
-            money_value = float(entered_amount) if entered_amount else 0.0
+            
             # Check if a balance row already exists for the user
             existing_balance = app_tables.wallet_users_balance.get(phone=self.user['phone'],currency_type=cur)
 
