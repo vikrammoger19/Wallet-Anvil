@@ -110,9 +110,9 @@ components:
     type: DropDown
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,DJNLKG AXFNQW,MSWGDK'}
   - name: label_2
-    properties: {}
+    properties: {align: center}
     type: Label
-    layout_properties: {grid_position: 'GDLRHW,ZUZJAK XHOIAB,UYYWYQ'}
+    layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,DJNLKG MCBSJY,AEKVPR'}
   - name: spacer_7
     properties: {height: 40}
     type: Spacer

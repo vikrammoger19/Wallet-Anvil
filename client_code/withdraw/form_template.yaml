@@ -106,9 +106,9 @@ components:
     type: DropDown
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,DJNLKG CBWTXD,DYFJZH'}
   - name: label_2
-    properties: {}
+    properties: {align: center}
     type: Label
-    layout_properties: {grid_position: 'GDLRHW,ZUZJAK EQUSOQ,IEADFW'}
+    layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,DJNLKG LRUQDS,ZXGRJA'}
   - name: spacer_7
     properties: {height: 40}
     type: Spacer
@@ -122,10 +122,10 @@ components:
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK LAAXQE,JJXQTO'}
     event_bindings: {click: button_1_click}
   - name: image_1
-    properties: {source: 'https://assets.materialup.com/uploads/13095f7d-682d-4b12-84c7-531a27caa732/preview.jpg',
-      height: 280.79998779296875}
+    properties: {source: 'https://t3.ftcdn.net/jpg/03/18/68/18/360_F_318681827_ymoKRqzQWvvONbeTGA48Fj4kXCBnaHkO.jpg',
+      height: 253.79998779296875}
     type: Image
-    layout_properties: {grid_position: 'GDLRHW,MLNEOX'}
+    layout_properties: {grid_position: 'GDLRHW,VIVXLQ'}
   - name: spacer_3
     properties: {height: '100.25'}
     type: Spacer

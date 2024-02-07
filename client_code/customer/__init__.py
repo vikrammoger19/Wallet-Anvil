@@ -42,5 +42,5 @@ class customer(customerTemplate):
 
 
     def button_3_click(self, **event_args):
-        open_form('Transaction_history',user=self.user)
+        open_form('transaction_history',user=self.user)
 
