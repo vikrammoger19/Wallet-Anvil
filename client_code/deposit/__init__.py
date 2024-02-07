@@ -18,16 +18,13 @@ class deposit(depositTemplate):
       bank_names = anvil.server.call('get_user_bank_name', self.user['phone'])
       self.drop_down_1.items = [str(row['bank_name']) for row in bank_names]
       self.drop_down_2.items= ["INR","USD","EUR","GBP"]
-      money= 500
-      currency_type= "USD"
-      
-      print(resp['response']['value'])
       self.display()
 
     def button_1_click(self, **event_args):
         current_datetime = datetime.now()
         acc = self.drop_down_1.selected_value
         cur=self.drop_down_2.selected_value
+        money=float(self.text_box_2.text)
         endpoint = 'convert'
         api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
         # Set base currency and any other parameters (replace 'USD' with your desired base currency)
