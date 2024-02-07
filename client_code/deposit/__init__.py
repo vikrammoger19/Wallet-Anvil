@@ -5,6 +5,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 from datetime import datetime
+import anvil.http
 class deposit(depositTemplate):
 
     def __init__(self,user=None, **properties):
@@ -23,10 +24,14 @@ class deposit(depositTemplate):
         current_datetime = datetime.now()
         acc = self.drop_down_1.selected_value
         cur=self.drop_down_2.selected_value
- 
+        money=float(self.text_box_2.text)
+        endpoint = 'convert'
+        api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
+        # Set base currency and any other parameters (replace 'USD' with your desired base currency)
+        base_currency = 'INR'
+        resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
+        money_value=resp['response']['value']
         if self.user :
-            entered_amount = ''.join(filter(str.isdigit, str(self.text_box_2.text)))
-            money_value = float(entered_amount) if entered_amount else 0.0
             # Check if a balance row already exists for the user
             existing_balance = app_tables.wallet_users_balance.get(phone=self.user['phone'],currency_type=cur)
 

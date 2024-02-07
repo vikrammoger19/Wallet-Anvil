@@ -28,49 +28,70 @@ class transfer(transferTemplate):
 
     def button_1_click(self, **event_args):
         current_datetime = datetime.now()
-        receiver_phone_number = self.text_box_2.text
-        transfer_amount = self.text_box_3.text
+        receiver_phone_number = float(self.text_box_2.text)
+        transfer_amount = float(self.text_box_3.text)
         cur=self.drop_down_2.selected_value
-      
-        # Use the phone number of the depositor to identify their account
         depositor_phone_number = self.user['phone']
-        depositor_balance = anvil.server.call('get_balance_using_phone_number', depositor_phone_number, self.drop_down_2.selected_value)
-
-        # Use the entered phone number to identify the receiver's account
-        receiver_balance = anvil.server.call('get_balance_using_phone_number', receiver_phone_number, self.drop_down_2.selected_value)
-
-        # Check if 'balance' is not None and not an empty string
-        if receiver_balance['balance'] is not None:
-            recieve = float(receiver_balance['balance'])
-        else:
-            recieve = 0.0  # or set a default value based on your application logic
-
-        if receiver_balance['balance'] is None:
-            anvil.server.call('update_balance_transaction', receiver_phone_number, str(0), cur)
         
-        if (transfer_amount < 5) or (transfer_amount > 50000):
-            self.label_4.text = "Transfer amount should be between 5 and 50000 for a transfer Funds." 
-        else:
-             if float(depositor_balance['balance']) < transfer_amount:
-                self.label_4.text = "Insufficient Funds in E-Wallet."
-             else:
-                # calculating the money to be added in the receiver's end
-                transfer_final_receive_amount = recieve + transfer_amount
-                # calculating the money to be deducted in the depositor's end
-                transfer_depositor_amount_final = float(depositor_balance['balance']) - transfer_amount
-                # setting the value
-                anvil.server.call('update_depositor_balance', depositor_phone_number, str(transfer_depositor_amount_final), cur)
-                anvil.server.call('update_receiver_balance', receiver_phone_number, str(transfer_final_receive_amount), cur)
-                self.label_4.text = "Money transferred successfully"
-
-                app_tables.wallet_users_transaction.add_row(
-                  phone=depositor_phone_number,
-                  fund=transfer_amount,
+        # Use the entered phone number to identify the receiver's account
+        receiver_balance = app_tables.wallet_users_balance.get(phone=receiver_phone_number,currency_type=cur)
+        if self.user :
+          depositor_balance = app_tables.wallet_users_balance.get(phone=self.user['phone'],currency_type=cur)
+          print(depositor_balance['balance'])
+          
+          money_value = transfer_amount if transfer_amount else 0.0
+          if depositor_balance['balance'] >=money_value:
+            if receiver_balance is not None:
+              depositor_balance['balance'] -= money_value
+              receiver_balance['balance']+= money_value
+              new_transaction = app_tables.wallet_users_transaction.add_row(
+                phone=self.user['phone'],
+                fund=money_value,
+                date=current_datetime,
+                transaction_type="Debit",
+                transaction_status="transfered",
+                receiver_phone=receiver_phone_number
+            )
+              new_transaction = app_tables.wallet_users_transaction.add_row(
+                phone=receiver_phone_number,
+                fund=money_value,
+                date=current_datetime,
+                transaction_type="Credit",
+                transaction_status="recieved",
+                receiver_phone=self.user['phone']
+            )
+            else:
+              reciver = app_tables.wallet_users.get(phone=receiver_phone_number)
+              if reciver:
+                depositor_balance['balance'] -= money_value
+                balance = app_tables.wallet_users_balance.add_row(
+                      currency_type=cur,  # Replace with the actual currency type
+                      balance=money_value,
+                      phone=receiver_phone_number
+                  )
+                new_transaction = app_tables.wallet_users_transaction.add_row(
+                  phone=self.user['phone'],
+                  fund=money_value,
                   date=current_datetime,
                   transaction_type="Debit",
-                  transaction_status="Transfer",
-                  receiver_phone=int(receiver_phone_number)       
-                )
+                  transaction_status="transfered",
+                  receiver_phone=receiver_phone_number
+              )
+                new_transaction = app_tables.wallet_users_transaction.add_row(
+                  phone=receiver_phone_number,
+                  fund=money_value,
+                  date=current_datetime,
+                  transaction_type="Credit",
+                  transaction_status="recieved",
+                  receiver_phone=self.user['phone']
+              )
+                self.label_4.text = "Money transferred successfully to the account."
+              else:
+                anvil.alert("User does not exist")
+          else:
+            anvil.alert("Insufficient balance. Please add funds.")
+        else:
+          self.label_4.text = "Error: No matching accounts found for the user or invalid account number."
           
     def link_8_click(self, **event_args):
       """This method is called when the link is clicked"""
