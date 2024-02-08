@@ -9,7 +9,9 @@ class audit_trail(audit_trailTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-
+    actions_data = app_tables.actions.search()
+        # Set the fetched data as the items for the repeating panel
+    self.repeating_panel_1.items = actions_data
     # Any code you write here will run before the form opens.
 
   def link_1_click(self, **event_args):
