@@ -191,8 +191,8 @@ class admin_view(admin_viewTemplate):
             # Toggle to edit mode
             self.toggle_edit_mode()
 
-    def log_action(self, username, changes):
+    def log_action(self, username, changes, admin_email=None, last_login=None):
         # Log the action in the 'actions' table
         action = ", ".join(changes)
-        app_tables.actions.add_row(username=username, changes=action, date=datetime.now())
-        print("Action logged:", action)  # Debug statement
+        app_tables.actions.add_row(username=username, changes=action, date=datetime.now(), admin_email=admin_email, last_login=last_login)
+        print("Action logged:", action)
