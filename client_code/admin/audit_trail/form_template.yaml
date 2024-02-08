@@ -125,14 +125,6 @@ components:
     type: Label
     layout_properties: {grid_position: 'ZOEXLI,ZPYPNK'}
     data_bindings: []
-  - name: label_2
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Last Login:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: true, background: '', bold: true,
-      underline: false, icon: ''}
-    type: Label
-    layout_properties: {grid_position: 'ZOEXLI,UGQAEV'}
-    data_bindings: []
   - name: label_3
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Changes:', font_size: null, font: '', spacing_above: small,

@@ -5,7 +5,7 @@ from datetime import datetime
 import re
 
 class admin_view(admin_viewTemplate):
-    def __init__(self, user_data=None,admin_email=None, last_login=None, user=None, phone_number=None, **properties):
+    def __init__(self, user_data=None, phone_number=None, **properties):
         # self.user = user
         self.phone_number = phone_number
         self.init_components(**properties)
@@ -191,9 +191,9 @@ class admin_view(admin_viewTemplate):
             # Toggle to edit mode
             self.toggle_edit_mode()
 
-    def log_action(self, username, changes, admin_email=None, last_login=None):
+    def log_action(self, username, changes):
         # Log the action in the 'actions' table
         
         action = ", ".join(changes)
-        app_tables.actions.add_row(username=username, changes=action, date=datetime.now(), admin_email=admin_email, last_login=last_login)
+        app_tables.actions.add_row(username=username, changes=action, date=datetime.now())
         print("Action logged:", action)
