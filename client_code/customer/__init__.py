@@ -44,3 +44,7 @@ class customer(customerTemplate):
     def button_3_click(self, **event_args):
         open_form('transaction_history',user=self.user)
 
+    def link_3_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('transfer',user=self.user)
+

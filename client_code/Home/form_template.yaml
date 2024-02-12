@@ -98,7 +98,7 @@ components:
     - name: image_3
       properties: {height: 263.1999816894531, source: 'https://www.temenos.com/wp-content/uploads/2023/05/Genie-Wallet-pic1-768x432.png'}
       type: Image
-      layout_properties: {x: 1227.25, y: 14.953125, width: 411.1875}
+      layout_properties: {x: 948.0999877937138, y: 18.200016785413027, width: 411.1875}
   - name: spacer_4
     properties: {height: 32}
     type: Spacer
