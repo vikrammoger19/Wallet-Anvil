@@ -201,3 +201,35 @@ class admin_view(admin_viewTemplate):
     def button_3_click(self, **event_args):
       """This method is called when the button is clicked"""
       pass
+
+    def button_8_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form('Login')
+
+    def link_8_copy_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin')
+
+    def link_3_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.admin_view')
+
+    def link_5_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.audit_trail')
+
+    def link_6_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.admin_add_user')
+
+    def link_7_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.transaction_monitoring')
+
+    def link_2_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.account_management')
+
+    def link_1_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.report_analysis')
