@@ -112,12 +112,20 @@ components:
   properties: {text: FROM, bold: true}
   type: Label
   layout_properties: {grid_position: 'JCUCRC,KWSYVE'}
+- name: label_5
+  properties: {text: Transaction_Status, bold: true, font_size: 15}
+  type: Label
+  layout_properties: {grid_position: 'JCUCRC,ULDRGP'}
 - name: repeating_panel_1
   properties: {item_template: admin.transaction_monitoring.ItemTemplate1}
   type: RepeatingPanel
-  layout_properties: {grid_position: 'WIFHGZ,VRZNGI PPMRBH,RMKNRF'}
+  layout_properties: {grid_position: 'PPMRBH,RMKNRF'}
   data_bindings:
   - {property: items, code: 'self.item[''reciver_number'']'}
+- type: TextBox
+  properties: {}
+  name: text_box_1
+  layout_properties: {grid_position: 'PPMRBH,CSAWEP'}
 - name: spacer_2
   properties: {height: 32}
   type: Spacer

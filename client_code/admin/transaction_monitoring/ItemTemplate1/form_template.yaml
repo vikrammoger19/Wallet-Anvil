@@ -2,6 +2,8 @@ is_package: true
 container:
   type: ColumnPanel
   properties: {col_widths: '{}'}
+  data_bindings:
+  - {property: tag, code: 'self.item[''transaction_type'']'}
 components:
 - type: TextBox
   properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
@@ -26,14 +28,14 @@ components:
     border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
     font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
     background: '', bold: false, underline: false}
-  name: text_box_3
-  layout_properties: {grid_position: 'EZOGOE,VZLTXR'}
-  data_bindings:
-  - {property: text, code: 'self.item[''transaction_type'']', writeback: true}
-- type: TextBox
-  properties: {}
   name: text_box_4
   layout_properties: {grid_position: 'EZOGOE,PZDEGC'}
   data_bindings:
-  - {property: text, code: 'self.item[''transaction_type'']', writeback: true}
+  - {property: text, code: 'self.item[''receiver_phone'']', writeback: true}
   event_bindings: {pressed_enter: text_box_4_pressed_enter}
+- name: text_box_5
+  properties: {}
+  type: TextBox
+  layout_properties: {grid_position: 'EZOGOE,VKGLCN'}
+  data_bindings:
+  - {property: text, code: 'self.item[''transaction_status'']', writeback: true}
