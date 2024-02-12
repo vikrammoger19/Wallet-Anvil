@@ -107,7 +107,7 @@ components:
     - name: image_3
       properties: {height: 263.1999816894531, source: 'https://www.temenos.com/wp-content/uploads/2023/05/Genie-Wallet-pic1-768x432.png'}
       type: Image
-      layout_properties: {x: 1227.25, y: 14.953125, width: 411.1875}
+      layout_properties: {x: 892.6909111887217, y: 22.795135498046875, width: 385.50347900390625}
   - name: label_5
     properties: {role: null, align: center, tooltip: '', border: '', foreground: black,
       visible: true, text: '', font_size: 17, font: '', spacing_above: small, icon_align: left,

@@ -53,3 +53,22 @@ class transaction_monitoring(transaction_monitoringTemplate):
   def button_8_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('Login')
+
+  def button_1_click(self, **event_args):
+    # Get the user entered in the textbox
+    entered_user = self.textbox_search.text
+
+    # Convert entered_user to a number if it's a valid numerical value
+    try:
+        entered_user = int(entered_user)  # Assuming phone numbers are integers
+    except ValueError:
+        # Handle the case where entered_user is not a valid numerical value
+        # You might want to display an error message or handle this case differently
+        print("Entered user is not a valid numerical value.")
+        return
+
+    # Filter transactions based on the entered user
+    filtered_transactions = app_tables.wallet_users_transaction.search(receiver_phone=entered_user)
+
+    # Update the repeating panel with the filtered transactions
+    self.repeating_panel_1.items = filtered_transactions

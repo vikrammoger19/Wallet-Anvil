@@ -161,7 +161,7 @@ components:
     layout_properties: {grid_position: 'KZZEES,UYQAKU LINQDE,UAAGOB'}
   - name: label_13
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'SWIS:', font_size: null, font: '', spacing_above: small,
+      visible: true, text: 'GBP:', font_size: null, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: true, background: '', bold: true,
       underline: false, icon: ''}
     type: Label
