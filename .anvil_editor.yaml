@@ -15,6 +15,7 @@ unique_ids:
     admin.account_management.ItemTemplate6: '17066021727573565195254.0898256'
     admin.admin_add_user: '1706852604723522748937974.84314'
     admin.transaction_monitoring.ItemTemplate1: '1706769788928229752038805.30936'
+    admin.raise_a_complaint.ItemTemplate7: '1707720975300750450311906.8728'
     admin.audit_trail.ItemTemplate5: '1707362299988983753861065.0303'
     admin.show_users: '1706598382099409992504742.12134'
     Viewprofile: '1706611287185736171714748.7703'
