@@ -25,11 +25,11 @@ class admin_view(admin_viewTemplate):
                     # Check currency type and update corresponding balances
                     if balance_row['currency_type'] == 'USD':
                         usd_balance = balance_row['balance']
-                    elif balance_row['currency_type'] == 'Euro':
+                    elif balance_row['currency_type'] == 'EUR':
                         euro_balance = balance_row['balance']
                     elif balance_row['currency_type'] == 'INR':
                         inr_balance = balance_row['balance']
-                    elif balance_row['currency_type'] == 'Swiss':
+                    elif balance_row['currency_type'] == 'GBP':
                         swiss_balance = balance_row['balance']
                 
                 # Update text boxes with the retrieved balances

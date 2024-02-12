@@ -23,6 +23,13 @@ components:
   layout_properties: {grid_position: 'EZOGOE,EKFMDB'}
   data_bindings:
   - {property: text, code: 'self.item[''fund'']', writeback: true}
+- name: text_box_3
+  properties: {}
+  type: TextBox
+  layout_properties: {grid_position: 'EZOGOE,SQHKGF'}
+  data_bindings:
+  - {property: text, code: 'self.item[''transaction_type'']', writeback: true}
+  event_bindings: {pressed_enter: text_box_3_pressed_enter}
 - type: TextBox
   properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
     border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,

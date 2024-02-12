@@ -97,19 +97,31 @@ components:
   type: Image
   layout_properties: {grid_position: 'ZGMCCV,KBIDHU'}
 - name: label_1
-  properties: {text: Phone, bold: true}
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Phone, font_size: null, font: '15', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
   type: Label
   layout_properties: {grid_position: 'JCUCRC,CBQABK'}
 - name: label_2
-  properties: {text: FUND, bold: true}
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Fund, font_size: null, font: '15', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
   type: Label
   layout_properties: {grid_position: 'JCUCRC,PFHLCG'}
 - name: label_3
-  properties: {text: TRANSACTION_TYPE, bold: true}
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Transaction_Type, font_size: 15, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
   type: Label
-  layout_properties: {grid_position: 'JCUCRC,PCRQHG'}
+  layout_properties: {grid_position: 'JCUCRC,HRJOOI'}
 - name: label_4
-  properties: {text: FROM, bold: true}
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Reciver_Number, font_size: 15, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: true, underline: false,
+    icon: ''}
   type: Label
   layout_properties: {grid_position: 'JCUCRC,KWSYVE'}
 - name: label_5
@@ -122,10 +134,6 @@ components:
   layout_properties: {grid_position: 'PPMRBH,RMKNRF'}
   data_bindings:
   - {property: items, code: 'self.item[''reciver_number'']'}
-- type: TextBox
-  properties: {}
-  name: text_box_1
-  layout_properties: {grid_position: 'PPMRBH,CSAWEP'}
 - name: spacer_2
   properties: {height: 32}
   type: Spacer
