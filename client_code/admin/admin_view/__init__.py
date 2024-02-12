@@ -193,6 +193,11 @@ class admin_view(admin_viewTemplate):
 
     def log_action(self, username, changes):
         # Log the action in the 'actions' table
+        
         action = ", ".join(changes)
         app_tables.actions.add_row(username=username, changes=action, date=datetime.now())
-        print("Action logged:", action)  # Debug statement
+        print("Action logged:", action)
+
+    def button_3_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      pass

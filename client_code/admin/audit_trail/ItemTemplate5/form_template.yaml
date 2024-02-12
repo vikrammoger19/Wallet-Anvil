@@ -7,12 +7,6 @@ components:
   layout_properties: {grid_position: 'PFMOXT,GKRLHJ'}
   data_bindings:
   - {property: text, code: 'self.item[''username'']', writeback: true}
-- name: text_box_2
-  properties: {}
-  type: TextBox
-  layout_properties: {grid_position: 'PFMOXT,BOQWAM'}
-  data_bindings:
-  - {property: text, code: 'self.item[''last_login'']', writeback: true}
 - name: text_box_3
   properties: {}
   type: TextBox

@@ -79,3 +79,7 @@ class show_users(show_usersTemplate):
   def button_8_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('Login')
+
+  def button_3_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('admin')

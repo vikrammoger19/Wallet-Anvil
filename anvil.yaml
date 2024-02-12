@@ -145,12 +145,6 @@ db_schema:
     - name: date
       admin_ui: {width: 200, order: 2}
       type: datetime
-    - name: admin_email
-      admin_ui: {width: 200, order: 3}
-      type: string
-    - name: last_login
-      admin_ui: {width: 200, order: 4}
-      type: date
     title: actions
 secrets:
   ? ''
