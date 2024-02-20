@@ -200,7 +200,7 @@ class admin_view(admin_viewTemplate):
 
     def button_3_click(self, **event_args):
       """This method is called when the button is clicked"""
-      pass
+      open_form('admin.account_management')
 
     def button_8_click(self, **event_args):
       """This method is called when the button is clicked"""
@@ -233,3 +233,7 @@ class admin_view(admin_viewTemplate):
     def link_1_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('admin.report_analysis')
+
+    def link_4_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.user_support')

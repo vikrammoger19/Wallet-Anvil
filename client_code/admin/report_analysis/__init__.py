@@ -169,7 +169,7 @@ class report_analysis(report_analysisTemplate):
 
     def link_4_click(self, **event_args):
       """This method is called when the link is clicked"""
-      serves_data = app_tables.sevices.search()
+      serves_data = app_tables.wallet_users_service.search()
 
     # Open the admin.user_support form and pass the serves_data
       user_support_form = open_form('admin.user_support', serves_data=serves_data)
@@ -185,3 +185,7 @@ class report_analysis(report_analysisTemplate):
     def button_8_click(self, **event_args):
       """This method is called when the button is clicked"""
       open_form('Login')
+
+    def button_3_copy_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form('admin')

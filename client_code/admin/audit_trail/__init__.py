@@ -36,7 +36,7 @@ class audit_trail(audit_trailTemplate):
 
   def link_4_click(self, **event_args):
     """This method is called when the link is clicked"""
-    serves_data = app_tables.sevices.search()
+    serves_data = app_tables.actions.search()
 
     # Open the admin.user_support form and pass the serves_data
     user_support_form = open_form('admin.user_support', serves_data=serves_data)
@@ -52,3 +52,7 @@ class audit_trail(audit_trailTemplate):
   def button_8_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('Login')
+
+  def button_3_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('Home')
