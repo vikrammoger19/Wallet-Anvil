@@ -248,7 +248,16 @@ def update_receiver_balance(receiver_phone_number, new_balance, currency_type):
         # Create a new row with the provided information for receiver
         app_tables.wallet_users_balance.add_row(phone=receiver_phone_number, balance=new_balance, currency_type=currency_type)
 
-
+@anvil.server.callable
+def get_currency_balance(user_phone, currency_type):
+    # Retrieve the balance for the given user and currency type
+    user_rows = app_tables.wallet_users_balance.search(phone=user_phone, currency_type=currency_type)
+    
+    if len(user_rows) > 0:
+        # Assuming there's only one row per user and currency type, return the balance
+        return user_rows[0]['balance']
+    else:
+        return None 
 
 
 
