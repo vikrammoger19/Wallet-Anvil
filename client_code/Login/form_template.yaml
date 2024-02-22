@@ -10,7 +10,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: navbar_links
-    properties: {}
+    properties: {spacing_above: none, spacing_below: none}
     type: FlowPanel
     layout_properties: {row: DSZJWF, width_xs: 12, col_xs: 0}
     components:
@@ -34,9 +34,10 @@ components:
       layout_properties: {width: 690.5999755859375}
     - name: link_10_copy
       properties: {text: 'Withdraw ', bold: false, align: center, foreground: black,
-        font_size: 15, background: white}
+        font_size: 15, background: ''}
       type: Link
       event_bindings: {}
+      layout_properties: {}
     - name: link_9_copy
       properties: {text: Money Transfer, align: center, bold: false, foreground: black,
         font_size: 15, col_spacing: tiny}
@@ -54,87 +55,86 @@ components:
         background: ''}
       type: Button
       event_bindings: {click: button_3_click}
-  - name: spacer_2
-    properties: {height: 9.199981689453125}
-    type: Spacer
-    layout_properties: {row: ZIYYKR, width_xs: 11, col_xs: 1}
   - name: image_1
     properties: {source: 'https://as1.ftcdn.net/v2/jpg/02/58/08/00/1000_F_258080094_ZZBJctFXuoz3GweY4mzGN5nGCXHEsRTI.jpg',
-      background: '', display_mode: zoom_to_fill, height: 172.39999389648438}
+      background: '', display_mode: zoom_to_fill, height: 172.39999389648438, spacing_above: none,
+      spacing_below: none}
     type: Image
     layout_properties: {row: DHTTHS, width_xs: 12, col_xs: 0}
     data_bindings:
     - {property: height, code: 'self.item['''']', writeback: false}
-  - name: spacer_2_copy
-    properties: {height: 8.600006103515625}
-    type: Spacer
-    layout_properties: {row: UCSTZA, width_xs: 3, col_xs: 4}
   - name: label_5
-    properties: {text: Login / Signup, align: center, bold: true, font_size: 25, underline: true,
-      font: a, foreground: white, background: '#2196f3'}
+    properties: {align: center, foreground: white, text: Login / Signup, font_size: 25,
+      font: a, spacing_above: none, spacing_below: none, background: '#2196f3', bold: true,
+      underline: true}
     type: Label
     layout_properties: {row: VSXFLH, width_xs: 12, col_xs: 0}
-  - name: label_8
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Existing user ?', font_size: 16, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
-    type: Label
-    layout_properties: {row: UJACHI, width_xs: 2, col_xs: 5}
-  - name: label_6
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Enter Your Username /email /phone number, font_size: null,
-      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: true, underline: false, icon: ''}
-    type: Label
-    layout_properties: {row: EFJMBX, width_xs: 2, col_xs: 4}
-  - name: text_box_1
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Username/ email / phone number,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: white, bold: false, underline: false}
-    type: TextBox
-    layout_properties: {row: EFJMBX, width_xs: 2, col_xs: 7}
-    data_bindings: []
-  - name: label_7
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Enter Your Password:', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
-    type: Label
-    layout_properties: {row: XQQDLJ, width_xs: 2, col_xs: 4}
-  - name: text_box_2
-    properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: Password,
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-      background: white, bold: false, underline: false}
-    type: TextBox
-    layout_properties: {row: XQQDLJ, width_xs: 2, col_xs: 7}
-    event_bindings: {pressed_enter: text_box_2_pressed_enter}
-  - name: label_9
-    properties: {}
-    type: Label
-    layout_properties: {row: ECTCQE, width_xs: 2, col_xs: 7}
-  - name: button_1
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: white, visible: true, text: 'Login        ', font_size: 16, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#1b7bc9', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {row: OXFXQG, width_xs: 2, col_xs: 5}
-    event_bindings: {click: button_1_click}
-  - name: label_8_copy
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'New user ?', font_size: 16, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: true, icon: ''}
-    type: Label
-    layout_properties: {row: IVEVDL, width_xs: 2, col_xs: 5}
-  - name: button_2
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: white, visible: true, text: 'Sign up     ', font_size: 16, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#1b7bc9', bold: true, underline: false, icon: ''}
-    type: Button
-    layout_properties: {row: CWCSEY, width_xs: 2, col_xs: 5}
-    event_bindings: {click: button_2_click}
+  - name: grid_panel_2
+    properties: {background: '', spacing_above: none, spacing_below: none}
+    type: GridPanel
+    layout_properties: {row: SZSASY, width_xs: 8, col_xs: 2}
+    components:
+    - name: label_8
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Existing user ?', font_size: 16, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {row: XWWDDB, width_xs: 12, col_xs: 0}
+    - name: label_6
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Enter Your Username /email /phone number, font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: ''}
+      type: Label
+      layout_properties: {row: OOCCMJ, width_xs: 4, col_xs: 2}
+    - name: text_box_1
+      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Username/ email / phone number,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      type: TextBox
+      layout_properties: {row: OOCCMJ, width_xs: 5, col_xs: 6}
+      data_bindings: []
+    - name: label_7
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'Enter Your Password:', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {row: ACBDXG, width_xs: 4, col_xs: 2}
+    - name: text_box_2
+      properties: {role: null, align: left, hide_text: true, tooltip: '', placeholder: Password,
+        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false}
+      type: TextBox
+      layout_properties: {row: ACBDXG, width_xs: 5, col_xs: 6}
+      event_bindings: {pressed_enter: text_box_2_pressed_enter}
+    - name: label_9
+      properties: {}
+      type: Label
+      layout_properties: {row: ZXNPCG, width_xs: 6, col_xs: 6}
+    - name: button_1
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: 'Login        ', font_size: 16, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '#1b7bc9', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {row: IAVNQX, width_xs: 10, col_xs: 1}
+      event_bindings: {click: button_1_click}
+    - name: label_8_copy
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'New user ?', font_size: 16, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: true, icon: ''}
+      type: Label
+      layout_properties: {row: KGCPTG, width_xs: 12, col_xs: 0}
+    - name: button_2
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: 'Sign up     ', font_size: 16, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '#1b7bc9', bold: true, underline: false, icon: ''}
+      type: Button
+      layout_properties: {row: IOYNMJ, width_xs: 12, col_xs: 0}
+      event_bindings: {click: button_2_click}

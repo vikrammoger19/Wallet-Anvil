@@ -75,23 +75,13 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'FXASSI,YMBFIE'}
   - name: button_add_bank_details_click
-    properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: white, visible: true, text: Add bank details, font_size: 15, font: '',
       spacing_above: small, icon_align: right, spacing_below: small, italic: false,
       background: '#2586d0', bold: true, underline: false, icon: 'fa:angle-down'}
     type: Button
     layout_properties: {grid_position: 'FLHNFM,XHDMJK'}
     event_bindings: {click: button_add_bank_details_click_click}
-  - name: button_1
-    properties: {text: 'Mutual funds         ', role: outlined-button, background: '#2586d0',
-      foreground: white, icon: 'fa:angle-down', icon_align: right, bold: true}
-    type: Button
-    layout_properties: {grid_position: 'FLHNFM,ROPKPP'}
-  - name: button_2
-    properties: {text: 'Investing             ', role: outlined-button, background: '#2586d0',
-      foreground: white, icon: 'fa:angle-down', icon_align: right, bold: true, align: center}
-    type: Button
-    layout_properties: {grid_position: 'FLHNFM,QCHNDR'}
   - name: spacer_3
     properties: {height: 32}
     type: Spacer
@@ -200,34 +190,34 @@ components:
     layout_properties: {grid_position: 'XCXRDT,PTWGAN', full_width_row: true}
     components:
     - name: label_1_copy
-      properties: {text: CopyRight2023@Gwallet, align: left, bold: false, font_size: 12,
-        visible: true, role: input-prompt, foreground: 'theme:On Primary'}
+      properties: {text: CopyRight2023@Gwallet, align: left, bold: false, font_size: 16,
+        visible: true, role: input-prompt, foreground: 'theme:White'}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,XVKBKL'}
     - name: label_2_copy
-      properties: {role: null, align: right, tooltip: '', border: '', foreground: 'theme:On
-          Primary', visible: true, text: Disclaimer, font_size: 12, font: '', spacing_above: small,
+      properties: {role: null, align: right, tooltip: '', border: '', foreground: 'theme:White',
+        visible: true, text: Disclaimer, font_size: 16, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,VMILPR'}
     - name: label_3_copy
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
-          Primary', visible: true, text: Privacy Policy, font_size: 12, font: '',
-        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false, icon: ''}
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:White',
+        visible: true, text: Privacy Policy, font_size: 16, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,FDANOO'}
     - name: label_4_copy
-      properties: {role: null, align: right, tooltip: '', border: '', foreground: 'theme:On
-          Primary', visible: true, text: Code Of Commitment, font_size: 12, font: '',
-        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false, icon: ''}
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:White',
+        visible: true, text: Code Of Commitment, font_size: 16, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,HAKDVS'}
     - name: link_8
-      properties: {align: right, text: Customer Service, foreground: white, font_size: 12,
-        bold: false}
+      properties: {align: right, text: Customer Service, foreground: 'theme:White',
+        font_size: 16, bold: false}
       type: Link
       layout_properties: {grid_position: 'XSXLAE,NFTMSZ'}
       event_bindings: {click: link_8_click}
