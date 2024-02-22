@@ -42,13 +42,6 @@ components:
       properties: {text: Withdraw, bold: true, align: center, foreground: black}
       type: Link
       event_bindings: {click: link_4_click}
-    - name: link_5
-      properties: {align: center, bold: true, text: Company, foreground: black}
-      type: Link
-    - name: link_6
-      properties: {text: Career, align: center, bold: true, foreground: black}
-      type: Link
-      event_bindings: {click: link_6_click}
     - name: link_7
       properties: {text: Help, align: center, bold: true, foreground: black}
       type: Link
@@ -127,7 +120,7 @@ components:
       type: Label
       layout_properties: {row: YQXCIG, width_xs: 2, col_xs: 3}
     - name: text_box_3
-      properties: {background: white}
+      properties: {background: white, enabled: false}
       type: TextBox
       layout_properties: {row: YQXCIG, width_xs: 5, col_xs: 5}
       data_bindings:
@@ -142,7 +135,7 @@ components:
       layout_properties: {row: GRKRPC, width_xs: 2, col_xs: 3}
     - name: text_box_4
       properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
         font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
         background: white, bold: false, underline: false}
       type: TextBox

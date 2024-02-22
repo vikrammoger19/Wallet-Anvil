@@ -32,9 +32,6 @@ components:
     properties: {text: Withdraw, bold: true, align: center, foreground: black}
     type: Link
     event_bindings: {click: link_4_click}
-  - name: link_5
-    properties: {align: center, bold: true, text: Company, foreground: black}
-    type: Link
   - name: link_7
     properties: {text: Help, align: center, bold: true, foreground: black}
     type: Link
