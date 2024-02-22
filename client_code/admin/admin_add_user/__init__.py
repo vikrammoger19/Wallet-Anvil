@@ -119,7 +119,7 @@ class admin_add_user(admin_add_userTemplate):
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.account_management', user= self.user)
+    open_form('admin.account_management')
 
   def link_7_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -131,11 +131,11 @@ class admin_add_user(admin_add_userTemplate):
 
   def link_5_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.audit_trail', user = self.user)
+    open_form('admin.audit_trail')
 
   def link_4_click(self, **event_args):
     """This method is called when the link is clicked"""
-    serves_data = app_tables.sevices.search()
+    serves_data = app_tables.wallet_users_service.search()
 
     # Open the admin.user_support form and pass the serves_data
     user_support_form = open_form('admin.user_support', serves_data=serves_data)
