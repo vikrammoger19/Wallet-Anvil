@@ -65,6 +65,9 @@ db_schema:
     - name: hold
       admin_ui: {width: 200, order: 13}
       type: bool
+    - name: userreferral
+      admin_ui: {order: 14, width: 200}
+      type: string
     title: wallet_users
   wallet_users_account:
     client: full
