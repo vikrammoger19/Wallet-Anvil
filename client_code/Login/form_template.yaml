@@ -50,14 +50,6 @@ components:
       properties: {text: 'Company  ', align: center, bold: false, foreground: black,
         font_size: 15}
       type: Link
-  - name: image_1
-    properties: {source: 'https://as1.ftcdn.net/v2/jpg/02/58/08/00/1000_F_258080094_ZZBJctFXuoz3GweY4mzGN5nGCXHEsRTI.jpg',
-      background: '', display_mode: zoom_to_fill, height: 172.39999389648438, spacing_above: none,
-      spacing_below: none}
-    type: Image
-    layout_properties: {row: DHTTHS, width_xs: 12, col_xs: 0}
-    data_bindings:
-    - {property: height, code: 'self.item['''']', writeback: false}
   - name: label_5
     properties: {align: center, foreground: white, text: Login / Signup, font_size: 25,
       font: a, spacing_above: none, spacing_below: none, background: '#2196f3', bold: true,
