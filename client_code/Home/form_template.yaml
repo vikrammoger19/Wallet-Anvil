@@ -57,7 +57,7 @@ components:
             font_size: 15, background: white}
           type: Link
           layout_properties: {grid_position: 'JXFFNM,EKRNNM', full_width_row: true}
-          event_bindings: {}
+          event_bindings: {click: link_10_click}
         - name: link_12
           properties: {text: Career, align: center, bold: false, foreground: black,
             font_size: 15}
