@@ -106,11 +106,6 @@ components:
       icon: ''}
     type: Label
     layout_properties: {grid_position: 'EEFOPM,JFAPUI'}
-  - name: image_1
-    properties: {source: 'https://static.vecteezy.com/system/resources/previews/012/976/256/original/financial-illustration-set-saving-money-in-cash-credit-card-or-savings-in-bank-accounts-payment-transactions-transfer-e-wallet-finance-management-and-savings-concept-flat-illustration-free-vector.jpg',
-      height: 272.25}
-    type: Image
-    layout_properties: {grid_position: 'ZZJWUQ,IVRHZX', full_width_row: true}
   - name: spacer_3
     properties: {height: 5.5999755859375}
     type: Spacer
