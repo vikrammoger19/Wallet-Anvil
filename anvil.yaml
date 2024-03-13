@@ -71,6 +71,9 @@ db_schema:
     - name: defaultcurrency
       admin_ui: {width: 200, order: 15}
       type: string
+    - name: auto_topup
+      admin_ui: {width: 200, order: 16}
+      type: bool
     title: wallet_users
   wallet_users_account:
     client: full
