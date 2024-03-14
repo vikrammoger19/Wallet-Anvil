@@ -7,7 +7,6 @@ from anvil.tables import app_tables
 from datetime import datetime
 import anvil.http
 class auto_topup(auto_topupTemplate):
-
     def __init__(self,user=None, **properties):
         # Initialize self.user as a dictionary
       self.init_components(**properties)
@@ -202,3 +201,23 @@ class auto_topup(auto_topupTemplate):
       self.card_2.visible = False
       self.button_5.visible = False
       self.label_4.visible= False
+
+    def link_2_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form("customer.deposit",user=self.user)
+
+    def link_3_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.transfer',user=self.user)
+
+    def link_4_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.withdraw',user=self.user)
+
+    def link_7_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.service',user=self.user)
+
+    def link_13_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form("Home")
