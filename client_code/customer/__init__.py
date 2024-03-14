@@ -56,3 +56,6 @@ class customer(customerTemplate):
       """This method is called when the button is clicked"""
       open_form('selftransfer',user=self.user)
 
+    def button_5_click(self, **event_args):
+      open_form('auto_topup', user=self.user)
+

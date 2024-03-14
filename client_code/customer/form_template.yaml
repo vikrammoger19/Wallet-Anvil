@@ -117,10 +117,11 @@ components:
     layout_properties: {grid_position: 'RHEAMB,LKQWXH LSKKBM,FEDZCM'}
     event_bindings: {click: button_6_click}
   - name: button_5
-    properties: {text: 'UPI                          ', bold: true, role: outlined-button,
-      background: '#1d6eae', foreground: white, font_size: 15, align: full}
+    properties: {text: Auto-topup, bold: true, role: outlined-button, background: '#1d6eae',
+      foreground: white, font_size: 15, align: full}
     type: Button
     layout_properties: {grid_position: 'RHEAMB,LKQWXH MSJWQJ,AOJPLX'}
+    event_bindings: {click: button_5_click}
   - name: button_3
     properties: {text: Transaction History, role: outlined-button, background: '#1d6eae',
       foreground: white, bold: true, align: full, font_size: 16}
