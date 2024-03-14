@@ -10,7 +10,7 @@ services:
 - source: /runtime/services/anvil/secrets.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: Home}
+startup: {type: form, module: auto_topup}
 package_name: d1
 allow_embedding: false
 name: Wallet Anvil
@@ -63,7 +63,7 @@ db_schema:
       admin_ui: {width: 200, order: 12}
       type: datetime
     - name: hold
-      admin_ui: {width: 200, order: 13}
+      admin_ui: {order: 11.984375, width: 200}
       type: bool
     - name: userreferral
       admin_ui: {order: 14, width: 200}
@@ -72,8 +72,20 @@ db_schema:
       admin_ui: {width: 200, order: 15}
       type: string
     - name: auto_topup
-      admin_ui: {width: 200, order: 16}
+      admin_ui: {order: 11.5, width: 200}
       type: bool
+    - name: minimum_topup
+      admin_ui: {order: 11.75, width: 200}
+      type: bool
+    - name: timely_topup
+      admin_ui: {order: 11.875, width: 200}
+      type: bool
+    - name: timely_topup_interval
+      admin_ui: {order: 11.9375, width: 200}
+      type: string
+    - name: last_auto_topup_time
+      admin_ui: {order: 11.96875, width: 200}
+      type: datetime
     title: wallet_users
   wallet_users_account:
     client: full
