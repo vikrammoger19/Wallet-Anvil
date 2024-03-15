@@ -80,7 +80,7 @@ components:
   - name: grid_panel_1
     properties: {}
     type: GridPanel
-    layout_properties: {grid_position: 'CWFBHM,BNFKPC'}
+    layout_properties: {grid_position: 'GPHSHO,CSASIU'}
     components:
     - name: label_7
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
@@ -104,7 +104,7 @@ components:
       layout_properties: {row: RAKHCV, width_xs: 2, col_xs: 3}
     - name: text_box_2
       properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+        border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
         font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
         background: white, bold: false, underline: false}
       type: TextBox

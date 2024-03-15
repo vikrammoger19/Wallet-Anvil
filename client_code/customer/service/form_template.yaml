@@ -27,13 +27,13 @@ components:
       type: Label
       layout_properties: {}
     - name: spacer_3_copy_copy
-      properties: {height: 58.19996643066406}
+      properties: {height: 43}
       type: Spacer
-      layout_properties: {width: 414.6999755859375}
+      layout_properties: {width: -4.3125}
     - name: column_panel_1_copy
       properties: {foreground: '', col_spacing: none, col_widths: '{"DZACHX":9,"EQLJSK":9,"IYMZZI":9,"QMIILD":9,"YSLIKN":6,"LADGEM":10}'}
       type: ColumnPanel
-      layout_properties: {width: 700, expand: false}
+      layout_properties: {width: 501.422}
       components:
       - name: link_2
         properties: {text: Deposit, align: center, bold: true, foreground: black}
