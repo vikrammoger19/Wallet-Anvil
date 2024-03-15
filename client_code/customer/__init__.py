@@ -22,40 +22,44 @@ class customer(customerTemplate):
 
     def button_1_click(self, **event_args):
         # Open the Viewprofile form and pass the user information
-        open_form('Viewprofile', user=self.user)
+        open_form('customer.Viewprofile', user=self.user)
 
     def button_6_click(self, **event_args):
-      open_form('wallet', user=self.user)
+      open_form('customer.wallet', user=self.user)
 
     def link_4_click(self, **event_args):
-      open_form('withdraw',user=self.user)
+      open_form('customer.withdraw',user=self.user)
 
 
     def link_2_click(self, **event_args):
-      open_form('deposit',user=self.user)
+      open_form('customer.deposit',user=self.user)
      
 
     def link_7_click(self, **event_args):
       """This method is called when the link is clicked"""
-      pass
+      open_form('customer.service',user=self.user)
 
 
 
     def button_3_click(self, **event_args):
-        open_form('transaction_history',user=self.user)
+        open_form('customer.transaction_history',user=self.user)
 
     def link_3_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('transfer',user=self.user)
+      open_form('customer.transfer',user=self.user)
 
     def button_2_click(self, **event_args):
       """This method is called when the button is clicked"""
-      open_form('walletbalance',user=self.user)
+      open_form('customer.walletbalance',user=self.user)
 
     def button_4_click(self, **event_args):
       """This method is called when the button is clicked"""
-      open_form('selftransfer',user=self.user)
+      open_form('customer.selftransfer',user=self.user)
 
     def button_5_click(self, **event_args):
-      open_form('auto_topup', user=self.user)
+      open_form('customer.auto_topup', user=self.user)
+
+    def link_13_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form("Home")
 
