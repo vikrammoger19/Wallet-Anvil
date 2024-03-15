@@ -57,22 +57,22 @@ class set_limit(set_limitTemplate):
 
   def link_8_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin')
+    open_form('admin',user=self.user)
 
   def link_10_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.user_support')
+    open_form('admin.user_support',user=self.user)
 
   def button_8_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('Login')
 
   def button_3_click(self, **event_args):
-    open_form('admin.account_management')
+    open_form('admin.account_management',user=self.user)
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.report_analysis')
+    open_form('admin.report_analysis',user=self.user)
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -80,11 +80,11 @@ class set_limit(set_limitTemplate):
 
   def link_7_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.transaction_monitoring')
+    open_form('admin.transaction_monitoring',user=self.user)
 
   def link_6_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.admin_add_user')
+    open_form('admin.admin_add_user',user=self.user)
 
   def link_5_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -95,9 +95,9 @@ class set_limit(set_limitTemplate):
     serves_data = app_tables.sevices.search()
 
     # Open the admin.user_support form and pass the serves_data
-    user_support_form = open_form('admin.user_support', serves_data=serves_data)
+    user_support_form = open_form('admin.user_support', serves_data=serves_data,user=self.user)
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    show_users_form = open_form('admin.show_users')
+    show_users_form = open_form('admin.show_users',user=self.user)
     
