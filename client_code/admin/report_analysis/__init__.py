@@ -34,7 +34,7 @@ class report_analysis(report_analysisTemplate):
           fund = transaction['fund']  # Retrieve the 'fund' field
   
           if date not in data_for_plot:
-              data_for_plot[date] = {'Deposit': 0, 'Withdrawal': 0, 'Account to E-wallet': 0}
+              data_for_plot[date] = {'Debit': 0, 'Credit': 0, 'Account to E-wallet': 0}
   
           # Ensure fund is a string or a number before conversion
           if isinstance(fund, (int, float)):
