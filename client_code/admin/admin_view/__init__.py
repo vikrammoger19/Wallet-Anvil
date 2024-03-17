@@ -5,8 +5,8 @@ from datetime import datetime
 import re
 
 class admin_view(admin_viewTemplate):
-    def __init__(self, user_data=None, phone_number=None, **properties):
-        # self.user = user
+    def __init__(self, user_data=None, phone_number=None,user=None, **properties):
+        self.user = user
         self.phone_number = phone_number
         self.init_components(**properties)
         self.edit_mode = False  # Initialize edit_mode attribute to False
@@ -200,7 +200,7 @@ class admin_view(admin_viewTemplate):
 
     def button_3_click(self, **event_args):
       """This method is called when the button is clicked"""
-      open_form('admin.account_management')
+      open_form('admin.account_management',user=self.user)
 
     def button_8_click(self, **event_args):
       """This method is called when the button is clicked"""
@@ -208,32 +208,32 @@ class admin_view(admin_viewTemplate):
 
     def link_8_copy_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin')
+      open_form('admin',user=self.user)
 
     def link_3_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.admin_view')
+      open_form('admin.admin_view',user=self.user)
 
     def link_5_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.audit_trail')
+      open_form('admin.audit_trail',user=self.user)
 
     def link_6_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.admin_add_user')
+      open_form('admin.admin_add_user',user=self.user)
 
     def link_7_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.transaction_monitoring')
+      open_form('admin.transaction_monitoring',user=self.user)
 
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.account_management')
+      open_form('admin.account_management',user=self.user)
 
     def link_1_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.report_analysis')
+      open_form('admin.report_analysis',user=self.user)
 
     def link_4_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.user_support')
+      open_form('admin.user_support',user=self.user)
