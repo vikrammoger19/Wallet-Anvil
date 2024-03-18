@@ -68,29 +68,32 @@ class admin_view(admin_viewTemplate):
             self.set_button_text()
 
     def button_5_click(self, **event_args):
-        username = self.text_box_1.text
-        user_to_update = app_tables.wallet_users.get(username=username)
-    
-        if user_to_update is not None:
-            # Check the current state of 'hold' column
-            current_state = user_to_update['hold']
-    
-            # If 'hold' is None or 'true', user is considered frozen, otherwise unfrozen
-            new_state = not current_state
-    
-            # Update the 'hold' column in the 'users' table
-            user_to_update.update(hold=new_state if new_state else None)
-    
-            # Update button text based on the new state
-            self.set_button_text()
-    
-            # Display alert based on the action
-            alert_message = "User is frozen." if new_state else "User is unfrozen."
-            alert(alert_message, title="Status")
-    
-            # Log the action
-            self.log_action(username, [alert_message])
-            print("Button 5 Clicked and action logged")  # Debug statement
+      username = self.text_box_1.text
+      user_to_update = app_tables.wallet_users.get(username=username)
+      
+      if user_to_update is not None:
+          # Check the current state of 'hold' column
+          current_state = user_to_update['hold']
+      
+          # If 'hold' is None or 'true', user is considered frozen, otherwise unfrozen
+          new_state = not current_state
+      
+          # Update the 'hold' column in the 'users' table
+          user_to_update.update(hold=new_state if new_state else None)
+          
+          # Update the 'banned' column based on freeze/unfreeze action
+          user_to_update.update(banned=True if new_state else None)
+      
+          # Update button text based on the new state
+          self.set_button_text()
+      
+          # Display alert based on the action
+          alert_message = "User is frozen." if new_state else "User is unfrozen."
+          alert(alert_message, title="Status")
+      
+          # Log the action
+          self.log_action(username, [alert_message])
+          print("Button 5 Clicked and action logged")  # Debug statement
 
     def set_button_text(self):
         username = self.text_box_1.text

@@ -27,7 +27,7 @@ class Login(LoginTemplate):
             # Check if the user is banned
             if user['banned'] is not None and user['banned']:
                 # Display a popup message informing the user they are banned
-                anvil.alert("Sorry, you are banned from accessing this service.")
+                anvil.alert("Sorry, you are banned from accessing this service.your amount will credit to your primary account")
                 return
               
             user_type = user['usertype']
