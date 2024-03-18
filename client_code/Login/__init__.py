@@ -20,13 +20,14 @@ class Login(LoginTemplate):
         password = self.text_box_2.text.strip()
 
         # Get the user based on login input
-        user = anvil.server.call('get_user_for_login',login_input)
+        user = anvil.server.call('get_user_for_login', login_input)
 
         # Check if user exists and password matches
         if user is not None and user['password'] == password:
             # Check if the user is banned
             if user['banned'] is not None and user['banned']:
-                open_form('LOGIN.banned_form')
+                # Display a popup message informing the user they are banned
+                anvil.alert("Sorry, you are banned from accessing this service.")
                 return
               
             user_type = user['usertype']
@@ -41,7 +42,7 @@ class Login(LoginTemplate):
             self.text_box_1.focus()
             self.text_box_2.text = ''
             self.text_box_2.focus()
-
+          
     def button_2_click(self, **event_args):
         open_form('Signup')
 
