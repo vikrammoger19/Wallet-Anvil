@@ -1,7 +1,7 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"CPIXHW":8,"HOSDSI":22,"LKMAXS":21,"NNWBPE":13,"OXHOGY":8,"JXYPFP":8}'}
+  properties: {col_widths: '{"CPIXHW":8,"HOSDSI":22,"LKMAXS":22,"NNWBPE":13,"OXHOGY":7,"JXYPFP":8}'}
 components:
 - name: spacer_1
   properties: {height: 39.39996337890625}
