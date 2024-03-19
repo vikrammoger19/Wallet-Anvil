@@ -86,6 +86,9 @@ db_schema:
     - name: last_auto_topup_time
       admin_ui: {order: 11.96875, width: 200}
       type: datetime
+    - name: default_account
+      admin_ui: {width: 200, order: 21}
+      type: string
     title: wallet_users
   wallet_users_account:
     client: full
