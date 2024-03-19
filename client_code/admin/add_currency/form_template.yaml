@@ -1,0 +1,172 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
+    role: null, html: ''}
+components:
+- type: ColumnPanel
+  properties: {role: card, col_widths: '{"EKYHKA":55,"XOPWKD":5}'}
+  name: card_1
+  layout_properties: {slot: default}
+  components:
+  - name: flow_panel_1_copy
+    properties: {role: null, vertical_align: full, spacing: large, align: left, tooltip: '',
+      border: '', foreground: '', visible: true, spacing_above: medium, spacing_below: small,
+      background: ''}
+    type: FlowPanel
+    layout_properties: {grid_position: 'HFQKSB,YZNQGB', full_width_row: true}
+    components:
+    - name: image_1_copy_copy
+      properties: {role: null, vertical_align: center, height: 44.80000305175781,
+        tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
+        spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
+        background: white, horizontal_align: right}
+      type: Image
+      layout_properties: {width: 89.19999694824219}
+    - name: label_7_copy_2_copy
+      properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
+        font: a, italic: false, underline: false, foreground: black}
+      type: Label
+      layout_properties: {}
+    - name: link_1
+      properties: {text: Report & Analysis, visible: true, bold: false, foreground: '#000'}
+      type: Link
+      layout_properties: {}
+      event_bindings: {click: link_1_click}
+    - name: link_2
+      properties: {text: Account Management, foreground: '#000'}
+      type: Link
+      layout_properties: {}
+      event_bindings: {click: link_2_click}
+    - name: link_7
+      properties: {text: Transaction Monitoring, foreground: '#000'}
+      type: Link
+      layout_properties: {}
+      event_bindings: {click: link_7_click}
+    - name: link_6
+      properties: {foreground: '#000', text: Add User}
+      type: Link
+      layout_properties: {}
+      event_bindings: {click: link_6_click}
+    - name: link_5
+      properties: {text: Audit Trail, foreground: '#000'}
+      type: Link
+      layout_properties: {}
+      event_bindings: {click: link_5_click}
+    - name: link_8
+      properties: {text: Add Currency, border: '', foreground: '#000'}
+      type: Link
+      layout_properties: {}
+    - name: link_4
+      properties: {foreground: '#000', text: User Support}
+      type: Link
+      layout_properties: {}
+      event_bindings: {click: link_4_click}
+    - name: link_3
+      properties: {text: User Management, foreground: '#000'}
+      type: Link
+      event_bindings: {click: link_3_click}
+    - name: link_8_copy_copy
+      properties: {text: 'Home ', align: center, bold: false, foreground: '#000',
+        font_size: 15}
+      type: Link
+      event_bindings: {click: link_8_copy_click}
+    - name: button_8_copy
+      properties: {text: Logout, role: filled-button, background: '#1d86da', foreground: black}
+      type: Button
+      event_bindings: {click: button_8_click}
+  - name: label_1_copy
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: white,
+      visible: true, text: Add Currency, font_size: 20, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: true, background: '#1d86da',
+      bold: true, underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'VWLXAC,ECSHGD', full_width_row: true}
+  - name: textbox_search
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: Type to search,
+      border: '', enabled: true, foreground: black, visible: true, text: '', font_size: null,
+      font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+      background: white, bold: false, underline: false}
+    type: TextBox
+    layout_properties: {grid_position: 'EIBSRS,EKYHKA'}
+    event_bindings: {pressed_enter: textbox_search_pressed_enter}
+  - name: button_1
+    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: 'theme:Gray
+        300', bold: false, underline: false, icon: 'fa:search'}
+    type: Button
+    layout_properties: {grid_position: 'EIBSRS,XOPWKD'}
+    event_bindings: {click: button_1_click}
+  - name: spacer_1
+    properties: {height: 15}
+    type: Spacer
+    layout_properties: {grid_position: 'QNZEVQ,ZITTUF'}
+  - name: button_2
+    properties: {text: Add Currency, icon: 'fa:plus-square', background: '#1d6eae',
+      foreground: 'theme:White', bold: true, italic: true}
+    type: Button
+    layout_properties: {grid_position: 'SFSYXG,FNTGVX'}
+    event_bindings: {click: button_2_click}
+  - name: flow_panel_1
+    properties: {}
+    type: FlowPanel
+    layout_properties: {grid_position: 'GZHGNM,JETDTR'}
+    components:
+    - name: spacer_8
+      properties: {height: 38}
+      type: Spacer
+      layout_properties: {width: 88}
+    - name: text_box_1
+      properties: {placeholder: country}
+      type: TextBox
+      layout_properties: {width: 244.79998779296875}
+      data_bindings:
+      - {property: text, code: 'self.item[''country'']', writeback: false}
+      event_bindings: {pressed_enter: text_box_1_pressed_enter}
+    - name: spacer_7
+      properties: {height: 37.600006103515625}
+      type: Spacer
+      layout_properties: {width: 81.79998779296875}
+    - name: text_box_2
+      properties: {placeholder: currency code}
+      type: TextBox
+      layout_properties: {width: 251.199951171875}
+      data_bindings:
+      - {property: text, code: 'self.item[''country_code'']', writeback: false}
+    - name: spacer_9
+      properties: {height: 37.199981689453125}
+      type: Spacer
+      layout_properties: {width: 99.4000244140625}
+    - name: button_3
+      properties: {text: Add, align: right, background: '#1d6eae', foreground: 'theme:White',
+        bold: true, italic: true}
+      type: Button
+      layout_properties: {}
+      event_bindings: {click: button_3_click}
+  - name: spacer_6
+    properties: {height: 17.5999755859375}
+    type: Spacer
+    layout_properties: {grid_position: 'WCGRQY,ITVYMV'}
+  - name: label_2
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Country:', font_size: 18, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: true, background: '', bold: true,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'QAGTPP,HNUSVY'}
+  - name: label_3
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Currency_code:', font_size: 18, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: true, background: '', bold: true,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'QAGTPP,CAWQVU'}
+  - name: repeating_panel_1
+    properties: {item_template: admin.add_currency.ItemTemplate8}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'VQTJQM,WYZRLL', full_width_row: true}
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'XXZBLL,IBKVSL'}
