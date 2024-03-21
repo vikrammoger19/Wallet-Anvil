@@ -185,7 +185,7 @@ db_schema:
       type: string
     title: wallet_users_service
   wallet_users_interaction:
-    client: none
+    client: full
     server: full
     columns:
     - name: message
