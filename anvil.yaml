@@ -187,7 +187,16 @@ db_schema:
   wallet_users_interaction:
     client: none
     server: full
-    columns: []
+    columns:
+    - name: message
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: sentnumber
+      admin_ui: {width: 200, order: 1}
+      type: number
+    - name: recivednumber
+      admin_ui: {width: 200, order: 2}
+      type: number
     title: wallet_users_interaction
 secrets:
   ? ''
