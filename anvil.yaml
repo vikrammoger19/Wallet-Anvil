@@ -184,6 +184,11 @@ db_schema:
       admin_ui: {order: 2, width: 200}
       type: string
     title: wallet_users_service
+  wallet_users_interaction:
+    client: none
+    server: full
+    columns: []
+    title: wallet_users_interaction
 secrets:
   ? ''
   : value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}
