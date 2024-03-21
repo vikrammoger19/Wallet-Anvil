@@ -197,6 +197,9 @@ db_schema:
     - name: recivednumber
       admin_ui: {width: 200, order: 2}
       type: number
+    - name: date
+      admin_ui: {width: 200, order: 3}
+      type: datetime
     title: wallet_users_interaction
 secrets:
   ? ''
