@@ -158,6 +158,9 @@ db_schema:
     - name: phone
       admin_ui: {width: 200, order: 5}
       type: number
+    - name: message
+      admin_ui: {width: 200, order: 6}
+      type: string
     title: wallet_users_transaction
   actions:
     client: full
