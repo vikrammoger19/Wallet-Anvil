@@ -1,3 +1,6 @@
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
 from ._anvil_designer import admin_viewTemplate
 from anvil import alert, open_form
 from anvil.tables import app_tables
