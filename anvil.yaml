@@ -89,6 +89,9 @@ db_schema:
     - name: default_account
       admin_ui: {width: 200, order: 21}
       type: string
+    - name: profile_pic
+      admin_ui: {width: 200, order: 22}
+      type: string
     title: wallet_users
   wallet_users_account:
     client: full
