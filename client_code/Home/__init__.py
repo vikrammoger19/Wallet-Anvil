@@ -28,7 +28,7 @@ class Home(HomeTemplate):
     self.card_3.visible = False
 
   def link_16_click(self, **event_args):
-    open_form('customer.service')
+    pass
 
   def button_3_click(self, **event_args):
     open_form('Login')
