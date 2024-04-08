@@ -44,10 +44,6 @@ components:
         italic: false, background: '', bold: true, underline: false, icon: ''}
       type: Label
       layout_properties: {x: 96.02500915527344, y: 134.0999984741211, width: 600.463}
-  - name: spacer_1
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'SHJMFY,DMPQHI'}
   - name: xy_panel_3
     properties: {role: null, width: 1872, align: center, height: 541.6000061035156,
       tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
@@ -368,23 +364,96 @@ components:
           spacing_below: small, background: '', horizontal_align: center}
         type: Image
         layout_properties: {grid_position: 'TQNXKD,IPMJZD', full_width_row: false}
-  - name: spacer_5
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'FMEOZI,DKSYZO'}
   - name: xy_panel_6
-    properties: {height: 416}
+    properties: {height: 253}
     type: XYPanel
     layout_properties: {grid_position: 'MGKVRX,QLSIET', full_width_row: true}
+    components:
+    - name: xy_panel_2_copy_2
+      properties: {role: null, width: null, align: center, height: 253, tooltip: '',
+        border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small,
+        background: '#d9d9d9'}
+      type: XYPanel
+      layout_properties: {x: 0, y: 0, width: 1333.7999877929688}
+      components:
+      - name: button_3_copy_2
+        properties: {text: 'What is G-Wallet ?', foreground: 'theme:Black', align: left}
+        type: Button
+        layout_properties: {x: 628.7125244140625, y: 102.7626953125, width: 200}
+        event_bindings: {click: button_3_copy_2_click}
+      - name: button_8_copy
+        properties: {text: Products, align: left, foreground: 'theme:Black'}
+        type: Button
+        layout_properties: {x: 628.7125244140625, y: 129.212646484375, width: 176.75}
+      - name: button_7_copy
+        properties: {text: FAQS, align: left, foreground: 'theme:Black'}
+        type: Button
+        layout_properties: {x: 628.7125244140625, y: 157.53759765625, width: 77.75}
+      - name: button_10_copy
+        properties: {text: Contact us, align: left, foreground: 'theme:Black'}
+        type: Button
+        layout_properties: {x: 628.7125244140625, y: 184.212646484375, width: 120.5}
+      - name: image_12_copy
+        properties: {height: 58.88885498046875, source: _/theme/Screenshot_2024-04-04_163932-removebg-preview.png,
+          horizontal_align: left}
+        type: Image
+        layout_properties: {x: 22, y: 33.87519531250018, width: 200}
+      - name: label_21_copy
+        properties: {text: 'G-Wallet is your trusted companion for effortless financial
+            transactions, providing a secure and intuitive platform to manage your
+            money with ease.', align: center, font_size: 14}
+        type: Label
+        layout_properties: {x: 22, y: 102.7626953125, width: 359.788}
+      - name: label_22_copy
+        properties: {text: '   Quick Links', align: left, bold: true, font: '', font_size: 16}
+        type: Label
+        layout_properties: {x: 637.7125244140625, y: 53.91269531250009, width: 200}
+      - name: label_23_copy
+        properties: {text: '   Mail to us', align: left, bold: true}
+        type: Label
+        layout_properties: {x: 1084.8499755859375, y: 56.7626953125, width: 200}
+      - name: button_13_copy
+        properties: {text: mail@gtpl.in, align: left}
+        type: Button
+        layout_properties: {x: 1058.5999755859375, y: 94, width: 200}
+      - name: column_panel_9_copy
+        properties: {col_widths: '{"UGAAQA":15,"ZRBFQG":15,"HBKBYU":15,"ZAJCNM":15}'}
+        type: ColumnPanel
+        layout_properties: {x: 1032.7000732421875, y: 184.212646484375, width: 243.688}
+        components:
+        - name: button_2_copy_copy
+          properties: {text: '', icon: 'fa:facebook', background: 'theme:Primary 500',
+            foreground: 'theme:White'}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,UGAAQA'}
+        - name: button_4_copy
+          properties: {text: '', background: 'theme:Primary 500', icon: 'fa:linkedin',
+            foreground: 'theme:White', visible: true}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,ZRBFQG'}
+        - name: button_6_copy
+          properties: {text: '', background: 'theme:Primary 500', foreground: 'theme:White',
+            icon: 'fa:instagram'}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,HBKBYU'}
+        - name: button_5_copy
+          properties: {text: '', background: 'theme:Primary 500', icon: 'fa:twitter',
+            foreground: 'theme:White', icon_align: left, italic: true}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,ZAJCNM'}
+      - name: label_24_copy
+        properties: {text: '                Find us', align: left, bold: true}
+        type: Label
+        layout_properties: {x: 1052.3875732421875, y: 138.212646484375, width: 200}
   - name: outlined_card_1
     properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: none, spacing_above: none, col_widths: '{"VMILPR":11,"FDANOO":17,"HAKDVS":16,"XVKBKL":16}',
-      spacing_below: none, background: '#2270ad'}
+      spacing_below: none, background: '#258ee1'}
     type: ColumnPanel
-    layout_properties: {grid_position: 'QJYABM,YHTKMP'}
+    layout_properties: {grid_position: 'QJYABM,YHTKMP', full_width_row: true}
     components:
     - name: label_1
-      properties: {text: CopyRight2023@Gwallet, align: left, bold: true, font_size: 20,
+      properties: {text: CopyRight2024@G-wallet, align: left, bold: true, font_size: 20,
         visible: true, role: input-prompt, foreground: 'theme:White', font: a}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,XVKBKL'}
