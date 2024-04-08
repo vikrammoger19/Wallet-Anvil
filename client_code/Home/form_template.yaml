@@ -7,7 +7,43 @@ components:
   properties: {}
   name: content_panel
   layout_properties: {slot: default}
-  components: []
+  components:
+  - name: xy_panel_1
+    properties: {height: 673.2000122070312}
+    type: XYPanel
+    layout_properties: {grid_position: 'UNWVHK,WVTTRG', full_width_row: true}
+    components:
+    - name: label_3
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#11466e',
+        visible: true, text: Empower your finances with G-Wallet - Seamlessly manage multiple currencies and transcend borders with ease.,
+        font_size: 35, font: a, spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '', bold: true, underline: false, icon: ''}
+      type: Label
+      layout_properties: {x: 94.984375, y: 122.10935974121094, width: 581.263}
+    - name: label_4
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: 'We''re driven by a passion for financial empowerment
+          and technological innovation. Our mission is simple: to provide individuals
+          worldwide with a revolutionary multi-currency platform for managing their
+          finances in a seamless and efficient manner.', font_size: 20, font: a, spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {x: 96.03125, y: 334.1405944824219, width: 606.7249633789063}
+    - name: button_1
+      properties: {text: Signup now, background: '#258ee1', foreground: 'theme:White',
+        bold: true, font_size: 20, font: a}
+      type: Button
+      layout_properties: {x: 74.83750915527344, y: 489.85003662109375, width: 200}
+      event_bindings: {click: button_1_click}
+    - name: image
+      properties: {height: 646.3999633789062, source: _/theme/triphone.png}
+      type: Image
+      layout_properties: {x: 683.6500366218388, y: 26.8125, width: 741.3375244140625}
+    - name: column_panel_1
+      properties: {col_widths: '{}'}
+      type: ColumnPanel
+      layout_properties: {x: 350.98762207105756, y: 0, width: 851.9375}
 - type: FlowPanel
   properties: {}
   name: navbar_links
