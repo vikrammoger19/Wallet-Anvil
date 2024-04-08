@@ -10,7 +10,7 @@ services:
 - source: /runtime/services/anvil/secrets.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: Home}
+startup: {type: form, module: about_us}
 package_name: d1
 allow_embedding: false
 name: Wallet Anvil
@@ -158,6 +158,9 @@ db_schema:
     - name: phone
       admin_ui: {width: 200, order: 5}
       type: number
+    - name: message
+      admin_ui: {width: 200, order: 6}
+      type: string
     title: wallet_users_transaction
   actions:
     client: full
