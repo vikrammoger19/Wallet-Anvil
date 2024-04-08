@@ -1,0 +1,405 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html'}
+components:
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
+- name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: default}
+  components:
+  - name: content_panel
+    properties: {visible: true, border: ''}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'MALMZL,HWVFYO'}
+    components:
+    - name: column_panel_1_copy
+      properties: {background: 'theme:White'}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'PIKWHL,QAXHDP'}
+      components:
+      - name: flow_panel_1
+        properties: {}
+        type: FlowPanel
+        layout_properties: {grid_position: 'LEYYSW,KSWTXL'}
+        components:
+        - name: grid_panel_3
+          properties: {}
+          type: GridPanel
+          layout_properties: {width: 37.762490844726564}
+        - name: image_1
+          properties: {height: 53.79998779296875, source: _/theme/letter-g.png, display_mode: shrink_to_fit,
+            background: 'theme:White'}
+          type: Image
+          layout_properties: {width: 60.774993896484375}
+        - name: label_1
+          properties: {text: G-Wallet, bold: true, font: a, font_size: 25, background: 'theme:White'}
+          type: Label
+          layout_properties: {}
+        - name: grid_panel_4
+          properties: {}
+          type: GridPanel
+          layout_properties: {width: 250.98700000000002}
+        - name: column_panel_2
+          properties: {col_widths: '{"LCKPHY":15,"TZYWPW":15,"NINQXA":10,"AKKFTY":20}',
+            background: 'theme:White'}
+          type: ColumnPanel
+          layout_properties: {width: 457.14997558593745}
+          components:
+          - name: button_1
+            properties: {text: Home, foreground: 'theme:Black', icon: 'fa:home', bold: true,
+              font_size: 14, role: null}
+            type: Button
+            layout_properties: {grid_position: 'SPRTJM,LCKPHY'}
+          - name: drop_down_2
+            properties: {include_placeholder: true, placeholder: Products, align: center}
+            type: DropDown
+            layout_properties: {grid_position: 'SPRTJM,TZYWPW'}
+          - name: drop_down_3
+            properties: {include_placeholder: true, placeholder: Help, align: center}
+            type: DropDown
+            layout_properties: {grid_position: 'SPRTJM,NINQXA'}
+          - name: button_2
+            properties: {text: Contact US, foreground: 'theme:Black', bold: true,
+              icon: 'fa:phone'}
+            type: Button
+            layout_properties: {grid_position: 'SPRTJM,AKKFTY'}
+    - name: spacer_1
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'GUCKQQ,MSTNBM'}
+    - name: label_2
+      properties: {text: About G-Wallet, align: center, bold: true, font: Roboto,
+        background: 'theme:White'}
+      type: Label
+      layout_properties: {grid_position: 'FYAYZI,IENOJR', full_width_row: true}
+      data_bindings:
+      - {property: font_size, code: '42', writeback: false}
+    - name: label_3
+      properties: {text: 'Welcome to G-Wallet , your trusted multi-currency digital
+          wallet solution for seamless financial management. Our mission is to empower
+          individuals to take control of their finances across multiple currencies
+          with innovative tools and secure technologies. Our app provides a comprehensive
+          platform for users to manage their money effectively, supporting various
+          currencies for budgeting, expense tracking, bill payments, and secure transactions.
+          With a user-centric approach, we aim to simplify cross-border financial
+          management and enhance the overall financial well-being of our users.
+
+
+          ', align: center, font_size: 18, bold: false}
+      type: Label
+      layout_properties: {grid_position: 'ZZIUQC,XAFXYU', full_width_row: false}
+    - name: primary_color_1
+      properties: {role: primary-color, enabled: true, foreground: 'theme:Black',
+        text: Get Started, icon_align: right, background: 'theme:White', bold: true,
+        underline: false, icon: 'fa:arrow-circle-o-right'}
+      type: Button
+      layout_properties: {grid_position: 'OZOOXE,PGGOLZ', full_width_row: false}
+    - name: spacer_2
+      properties: {height: 56.79998779296875}
+      type: Spacer
+      layout_properties: {grid_position: 'YJTXTC,NLJTZA'}
+    - name: column_panel_3
+      properties: {col_widths: '{"SYIJXB":23,"RPFDBB":22,"CGMQML":15}', col_spacing: none,
+        background: 'theme:Primary 700'}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'CQJJSL,AYXWUG', full_width_row: true}
+      components:
+      - name: label_4
+        properties: {text: '           Send Money ', align: right, font_size: 42,
+          font: Roboto, bold: true, background: 'theme:Primary 700', foreground: 'theme:Gray
+            50'}
+        type: Label
+        layout_properties: {grid_position: 'UNWVHS,SYIJXB'}
+      - name: label_5
+        properties: {text: '  With Just 3 Easy', align: left, font_size: 42, font: Roboto,
+          bold: true, foreground: 'theme:Primary 700', background: 'theme:White'}
+        type: Label
+        layout_properties: {grid_position: 'UNWVHS,RPFDBB'}
+      - name: label_6
+        properties: {text: ' Steps', font_size: 42, font: Roboto, bold: true, align: left,
+          background: 'theme:Primary 700', foreground: 'theme:White'}
+        type: Label
+        layout_properties: {grid_position: 'UNWVHS,CGMQML'}
+    - name: column_panel_4
+      properties: {}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'GRRATF,JUIAKP'}
+      components:
+      - name: card_1
+        properties: {role: null, wrap_on: mobile, visible: true}
+        type: ColumnPanel
+        layout_properties: {grid_position: 'LVWLDC,ALUHGX'}
+        components:
+        - name: image_2
+          properties: {source: _/theme/output-onlinetools.jpg}
+          type: Image
+          layout_properties: {grid_position: 'WFRIBP,RRLIIY'}
+        - name: label_7
+          properties: {text: Create Account, align: center, font: Roboto, font_size: 18,
+            bold: false}
+          type: Label
+          layout_properties: {grid_position: 'NOFYEH,AOVRHM'}
+        - name: label_10
+          properties: {text: 'Quickly and securely sign up with us for free within
+              minutes.
+
+              ', align: center, font: Roboto, font_size: 15}
+          type: Label
+          layout_properties: {grid_position: 'NCZZFS,ZZSNBX'}
+      - name: card_2
+        properties: {role: null}
+        type: ColumnPanel
+        layout_properties: {grid_position: 'LVWLDC,TTZBAN'}
+        components:
+        - name: image_3
+          properties: {source: _/theme/output-onlinetools (1).jpg}
+          type: Image
+          layout_properties: {grid_position: 'GTTRLH,PJTORH'}
+        - name: label_8
+          properties: {text: Recharge Your Wallet, align: center, font: Roboto, font_size: 18}
+          type: Label
+          layout_properties: {grid_position: 'GCEECY,OGLOJC'}
+        - name: label_11
+          properties: {text: Safely deposit funds into your account via bank transfer or mobile money transfer with secure transactions.,
+            font_size: 16, align: center, font: Roboto}
+          type: Label
+          layout_properties: {grid_position: 'NZZUSV,MJJNQZ'}
+      - name: card_3
+        properties: {role: null}
+        type: ColumnPanel
+        layout_properties: {grid_position: 'LVWLDC,WTUAUZ', full_width_row: true}
+        components:
+        - name: image_4
+          properties: {source: _/theme/output-onlinetools (2).jpg}
+          type: Image
+          layout_properties: {grid_position: 'SIOUON,QUDHNF'}
+        - name: label_9
+          properties: {align: center, text: Provide Receiver Information, font: Roboto,
+            font_size: 18}
+          type: Label
+          layout_properties: {grid_position: 'QMVPUF,LORNNF'}
+        - name: label_12
+          properties: {text: Enter recipient details and choose your preferred payment channel—mobile wallet or local bank account. Click "SEND" and leave the magic to us.,
+            align: center, font: Roboto, font_size: 15}
+          type: Label
+          layout_properties: {grid_position: 'PZIXEH,GBTOSM'}
+      - name: column_panel_5
+        properties: {col_widths: '{"OCJGST":40,"BFSLOX":20}'}
+        type: ColumnPanel
+        layout_properties: {grid_position: 'ATVSES,IOXQBE'}
+        components:
+        - name: label_13
+          properties: {text: Why G-Wallet, align: right, font_size: 42, font: Roboto,
+            bold: false}
+          type: Label
+          layout_properties: {grid_position: 'VSOQOO,OCJGST'}
+        - name: label_14
+          properties: {font_size: 46, text: '?', foreground: 'theme:Primary 500',
+            bold: true}
+          type: Label
+          layout_properties: {grid_position: 'VSOQOO,BFSLOX'}
+        - name: column_panel_6
+          properties: {background: ''}
+          type: ColumnPanel
+          layout_properties: {grid_position: 'YHXWZH,TRGHUD'}
+          components:
+          - name: card_4
+            properties: {role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ANJCVU,ZPUYRF SDGQHQ,XDVRKR'}
+            components:
+            - name: image_5
+              properties: {height: 52.39996337890625, source: _/theme/output-onlinetools (3).jpg}
+              type: Image
+              layout_properties: {grid_position: 'TRWWXM,KBRLGN'}
+            - name: label_15
+              properties: {text: Extended Accessibility, align: center, font: ROBOTO,
+                bold: true}
+              type: Label
+              layout_properties: {grid_position: 'KIXNQD,PDTURE'}
+            - name: label_26
+              properties: {text: Easily send and receive borderless payments with our app. Seamlessly connect with multiple currencies at the click of a button.,
+                align: center}
+              type: Label
+              layout_properties: {grid_position: 'QDKBDV,MQWRLK'}
+          - name: card_7
+            properties: {role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ANJCVU,ZPUYRF OSNXOG,BJHGGG'}
+            components:
+            - name: image_8
+              properties: {height: 50, visible: true, source: _/theme/Image (1).png}
+              type: Image
+              layout_properties: {grid_position: 'DSXRUV,PLXJYH'}
+            - name: label_20
+              properties: {text: User-Friendly Interface, font: ROBOTO, align: center,
+                bold: true}
+              type: Label
+              layout_properties: {grid_position: 'INURDR,AUOCXO'}
+            - name: label_29
+              properties: {text: 'G-Wallet''s interface ensures smooth payments, whether
+                  transferring funds or exchanging currencies. Seamlessly navigate
+                  our mobile and web apps without hassle.', align: center}
+              type: Label
+              layout_properties: {grid_position: 'WJRERS,CSLXIC'}
+          - name: card_5
+            properties: {role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ANJCVU,JOSWCC TCYJHH,BUSKLZ'}
+            components:
+            - name: image_6
+              properties: {height: 50, source: _/theme/Image (1).png}
+              type: Image
+              layout_properties: {grid_position: 'HWGEIP,KKQMDW'}
+            - name: label_16
+              properties: {text: Rapid and Effortless Payments, align: center, font: ROBOTO,
+                bold: true}
+              type: Label
+              layout_properties: {grid_position: 'FNYOJZ,LEHKMG'}
+            - name: label_27
+              properties: {text: 'Simplify cross-border transactions with G-Wallet.
+                  Enjoy swift, hassle-free money transfers, without bank protocols
+                  or delays.', align: center}
+              type: Label
+              layout_properties: {grid_position: 'HZNSFN,QLEAYX'}
+          - name: card_8
+            properties: {role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ANJCVU,JOSWCC FKUERM,OICYRX'}
+            components:
+            - name: image_9
+              properties: {height: 51, source: _/theme/Image.png}
+              type: Image
+              layout_properties: {grid_position: 'CCWATQ,KHBBVX'}
+            - name: label_19
+              properties: {text: 'Multicurrency Wallet
+
+                  ', align: center, font: ROBOTO, bold: true}
+              type: Label
+              layout_properties: {grid_position: 'WRBAHO,KGQTKR'}
+            - name: label_30
+              properties: {text: 'G-Wallet provides unlimited access to multiple currencies
+                  for effortless cross-border transactions. Easily save, hold, and
+                  exchange your money with convenience.', align: center, font_size: 15}
+              type: Label
+              layout_properties: {grid_position: 'FXSSDD,PKELPN'}
+          - name: card_6
+            properties: {role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ANJCVU,MUTGHX EHAAXT,VJIMAS'}
+            components:
+            - name: image_7
+              properties: {height: 46.79998779296875, source: _/theme/Image (1).png}
+              type: Image
+              layout_properties: {grid_position: 'TLSGDB,DPGXXR'}
+            - name: label_17
+              properties: {text: Safe and Reliable, align: center, font: ROBOTO, bold: true}
+              type: Label
+              layout_properties: {grid_position: 'QONIAH,WBJJEI'}
+            - name: label_28
+              properties: {text: Transfer money securely with G-Wallet's encryption. Enjoy added control with multi-factor authentication for protection.,
+                align: center}
+              type: Label
+              layout_properties: {grid_position: 'DWWHGJ,NTCKDV'}
+          - name: card_9
+            properties: {role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ANJCVU,MUTGHX RQWFEP,XKNDEU'}
+            components:
+            - name: image_10
+              properties: {height: 52.199981689453125, source: _/theme/Image (1).png}
+              type: Image
+              layout_properties: {grid_position: 'ANIZAL,SCCIHR'}
+            - name: label_18
+              properties: {text: 24/7 Access, align: center, font: ROBOTO, bold: true}
+              type: Label
+              layout_properties: {grid_position: 'JJWPDM,CFGGUR'}
+            - name: label_31
+              properties: {text: 'Whether you''re making online money transfers or
+                  sending funds to your loved ones, rest assured our services are
+                  available round the clock, 24/7, ensuring you''re always covered.',
+                align: center, font_size: 14}
+              type: Label
+              layout_properties: {grid_position: 'PGYATO,LEFHAQ'}
+    - name: spacer_3
+      properties: {height: 45}
+      type: Spacer
+      layout_properties: {grid_position: 'GVMIZU,OABKWL'}
+    - name: xy_panel_2
+      properties: {height: 246.22216796875}
+      type: XYPanel
+      layout_properties: {grid_position: 'BHWNPY,URATXW'}
+      components:
+      - name: image_12
+        properties: {height: 58.88885498046875, source: _/theme/Screenshot_2024-04-04_163932-removebg-preview.png,
+          horizontal_align: left}
+        type: Image
+        layout_properties: {x: 0, y: 0, width: 200}
+      - name: label_21
+        properties: {text: 'G-Wallet is your trusted companion for effortless financial
+            transactions, providing a secure and intuitive platform to manage your
+            money with ease.', align: center, font_size: 14}
+        type: Label
+        layout_properties: {x: 2.7777964286506176, y: 62.763893127441406, width: 359.79167175292974}
+      - name: label_22
+        properties: {text: '   Quick Links', align: left, bold: true, font: '', font_size: 16}
+        type: Label
+        layout_properties: {x: 376.06952921673656, y: 55.80555725097656, width: 200}
+      - name: button_3
+        properties: {text: 'What is G-Wallet ?', foreground: 'theme:Black', align: left}
+        type: Button
+        layout_properties: {x: 370.79166666790843, y: 94, width: 200}
+      - name: button_8
+        properties: {text: Products, align: left, foreground: 'theme:Black'}
+        type: Button
+        layout_properties: {x: 371.7638956718147, y: 118.09722900390625, width: 176.76388549804688}
+      - name: button_7
+        properties: {text: FAQS, align: left, foreground: 'theme:Black'}
+        type: Button
+        layout_properties: {x: 372.5694376640022, y: 146.5416717529297, width: 77.75}
+      - name: button_10
+        properties: {text: Contact us, align: left, foreground: 'theme:Black'}
+        type: Button
+        layout_properties: {x: 370.8888956718147, y: 175.22222900390625, width: 120.5}
+      - name: label_23
+        properties: {text: '   Mail to us', align: left, bold: true}
+        type: Label
+        layout_properties: {x: 673.8611246757209, y: 57.43055725097656, width: 200}
+      - name: button_13
+        properties: {text: mail@gtpl.in, align: left}
+        type: Button
+        layout_properties: {x: 660.6111246757209, y: 82.54166412353516, width: 200}
+      - name: column_panel_9
+        properties: {col_widths: '{"UGAAQA":15,"ZRBFQG":15,"HBKBYU":15,"ZAJCNM":15}'}
+        type: ColumnPanel
+        layout_properties: {x: 626.7082926444709, y: 151.22222900390625, width: 243.6944580078125}
+        components:
+        - name: button_2_copy
+          properties: {text: '', icon: 'fa:facebook', background: 'theme:Primary 500',
+            foreground: 'theme:White'}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,UGAAQA'}
+        - name: button_4
+          properties: {text: '', background: 'theme:Primary 500', icon: 'fa:linkedin',
+            foreground: 'theme:White', visible: true}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,ZRBFQG'}
+        - name: button_6
+          properties: {text: '', background: 'theme:Primary 500', foreground: 'theme:White',
+            icon: 'fa:instagram'}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,HBKBYU'}
+        - name: button_5
+          properties: {text: '', background: 'theme:Primary 500', icon: 'fa:twitter',
+            foreground: 'theme:White', icon_align: left, italic: true}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,ZAJCNM'}
+      - name: label_24
+        properties: {text: '                Find us', align: left, bold: true}
+        type: Label
+        layout_properties: {x: 670.3889567069709, y: 120.76388549804688, width: 200}
