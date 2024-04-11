@@ -1,17 +1,17 @@
-from ._anvil_designer import contact_usTemplate
+from ._anvil_designer import issues_1Template
 from anvil import *
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class contact_us(contact_usTemplate):
+class issues_1(issues_1Template):
   def __init__(self, **properties):
     self.init_components(**properties)
     self.card_1.visible = False
     self.card_3.visible = False
     self.card_5.visible = False
-
+  
   def link_8_click(self, **event_args):
     self.card_1.visible = not self.card_1.visible
     self.card_3.visible = False
@@ -33,14 +33,10 @@ class contact_us(contact_usTemplate):
     self.card_3.visible = False
 
   def link_1_click(self, **event_args):
-    open_form('contact_us.issues_1')
+    open_form('contact_us')
 
+  def link_2_click(self, **event_args):
+    open_form('contact_us.issue_1.login_issue')
+        
   def link_3_click(self, **event_args):
-    open_form('contact_us.issues_2')
-
-  def link_4_click(self, **event_args):
-    open_form('contact_us.issues_3')
-
-  def link_5_click(self, **event_args):
-    open_form('contact_us.issues_4')
-
+    open_form('contact_us.issue_1.report_issue')
