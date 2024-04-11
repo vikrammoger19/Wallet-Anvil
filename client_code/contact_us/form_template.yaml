@@ -21,7 +21,7 @@ components:
       properties: {text: Contact Customer Support, font: a, font_size: 45, foreground: 'theme:White',
         align: center}
       type: Label
-      layout_properties: {x: 495.34722900390625, y: 46.68055725097656, width: 520.389}
+      layout_properties: {x: 554.9861246757209, y: 42.31943766400218, width: 520.388916015625}
 - type: FlowPanel
   properties: {}
   name: navbar_links
