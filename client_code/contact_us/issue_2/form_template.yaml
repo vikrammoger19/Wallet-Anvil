@@ -62,7 +62,7 @@ components:
         type: Link
         layout_properties: {x: 0, y: 71.86251831054688, width: 534.438}
         event_bindings: {click: link_3_click}
-      - name: link_3_copy
+      - name: link_4
         properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
           visible: true, text: Negative Balance, font_size: 20, wrap_on: mobile, font: a,
           col_spacing: medium, spacing_above: small, icon_align: right_edge, col_widths: '',
@@ -70,8 +70,8 @@ components:
           icon: 'fa:angle-right'}
         type: Link
         layout_properties: {x: 0, y: 132.42501831054688, width: 534.438}
-        event_bindings: {click: link_3_click}
-    - name: link_3_copy_2
+        event_bindings: {click: link_4_click}
+    - name: link_5
       properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
         visible: true, text: Payment declined, font_size: 20, wrap_on: mobile, font: a,
         col_spacing: medium, spacing_above: small, icon_align: right_edge, col_widths: '',
@@ -79,7 +79,7 @@ components:
         icon: 'fa:angle-right'}
       type: Link
       layout_properties: {x: 259, y: 319.8000183105469, width: 534}
-      event_bindings: {click: link_3_click}
+      event_bindings: {click: link_5_click}
 - type: FlowPanel
   properties: {}
   name: navbar_links
@@ -92,39 +92,8 @@ components:
     - name: xy_panel_4
       properties: {height: 56.399993896484375}
       type: XYPanel
-      layout_properties: {width: 809.4379267578125}
+      layout_properties: {width: 795.430083984375}
       components:
-      - name: link_8
-        properties: {text: Wallet for consumer, font: a, bold: true, align: center,
-          underline: false, font_size: 20}
-        type: Link
-        layout_properties: {x: 14.300000000745058, y: 3.899999428540468, width: 192.0500030517578}
-        data_bindings:
-        - {property: border, code: 'self.item[''line'']', writeback: false}
-        event_bindings: {click: link_8_click, show: link_8_show, hide: link_8_hide}
-      - name: card_1
-        properties: {role: card, col_widths: '{}', background: 'theme:White', visible: true}
-        type: ColumnPanel
-        layout_properties: {x: 24.187512207776308, y: 34.600006103515625, width: 164.8249969482422}
-        components:
-        - name: link_9
-          properties: {role: null, url: '', align: left, tooltip: '', border: '',
-            foreground: 'theme:Black', visible: true, text: Wallet Topup, font_size: 15,
-            wrap_on: mobile, font: a, col_spacing: medium, spacing_above: small, icon_align: right_edge,
-            col_widths: '', spacing_below: small, italic: false, background: '', bold: true,
-            underline: false, icon: 'fa:angle-right'}
-          type: Link
-          layout_properties: {grid_position: 'WLXEXV,IZKUGJ'}
-          event_bindings: {click: link_9_click}
-        - name: link_10
-          properties: {role: null, url: '', align: left, tooltip: '', border: '',
-            foreground: 'theme:Black', visible: true, text: Auto Topup, font_size: 15,
-            wrap_on: mobile, font: a, col_spacing: medium, spacing_above: small, icon_align: right_edge,
-            col_widths: '', spacing_below: small, italic: false, background: '', bold: true,
-            underline: false, icon: 'fa:angle-right'}
-          type: Link
-          layout_properties: {grid_position: 'JEAGUN,IPRRDG'}
-          event_bindings: {click: link_10_click}
       - name: link_13
         properties: {text: Products, font: a, font_size: 20, bold: true, align: center}
         type: Link
@@ -172,6 +141,14 @@ components:
         type: Link
         layout_properties: {x: 561.3125, y: 5.6125007629394545, width: 112.188}
         event_bindings: {click: link_16_click}
+      - name: link_8
+        properties: {text: Home, font: a, bold: true, align: center, underline: false,
+          font_size: 20, icon: 'fa:home'}
+        type: Link
+        layout_properties: {x: 53.48612467572093, y: 3.97222201153636, width: 149.81944274902344}
+        data_bindings:
+        - {property: border, code: 'self.item[''line'']', writeback: false}
+        event_bindings: {click: link_8_click, show: link_8_show, hide: link_8_hide}
 - name: label_7_copy_2_copy
   properties: {text: 'G-Wallet         ', font_size: 25, align: right, bold: true,
     font: a, italic: false, underline: false, foreground: 'theme:White'}
