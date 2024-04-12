@@ -11,11 +11,11 @@ components:
   - name: spacer_1
     properties: {height: 23.199981689453125}
     type: Spacer
-    layout_properties: {grid_position: 'CLDZUP,KSBSVV'}
+    layout_properties: {grid_position: 'GTTSHO,LVKBNR'}
   - name: xy_panel_1
     properties: {height: 167.39993286132812, background: '#1eb0ed'}
     type: XYPanel
-    layout_properties: {grid_position: 'BEBVRS,STIWJK', full_width_row: true}
+    layout_properties: {grid_position: 'CHANAC,VBBPZJ', full_width_row: true}
     components:
     - name: label_1
       properties: {text: Contact Customer Support, font: a, font_size: 45, foreground: 'theme:White',
@@ -23,12 +23,12 @@ components:
       type: Label
       layout_properties: {x: 554.9861246757209, y: 42.31943766400218, width: 520.388916015625}
   - name: xy_panel_2
-    properties: {height: 742.8889007568359}
+    properties: {height: 1193.3999633789062}
     type: XYPanel
-    layout_properties: {grid_position: 'AVEXEP,UYQZLP', full_width_row: true}
+    layout_properties: {grid_position: 'WZQPZT,KYQJAU', full_width_row: true}
     components:
     - name: label_2
-      properties: {text: 'Your issue: Login Problem', font: a, font_size: 25, align: left}
+      properties: {text: 'Your issue: Payment declined', font: a, font_size: 25, align: left}
       type: Label
       layout_properties: {x: 259, y: 17.63751220703125, width: 970}
     - name: link_1
@@ -40,9 +40,9 @@ components:
       layout_properties: {x: 259, y: 72.82501220703125, width: 106.20001220703125}
       event_bindings: {click: link_1_click}
     - name: xy_panel_3
-      properties: {height: 307.79998779296875}
+      properties: {height: 688}
       type: XYPanel
-      layout_properties: {x: 259, y: 127.82501220703125, width: 897.4000244140625}
+      layout_properties: {x: 259, y: 127.82501220703125, width: 993.4000244140625}
       components:
       - name: label_4
         properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
@@ -60,38 +60,55 @@ components:
         layout_properties: {x: 20, y: 27.75, width: 51}
       - name: label_5
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'I’ve forgotten my password. How do I reset it?', font_size: 18,
-          font: a, spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+          visible: true, text: 'Why was my payment declined?', font_size: 18, font: a,
+          spacing_above: small, icon_align: left, spacing_below: small, italic: true,
           background: '', bold: false, underline: false, icon: ''}
         type: Label
-        layout_properties: {x: 69, y: 65.73748779296875, width: 335.4000244140625}
+        layout_properties: {x: 69, y: 65.72502136230469, width: 335.4}
       - name: label_6
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: 'To reset your password:', font_size: 18, font: a,
-          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-          background: '', bold: false, underline: false, icon: ''}
-        type: Label
-        layout_properties: {x: 69, y: 102.80001831054688, width: 335.4}
-      - name: label_7
-        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-          visible: true, text: '1. Go to our login.
-
-            2. Click Forgot password?
-
-            3. Enter the email address you use for G-wallet.
-
-            4. Choose how you want to complete our security check.
-
-            5. Once you complete the security check, we’ll ask you to create a new
-            password.', font_size: 18, font: a, spacing_above: small, icon_align: left,
+          visible: true, text: 'If your payment is being declined, here are the most
+            common reasons:', font_size: 18, font: a, spacing_above: small, icon_align: left,
           spacing_below: small, italic: false, background: '', bold: false, underline: false,
           icon: ''}
         type: Label
-        layout_properties: {x: 88, y: 135.80001831054688, width: 607.8000244140625}
+        layout_properties: {x: 69, y: 102.80000305175781, width: 580.4}
+      - name: label_7
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: "1.Declined by Your Bank: \n    Your bank or card issuer\
+            \ may decline the payment for various reasons. \n    Contact them for\
+            \ details.\n2.Outdated Card Details: \n    Update your card's expiration\
+            \ date or billing address.\n3.Account Limitation: \n    Resolve any limitations\
+            \ placed on your G-Wallet account.\n4.Security Check: \n    We may need\
+            \ to verify your identity for security purposes.\n5.Unconfirmed Email:\
+            \ \n    Confirm your email address associated with G-Wallet.\n6.Unconfirmed\
+            \ Bank Account: \n    Verify your bank account before making payments.\n\
+            7.Card Confirmation Required: \n    Confirm your debit or credit card\
+            \ if prompted.\n", font_size: 18, font: a, spacing_above: small, icon_align: left,
+          spacing_below: small, italic: false, background: '', bold: false, underline: false,
+          icon: ''}
+        type: Label
+        layout_properties: {x: 88, y: 135.7916717529297, width: 936.792}
+      - name: label_1_copy
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: 'If None of the Above Apply:', font_size: 18, font: a,
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '', bold: false, underline: false, icon: ''}
+        type: Label
+        layout_properties: {x: 69, y: 558.7360992431641, width: 231}
+      - name: label_3
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+          visible: true, text: "\u2022\tTry changing your payment method by adding\
+            \ a new debit/credit card or bank account.\n\u2022\tDouble-check recipient\
+            \ information to ensure accuracy.\n", font_size: 18, font: a, spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        type: Label
+        layout_properties: {x: 88.04166666790843, y: 594.875, width: 604}
     - name: xy_panel_5
       properties: {height: 256}
       type: XYPanel
-      layout_properties: {x: 259, y: 451.38845800781246, width: 477, grid_position: 'XSLYAR,URNMQE'}
+      layout_properties: {x: 259, y: 831.5974427490235, width: 477}
       components:
       - name: label_8
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',

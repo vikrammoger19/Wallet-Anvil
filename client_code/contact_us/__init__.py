@@ -30,14 +30,14 @@ class contact_us(contact_usTemplate):
     self.card_3.visible = False
 
   def link_1_click(self, **event_args):
-    open_form('contact_us.issues_1')
+    open_form('contact_us.issue_1')
 
   def link_3_click(self, **event_args):
-    open_form('contact_us.issues_2')
+    open_form('contact_us.issue_2')
 
   def link_4_click(self, **event_args):
-    open_form('contact_us.issues_3')
+    open_form('contact_us.issue_3')
 
   def link_5_click(self, **event_args):
-    open_form('contact_us.issues_4')
+    open_form('contact_us.issue_4')
 
