@@ -396,7 +396,7 @@ components:
     - name: label_21_copy
       properties: {text: 'G-Wallet is your trusted companion for effortless financial
           transactions, providing a secure and intuitive platform to manage your money
-          with ease.', align: center, font_size: 14}
+          with ease.', align: left, font_size: 14}
       type: Label
       layout_properties: {x: 22, y: 102.7626953125, width: 359.788}
     - name: label_22_copy
