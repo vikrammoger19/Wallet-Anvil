@@ -8,7 +8,7 @@ class report_issue(report_issueTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
-from ._anvil_designer import login_issueTemplate
+from ._anvil_designer import report_issueTemplate
 from anvil import *
 import anvil.server
 import anvil.tables as tables
