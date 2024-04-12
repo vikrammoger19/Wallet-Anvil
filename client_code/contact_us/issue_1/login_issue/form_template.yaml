@@ -15,7 +15,7 @@ components:
   - name: xy_panel_1
     properties: {height: 167.39993286132812, background: '#1eb0ed'}
     type: XYPanel
-    layout_properties: {grid_position: 'AVEXEP,LEWTJQ'}
+    layout_properties: {grid_position: 'BEBVRS,STIWJK', full_width_row: true}
     components:
     - name: label_1
       properties: {text: Contact Customer Support, font: a, font_size: 45, foreground: 'theme:White',
@@ -25,7 +25,7 @@ components:
   - name: xy_panel_2
     properties: {height: 742.8889007568359}
     type: XYPanel
-    layout_properties: {grid_position: 'AVEXEP,UYQZLP'}
+    layout_properties: {grid_position: 'AVEXEP,UYQZLP', full_width_row: true}
     components:
     - name: label_2
       properties: {text: 'Your issue: Login Problem', font: a, font_size: 25, align: left}
