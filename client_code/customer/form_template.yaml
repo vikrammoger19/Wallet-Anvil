@@ -134,6 +134,12 @@ components:
     type: Button
     layout_properties: {grid_position: 'RHEAMB,XKEAIK YKDDYH,UELENQ', full_width_row: true}
     event_bindings: {click: button_4_click}
+  - name: button_7
+    properties: {text: PAY  CONTACTS, background: '#1d6eae', foreground: WHITE, bold: true,
+      align: full, font_size: 15}
+    type: Button
+    layout_properties: {grid_position: 'RHEAMB,XKEAIK PFTIRK,VZCDSZ'}
+    event_bindings: {click: button_7_click}
   - name: button_2
     properties: {role: elevated-button, align: full, foreground: white, text: Wallet,
       font_size: 15, font: '', spacing_above: small, spacing_below: small, background: '#1d6eae',
