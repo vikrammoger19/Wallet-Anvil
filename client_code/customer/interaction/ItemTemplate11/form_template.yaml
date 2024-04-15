@@ -2,25 +2,25 @@ is_package: true
 container: {type: ColumnPanel}
 components:
 - name: text_box_1
-  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+  properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: 30,
     font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
-    background: '', bold: false, underline: false}
+    background: '', bold: true, underline: false}
   type: TextBox
-  layout_properties: {grid_position: 'BPAVXM,WFCLSZ'}
+  layout_properties: {grid_position: 'BPAVXM,WFCLSZ', row_background: lightblue}
   data_bindings:
   - {property: text, code: 'self.item[''fund'']', writeback: true}
 - name: text_box_2
-  properties: {}
+  properties: {bold: true, align: center, font_size: 20}
   type: TextBox
-  layout_properties: {grid_position: 'RKNBZW,GRZOVH'}
+  layout_properties: {grid_position: 'RKNBZW,GRZOVH', row_background: lightblue}
   event_bindings: {pressed_enter: text_box_2_pressed_enter}
   data_bindings:
   - {property: text, code: 'self.item[''message'']', writeback: true}
 - name: text_box_3
-  properties: {}
+  properties: {font_size: 18, bold: true, align: right}
   type: TextBox
-  layout_properties: {grid_position: 'IRXKQS,BGUJCJ'}
+  layout_properties: {grid_position: 'IRXKQS,BGUJCJ', row_background: lightblue}
   data_bindings:
   - {property: text, code: 'self.item[''date'']', writeback: true}
 - name: spacer_1
