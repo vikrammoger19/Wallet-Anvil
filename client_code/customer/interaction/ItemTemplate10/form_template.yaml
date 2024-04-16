@@ -2,7 +2,7 @@ is_package: true
 container: {type: ColumnPanel}
 components:
 - name: text_box_1
-  properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: ₹,
+  properties: {role: dense, align: center, hide_text: false, tooltip: '', placeholder: '',
     border: '', enabled: true, foreground: '', visible: true, text: '', font_size: 30,
     font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
     background: '', bold: true, underline: false}
