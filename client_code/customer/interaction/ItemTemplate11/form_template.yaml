@@ -1,6 +1,18 @@
 is_package: true
-container: {type: ColumnPanel}
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
 components:
+- type: TextBox
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_box_1
+  layout_properties: {grid_position: 'TUMYRK,PKLFOS'}
+  event_bindings: {pressed_enter: text_box_1_pressed_enter}
+  data_bindings:
+  - {property: text, code: 'self.item[''fund'']', writeback: true}
 - name: text_box_2
   properties: {bold: true, align: center, font_size: 20}
   type: TextBox
