@@ -6,18 +6,22 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class paycontacts(paycontactsTemplate):
-  def __init__(self, **properties):
+  def __init__(self,user=None, **properties):
+    self.user = user
+    
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     phonenumber = app_tables.wallet_users.search()
+    
         # Set the fetched data as the items for the repeating panel
     self.repeating_panel_1.items = phonenumber
+    
 
     # Any code you write here will run before the form opens.
 
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('customer.interaction')
+    open_form('customer.interaction', user=self.user)
 
   def text_box_1_pressed_enter(self, **event_args):
     entered_user = self.text_box_1.text
