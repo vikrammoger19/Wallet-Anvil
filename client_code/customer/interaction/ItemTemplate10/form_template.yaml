@@ -1,6 +1,12 @@
 is_package: true
 container: {type: ColumnPanel}
 components:
+- name: label_1
+  properties: {}
+  type: Label
+  layout_properties: {grid_position: 'OCKKGK,NYQCNS'}
+  data_bindings:
+  - {property: text, code: 'self.item[''fund'']'}
 - name: text_box_2
   properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: '',
     border: '', enabled: true, foreground: '', visible: true, text: '', font_size: 20,

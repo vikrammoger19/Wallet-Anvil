@@ -59,7 +59,7 @@ components:
   - name: repeating_panel_1
     properties: {item_template: customer.interaction.ItemTemplate10}
     type: RepeatingPanel
-    layout_properties: {grid_position: 'CHIRLN,NFRIAH'}
+    layout_properties: {grid_position: 'CHIRLN,NFRIAH EHHIVK,OJPDNO'}
   - name: spacer_1
     properties: {height: 195}
     type: Spacer
