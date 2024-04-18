@@ -35,7 +35,7 @@ class customer(customerTemplate):
 
 
     def link_2_click(self, **event_args):
-      open_form('customer.deposit',user=self.user)
+      open_form('Reset_password',user=self.user)
      
 
     def link_7_click(self, **event_args):
