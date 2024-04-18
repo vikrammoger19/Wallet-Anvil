@@ -52,6 +52,11 @@ class Login(LoginTemplate):
     def link_11_copy_click(self, **event_args):
         open_form('Home')
 
+    def link_1_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      user = anvil.server.call('get_user_for_login', login_input)
+      open_form('Reset_password',user= user)
+
     
 
 
