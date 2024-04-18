@@ -265,7 +265,7 @@ def get_currency_balance(user_phone, currency_type):
 @anvil.server.callable
 def send_otp_email(email, otp):
     """
-    Sends an OTP to the specified email address and stores it in the OTPStorage table.
+    Sends an OTP to the specified email address and stores it globally.
     """
     # Compose email message
     subject = "Your One Time Password (OTP)"
@@ -278,21 +278,18 @@ def send_otp_email(email, otp):
         text=message
     )
 
-    # Store the OTP in the OTPStorage table
-    app_tables.OTPStorage.add_row(otp=otp)
+    # Store the OTP globally for later validation
+    global stored_otp
+    stored_otp = otp
 
     print("OTP sent:", otp)
+    print("Stored OTP:", stored_otp)
+
 @anvil.server.callable
 def get_stored_otp():
     """
-    Returns the stored OTP.
+    Returns the last stored OTP.
     """
     global stored_otp
-    print("Stored OTP:", stored_otp)
+    print("Retrieving stored OTP:", stored_otp)
     return stored_otp
-    
-
-
-
-
-
