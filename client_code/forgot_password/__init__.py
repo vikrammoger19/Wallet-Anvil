@@ -32,22 +32,22 @@ class forgot_password(forgot_passwordTemplate):
     
     def text_box_2_pressed_enter(self, **event_args):
     # Get the entered OTP from text_box_2
-    entered_otp = self.text_box_2.text
-    
-    # Get the stored OTP from the server
-    stored_otp = anvil.server.call('get_stored_otp')
-    
-    print("Entered OTP:", entered_otp)
-    print("Stored OTP:", stored_otp)
-    
-    # Check if the entered OTP matches the stored OTP
-    if entered_otp == stored_otp:
-        # OTP is valid, display success message in green color
-        self.label_4.text = "OTP is valid"
-        self.label_4.foreground = "#008000"  # Green color
-    else:
-        # OTP is invalid, display error message in red color
-        self.label_4.text = "Invalid OTP"
-        self.label_4.foreground = "#FF0000"  # Red color
+      entered_otp = self.text_box_2.text
+      
+      # Get the stored OTP from the server
+      stored_otp = anvil.server.call('get_stored_otp')
+      
+      print("Entered OTP:", entered_otp)
+      print("Stored OTP:", stored_otp)
+      
+      # Check if the entered OTP matches the stored OTP
+      if entered_otp == stored_otp:
+          # OTP is valid, display success message in green color
+          self.label_4.text = "OTP is valid"
+          self.label_4.foreground = "#008000"  # Green color
+      else:
+          # OTP is invalid, display error message in red color
+          self.label_4.text = "Invalid OTP"
+          self.label_4.foreground = "#FF0000"  # Red color
 
     
