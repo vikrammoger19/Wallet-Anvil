@@ -52,18 +52,14 @@ components:
       type: Spacer
       layout_properties: {width: 787.297}
 - name: card_2
-  properties: {role: card}
+  properties: {role: card, col_widths: '{"NFRIAH":30,"LKOSJA":30}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'VLLOYA,WAFKST', full_width_row: true}
   components:
   - name: repeating_panel_1
     properties: {item_template: customer.interaction.ItemTemplate10}
     type: RepeatingPanel
-    layout_properties: {grid_position: 'CHIRLN,NFRIAH'}
-  - name: spacer_1
-    properties: {height: 195}
-    type: Spacer
-    layout_properties: {grid_position: 'CHIRLN,LKOSJA JVTACJ,GNTLRJ'}
+    layout_properties: {grid_position: 'CHIRLN,NFRIAH EHHIVK,OJPDNO'}
   - name: repeating_panel_2
     properties: {item_template: customer.interaction.ItemTemplate11}
     type: RepeatingPanel

@@ -15,20 +15,12 @@ class interaction(interactionTemplate):
         self.init_components(**properties)
         
         # Fetch and filter transactions data
-        transactions = app_tables.wallet_users_transaction.search()
-        panel1_items = []
-        panel2_items = []
+        print("User:", self.user)
+        print("Phone Number:", self.phone_number)
+        self.update_panels()
         
-        for transaction in transactions:
-            if transaction['receiver_phone'] == self.phone_number:
-                panel1_items.append(transaction)
-            else:
-                panel2_items.append(transaction)
-        
-        self.repeating_panel_1.items = panel1_items
-        self.repeating_panel_2.items = panel2_items
 
-    def text_box_1_pressed_enter(self, **event_args):
+    def text_box_1_pressed_enter(self):
         """This method is called when the user presses Enter in this text box"""
         # Get the input from the text box
         user_input = self.text_box_1.text
@@ -66,16 +58,67 @@ class interaction(interactionTemplate):
                 date=current_datetime  # Store the current date and time
             )
 
-        # After adding a new transaction, re-fetch and update the items for the repeating panels
-        transactions = app_tables.wallet_users_transaction.search()
-        panel1_items = []
-        panel2_items = []
+        # After adding a new transaction, update the panels
+        self.update_panels()
+
+    def update_panels(self):
+      transactions = app_tables.wallet_users_transaction.search()
+      panel1_items = []
+      panel2_items = []
+      
+      for transaction in transactions:
+          if transaction['receiver_phone'] == self.phone_number and transaction['phone'] == self.user:
+              panel1_items.append(transaction)
+          elif transaction['receiver_phone'] == self.user and transaction['phone'] == self.phone_number:
+              panel2_items.append(transaction)
+      
+      self.repeating_panel_1.items = panel1_items
+      self.repeating_panel_2.items = panel2_items
+      
+      self.update_labels(self.repeating_panel_1)
+      self.update_labels(self.repeating_panel_2)
+  
+
         
-        for transaction in transactions:
-            if transaction['receiver_phone'] == self.phone_number:
-                panel1_items.append(transaction)
-            else:
-                panel2_items.append(transaction)
         
-        self.repeating_panel_1.items = panel1_items
-        self.repeating_panel_2.items = panel2_items
+    
+    def update_labels(self, repeating_panel):
+      for item in repeating_panel.items:
+          components = repeating_panel.get_components()
+          if len(components) >= 2:
+              label_1 = components[0]
+              label_2 = components[1]
+              if 'fund' in item:
+                  label_1.text = f"Fund: {item['fund']}"
+              elif 'message' in item:
+                  label_1.text = f"Message: {item['message']}"
+              
+              if 'date' in item:
+                  label_2.text = f"Date: {item['date']}"
+              else:
+                  label_2.text = "Date not available"
+          else:
+              print("Not enough components in the panel")
+  
+      # Adjust labels based on the repeating panel
+      for item in repeating_panel.items:
+          text_1 = ""
+          text_2 = ""
+          if 'fund' in item:
+              text_1 = f"Fund: {item['fund']}"
+          elif 'message' in item:
+              text_1 = f"Message: {item['message']}"
+          
+          if 'date' in item:
+              text_2 = f"Date: {item['date']}"
+          else:
+              text_2 = "Date not available"
+  
+          components = repeating_panel.get_components()
+          if len(components) >= 2:
+              label_1 = components[0]
+              label_2 = components[1]
+              label_1.text = text_1
+              label_2.text = text_2
+          else:
+              print("Not enough components in the panel")

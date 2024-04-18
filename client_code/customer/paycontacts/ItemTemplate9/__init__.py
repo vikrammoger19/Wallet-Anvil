@@ -6,7 +6,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class ItemTemplate9(ItemTemplate9Template):
-  def __init__(self, **properties):
+  def __init__(self,user=None, **properties):
+    self.user = user
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
@@ -20,7 +21,7 @@ class ItemTemplate9(ItemTemplate9Template):
     phone_number = selected_user['phone']  # Assuming 'phone_number' is the key for the phone number in your data
     
     # Open the admin_view form and pass the phone number
-    open_form('customer.interaction', phone_number=phone_number)
+    open_form('customer.interaction', phone_number=phone_number,user=self.user)
 
 
   
