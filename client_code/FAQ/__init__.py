@@ -6,9 +6,6 @@ class FAQ(FAQTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.card_1.visible = False
-    self.card_3.visible = False
-    self.card_5.visible = False
     self.card_2.visible= True
     self.label_21.visible = False
     self.label_22.visible = False
@@ -93,6 +90,47 @@ class FAQ(FAQTemplate):
 
   def button_3_click(self, **event_args):
      open_form('Login')
+
+  def link_24_click(self, **event_args):
+    open_form('about_us')
+
+  def link_25_click(self, **event_args):
+    pass
+
+  def link_26_click(self, **event_args):
+    open_form('FAQ')
+
+  def link_27_click(self, **event_args):
+    open_form('contact_us')
+
+  def home_click(self, **event_args):
+    open_form('Home')
+
+  def about_us_click(self, **event_args):
+    open_form('about_us')
+
+  def products_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
+
+  def contact_click(self, **event_args):
+    open_form('contact_us')
+
+  def help_click(self, **event_args):
+    pass
+
+  def button_1_click(self, **event_args):
+    open_form('Login')
+
+  def button_2_click(self, **event_args):
+    open_form('Signup')
+
+  
+
+ 
+
+
+    
 
 
 
