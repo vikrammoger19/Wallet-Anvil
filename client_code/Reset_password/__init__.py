@@ -3,6 +3,7 @@ from anvil import *
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import re
 
 class Reset_password(Reset_passwordTemplate):
     def __init__(self, user=None, **properties):
@@ -49,7 +50,7 @@ class Reset_password(Reset_passwordTemplate):
         # Get the entered new password from text_box_3
         entered_new_password = self.text_box_3.text
 
-        # Get the entered confirm password from text_box_4
+        # Check if the entered confirm password from text_box_4
         entered_confirm_password = self.text_box_4.text
 
         # Check if the entered new passwords match
@@ -63,6 +64,13 @@ class Reset_password(Reset_passwordTemplate):
             self.label_5.foreground = "#FF0000"  # Set text color to red
             self.label_5.visible = True
 
+        # Validate the strength of the new password
+        if not re.match(r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$', entered_new_password):
+            # If the password does not meet the criteria, display an error message
+            self.label_5.text = "Password must contain at least 1 character, 1 number, and 1 symbol"
+            self.label_5.foreground = "#FF0000"  # Set text color to red
+            self.label_5.visible = True
+
     def primary_color_1_click(self, **event_args):
         # This method is called when the button primary_color_1 is clicked
         # Call the text_box_1_change, text_box_2_change, and text_box_3_change methods to trigger checks
@@ -70,10 +78,11 @@ class Reset_password(Reset_passwordTemplate):
         self.text_box_2_change()
         self.text_box_3_change()
 
-        # Check if all checks pass (email, old password, and new passwords match)
+        # Check if all checks pass (email, old password, new passwords match, and new password strength)
         if not self.label_3.visible and not self.label_4.visible and not self.label_5.visible:
             # Update the user's password to the new password
             self.user['password'] = self.text_box_4.text
             self.user.update()
             # Show a success message (you can replace this with any desired action)
             alert("Password updated successfully!")
+            open_form('Login')
