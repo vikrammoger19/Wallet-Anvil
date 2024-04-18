@@ -53,6 +53,7 @@ unique_ids:
     customer.transaction_history.ItemTemplate4: '1707316525850348797108903.8433'
     customer.selftransfer: '1709811618527375182796379.1019'
     Home: '171255588966496929858571.2235'
+    Reset_password: '1713419439814309058689607.435'
     contact_us.issue_2.hold: '1712909161862806922988853.1917'
   modules: {}
   server_modules:
