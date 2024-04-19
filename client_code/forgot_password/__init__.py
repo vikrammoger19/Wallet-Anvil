@@ -32,27 +32,25 @@ class forgot_password(forgot_passwordTemplate):
         return otp
     
     def text_box_2_pressed_enter(self, **event_args):
-        # Retry requesting the OTP up to 3 times
-        for i in range(3):
-            # Wait for a short duration before each attempt
-            time.sleep(1)  # Adjust this delay as needed
+        # Wait for a short duration before each attempt
+        time.sleep(1)  # Adjust this delay as needed
             
-            # Get the entered OTP from text_box_2
-            entered_otp = self.text_box_2.text
+        # Get the entered OTP from text_box_2
+        entered_otp = self.text_box_2.text
           
-            # Get the stored OTP from the server
-            stored_otp = anvil.server.call('get_stored_otp')
+        # Get the stored OTP from the server
+        # Call the send_otp_email function to retrieve the OTP
+        otp1 = anvil.server.call('send_otp_email', email, otp)
+
+        print("Entered OTP:", entered_otp)
+        print("Retrieved OTP:", otp)
           
-            print("Attempt", i+1, "- Entered OTP:", entered_otp)
-            print("Attempt", i+1, "- Stored OTP:", stored_otp)
-          
-            # Check if the entered OTP matches the stored OTP
-            if entered_otp == stored_otp:
-                # OTP is valid, display success message in green color
-                self.label_4.text = "OTP is valid"
-                self.label_4.foreground = "#008000"  # Green color
-                break
-            else:
-                # OTP is invalid or not yet retrieved, display a message
-                self.label_4.text = "Invalid OTP. Retrying..."
-                self.label_4.foreground = "#FF0000"  # Red color
+        # Check if the entered OTP matches the retrieved OTP
+        if entered_otp == otp1:
+            # OTP is valid, display success message in green color
+            self.label_4.text = "OTP is valid"
+            self.label_4.foreground = "#008000"  # Green color
+        else:
+            # OTP is invalid, display a message
+            self.label_4.text = "Invalid OTP. Please try again."
+            self.label_4.foreground = "#FF0000"  # Red color

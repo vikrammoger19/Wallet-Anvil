@@ -260,12 +260,13 @@ def get_currency_balance(user_phone, currency_type):
         return user_rows[0]['balance']
     else:
         return None 
+      
 stored_otp = None
 
 @anvil.server.callable
 def send_otp_email(email, otp):
     """
-    Sends an OTP to the specified email address and stores it globally.
+    Sends an OTP to the specified email address and returns it.
     """
     # Compose email message
     subject = "Your One Time Password (OTP)"
@@ -285,15 +286,20 @@ def send_otp_email(email, otp):
     print("OTP sent:", otp)
     print("Stored OTP:", stored_otp)
 
-@anvil.server.callable
-def get_stored_otp():
-    """
-    Returns the stored OTP.
-    """
-    global stored_otp
-    try:
-        print("Retrieving stored OTP:", stored_otp)
-        return stored_otp
-    except Exception as e:
-        print("Error retrieving stored OTP:", e)
-        return None
+    return otp  # Return the OTP
+
+# Remove the get_stored_otp function
+
+
+# @anvil.server.callable
+# def get_stored_otp(otp):
+#     """
+#     Returns the stored OTP.
+#     """
+#     global stored_otp
+#     try:
+#         print("Retrieving stored OTP:", stored_otp)
+#         return stored_otp
+#     except Exception as e:
+#         print("Error retrieving stored OTP:", e)
+#         return None
