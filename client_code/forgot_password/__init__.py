@@ -49,8 +49,34 @@ class forgot_password(forgot_passwordTemplate):
             # Hide text_box_3 and show text_box_4
             self.text_box_3.visible = True
             self.text_box_4.visible = True
-            self.label_4
+            self.label_4.visible = True
         else:
             # OTP is invalid, display a message
             self.label_4.text = "Invalid OTP. Please try again."
             self.label_4.foreground = "#FF0000"  # Red color
+            self.text_box_3.visible = False
+            self.text_box_4.visible = False
+
+    def primary_color_1_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        # Check if all required fields are visible
+        if self.text_box_2.visible and self.text_box_3.visible and self.text_box_4.visible:
+            # Update the user's password to the new password
+            user_email = self.text_box_1.text
+            new_password = self.text_box_4.text
+            
+            # Update the password only if the email exists in the database
+            matching_users = app_tables.wallet_users.search(email=user_email)
+            if matching_users and len(matching_users) > 0:
+                matching_users[0]['password'] = new_password
+                matching_users[0].update()
+                
+                # Show a success message
+                alert("Password updated successfully!")
+                open_form('Login')  # You can replace this with any desired action
+            else:
+                # If email not found, display an error message
+                alert("Email not found. Please enter a valid email address.")
+        else:
+            # If not all required fields are visible, display an error message
+            alert("Please complete all previous steps before updating the password.")
