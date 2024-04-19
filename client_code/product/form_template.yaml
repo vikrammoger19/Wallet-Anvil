@@ -1,0 +1,7 @@
+container: {type: ColumnPanel}
+components:
+- name: image_1
+  properties: {source: _/theme/64e29c39f403f0bb7b7315ef_Pesa_Door_II.png, height: 424}
+  type: Image
+  layout_properties: {grid_position: 'KIPCUU,BEWSTJ'}
+is_package: true
