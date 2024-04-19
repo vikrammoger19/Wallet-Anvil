@@ -7,6 +7,7 @@ from anvil import tables, app
 import random
 import uuid
 import anvil.email
+import datetime
 
 @anvil.server.callable
 def get_user_for_login(login_input):
@@ -259,8 +260,7 @@ def get_currency_balance(user_phone, currency_type):
         return user_rows[0]['balance']
     else:
         return None 
-
-
+stored_otp = None
 
 @anvil.server.callable
 def send_otp_email(email, otp):
@@ -288,8 +288,12 @@ def send_otp_email(email, otp):
 @anvil.server.callable
 def get_stored_otp():
     """
-    Returns the last stored OTP.
+    Returns the stored OTP.
     """
     global stored_otp
-    print("Retrieving stored OTP:", stored_otp)
-    return stored_otp
+    try:
+        print("Retrieving stored OTP:", stored_otp)
+        return stored_otp
+    except Exception as e:
+        print("Error retrieving stored OTP:", e)
+        return None
