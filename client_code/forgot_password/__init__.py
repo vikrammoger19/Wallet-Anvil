@@ -58,25 +58,36 @@ class forgot_password(forgot_passwordTemplate):
             self.text_box_4.visible = False
 
     def primary_color_1_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        # Check if all required fields are visible
-        if self.text_box_2.visible and self.text_box_3.visible and self.text_box_4.visible:
-            # Update the user's password to the new password
-            user_email = self.text_box_1.text
-            new_password = self.text_box_4.text
-            
-            # Update the password only if the email exists in the database
-            matching_users = app_tables.wallet_users.search(email=user_email)
-            if matching_users and len(matching_users) > 0:
-                matching_users[0]['password'] = new_password
-                matching_users[0].update()
-                
-                # Show a success message
-                alert("Password updated successfully!")
-                open_form('Login')  # You can replace this with any desired action
-            else:
-                # If email not found, display an error message
-                alert("Email not found. Please enter a valid email address.")
-        else:
-            # If not all required fields are visible, display an error message
-            alert("Please complete all previous steps before updating the password.")
+    # Check if both text_box_3 and text_box_4 are visible
+      if self.text_box_3.visible and self.text_box_4.visible:
+          # Check if passwords match
+          if self.text_box_3.text == self.text_box_4.text:
+              # Check if the new password meets the criteria
+              new_password = self.text_box_4.text
+              if (
+                  len(new_password) >= 8
+                  and any(char.isdigit() for char in new_password)
+                  and any(char.isalpha() for char in new_password)
+                  and any(not char.isalnum() for char in new_password)
+              ):
+                  # Password meets criteria, update the password
+                  user_email = self.text_box_1.text
+                  matching_users = app_tables.wallet_users.search(email=user_email)
+                  if matching_users and len(matching_users) > 0:
+                      matching_users[0]['password'] = new_password
+                      matching_users[0].update()
+                      alert("Password updated successfully!")
+                      open_form('Login')
+                  else:
+                      alert("Email not found. Please enter a valid email address.")
+              else:
+                  # Password doesn't meet criteria, display error message
+                  self.label_5.text = "Password must contain at least 8 characters, including at least one letter, one digit, and one special character."
+                  self.label_5.foreground = "#FF0000"
+          else:
+              # Passwords don't match, display error message
+              self.label_5.text = "Passwords don't match"
+              self.label_5.foreground = "#FF0000"
+      else:
+          # If both text_box_3 and text_box_4 are not visible, display an error message
+          alert("Please complete all previous steps before updating the password.")
