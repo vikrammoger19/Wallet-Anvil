@@ -7,6 +7,7 @@ from anvil import tables, app
 import random
 import uuid
 import anvil.email
+import datetime
 
 @anvil.server.callable
 def get_user_for_login(login_input):
@@ -259,40 +260,49 @@ def get_currency_balance(user_phone, currency_type):
         return user_rows[0]['balance']
     else:
         return None 
-
-
-
+      
 @anvil.server.callable
 def send_otp_email(email, otp):
     """
-    Sends an OTP to the specified email address and stores it in the OTPStorage table.
+    Sends an OTP to the specified email address and stores it in the server session.
     """
-    # Compose email message
-    subject = "Your One Time Password (OTP)"
-    message = f"Your OTP is: {otp}"
-    
-    # Send email
-    anvil.email.send(
-        to=email,
-        subject=subject,
-        text=message
-    )
+    # Check if the email exists in the database
+    if validate_email(email):
+        # Compose email message
+        subject = "Your One Time Password (OTP)"
+        message = f"Your OTP is: {otp}"
+        
+        # Send email
+        anvil.email.send(
+            to=email,
+            subject=subject,
+            text=message
+        )
 
-    # Store the OTP in the OTPStorage table
-    app_tables.OTPStorage.add_row(otp=otp)
+        # Store the OTP in the server session
+        anvil.server.session['stored_otp'] = otp
 
-    print("OTP sent:", otp)
+        print("OTP sent:", otp)
+    else:
+        print("Email not found. OTP not sent.")
+
 @anvil.server.callable
 def get_stored_otp():
     """
-    Returns the stored OTP.
+    Returns the stored OTP from the server session.
     """
-    global stored_otp
-    print("Stored OTP:", stored_otp)
-    return stored_otp
-    
+    return anvil.server.session.get('stored_otp')
+@anvil.server.callable
+def validate_email(email):
+    """
+    Validates if the provided email exists in the database.
+    """
+    matching_users = app_tables.wallet_users.search(email=email)
+    return bool(matching_users)
 
-
-
-
-
+@anvil.server.callable
+def generate_otp():
+    """
+    Generates a 6-digit OTP.
+    """
+    return ''.join(random.choice('0123456789') for _ in range(6))
