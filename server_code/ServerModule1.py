@@ -261,8 +261,6 @@ def get_currency_balance(user_phone, currency_type):
     else:
         return None 
       
-stored_otp = None
-
 @anvil.server.callable
 def send_otp_email(email, otp):
     """
@@ -279,13 +277,7 @@ def send_otp_email(email, otp):
         text=message
     )
 
-    # Store the OTP globally for later validation
-    global stored_otp
-    stored_otp = otp
-
     print("OTP sent:", otp)
-    print("Stored OTP:", stored_otp)
-
     return otp  # Return the OTP
 
 # Remove the get_stored_otp function
