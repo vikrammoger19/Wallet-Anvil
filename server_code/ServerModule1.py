@@ -264,34 +264,45 @@ def get_currency_balance(user_phone, currency_type):
 @anvil.server.callable
 def send_otp_email(email, otp):
     """
-    Sends an OTP to the specified email address and returns it.
+    Sends an OTP to the specified email address and stores it in the server session.
     """
-    # Compose email message
-    subject = "Your One Time Password (OTP)"
-    message = f"Your OTP is: {otp}"
-    
-    # Send email
-    anvil.email.send(
-        to=email,
-        subject=subject,
-        text=message
-    )
+    # Check if the email exists in the database
+    if validate_email(email):
+        # Compose email message
+        subject = "Your One Time Password (OTP)"
+        message = f"Your OTP is: {otp}"
+        
+        # Send email
+        anvil.email.send(
+            to=email,
+            subject=subject,
+            text=message
+        )
 
-    print("OTP sent:", otp)
-    return otp  # Return the OTP
+        # Store the OTP in the server session
+        anvil.server.session['stored_otp'] = otp
 
-# Remove the get_stored_otp function
+        print("OTP sent:", otp)
+    else:
+        print("Email not found. OTP not sent.")
 
+@anvil.server.callable
+def get_stored_otp():
+    """
+    Returns the stored OTP from the server session.
+    """
+    return anvil.server.session.get('stored_otp')
+@anvil.server.callable
+def validate_email(email):
+    """
+    Validates if the provided email exists in the database.
+    """
+    matching_users = app_tables.wallet_users.search(email=email)
+    return bool(matching_users)
 
-# @anvil.server.callable
-# def get_stored_otp(otp):
-#     """
-#     Returns the stored OTP.
-#     """
-#     global stored_otp
-#     try:
-#         print("Retrieving stored OTP:", stored_otp)
-#         return stored_otp
-#     except Exception as e:
-#         print("Error retrieving stored OTP:", e)
-#         return None
+@anvil.server.callable
+def generate_otp():
+    """
+    Generates a 6-digit OTP.
+    """
+    return ''.join(random.choice('0123456789') for _ in range(6))
