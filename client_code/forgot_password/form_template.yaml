@@ -55,12 +55,12 @@ components:
     layout_properties: {grid_position: 'HJAWSF,EYSISE'}
     event_bindings: {click: button_1_click}
   - name: text_box_2
-    properties: {placeholder: Old Password, visible: true, hide_text: false}
+    properties: {placeholder: ' Enter OTP and press enter', visible: false, hide_text: false}
     type: TextBox
     layout_properties: {grid_position: 'ZAVPXB,KUMEPU'}
     event_bindings: {pressed_enter: text_box_2_pressed_enter}
   - name: text_box_3
-    properties: {placeholder: New Passowrd, hide_text: true}
+    properties: {placeholder: New Passowrd, hide_text: true, visible: false}
     type: TextBox
     layout_properties: {grid_position: 'DIOMGB,LNUZEP'}
   - name: label_5
@@ -68,7 +68,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'VPULVN,PCKOIR'}
   - name: text_box_4
-    properties: {placeholder: Re-Enter Password, hide_text: true}
+    properties: {placeholder: Re-Enter Password, hide_text: true, visible: false}
     type: TextBox
     layout_properties: {grid_position: 'JBMOPP,JUQOJH'}
   - name: primary_color_1
