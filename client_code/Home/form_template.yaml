@@ -18,14 +18,14 @@ components:
         visible: true, text: 'We''re driven by a passion for financial empowerment
           and technological innovation. Our mission is simple: to provide individuals
           worldwide with a revolutionary multi-currency platform for managing their
-          finances in a seamless and efficient manner.', font_size: 20, font: a, spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+          finances in a seamless and efficient manner.', font_size: 20, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
       type: Label
       layout_properties: {x: 96.03125, y: 334.1405944824219, width: 606.7249633789063}
     - name: button_1
       properties: {text: Get started, background: '#258ee1', foreground: 'theme:White',
-        bold: true, font_size: 20, font: a}
+        bold: true, font_size: 20, font: ''}
       type: Button
       layout_properties: {x: 74.83750915527344, y: 489.85003662109375, width: 200}
       event_bindings: {click: button_1_click}
@@ -40,10 +40,11 @@ components:
     - name: label_3
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '#11466e',
         visible: true, text: Empower your finances with G-Wallet - Seamlessly manage multiple currencies and transcend borders with ease.,
-        font_size: 35, font: a, spacing_above: small, icon_align: left, spacing_below: small,
+        font_size: 35, font: '', spacing_above: small, icon_align: left, spacing_below: small,
         italic: false, background: '', bold: true, underline: false, icon: ''}
       type: Label
       layout_properties: {x: 96.02500915527344, y: 134.0999984741211, width: 600.463}
+      data_bindings: []
   - name: xy_panel_3
     properties: {role: null, width: 1872, align: center, height: 541.6000061035156,
       tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
@@ -54,7 +55,7 @@ components:
     - name: label_7_copy
       properties: {role: null, align: left, tooltip: '', border: '', foreground: 'theme:White',
         visible: true, text: Enable multi-currency payments on G-wallet, font_size: 45,
-        font: a, spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '', bold: true, underline: false, icon: ''}
       type: Label
       layout_properties: {x: 90.0875015258789, y: 86.85003662109375, width: 906}
@@ -93,7 +94,7 @@ components:
       layout_properties: {x: 1.100000023841858, y: 152.5750732421875, width: 324.138}
     - name: link_3
       properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: 'theme:White',
-        visible: true, text: Money Withdraw, font_size: 22, wrap_on: mobile, font: a,
+        visible: true, text: Money Withdraw, font_size: 22, wrap_on: mobile, font: '',
         col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
         spacing_below: small, italic: false, background: '', bold: true, underline: false,
         icon: ''}
@@ -102,7 +103,7 @@ components:
         width: 103}
     - name: link_4
       properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: 'theme:White',
-        visible: true, text: Bank  Account, font_size: 22, wrap_on: mobile, font: a,
+        visible: true, text: Bank  Account, font_size: 22, wrap_on: mobile, font: '',
         col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
         spacing_below: small, italic: false, background: '', bold: true, underline: false,
         icon: ''}
@@ -112,7 +113,7 @@ components:
       event_bindings: {click: link_4_click}
     - name: link_5
       properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: 'theme:White',
-        visible: true, text: Auto Topup, font_size: 22, wrap_on: mobile, font: a,
+        visible: true, text: Auto Topup, font_size: 22, wrap_on: mobile, font: '',
         col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
         spacing_below: small, italic: false, background: '', bold: true, underline: false,
         icon: ''}
@@ -145,7 +146,7 @@ components:
         width: 279}
     - name: link_2
       properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: 'theme:White',
-        visible: true, text: Your Wallet, font_size: 23, wrap_on: mobile, font: a,
+        visible: true, text: Your Wallet, font_size: 23, wrap_on: mobile, font: '',
         col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
         spacing_below: small, italic: false, background: '', bold: true, underline: false,
         icon: ''}
@@ -154,7 +155,7 @@ components:
         width: 65.39999389648438}
     - name: link_1
       properties: {role: text, url: '', align: left, tooltip: '', border: '', foreground: 'theme:White',
-        visible: true, text: Money Transfer, font_size: 23, wrap_on: mobile, font: a,
+        visible: true, text: Money Transfer, font_size: 23, wrap_on: mobile, font: '',
         col_spacing: medium, spacing_above: small, icon_align: right_edge, col_widths: '',
         spacing_below: small, italic: false, background: '', bold: true, underline: false,
         icon: ''}
@@ -260,7 +261,7 @@ components:
         - name: label_5_copy_2
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '#11466e',
             visible: true, text: G-Wallet provides the fastest payment with multi-currency support.,
-            font_size: 28, font: a, spacing_above: small, icon_align: left, spacing_below: small,
+            font_size: 28, font: '', spacing_above: small, icon_align: left, spacing_below: small,
             italic: false, background: '', bold: true, underline: false, icon: ''}
           type: Label
           layout_properties: {x: -7.4000091552734375, y: 195.0001220703125, width: 466}
@@ -288,7 +289,7 @@ components:
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
             visible: true, text: 'Your
 
-              G-wallet', font_size: 20, font: a, spacing_above: small, icon_align: left,
+              G-wallet', font_size: 20, font: '', spacing_above: small, icon_align: left,
             spacing_below: small, italic: false, background: '', bold: true, underline: false,
             icon: ''}
           type: Label
@@ -322,7 +323,7 @@ components:
         - name: label_5_copy_2_copy_3
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '#11466e',
             visible: true, text: Make direct payments from your bank account to anyone.,
-            font_size: 28, font: a, spacing_above: small, icon_align: left, spacing_below: small,
+            font_size: 28, font: '', spacing_above: small, icon_align: left, spacing_below: small,
             italic: false, background: '', bold: true, underline: false, icon: ''}
           type: Label
           layout_properties: {x: -7.4000091552734375, y: 195.0001220703125, width: 466}
@@ -352,7 +353,7 @@ components:
           properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
             visible: true, text: 'Money
 
-              Transfer', font_size: 20, font: a, spacing_above: small, icon_align: left,
+              Transfer', font_size: 20, font: '', spacing_above: small, icon_align: left,
             spacing_below: small, italic: false, background: '', bold: true, underline: false,
             icon: ''}
           type: Label
@@ -449,26 +450,26 @@ components:
     components:
     - name: label_1
       properties: {text: CopyRight2024@G-wallet, align: left, bold: true, font_size: 20,
-        visible: true, role: input-prompt, foreground: 'theme:White', font: a}
+        visible: true, role: input-prompt, foreground: 'theme:White', font: ''}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,XVKBKL'}
     - name: label_2
       properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:White',
-        visible: true, text: Disclaimer, font_size: 20, font: a, spacing_above: small,
+        visible: true, text: Disclaimer, font_size: 20, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
         underline: false, icon: ''}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,VMILPR'}
     - name: label_3_copy
       properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:White',
-        visible: true, text: Privacy Policy, font_size: 20, font: a, spacing_above: small,
+        visible: true, text: Privacy Policy, font_size: 20, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
         underline: false, icon: ''}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,FDANOO'}
     - name: label_4_copy
       properties: {role: null, align: right, tooltip: '', border: '', foreground: 'theme:White',
-        visible: true, text: Code Of Commitment, font_size: 20, font: a, spacing_above: small,
+        visible: true, text: Code Of Commitment, font_size: 20, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
         underline: false, icon: ''}
       type: Label
@@ -488,7 +489,7 @@ components:
       layout_properties: {width: 856.637951171875}
       components:
       - name: link_8
-        properties: {text: Wallet for consumer, font: a, bold: true, align: center,
+        properties: {text: Wallet for consumer, font: '', bold: true, align: center,
           underline: false}
         type: Link
         layout_properties: {x: 14.300000000745058, y: 3.899999428540468, width: 192.0500030517578}
@@ -503,23 +504,23 @@ components:
         - name: link_9
           properties: {role: null, url: '', align: left, tooltip: '', border: '',
             foreground: 'theme:Black', visible: true, text: Wallet Topup, font_size: 15,
-            wrap_on: mobile, font: a, col_spacing: medium, spacing_above: small, icon_align: right_edge,
-            col_widths: '', spacing_below: small, italic: false, background: '', bold: true,
-            underline: false, icon: 'fa:angle-right'}
+            wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small,
+            icon_align: right_edge, col_widths: '', spacing_below: small, italic: false,
+            background: '', bold: true, underline: false, icon: 'fa:angle-right'}
           type: Link
           layout_properties: {grid_position: 'WLXEXV,IZKUGJ'}
           event_bindings: {click: link_9_click}
         - name: link_10
           properties: {role: null, url: '', align: left, tooltip: '', border: '',
             foreground: 'theme:Black', visible: true, text: Auto Topup, font_size: 15,
-            wrap_on: mobile, font: a, col_spacing: medium, spacing_above: small, icon_align: right_edge,
-            col_widths: '', spacing_below: small, italic: false, background: '', bold: true,
-            underline: false, icon: 'fa:angle-right'}
+            wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small,
+            icon_align: right_edge, col_widths: '', spacing_below: small, italic: false,
+            background: '', bold: true, underline: false, icon: 'fa:angle-right'}
           type: Link
           layout_properties: {grid_position: 'JEAGUN,IPRRDG'}
           event_bindings: {click: link_10_click}
       - name: link_13
-        properties: {text: Products, font: a, font_size: 18, bold: true, align: center}
+        properties: {text: Products, font: '', font_size: 18, bold: true, align: center}
         type: Link
         layout_properties: {x: 226.23753051832318, y: 4.850000191479921, width: 193.94998779296876}
         event_bindings: {click: link_13_click}
@@ -531,12 +532,12 @@ components:
         layout_properties: {x: 242.08750610426068, y: 35.37500076368451, width: 171.90000915527344}
         components:
         - name: link_11
-          properties: {text: Pay, foreground: 'theme:Black', font: a, font_size: 15,
+          properties: {text: Pay, foreground: 'theme:Black', font: '', font_size: 15,
             bold: true, icon: 'fa:angle-right', icon_align: right_edge, align: center}
           type: Link
           layout_properties: {grid_position: 'XZNEKR,DZHLOM'}
       - name: link_15
-        properties: {text: Company, foreground: 'theme:White', font: a, font_size: 18,
+        properties: {text: Company, foreground: 'theme:White', font: '', font_size: 18,
           bold: true, align: center}
         type: Link
         layout_properties: {x: 440.03751831129193, y: 5.162500191479921, width: 165.5999755859375}
@@ -547,19 +548,19 @@ components:
         layout_properties: {x: 457.8375061042607, y: 41.89999847486615, width: 134.8874969482422}
         components:
         - name: link_17
-          properties: {text: About us, font: a, font_size: 15, foreground: 'theme:Black',
+          properties: {text: About us, font: '', font_size: 15, foreground: 'theme:Black',
             bold: true, icon: 'fa:angle-right', icon_align: right_edge}
           type: Link
           layout_properties: {grid_position: 'TIMVIS,OOPEOL'}
       - name: link_16
-        properties: {text: Help, foreground: 'theme:White', font: a, font_size: 18,
+        properties: {text: Help, foreground: 'theme:White', font: '', font_size: 18,
           bold: true, align: center, visible: true}
         type: Link
         layout_properties: {x: 622.0375183112919, y: 4.250002671033144, width: 95.80000305175781}
         event_bindings: {click: link_16_click}
       - name: button_3
         properties: {role: null, align: left, border: 'theme:White', enabled: true,
-          foreground: '#2196F3', text: Login, font_size: 16, font: a, spacing_above: small,
+          foreground: '#2196F3', text: Login, font_size: 16, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: 'theme:White',
           bold: true, underline: false, icon: ''}
         type: Button
@@ -567,7 +568,7 @@ components:
         event_bindings: {click: button_3_click}
 - name: label_7
   properties: {text: 'G-Wallet         ', font_size: 25, align: right, bold: true,
-    font: a, italic: false, underline: false, foreground: 'theme:White'}
+    font: '', italic: false, underline: false, foreground: 'theme:White'}
   type: Label
   layout_properties: {slot: title}
 - name: image_1
