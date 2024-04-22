@@ -1,0 +1,299 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: ''}
+components:
+- type: ColumnPanel
+  properties: {}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - name: content_panel_copy
+    properties: {col_widths: '{}'}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'ZNSGMO,MGLAMR', full_width_row: true}
+    components:
+    - name: navbar_links_copy
+      properties: {background: ''}
+      type: FlowPanel
+      layout_properties: {grid_position: 'VWNSAC,XLNXHV', full_width_row: true}
+      event_bindings: {show: navbar_links_show}
+      components:
+      - name: grid_panel_1
+        properties: {}
+        type: GridPanel
+        layout_properties: {width: 24.800010681152344}
+      - name: flow_panel_1
+        properties: {}
+        type: FlowPanel
+        layout_properties: {width: 223.67498779296875}
+        components:
+        - name: image_1_copy
+          properties: {height: 53.79998779296875, source: _/theme/letter-g.png, display_mode: shrink_to_fit,
+            background: 'theme:White'}
+          type: Image
+          layout_properties: {width: 60.774993896484375}
+        - name: label_1_copy
+          properties: {text: G-Wallet, bold: true, font: '', font_size: 30, background: '',
+            foreground: 'theme:Primary 500'}
+          type: Label
+          layout_properties: {}
+      - name: xy_panel_1_copy
+        properties: {height: 62.000091552734375, width: 1100}
+        type: XYPanel
+        layout_properties: {width: 1147.4000244140625}
+        components:
+        - name: link_4
+          properties: {text: Contact, bold: true, foreground: '', icon: 'fa:phone',
+            font_size: 19, font: ''}
+          type: Link
+          layout_properties: {x: 638.1000488288701, y: 9.562504578381777, width: 109.7999755859375}
+        - name: button_1_copy
+          properties: {text: LOGIN, background: 'theme:Primary 500', foreground: 'theme:White',
+            font: verdana, font_size: 16}
+          type: Button
+          layout_properties: {x: 888.5375488288701, y: 8.962506104260683, width: 108.5999984741211}
+          event_bindings: {click: button_1_click}
+        - name: button_2
+          properties: {text: Signup, background: 'theme:Primary 500', foreground: 'theme:White',
+            font: verdana, font_size: 17}
+          type: Button
+          layout_properties: {x: 994.7999954223633, y: 7.725003052502871, width: 105.20000457763672}
+        - name: link_1_copy
+          properties: {text: Home, icon: 'fa:home', foreground: '', bold: true, font: '',
+            font_size: 19}
+          type: Link
+          layout_properties: {x: 245.63749389722943, y: 12.087498474866152, width: 90.8499984741211}
+        - name: link_3
+          properties: {text: Products, icon: 'fa:cart-arrow-down', foreground: '',
+            bold: true, font_size: 19, font: ''}
+          type: Link
+          layout_properties: {x: 501.38752441480756, y: 10.050000000745058, width: 113.5875015258789}
+        - name: link_2_copy
+          properties: {text: About us, foreground: '', bold: true, icon: 'fa:adn',
+            font_size: 19, font: ''}
+          type: Link
+          layout_properties: {x: 363.48750000074506, y: 11.524998474866152, width: 118.20000457763672}
+        - name: link_5
+          properties: {text: Help, bold: true, foreground: '', icon: 'fa:question-circle',
+            font_size: 19, font: '', align: left}
+          type: Link
+          layout_properties: {x: 775.0999877937138, y: 8.862500000745058, width: 93.5875015258789}
+    - name: xy_panel_1
+      properties: {height: 122.19998168945312, background: 'theme:Primary 500'}
+      type: XYPanel
+      layout_properties: {grid_position: 'YGDLIG,XVBOVM', full_width_row: true}
+      components:
+      - name: label_1
+        properties: {text: '   Get in touch with the G-Wallet team', foreground: 'theme:White',
+          bold: true, align: center, font_size: 50}
+        type: Label
+        layout_properties: {x: 269.5000122077763, y: 36.037498474121094, width: 882.575}
+    - name: spacer_1
+      properties: {height: -55.20001220703125}
+      type: Spacer
+      layout_properties: {grid_position: 'JZPXRD,SSZSLG', full_width_row: true}
+    - name: xy_panel_3
+      properties: {height: 150.39993286132812, width: 900}
+      type: XYPanel
+      layout_properties: {grid_position: 'UQOKEA,DPQTHS', full_width_row: true}
+      components:
+      - name: headline_1
+        properties: {role: headline, text: We look forward to helping you on your journey,
+          align: center, bold: true, font_size: 24}
+        type: Label
+        layout_properties: {x: 0, y: 22.449963379651308, width: 953.2000122070312}
+      - name: image_4
+        properties: {source: _/theme/Screenshot_2024-04-22_172619-removebg-preview.png,
+          height: 81.60000610351562, display_mode: original_size}
+        type: Image
+        layout_properties: {x: 713.7875183112919, y: 4.3874969482421875, width: 171.35000610351562}
+      - name: image_5
+        properties: {source: _/theme/Screenshot_2024-04-22_172433-removebg-preview (1).png,
+          height: 153.19998168945312, display_mode: shrink_to_fit}
+        type: Image
+        layout_properties: {x: 0, y: 0, width: 247.48798779296874}
+      - name: image_6
+        properties: {source: _/theme/Screenshot_2024-04-22_172445-removebg-preview.png,
+          height: 115.19998168945312}
+        type: Image
+        layout_properties: {x: 858.9875305183232, y: 35.19999694824219, width: 78}
+    - name: text_box_1
+      properties: {placeholder: First Name}
+      type: TextBox
+      layout_properties: {grid_position: 'ALDSLA,JYXOAL'}
+    - name: text_box_2
+      properties: {placeholder: Last Name}
+      type: TextBox
+      layout_properties: {grid_position: 'ALDSLA,VMDFYM'}
+    - name: text_box_3
+      properties: {placeholder: Enter your E-mail}
+      type: TextBox
+      layout_properties: {grid_position: 'WKRQHJ,KCXQVI'}
+    - name: text_area_4
+      properties: {placeholder: Add your message, height: 118}
+      type: TextArea
+      layout_properties: {grid_position: 'RGAABI,TQDPNT'}
+    - name: spacer_3
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'COQGCU,CFSEKM', full_width_row: true}
+    - name: button_1
+      properties: {text: SEND Message, background: 'theme:Primary 500', foreground: 'theme:White',
+        font_size: 15, align: center, bold: true, spacing_above: small}
+      type: Button
+      layout_properties: {grid_position: 'MYJLAN,QXYMLF', full_width_row: false}
+    - name: xy_panel_2
+      properties: {height: 215.39999389648438}
+      type: XYPanel
+      layout_properties: {grid_position: 'DXDPTL,MWUMLX', full_width_row: false}
+      components:
+      - name: label_6
+        properties: {text: '                     Recommended', bold: true, font_size: 18,
+          underline: false, align: left, font: verdana}
+        type: Label
+        layout_properties: {x: 72.69999389722943, y: 7.200000762939453, width: 472.5999755859375}
+      - name: image_1
+        properties: {height: 62, source: _/theme/Screenshot_2024-04-22_154227-removebg-preview.png}
+        type: Image
+        layout_properties: {x: 94.30001525953412, y: 44, width: 72.20000457763672}
+      - name: image_2
+        properties: {height: 59.39996337890625, source: _/theme/Screenshot_2024-04-22_154217-removebg-preview.png}
+        type: Image
+        layout_properties: {x: 357.53751831129193, y: 42.80000305175781, width: 94.58751220703125}
+      - name: label_7
+        properties: {text: CHAT WITH US, align: center, bold: true}
+        type: Label
+        layout_properties: {x: 86.39999084547162, y: 102.78750610351562, width: 102.39999389648438}
+      - name: label_8
+        properties: {text: MAIL TO US, bold: true}
+        type: Label
+        layout_properties: {x: 377.55000000074506, y: 102.78750610351562, width: 91.18748779296875}
+      - name: label_9
+        properties: {text: '       We are always available', align: left}
+        type: Label
+        layout_properties: {x: 51.10000305250287, y: 128.3874969482422, width: 200}
+      - name: label_10
+        properties: {text: Our team is here to help, align: center}
+        type: Label
+        layout_properties: {x: 314.3874633796513, y: 128.3874969482422, width: 200}
+      - name: link_1
+        properties: {text: Chat with us, align: center, underline: true, bold: false,
+          font_size: 14}
+        type: Link
+        layout_properties: {x: 36.16250305250287, y: 160.8000030517578, width: 200}
+      - name: link_2
+        properties: {text: mail@GTPL.in, align: center, font_size: 14, underline: true}
+        type: Link
+        layout_properties: {x: 312.70002441480756, y: 160.8000030517578, width: 200}
+    - name: xy_panel_2_copy_2
+      properties: {role: null, width: null, align: center, height: 280.20001220703125,
+        tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
+        spacing_below: small, background: 'theme:Gray 200'}
+      type: XYPanel
+      layout_properties: {grid_position: 'GDEAWM,OBZWZH', full_width_row: true}
+      components:
+      - name: label_21_copy
+        properties: {text: 'G-Wallet is your trusted companion for effortless financial
+            transactions, providing a secure and intuitive platform to manage your
+            money with ease.', align: center, font_size: 16, font: verdana}
+        type: Label
+        layout_properties: {x: 22, y: 102.7626953125, width: 359.788}
+      - name: label_22_copy
+        properties: {text: '   Quick Links', align: left, bold: true, font: verdana,
+          font_size: 16}
+        type: Label
+        layout_properties: {x: 637.7125244140625, y: 53.91269531250009, width: 200}
+      - name: label_23_copy
+        properties: {text: '     Mail to us', align: left, bold: true, font: verdana,
+          font_size: 15}
+        type: Label
+        layout_properties: {x: 1084.8499755859375, y: 56.7626953125, width: 200}
+      - name: column_panel_9_copy
+        properties: {col_widths: '{"UGAAQA":15,"ZRBFQG":15,"HBKBYU":15,"ZAJCNM":15}'}
+        type: ColumnPanel
+        layout_properties: {x: 1032.7000732421875, y: 184.212646484375, width: 243.688}
+        components:
+        - name: button_2_copy_copy
+          properties: {text: '', icon: 'fa:facebook', background: 'theme:White', foreground: 'theme:Primary
+              500'}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,UGAAQA'}
+        - name: button_4_copy
+          properties: {text: '', background: 'theme:White', icon: 'fa:linkedin', foreground: 'theme:Primary
+              500', visible: true}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,ZRBFQG'}
+        - name: button_6_copy
+          properties: {text: '', background: 'theme:White', foreground: 'theme:Primary
+              500', icon: 'fa:instagram'}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,HBKBYU'}
+        - name: button_5_copy
+          properties: {text: '', background: 'theme:White', icon: 'fa:twitter', foreground: 'theme:Primary
+              500', icon_align: left, italic: true}
+          type: Button
+          layout_properties: {grid_position: 'JBVNGZ,ZAJCNM'}
+      - name: label_24_copy
+        properties: {text: '            Find us', align: left, bold: true, font: verdana,
+          font_size: 15}
+        type: Label
+        layout_properties: {x: 1052.3875732421875, y: 138.212646484375, width: 200}
+      - name: link_24
+        properties: {text: 'What is G-Wallet?', font_size: 17, font: verdana, foreground: '',
+          underline: false, role: hover-link, visible: true}
+        type: Link
+        layout_properties: {x: 646.6000488288701, y: 89.19999694824219, width: 200}
+        event_bindings: {click: link_24_click}
+        data_bindings: []
+      - name: link_25
+        properties: {text: Products, font_size: 17, font: verdana, foreground: '',
+          role: hover-link}
+        type: Link
+        layout_properties: {x: 648.0000122077763, y: 120, width: 200}
+        event_bindings: {click: link_25_click}
+      - name: link_26
+        properties: {text: FAQs, font_size: 17, font: verdana, foreground: '', role: hover-link}
+        type: Link
+        layout_properties: {x: 649.5000122077763, y: 147.787506103516, width: 198.5}
+      - name: link_27
+        properties: {text: Contact Us, font_size: 17, font: verdana, foreground: '',
+          role: hover-link}
+        type: Link
+        layout_properties: {x: 648.499981690198, y: 178, width: 200}
+      - name: image_3
+        properties: {height: 56.5999755859375, source: _/theme/letter-g.png}
+        type: Image
+        layout_properties: {x: 51.937496948987246, y: 46.412498474121094, width: 94.5875015258789}
+      - name: label_3_copy
+        properties: {text: G-Wallet, bold: true, font: verdana, font_size: 28}
+        type: Label
+        layout_properties: {x: 131.98750000074506, y: 51.51249694824219, width: 200}
+      - name: link_8
+        properties: {text: '         MAIL@GTPL.IN', align: left}
+        type: Link
+        layout_properties: {x: 1070.4000244140625, y: 89.20000457763672, width: 200}
+      - name: label_25
+        properties: {font_size: 20, text: Code Of Commitment, bold: true, align: right}
+        type: Label
+        layout_properties: {x: 1112.7625427246094, y: 235.63751220703125, width: 246.3999267578125}
+      - name: spacer_1_copy
+        properties: {height: 32}
+        type: Spacer
+        layout_properties: {x: 5.900013733655214, y: 221, width: 1218.0000244140624}
+      - name: label_19
+        properties: {text: CopyRight2024@G-wallet, bold: true, font_size: 20}
+        type: Label
+        layout_properties: {x: 34.587494660168886, y: 235.63751220703125, width: 281.9875183105469}
+      - name: label_20
+        properties: {text: Disclaimer, bold: true, font_size: 20}
+        type: Label
+        layout_properties: {x: 446.73750000074506, y: 235.63751220703125, width: 200}
+      - name: label_24
+        properties: {text: Privacy Policy, bold: true, font_size: 20}
+        type: Label
+        layout_properties: {x: 807.6624877937138, y: 235.63751220703125, width: 200}
+- type: FlowPanel
+  properties: {}
+  name: navbar_links
+  layout_properties: {slot: nav-right}
