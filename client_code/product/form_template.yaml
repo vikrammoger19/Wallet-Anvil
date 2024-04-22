@@ -186,7 +186,7 @@ components:
 - name: card_5_copy
   properties: {role: card}
   type: ColumnPanel
-  layout_properties: {grid_position: 'ERVKTB,HYQOOY'}
+  layout_properties: {grid_position: 'ERVKTB,HYQOOY LJTUSY,DXQHSY'}
   components:
   - name: spacer_6
     properties: {height: 41}
@@ -196,6 +196,27 @@ components:
     properties: {height: 403, source: _/theme/64d3d946505a163e3e99671f_man-holding--phone.jpg}
     type: Image
     layout_properties: {grid_position: 'EYZYEK,UDZDBT'}
+- name: card_8
+  properties: {role: card}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'ERVKTB,HYQOOY FKIDBF,RYUKKW'}
+  components:
+  - name: spacer_8
+    properties: {height: 144}
+    type: Spacer
+    layout_properties: {grid_position: 'ZZBQFK,KKOZZC'}
+  - name: label_11
+    properties: {text: 'Global Connectedness, with a Local Experience', bold: true,
+      font_size: 32}
+    type: Label
+    layout_properties: {grid_position: 'CFOJVI,COMKJT'}
+  - name: label_12
+    properties: {bold: true, text: 'Stay in touch with loved ones and effortlessly
+        manage multiple currencies, no matter where you are in the world. Feel more
+        connected by using local services and conducting transactions as if you were
+        a local.'}
+    type: Label
+    layout_properties: {grid_position: 'OIPWWH,NYWHUP'}
 - name: card_5
   properties: {role: card}
   type: ColumnPanel
@@ -211,6 +232,10 @@ components:
       bold: true}
     type: Label
     layout_properties: {grid_position: 'WIZXQF,DELPZA'}
+- name: spacer_7
+  properties: {height: 10}
+  type: Spacer
+  layout_properties: {grid_position: 'ERVKTB,XMTYSY JKKRRO,EOPHNS'}
 - name: card_6
   properties: {role: card}
   type: ColumnPanel
@@ -226,4 +251,41 @@ components:
       bold: true}
     type: Label
     layout_properties: {grid_position: 'QUWNMW,LGGYCF'}
+- name: card_7
+  properties: {role: card}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'ERVKTB,XMTYSY NWGZRP,UDUDVO'}
+  components:
+  - name: image_8
+    properties: {source: _/theme/64d3d91ea136e6cd012be0a0_woman-holding--phone.jpg,
+      height: 373}
+    type: Image
+    layout_properties: {grid_position: 'NYWQPZ,UWANPQ', full_width_row: true}
+- name: card_9
+  properties: {role: card, col_widths: '{"BATBWA":30,"EFVWQY":30}'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'GNTBFS,EPAHHQ'}
+  components:
+  - name: label_14
+    properties: {text: Requesting a Multi-currency Wallet is Easy, foreground: white,
+      background: '#1eb0ed', bold: true, font_size: 32}
+    type: Label
+    layout_properties: {grid_position: 'EVBOGK,BATBWA'}
+  - name: spacer_9
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'EVBOGK,EFVWQY'}
+  - name: image_9
+    properties: {source: _/theme/64ddd972b71a4e6f4372e031_country-mockup.png, height: 676,
+      background: '#1eb0ed'}
+    type: Image
+    layout_properties: {grid_position: 'OVGAQW,XYULPE'}
+  - name: label_13
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'OVGAQW,TIALOO GHEAAU,YPKZDH'}
+  - name: image_10
+    properties: {source: _/theme/64b8169293a4eedcc0ccd62f_requesti-is-easy.svg}
+    type: Image
+    layout_properties: {grid_position: 'OVGAQW,TIALOO ICWOSP,AXZTFY'}
 is_package: true
