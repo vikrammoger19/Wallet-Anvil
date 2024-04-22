@@ -31,7 +31,7 @@ class Home(HomeTemplate):
     pass
 
   def button_3_click(self, **event_args):
-    open_form('Login')
+    open_form('login')
 
   def button_1_click(self, **event_args):
-    open_form('Login')
+    open_form('login')
