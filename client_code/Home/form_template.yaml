@@ -535,6 +535,7 @@ components:
             bold: true, icon: 'fa:angle-right', icon_align: right_edge, align: center}
           type: Link
           layout_properties: {grid_position: 'XZNEKR,DZHLOM'}
+          event_bindings: {click: link_11_click}
       - name: link_15
         properties: {text: Company, foreground: 'theme:White', font: a, font_size: 18,
           bold: true, align: center}
