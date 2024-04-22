@@ -5,7 +5,7 @@ components:
 - name: navbar_links_copy_copy
   properties: {background: ''}
   type: FlowPanel
-  layout_properties: {grid_position: 'TLTNYO,YEZKYN'}
+  layout_properties: {grid_position: 'TLTNYO,YEZKYN', full_width_row: true}
   event_bindings: {}
   components:
   - name: grid_panel_1
@@ -81,7 +81,7 @@ components:
   properties: {role: card, col_widths: '{"SJQQKA":25,"CSNCEC":26,"ZWIKMN":20,"HFTKJH":40,"WZIVOF":35,"LUUEUF":25}',
     background: '#1eb0ed'}
   type: ColumnPanel
-  layout_properties: {grid_position: 'MGOYDV,TLXYAK'}
+  layout_properties: {grid_position: 'MGOYDV,TLXYAK', full_width_row: true}
   components:
   - name: spacer_1
     properties: {height: 32}
@@ -262,7 +262,8 @@ components:
     type: Image
     layout_properties: {grid_position: 'NYWQPZ,UWANPQ', full_width_row: true}
 - name: card_9
-  properties: {role: card, col_widths: '{"BATBWA":30,"EFVWQY":30}'}
+  properties: {role: card, col_widths: '{"BATBWA":30,"EFVWQY":30,"DIGISJ":20,"WNDDYG":40,"PMQALM":8,"HMJEZO":52}',
+    background: '#1eb0ed'}
   type: ColumnPanel
   layout_properties: {grid_position: 'GNTBFS,EPAHHQ'}
   components:
@@ -283,9 +284,42 @@ components:
   - name: label_13
     properties: {}
     type: Label
-    layout_properties: {grid_position: 'OVGAQW,TIALOO GHEAAU,YPKZDH'}
+    layout_properties: {grid_position: 'OVGAQW,TIALOO DLWVAC,EIMJMB'}
   - name: image_10
-    properties: {source: _/theme/64b8169293a4eedcc0ccd62f_requesti-is-easy.svg}
+    properties: {source: _/theme/prioritize (1).png, height: 487, background: '#1eb0ed'}
     type: Image
     layout_properties: {grid_position: 'OVGAQW,TIALOO ICWOSP,AXZTFY'}
+  - name: spacer_10
+    properties: {height: 150}
+    type: Spacer
+    layout_properties: {grid_position: 'OVGAQW,TIALOO ICWOSP,PXHXWH JWEYXJ,OLNDEL'}
+  - name: spacer_13
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'OVGAQW,TIALOO ICWOSP,PXHXWH UEOHWO,PMQALM'}
+  - name: label_17
+    properties: {text: 3.Send money, background: '#1eb0ed', foreground: yellow, bold: true,
+      font_size: 20}
+    type: Label
+    layout_properties: {grid_position: 'OVGAQW,TIALOO ICWOSP,PXHXWH UEOHWO,HMJEZO
+        DMLEFX,VGCCVK'}
+  - name: label_15
+    properties: {text: 1.Create an account, background: '#1eb0ed', bold: true, font_size: 20,
+      foreground: yellow}
+    type: Label
+    layout_properties: {grid_position: 'OVGAQW,TIALOO ICWOSP,PXHXWH UEOHWO,HMJEZO
+        RPSPHM,NYEUXS'}
+  - name: spacer_11
+    properties: {height: 21}
+    type: Spacer
+    layout_properties: {grid_position: 'OVGAQW,TIALOO ICWOSP,PXHXWH YSADTZ,AUCZKU'}
+  - name: label_16
+    properties: {text: 2.Fund your wallet, bold: true, font_size: 20, foreground: '#f42f2f',
+      background: '#1eb0ed'}
+    type: Label
+    layout_properties: {grid_position: 'OVGAQW,TIALOO ICWOSP,PXHXWH WQSIND,WUVKLW'}
+  - name: spacer_12
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'OVGAQW,TIALOO ICWOSP,PXHXWH GUNOSG,DIGISJ'}
 is_package: true
