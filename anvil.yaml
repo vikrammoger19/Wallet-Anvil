@@ -10,7 +10,6 @@ services:
 - source: /runtime/services/anvil/secrets.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: Home}
 package_name: d1
 allow_embedding: false
 name: Wallet Anvil
