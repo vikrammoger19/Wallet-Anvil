@@ -1,13 +1,13 @@
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from datetime import datetime
+from datetime import datetime, timezone
 import anvil.server
 from anvil import tables, app
 import random
 import uuid
 import anvil.email
-import datetime
+
 
 @anvil.server.callable
 def get_user_for_login(login_input):
@@ -28,15 +28,15 @@ def get_user_for_login(login_input):
             return None
 
 @anvil.server.callable
-def add_info(email, username, password, pan, address, phone, aadhar):
+def add_info(username, email, address, phone, aadhar, pan, password):
     user_row = app_tables.wallet_users.add_row(
-        email=email,
         username=username,
-        password=password,
-        pan=pan,
+        email=email,
         address=address,
         phone=phone,
-        aadhar=aadhar,
+        aadhar=int(aadhar),              
+        pan=pan,
+        password=password,   
         usertype='customer',
         confirm_email=True,
         user_limit=(100000),
