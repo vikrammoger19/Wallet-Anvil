@@ -178,22 +178,10 @@ components:
           font_size: 14}
         type: Link
         layout_properties: {x: 38.612484741955996, y: 192.1875, width: 200}
-      - name: link_2
-        properties: {text: mail@GTPL.in, align: center, font_size: 14, underline: true}
-        type: Link
-        layout_properties: {x: 316.7500122077763, y: 192.1875, width: 200}
-      - name: label_10
-        properties: {text: Our team is here to help, align: center}
-        type: Label
-        layout_properties: {x: 314.5749633796513, y: 155.1875, width: 212.02501220703124}
       - name: label_9
         properties: {text: '     We are always available', align: left}
         type: Label
         layout_properties: {x: 48.83749084547162, y: 155.1875, width: 189.77499389648438}
-      - name: label_8
-        properties: {text: MAIL TO US, bold: true}
-        type: Label
-        layout_properties: {x: 377.69999389722943, y: 126, width: 91.17500305175781}
       - name: label_7
         properties: {text: CHAT WITH US, align: center, bold: true}
         type: Label
@@ -202,10 +190,6 @@ components:
         properties: {height: 62, source: _/theme/Screenshot_2024-04-22_154227-removebg-preview.png}
         type: Image
         layout_properties: {x: 101.63749389722943, y: 61.38750457763672, width: 72.20000457763672}
-      - name: image_2
-        properties: {height: 59.39996337890625, source: _/theme/Screenshot_2024-04-22_154217-removebg-preview.png}
-        type: Image
-        layout_properties: {x: 372.8749816901982, y: 64.00000381469727, width: 94.5875015258789}
     - name: xy_panel_2_copy_2
       properties: {role: null, width: null, align: center, height: 280.20001220703125,
         tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
