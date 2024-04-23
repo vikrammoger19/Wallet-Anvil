@@ -4,6 +4,8 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+import random
+from twilio.rest import Client
 import re
 
 class signup(signupTemplate):
@@ -104,6 +106,7 @@ class signup(signupTemplate):
             
             # Hide text_box_2 and label_4, and show text_box_3
             self.text_box_9.visible = True
+            self.label_3.visible=True
             
         else:
             # Email doesn't exist, display an error message
@@ -111,7 +114,7 @@ class signup(signupTemplate):
 
   def text_box_9_pressed_enter(self, **event_args):
         # Wait for a short duration before each attempt
-        self.label_3_copy_copy.visible=True
+        
         entered_otp = self.text_box_9.text
         
         # Get the stored OTP from the server
@@ -120,16 +123,26 @@ class signup(signupTemplate):
         # Check if the entered OTP matches the stored OTP
         if entered_otp == stored_otp:
             # OTP is valid, display success message in green color
-            # self.label_3_copy_copy.text = "OTP is valid"
-            alert('valid')
-            self.label_3_copy_copy.foreground = "#008000"  # Green color
+            self.label_3.text = "OTP is valid"
+           
+            self.label_3.foreground = "#008000"  # Green color
             
             # Hide text_box_3 and show text_box_4
             
             
         else:
             # OTP is invalid, display a message
-            self.label_3_copy_copy.text = "Invalid OTP. Please try again."
-            self.label_3_copy_copy.foreground = "#FF0000"  # Red color
-            
-    
+            self.label_3.text = "Invalid OTP. Please try again."
+            self.label_3.foreground = "#FF0000"  # Red color
+
+  def button_2_click(self, **event_args):
+        # Send OTP to the phone number entered in text_box_3
+        phone_number = self.text_box_3.text
+
+        # Call the server function to send OTP via SMS
+        success = anvil.server.call('send_otp_sms', phone_number)
+        
+        if success:
+            alert("OTP has been sent to your mobile number.")
+        else:
+            alert("Failed to send OTP. Please try again later.")

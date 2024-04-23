@@ -306,3 +306,23 @@ def generate_otp():
     Generates a 6-digit OTP.
     """
     return ''.join(random.choice('0123456789') for _ in range(6))
+
+
+@anvil.server.callable
+def send_otp_sms(phone_number, otp):
+    try:
+        # Initialize Twilio client
+        client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
+
+        # Send SMS
+        message = client.messages.create(
+            body=f"Your OTP is: {otp}",
+            from_=TWILIO_PHONE_NUMBER,
+            to=phone_number
+        )
+
+        print("OTP sent via SMS:", otp)
+        return True  # SMS sent successfully
+    except Exception as e:
+        print(f"Failed to send SMS: {e}")
+        return False  # Failed to send SMS
