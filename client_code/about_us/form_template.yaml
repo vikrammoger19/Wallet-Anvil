@@ -3,10 +3,6 @@ container:
   type: HtmlTemplate
   properties: {html: ''}
 components:
-- type: FlowPanel
-  properties: {}
-  name: navbar_links
-  layout_properties: {slot: nav-right}
 - name: column_panel_1
   properties: {}
   type: ColumnPanel
