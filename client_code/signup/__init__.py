@@ -16,7 +16,6 @@ class signup(signupTemplate):
     self.pass_card.visible = False 
 
   def primary_color_1_click(self, **event_args):
-    # Check if the phone number already exists in the database
         existing_user = anvil.server.call('get_user_by_phone', str(self.text_box_3.text).strip())
 
         if existing_user:
