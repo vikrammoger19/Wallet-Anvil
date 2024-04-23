@@ -26,8 +26,9 @@ components:
       layout_properties: {width: 71.60000610351562}
     - name: label_7_copy_2
       properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
-        font: a, italic: false, underline: false, foreground: black}
+        font: '', italic: false, underline: false, foreground: black}
       type: Label
+      layout_properties: {}
     - name: spacer_2
       properties: {height: 32}
       type: Spacer
@@ -58,14 +59,9 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'PTIALC,OIHRKL'}
-  - name: image_1
-    properties: {source: 'https://as1.ftcdn.net/v2/jpg/02/58/08/00/1000_F_258080094_ZZBJctFXuoz3GweY4mzGN5nGCXHEsRTI.jpg',
-      background: '', display_mode: zoom_to_fill}
-    type: Image
-    layout_properties: {grid_position: 'YXXBNI,QZAJPZ', full_width_row: true}
   - name: label_5
     properties: {text: Login / Signup, align: center, bold: true, font_size: 25, underline: true,
-      font: a, foreground: white, background: '#2196f3'}
+      font: '', foreground: white, background: '#2196f3'}
     type: Label
     layout_properties: {grid_position: 'WYQTSA,LUPMHT', full_width_row: true}
   - name: spacer_3
