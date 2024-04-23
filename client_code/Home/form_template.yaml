@@ -551,4 +551,3 @@ components:
   - name: flow_panel_1
     properties: {visible: true}
     type: FlowPanel
-    components: []

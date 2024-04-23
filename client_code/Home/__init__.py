@@ -8,7 +8,6 @@ from anvil.tables import app_tables
 class Home(HomeTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
-
   def link_16_click(self, **event_args):
     pass
 
@@ -16,4 +15,3 @@ class Home(HomeTemplate):
     open_form('login')
 
   def button_1_click(self, **event_args):
-    open_form('login')
