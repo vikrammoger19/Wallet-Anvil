@@ -111,15 +111,17 @@ class signup(signupTemplate):
 
   def text_box_9_pressed_enter(self, **event_args):
         # Wait for a short duration before each attempt
+        self.label_3_copy_copy.visible=True
         entered_otp = self.text_box_9.text
         
         # Get the stored OTP from the server
         stored_otp = anvil.server.call('get_stored_otp')
-        self.label_3_copy_copy.visible=True
+        
         # Check if the entered OTP matches the stored OTP
         if entered_otp == stored_otp:
             # OTP is valid, display success message in green color
-            self.label_3_copy_copy.text = "OTP is valid"
+            # self.label_3_copy_copy.text = "OTP is valid"
+            alert('valid')
             self.label_3_copy_copy.foreground = "#008000"  # Green color
             
             # Hide text_box_3 and show text_box_4

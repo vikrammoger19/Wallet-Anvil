@@ -36,7 +36,7 @@ components:
           components:
           - name: label_3_copy_copy
             properties: {background: '', foreground: '#990000', text: This phone number is already associated with an existing account,
-              bold: true, icon: 'fa:exclamation-circle', icon_align: left_edge, visible: false}
+              bold: true, icon: 'fa:exclamation-circle', icon_align: left_edge, visible: true}
             type: Label
             layout_properties: {grid_position: 'BXAUHL,WLDMZX'}
         - name: label_1
