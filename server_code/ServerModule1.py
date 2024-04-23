@@ -306,23 +306,34 @@ def generate_otp():
     Generates a 6-digit OTP.
     """
     return ''.join(random.choice('0123456789') for _ in range(6))
-
-
 @anvil.server.callable
 def send_otp_sms(phone_number, otp):
+    # Replace these variables with your actual API credentials
+    api_key = "YOUR_API_KEY"
+    api_secret = "YOUR_API_SECRET"
+    sender_id = "YOUR_SENDER_ID"
+
+    # Construct the URL and payload for the SMS API request
+    url = "https://api.example.com/send-sms"
+    payload = {
+        "api_key": api_key,
+        "api_secret": api_secret,
+        "from": sender_id,
+        "to": phone_number,
+        "text": f"Your OTP is: {otp}"
+    }
+
     try:
-        # Initialize Twilio client
-        client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
-
-        # Send SMS
-        message = client.messages.create(
-            body=f"Your OTP is: {otp}",
-            from_=TWILIO_PHONE_NUMBER,
-            to=phone_number
-        )
-
-        print("OTP sent via SMS:", otp)
-        return True  # SMS sent successfully
+        # Send the request to the SMS gateway API
+        response = requests.post(url, data=payload)
+        
+        # Check if the request was successful
+        if response.status_code == 200:
+            print("OTP sent via SMS:", otp)
+            return True
+        else:
+            print("Failed to send OTP. Status code:", response.status_code)
+            return False
     except Exception as e:
-        print(f"Failed to send SMS: {e}")
-        return False  # Failed to send SMS
+        print("Failed to send OTP:", e)
+        return Falseiled to send SMS

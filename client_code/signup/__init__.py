@@ -136,13 +136,30 @@ class signup(signupTemplate):
             self.label_3.foreground = "#FF0000"  # Red color
 
   def button_2_click(self, **event_args):
-        # Send OTP to the phone number entered in text_box_3
-        phone_number = self.text_box_3.text
+    api_key = "YOUR_NEXMO_API_KEY"
+    api_secret = "YOUR_NEXMO_API_SECRET"
 
-        # Call the server function to send OTP via SMS
-        success = anvil.server.call('send_otp_sms', phone_number)
-        
-        if success:
-            alert("OTP has been sent to your mobile number.")
+    # Initialize Nexmo client
+    client = Client(key=api_key, secret=api_secret)
+
+    # Send OTP via SMS
+    from_number = "YOUR_NEXMO_PHONE_NUMBER"
+    to_number = phone_number
+    message = f"Your OTP is: {otp}"
+
+    try:
+        response = client.send_message({
+            'from': from_number,
+            'to': to_number,
+            'text': message
+        })
+
+        if response['messages'][0]['status'] == '0':
+            print("OTP sent via SMS:", otp)
+            return True
         else:
-            alert("Failed to send OTP. Please try again later.")
+            print("Failed to send OTP. Nexmo response:", response)
+            return False
+    except Exception as e:
+        print("Failed to send OTP:", e)
+        return False
