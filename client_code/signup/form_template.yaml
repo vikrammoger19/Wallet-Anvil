@@ -160,7 +160,7 @@ components:
           layout_properties: {grid_position: 'KGXSWC,HJRGPK'}
         - name: primary_color_1
           properties: {role: primary-color, align: center, tooltip: '', border: '',
-            enabled: true, foreground: '', visible: true, text: '                                  Register                                      ',
+            enabled: true, foreground: '', visible: true, text: '                              Register                                      ',
             font_size: 14, font: '', spacing_above: small, icon_align: left, spacing_below: small,
             italic: false, background: '', bold: true, underline: false, icon: ''}
           type: Button

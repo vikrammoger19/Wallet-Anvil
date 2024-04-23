@@ -102,7 +102,7 @@ components:
           event_bindings: {change: check_box_1_change}
         - name: primary_color_1
           properties: {role: primary-color, align: center, tooltip: '', border: '',
-            enabled: true, foreground: '', visible: true, text: '                                     Login                                      ',
+            enabled: true, foreground: '', visible: true, text: '                                 Login                                      ',
             font_size: 14, font: '', spacing_above: small, icon_align: left, spacing_below: small,
             italic: false, background: '', bold: true, underline: false, icon: ''}
           type: Button
