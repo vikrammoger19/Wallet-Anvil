@@ -15,3 +15,7 @@ class Home(HomeTemplate):
     open_form('login')
 
   def button_1_click(self, **event_args):
+    open_form('login')
+
+  def button_2_click(self, **event_args):
+    open_form('signup')

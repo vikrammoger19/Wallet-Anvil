@@ -71,7 +71,7 @@ class signup(signupTemplate):
                 self.text_box_6.focus()
               elif self.text_box_5.text == self.text_box_6.text:
                 self.label_17.text = "Password matched"
-                self.label_4.foreground = "#008000"
+                self.label_17.foreground = "#008000"
                 count=count+1 
             if count==4:
               anvil.server.call(
