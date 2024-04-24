@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"LYWXXN":5,"TLXYAK":70}'}
+  properties: {col_widths: '{"TLXYAK":70,"HYQOOY":58,"XMTYSY":2}'}
 components:
 - name: navbar_links_copy_copy
   properties: {background: ''}
@@ -103,11 +103,11 @@ components:
     type: Image
     layout_properties: {grid_position: 'HCNRNM,SJQQKA DHQTPH,XZFUTD'}
   - name: spacer_1
-    properties: {height: 32}
+    properties: {height: 18}
     type: Spacer
     layout_properties: {grid_position: 'HCNRNM,SJQQKA DHQTPH,LIETRQ'}
   - name: label_4
-    properties: {text: AVAILABLE CURRENCIES YOU CAN CREATE A WALLET, bold: true, font_size: 12}
+    properties: {text: AVAILABLE CURRENCIES YOU CAN CREATE A WALLET, bold: true, font_size: 13}
     type: Label
     layout_properties: {grid_position: 'HCNRNM,SJQQKA ZSBXUP,AZKMHC'}
   - name: card_3
@@ -131,21 +131,6 @@ components:
       properties: {source: _/theme/flag.png, height: '65', background: '#1eb0ed'}
       type: Image
       layout_properties: {grid_position: 'CUABHT,TYWTBZ'}
-  - name: flow_panel_1_copy
-    properties: {background: '#cfe4e8'}
-    type: FlowPanel
-    layout_properties: {grid_position: 'HCNRNM,CSNCEC NEMXFD,WZIVOF'}
-    components:
-    - name: image_1_copy_copy
-      properties: {height: 53.79998779296875, source: _/theme/letter-g.png, display_mode: shrink_to_fit,
-        background: '#cfe4e8'}
-      type: Image
-      layout_properties: {width: 60.774993896484375}
-    - name: label_1_copy
-      properties: {text: G-Wallet, bold: true, font: '', font_size: 30, background: '',
-        foreground: 'theme:Primary 500'}
-      type: Label
-      layout_properties: {}
   - name: spacer_5
     properties: {height: 32}
     type: Spacer
@@ -175,9 +160,9 @@ components:
           abroad, or just a curious explorer, with a Multi-currency Wallet you can
           stay connected with people and places in crucial financial moments. Enjoy
           instant money transfers, fair exchange rates, and access to funds wherever
-          you go.', bold: true, background: '#1eb0ed'}
+          you go.', bold: true, background: '#1eb0ed', font_size: 17}
       type: Label
-      layout_properties: {grid_position: 'WUYLFZ,ECWZNI DIGCZF,WACGLJ'}
+      layout_properties: {grid_position: 'WUYLFZ,ECWZNI YRRDCL,PPPZEF'}
     - name: image_6
       properties: {source: _/theme/Black-Girl-Using-Mobile-Phone-Transparent-PNG.png,
         height: 258, background: '#1eb0ed'}
@@ -193,81 +178,67 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'VDMBBW,UEORYC'}
   - name: image_7
-    properties: {height: 437, source: _/theme/64d3d946505a163e3e99671f_man-holding--phone.jpg}
+    properties: {height: 592, source: _/theme/64d3d946505a163e3e99671f_man-holding--phone.jpg}
     type: Image
     layout_properties: {grid_position: 'EYZYEK,UDZDBT'}
+  - name: card_5
+    properties: {role: card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'EYZYEK,BHFQIO RBLKMI,NTKSLQ'}
+    components:
+    - name: label_7
+      properties: {text: Money Transfers Across Borders with Zero Fees, bold: true,
+        font_size: 30, align: left}
+      type: Label
+      layout_properties: {grid_position: 'TITAKQ,UOJASF'}
+    - name: label_8
+      properties: {text: Owning a Multi-currency Wallet comes at no cost. Say goodbye to transaction fees that take a huge bite out of your hard-earned money. Keep more of your money where it belongs — in your pocket.,
+        bold: true, font_size: 16}
+      type: Label
+      layout_properties: {grid_position: 'WIZXQF,DELPZA'}
+  - name: card_6
+    properties: {role: card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'EYZYEK,BHFQIO OQUFDL,QMOMSH'}
+    components:
+    - name: label_9
+      properties: {text: Enjoy Instant Money Transfers Like You Never Left, bold: true,
+        font_size: 32, align: left}
+      type: Label
+      layout_properties: {grid_position: 'PRFRMX,KVDJOD'}
+    - name: label_10
+      properties: {text: Distance should not be a barrier when it comes to moving your money. Effortlessly send and receive money across borders with the same speed and convenience as if you were right there.,
+        bold: true}
+      type: Label
+      layout_properties: {grid_position: 'QUWNMW,LGGYCF'}
 - name: card_8
   properties: {role: card}
   type: ColumnPanel
   layout_properties: {grid_position: 'ERVKTB,HYQOOY FKIDBF,RYUKKW'}
   components:
-  - name: spacer_8
-    properties: {height: 144}
-    type: Spacer
-    layout_properties: {grid_position: 'ZZBQFK,KKOZZC'}
   - name: label_11
     properties: {text: 'Global Connectedness, with a Local Experience', bold: true,
       font_size: 32}
     type: Label
-    layout_properties: {grid_position: 'CFOJVI,COMKJT'}
+    layout_properties: {grid_position: 'CFOJVI,COMKJT OBZGVD,SKTKCJ'}
   - name: label_12
     properties: {bold: true, text: 'Stay in touch with loved ones and effortlessly
         manage multiple currencies, no matter where you are in the world. Feel more
         connected by using local services and conducting transactions as if you were
-        a local.'}
+        a local.', font_size: 16}
     type: Label
-    layout_properties: {grid_position: 'OIPWWH,NYWHUP'}
-- name: card_5
-  properties: {role: card}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'ERVKTB,XMTYSY XEWRFY,YCRHQF', full_width_row: true}
-  components:
-  - name: label_7
-    properties: {text: Money Transfers Across Borders with Zero Fees, bold: true,
-      font_size: 32, align: left}
-    type: Label
-    layout_properties: {grid_position: 'TITAKQ,UOJASF'}
-  - name: label_8
-    properties: {text: Owning a Multi-currency Wallet comes at no cost. Say goodbye to transaction fees that take a huge bite out of your hard-earned money. Keep more of your money where it belongs — in your pocket.,
-      bold: true}
-    type: Label
-    layout_properties: {grid_position: 'WIZXQF,DELPZA'}
-- name: spacer_13
-  properties: {height: 52}
-  type: Spacer
-  layout_properties: {grid_position: 'ERVKTB,XMTYSY YCLNGV,QYRXMX'}
-- name: spacer_7
-  properties: {height: -2}
-  type: Spacer
-  layout_properties: {grid_position: 'ERVKTB,XMTYSY JKKRRO,EOPHNS'}
-- name: card_6
-  properties: {role: card}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'ERVKTB,XMTYSY HWFOYM,SSKXQZ'}
-  components:
-  - name: label_9
-    properties: {text: Enjoy Instant Money Transfers Like You Never Left, bold: true,
-      font_size: 32, align: left}
-    type: Label
-    layout_properties: {grid_position: 'PRFRMX,KVDJOD'}
-  - name: label_10
-    properties: {text: Distance should not be a barrier when it comes to moving your money. Effortlessly send and receive money across borders with the same speed and convenience as if you were right there.,
-      bold: true}
-    type: Label
-    layout_properties: {grid_position: 'QUWNMW,LGGYCF'}
-- name: card_7
-  properties: {role: card}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'ERVKTB,XMTYSY NWGZRP,UDUDVO'}
-  components:
+    layout_properties: {grid_position: 'CFOJVI,COMKJT SUOZXR,HWGQBI'}
   - name: image_8
     properties: {source: _/theme/64d3d91ea136e6cd012be0a0_woman-holding--phone.jpg,
       height: 385.0832824707031}
     type: Image
-    layout_properties: {grid_position: 'NYWQPZ,UWANPQ', full_width_row: true}
+    layout_properties: {grid_position: 'CFOJVI,CAJVUN'}
+- name: spacer_7
+  properties: {height: -2}
+  type: Spacer
+  layout_properties: {grid_position: 'ERVKTB,XMTYSY JKKRRO,EOPHNS'}
 - name: card_9
-  properties: {role: card, col_widths: '{"BATBWA":35,"EFVWQY":25,"DIGISJ":20,"HMJEZO":52}',
-    background: '#1eb0ed'}
+  properties: {role: card, col_widths: '{"BATBWA":55,"EFVWQY":5}', background: '#1eb0ed'}
   type: ColumnPanel
   layout_properties: {grid_position: 'GNTBFS,EPAHHQ', full_width_row: true}
   components:
