@@ -49,12 +49,16 @@ components:
     foreground: white}
   type: Label
   layout_properties: {grid_position: 'VIJYKQ,BHZMQR', full_width_row: true}
+- name: image_5
+  properties: {source: _/theme/Different-Types-of-Digital-Wallets.jpg}
+  type: Image
+  layout_properties: {grid_position: 'SBEFEV,QKBQVP'}
 - name: label_6
   properties: {bold: true, align: center, font_size: 20, foreground: '#258ee1'}
   type: Label
   layout_properties: {grid_position: 'JRVRCH,DAUEAZ'}
 - name: card_1
-  properties: {role: card, col_widths: '{"UIAOAP":20,"OMROHP":25,"YMUPRJ":15,"NQYGWE":20,"COGDYK":25,"CBLDUE":15,"NLWEFO":20,"WFJSHC":25,"HOCJKG":15,"CWLBJP":15,"GRHXLS":15,"BKMHLW":15,"RALIQP":30,"GXWYJE":25,"MNINLF":35,"CHZZDC":25}'}
+  properties: {role: card, col_widths: '{"UIAOAP":20,"OMROHP":25,"YMUPRJ":15,"NQYGWE":20,"COGDYK":25,"CBLDUE":15,"NLWEFO":20,"WFJSHC":25,"HOCJKG":15,"CWLBJP":15,"GRHXLS":15,"BKMHLW":15,"VBVAQQ":15,"HCZHOH":15,"XJHZZR":22,"JOYEPV":15,"KBIDEU":65,"WZZORU":5}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'KPCLSM,BGDQRO'}
   components:
@@ -109,19 +113,23 @@ components:
   - name: image_4
     properties: {source: _/theme/united-kingdom.png, height: '40', horizontal_align: right}
     type: Image
-    layout_properties: {grid_position: 'XYLOAS,GXWYJE'}
+    layout_properties: {grid_position: 'HUYDQV,VBVAQQ'}
   - name: label_5
     properties: {text: '   GBP:', bold: true}
     type: Label
-    layout_properties: {grid_position: 'XYLOAS,RALIQP'}
+    layout_properties: {grid_position: 'HUYDQV,HCZHOH'}
+  - name: spacer_2
+    properties: {height: 18}
+    type: Spacer
+    layout_properties: {grid_position: 'HUYDQV,WZZORU'}
   - name: text_box_4
-    properties: {}
+    properties: {bold: true, align: right}
     type: TextBox
-    layout_properties: {grid_position: 'XYLOAS,MNINLF'}
+    layout_properties: {grid_position: 'HUYDQV,XJHZZR'}
   - name: label_10
-    properties: {}
+    properties: {bold: true, font_size: 30, text: £, foreground: '#258ee1'}
     type: Label
-    layout_properties: {grid_position: 'XYLOAS,CHZZDC'}
+    layout_properties: {grid_position: 'HUYDQV,JOYEPV'}
   - name: spacer_1
     properties: {height: 44}
     type: Spacer
