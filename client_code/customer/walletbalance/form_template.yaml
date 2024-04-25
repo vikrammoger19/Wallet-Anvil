@@ -54,12 +54,16 @@ components:
   type: Label
   layout_properties: {grid_position: 'JRVRCH,DAUEAZ'}
 - name: card_1
-  properties: {role: card, col_widths: '{"UIAOAP":30,"OMROHP":15,"YMUPRJ":15,"NQYGWE":30,"COGDYK":15,"CBLDUE":15,"NLWEFO":30,"WFJSHC":15,"HOCJKG":15,"EQGPZC":30,"FLKJMW":15,"FXFQDQ":15}'}
+  properties: {role: card, col_widths: '{"UIAOAP":20,"OMROHP":25,"YMUPRJ":15,"NQYGWE":20,"COGDYK":25,"CBLDUE":15,"NLWEFO":20,"WFJSHC":25,"HOCJKG":15,"CWLBJP":15,"GRHXLS":15,"BKMHLW":15,"SBMGUJ":15,"RALIQP":45}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'WOKSYB,LXLVBP'}
   components:
+  - name: image_1
+    properties: {height: 40, source: _/theme/flag (1).png, horizontal_align: right}
+    type: Image
+    layout_properties: {grid_position: 'RZZESZ,CWLBJP'}
   - name: label_2
-    properties: {text: 'INR:', align: center, bold: true}
+    properties: {text: 'INR:', align: left, bold: true}
     type: Label
     layout_properties: {grid_position: 'RZZESZ,UIAOAP'}
   - name: text_box_1
@@ -70,8 +74,12 @@ components:
     properties: {text: ₹, bold: true, font_size: 30, foreground: '#258ee1'}
     type: Label
     layout_properties: {grid_position: 'RZZESZ,YMUPRJ'}
+  - name: image_2
+    properties: {source: _/theme/united-states-of-america.png, height: '40', horizontal_align: right}
+    type: Image
+    layout_properties: {grid_position: 'GAFUNM,GRHXLS'}
   - name: label_3
-    properties: {text: 'USD:', align: center, bold: true}
+    properties: {text: 'USD:', align: left, bold: true}
     type: Label
     layout_properties: {grid_position: 'GAFUNM,NQYGWE'}
   - name: text_box_2
@@ -82,8 +90,12 @@ components:
     properties: {text: $, font_size: 30, bold: true, foreground: '#258ee1'}
     type: Label
     layout_properties: {grid_position: 'GAFUNM,CBLDUE'}
+  - name: image_3
+    properties: {height: '40', source: _/theme/european-union.png, horizontal_align: right}
+    type: Image
+    layout_properties: {grid_position: 'NQVBIF,BKMHLW'}
   - name: label_4
-    properties: {text: 'EUR:', align: center, bold: true}
+    properties: {text: 'EUR:', align: left, bold: true}
     type: Label
     layout_properties: {grid_position: 'NQVBIF,NLWEFO'}
   - name: text_box_3
@@ -94,18 +106,14 @@ components:
     properties: {text: €, font_size: 30, bold: true, foreground: '#258ee1'}
     type: Label
     layout_properties: {grid_position: 'NQVBIF,HOCJKG'}
+  - name: image_4
+    properties: {source: _/theme/united-kingdom.png, height: '40'}
+    type: Image
+    layout_properties: {grid_position: 'XYLOAS,SBMGUJ'}
   - name: label_5
-    properties: {text: 'GBP:', align: center}
+    properties: {text: 'GBP:', bold: true}
     type: Label
-    layout_properties: {grid_position: 'EPDYYD,EQGPZC'}
-  - name: text_box_4
-    properties: {align: right, bold: true}
-    type: TextBox
-    layout_properties: {grid_position: 'EPDYYD,FLKJMW'}
-  - name: label_10
-    properties: {text: £, bold: true, font_size: 30, foreground: '#258ee1'}
-    type: Label
-    layout_properties: {grid_position: 'EPDYYD,FXFQDQ'}
+    layout_properties: {grid_position: 'XYLOAS,RALIQP'}
   - name: spacer_1
     properties: {height: 39.999969482421875}
     type: Spacer
