@@ -12,12 +12,30 @@ class Home(HomeTemplate):
     pass
 
   def button_3_click(self, **event_args):
-    open_form('login')
+    open_form('signup')
 
   def button_1_click(self, **event_args):
     open_form('login')
 
   def button_2_click(self, **event_args):
     open_form('signup')
+
+  def home_click(self, **event_args):
+    open_form('Home')
+
+  def about_us_click(self, **event_args):
+    open_form('about_us')
+
+  def products_click(self, **event_args):
+    open_form('product')
+
+  def contact_click(self, **event_args):
+    open_form('contact_us')
+
+  def help_click(self, **event_args):
+    open_form('help')
+
+  def button_4_click(self, **event_args):
+    open_form('login')
 
   
