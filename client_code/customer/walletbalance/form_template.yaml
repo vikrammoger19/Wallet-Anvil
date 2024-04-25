@@ -54,7 +54,7 @@ components:
   type: Label
   layout_properties: {grid_position: 'JRVRCH,DAUEAZ'}
 - name: card_1
-  properties: {role: card, col_widths: '{"UIAOAP":20,"OMROHP":25,"YMUPRJ":15,"NQYGWE":20,"COGDYK":25,"CBLDUE":15,"NLWEFO":20,"WFJSHC":25,"HOCJKG":15,"CWLBJP":15,"GRHXLS":15,"BKMHLW":15,"SBMGUJ":15,"RALIQP":45}'}
+  properties: {role: card, col_widths: '{"UIAOAP":20,"OMROHP":25,"YMUPRJ":15,"NQYGWE":20,"COGDYK":25,"CBLDUE":15,"NLWEFO":20,"WFJSHC":25,"HOCJKG":15,"CWLBJP":15,"GRHXLS":15,"BKMHLW":15,"RALIQP":30,"GXWYJE":25,"MNINLF":35,"CHZZDC":25}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'KPCLSM,BGDQRO'}
   components:
@@ -107,15 +107,23 @@ components:
     type: Label
     layout_properties: {grid_position: 'NQVBIF,HOCJKG'}
   - name: image_4
-    properties: {source: _/theme/united-kingdom.png, height: '40'}
+    properties: {source: _/theme/united-kingdom.png, height: '40', horizontal_align: right}
     type: Image
-    layout_properties: {grid_position: 'XYLOAS,SBMGUJ'}
+    layout_properties: {grid_position: 'XYLOAS,GXWYJE'}
   - name: label_5
-    properties: {text: 'GBP:', bold: true}
+    properties: {text: '   GBP:', bold: true}
     type: Label
     layout_properties: {grid_position: 'XYLOAS,RALIQP'}
+  - name: text_box_4
+    properties: {}
+    type: TextBox
+    layout_properties: {grid_position: 'XYLOAS,MNINLF'}
+  - name: label_10
+    properties: {}
+    type: Label
+    layout_properties: {grid_position: 'XYLOAS,CHZZDC'}
   - name: spacer_1
-    properties: {height: 39.999969482421875}
+    properties: {height: 44}
     type: Spacer
     layout_properties: {grid_position: 'GZXCFJ,ABAWTL'}
   - name: button_1
