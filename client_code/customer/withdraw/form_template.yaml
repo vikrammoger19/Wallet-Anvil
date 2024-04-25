@@ -31,9 +31,10 @@ components:
       type: Link
       event_bindings: {click: link_2_click}
     - name: link_3
-      properties: {text: Transfer, bold: true, align: center, foreground: black}
+      properties: {text: Money Transfer, bold: true, align: center, foreground: black}
       type: Link
       event_bindings: {click: link_3_click}
+      layout_properties: {}
     - name: link_4
       properties: {text: Withdraw, bold: true, align: center, foreground: black}
       type: Link
