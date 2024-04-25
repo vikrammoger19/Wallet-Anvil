@@ -141,7 +141,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'ZOEXLI,XUKECP'}
   - name: repeating_panel_1
-    properties: {item_template: admin.audit_trail.ItemTemplate5}
+    properties: {item_template: admin1.audit_trail.ItemTemplate5}
     type: RepeatingPanel
     layout_properties: {grid_position: 'ZIUOTC,UBTXXB'}
   - name: spacer_5
