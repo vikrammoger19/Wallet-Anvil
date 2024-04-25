@@ -95,25 +95,17 @@ components:
       layout_properties: {grid_position: 'CCHZRO,LRBTDV', full_width_row: true}
       components:
       - name: xy_panel_2
-        properties: {height: 168, background: 'theme:Primary 500', align: left, foreground: 'theme:Primary
-            700'}
+        properties: {height: 80.60000610351562, background: 'theme:Primary 500', align: left,
+          foreground: 'theme:Primary 700'}
         type: XYPanel
         layout_properties: {grid_position: 'CEICRP,RJOQQS', full_width_row: true}
         components:
         - name: label_2
-          properties: {text: "  \n                              Frequently Asked Questions",
-            align: left, font_size: 42, foreground: 'theme:White', bold: true, font: '',
-            spacing_above: none, spacing_below: none}
+          properties: {text: Frequently Asked Questions, align: center, font_size: 42,
+            foreground: 'theme:White', bold: true, font: '', spacing_above: none,
+            spacing_below: none}
           type: Label
           layout_properties: {x: 95, y: 4.4000061042607, width: 1254.9099755859374}
-        - name: image_2
-          properties: {source: _/theme/Web_Photo_Editor-removebg-preview.png, height: 155.19998168945312}
-          type: Image
-          layout_properties: {x: 973.7000854499638, y: 12.8125, width: 385.2000244140625}
-        - name: image_1
-          properties: {height: 143.19998168945312, source: _/theme/Screenshot_2024-04-25_154058-removebg-preview.png}
-          type: Image
-          layout_properties: {x: 0, y: 24.8125, width: 524.7499938964844}
       - name: card_2
         properties: {role: card}
         type: ColumnPanel
@@ -124,23 +116,18 @@ components:
             foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'WNNQZQ,ZWHHIU'}
-        - name: column_panel_16
-          properties: {col_widths: '{"BMQGGL":60,"XAIOEJ":20}'}
+        - name: column_panel_1_copy
+          properties: {spacing_below: none, col_spacing: small}
           type: ColumnPanel
-          layout_properties: {grid_position: 'OWPYFS,KRASSZ', full_width_row: true}
+          layout_properties: {grid_position: 'HSALJA,JOAHYW'}
           components:
-          - name: image_4
-            properties: {source: _/theme/Screenshot_2024-04-25_154058-removebg-preview.png,
-              height: 302.3999328613281}
-            type: Image
-            layout_properties: {grid_position: 'ALVWGZ,XAIOEJ'}
           - name: link_1_copy
             properties: {role: null, align: left, text: "1.\tWhat is a multi-currency\
                 \ digital transaction wallet app?", font_size: 22, wrap_on: mobile,
               font: '', col_spacing: none, spacing_above: none, icon_align: right_edge,
               col_widths: '{"FUWHNF":2,"OSQSPV":58}', spacing_below: none, icon: 'fa:angle-down'}
             type: Link
-            layout_properties: {grid_position: 'ALVWGZ,BMQGGL'}
+            layout_properties: {grid_position: 'VCXTKC,UUEBQJ', full_width_row: true}
             event_bindings: {click: link_1_click}
             components:
             - name: grid_panel_1_copy
@@ -162,11 +149,6 @@ components:
                 type: Label
                 layout_properties: {grid_position: 'ILKIYR,AAGVTT'}
                 event_bindings: {}
-          - name: image_3
-            properties: {source: _/theme/Web_Photo_Editor-removebg-preview.png, height: 290.79998779296875,
-              display_mode: shrink_to_fit}
-            type: Image
-            layout_properties: {grid_position: 'ALVWGZ,HZRIVO'}
         - name: label_4
           properties: {text: __________________________________________________________________________________________________________________________________________________________,
             foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
