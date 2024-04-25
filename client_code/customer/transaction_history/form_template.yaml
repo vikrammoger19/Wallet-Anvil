@@ -36,28 +36,28 @@ components:
       layout_properties: {width: 800, expand: false}
       components:
       - name: link_2
-        properties: {text: Deposit, align: center, bold: true, foreground: '', icon: 'fa:bank'}
+        properties: {text: Deposit, align: center, bold: true, foreground: '', icon: ''}
         type: Link
         layout_properties: {grid_position: 'MNPBPI,DZACHX'}
         event_bindings: {click: link_2_click}
       - name: link_3
         properties: {text: Money Transfer, bold: true, align: center, foreground: '',
-          icon: 'fa:money'}
+          icon: ''}
         type: Link
         layout_properties: {grid_position: 'MNPBPI,EQLJSK'}
         event_bindings: {click: link_3_click}
       - name: link_4
-        properties: {text: Withdraw, bold: true, align: center, foreground: '', icon: 'fa:angle-double-right'}
+        properties: {text: Withdraw, bold: true, align: center, foreground: '', icon: ''}
         type: Link
         layout_properties: {grid_position: 'MNPBPI,IYMZZI'}
         event_bindings: {click: link_4_click}
       - name: link_7
-        properties: {text: Help, align: center, bold: true, foreground: '', icon: 'fa:question-circle'}
+        properties: {text: Help, align: center, bold: true, foreground: '', icon: ''}
         type: Link
         layout_properties: {grid_position: 'MNPBPI,YSLIKN'}
         event_bindings: {click: link_7_click}
       - name: link_1
-        properties: {text: Home, bold: true, foreground: '', align: center, icon: 'fa:home'}
+        properties: {text: Home, bold: true, foreground: '', align: center, icon: ''}
         type: Link
         layout_properties: {grid_position: 'MNPBPI,BXAHGU'}
         event_bindings: {click: link_1_click}

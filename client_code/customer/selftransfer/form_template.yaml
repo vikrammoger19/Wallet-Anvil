@@ -24,29 +24,29 @@ components:
     layout_properties: {width: 647.438}
   - name: link_2
     properties: {text: Deposit, align: left, bold: true, foreground: '', font_size: 15,
-      icon: 'fa:bank'}
+      icon: ''}
     type: Link
     event_bindings: {click: link_2_click}
     layout_properties: {}
   - name: link_3
     properties: {text: Money Transfer, bold: true, align: center, foreground: '',
-      font_size: 15, icon: 'fa:money'}
+      font_size: 15, icon: ''}
     type: Link
     event_bindings: {click: link_3_click}
     layout_properties: {}
   - name: link_4
     properties: {text: Withdraw, bold: true, align: center, foreground: '', font_size: null,
-      icon: 'fa:angle-double-right'}
+      icon: ''}
     type: Link
     event_bindings: {click: link_4_click}
     layout_properties: {}
   - name: link_7
-    properties: {text: Help, align: center, bold: true, foreground: '', icon: 'fa:question-circle'}
+    properties: {text: Help, align: center, bold: true, foreground: '', icon: ''}
     type: Link
     event_bindings: {click: link_7_click}
     layout_properties: {}
   - name: link_1
-    properties: {text: Home, bold: true, icon: 'fa:home'}
+    properties: {text: Home, bold: true, icon: ''}
     type: Link
     layout_properties: {}
   - name: link_13

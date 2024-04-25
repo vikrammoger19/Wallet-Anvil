@@ -31,28 +31,28 @@ components:
       type: Spacer
       layout_properties: {width: 525.8380244140625}
     - name: link_2
-      properties: {text: Deposit, align: center, bold: true, foreground: '', icon: 'fa:bank'}
+      properties: {text: Deposit, align: center, bold: true, foreground: '', icon: ''}
       type: Link
       event_bindings: {click: link_2_click}
       layout_properties: {}
     - name: link_3
       properties: {text: Money Transfer, bold: true, align: center, foreground: '',
-        icon: 'fa:money'}
+        icon: ''}
       type: Link
       event_bindings: {click: link_3_click}
       layout_properties: {}
     - name: link_4
-      properties: {text: Withdraw, bold: true, align: center, foreground: '', icon: 'fa:angle-double-right'}
+      properties: {text: Withdraw, bold: true, align: center, foreground: '', icon: ''}
       type: Link
       event_bindings: {click: link_4_click}
       layout_properties: {}
     - name: link_7
-      properties: {text: Help, align: center, bold: true, foreground: '', icon: 'fa:question-circle'}
+      properties: {text: Help, align: center, bold: true, foreground: '', icon: ''}
       type: Link
       event_bindings: {click: link_7_click}
       layout_properties: {}
     - name: link_1
-      properties: {text: Home, bold: true, foreground: '', align: center, icon: 'fa:home'}
+      properties: {text: Home, bold: true, foreground: '', align: center, icon: ''}
       type: Link
       event_bindings: {click: link_1_click}
       layout_properties: {}
