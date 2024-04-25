@@ -31,29 +31,36 @@ components:
       type: Spacer
       layout_properties: {width: 547.0250244140625}
     - name: link_2
-      properties: {text: Deposit, align: center, bold: true, foreground: black}
+      properties: {text: Deposit, align: center, bold: true, foreground: '', icon: 'fa:bank'}
       type: Link
       event_bindings: {click: link_2_click}
+      layout_properties: {}
     - name: link_3
-      properties: {text: Money Transfer, bold: true, align: center, foreground: black}
+      properties: {text: Money Transfer, bold: true, align: center, foreground: '',
+        icon: 'fa:money'}
       type: Link
       event_bindings: {click: link_3_click}
+      layout_properties: {}
     - name: link_4
-      properties: {text: Withdraw, bold: true, align: center, foreground: black}
+      properties: {text: Withdraw, bold: true, align: center, foreground: '', icon: 'fa:angle-double-right'}
       type: Link
       event_bindings: {click: link_4_click}
+      layout_properties: {}
     - name: link_7
-      properties: {text: Help, align: center, bold: true, foreground: black}
+      properties: {text: Help, align: center, bold: true, foreground: '', icon: 'fa:question-circle'}
       type: Link
       event_bindings: {click: link_7_click}
+      layout_properties: {}
     - name: link_1_copy
-      properties: {text: Home, bold: true, foreground: black, align: center}
+      properties: {text: Home, bold: true, foreground: '', align: center, icon: 'fa:home'}
       type: Link
       event_bindings: {click: link_1_click}
+      layout_properties: {}
     - name: link_13
-      properties: {align: center, bold: true, text: Logout, foreground: black, icon: 'fa:sign-out'}
+      properties: {align: center, bold: true, text: Logout, foreground: '', icon: 'fa:sign-out'}
       type: Link
       event_bindings: {click: link_13_click}
+      layout_properties: {}
   - name: image_1
     properties: {source: 'https://cdni.iconscout.com/illustration/premium/thumb/e-wallet-4487367-3722728.png',
       background: '#258ee1', horizontal_align: center, height: 274.39996337890625}
