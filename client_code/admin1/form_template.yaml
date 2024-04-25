@@ -154,11 +154,13 @@ components:
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     type: Label
-    layout_properties: {grid_position: 'PAQZAB,KHIYSD'}
+    layout_properties: {grid_position: 'PAQZAB,KHIYSD', full_width_row: true}
   - name: card_2_copy_3
-    properties: {role: card, col_widths: '{}'}
+    properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
     type: ColumnPanel
-    layout_properties: {grid_position: 'OSRJAU,LQQXFO'}
+    layout_properties: {grid_position: 'OSRJAU,LQQXFO', full_width_row: true}
     components:
     - name: label_6_copy_3
       properties: {role: subheading, align: center, tooltip: '', border: '', foreground: '#8a8a8a',
@@ -184,7 +186,7 @@ components:
   - name: card_2
     properties: {role: card, col_widths: '{}'}
     type: ColumnPanel
-    layout_properties: {grid_position: 'OSRJAU,ZLYWBK'}
+    layout_properties: {grid_position: 'OSRJAU,ZLYWBK', full_width_row: true}
     components:
     - name: label_6
       properties: {role: subheading, align: center, tooltip: '', border: '', foreground: '#8a8a8a',
@@ -210,7 +212,7 @@ components:
   - name: card_2_copy
     properties: {role: card, col_widths: '{}'}
     type: ColumnPanel
-    layout_properties: {grid_position: 'OSRJAU,OXFNVE'}
+    layout_properties: {grid_position: 'OSRJAU,OXFNVE', full_width_row: true}
     components:
     - name: label_6_copy
       properties: {role: subheading, align: center, tooltip: '', border: '', foreground: '#8a8a8a',
@@ -236,7 +238,7 @@ components:
   - name: card_2_copy_2
     properties: {role: card, col_widths: '{}'}
     type: ColumnPanel
-    layout_properties: {grid_position: 'OSRJAU,ZGRLVZ'}
+    layout_properties: {grid_position: 'OSRJAU,ZGRLVZ', full_width_row: true}
     components:
     - name: label_6_copy_2
       properties: {role: subheading, align: center, tooltip: '', border: '', foreground: '#8a8a8a',
@@ -268,13 +270,13 @@ components:
       foreground: '', visible: true, display_mode: shrink_to_fit, alt_text: '', spacing_above: small,
       source: _/theme/gr.jpg, spacing_below: small, background: '', horizontal_align: center}
     type: Image
-    layout_properties: {grid_position: 'QQUWQJ,KNHVBL'}
+    layout_properties: {grid_position: 'QQUWQJ,KNHVBL', full_width_row: true}
   - name: xy_panel_1
     properties: {role: null, width: null, align: center, height: 224, tooltip: '',
       border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small,
       background: '#1e75b9'}
     type: XYPanel
-    layout_properties: {grid_position: 'DUHXBA,BRSYVG'}
+    layout_properties: {grid_position: 'DUHXBA,BRSYVG', full_width_row: true}
     components:
     - name: label_8
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
@@ -314,7 +316,7 @@ components:
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
       spacing_below: small, background: '#2270ad'}
     type: ColumnPanel
-    layout_properties: {grid_position: 'TUMFJB,YEPGZI'}
+    layout_properties: {grid_position: 'TUMFJB,YEPGZI', full_width_row: true}
     components:
     - name: label_9
       properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: '',
