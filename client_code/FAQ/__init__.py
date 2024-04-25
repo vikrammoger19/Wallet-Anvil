@@ -22,7 +22,7 @@ class FAQ(FAQTemplate):
 
     def link_1_click(self, **event_args):
         self.link_click(0)
-
+      
     def link_2_click(self, **event_args):
         self.link_click(1)
 
