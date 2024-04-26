@@ -89,6 +89,7 @@ components:
       icon: 'fa:rocket'}
     type: Link
     layout_properties: {grid_position: 'HYNCRV,SNABIP'}
+    event_bindings: {click: link_1_click}
   - name: link_2
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Account Management, font_size: null, wrap_on: mobile, font: '',
@@ -97,6 +98,7 @@ components:
       icon: 'fa:user'}
     type: Link
     layout_properties: {grid_position: 'MIQKVH,KUBJQK'}
+    event_bindings: {click: link_2_click}
   - name: link_3
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Transaction Monitoring, font_size: null, wrap_on: mobile,
@@ -105,6 +107,7 @@ components:
       icon: 'fa:bar-chart'}
     type: Link
     layout_properties: {grid_position: 'ZWSIFV,YDNXRJ'}
+    event_bindings: {click: link_3_click}
   - name: link_4
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Add User, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
@@ -112,6 +115,7 @@ components:
       italic: false, background: '', bold: true, underline: false, icon: 'fa:user-plus'}
     type: Link
     layout_properties: {grid_position: 'YJGBUM,WKREWQ'}
+    event_bindings: {click: link_4_click}
   - name: link_5
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Audit Trail, font_size: null, wrap_on: mobile, font: '',
@@ -120,6 +124,7 @@ components:
       icon: 'fa:line-chart'}
     type: Link
     layout_properties: {grid_position: 'OPSFBF,CIDUUE'}
+    event_bindings: {click: link_5_click}
   - name: link_6
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: User Support, font_size: null, wrap_on: mobile, font: '',
@@ -128,6 +133,7 @@ components:
       icon: 'fa:lightbulb-o'}
     type: Link
     layout_properties: {grid_position: 'SJVBRN,FWRFBP'}
+    event_bindings: {click: link_6_click}
   - name: link_7
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: User Management, font_size: null, wrap_on: mobile, font: '',
@@ -136,6 +142,7 @@ components:
       icon: 'fa:users'}
     type: Link
     layout_properties: {grid_position: 'FVJDDG,FJIKJJ'}
+    event_bindings: {click: link_7_click}
   - name: link_9
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Logout, font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
@@ -143,6 +150,7 @@ components:
       italic: false, background: '', bold: true, underline: false, icon: 'fa:sign-out'}
     type: Link
     layout_properties: {grid_position: 'HEKEUO,CWMNEY'}
+    event_bindings: {click: link_9_click}
 - type: ColumnPanel
   properties: {}
   name: content_panel
