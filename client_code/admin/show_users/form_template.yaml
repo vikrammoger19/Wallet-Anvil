@@ -144,7 +144,7 @@ components:
   type: Label
   layout_properties: {grid_position: 'WTXUIV,WBNJHK'}
 - name: repeating_panel_1
-  properties: {item_template: admin1.ItemTemplate3}
+  properties: {item_template: admin.ItemTemplate3}
   type: RepeatingPanel
   layout_properties: {grid_position: '', full_width_row: false}
 - name: spacer_1

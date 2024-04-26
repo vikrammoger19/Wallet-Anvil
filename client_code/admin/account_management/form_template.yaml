@@ -131,7 +131,7 @@ components:
   type: Label
   layout_properties: {grid_position: 'BFEOFJ,WEKRQN'}
 - name: repeating_panel_1
-  properties: {item_template: admin1.account_management.ItemTemplate6}
+  properties: {item_template: admin.account_management.ItemTemplate6}
   type: RepeatingPanel
   layout_properties: {grid_position: 'ASEWYZ,CHSBKE'}
 - name: spacer_2
