@@ -23,26 +23,37 @@ components:
     type: Spacer
     layout_properties: {width: 519.9499755859375}
   - name: link_2
-    properties: {text: Deposit, align: left, bold: true, foreground: black, font_size: 15}
+    properties: {text: Deposit, align: left, bold: true, foreground: '', font_size: 15,
+      icon: ''}
     type: Link
     event_bindings: {click: link_2_click}
+    layout_properties: {}
   - name: link_3
-    properties: {text: Money Transfer, bold: true, align: center, foreground: black,
-      font_size: 15}
+    properties: {text: Money Transfer, bold: true, align: center, foreground: '',
+      font_size: 15, icon: ''}
     type: Link
     event_bindings: {click: link_3_click}
+    layout_properties: {}
   - name: link_4
-    properties: {text: Withdraw, bold: true, align: center, foreground: black, font_size: null}
+    properties: {text: Withdraw, bold: true, align: center, foreground: '', font_size: null,
+      icon: ''}
     type: Link
     event_bindings: {click: link_4_click}
+    layout_properties: {}
   - name: link_7
-    properties: {text: Help, align: center, bold: true, foreground: black}
+    properties: {text: Help, align: center, bold: true, foreground: '', icon: ''}
     type: Link
     event_bindings: {click: link_7_click}
+    layout_properties: {}
+  - name: link_1
+    properties: {text: Home, bold: true, icon: ''}
+    type: Link
+    layout_properties: {}
   - name: link_13
-    properties: {align: center, bold: true, text: Logout, foreground: black, icon: 'fa:sign-out'}
+    properties: {align: center, bold: true, text: Logout, foreground: '', icon: 'fa:sign-out'}
     type: Link
     event_bindings: {click: link_13_click}
+    layout_properties: {}
   - name: spacer_3_copy
     properties: {height: -1.800018310546875}
     type: Spacer
