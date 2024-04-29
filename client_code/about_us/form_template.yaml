@@ -69,7 +69,7 @@ components:
             properties: {text: About us, foreground: '', bold: true, icon: 'fa:adn',
               font_size: 18, font: '', align: center}
             type: Link
-            layout_properties: {x: 340.77785746380687, y: 8.541667938232422, width: 105.70833587646484}
+            layout_properties: {x: 340.77785746380687, y: 8.541667938232422, width: 112.42895507812497}
             event_bindings: {click: about_us_click}
           - name: home
             properties: {text: Home, icon: 'fa:home', foreground: '', bold: true,
