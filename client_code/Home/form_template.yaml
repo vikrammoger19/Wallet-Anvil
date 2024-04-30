@@ -1,10 +1,10 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {html: ''}
+  properties: {html: '', background: 'theme:White'}
 components:
 - type: ColumnPanel
-  properties: {background: '#f2f2f2'}
+  properties: {background: 'theme:White'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -89,7 +89,7 @@ components:
       layout_properties: {x: 74.83750915527344, y: 489.85003662109375, width: 200}
       event_bindings: {click: button_1_click}
     - name: image
-      properties: {height: 678.3999633789062, source: _/theme/triphone.png}
+      properties: {height: 678.3999633789062, source: _/theme/tri.png}
       type: Image
       layout_properties: {x: 712.7380091552734, y: 0, width: 741.338}
     - name: label_3

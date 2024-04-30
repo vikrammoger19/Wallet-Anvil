@@ -16,7 +16,7 @@ class deposit(depositTemplate):
       self.label_1.text = f"Welcome to Green Gate Financial, {username}"
       bank_names = anvil.server.call('get_user_bank_name', self.user['phone'])
       self.drop_down_1.items = [str(row['bank_name']) for row in bank_names]
-      self.drop_down_2.items= ["INR","USD","EUR","GBP"]
+      self.drop_down_2.items= anvil.server.call('get_currency_code')
       self.display()
 
     def button_1_click(self, **event_args):
