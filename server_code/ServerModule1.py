@@ -63,8 +63,11 @@ def get_username(phone):
         return user['username']
     else:
         return "Username Not Found"      
-
-
+      
+@anvil.server.callable
+def get_currency_code():
+    currencies = app_tables.wallet_currency.search()
+    return [f"{currency['currency_code']}" for currency in currencies]
 
 
 ###
