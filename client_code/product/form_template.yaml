@@ -157,7 +157,7 @@ components:
       layout_properties: {grid_position: 'WUYLFZ,ECWZNI LKCXGD,WDQULM'}
     - name: label_6
       properties: {text: 'Whether you''re a global traveler, an individual living
-          abroad, or just a curious explorer, with a Multi-currency Wallet you can
+          abroad, or just a curious explorer, with a Multi-Currency Wallet you can
           stay connected with people and places in crucial financial moments. Enjoy
           instant money transfers, fair exchange rates, and access to funds wherever
           you go.', bold: true, background: '#1eb0ed', font_size: 17}
