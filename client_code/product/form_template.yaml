@@ -140,9 +140,9 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'HCNRNM,CSNCEC GFYDRS,IOBRAO'}
   - name: label_3
-    properties: {text: 'Imagine a world without borders.A world where managing multiple
-        currancies is effortless-securely hold,send,and receive money in various currancies,all
-        within a single wallet.', font_size: 18, bold: true, italic: true}
+    properties: {text: 'Imagine a world without borders. A world where managing multiple
+        currencies is effortless-securely hold, send,and receive money in various
+        currencies, all within a single wallet.', font_size: 18, bold: true, italic: true}
     type: Label
     layout_properties: {grid_position: 'HCNRNM,CSNCEC IGKFTN,WGJTFL'}
   - name: card_4
