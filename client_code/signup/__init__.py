@@ -89,9 +89,9 @@ class signup(signupTemplate):
                 alert("verify your email")
             else:
                 # If email verification is not yet completed, wait for it to complete
-                if not self.email_verified:
-                    return
-                else:
+                # if not self.email_verified:
+                #     return
+                # else:
                     # Email verified, proceed with account creation
                     anvil.server.call(
                         'add_info',
