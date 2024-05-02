@@ -37,13 +37,13 @@ components:
         layout_properties: {x: 0, y: 1.199993897229433, width: 60.39999694824219}
       - name: button_3
         properties: {text: Signup, background: 'theme:Primary 500', foreground: 'theme:White',
-          font_size: 16, bold: true}
+          font_size: 16, bold: true, role: rounded-button1}
         type: Button
         layout_properties: {x: 1243.7750213630497, y: 6.837502289563417, width: 100.1875}
         event_bindings: {click: button_3_click}
       - name: button_4
         properties: {text: 'Login ', background: 'theme:Primary 500', foreground: 'theme:White',
-          bold: true, font_size: 16}
+          bold: true, font_size: 16, role: rounded-button1}
         type: Button
         layout_properties: {x: 1144.3375213630497, y: 7.662501145154238, width: 101.0124267578125}
         event_bindings: {click: button_4_click}
@@ -84,7 +84,7 @@ components:
     components:
     - name: button_1
       properties: {text: Get started, background: '#258ee1', foreground: 'theme:White',
-        bold: true, font_size: 20, font: '', italic: true}
+        bold: true, font_size: 20, font: '', italic: true, role: rounded-button1}
       type: Button
       layout_properties: {x: 74.83750915527344, y: 489.85003662109375, width: 200}
       event_bindings: {click: button_1_click}
@@ -339,7 +339,7 @@ components:
           layout_properties: {x: -7.4124908447265625, y: 317.0001220703125, width: 454}
         - name: button_2
           properties: {text: Download G-wallet App, align: left, background: '#258ee1',
-            foreground: 'theme:White', bold: true, icon: ''}
+            foreground: 'theme:White', bold: true, icon: '', role: rounded-button1}
           type: Button
           layout_properties: {x: -7.4124908447265625, y: 440.2000732421875, width: 219.39993286132812}
         - name: image_8
@@ -403,7 +403,7 @@ components:
           layout_properties: {x: -7.4124908447265625, y: 317.0001220703125, width: 454}
         - name: button_2_copy_3
           properties: {text: Download G-wallet App, align: left, background: '#258ee1',
-            foreground: 'theme:White', bold: true, icon: ''}
+            foreground: 'theme:White', bold: true, icon: '', role: rounded-button1}
           type: Button
           layout_properties: {x: -7.4124908447265625, y: 440.2000732421875, width: 219.39993286132812}
         - name: image_8_copy_3

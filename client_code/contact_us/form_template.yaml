@@ -229,7 +229,7 @@ components:
           type: Link
           layout_properties: {grid_position: 'TIMVIS,OOPEOL'}
       - name: button_3
-        properties: {role: null, align: left, border: 'theme:White', enabled: true,
+        properties: {role: rounded-button1, align: left, border: 'theme:White', enabled: true,
           foreground: '#2196F3', text: Login, font_size: 16, font: a, spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: 'theme:White',
           bold: true, underline: false, icon: ''}

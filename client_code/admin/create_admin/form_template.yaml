@@ -173,10 +173,10 @@ components:
       layout_properties: {row: XVCDED, width_xs: 5, col_xs: 6}
       event_bindings: {pressed_enter: text_box_6_pressed_enter}
     - name: button_1
-      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-        foreground: white, visible: true, text: save, font_size: 16, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '#1b7bc9',
-        bold: true, underline: false, icon: ''}
+      properties: {role: rounded-button1, align: center, tooltip: '', border: '',
+        enabled: true, foreground: white, visible: true, text: save, font_size: 16,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '#1b7bc9', bold: true, underline: false, icon: ''}
       type: Button
       layout_properties: {row: IAVNQX, width_xs: 10, col_xs: 1}
       event_bindings: {click: button_1_click}

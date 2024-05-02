@@ -122,10 +122,25 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK RZOFWI,TPWFPP'}
   - name: button_1
-    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: 'theme:Gray 50', visible: true, text: Submit, font_size: 18, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#258ee1', bold: true, underline: false, icon: ''}
+    properties:
+      role: [rounded-button1]
+      align: center
+      tooltip: ''
+      border: ''
+      enabled: true
+      foreground: theme:Gray 50
+      visible: true
+      text: Submit
+      font_size: 18
+      font: ''
+      spacing_above: small
+      icon_align: left
+      spacing_below: small
+      italic: false
+      background: '#258ee1'
+      bold: true
+      underline: false
+      icon: ''
     type: Button
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK TIVYHZ,JDTEQW'}
     event_bindings: {click: button_1_click}

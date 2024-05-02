@@ -82,12 +82,12 @@ components:
   components:
   - name: button_1
     properties: {text: Pay, foreground: white, background: '#1d6eae', align: full,
-      bold: true, font_size: 15}
+      bold: true, font_size: 15, role: rounded-button1}
     type: Button
     layout_properties: {grid_position: 'HCDSWQ,XBEPUH'}
   - name: button_2
     properties: {text: Request, align: full, bold: true, font_size: 15, foreground: white,
-      background: '#1d6eae'}
+      background: '#1d6eae', role: rounded-button1}
     type: Button
     layout_properties: {grid_position: 'HCDSWQ,UFIAVI'}
   - name: text_box_1

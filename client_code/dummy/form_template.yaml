@@ -69,8 +69,13 @@ components:
           type: Link
           layout_properties: {grid_position: 'JXFFNM,VLVRBN'}
         - name: button_1
-          properties: {text: 'Login      ', bold: true, foreground: white, font_size: 15,
-            role: filled-button, background: '#258ee1'}
+          properties:
+            text: 'Login      '
+            bold: true
+            foreground: white
+            font_size: 15
+            role: [rounded-button1]
+            background: '#258ee1'
           type: Button
           layout_properties: {grid_position: 'JXFFNM,GIPCOP'}
           event_bindings: {click: button_1_click}
@@ -129,8 +134,13 @@ components:
     type: Image
     layout_properties: {grid_position: 'UTHEFI,OIALPB'}
   - name: button_2
-    properties: {text: 'Login/Signup     ', role: elevated-button, foreground: white,
-      background: '#3961a2', bold: true, font_size: 18}
+    properties:
+      text: 'Login/Signup     '
+      role: [rounded-button1]
+      foreground: white
+      background: '#3961a2'
+      bold: true
+      font_size: 18
     type: Button
     layout_properties: {grid_position: 'VZCLHN,EPBQMX'}
     event_bindings: {click: button_2_click}
