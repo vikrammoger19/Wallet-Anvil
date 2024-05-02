@@ -61,9 +61,14 @@ components:
     type: Link
     event_bindings: {click: link_8_copy_click}
   - name: button_8
-    properties: {text: Logout, role: filled-button, background: '#1d86da', foreground: black}
+    properties:
+      text: Logout
+      role: [rounded-button1]
+      background: '#1d86da'
+      foreground: black
     type: Button
     event_bindings: {click: button_8_click}
+    layout_properties: {}
 - name: spacer_1
   properties: {height: 32}
   type: Spacer
@@ -121,7 +126,7 @@ components:
   type: Label
   layout_properties: {grid_position: 'RBFNGK,LPHZPD'}
 - name: button_1
-  properties: {text: button_1}
+  properties: {text: button_1, role: rounded-button1}
   type: Button
   layout_properties: {grid_position: 'RBFNGK,NGBVZP'}
 - name: spacer_1_copy
@@ -129,10 +134,25 @@ components:
   type: Spacer
   layout_properties: {grid_position: 'XETFCZ,NHSQDT'}
 - name: button_3
-  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: white, visible: true, text: back, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: true, background: '#1d86da', bold: true,
-    underline: false, icon: 'fa:backward'}
+  properties:
+    role: [rounded-button1]
+    align: center
+    tooltip: ''
+    border: ''
+    enabled: true
+    foreground: white
+    visible: true
+    text: back
+    font_size: null
+    font: ''
+    spacing_above: small
+    icon_align: left
+    spacing_below: small
+    italic: true
+    background: '#1d86da'
+    bold: true
+    underline: false
+    icon: fa:backward
   type: Button
   layout_properties: {grid_position: 'QBVRYD,HFQIIF'}
   event_bindings: {click: button_3_click}

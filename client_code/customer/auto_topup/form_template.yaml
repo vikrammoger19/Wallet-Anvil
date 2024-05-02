@@ -95,7 +95,7 @@ components:
         layout_properties: {grid_position: 'HVOUCR,RWSEME'}
       - name: button_on
         properties: {text: 'on', icon: 'fa:toggle-on', foreground: '#000000', bold: true,
-          align: center, background: '#d9e6f2'}
+          align: center, background: '#d9e6f2', role: rounded-button1}
         type: Button
         layout_properties: {grid_position: 'NZLMNV,URGDEC'}
         event_bindings: {click: button_on_click}
@@ -103,7 +103,7 @@ components:
         properties: {text: 'off
 
             ', icon: 'fa:toggle-off', foreground: '#000000', bold: true, background: '#d9e6f2',
-          font_size: 13}
+          font_size: 13, role: rounded-button1}
         type: Button
         layout_properties: {grid_position: 'KFNJLN,LFHTVV'}
         event_bindings: {click: button_off_click}
@@ -128,14 +128,16 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'UCANOS,GVIGKS'}
   - name: minimum_balance_topup
-    properties: {text: MINIMUM BALANCE TOPUP, bold: true, font_size: 15, background: '#2586d0',
-      foreground: 'theme:White', icon: 'fa:angle-down', icon_align: right, enabled: true}
+    properties: {role: rounded-button1, enabled: true, foreground: 'theme:White',
+      text: MINIMUM BALANCE TOPUP, font_size: 15, icon_align: right, background: '#2586d0',
+      bold: true, icon: 'fa:angle-down'}
     type: Button
     layout_properties: {grid_position: 'PDBLDS,KPLVDA'}
     event_bindings: {click: minimum_balance_topup_click}
   - name: timely_topup
-    properties: {text: TIMELY TOPUP, bold: true, font_size: 15, background: '#2586d0',
-      foreground: 'theme:White', icon: 'fa:angle-down', icon_align: right, enabled: true}
+    properties: {role: rounded-button1, enabled: true, foreground: 'theme:White',
+      text: TIMELY TOPUP, font_size: 15, icon_align: right, background: '#2586d0',
+      bold: true, icon: 'fa:angle-down'}
     type: Button
     layout_properties: {grid_position: 'PDBLDS,ZRAOTB'}
     event_bindings: {click: timely_topup_click}
@@ -177,25 +179,25 @@ components:
       layout_properties: {grid_position: 'VPWUOE,LHZGHS'}
     - name: button_1
       properties: {text: '+100', bold: true, background: '#2586d0', foreground: 'theme:White',
-        align: full}
+        align: full, role: rounded-button1}
       type: Button
       layout_properties: {grid_position: 'GQFHZC,WDOLCT'}
       event_bindings: {click: button_1_click}
     - name: button_2
       properties: {text: '+200', bold: true, background: '#2586d0', foreground: 'theme:White',
-        align: full}
+        align: full, role: rounded-button1}
       type: Button
       layout_properties: {grid_position: 'GQFHZC,EMYEQM'}
       event_bindings: {click: button_2_click}
     - name: button_3
       properties: {text: '+500', bold: true, background: '#2586d0', foreground: 'theme:White',
-        align: full}
+        align: full, role: rounded-button1}
       type: Button
       layout_properties: {grid_position: 'GQFHZC,QLFFTQ'}
       event_bindings: {click: button_3_click}
     - name: button_4
       properties: {text: '+1000', bold: true, background: '#2586d0', foreground: 'theme:White',
-        align: full}
+        align: full, role: rounded-button1}
       type: Button
       layout_properties: {grid_position: 'GQFHZC,NGZSUM'}
       event_bindings: {click: button_4_click}
@@ -209,7 +211,7 @@ components:
     layout_properties: {grid_position: 'XOAPKX,UEKIWA'}
   - name: button_5
     properties: {text: Proceed to add, background: '#2586d0', foreground: 'theme:White',
-      bold: true, font_size: 18}
+      bold: true, font_size: 18, role: rounded-button1}
     type: Button
     layout_properties: {grid_position: 'SFLIJV,SGGPXU', full_width_row: true}
     event_bindings: {click: button_5_click}
@@ -247,25 +249,25 @@ components:
       layout_properties: {grid_position: 'VPWUOE,LHZGHS'}
     - name: button_13
       properties: {text: '+100', background: '#2586d0', foreground: 'theme:White',
-        bold: true, align: full}
+        bold: true, align: full, role: rounded-button1}
       type: Button
       layout_properties: {grid_position: 'BYMPOP,QXWPYL'}
       event_bindings: {click: button_13_click}
     - name: button_14
       properties: {text: '+200', align: full, background: '#2586d0', foreground: 'theme:White',
-        bold: true}
+        bold: true, role: rounded-button1}
       type: Button
       layout_properties: {grid_position: 'BYMPOP,RWQZIH'}
       event_bindings: {click: button_14_click}
     - name: button_15
       properties: {text: '+500', background: '#2586d0', foreground: 'theme:White',
-        bold: true, align: full}
+        bold: true, align: full, role: rounded-button1}
       type: Button
       layout_properties: {grid_position: 'BYMPOP,WAIOUB'}
       event_bindings: {click: button_15_click}
     - name: button_16
       properties: {text: '+1000', align: full, background: '#2586d0', foreground: 'theme:White',
-        bold: true}
+        bold: true, role: rounded-button1}
       type: Button
       layout_properties: {grid_position: 'BYMPOP,ZTLZZD'}
       event_bindings: {click: button_16_click}
@@ -279,7 +281,7 @@ components:
     layout_properties: {grid_position: 'JSPQFU,ULSBAQ'}
   - name: button_6
     properties: {text: Proceed to add, background: '#2586d0', foreground: 'theme:White',
-      bold: true, font_size: 18}
+      bold: true, font_size: 18, role: rounded-button1}
     type: Button
     layout_properties: {grid_position: 'IWRGTF,HTNSKC'}
     event_bindings: {click: button_6_click}

@@ -63,9 +63,14 @@ components:
     type: Link
     event_bindings: {click: link_8_copy_click}
   - name: button_8
-    properties: {text: Logout, role: filled-button, background: '#1d86da', foreground: black}
+    properties:
+      text: Logout
+      role: [rounded-button1]
+      background: '#1d86da'
+      foreground: black
     type: Button
     event_bindings: {click: button_8_click}
+    layout_properties: {}
 - name: spacer_3
   properties: {height: 32}
   type: Spacer
@@ -78,10 +83,25 @@ components:
   type: TextBox
   layout_properties: {grid_position: 'TNDDBV,GFREZR'}
 - name: button_1
-  properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '#1d86da',
-    bold: false, underline: false, icon: 'fa:search'}
+  properties:
+    role: [primary-color, rounded-button1]
+    align: center
+    tooltip: ''
+    border: ''
+    enabled: true
+    foreground: ''
+    visible: true
+    text: ''
+    font_size: null
+    font: ''
+    spacing_above: small
+    icon_align: left
+    spacing_below: small
+    italic: false
+    background: '#1d86da'
+    bold: false
+    underline: false
+    icon: fa:search
   type: Button
   layout_properties: {grid_position: 'TNDDBV,LOLMRM'}
   event_bindings: {click: button_1_click}
