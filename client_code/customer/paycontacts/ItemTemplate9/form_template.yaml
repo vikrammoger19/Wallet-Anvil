@@ -16,7 +16,13 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''phone'']', writeback: true}
 - name: button_1
-  properties: {text: PAY, background: '#1d6eae', align: full, bold: true, font_size: 15}
+  properties:
+    text: PAY
+    background: '#1d6eae'
+    align: full
+    bold: true
+    font_size: 15
+    role: [rounded-button1, primary-color]
   type: Button
   layout_properties: {grid_position: 'RNZBQZ,XNXHWD'}
   event_bindings: {click: button_1_click}

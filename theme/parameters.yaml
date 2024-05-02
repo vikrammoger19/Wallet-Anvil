@@ -29,6 +29,10 @@ roles:
   components: [TextBox]
 - name: selected
   components: [Link]
+- name: rounded-button1
+  components: [Button]
+  display_in_toolbox: true
+  title: rounded-button
 color_scheme:
   preset_groups:
   - name: Primary Colour

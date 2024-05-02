@@ -68,7 +68,7 @@ components:
           type: Label
           layout_properties: {grid_position: 'CWITMQ,GWILGX GVHZTA,PRCMUG'}
         - name: button_1
-          properties: {text: verify, foreground: white, background: '#1eb0ed'}
+          properties: {text: verify, foreground: white, background: '#1eb0ed', role: rounded-button1}
           type: Button
           layout_properties: {grid_position: 'CWITMQ,KJZQEH'}
           event_bindings: {click: button_1_click}
@@ -98,7 +98,7 @@ components:
           data_bindings:
           - {property: text, code: 'self.item[''phone'']', writeback: false}
         - name: button_2
-          properties: {text: Verify, foreground: white, background: '#1eb0ed'}
+          properties: {text: Verify, foreground: white, background: '#1eb0ed', role: rounded-button1}
           type: Button
           layout_properties: {grid_position: 'VFERJI,XVQFUP'}
           event_bindings: {click: button_2_click}
@@ -179,10 +179,25 @@ components:
           type: Label
           layout_properties: {grid_position: 'KGXSWC,HJRGPK'}
         - name: primary_color_1
-          properties: {role: primary-color, align: center, tooltip: '', border: '',
-            enabled: true, foreground: '', visible: true, text: '                              Register                                      ',
-            font_size: 14, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-            italic: false, background: '', bold: true, underline: false, icon: ''}
+          properties:
+            role: [primary-color, rounded-button1]
+            align: center
+            tooltip: ''
+            border: ''
+            enabled: true
+            foreground: ''
+            visible: true
+            text: '                              Register                                      '
+            font_size: 14
+            font: ''
+            spacing_above: small
+            icon_align: left
+            spacing_below: small
+            italic: false
+            background: ''
+            bold: true
+            underline: false
+            icon: ''
           type: Button
           layout_properties: {grid_position: 'TRYOXE,QFVEBG'}
           event_bindings: {click: primary_color_1_click}
