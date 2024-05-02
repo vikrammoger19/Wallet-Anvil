@@ -84,7 +84,7 @@ components:
   layout_properties: {grid_position: 'TNDDBV,GFREZR'}
 - name: button_1
   properties:
-    role: [rounded-button1, primary-color]
+    role: [primary-color, rounded-button1]
     align: center
     tooltip: ''
     border: ''

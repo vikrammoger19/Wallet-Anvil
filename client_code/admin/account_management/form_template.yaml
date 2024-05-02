@@ -72,25 +72,10 @@ components:
     event_bindings: {click: button_8_click}
     layout_properties: {}
 - name: button_1
-  properties:
-    role: [rounded-button1]
-    align: center
-    tooltip: ''
-    border: ''
-    enabled: true
-    foreground: '#000000'
-    visible: false
-    text: users
-    font_size: null
-    font: ''
-    spacing_above: small
-    icon_align: left
-    spacing_below: small
-    italic: false
-    background: '#0770FF'
-    bold: true
-    underline: false
-    icon: ''
+  properties: {role: rounded-button1, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '#000000', visible: false, text: users, font_size: null, font: '',
+    spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#0770FF',
+    bold: true, underline: false, icon: ''}
   type: Button
   layout_properties: {grid_position: 'GAXJMA,QOMUZG'}
   event_bindings: {click: button_1_click}

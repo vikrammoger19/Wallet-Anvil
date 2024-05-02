@@ -125,7 +125,7 @@ components:
     properties:
       text: Add Bank Account
       bold: true
-      role: [rounded-button1]
+      role: [rounded-button1, secondary-color]
       background: '#1d6eae'
       foreground: white
       font_size: 15
@@ -137,7 +137,7 @@ components:
     properties:
       text: Auto-topup
       bold: true
-      role: [rounded-button1]
+      role: [secondary-color, rounded-button1]
       background: '#1d6eae'
       foreground: white
       font_size: 15
@@ -148,7 +148,7 @@ components:
   - name: button_3
     properties:
       text: Transaction History
-      role: [rounded-button1]
+      role: [rounded-button1, secondary-color]
       background: '#1d6eae'
       foreground: white
       bold: true
@@ -176,13 +176,13 @@ components:
       bold: true
       align: full
       font_size: 15
-      role: [rounded-button1, secondary-color]
+      role: [secondary-color, rounded-button1]
     type: Button
     layout_properties: {grid_position: 'RHEAMB,XKEAIK PFTIRK,VZCDSZ'}
     event_bindings: {click: button_7_click}
   - name: button_2
     properties:
-      role: [rounded-button1]
+      role: [rounded-button1, secondary-color]
       align: full
       foreground: white
       text: Wallet

@@ -1,12 +1,16 @@
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from datetime import datetime, timezone
+from datetime import datetime
 import anvil.server
 from anvil import tables, app
 import random
 import uuid
 import anvil.email
+import base64
+import anvil.media
+# from PIL import Image,ImageDraw
+from io import BytesIO
 
 
 @anvil.server.callable
@@ -309,3 +313,55 @@ def generate_otp():
     Generates a 6-digit OTP.
     """
     return ''.join(random.choice('0123456789') for _ in range(6))
+
+@anvil.server.callable
+def resizing_image(file):
+  # with BytesIO() as byte_stream: 
+  #   file.save(byte_stream, format='PNG')
+  #   # print('yoo man')
+  #   image_bytes = byte_stream.getvalue()
+  #   byte_stream.seek(0)
+  #   image_data = byte_stream.read()
+  #   # print('before saving')
+  # # dashboard_screen.ids.user_image.texture = CoreImage(BytesIO(image_data), ext='png',
+  # #                                                     filename='image.png').texture
+  # # self.ids.profile.icon = temp_image_path1
+  # image_base64 = base64.b64encode(image_bytes).decode('utf-8')
+  # return image_base64
+  
+  try:
+    # Open the image
+    byte_stream = BytesIO(file.get_bytes())
+    byte_stream.seek(0)
+    # i=byte_stream.getvalue()
+    # print(i)
+    with Image.open(byte_stream) as img:
+        # dashboard_screen = self.manager.get_screen('dashboard')
+        siz = img.size
+        # print('size: ', siz)
+        # resizing the image
+        img = img.resize((250, 250), Image.Resampling.LANCZOS)
+        # img.crop((0,200,250,250))
+        mask = Image.new('L', (250, 250), 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse((0, 0, 250, 250), fill=255)
+
+        # apply mask to image
+        img.putalpha(mask)
+        # print('outside')
+        with BytesIO() as processed:
+          # print('inside')
+          img.save(processed,format="PNG")
+          # print('in one')
+          # img_bytes = processed.getvalue()
+          # print(img_bytes)
+          # print('in two')
+          processed.seek(0)
+          media_obj = anvil.BlobMedia(f"image/png", processed.read())
+          processed.seek(0)
+          for_base64 = processed.read()
+          # print('in 4')
+          image_base64 = base64.b64encode(for_base64).decode('utf-8')
+    return {'media_obj':media_obj,'base_64':image_base64}
+  except Exception as e:
+    print(e)
