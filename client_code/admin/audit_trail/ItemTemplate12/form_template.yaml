@@ -1,0 +1,27 @@
+is_package: true
+container: {type: ColumnPanel}
+components:
+- name: text_box_1
+  properties: {}
+  type: TextBox
+  layout_properties: {grid_position: 'NPHRJI,MUIGPS'}
+- name: text_box_2
+  properties: {}
+  type: TextBox
+  layout_properties: {grid_position: 'NPHRJI,SLSKUL'}
+- name: text_box_3
+  properties: {}
+  type: TextBox
+  layout_properties: {grid_position: 'NPHRJI,JVSMET'}
+- name: text_box_4
+  properties: {}
+  type: TextBox
+  layout_properties: {grid_position: 'NPHRJI,MYHZAT'}
+- name: text_box_5
+  properties: {}
+  type: TextBox
+  layout_properties: {grid_position: 'NPHRJI,EEIBXI'}
+- name: button_1
+  properties: {text: '', icon: 'fa:align-justify'}
+  type: Button
+  layout_properties: {grid_position: 'NPHRJI,FKPIOQ'}
