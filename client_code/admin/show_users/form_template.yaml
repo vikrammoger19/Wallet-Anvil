@@ -238,8 +238,4 @@ components:
       background: '', bold: true, underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'XSXLAE,HAKDVS'}
-- name: repeating_panel_1_copy
-  properties: {item_template: admin.ItemTemplate3}
-  type: RepeatingPanel
-  layout_properties: {grid_position: 'CVLARR,UZMMGC'}
 is_package: true
