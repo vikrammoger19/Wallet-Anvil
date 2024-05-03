@@ -79,7 +79,7 @@ class FAQ(FAQTemplate):
 
     def contact_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('help')
+      open_form('contact_us')
 
     def help_click(self, **event_args):
       """This method is called when the link is clicked"""
