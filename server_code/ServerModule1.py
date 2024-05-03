@@ -7,7 +7,9 @@ from anvil import tables, app
 import random
 import uuid
 import anvil.email
-
+import base64
+# from PIL import Image,ImageDraw
+from io import BytesIO
 
 @anvil.server.callable
 def get_user_for_login(login_input):
@@ -309,3 +311,33 @@ def generate_otp():
     Generates a 6-digit OTP.
     """
     return ''.join(random.choice('0123456789') for _ in range(6))
+
+@anvil.server.callable
+def resizing_image(file):
+    try:
+      # Open the image
+      byte_stream = BytesIO(file.get_bytes())
+      byte_stream.seek(0)
+      with Image.open(byte_stream) as img:
+          # dashboard_screen = self.manager.get_screen('dashboard')
+          siz = img.size
+          # print('size: ', siz)
+          # resizing the image
+          img = img.resize((250, 250), Image.Resampling.LANCZOS)
+          # img.crop((0,200,250,250))
+          mask = Image.new('L', (250, 250), 0)
+          draw = ImageDraw.Draw(mask)
+          draw.ellipse((0, 0, 250, 250), fill=255)
+  
+          # apply mask to image
+          img.putalpha(mask)
+          with BytesIO() as processed:
+            img.save(processed,format="PNG")
+            processed.seek(0)
+            media_obj = anvil.BlobMedia(f"image/png", processed.read())
+            processed.seek(0)
+            for_base64 = processed.read()
+            image_base64 = base64.b64encode(for_base64).decode('utf-8')
+      return {'media_obj':media_obj,'base_64':image_base64}
+    except Exception as e:
+      print(e)

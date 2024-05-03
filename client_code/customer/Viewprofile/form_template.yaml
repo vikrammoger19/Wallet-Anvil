@@ -77,91 +77,200 @@ components:
     properties: {height: 31.79998779296875}
     type: Spacer
     layout_properties: {grid_position: 'HZHRFI,HBEOBR'}
-  - name: label_6
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-      visible: true, text: Check your details here, font_size: 19, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: true, icon: ''}
-    type: Label
-    layout_properties: {grid_position: 'ISFSPW,HOWKXC'}
-  - name: button_2
-    properties: {text: Reset Password, background: '#258ee0', foreground: white, bold: true}
-    type: Button
-    layout_properties: {grid_position: 'ISFSPW,ZGIOZP'}
-    event_bindings: {click: button_2_click}
-  - name: grid_panel_1
+  - name: flow_panel_6
+    properties: {align: center}
+    type: FlowPanel
+    layout_properties: {grid_position: 'LFDVGD,FLQWNM'}
+    components: []
+  - name: spacer_21
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'WTKNON,LVAZMR'}
+  - name: spacer_24
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'WTKNON,ESGPVO'}
+  - name: image_1
+    properties: {height: 150.96343994140625, role: null, border: '', tooltip: Profile pic,
+      source: _/theme/account.png}
+    type: Image
+    layout_properties: {grid_position: 'WTKNON,UQZKJX'}
+    event_bindings: {mouse_down: image_1_mouse_down}
+  - name: spacer_23
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'WTKNON,SHEOHG'}
+  - name: spacer_22
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'WTKNON,VCYDEI'}
+  - name: flow_panel_1
     properties: {}
-    type: GridPanel
-    layout_properties: {grid_position: 'GPHSHO,CSASIU'}
+    type: FlowPanel
+    layout_properties: {grid_position: 'CTJGDW,AQNQDZ'}
     components:
+    - name: spacer_2
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {width: 406.9323955078125}
+    - name: file_loader_1
+      properties: {role: null, border: '', enabled: true, foreground: '', visible: true,
+        text: '', font_size: 16, icon_align: left, italic: false, background: '',
+        underline: false}
+      type: FileLoader
+      layout_properties: {expand: false}
+      event_bindings: {change: file_loader_1_change}
+      data_bindings: []
+    - name: button_3
+      properties: {text: '', role: rounded-button1, font_size: 16, foreground: white,
+        background: '#258ee0', icon: 'fa:trash'}
+      type: Button
+      layout_properties: {}
+      event_bindings: {click: button_3_click}
+  - name: card_3
+    properties:
+      role: [card]
+      col_widths: '{"MSWTBG":13,"KXNOQN":10,"BHSFZB":6,"ADENKE":12,"QOJLAI":12,"MHQDRS":11,"LCSBFA":15,"MWKVTA":10,"YSGIZA":29,"UDXEQH":12}'
+      border: solid black 0.1px
+      background: ''
+    type: ColumnPanel
+    layout_properties: {grid_position: 'BWGLDL,HJCZXV'}
+    components:
+    - name: spacer_5
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'FLFVZP,ADENKE'}
+    - name: spacer_10
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'FLFVZP,QOJLAI'}
+    - name: spacer_11
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'FLFVZP,MHQDRS'}
+    - name: button_2
+      properties: {text: Reset Password, background: '#258ee0', foreground: white,
+        bold: true, role: rounded-button1, font_size: 16}
+      type: Button
+      layout_properties: {grid_position: 'FLFVZP,LCSBFA'}
+      event_bindings: {click: button_2_click}
+    - name: button_1
+      properties:
+        role: [rounded-button1]
+        align: center
+        tooltip: ''
+        border: ''
+        enabled: true
+        foreground: white
+        visible: true
+        text: 'Edit   '
+        font_size: 16
+        font: ''
+        spacing_above: small
+        icon_align: left
+        spacing_below: small
+        italic: false
+        background: '#258ee0'
+        bold: true
+        underline: false
+        icon: fa:edit
+      type: Button
+      layout_properties: {grid_position: 'FLFVZP,MWKVTA'}
+      event_bindings: {click: button_1_click}
+    - name: spacer_12
+      properties: {height: 26.556610107421875}
+      type: Spacer
+      layout_properties: {grid_position: 'XXFGNH,BJRZDY'}
+    - name: spacer_4
+      properties: {height: 267.45166015625}
+      type: Spacer
+      layout_properties: {grid_position: 'KQUPTK,UDXEQH'}
+    - name: label_5
+      properties: {bold: true, text: Username}
+      type: Label
+      layout_properties: {grid_position: 'KQUPTK,MSWTBG FRGRKE,CXNAKR'}
     - name: label_7
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Email ID:', font_size: 15, font: '', spacing_above: small,
+        visible: true, text: Email ID, font_size: 15, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
         underline: false, icon: ''}
       type: Label
-      layout_properties: {row: VSGPRU, width_xs: 2, col_xs: 3}
-    - name: text_box_1
-      properties: {background: white}
-      type: TextBox
-      layout_properties: {row: VSGPRU, width_xs: 5, col_xs: 5}
-      data_bindings:
-      - {property: text, code: 'self.item[''email'']', writeback: true}
+      layout_properties: {grid_position: 'KQUPTK,MSWTBG RQDLHJ,UFVCLW'}
     - name: label_9
       properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Phone Number:', font_size: 15, font: '', spacing_above: small,
+        visible: true, text: Phone Number, font_size: 15, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
         underline: false, icon: ''}
       type: Label
-      layout_properties: {row: RAKHCV, width_xs: 2, col_xs: 3}
+      layout_properties: {grid_position: 'KQUPTK,MSWTBG VJVYVL,TEDTAN'}
+    - name: label_10
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Pan Card, font_size: 15, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {grid_position: 'KQUPTK,MSWTBG ZTBTZU,RJCHJX'}
+    - name: label_11
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: Aadhar details, font_size: 15, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+        underline: false, icon: ''}
+      type: Label
+      layout_properties: {grid_position: 'KQUPTK,MSWTBG BZYROB,BRTRMM'}
+    - name: label_6
+      properties: {bold: true, text: Address}
+      type: Label
+      layout_properties: {grid_position: 'KQUPTK,MSWTBG AYMBOJ,ASTDNK'}
+    - name: spacer_15
+      properties: {height: 276.32916259765625}
+      type: Spacer
+      layout_properties: {grid_position: 'KQUPTK,KXNOQN'}
+    - name: text_box_5
+      properties: {align: center, spacing_above: none, border: white, enabled: true}
+      type: TextBox
+      layout_properties: {grid_position: 'KQUPTK,YSGIZA EZBPDV,AGZWJI'}
+    - name: text_box_1
+      properties: {background: white, align: center, foreground: '', border: white,
+        spacing_above: none}
+      type: TextBox
+      layout_properties: {grid_position: 'KQUPTK,YSGIZA YYIYPG,RLLNQO'}
+      data_bindings:
+      - {property: text, code: 'self.item[''email'']', writeback: true}
     - name: text_box_2
-      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+      properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: '',
+        border: white, enabled: false, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: none, type: number, spacing_below: small, italic: false,
         background: white, bold: false, underline: false}
       type: TextBox
-      layout_properties: {row: RAKHCV, width_xs: 5, col_xs: 5}
+      layout_properties: {grid_position: 'KQUPTK,YSGIZA XRRCZW,EKDLQR'}
       data_bindings:
       - {property: text, code: 'self.item[''phone'']', writeback: true}
       event_bindings: {pressed_enter: text_box_2_pressed_enter}
-    - name: label_10
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Pan Card:', font_size: 15, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
-      type: Label
-      layout_properties: {row: YQXCIG, width_xs: 2, col_xs: 3}
     - name: text_box_3
-      properties: {background: white, enabled: false}
+      properties: {background: white, enabled: false, align: center, border: white,
+        foreground: '', spacing_above: none}
       type: TextBox
-      layout_properties: {row: YQXCIG, width_xs: 5, col_xs: 5}
+      layout_properties: {grid_position: 'KQUPTK,YSGIZA QIJWGQ,OUXZFI'}
       data_bindings:
       - {property: text, code: 'self.item[''pan'']', writeback: true}
       event_bindings: {change: text_box_3_change}
-    - name: label_11
-      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: 'Aadhar details:', font_size: 15, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
-      type: Label
-      layout_properties: {row: GRKRPC, width_xs: 2, col_xs: 3}
     - name: text_box_4
-      properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: false, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+      properties: {role: null, align: center, hide_text: false, tooltip: '', placeholder: '',
+        border: white, enabled: false, foreground: '', visible: true, text: '', font_size: null,
+        font: '', spacing_above: none, type: number, spacing_below: small, italic: false,
         background: white, bold: false, underline: false}
       type: TextBox
-      layout_properties: {row: GRKRPC, width_xs: 5, col_xs: 4}
+      layout_properties: {grid_position: 'KQUPTK,YSGIZA HLGSQF,BWFKTC'}
       data_bindings:
       - {property: text, code: 'self.item[''aadhar'']', writeback: true}
-    - name: button_1
-      properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
-        foreground: white, visible: true, text: 'Edit   ', font_size: 16, font: '',
-        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '#258ee0', bold: true, underline: false, icon: 'fa:edit'}
-      type: Button
-      layout_properties: {row: CPFMUJ, width_xs: 8, col_xs: 4}
-      event_bindings: {click: button_1_click}
+    - name: text_box_6
+      properties: {spacing_above: none, align: center, border: white, enabled: true}
+      type: TextBox
+      layout_properties: {grid_position: 'KQUPTK,YSGIZA BFHFGE,ZGKXRD'}
+    - name: spacer_16
+      properties: {height: 272.2357177734375, spacing_below: small}
+      type: Spacer
+      layout_properties: {grid_position: 'KQUPTK,BHSFZB'}
   - name: spacer_3
     properties: {height: 175.24993896484375}
     type: Spacer

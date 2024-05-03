@@ -4,7 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-
+import base64
 class show_users(show_usersTemplate):
   def __init__(self,user=None, **properties):
     # Set Form properties and Data Bindings.
