@@ -104,25 +104,10 @@ components:
       type: Label
       layout_properties: {row: ZXNPCG, width_xs: 6, col_xs: 6}
     - name: button_1
-      properties:
-        role: [rounded-button1]
-        align: center
-        tooltip: ''
-        border: ''
-        enabled: true
-        foreground: white
-        visible: true
-        text: Login
-        font_size: 16
-        font: ''
-        spacing_above: small
-        icon_align: left
-        spacing_below: small
-        italic: false
-        background: '#1b7bc9'
-        bold: true
-        underline: false
-        icon: ''
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: Login, font_size: 16, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '#1b7bc9',
+        bold: true, underline: false, icon: ''}
       type: Button
       layout_properties: {row: IAVNQX, width_xs: 10, col_xs: 1}
       event_bindings: {click: button_1_click}
@@ -134,9 +119,9 @@ components:
       type: Label
       layout_properties: {row: KGCPTG, width_xs: 12, col_xs: 0}
     - name: button_2
-      properties: {role: rounded-button1, align: center, tooltip: '', border: '',
-        enabled: true, foreground: white, visible: true, text: Sign up, font_size: 16,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: Sign up, font_size: 16, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '#1b7bc9', bold: true, underline: false, icon: ''}
       type: Button
       layout_properties: {row: IOYNMJ, width_xs: 12, col_xs: 0}

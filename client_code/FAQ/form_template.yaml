@@ -56,13 +56,13 @@ components:
           event_bindings: {click: contact_click}
         - name: button_1
           properties: {text: LOGIN, background: 'theme:Primary 500', foreground: 'theme:White',
-            font: verdana, font_size: 16, role: rounded-button1}
+            font: verdana, font_size: 16}
           type: Button
           layout_properties: {x: 888.5375488288701, y: 8.962506104260683, width: 108.5999984741211}
           event_bindings: {click: button_1_click}
         - name: button_2
           properties: {text: Signup, background: 'theme:Primary 500', foreground: 'theme:White',
-            font: verdana, font_size: 17, role: rounded-button1}
+            font: verdana, font_size: 17}
           type: Button
           layout_properties: {x: 994.7999954223633, y: 7.725003052502871, width: 105.20000457763672}
           event_bindings: {click: button_2_click}
