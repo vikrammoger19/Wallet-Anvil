@@ -7,9 +7,10 @@ from anvil import open_form
 from datetime import datetime
 
 class customer(customerTemplate):
-    def __init__(self, user=None, **properties):
+    def __init__(self, user=None,password=None, **properties):
         self.init_components(**properties)
         self.user = user  # Set the user attribute
+        self.password=password
         now = datetime.now()
         if now != self.user['last_login']:
             if self.user['daily_limit'] is None:
@@ -25,7 +26,7 @@ class customer(customerTemplate):
 
     def button_1_click(self, **event_args):
         # Open the Viewprofile form and pass the user information
-        open_form('customer.Viewprofile', user=self.user)
+        open_form('customer.Viewprofile', user=self.user,password=self.password)
 
     def button_6_click(self, **event_args):
       open_form('customer.wallet', user=self.user)
