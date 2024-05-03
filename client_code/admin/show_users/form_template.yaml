@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"ITFHSW":45,"JMECTU":15,"SUPOXJ":15,"FACOVE":15,"WBNJHK":30}'}
+  properties: {col_widths: '{"ITFHSW":45,"JMECTU":15}'}
 components:
 - name: flow_panel_1
   properties: {}
@@ -122,27 +122,69 @@ components:
   properties: {height: 32}
   type: Spacer
   layout_properties: {grid_position: 'AXONBG,MQJKSP'}
-- name: label_2
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: 'Username:', font_size: 18, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: true, background: '', bold: true, underline: false,
-    icon: ''}
-  type: Label
-  layout_properties: {grid_position: 'WTXUIV,SUPOXJ'}
-- name: label_3
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: 'Phone Number:', font_size: 18, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: true, background: '', bold: true, underline: false,
-    icon: ''}
-  type: Label
-  layout_properties: {grid_position: 'WTXUIV,FACOVE'}
-- name: label_4
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: 'Email:', font_size: 18, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: true, background: '', bold: true, underline: false,
-    icon: ''}
-  type: Label
-  layout_properties: {grid_position: 'WTXUIV,WBNJHK'}
+- name: card_1
+  properties: {role: card, col_widths: '{"PZXWPH":5,"YNETJB":3,"PREUSB":15,"BUZZVW":2,"INPAJR":20,"BZQWNT":2,"DBUQSZ":15,"UZITYJ":16,"PIJNSN":2,"SIOARF":8,"DJCERM":3}'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'QKMYXH,EAQPZN'}
+  components:
+  - name: spacer_6
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZJJFWR,PZXWPH'}
+  - name: spacer_11
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZJJFWR,PIJNSN'}
+  - name: spacer_10
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZJJFWR,YNETJB'}
+  - name: label_2_copy_2
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Name, font_size: 18, font: '', spacing_above: small, icon_align: left,
+      spacing_below: none, italic: false, background: '', bold: true, underline: false,
+      icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'ZJJFWR,PREUSB ROSHTI,MOJXDW'}
+  - name: label_5
+    properties: {text: Email, font_size: null}
+    type: Label
+    layout_properties: {grid_position: 'ZJJFWR,PREUSB HNQZYE,AVFGNF'}
+    event_bindings: {show: label_5_show}
+  - name: spacer_7
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZJJFWR,BUZZVW'}
+  - name: spacer_12
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZJJFWR,SIOARF'}
+  - name: label_3_copy_2
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: Phone Number, font_size: 18, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'ZJJFWR,INPAJR'}
+  - name: spacer_9
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZJJFWR,BZQWNT'}
+  - name: spacer_13
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZJJFWR,DJCERM'}
+  - name: label_4_copy_2
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: Status, font_size: 18, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    type: Label
+    layout_properties: {grid_position: 'ZJJFWR,DBUQSZ'}
+  - name: spacer_8
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'ZJJFWR,UZITYJ'}
 - name: repeating_panel_1
   properties: {item_template: admin.ItemTemplate3}
   type: RepeatingPanel
