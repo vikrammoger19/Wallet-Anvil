@@ -65,4 +65,28 @@ class FAQ(FAQTemplate):
     def link_23_click(self, **event_args):
         self.link_click(14)
 
+    def home_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('Home')
+
+    def about_us_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('about_us')
+
+    def products_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('product')
+
+    def contact_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('contact_us')
+
+    def help_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('help')
+
+    def button_4_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form('login')
+
     
