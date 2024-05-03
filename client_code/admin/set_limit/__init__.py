@@ -100,4 +100,11 @@ class set_limit(set_limitTemplate):
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
     show_users_form = open_form('admin.show_users',user=self.user)
+
+  def drop_down_2_show(self, **event_args):
+    """This method is called when the DropDown is shown on the screen"""
+    options_list = ['Daily', 'Monthly', 'Annually']
+    self.drop_down_2.items = []
+    self.drop_down_2.items = options_list
+    
     
