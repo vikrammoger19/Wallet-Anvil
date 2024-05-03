@@ -221,10 +221,10 @@ components:
       type: Label
       layout_properties: {row: NWUQXF, width_xs: 3, col_xs: 5}
     - name: button_1
-      properties: {role: rounded-button1, align: center, tooltip: '', border: '',
-        enabled: true, foreground: white, visible: true, text: Signup, font_size: 16,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '#2196f3', bold: true, underline: false, icon: ''}
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: Signup, font_size: 16, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '#2196f3',
+        bold: true, underline: false, icon: ''}
       type: Button
       layout_properties: {row: XQJCOQ, width_xs: 3, col_xs: 3}
       event_bindings: {click: button_1_click}

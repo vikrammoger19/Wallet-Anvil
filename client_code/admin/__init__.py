@@ -31,7 +31,7 @@ class admin(adminTemplate):
     open_form('admin.user_support')
 
   def link_7_click(self, **event_args):
-    open_form('admin.show_users')
+    open_form('admin.account_management')
 
   def link_9_click(self, **event_args):
     open_form('Home')
