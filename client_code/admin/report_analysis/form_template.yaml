@@ -68,14 +68,9 @@ components:
       type: Link
       event_bindings: {click: link_8_copy_click}
     - name: button_8_copy
-      properties:
-        text: Logout
-        role: [rounded-button1]
-        background: '#1d86da'
-        foreground: black
+      properties: {text: Logout, role: filled-button, background: '#1d86da', foreground: black}
       type: Button
       event_bindings: {click: button_8_click}
-      layout_properties: {}
 - name: spacer_3
   properties: {height: 32}
   type: Spacer
@@ -92,71 +87,26 @@ components:
   type: Spacer
   layout_properties: {grid_position: 'FWCQTP,ZDRTAR'}
 - name: button_1
-  properties:
-    role: [rounded-button1]
-    align: left
-    tooltip: ''
-    border: ''
-    enabled: true
-    foreground: white
-    visible: true
-    text: ' Transaction Trends'
-    font_size: null
-    font: ''
-    spacing_above: small
-    icon_align: left
-    spacing_below: small
-    italic: true
-    background: '#1d86da'
-    bold: true
-    underline: false
-    icon: fa:angle-down
+  properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
+    foreground: white, visible: true, text: ' Transaction Trends', font_size: null,
+    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
+    background: '#1d86da', bold: true, underline: false, icon: 'fa:angle-down'}
   type: Button
   layout_properties: {grid_position: 'XGOJWV,FQZZAS'}
   event_bindings: {click: button_1_click}
 - name: button_2
-  properties:
-    role: [rounded-button1]
-    align: center
-    tooltip: ''
-    border: ''
-    enabled: true
-    foreground: white
-    visible: true
-    text: User Activity
-    font_size: null
-    font: ''
-    spacing_above: small
-    icon_align: left
-    spacing_below: small
-    italic: true
-    background: '#1d86da'
-    bold: true
-    underline: false
-    icon: fa:angle-double-down
+  properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: white, visible: true, text: User Activity, font_size: null, font: '',
+    spacing_above: small, icon_align: left, spacing_below: small, italic: true, background: '#1d86da',
+    bold: true, underline: false, icon: 'fa:angle-double-down'}
   type: Button
   layout_properties: {grid_position: 'XGOJWV,MEWRTI'}
   event_bindings: {click: button_2_click}
 - name: button_3
-  properties:
-    role: [rounded-button1]
-    align: right
-    tooltip: ''
-    border: ''
-    enabled: true
-    foreground: white
-    visible: true
-    text: System performance
-    font_size: null
-    font: ''
-    spacing_above: small
-    icon_align: left
-    spacing_below: small
-    italic: true
-    background: '#1d86da'
-    bold: true
-    underline: false
-    icon: fa:angle-double-down
+  properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: white, visible: true, text: System performance, font_size: null, font: '',
+    spacing_above: small, icon_align: left, spacing_below: small, italic: true, background: '#1d86da',
+    bold: true, underline: false, icon: 'fa:angle-double-down'}
   type: Button
   layout_properties: {grid_position: 'XGOJWV,XRDRCF'}
   event_bindings: {click: button_3_click}
@@ -184,25 +134,10 @@ components:
   type: Spacer
   layout_properties: {grid_position: 'UCLEGB,HQWNDC'}
 - name: button_3_copy
-  properties:
-    role: [rounded-button1]
-    align: center
-    tooltip: ''
-    border: ''
-    enabled: true
-    foreground: white
-    visible: true
-    text: back
-    font_size: null
-    font: ''
-    spacing_above: small
-    icon_align: left
-    spacing_below: small
-    italic: true
-    background: '#1d86da'
-    bold: true
-    underline: false
-    icon: fa:backward
+  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+    foreground: white, visible: true, text: back, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: true, background: '#1d86da', bold: true,
+    underline: false, icon: 'fa:backward'}
   type: Button
   layout_properties: {grid_position: 'QFBHHX,AHAJHJ'}
   event_bindings: {click: button_3_copy_click}

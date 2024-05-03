@@ -123,10 +123,7 @@ components:
   type: Image
   layout_properties: {grid_position: 'JDBZRR,QYBNHT'}
 - name: button_1
-  properties:
-    text: Transfer
-    role: [primary-color, rounded-button1]
-    bold: true
+  properties: {text: Transfer, role: primary-color, bold: true}
   type: Button
   layout_properties: {grid_position: 'LIGFQP,ECJHFG'}
   event_bindings: {click: button_1_click}

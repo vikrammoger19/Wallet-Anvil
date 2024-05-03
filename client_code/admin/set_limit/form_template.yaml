@@ -70,6 +70,93 @@ components:
       properties: {icon: 'fa:bars', foreground: 'theme:Primary 700'}
       type: Link
       layout_properties: {}
+  - name: content_panel
+    properties: {col_widths: '{"EOWYOA":25,"TVSXHA":50,"YXPMYG":30,"MWLYBK":30}'}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'UCZDEG,QATIXA', full_width_row: true}
+    components:
+    - name: xy_panel_2
+      properties: {height: 70.5999755859375, background: 'theme:Primary 500'}
+      type: XYPanel
+      layout_properties: {grid_position: 'PJTAQT,UWVDCO', full_width_row: true}
+      components:
+      - name: headline_1
+        properties: {role: headline, text: '         Payment Limit', bold: true, background: '',
+          foreground: 'theme:White', align: center, font_size: 40}
+        type: Label
+        layout_properties: {x: 299.58747558668256, y: 9.374996948987246, width: 735.7749755859375}
+    - name: spacer_2
+      properties: {height: 43}
+      type: Spacer
+      layout_properties: {grid_position: 'OOWQYZ,TUNNJW'}
+    - name: xy_panel_1
+      properties: {height: 228.5999755859375, align: center}
+      type: XYPanel
+      layout_properties: {grid_position: 'BXVBCW,AEIUNT', full_width_row: true}
+      components:
+      - name: image_4
+        properties: {height: 222, source: _/theme/Screenshot_2024-05-02_093742-removebg-preview.png}
+        type: Image
+        layout_properties: {x: 0, y: 0, width: 380.513}
+      - name: label_3
+        properties: {text: 'Set Transaction Limit:', align: center, bold: true, font_size: 15}
+        type: Label
+        layout_properties: {x: 140.1250122077763, y: 11.175003051757812, width: 394.8374938964844}
+      - name: text_box_1
+        properties: {placeholder: Enter the amount, bold: false}
+        type: TextBox
+        layout_properties: {x: 591.8750122077763, y: 12, width: 528.7250366210938}
+      - name: label_4_copy
+        properties: {text: 'Limit Type:', align: center, bold: true, font_size: 15}
+        type: Label
+        layout_properties: {x: 126.66251831129193, y: 67.16250228881836, width: 394.8374938964844}
+      - name: drop_down_2
+        properties: {}
+        type: DropDown
+        layout_properties: {x: 594.7249877937138, y: 63.587501525878906, width: 527.7625122070312}
+      - name: label_6
+        properties: {text: 'Description:', bold: true, align: center}
+        type: Label
+        layout_properties: {x: 129.88752441480756, y: 128, width: 394.8374938964844}
+      - name: text_area_1
+        properties: {placeholder: Optional, height: 85}
+        type: TextArea
+        layout_properties: {x: 579.5750244148076, y: 127, width: 549}
+        data_bindings: []
+      - name: image_5
+        properties: {source: _/theme/1ghg-removebg-preview.png, height: 233.79998779296875}
+        type: Image
+        layout_properties: {x: 1131.837597656995, y: 1.20001220703125, width: 248.586951171875}
+    - name: spacer_3
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'FVUHYR,XTSGYM'}
+    - name: check_box_1
+      properties: {text: Notify when the transaction limit reaches 80%., background: '',
+        foreground: '', checked: false, bold: true}
+      type: CheckBox
+      layout_properties: {grid_position: 'LLUSGY,IWFERO'}
+    - name: label_5
+      properties: {text: 'Custom start date:', align: center, bold: true, font_size: 15}
+      type: Label
+      layout_properties: {grid_position: 'NHXPBL,EOWYOA'}
+    - name: date_picker_1
+      properties: {align: center}
+      type: DatePicker
+      layout_properties: {grid_position: 'NHXPBL,TVSXHA'}
+    - name: spacer_1
+      properties: {height: 47}
+      type: Spacer
+      layout_properties: {grid_position: 'SSENLX,GCRRPR'}
+    - name: primary_color_1
+      properties: {text: Proceed, role: primary-color, align: right, font_size: 14}
+      type: Button
+      layout_properties: {grid_position: 'QCKEUA,YXPMYG'}
+    - name: button_1
+      properties: {text: Back, background: 'theme:Primary 500', foreground: 'theme:White',
+        align: left, icon: 'fa:angle-double-left', font_size: 14}
+      type: Button
+      layout_properties: {grid_position: 'QCKEUA,MWLYBK'}
 - name: outlined_card_1
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: none, spacing_above: none, col_widths: '{"VMILPR":8,"FDANOO":15,"HAKDVS":15}',

@@ -798,6 +798,3 @@ textarea.anvil-component[disabled] {
 https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-material-design-elevations
 */
 
-.anvil-role-rounded-button1 > .btn {
-    border-radius: 30px;  /* Apply a rounded style to all buttons */
-}
