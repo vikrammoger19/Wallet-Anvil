@@ -139,7 +139,7 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'ZJJFWR,YNETJB'}
-  - name: label_2_copy_2
+  - name: label_2
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Name, font_size: 18, font: '', spacing_above: small, icon_align: left,
       spacing_below: none, italic: false, background: '', bold: true, underline: false,
@@ -159,7 +159,7 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'ZJJFWR,SIOARF'}
-  - name: label_3_copy_2
+  - name: label_3
     properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
       visible: true, text: Phone Number, font_size: 18, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
@@ -174,7 +174,7 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'ZJJFWR,DJCERM'}
-  - name: label_4_copy_2
+  - name: label_4
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: Status, font_size: 18, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
@@ -185,6 +185,10 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'ZJJFWR,UZITYJ'}
+- name: spacer_4
+  properties: {height: 15.210296630859375}
+  type: Spacer
+  layout_properties: {grid_position: 'DAYIVC,TQNJKE'}
 - name: repeating_panel_1
   properties: {item_template: admin.ItemTemplate3}
   type: RepeatingPanel
@@ -234,4 +238,8 @@ components:
       background: '', bold: true, underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'XSXLAE,HAKDVS'}
+- name: repeating_panel_1_copy
+  properties: {item_template: admin.ItemTemplate3}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'CVLARR,UZMMGC'}
 is_package: true
