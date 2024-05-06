@@ -1,21 +1,23 @@
+from ._anvil_designer import admin_viewTemplate
+from anvil import *
+import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from ._anvil_designer import admin_viewTemplate
-from anvil import alert, open_form
-from anvil.tables import app_tables
 from datetime import datetime
 import re
+
 
 class admin_view(admin_viewTemplate):
     def __init__(self, user_data=None, phone_number=None,user=None, **properties):
         self.user = user
         self.phone_number = phone_number
         self.init_components(**properties)
+        # self.check_profile_pic()
         self.edit_mode = False  # Initialize edit_mode attribute to False
         
         if phone_number is not None:
-            self.text_box_13.text = phone_number  # Set textbox13 to display the phone number
+            self.text_box_4.text = phone_number  # Set textbox13 to display the phone number
 
             # Fetch all rows from wallet_users_balance table based on phone number
             user_balances = app_tables.wallet_users_balance.search(phone=phone_number)
@@ -36,16 +38,16 @@ class admin_view(admin_viewTemplate):
                         swiss_balance = balance_row['balance']
                 
                 # Update text boxes with the retrieved balances
-                self.text_box_8.text = str(usd_balance) if usd_balance is not None else "0"
-                self.text_box_9.text = str(euro_balance) if euro_balance is not None else "0"
-                self.text_box_10.text = str(inr_balance) if inr_balance is not None else "0"
-                self.text_box_11.text = str(swiss_balance) if swiss_balance is not None else "0"
+                self.label_10.text = str(usd_balance) if usd_balance is not None else "0"
+                self.label_11.text = str(euro_balance) if euro_balance is not None else "0"
+                self.label_12.text = str(inr_balance) if inr_balance is not None else "0"
+                self.label_13.text = str(swiss_balance) if swiss_balance is not None else "0"
             else:
                 # Set default value of 0 for all text boxes if no balances found
-                self.text_box_8.text = "0"
-                self.text_box_9.text = "0"
-                self.text_box_10.text = "0"
-                self.text_box_11.text = "0"
+                self.label_10.text = "0"
+                self.label_11.text = "0"
+                self.label_12.text = "0"
+                self.label_13.text = "0"
             
             user_data = app_tables.wallet_users.get(phone=phone_number)
             if user_data is not None:
@@ -57,6 +59,8 @@ class admin_view(admin_viewTemplate):
                 self.text_box_6.text = user_data['pan']
                 self.text_box_4.text = user_data['phone']
                 self.text_box_7.text = user_data['address']
+                self.label_8.text= user_data['username']
+                self.text_box_8.text= user_data['country']
             else:
                 # Set default value for text boxes if no user data found
                 self.text_box_1.text = ""
@@ -66,6 +70,7 @@ class admin_view(admin_viewTemplate):
                 self.text_box_5.text = ""
                 self.text_box_6.text = ""
                 self.text_box_7.text = ""
+                self.text_box_8.text = ""
 
             # Set button text based on the hold state
             self.set_button_text()
@@ -112,10 +117,10 @@ class admin_view(admin_viewTemplate):
       """This method is called when the button is clicked"""
       # Check if all text boxes 8, 9, 10, and 11 contain 0
       
-      if (self.text_box_8.text == "0" and
-          self.text_box_9.text == "0" and
-          self.text_box_10.text == "0" and
-          self.text_box_11.text == "0"):
+      if (self.label_10.text == "0" and
+          self.label_11.text == "0" and
+          self.label_12.text == "0" and
+          self.label_13.text == "0"):
           
           # Get the phone number from the form
           phone_number = self.phone_number
@@ -145,6 +150,7 @@ class admin_view(admin_viewTemplate):
         self.text_box_5.enabled = False  # Aadhar (not editable during edit mode)
         self.text_box_6.enabled = False  # Pan (not editable during edit mode)
         self.text_box_7.enabled = self.edit_mode
+        self.text_box_8.enabled = self.edit_mode
 
         # Change button_1 text based on the mode
         self.button_1.text = 'Save Changes' if self.edit_mode else 'Edit'
@@ -175,6 +181,8 @@ class admin_view(admin_viewTemplate):
                     changes_made.append(f"User '{username}' Phone number updated to '{self.text_box_4.text}'")
                 if user_to_update['address'] != self.text_box_7.text:
                     changes_made.append(f"User '{username}' Address updated to '{self.text_box_7.text}'")
+                if user_to_update['country'] != self.text_box_8.text:
+                    changes_made.append(f"User '{username}' country updated to '{self.text_box_8.text}'")
 
                 user_to_update.update(
                     email=self.text_box_2.text,
@@ -182,7 +190,8 @@ class admin_view(admin_viewTemplate):
                     phone=self.text_box_4.text,
                     aadhar=self.text_box_5.text,
                     pan=self.text_box_6.text,
-                    address=self.text_box_7.text
+                    address=self.text_box_7.text,
+                    country=self.text_box_8.text
                 )
 
                 # Log changes to 'actions' table if changes were made
@@ -235,7 +244,41 @@ class admin_view(admin_viewTemplate):
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('admin.account_management',user=self.user)
+    # def file_loader_1_change(self, file, **event_args):
+    #   """This method is called when a new file is loaded into this FileLoader"""
+    #   uploaded_file = self.file_loader_1.file
+    #   print(uploaded_file)
+    #   self.file_loader_1.text = ''
+    #   if uploaded_file:
+    #       # Check if the file is an image by inspecting the content type or file extension
+    #       if uploaded_file.content_type.startswith("image/"):
+    #         resized_image = anvil.server.call('resizing_image',uploaded_file)
+    #         user_data = app_tables.wallet_users.get(phone=self.user['phone'])
+    #         user_data.update(profile_pic=resized_image['base_64'])
+            
+    #         self.image_1.source=resized_image['media_obj']
+    #         # print(f"Uploaded image: {uploaded_file.name}")
+    #       else:
+    #         print("Uploaded file is not an image.")
 
+    # def check_profile_pic(self):
+    #   # print(self.user,self.password)
+    #   user_data = app_tables.wallet_users.get(username=str(self.user['username']),password=str(self.password))
+    #   if user_data:
+    #     existing_img = user_data['profile_pic']
+    #     if existing_img != None:
+    #       decoded_image_bytes = base64.b64decode(existing_img)
+    #       profile_pic_blob = anvil.BlobMedia("image/png",decoded_image_bytes )
+    #       self.image_1.source = profile_pic_blob
+    #     else: 
+    #       print('no pic')
+        
+    # def button_4_click(self, **event_args):
+    #   """This method is called when the button is clicked"""
+    #   if self.user['profile_pic'] != None:
+    #     user_data = app_tables.wallet_users.get(phone=self.user['phone'])
+    #     user_data.update(profile_pic=None)
+    #     self.image_1.source = '_/theme/account.png'
     def link_1_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('admin.report_analysis',user=self.user)
@@ -243,3 +286,7 @@ class admin_view(admin_viewTemplate):
     def link_4_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('admin.user_support',user=self.user)
+
+    def button_4_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      pass
