@@ -116,7 +116,7 @@ components:
     - name: file_loader_1
       properties: {role: null, border: '', enabled: true, foreground: '', visible: true,
         text: '', font_size: 16, icon_align: left, italic: false, background: '',
-        underline: false}
+        underline: false, icon: 'fa:uploadca'}
       type: FileLoader
       layout_properties: {expand: false}
       event_bindings: {change: file_loader_1_change}
