@@ -18,11 +18,15 @@ class signup(signupTemplate):
     #self.text_box_3.text=anvil.server.call('load_secret_data')
 
   def primary_color_1_click(self, **event_args):
-        existing_user = anvil.server.call('get_user_by_phone', str(self.text_box_3.text).strip())
+    existing_user = anvil.server.call('get_user_by_phone', str(self.text_box_3.text).strip())
 
-        if existing_user:
-            self.card_4.visible = True
-            self.text_box_3.text=''
+    if existing_user:
+        self.card_4.visible = True
+        self.text_box_3.text=''
+    else:
+        # If email verification is not yet completed, wait for it to complete
+        if not self.text_box_9.visible:
+            alert("Please verify your email first.")
         else:
             count = 0
             phone_number = str(self.text_box_3.text).strip()
@@ -85,14 +89,14 @@ class signup(signupTemplate):
                 self.text_box_5.text = ''
                 self.text_box_6.text = ''
                 self.text_box_5.focus()
-            if not self.text_box_9.visible:
-                alert("verify your email")
-            else:
-                # If email verification is not yet completed, wait for it to complete
-                # if not self.email_verified:
-                #     return
-                # else:
-                    # Email verified, proceed with account creation
+
+            # Proceed with account creation
+            if count == 5:
+                # Check if the entered OTP is valid
+                entered_otp = self.text_box_9.text
+                stored_otp = anvil.server.call('get_stored_otp')
+                if entered_otp == stored_otp:
+                    # OTP is valid, proceed with account creation
                     anvil.server.call(
                         'add_info',
                         self.text_box_1.text,
@@ -105,6 +109,11 @@ class signup(signupTemplate):
                     )
                     alert("Thank you " + self.text_box_1.text + ", for signing up! Your account has been successfully created")
                     open_form('login')
+                else:
+                    # Invalid OTP, display error message
+                    alert("Invalid OTP. Please try again.")
+
+
   def link_1_click(self, **event_args):
     open_form('Home')
 
