@@ -92,6 +92,9 @@ db_schema:
     - name: profile_pic
       admin_ui: {width: 200, order: 22}
       type: string
+    - name: country
+      admin_ui: {width: 200, order: 23}
+      type: string
     title: wallet_users
   wallet_users_account:
     client: full
