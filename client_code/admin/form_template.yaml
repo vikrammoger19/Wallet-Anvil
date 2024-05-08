@@ -141,7 +141,7 @@ components:
     layout_properties: {grid_position: 'SJVBRN,FWRFBP'}
     event_bindings: {click: link_6_click}
   - name: link_10
-    properties: {text: Add Currency, icon: 'fa:hotel'}
+    properties: {text: Add Currency, icon: 'fa:hourglass'}
     type: Link
     layout_properties: {grid_position: 'XXUHWB,OSSNZJ'}
   - name: link_7
