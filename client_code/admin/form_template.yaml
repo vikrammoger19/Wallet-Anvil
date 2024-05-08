@@ -145,6 +145,7 @@ components:
       bold: true}
     type: Link
     layout_properties: {grid_position: 'XXUHWB,OSSNZJ'}
+    event_bindings: {click: link_10_click}
   - name: link_7
     properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: 'theme:Primary
         500', visible: true, text: User Management, font_size: null, wrap_on: mobile,
