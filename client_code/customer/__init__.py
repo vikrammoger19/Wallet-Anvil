@@ -74,4 +74,3 @@ class customer(customerTemplate):
     def button_8_click(self, **event_args):
       """This method is called when the button is clicked"""
       open_form('customer.my_wallet',user=self.user)
-
