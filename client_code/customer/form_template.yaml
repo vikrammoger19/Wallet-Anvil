@@ -5,7 +5,7 @@ container:
     role: null, html: ''}
 components:
 - name: column_panel_2
-  properties: {col_widths: '{}', visible: true}
+  properties: {col_widths: '{"UBBVOC":10,"OSBNLJ":20,"XYUAWO":20,"VOEVGH":10}', visible: true}
   type: ColumnPanel
   layout_properties: {x: 866.6500366218388, y: 241, width: 200, slot: default}
   components:
@@ -145,12 +145,6 @@ components:
     type: Button
     layout_properties: {grid_position: 'RHEAMB,XKEAIK YKDDYH,UELENQ', full_width_row: true}
     event_bindings: {click: button_4_click}
-  - name: button_7
-    properties: {text: PAY  CONTACTS, background: '#1d6eae', foreground: WHITE, bold: true,
-      align: full, font_size: 15}
-    type: Button
-    layout_properties: {grid_position: 'RHEAMB,XKEAIK PFTIRK,VZCDSZ'}
-    event_bindings: {click: button_7_click}
   - name: button_2
     properties: {role: elevated-button, align: full, foreground: white, text: Wallet,
       font_size: 15, font: '', spacing_above: small, spacing_below: small, background: '#1d6eae',
@@ -165,6 +159,26 @@ components:
     type: Button
     event_bindings: {click: button_1_click}
     layout_properties: {grid_position: 'RHEAMB,KDUXSJ XTWQAL,RZJWWF', full_width_row: true}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'BAECVG,UBBVOC'}
+  - name: button_7
+    properties: {text: PAY  CONTACTS, background: '#1d6eae', foreground: WHITE, bold: true,
+      align: full, font_size: 15}
+    type: Button
+    layout_properties: {grid_position: 'BAECVG,OSBNLJ'}
+    event_bindings: {click: button_7_click}
+  - name: button_8
+    properties: {text: MY WALLET, background: '#1d6eae', foreground: white, align: full,
+      font_size: 15, bold: true}
+    type: Button
+    layout_properties: {grid_position: 'BAECVG,XYUAWO'}
+    event_bindings: {click: button_8_click}
+  - name: spacer_5
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'BAECVG,VOEVGH'}
   - name: image_2
     properties: {height: 227.5999755859375, source: 'https://www.pngitem.com/pimgs/m/730-7301546_digital-wallet-top-up-bill-payments-banner-img.png'}
     type: Image
