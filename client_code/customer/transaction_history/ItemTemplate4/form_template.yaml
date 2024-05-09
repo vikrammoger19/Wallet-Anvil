@@ -1,39 +1,31 @@
 is_package: true
-container: {type: ColumnPanel}
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"HBMTFP":20,"ELCLTT":20,"OQSAYE":20}'}
 components:
+- name: spacer_2
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'PWTKZN,HBMTFP'}
 - name: label_1
-  properties: {align: center}
+  properties: {align: center, bold: true, background: 'theme:Primary 500'}
   type: Label
-  layout_properties: {grid_position: 'GLQUFQ,GNSKQQ', full_width_row: true}
+  layout_properties: {grid_position: 'PWTKZN,ELCLTT'}
   data_bindings:
   - {property: text, code: 'self.item[''date'']', writeback: false}
-- name: label_2
-  properties: {align: center}
-  type: Label
-  layout_properties: {grid_position: 'GLQUFQ,FPNSJQ', full_width_row: true}
-  data_bindings:
-  - {property: text, code: 'self.item[''fund'']', writeback: false}
-- name: label_3
-  properties: {align: center}
-  type: Label
-  layout_properties: {grid_position: 'GLQUFQ,VIEVWM', full_width_row: true}
-  data_bindings:
-  - {property: text, code: 'self.item[''transaction_type'']', writeback: false}
-- name: label_4
-  properties: {align: center}
-  type: Label
-  layout_properties: {grid_position: 'GLQUFQ,VLVACQ', full_width_row: true}
-  data_bindings:
-  - {property: text, code: 'self.item[''transaction_status'']', writeback: false}
+- name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'PWTKZN,OQSAYE'}
 - name: label_5
-  properties: {align: center}
+  properties: {align: left, bold: true}
   type: Label
-  layout_properties: {grid_position: 'GLQUFQ,GAWMCM', full_width_row: true}
+  layout_properties: {grid_position: 'UNQSLU,OCRUOS'}
   data_bindings:
   - {property: text, code: 'self.item[''receiver_phone'']', writeback: false}
-- name: label_6
-  properties: {align: center}
+- name: label_2
+  properties: {align: right, bold: true}
   type: Label
-  layout_properties: {grid_position: 'GLQUFQ,DTDBKZ', full_width_row: true}
+  layout_properties: {grid_position: 'UNQSLU,VBHKEK'}
   data_bindings:
-  - {property: text, code: 'self.item[''phone'']', writeback: false}
+  - {property: text, code: 'self.item[''fund'']', writeback: false}
