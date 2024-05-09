@@ -199,7 +199,7 @@ components:
       layout_properties: {grid_position: 'VKEAEM,LXVJJB'}
     - name: total_user
       properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
-        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        visible: true, text: '15,08,600', font_size: null, font: '', spacing_above: small,
         icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
         underline: false, icon: ''}
       type: Label
