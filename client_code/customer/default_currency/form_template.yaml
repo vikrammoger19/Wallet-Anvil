@@ -55,7 +55,7 @@ components:
               type: Image
               layout_properties: {grid_position: 'YVHMBX,HGAGSX'}
             - name: label_1
-              properties: {text: INR, font_size: 20, foreground: 'theme:White'}
+              properties: {text: INR, font_size: 20, foreground: 'theme:White', bold: false}
               type: Label
               layout_properties: {grid_position: 'YVHMBX,QKACDL'}
         - name: grid_panel_1

@@ -44,6 +44,7 @@ class add_currency(add_currencyTemplate):
                 self.text_box_1.text = ''
                 self.text_box_2.text = ''
                 self.flow_panel_1.visible = False
+                alert('Currency added sucessfully')
             else:
               alert('Country already exists')
         else:
