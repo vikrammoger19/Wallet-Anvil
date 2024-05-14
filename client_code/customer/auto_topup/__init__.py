@@ -79,7 +79,7 @@ class auto_topup(auto_topupTemplate):
                   phone=self.user['phone'],
                   fund=money_value,
                   date=current_datetime,
-                  transaction_type=f"{cur} - Credit",
+                  transaction_type=f"{cur} - Auto_Topup",
                   transaction_status="Minimum-Topup",
                   receiver_phone=None
               )
@@ -139,7 +139,7 @@ class auto_topup(auto_topupTemplate):
                   phone=self.user['phone'],
                   fund=money_value,
                   date=current_datetime,
-                  transaction_type=f"{cur} - Credit",
+                  transaction_type=f"{cur} - Auto_Topup",
                   transaction_status="Timely-Topup",
                   receiver_phone=None
               )

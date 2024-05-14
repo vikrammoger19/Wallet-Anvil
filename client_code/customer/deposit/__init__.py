@@ -50,7 +50,7 @@ class deposit(depositTemplate):
                 phone=self.user['phone'],
                 fund=money_value,
                 date=current_datetime,
-                transaction_type="Credit",
+                transaction_type="Deposited",
                 transaction_status="Wallet-Topup",
                 receiver_phone=None
             )
