@@ -40,6 +40,7 @@ class withdraw(withdrawTemplate):
         new_transaction = app_tables.wallet_users_transaction.add_row(
                 phone=self.user['phone'],
                 fund=money_value,
+                currency=cur,
                 date=current_datetime,
                 transaction_type="Withdrawn",
                 transaction_status="Wallet-Withdrawn",

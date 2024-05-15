@@ -12,6 +12,16 @@ class customer_page(customer_pageTemplate):
         # Initialize the form
         self.init_components(**properties)
         self.user = user
+        # Get the current date and format it
+        now = datetime.datetime.now()
+        formatted_date = now.strftime('%a, %d-%b, %Y')
+        self.label_11.text = formatted_date
+        # Display the username
+        self.label_20.text = user['username']
+        # Get the INR balance from the server
+        balance_iterator = anvil.server.call('get_inr_balance', self.user['phone'])
+        balance = self.inr_balance(balance_iterator, 'INR')
+        self.label_13.text = str(f'₹{balance}')
         user_dict = dict(self.user)
 
         # Assuming user has a 'phone' attribute
