@@ -5,6 +5,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime
+from anvil import open_form
 
 
 class customer_page(customer_pageTemplate):
@@ -12,16 +13,17 @@ class customer_page(customer_pageTemplate):
         # Initialize the form
         self.init_components(**properties)
         self.user = user
+        self.refresh_data()
         # Get the current date and format it
-        now = datetime.datetime.now()
-        formatted_date = now.strftime('%a, %d-%b, %Y')
-        self.label_11.text = formatted_date
+        # now = datetime.datetime.now()
+        # formatted_date = now.strftime('%a, %d-%b, %Y')
+        # self.label_11.text = formatted_date
         # Display the username
-        self.label_20.text = user['username']
+        # self.label_20.text = user['username']
         # Get the INR balance from the server
-        balance_iterator = anvil.server.call('get_inr_balance', self.user['phone'])
-        balance = self.inr_balance(balance_iterator, 'INR')
-        self.label_13.text = str(f'₹{balance}')
+        # balance_iterator = anvil.server.call('get_inr_balance', self.user['phone'])
+        # balance = self.inr_balance(balance_iterator, 'INR')
+        # self.label_13.text = str(f'₹{balance}')
         user_dict = dict(self.user)
 
         # Assuming user has a 'phone' attribute
@@ -91,6 +93,89 @@ class customer_page(customer_pageTemplate):
 
             self.repeating_panel_2.items = self.repeating_panel_2_items
 
+
     def link_10_click(self, **event_args):
         """This method is called when the link is clicked"""
         open_form("customer.transaction_history",user=self.user)
+    def refresh_data(self):
+      user_dict = dict(self.user)
+      phone_number = user_dict.get('phone', None)
+      
+      if phone_number:
+          # Call the server function to get all transactions data
+          all_transactions = anvil.server.call('get_transactions')
+          
+          # DEBUG: Print the number of transactions retrieved from the server
+          print("Number of transactions retrieved:", len(all_transactions))
+          
+          # Filter transactions based on the user's phone number
+          transactions = [transaction for transaction in all_transactions if transaction['phone'] == phone_number or transaction['receiver_phone'] == phone_number]
+          
+          # DEBUG: Print the number of transactions after filtering
+          print("Number of transactions after filtering:", len(transactions))
+          
+          # Organize data for plotting (aggregate by date and type)
+          data_for_plot = {'credit': {}, 'debit': {}}  # Separate dictionaries for Credit and Debit transactions
+          for transaction in transactions:
+              date = transaction['date'].strftime("%Y-%m-%d")  # Format date as string for grouping
+              
+              trans_type = transaction['transaction_type']
+              fund = transaction['fund']  # Retrieve the 'fund' field
+              
+              if date not in data_for_plot[trans_type]:
+                  data_for_plot[trans_type][date] = 0
+                  
+              # Ensure fund is a string or a number before conversion
+              if isinstance(fund, (int, float)):
+                  money_amount = fund
+              elif isinstance(fund, str):
+                  # Extract numeric value from the 'fund' field
+                  try:
+                      money_amount = float(fund)
+                  except ValueError:
+                      money_amount = 0  # Handle cases where conversion to float fails
+              else:
+                  money_amount = 0  # Default to 0 if 'fund' is neither a string nor a number
+              
+              # Aggregate transaction amounts by date and type
+              if trans_type in data_for_plot:
+                  data_for_plot[trans_type][date] += money_amount
+          
+          # DEBUG: Print the data for plotting
+          print("Data for plotting:", data_for_plot)
+          
+          # Plot the data
+          categories = list(set(data_for_plot['credit'].keys()) | set(data_for_plot['debit'].keys()))  # Combine dates from Credit and Debit transactions
+          credit_values = [data_for_plot['credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
+          debit_values = [data_for_plot['debit'].get(date, 0) for date in categories]    # Get debit values for each date or 0 if date not present
+          
+          # Define colors
+          credit_color = '#023c9c'
+          debit_color = '#91b4ed'
+          
+          # Create traces for Credit and Debit
+          credit_trace = go.Bar(x=categories, y=credit_values, name='Credit', marker_color=credit_color)
+          debit_trace = go.Bar(x=categories, y=debit_values, name='Debit', marker_color=debit_color)
+          
+          # Customize tickfont for x and y axes
+          tickfont = {'family': 'Arial', 'size': 14, 'color': 'black', 'weight': 'bold'}
+          
+          # Create layout
+          layout = go.Layout(
+              xaxis=dict(title='Date', tickfont=tickfont),
+              yaxis=dict(title='Amount', tickfont=tickfont),
+              barmode='group',
+              legend=dict(font=dict(size=16, weight='bold'))
+          )
+          
+          # Create figure
+          fig = go.Figure(data=[debit_trace, credit_trace], layout=layout)
+          
+          # Update plot with new figure
+          self.plot_1_copy.data = fig.data
+          self.plot_1_copy.layout = fig.layout
+          
+          # Set the plot to be visible
+          # self.plot_1.visible = True
+
+  

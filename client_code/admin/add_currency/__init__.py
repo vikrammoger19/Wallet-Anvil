@@ -33,25 +33,40 @@ class add_currency(add_currencyTemplate):
   def button_3_click(self, **event_args):
     country_name = self.text_box_1.text.strip()
     currency_code = self.text_box_2.text.strip()
+    
     if country_name and currency_code:
         country_name = country_name.capitalize()
         print(country_name)
-        if len(currency_code)==3 and currency_code.isalpha():
+        
+        if len(currency_code) == 3 and currency_code.isalpha():
             existing_country = app_tables.wallet_currency.search(country=country_name) 
-            if len(existing_country) == 0: 
-                new_currency = app_tables.wallet_currency.add_row(country=country_name, currency_code=currency_code.upper())
+            
+            if len(existing_country) == 0:
+                # Check if an image has been uploaded
+                if self.file_loader_1.file:
+                    # Save the uploaded image to the currency_icon column
+                    new_currency = app_tables.wallet_currency.add_row(
+                        country=country_name,
+                        currency_code=currency_code.upper(),
+                        currency_icon=self.file_loader_1.file
+                    )
+                else:
+                    # If no image is uploaded, set currency_icon to None
+                    new_currency = app_tables.wallet_currency.add_row(
+                        country=country_name,
+                        currency_code=currency_code.upper(),
+                        currency_icon=None
+                    )
+                
                 self.refresh_users()
                 self.text_box_1.text = ''
                 self.text_box_2.text = ''
                 self.flow_panel_1.visible = False
-                alert('Currency added sucessfully')
+                alert('Currency added successfully')
             else:
-              alert('Country already exists')
+                alert('Country already exists')
         else:
-          alert('Invalid Currency Code')
-    else:
-      alert('Please fill the required fields.')
-
+            alert('Invalid currency code')
   def link_8_copy_click(self, **event_args):
     open_form('admin')
 
