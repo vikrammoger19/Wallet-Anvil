@@ -196,23 +196,6 @@ db_schema:
       admin_ui: {order: 2, width: 200}
       type: string
     title: wallet_users_service
-  wallet_users_interaction:
-    client: full
-    server: full
-    columns:
-    - name: message
-      admin_ui: {width: 200, order: 0}
-      type: string
-    - name: sentnumber
-      admin_ui: {width: 200, order: 1}
-      type: number
-    - name: recivednumber
-      admin_ui: {width: 200, order: 2}
-      type: number
-    - name: date
-      admin_ui: {width: 200, order: 3}
-      type: datetime
-    title: wallet_users_interaction
   wallet_currency:
     title: wallet_currency
     client: full
