@@ -8,6 +8,7 @@ from anvil.tables import app_tables
 class Home(HomeTemplate):
   def __init__(self, **properties):
     self.init_components(**properties)
+    anvil.server.call('update_active_status')
   def link_16_click(self, **event_args):
     pass
 

@@ -103,17 +103,20 @@ class report_analysis(report_analysisTemplate):
       users = anvil.server.call('get_user_data')
 
         # Count the number of active and non-active users
-      active_users = sum(1 for user in users if user['banned'] is None)
-      non_active_users = sum(1 for user in users if user['banned'] is True)
-
+      banned_users = sum(1 for user in users if user['banned'] is None)
+      unbanned_users = sum(1 for user in users if user['banned'] is True)
+      active_users = sum(1 for user in users if user['inactive']is None)
+      inactive_users = sum(1 for user in users if user['inactive']is True)
         # Calculate percentages
-      total_users = active_users + non_active_users
-      active_percentage = (active_users / total_users) * 100
-      non_active_percentage = (non_active_users / total_users) * 100
+      total_users = banned_users + unbanned_users+active_users+inactive_users
+      banned_percentage = (banned_users / total_users) * 100
+      unbanned_percentage = (unbanned_users / total_users) * 100
+      active_percentage  = (active_users/total_users)*100
+      inactive_percentage  = (inactive_users/total_users)*100
 
         # Create pie chart data
-      labels = ['Active Users', 'Non-Active Users']
-      values = [active_percentage, non_active_percentage]
+      labels = ['banned_users', 'unbanned_users','active_users','inactive_users']
+      values = [banned_percentage, unbanned_percentage,active_percentage,inactive_percentage]
 
         # Update plot_2 with pie chart data
       self.plot_2.data = [{'labels': labels, 'values': values, 'type': 'pie'}]

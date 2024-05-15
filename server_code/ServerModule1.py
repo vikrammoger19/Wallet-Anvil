@@ -10,7 +10,7 @@ import anvil.email
 import base64
 # from PIL import Image,ImageDraw
 from io import BytesIO
-
+import datetime
 @anvil.server.callable
 def get_user_for_login(login_input):
   user_by_username = app_tables.wallet_users.get(username=login_input)
@@ -136,11 +136,19 @@ def get_user_data():
         else:
             status = 'Non-Active'
 
+        # Check the 'inactive' column to determine if the user is inactive
+        if user_row['inactive'] is None:
+            activity_status = 'Active'
+        else:
+            activity_status = 'Inactive'
+
         # Append user information to the list
         user_info = {
             'username': user_row['username'],
             'banned': user_row['banned'],
-            'status': status  # Include the 'status' information based on the 'banned' column
+            'inactive': user_row['inactive'],
+            'status': status,  # Include the 'status' information based on the 'banned' column
+            'activity_status': activity_status  # Include the 'activity_status' information based on the 'inactive' column
         }
         user_list.append(user_info)
 
@@ -341,3 +349,32 @@ def resizing_image(file):
       return {'media_obj':media_obj,'base_64':image_base64}
     except Exception as e:
       print(e)
+
+
+@anvil.server.callable
+def update_active_status():
+    # Get today's date
+    today = datetime.datetime.now().date()
+    
+    # Query all users from wallet_users
+    all_users = app_tables.wallet_users.search()
+    
+    # Iterate through each user
+    for user in all_users:
+        # Get the last login date for the user
+        last_login = user['last_login']
+        
+        # Calculate the difference in days between last login and today
+        if last_login is not None:
+            days_difference = (today - last_login.date()).days
+            
+            # Check if the difference is greater than 90 days
+            if days_difference > 90:
+                # Update the active column to False
+                user['inactive'] = True
+            else:
+                # Update the active column to True
+                user['inactive'] = None
+                
+            # Save the changes to the table
+            user.update()
