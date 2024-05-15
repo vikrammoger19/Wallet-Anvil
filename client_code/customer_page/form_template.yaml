@@ -35,15 +35,15 @@ components:
           layout_properties: {grid_position: 'ELTORE,GZBEBG'}
           components:
           - name: image_1
-            properties: {source: _/theme/letter-g.png, height: 43, spacing_below: none,
-              horizontal_align: right}
+            properties: {source: _/theme/letter-g.png, height: 38.363616943359375,
+              spacing_below: none, horizontal_align: right}
             type: Image
-            layout_properties: {x: 4.050000000745058, y: 11.250004578381777, width: 109.57499084472656}
+            layout_properties: {x: 4.050000000745058, y: 11.250004578381777, width: 71.93163220214844}
           - name: label_1
             properties: {text: G-Wallet, align: right, foreground: 'theme:Primary
                 700', font_size: 22, bold: true, spacing_above: none}
             type: Label
-            layout_properties: {x: 104.22500305250287, y: 11.462498474866152, width: 101.78749389648438}
+            layout_properties: {x: 72.26136641204357, y: 7.8636308163404465, width: 98.954505078125}
         - name: link_1
           properties: {text: '', align: center, bold: true, foreground: 'theme:Black'}
           type: Link
@@ -253,7 +253,7 @@ components:
         - name: card_2_copy
           properties: {role: card, background: 'theme:Primary 500'}
           type: ColumnPanel
-          layout_properties: {x: 28.162548828870058, y: 89.64999847486615, width: 402.8119755859375}
+          layout_properties: {x: 28.162548828870058, y: 89.64999847486615, width: 340.98882373046877}
           components:
           - name: xy_panel_11_copy
             properties: {height: 171.60000610351562}
@@ -280,52 +280,6 @@ components:
               ', font_size: 13, role: null}
           type: Label
           layout_properties: {x: 197.8125122077763, y: 30.300000000745058, width: 142.15000915527344}
-        - name: card_3_copy
-          properties: {role: card, background: '', col_widths: '{"OPYGBO":9,"BFPEDO":51}'}
-          type: ColumnPanel
-          layout_properties: {x: 463.5125854499638, y: 89.60000305250287, width: 228.18756103515625}
-          components:
-          - name: spacer_3_copy
-            properties: {height: 32}
-            type: Spacer
-            layout_properties: {grid_position: 'VLIFFI,OPYGBO'}
-          - name: xy_panel_12_copy
-            properties: {height: 61.79998779296875}
-            type: XYPanel
-            layout_properties: {grid_position: 'VLIFFI,BFPEDO'}
-            components:
-            - name: label_14_copy
-              properties: {font_size: 16, text: Send, bold: true, align: left, foreground: 'theme:Gray
-                  600'}
-              type: Label
-              layout_properties: {x: 0, y: 0, width: 132.562}
-            - name: label_15_copy
-              properties: {align: left, text: '₹30,000', bold: true, font_size: 16}
-              type: Label
-              layout_properties: {x: 0, y: 28.38750457763672, width: 125.3379755859375}
-        - name: card_4_copy
-          properties: {role: card, col_widths: '{"UWSRIP":9,"EZISWG":51}'}
-          type: ColumnPanel
-          layout_properties: {x: 463.5749633796513, y: 197.68749694898725, width: 228.1379511718752}
-          components:
-          - name: spacer_4_copy
-            properties: {height: 32}
-            type: Spacer
-            layout_properties: {grid_position: 'SIXIYT,UWSRIP'}
-          - name: xy_panel_13_copy
-            properties: {height: 61.600006103515625}
-            type: XYPanel
-            layout_properties: {grid_position: 'SIXIYT,EZISWG'}
-            components:
-            - name: label_16_copy
-              properties: {font_size: 16, text: Recieve, bold: true, align: left,
-                foreground: 'theme:Gray 600'}
-              type: Label
-              layout_properties: {x: 0, y: 0, width: 126.7500244140625}
-            - name: label_17_copy
-              properties: {align: left, text: '₹50,000', bold: true, font_size: 16}
-              type: Label
-              layout_properties: {x: 0, y: 28.38750457763672, width: 119.1499267578125}
         - name: card_6_copy
           properties: {role: card, col_widths: '{}'}
           type: ColumnPanel
@@ -484,11 +438,6 @@ components:
           properties: {text: username, bold: true, font_size: 14}
           type: Label
           layout_properties: {x: 791.2375183105469, y: 33.700000762939446, width: 200}
-        - name: text_area_1_copy
-          properties: {background: 'theme:White', border: '', height: 39, foreground: 'theme:Gray
-              600', align: center, text: ''}
-          type: TextArea
-          layout_properties: {x: 465.73746948316693, y: 29.550000000745058, width: 225.25}
         - name: xy_panel_17_copy
           properties: {height: 44.399993896484375}
           type: XYPanel
@@ -501,6 +450,11 @@ components:
               bold: false, underline: false, icon: 'fa:search'}
             type: Label
             layout_properties: {x: 9.52496337890625, y: 13.362499237060547, width: 29.775}
+          - name: text_area_1_copy
+            properties: {background: 'theme:White', border: '', height: 39, foreground: 'theme:Gray
+                600', align: center, text: ''}
+            type: TextArea
+            layout_properties: {x: 0, y: 0.40908674895763397, width: 159.64773559570312}
         - name: link_15_copy
           properties: {role: null, url: '', align: left, tooltip: '', border: '',
             foreground: '', visible: true, text: '', font_size: 22, wrap_on: mobile,
@@ -509,6 +463,52 @@ components:
             underline: false, icon: 'fa:bell-o'}
           type: Link
           layout_properties: {x: 1025.4999694824219, y: 34.599998474121094, width: 34}
+      - name: card_3_copy
+        properties: {role: card, background: '', col_widths: '{"OPYGBO":9,"BFPEDO":51}'}
+        type: ColumnPanel
+        layout_properties: {x: 407.5568528622389, y: 91.81818251311779, width: 228.18182373046875}
+        components:
+        - name: spacer_3_copy
+          properties: {height: 32}
+          type: Spacer
+          layout_properties: {grid_position: 'VLIFFI,OPYGBO'}
+        - name: xy_panel_12_copy
+          properties: {height: 61.79998779296875}
+          type: XYPanel
+          layout_properties: {grid_position: 'VLIFFI,BFPEDO'}
+          components:
+          - name: label_14_copy
+            properties: {font_size: 16, text: Send, bold: true, align: left, foreground: 'theme:Gray
+                600'}
+            type: Label
+            layout_properties: {x: 0, y: 0, width: 132.562}
+          - name: label_15_copy
+            properties: {align: left, text: '₹30,000', bold: true, font_size: 16}
+            type: Label
+            layout_properties: {x: 0, y: 28.38750457763672, width: 125.3379755859375}
+      - name: card_4_copy
+        properties: {role: card, col_widths: '{"UWSRIP":9,"EZISWG":51}'}
+        type: ColumnPanel
+        layout_properties: {x: 401.84097151458263, y: 195.59091047942638, width: 228.13636779785156}
+        components:
+        - name: spacer_4_copy
+          properties: {height: 32}
+          type: Spacer
+          layout_properties: {grid_position: 'SIXIYT,UWSRIP'}
+        - name: xy_panel_13_copy
+          properties: {height: 61.600006103515625}
+          type: XYPanel
+          layout_properties: {grid_position: 'SIXIYT,EZISWG'}
+          components:
+          - name: label_16_copy
+            properties: {font_size: 16, text: Recieve, bold: true, align: left, foreground: 'theme:Gray
+                600'}
+            type: Label
+            layout_properties: {x: 0, y: 0, width: 126.7500244140625}
+          - name: label_17_copy
+            properties: {align: left, text: '₹50,000', bold: true, font_size: 16}
+            type: Label
+            layout_properties: {x: 0, y: 28.38750457763672, width: 119.1499267578125}
     - name: xy_panel_10
       properties: {height: 923.5999755859375, width: 1088.57}
       type: XYPanel
