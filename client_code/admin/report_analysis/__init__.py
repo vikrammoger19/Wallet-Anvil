@@ -103,8 +103,8 @@ class report_analysis(report_analysisTemplate):
       users = anvil.server.call('get_user_data')
 
         # Count the number of active and non-active users
-      banned_users = sum(1 for user in users if user['banned'] is None)
-      unbanned_users = sum(1 for user in users if user['banned'] is True)
+      unbanned_users = sum(1 for user in users if user['banned'] is None)
+      banned_users = sum(1 for user in users if user['banned'] is True)
       active_users = sum(1 for user in users if user['inactive']is None)
       inactive_users = sum(1 for user in users if user['inactive']is True)
         # Calculate percentages

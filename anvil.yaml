@@ -95,8 +95,8 @@ db_schema:
     - name: country
       admin_ui: {width: 200, order: 23}
       type: string
-    - name: inactive'
-      admin_ui: {width: 200, order: 24}
+    - name: inactive
+      admin_ui: {order: 24, width: 200}
       type: bool
     title: wallet_users
   wallet_users_account:
