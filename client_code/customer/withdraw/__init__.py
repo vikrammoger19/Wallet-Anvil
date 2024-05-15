@@ -41,7 +41,7 @@ class withdraw(withdrawTemplate):
                 phone=self.user['phone'],
                 fund=money_value,
                 date=current_datetime,
-                transaction_type="Debit",
+                transaction_type="Withdrawn",
                 transaction_status="Wallet-Withdrawn",
                 receiver_phone=None
             )
