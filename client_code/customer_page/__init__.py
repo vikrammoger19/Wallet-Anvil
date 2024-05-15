@@ -15,15 +15,15 @@ class customer_page(customer_pageTemplate):
         self.user = user
         self.refresh_data()
         # Get the current date and format it
-        now = datetime.datetime.now()
-        formatted_date = now.strftime('%a, %d-%b, %Y')
+        # now = datetime.datetime.now()
+        # formatted_date = now.strftime('%a, %d-%b, %Y')
         # self.label_11.text = formatted_date
         # Display the username
-        self.label_20.text = user['username']
+        # self.label_20.text = user['username']
         # Get the INR balance from the server
-        balance_iterator = anvil.server.call('get_inr_balance', self.user['phone'])
-        balance = self.inr_balance(balance_iterator, 'INR')
-        self.label_13.text = str(f'₹{balance}')
+        # balance_iterator = anvil.server.call('get_inr_balance', self.user['phone'])
+        # balance = self.inr_balance(balance_iterator, 'INR')
+        # self.label_13.text = str(f'₹{balance}')
         user_dict = dict(self.user)
 
         # Assuming user has a 'phone' attribute
@@ -92,6 +92,7 @@ class customer_page(customer_pageTemplate):
                     break
 
             self.repeating_panel_2.items = self.repeating_panel_2_items
+
 
     def link_10_click(self, **event_args):
         """This method is called when the link is clicked"""

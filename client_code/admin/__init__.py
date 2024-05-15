@@ -11,7 +11,49 @@ class admin(adminTemplate):
     self.user = user
     if user is not None:
             self.label_2.text = user['username']
-
+    self.refresh_data()
+  def refresh_data(self):
+        # Call the server function to get transactions data
+        transactions = anvil.server.call('get_transactions')
+      
+        # Organize data for plotting (aggregate by date and type)
+        data_for_plot = {'credit': {}, 'debit': {}}  # Separate dictionaries for Credit and Debit transactions
+        for transaction in transactions:
+            date = transaction['date'].strftime("%Y-%m-%d")  # Format date as string for grouping
+        
+            trans_type = transaction['transaction_type']
+            fund = transaction['fund']  # Retrieve the 'fund' field
+        
+            if date not in data_for_plot[trans_type]:
+                data_for_plot[trans_type][date] = 0
+            
+            # Ensure fund is a string or a number before conversion
+            if isinstance(fund, (int, float)):
+                money_amount = fund
+            elif isinstance(fund, str):
+                # Extract numeric value from the 'fund' field
+                try:
+                    money_amount = float(fund)
+                except ValueError:
+                    money_amount = 0  # Handle cases where conversion to float fails
+            else:
+                money_amount = 0  # Default to 0 if 'fund' is neither a string nor a number
+            
+            # Aggregate transaction amounts by date and type
+            if trans_type in data_for_plot:
+                data_for_plot[trans_type][date] += money_amount
+      
+        # Plot the data
+        categories = list(set(data_for_plot['credit'].keys()) | set(data_for_plot['debit'].keys()))  # Combine dates from Credit and Debit transactions
+        credit_values = [data_for_plot['credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
+        debit_values = [data_for_plot['debit'].get(date, 0) for date in categories]    # Get debit values for each date or 0 if date not present
+        
+        self.plot_1.data = [
+            {'x': categories, 'y': debit_values, 'type': 'bar', 'name': 'debit', 'marker': {'color': 'gray'}},
+            {'x': categories, 'y': credit_values, 'type': 'bar', 'name': 'credit', 'marker': {'color': 'lightblue'}}
+        ]
+      
+        self.plot_1.visible = True
   def link_1_click(self, **event_args):
     open_form('admin.report_analysis')
 
