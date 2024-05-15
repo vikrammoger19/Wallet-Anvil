@@ -365,7 +365,7 @@ components:
               name: button_1_copy
         - properties: {role: card, col_widths: '{}'}
           type: ColumnPanel
-          layout_properties: {x: 643.2500457763672, y: 338.1932067871094, width: 333.773}
+          layout_properties: {x: 643.2500457763672, y: 338.1932067871094, width: 332.773}
           name: card_7_copy
           components:
           - properties: {height: 54, width: 310.977}
