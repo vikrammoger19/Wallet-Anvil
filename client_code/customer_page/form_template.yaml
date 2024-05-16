@@ -268,7 +268,7 @@ components:
                 spacing_above: none}
               type: Label
               layout_properties: {x: 31.499981690198183, y: 83.2250106818974, width: 235.1999969482422}
-              name: label_13_copy
+              name: label_13
             - properties: {text: Current Balance, background: '', foreground: 'theme:Gray
                   50', font_size: 21, bold: true, spacing_above: none}
               type: Label
@@ -283,7 +283,7 @@ components:
               ', font_size: 13, role: null}
           type: Label
           layout_properties: {x: 197.8125122077763, y: 30.300000000745058, width: 142.15000915527344}
-          name: label_11_copy
+          name: label_11
         - properties: {role: card, col_widths: '{}'}
           type: ColumnPanel
           layout_properties: {x: 28.162506103515625, y: 338.20001220703125, width: 587.9885288085937}
@@ -500,7 +500,7 @@ components:
         - properties: {text: username, bold: true, font_size: 14}
           type: Label
           layout_properties: {x: 700.2250061035156, y: 36.55000076293945, width: 210}
-          name: label_20_copy
+          name: label_20
         - properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
             visible: true, text: '', font_size: null, font: '', spacing_above: small,
             icon_align: left, spacing_below: small, italic: false, background: '',

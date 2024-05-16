@@ -188,6 +188,11 @@ def get_username(phone_number):
     return user['username'] if user else None
 
 @anvil.server.callable
+def get_inr_balance(phone):
+  balance = app_tables.wallet_users_balance.search(phone=phone)
+  return balance
+
+@anvil.server.callable
 def get_balance_using_phone_number(phone_number, currency_type):
     # Convert the phone_number to a numeric type
     phone_number = int(phone_number)
