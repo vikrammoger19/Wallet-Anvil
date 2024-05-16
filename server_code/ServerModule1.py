@@ -5,12 +5,12 @@ from datetime import datetime, timezone
 import anvil.server
 from anvil import tables, app
 import random
-import uuid
 import anvil.email
 import base64
 # from PIL import Image,ImageDraw
 from io import BytesIO
-import datetime
+#import datetime
+
 @anvil.server.callable
 def get_user_for_login(login_input):
   user_by_username = app_tables.wallet_users.get(username=login_input)
@@ -188,6 +188,11 @@ def get_username(phone_number):
     return user['username'] if user else None
 
 @anvil.server.callable
+def get_inr_balance(phone):
+  balance = app_tables.wallet_users_balance.search(phone=phone)
+  return balance
+
+@anvil.server.callable
 def get_balance_using_phone_number(phone_number, currency_type):
     # Convert the phone_number to a numeric type
     phone_number = int(phone_number)
@@ -354,7 +359,7 @@ def resizing_image(file):
 @anvil.server.callable
 def update_active_status():
     # Get today's date
-    today = datetime.datetime.now().date()
+    today = datetime.now().date()
     
     # Query all users from wallet_users
     all_users = app_tables.wallet_users.search()
