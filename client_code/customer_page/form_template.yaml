@@ -66,6 +66,13 @@ components:
               properties: {text: Dashboard}
               type: Label
               layout_properties: {x: 95, y: -1, width: 73.0909}
+            - name: image_4_copy_copy
+              properties: {role: null, vertical_align: center, height: 30.800003051757812,
+                tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
+                alt_text: '', spacing_above: small, source: _/theme/d.jpg, spacing_below: small,
+                background: '', horizontal_align: center}
+              type: Image
+              layout_properties: {x: 0, y: 0, width: 200}
         - properties: {text: '', bold: true, align: center}
           type: Link
           layout_properties: {grid_position: 'SPNKVJ,UWILQD'}
@@ -501,18 +508,18 @@ components:
           type: Label
           layout_properties: {x: 700.2250061035156, y: 36.55000076293945, width: 210}
           name: label_20_copy
-      - properties: {height: 51}
-        type: XYPanel
-        layout_properties: {x: 395.1022630184889, y: 20.50000624358654, width: 159.64773559570312}
-        name: xy_panel_17_copy
-        components:
         - properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
             visible: true, text: '', font_size: null, font: '', spacing_above: small,
             icon_align: left, spacing_below: small, italic: false, background: '',
             bold: false, underline: false, icon: 'fa:search'}
           type: Label
-          layout_properties: {x: 9.52496337890625, y: 13.362499237060547, width: 29.775}
+          layout_properties: {x: 371.95002441480756, y: 32.300003815442324, width: 29.774999618530273}
           name: label_26_copy
+      - properties: {height: 51}
+        type: XYPanel
+        layout_properties: {x: 395.1022630184889, y: 20.50000624358654, width: 159.64773559570312}
+        name: xy_panel_17_copy
+        components: []
   - properties: {background: '', col_widths: '{}'}
     type: ColumnPanel
     name: content_panel_1
