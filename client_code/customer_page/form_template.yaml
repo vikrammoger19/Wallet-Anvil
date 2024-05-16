@@ -506,7 +506,7 @@ components:
             icon_align: left, spacing_below: small, italic: false, background: '',
             bold: false, underline: false, icon: 'fa:search'}
           type: Label
-          layout_properties: {x: 371.95002441480756, y: 32.300003815442324, width: 29.774999618530273}
+          layout_properties: {x: 393.64997558668256, y: 34.000001192092896, width: 29.774999618530273}
           name: label_26_copy
   - properties: {background: '', col_widths: '{}'}
     type: ColumnPanel
