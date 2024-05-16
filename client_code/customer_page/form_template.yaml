@@ -404,7 +404,7 @@ components:
           - properties: {item_template: customer_page.ItemTemplate17}
             type: RepeatingPanel
             layout_properties: {grid_position: 'DNNVWW,YJLQRX'}
-            name: repeating_panel_2_copy
+            name: repeating_panel_2
         - properties: {role: card}
           type: ColumnPanel
           layout_properties: {x: 643.2500305175781, y: 89.6500015258789, width: 325.788}
