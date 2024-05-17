@@ -61,7 +61,7 @@ components:
             - name: label_3_copy_8
               properties: {text: Dashboard}
               type: Label
-              layout_properties: {x: 95, y: 9, width: 73.0875}
+              layout_properties: {x: 95, y: 0, width: 73.0875}
           event_bindings: {click: link_1_click}
         - properties: {text: '', bold: true, align: center}
           type: Link
