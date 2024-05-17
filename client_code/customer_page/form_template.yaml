@@ -26,10 +26,6 @@ components:
         layout_properties: {grid_position: 'MIJDDM,BJNPYA'}
         name: card_1
         components:
-        - properties: {height: 32}
-          type: Spacer
-          layout_properties: {grid_position: 'IJEAOF,AEWGVH'}
-          name: spacer_2
         - properties: {height: 60, background: 'theme:Gray 50'}
           type: XYPanel
           layout_properties: {grid_position: 'ELTORE,GZBEBG'}
@@ -335,9 +331,22 @@ components:
               type: Label
               layout_properties: {x: 16, y: 10, width: 239}
               name: label_23_copy
+            - properties: {height: 320.7818145751953}
+              type: Plot
+              layout_properties: {x: 0, y: 146, width: 560}
+              event_bindings: {click: plot_1_click}
+              name: plot_1_copy
+            - properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
+                foreground: '', visible: true, text: Download Report, font_size: 10,
+                font: '', spacing_above: small, icon_align: left, spacing_below: small,
+                italic: false, background: 'theme:Gray 300', bold: true, underline: false,
+                icon: 'fa:cloud-download'}
+              type: Button
+              layout_properties: {x: 392.04547119140625, y: 10, width: 157.716}
+              name: button_1_copy
             - properties: {}
               type: FlowPanel
-              layout_properties: {x: 0, y: 68, width: 648.55}
+              layout_properties: {x: 0, y: 50.27499999999998, width: 648.55}
               name: flow_panel_1_copy
               components:
               - properties: {height: 32}
@@ -382,52 +391,29 @@ components:
                 spacing_below: none, italic: false, background: '', bold: false, underline: false,
                 icon: ''}
               type: Label
-              layout_properties: {x: 0, y: 85, width: 632.975}
+              layout_properties: {x: 0, y: 56, width: 632.975}
               name: label_5_copy_copy
-            - properties: {height: 320.7818145751953}
-              type: Plot
-              layout_properties: {x: 0, y: 146, width: 560}
-              event_bindings: {click: plot_1_click}
-              name: plot_1_copy
-            - properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
-                foreground: '', visible: true, text: Download Report, font_size: 10,
-                font: '', spacing_above: small, icon_align: left, spacing_below: small,
-                italic: false, background: 'theme:Gray 300', bold: true, underline: false,
-                icon: 'fa:cloud-download'}
-              type: Button
-              layout_properties: {x: 392.04547119140625, y: 10, width: 157.716}
-              name: button_1_copy
-        - properties: {role: card, col_widths: '{}'}
+        - properties: {role: card, col_widths: '{"LHYRHT":50,"SLIHOF":10}'}
           type: ColumnPanel
           layout_properties: {x: 643.2500457763672, y: 338.1932067871094, width: 332.773}
           name: card_7_copy
           components:
-          - properties: {height: 13.79998779296875, width: 310.977}
-            type: XYPanel
-            layout_properties: {grid_position: 'QUSLLO,LRTPQS'}
-            name: xy_panel_16_copy
-            components:
-            - properties: {text: '                 ___________________________________',
-                foreground: 'theme:Gray 300', spacing_above: none, spacing_below: none}
-              type: Label
-              layout_properties: {x: 0, y: 58.80000000000001, width: 302}
-              name: label_5_copy_2_copy
-            - properties: {item_template: customer_page.ItemTemplate16}
-              type: RepeatingPanel
-              layout_properties: {x: 98.796875, y: 267.59375, width: 200}
-              name: repeating_panel_1_copy
-            - properties: {text: Last activity, bold: true}
-              type: Label
-              layout_properties: {x: 0, y: -15.20001220703125, width: 220.1}
-              name: label_25_copy
-            - properties: {role: null, url: '', align: center, tooltip: '', border: '',
-                foreground: 'theme:Primary 500', visible: true, text: See All, font_size: 12,
-                wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small,
-                icon_align: left, col_widths: '', spacing_below: small, italic: false,
-                background: '', bold: true, underline: false, icon: ''}
-              type: Link
-              layout_properties: {x: 238.96246337890625, y: -15.20001220703125, width: 54.7}
-              name: link_10_copy
+          - properties: {text: Last activity, bold: true}
+            type: Label
+            layout_properties: {grid_position: 'BDKNPZ,LHYRHT'}
+            name: label_25_copy
+          - properties: {role: null, url: '', align: center, tooltip: '', border: '',
+              foreground: 'theme:Primary 500', visible: true, text: See All, font_size: 12,
+              wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small,
+              icon_align: left, col_widths: '', spacing_below: small, italic: false,
+              background: '', bold: true, underline: false, icon: ''}
+            type: Link
+            layout_properties: {grid_position: 'BDKNPZ,SLIHOF'}
+            name: link_10_copy
+          - name: spacer_3
+            properties: {height: -4.60003662109375}
+            type: Spacer
+            layout_properties: {grid_position: 'RANDTF,ZQCOBZ'}
           - properties: {item_template: customer_page.ItemTemplate17}
             type: RepeatingPanel
             layout_properties: {grid_position: 'DNNVWW,YJLQRX'}
