@@ -30,17 +30,17 @@ class ItemTemplate3(ItemTemplate3Template):
     phone_number = selected_user['phone']  # Assuming 'phone_number' is the key for the phone number in your data
     
     # Open the admin_view form and pass the phone number
-    open_form('admin.', phone_number=phone_number)
+    open_form('admin.admin_view', phone_number=phone_number)
 
-  # def check_status(self):
-  #     now = datetime.now(anvil.tz.tzlocal())
-  # # Parse the 'last_login' date string into a datetime object
-      # last_login = datetime.strptime(str(self.item['last_login']), '%Y-%m-%d %H:%M:%S.%f%z') 
-      # # Calculate the difference in days between the current date and the last login date
-      # diff_days = (now - last_login).days
-      # if diff_days > 90:
-      #   self.text_box_4.text = 'Inactive'
-      #   self.text_box_4.foreground = '#ff2800'
-      # else:
-      #   self.text_box_4.text = 'Active'
-      #   self.text_box_4.foreground = '#00fa9a'
+  def check_status(self):
+      now = datetime.now(anvil.tz.tzlocal())
+  # Parse the 'last_login' date string into a datetime object
+      last_login = datetime.strptime(str(self.item['last_login']), '%Y-%m-%d %H:%M:%S.%f%z') 
+      # Calculate the difference in days between the current date and the last login date
+      diff_days = (now - last_login).days
+      if diff_days > 90:
+        self.text_box_4.text = 'Inactive'
+        self.text_box_4.foreground = '#ff2800'
+      else:
+        self.text_box_4.text = 'Active'
+        self.text_box_4.foreground = '#00fa9a'
