@@ -192,6 +192,9 @@ class customer_page(customer_pageTemplate):
       open_form('customer.transaction_history')
 
     def link_4_click(self, **event_args):
+      open_form('customer.transfer')
+
+    def link_5_click(self, **event_args):
       """This method is called when the link is clicked"""
       pass
       
