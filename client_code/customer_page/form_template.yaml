@@ -66,6 +66,7 @@ components:
               properties: {text: Dashboard}
               type: Label
               layout_properties: {x: 95, y: -1, width: 73.0909}
+          event_bindings: {click: link_1_click}
         - properties: {text: '', bold: true, align: center}
           type: Link
           layout_properties: {grid_position: 'SPNKVJ,UWILQD'}
@@ -175,6 +176,7 @@ components:
               type: Label
               layout_properties: {x: 95, y: 0, width: 75.3409}
               name: label_3_copy_4
+          event_bindings: {click: link_6_click}
         - properties: {text: '', bold: true, align: center, icon: '', icon_align: left}
           type: Link
           layout_properties: {grid_position: 'UQRVZF,KNEJJE'}
@@ -196,6 +198,7 @@ components:
               type: Label
               layout_properties: {x: 95, y: 0, width: 72.0909}
               name: label_3_copy_5
+          event_bindings: {click: link_7_click}
         - properties: {text: '', align: center, bold: true, icon: ''}
           type: Link
           layout_properties: {grid_position: 'IBKWPS,FYAYIW'}

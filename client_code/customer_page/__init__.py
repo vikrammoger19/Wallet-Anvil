@@ -195,8 +195,13 @@ class customer_page(customer_pageTemplate):
       open_form('customer.transfer')
 
     def link_5_click(self, **event_args):
-      """This method is called when the link is clicked"""
-      pass
+      open_form('customer.withdraw')
+
+    def link_7_click(self, **event_args):
+      open_form('customer.Viewprofile')
+
+    def link_6_click(self, **event_args):
+      open_form('customer.auto_topup')
       
 
   
