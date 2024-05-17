@@ -402,7 +402,7 @@ components:
           layout_properties: {x: 643.2500457763672, y: 338.1932067871094, width: 332.773}
           name: card_7_copy
           components:
-          - properties: {height: 0, width: 310.977}
+          - properties: {height: 13.79998779296875, width: 310.977}
             type: XYPanel
             layout_properties: {grid_position: 'QUSLLO,LRTPQS'}
             name: xy_panel_16_copy
