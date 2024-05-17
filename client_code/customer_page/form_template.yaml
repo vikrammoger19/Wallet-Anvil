@@ -274,6 +274,7 @@ components:
               type: Label
               layout_properties: {x: 91.57499389722943, y: 0, width: 77}
               name: label_3_copy_7
+          event_bindings: {click: link_9_click}
     - properties: {height: 656.4545288085938}
       type: XYPanel
       layout_properties: {width: 1020.272705078125}
