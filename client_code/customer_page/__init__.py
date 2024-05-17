@@ -185,4 +185,7 @@ class customer_page(customer_pageTemplate):
           # Set the plot to be visible
           # self.plot_1.visible = True
 
+    def link_2_click(self, **event_args):
+      open_form('customer.deposit', user=self.user)
+
   
