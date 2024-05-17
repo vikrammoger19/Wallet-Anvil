@@ -331,11 +331,6 @@ components:
               type: Label
               layout_properties: {x: 16, y: 10, width: 239}
               name: label_23_copy
-            - properties: {height: 320.7818145751953}
-              type: Plot
-              layout_properties: {x: 0, y: 146, width: 560}
-              event_bindings: {click: plot_1_click}
-              name: plot_1_copy
             - properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
                 foreground: '', visible: true, text: Download Report, font_size: 10,
                 font: '', spacing_above: small, icon_align: left, spacing_below: small,
@@ -393,6 +388,11 @@ components:
               type: Label
               layout_properties: {x: 0, y: 56, width: 632.975}
               name: label_5_copy_copy
+            - properties: {height: 320.7818145751953}
+              type: Plot
+              layout_properties: {x: 0, y: 102, width: 560}
+              event_bindings: {click: plot_1_click}
+              name: plot_1_copy
         - properties: {role: card, col_widths: '{"LHYRHT":50,"SLIHOF":10}'}
           type: ColumnPanel
           layout_properties: {x: 643.2500457763672, y: 338.1932067871094, width: 332.773}
