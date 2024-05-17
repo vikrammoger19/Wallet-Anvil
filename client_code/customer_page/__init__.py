@@ -185,4 +185,26 @@ class customer_page(customer_pageTemplate):
           # Set the plot to be visible
           # self.plot_1.visible = True
 
+    def link_2_click(self, **event_args):
+      open_form('customer.walletbalance', user=self.user)
+
+    def link_3_click(self, **event_args):
+      open_form('customer.transaction_history', user=self.user)
+
+    def link_4_click(self, **event_args):
+      open_form('customer.transfer', user=self.user)
+
+    def link_5_click(self, **event_args):
+      open_form('customer.withdraw', user=self.user)
+
+    def link_7_click(self, **event_args):
+      open_form('customer.Viewprofile', user=self.user)
+
+    def link_6_click(self, **event_args):
+      open_form('customer.auto_topup', user=self.user)
+
+    def link_9_click(self, **event_args):
+      open_form('Home', user=self.user)
+      
+
   
