@@ -22,7 +22,7 @@ class ItemTemplate18(ItemTemplate18Template):
         if self.item:
             self.label_1.text = self.item.get('currency_type', '')
             self.label_2.text = str(self.item.get('balance', ''))
-            self.image_icon.source = self.item.get('currency_icon', '')
+            self.image_icon.source = self.item.get('currency_icon', '')  # Using 'currency_icon' as the key
             print(f"Binding item: {self.item}")
         else:
             # Log or print an error if self.item is not properly initialized

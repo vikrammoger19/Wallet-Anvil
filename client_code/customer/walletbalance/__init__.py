@@ -41,7 +41,7 @@ class walletbalance(walletbalanceTemplate):
                 item = {
                     'currency_type': currency_type,
                     'balance': balance_amount,
-                    'currency_icon': currency_icon
+                    'currency_icon': currency_icon  # Use 'currency_icon' as the key
                 }
 
                 items.append(item)

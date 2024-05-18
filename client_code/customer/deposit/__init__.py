@@ -98,3 +98,7 @@ class deposit(depositTemplate):
       open_form("customer.service",user=self.user)
     def label_7_copy_2_copy(self, **event_args):
       open_form("customer",user=self.user)
+
+    def button_2_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form('customer.wallet')
