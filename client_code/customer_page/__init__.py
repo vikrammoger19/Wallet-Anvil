@@ -28,7 +28,6 @@ class customer_page(customer_pageTemplate):
 
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('phone', None)
-        phone_number = user_dict.get('phone', None)
         if phone_number:
             # Search transactions based on the user's phone number
             items = app_tables.wallet_users_transaction.search(phone=phone_number)
@@ -54,6 +53,7 @@ class customer_page(customer_pageTemplate):
             for date_str in sorted_dates:
                 date_info = self.grouped_transactions[date_str]
                 for transaction in reversed(date_info['transactions']):
+                    # No need to check transaction_type again since we already filtered
                     fund = transaction['fund']
                     transaction_type = transaction['transaction_type']
                     receiver_phone = transaction['receiver_phone']
@@ -92,8 +92,7 @@ class customer_page(customer_pageTemplate):
                     break
         
             self.repeating_panel_2.items = self.repeating_panel_2_items
-
-
+        
 
     def inr_balance(self, balance, currency_type):
         # Iterate through the iterator to find the balance for the specified currency_type
