@@ -32,8 +32,12 @@ class customer_page(customer_pageTemplate):
             # Search transactions based on the user's phone number
             items = app_tables.wallet_users_transaction.search(phone=phone_number)
         
-            # Filter transactions to include only 'Credit' and 'Debit' types
-            filtered_items = [item for item in items if 'transaction_type' in item and item['transaction_type'] in ['Credit', 'Debit']]
+            # Ensure we only process transactions that have the required keys and types
+            valid_transaction_types = {'Credit', 'Debit'}
+            filtered_items = [
+                item for item in items
+                if 'transaction_type' in item and item['transaction_type'] in valid_transaction_types
+            ]
         
             # Group transactions by date
             self.grouped_transactions = {}
@@ -53,46 +57,47 @@ class customer_page(customer_pageTemplate):
             for date_str in sorted_dates:
                 date_info = self.grouped_transactions[date_str]
                 for transaction in reversed(date_info['transactions']):
-                    # Ensure all necessary keys are present
-                    if 'fund' not in transaction or 'transaction_type' not in transaction or 'receiver_phone' not in transaction or 'date' not in transaction:
+                    try:
+                        # Ensure all necessary keys are present
+                        fund = transaction['fund']
+                        transaction_type = transaction['transaction_type']
+                        receiver_phone = transaction['receiver_phone']
+                        transaction_time = transaction['date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
+        
+                        # Fetch username from wallet_user table using receiver_phone
+                        receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
+                        receiver_username = receiver_user['username'] if receiver_user else "Unknown"
+        
+                        # Set the transaction text and color based on transaction type
+                        if transaction_type == 'Credit':
+                            transaction_text = "Received"
+                            fund_display = "+" + str(fund)
+                            fund_color = "green"
+                        elif transaction_type == 'Debit':
+                            transaction_text = "Sent"
+                            fund_display = "-" + str(fund)
+                            fund_color = "blue"
+        
+                        # Append transaction details with username, transaction text, time, and day
+                        self.repeating_panel_2_items.append({
+                            'fund': fund_display,
+                            'receiver_username': receiver_username,
+                            'transaction_text': transaction_text,
+                            'transaction_time': transaction_time,
+                            'fund_color': fund_color
+                        })
+        
+                        # Limit the maximum number of history entries to display
+                        if len(self.repeating_panel_2_items) >= max_history_entries:
+                            break
+                    except KeyError as e:
+                        print(f"Skipping transaction due to missing key during processing: {e}, transaction: {transaction}")
                         continue  # Skip this transaction if any required key is missing
-        
-                    fund = transaction['fund']
-                    transaction_type = transaction['transaction_type']
-                    receiver_phone = transaction['receiver_phone']
-                    transaction_time = transaction['date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
-        
-                    # Fetch username from wallet_user table using receiver_phone
-                    receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
-                    receiver_username = receiver_user['username'] if receiver_user else "Unknown"
-        
-                    # Set the transaction text and color based on transaction type
-                    if transaction_type == 'Credit':
-                        transaction_text = "Received"
-                        fund_display = "+" + str(fund)
-                        fund_color = "green"
-                    elif transaction_type == 'Debit':
-                        transaction_text = "Sent"
-                        fund_display = "-" + str(fund)
-                        fund_color = "blue"
-        
-                    # Append transaction details with username, transaction text, time, and day
-                    self.repeating_panel_2_items.append({
-                        'fund': fund_display,
-                        'receiver_username': receiver_username,
-                        'transaction_text': transaction_text,
-                        'transaction_time': transaction_time,
-                        'fund_color': fund_color
-                    })
-        
-                    # Limit the maximum number of history entries to display
-                    if len(self.repeating_panel_2_items) >= max_history_entries:
-                        break
                 if len(self.repeating_panel_2_items) >= max_history_entries:
                     break
         
             self.repeating_panel_2.items = self.repeating_panel_2_items
-        
+
 
 
     def inr_balance(self, balance, currency_type):
