@@ -33,7 +33,7 @@ class customer_page(customer_pageTemplate):
             items = app_tables.wallet_users_transaction.search(phone=phone_number)
         
             # Filter transactions to include only 'Credit' and 'Debit' types
-            filtered_items = [item for item in items if item.get('transaction_type') in ['Credit', 'Debit']]
+            filtered_items = [item for item in items if 'transaction_type' in item and item['transaction_type'] in ['Credit', 'Debit']]
         
             # Group transactions by date
             self.grouped_transactions = {}
@@ -53,7 +53,10 @@ class customer_page(customer_pageTemplate):
             for date_str in sorted_dates:
                 date_info = self.grouped_transactions[date_str]
                 for transaction in reversed(date_info['transactions']):
-                    # No need to check transaction_type again since we already filtered
+                    # Ensure all necessary keys are present
+                    if 'fund' not in transaction or 'transaction_type' not in transaction or 'receiver_phone' not in transaction or 'date' not in transaction:
+                        continue  # Skip this transaction if any required key is missing
+        
                     fund = transaction['fund']
                     transaction_type = transaction['transaction_type']
                     receiver_phone = transaction['receiver_phone']
@@ -61,10 +64,7 @@ class customer_page(customer_pageTemplate):
         
                     # Fetch username from wallet_user table using receiver_phone
                     receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
-                    if receiver_user:
-                        receiver_username = receiver_user['username']
-                    else:
-                        receiver_username = "Unknown"
+                    receiver_username = receiver_user['username'] if receiver_user else "Unknown"
         
                     # Set the transaction text and color based on transaction type
                     if transaction_type == 'Credit':
@@ -93,6 +93,7 @@ class customer_page(customer_pageTemplate):
         
             self.repeating_panel_2.items = self.repeating_panel_2_items
         
+
 
     def inr_balance(self, balance, currency_type):
         # Iterate through the iterator to find the balance for the specified currency_type
