@@ -17,8 +17,8 @@ class customer_page(customer_pageTemplate):
 
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('phone', None)
-if phone_number:
-    # Get all transactions
+        if phone_number:
+          # Get all transactions
     all_transactions = app_tables.wallet_users_transaction.search(
         q.or_(
             q.row['phone'] == phone_number,
