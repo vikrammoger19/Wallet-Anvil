@@ -5,7 +5,6 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime
-from anvil import open_form
 
 
 class customer_page(customer_pageTemplate):
@@ -13,85 +12,67 @@ class customer_page(customer_pageTemplate):
         # Initialize the form
         self.init_components(**properties)
         self.user = user
-        self.refresh_data()
-        # Get the current date and format it
-        now = datetime.datetime.now()
-        formatted_date = now.strftime('%a, %d-%b, %Y')
-        self.label_11.text = formatted_date
-        # Display the username
-        self.label_20.text = user['username']
-        # Get the INR balance from the server
-        balance_iterator = anvil.server.call('get_inr_balance', self.user['phone'])
-        balance = self.inr_balance(balance_iterator, 'INR')
-        self.label_13.text = str(f'₹{balance}')
         user_dict = dict(self.user)
+        self.init_graph()
 
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('phone', None)
-        if phone_number:
-            # Search transactions based on the user's phone number
-            items = app_tables.wallet_users_transaction.search(phone=phone_number)
-        
-            # Filter transactions to include only 'Credit' and 'Debit' types
-            filtered_items = [item for item in items if 'transaction_type' in item and item['transaction_type'] in ['Credit', 'Debit']]
-        
-            # Group transactions by date
-            self.grouped_transactions = {}
-            for item in filtered_items:
-                # Extract date in YYYY-MM-DD format without time
-                date_str = item['date'].strftime("%Y-%m-%d")
-                if date_str not in self.grouped_transactions:
-                    self.grouped_transactions[date_str] = {'date': item['date'], 'transactions': []}
-                self.grouped_transactions[date_str]['transactions'].append(item)
-        
-            # Sort dates in descending order
-            sorted_dates = sorted(self.grouped_transactions.keys(), reverse=True)
-        
-            # Create a list of dictionaries for repeating_panel_2
-            self.repeating_panel_2_items = []
-            max_history_entries = 5  # Maximum number of history entries to display
-            for date_str in sorted_dates:
-                date_info = self.grouped_transactions[date_str]
-                for transaction in reversed(date_info['transactions']):
-                    # Ensure all necessary keys are present
-                    if 'fund' not in transaction or 'transaction_type' not in transaction or 'receiver_phone' not in transaction or 'date' not in transaction:
-                        continue  # Skip this transaction if any required key is missing
-        
-                    fund = transaction['fund']
-                    transaction_type = transaction['transaction_type']
-                    receiver_phone = transaction['receiver_phone']
-                    transaction_time = transaction['date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
-        
-                    # Fetch username from wallet_user table using receiver_phone
-                    receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
-                    receiver_username = receiver_user['username'] if receiver_user else "Unknown"
-        
-                    # Set the transaction text and color based on transaction type
-                    if transaction_type == 'Credit':
-                        transaction_text = "Received"
-                        fund_display = "+" + str(fund)
-                        fund_color = "green"
-                    elif transaction_type == 'Debit':
-                        transaction_text = "Sent"
-                        fund_display = "-" + str(fund)
-                        fund_color = "blue"
-        
-                    # Append transaction details with username, transaction text, time, and day
-                    self.repeating_panel_2_items.append({
-                        'fund': fund_display,
-                        'receiver_username': receiver_username,
-                        'transaction_text': transaction_text,
-                        'transaction_time': transaction_time,
-                        'fund_color': fund_color
-                    })
-        
-                    # Limit the maximum number of history entries to display
-                    if len(self.repeating_panel_2_items) >= max_history_entries:
-                        break
-                if len(self.repeating_panel_2_items) >= max_history_entries:
-                    break
-        
-            self.repeating_panel_2.items = self.repeating_panel_2_items
+if phone_number:
+    # Get all transactions
+    all_transactions = app_tables.wallet_users_transaction.search(
+        q.or_(
+            q.row['phone'] == phone_number,
+            q.row['receiver_phone'] == phone_number
+        )
+    )
+
+    # Sort transactions by date in descending order
+    sorted_transactions = sorted(all_transactions, key=lambda x: x['date'], reverse=True)
+
+    # Create a list of dictionaries for repeating_panel_2
+    self.repeating_panel_2_items = []
+    max_history_entries = 5  # Maximum number of history entries to display
+    for transaction in sorted_transactions:
+        fund = transaction['fund']
+        transaction_type = transaction['transaction_type']
+        receiver_phone = transaction['receiver_phone']
+        transaction_time = transaction['date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
+
+        # Fetch username from wallet_user table using receiver_phone
+        receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
+        if receiver_user:
+            receiver_username = receiver_user['username']
+        else:
+            receiver_username = "Unknown"
+
+        # Set the transaction text and color based on transaction type
+        if transaction_type == 'Credit':
+            transaction_text = "Received"
+            fund_display = "+" + str(fund)
+            fund_color = "green"
+        elif transaction_type == 'Debit':
+            transaction_text = "Sent"
+            fund_display = "-" + str(fund)
+            fund_color = "blue"
+        else:
+            transaction_text = "Unknown"
+            fund_display = str(fund)
+            fund_color = "black"
+
+        # Append transaction details with username, transaction text, time, and day
+        self.repeating_panel_2_items.append({
+            'fund': fund_display,
+            'receiver_username': receiver_username,
+            'transaction_text': transaction_text,
+            'transaction_time': transaction_time,
+            'fund_color': fund_color
+        })
+
+        # Limit the maximum number of history entries to display
+        if len(self.repeating_panel_2_items) >= max_history_entries:
+            break
+
+    self.repeating_panel_2.items = self.repeating_panel_2_items
 
 
     def inr_balance(self, balance, currency_type):
@@ -105,6 +86,13 @@ class customer_page(customer_pageTemplate):
     def link_10_click(self, **event_args):
         """This method is called when the link is clicked"""
         open_form("customer.transaction_history", user=self.user)
+    def init_graph(self):
+    # Create an empty figure
+      fig = go.Figure()
+      
+      # Update plot with the empty figure
+      self.plot_1.data = fig.data
+      self.plot_1.layout = fig.layout
 
     def refresh_data(self):
         user_dict = dict(self.user)
@@ -130,9 +118,6 @@ class customer_page(customer_pageTemplate):
                 
                 trans_type = transaction['transaction_type']
                 fund = transaction['fund']  # Retrieve the 'fund' field
-                
-                if trans_type not in ['Credit', 'Debit']:
-                    continue  # Skip if the transaction type is not 'Credit' or 'Debit'
                 
                 if date not in data_for_plot[trans_type]:
                     data_for_plot[trans_type][date] = 0
@@ -184,8 +169,8 @@ class customer_page(customer_pageTemplate):
             fig = go.Figure(data=[debit_trace, credit_trace], layout=layout)
             
             # Update plot with new figure
-            self.plot_1_copy.data = fig.data
-            self.plot_1_copy.layout = fig.layout
+            self.plot_1.data = fig.data
+            self.plot_1.layout = fig.layout
             
             # Set the plot to be visible
             # self.plot_1.visible = True
