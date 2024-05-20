@@ -19,30 +19,30 @@ class customer_page(customer_pageTemplate):
         phone_number = user_dict.get('phone', None)
         if phone_number:
           # Get all transactions
-    all_transactions = app_tables.wallet_users_transaction.search(
-        q.or_(
+          all_transactions = app_tables.wallet_users_transaction.search(
+          q.or_(
             q.row['phone'] == phone_number,
             q.row['receiver_phone'] == phone_number
+          )
         )
-    )
 
-    # Sort transactions by date in descending order
-    sorted_transactions = sorted(all_transactions, key=lambda x: x['date'], reverse=True)
+        # Sort transactions by date in descending order
+        sorted_transactions = sorted(all_transactions, key=lambda x: x['date'], reverse=True)
 
-    # Create a list of dictionaries for repeating_panel_2
-    self.repeating_panel_2_items = []
-    max_history_entries = 5  # Maximum number of history entries to display
-    for transaction in sorted_transactions:
-        fund = transaction['fund']
-        transaction_type = transaction['transaction_type']
-        receiver_phone = transaction['receiver_phone']
-        transaction_time = transaction['date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
+        # Create a list of dictionaries for repeating_panel_2
+        self.repeating_panel_2_items = []
+        max_history_entries = 5  # Maximum number of history entries to display
+        for transaction in sorted_transactions:
+          fund = transaction['fund']
+          transaction_type = transaction['transaction_type']
+          receiver_phone = transaction['receiver_phone']
+          transaction_time = transaction['date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
 
-        # Fetch username from wallet_user table using receiver_phone
-        receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
-        if receiver_user:
+          # Fetch username from wallet_user table using receiver_phone
+          receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
+          if receiver_user:
             receiver_username = receiver_user['username']
-        else:
+          else:
             receiver_username = "Unknown"
 
         # Set the transaction text and color based on transaction type
