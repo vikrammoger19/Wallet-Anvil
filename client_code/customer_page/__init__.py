@@ -17,70 +17,63 @@ class customer_page(customer_pageTemplate):
 
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('phone', None)
-        if phone_number:
-            # Search transactions based on the user's phone number
-            items = app_tables.wallet_users_transaction.search(phone=phone_number,receiver_phone=pho)
+if phone_number:
+    # Get all transactions
+    all_transactions = app_tables.wallet_users_transaction.search(
+        q.or_(
+            q.row['phone'] == phone_number,
+            q.row['receiver_phone'] == phone_number
+        )
+    )
 
-            # Group transactions by date
-            self.grouped_transactions = {}
-            for item in items:
-                # Extract date in YYYY-MM-DD format without time
-                date_str = item['date'].strftime("%Y-%m-%d")
-                if date_str not in self.grouped_transactions:
-                    self.grouped_transactions[date_str] = {'date': item['date'], 'transactions': []}
-                self.grouped_transactions[date_str]['transactions'].append(item)
+    # Sort transactions by date in descending order
+    sorted_transactions = sorted(all_transactions, key=lambda x: x['date'], reverse=True)
 
-            # Sort dates in descending order
-            sorted_dates = sorted(self.grouped_transactions.keys(), reverse=True)
+    # Create a list of dictionaries for repeating_panel_2
+    self.repeating_panel_2_items = []
+    max_history_entries = 5  # Maximum number of history entries to display
+    for transaction in sorted_transactions:
+        fund = transaction['fund']
+        transaction_type = transaction['transaction_type']
+        receiver_phone = transaction['receiver_phone']
+        transaction_time = transaction['date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
 
-            # Create a list of dictionaries for repeating_panel_2
-            self.repeating_panel_2_items = []
-            max_history_entries = 5  # Maximum number of history entries to display
-            for date_str in sorted_dates:
-                date_info = self.grouped_transactions[date_str]
-                for transaction in reversed(date_info['transactions']):
-                    fund = transaction['fund']
-                    transaction_type = transaction['transaction_type']
-                    receiver_phone = transaction['receiver_phone']
-                    transaction_time = transaction['date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
+        # Fetch username from wallet_user table using receiver_phone
+        receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
+        if receiver_user:
+            receiver_username = receiver_user['username']
+        else:
+            receiver_username = "Unknown"
 
-                    # Fetch username from wallet_user table using receiver_phone
-                    receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
-                    if receiver_user:
-                        receiver_username = receiver_user['username']
-                    else:
-                        receiver_username = "Unknown"
+        # Set the transaction text and color based on transaction type
+        if transaction_type == 'Credit':
+            transaction_text = "Received"
+            fund_display = "+" + str(fund)
+            fund_color = "green"
+        elif transaction_type == 'Debit':
+            transaction_text = "Sent"
+            fund_display = "-" + str(fund)
+            fund_color = "blue"
+        else:
+            transaction_text = "Unknown"
+            fund_display = str(fund)
+            fund_color = "black"
 
-                    # Set the transaction text and color based on transaction type
-                    if transaction_type == 'Credit':
-                        transaction_text = "Received"
-                        fund_display = "+" + str(fund)
-                        fund_color = "green"
-                    elif transaction_type == 'Debit':
-                        transaction_text = "Sent"
-                        fund_display = "-" + str(fund)
-                        fund_color = "blue"
-                    else:
-                        transaction_text = "Unknown"
-                        fund_display = str(fund)
-                        fund_color = "black"
+        # Append transaction details with username, transaction text, time, and day
+        self.repeating_panel_2_items.append({
+            'fund': fund_display,
+            'receiver_username': receiver_username,
+            'transaction_text': transaction_text,
+            'transaction_time': transaction_time,
+            'fund_color': fund_color
+        })
 
-                    # Append transaction details with username, transaction text, time, and day
-                    self.repeating_panel_2_items.append({
-                        'fund': fund_display,
-                        'receiver_username': receiver_username,
-                        'transaction_text': transaction_text,
-                        'transaction_time': transaction_time,
-                        'fund_color': fund_color
-                    })
+        # Limit the maximum number of history entries to display
+        if len(self.repeating_panel_2_items) >= max_history_entries:
+            break
 
-                    # Limit the maximum number of history entries to display
-                    if len(self.repeating_panel_2_items) >= max_history_entries:
-                        break
-                if len(self.repeating_panel_2_items) >= max_history_entries:
-                    break
+    self.repeating_panel_2.items = self.repeating_panel_2_items
 
-            self.repeating_panel_2.items = self.repeating_panel_2_items
 
     def inr_balance(self, balance, currency_type):
         # Iterate through the iterator to find the balance for the specified currency_type
