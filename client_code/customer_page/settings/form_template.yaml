@@ -9,63 +9,22 @@ components:
   layout_properties: {slot: default}
   components:
   - name: navbar_links
-    properties: {background: 'theme:Primary 500'}
+    properties: {background: 'theme:Primary 500', align: center}
     type: FlowPanel
     layout_properties: {grid_position: 'XFNMZX,LOYMEX', full_width_row: true}
     components:
-    - name: column_panel_9
-      properties: {}
-      type: ColumnPanel
-    - name: button_1
-      properties: {text: '', foreground: 'theme:White', icon: 'fa:arrow-left', font_size: 22}
-      type: Button
-      layout_properties: {}
     - name: label_2
       properties: {text: Settings, foreground: 'theme:White', bold: true, font_size: 25}
       type: Label
-      layout_properties: {}
+  - name: spacer_1
+    properties: {height: 37.600006103515625}
+    type: Spacer
+    layout_properties: {grid_position: 'KAXQVN,PDVSLM'}
   - name: content_panel_copy
-    properties: {col_widths: '{"ZRGCAV":40,"ZKAHVX":55,"DYQUMY":5}'}
+    properties: {col_widths: '{"ZRGCAV":40,"DYQUMY":5}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'VTOGOI,PLCFXR', full_width_row: true}
     components:
-    - name: text_box_1
-      properties: {}
-      type: TextBox
-      layout_properties: {grid_position: 'KKYEWC,ZKAHVX LBMERS,CBFZTU'}
-    - name: column_panel_11
-      properties: {col_widths: '{"AUYXZM":20,"ELCKEJ":15,"QVIHYE":15,"HOPRYW":10}'}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'KKYEWC,ZKAHVX RRBZTS,CATPQO', full_width_row: false}
-      components:
-      - name: grid_panel_1
-        properties: {}
-        type: GridPanel
-        layout_properties: {grid_position: 'PTVPYN,AUYXZM'}
-      - name: image_2
-        properties: {height: 86.39999389648438, source: _/theme/account.png}
-        type: Image
-        layout_properties: {grid_position: 'PTVPYN,ELCKEJ'}
-      - name: label_3
-        properties: {text: 'Name:'}
-        type: Label
-        layout_properties: {grid_position: 'PTVPYN,QVIHYE TJIUOB,BGLKQJ'}
-      - name: label_4
-        properties: {text: 'Ph:'}
-        type: Label
-        layout_properties: {grid_position: 'PTVPYN,QVIHYE IVUGVV,NVUCSN'}
-      - name: grid_panel_2
-        properties: {}
-        type: GridPanel
-        layout_properties: {grid_position: 'PTVPYN,HOPRYW'}
-    - name: button_2
-      properties: {text: '', background: 'theme:Primary 500', icon: 'fa:search', foreground: 'theme:White'}
-      type: Button
-      layout_properties: {grid_position: 'KKYEWC,DYQUMY'}
-    - name: spacer_1
-      properties: {height: 37.199981689453125}
-      type: Spacer
-      layout_properties: {grid_position: 'UULTBK,JFWMPY'}
     - name: column_panel_1
       properties: {}
       type: ColumnPanel
@@ -93,13 +52,13 @@ components:
           - name: link_3
             properties: {text: '', bold: true, font_size: 25}
             type: Link
-            layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+            layout_properties: {grid_position: 'QXDXHF,CDCBZX FMZKKV,WXEATT'}
             event_bindings: {click: link_3_click}
-            components:
-            - name: label_1
-              properties: {text: Default Currency}
-              type: Label
-              layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+            components: []
+          - name: label_1
+            properties: {text: Default Currency}
+            type: Label
+            layout_properties: {grid_position: 'QXDXHF,CDCBZX HWUKZU,XKIKTR'}
       - name: card_2
         properties: {role: card}
         type: ColumnPanel
