@@ -16,3 +16,23 @@ class settings(settingsTemplate):
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('customer.default_currency')
+
+  def link_4_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('pay')
+
+  def link_5_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
+
+  def link_6_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
+
+  def link_7_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
+
+  def link_8_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
