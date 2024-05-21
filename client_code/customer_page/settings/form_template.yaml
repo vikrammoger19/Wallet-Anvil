@@ -14,8 +14,9 @@ components:
     layout_properties: {grid_position: 'XFNMZX,LOYMEX', full_width_row: true}
     components:
     - name: label_2
-      properties: {text: Settings, foreground: 'theme:White', bold: true, font_size: 25}
+      properties: {text: Settings, foreground: 'theme:White', bold: true, font_size: 30}
       type: Label
+      layout_properties: {}
   - name: spacer_1
     properties: {height: 37.600006103515625}
     type: Spacer
@@ -35,61 +36,61 @@ components:
         type: ColumnPanel
         layout_properties: {grid_position: 'AOEGGO,SEITIG'}
         components:
-        - name: column_panel_2
-          properties: {col_widths: '{"CDCBZX":73,"EUDSPS":30}', border: soli}
-          type: ColumnPanel
-          layout_properties: {grid_position: 'YECPCJ,QPMSGN', full_width_row: true}
+        - name: link_3
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'MTPEFP,GWOPWL'}
+          event_bindings: {click: link_3_click}
           components:
-          - name: image_1
-            properties: {height: 75, source: _/theme/th__6_-removebg-preview.png,
-              display_mode: shrink_to_fit}
-            type: Image
-            layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
-          - name: spacer_1_copy
-            properties: {height: -61}
-            type: Spacer
-            layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
-          - name: link_3
-            properties: {text: '', bold: true, font_size: 25}
-            type: Link
-            layout_properties: {grid_position: 'QXDXHF,CDCBZX FMZKKV,WXEATT'}
-            event_bindings: {click: link_3_click}
-            components: []
-          - name: label_1
-            properties: {text: Default Currency}
-            type: Label
-            layout_properties: {grid_position: 'QXDXHF,CDCBZX HWUKZU,XKIKTR'}
+          - name: column_panel_2
+            properties: {col_widths: '{"CDCBZX":73,"EUDSPS":30}', border: soli}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'PCBZMN,BGRFKJ'}
+            components:
+            - name: image_1
+              properties: {height: '65', source: _/theme/th__6_-removebg-preview.png,
+                display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+            - name: spacer_1_copy
+              properties: {height: -61}
+              type: Spacer
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+            - name: label_1
+              properties: {text: Default Currency}
+              type: Label
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
       - name: card_2
         properties: {role: card}
         type: ColumnPanel
         layout_properties: {grid_position: 'AOEGGO,NYGFPF'}
         components:
-        - name: column_panel_3
-          properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli}
-          type: ColumnPanel
-          layout_properties: {grid_position: 'HADNPH,OEEIOQ'}
+        - name: link_4
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'CUULLV,MDHYNZ'}
+          event_bindings: {click: link_3_click}
           components:
-          - name: image_1_copy
-            properties: {height: 58.79998779296875, source: _/theme/vector-wallet-icon-design-removebg-preview.png,
-              display_mode: shrink_to_fit}
-            type: Image
-            layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
-          - name: spacer_1_copy_copy
-            properties: {height: -61}
-            type: Spacer
-            layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
-          - name: link_3_copy
-            properties: {text: '', bold: true, font_size: 25}
-            type: Link
-            layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
-            event_bindings: {click: link_3_click}
+          - name: column_panel_3
+            properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ZAVMKT,KSUIHY'}
             components:
+            - name: image_1_copy
+              properties: {height: '65', source: _/theme/vector-wallet-icon-design-removebg-preview.png,
+                display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+            - name: spacer_1_copy_copy
+              properties: {height: -61}
+              type: Spacer
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
             - name: label_1_copy
               properties: {text: 'Payment Settings
 
                   '}
               type: Label
-              layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
     - name: column_panel_8
       properties: {}
       type: ColumnPanel
@@ -100,55 +101,55 @@ components:
         type: ColumnPanel
         layout_properties: {grid_position: 'GLJFJC,RIGTCP'}
         components:
-        - name: column_panel_5
-          properties: {col_widths: '{"CDCBZX":73,"EUDSPS":30}', border: soli}
-          type: ColumnPanel
-          layout_properties: {grid_position: 'OAUPFJ,DZUMSY'}
+        - name: link_5
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'CSQFSV,WSGBOA'}
+          event_bindings: {click: link_3_click}
           components:
-          - name: image_1_copy_2_copy
-            properties: {height: 62.399932861328125, source: _/theme/th__8_-removebg-preview.png,
-              display_mode: shrink_to_fit}
-            type: Image
-            layout_properties: {grid_position: 'QXDXHF,EUDSPS', full_width_row: true}
-          - name: link_3_copy_2_copy
-            properties: {text: '', bold: true, font_size: 25}
-            type: Link
-            layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
-            event_bindings: {click: link_3_click}
+          - name: column_panel_5
+            properties: {col_widths: '{"CDCBZX":73,"EUDSPS":30}', border: soli}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'YLHKZI,ZTEWVH'}
             components:
+            - name: image_1_copy_2_copy
+              properties: {height: '65', source: _/theme/th__8_-removebg-preview.png,
+                display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS', full_width_row: true}
             - name: label_1_copy_2_copy
               properties: {text: Profile Settings}
               type: Label
-              layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
       - name: card_3
         properties: {role: card}
         type: ColumnPanel
         layout_properties: {grid_position: 'GLJFJC,IPYKQB'}
         components:
-        - name: column_panel_4
-          properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli}
-          type: ColumnPanel
-          layout_properties: {grid_position: 'RVRAAS,JOVLWT'}
+        - name: link_6
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'SADOIV,VNYQYK'}
+          event_bindings: {click: link_3_click}
           components:
-          - name: image_1_copy_2
-            properties: {height: 58.79998779296875, source: _/theme/Black-Question-mark-PNG-Images-HD.png,
-              display_mode: shrink_to_fit}
-            type: Image
-            layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
-          - name: spacer_1_copy_2
-            properties: {height: -61}
-            type: Spacer
-            layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
-          - name: link_3_copy_2
-            properties: {text: '', bold: true, font_size: 25}
-            type: Link
-            layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
-            event_bindings: {click: link_3_click}
+          - name: column_panel_4
+            properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'FBJKLC,TLDEYI'}
             components:
+            - name: image_1_copy_2
+              properties: {height: 63, source: _/theme/Black-Question-mark-PNG-Images-HD.png,
+                display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+            - name: spacer_1_copy_2
+              properties: {height: -61}
+              type: Spacer
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
             - name: label_1_copy_2
               properties: {text: Help & Support}
               type: Label
-              layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
     - name: column_panel_10
       properties: {}
       type: ColumnPanel
@@ -159,58 +160,57 @@ components:
         type: ColumnPanel
         layout_properties: {grid_position: 'HQEKWL,UWABSH'}
         components:
-        - name: column_panel_6
-          properties: {col_widths: '{"CDCBZX":73,"EUDSPS":30}', border: soli}
-          type: ColumnPanel
-          layout_properties: {grid_position: 'BTRZAB,FVAIDY'}
+        - name: link_7
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'IEJHZJ,YTRGZJ'}
+          event_bindings: {click: link_3_click}
           components:
-          - name: image_1_copy_2_copy_3
-            properties: {height: 58.79998779296875, source: _/theme/th (10).jpeg,
-              display_mode: shrink_to_fit}
-            type: Image
-            layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
-          - name: spacer_1_copy_2_copy_3
-            properties: {height: -61}
-            type: Spacer
-            layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
-          - name: link_3_copy_2_copy_3
-            properties: {text: '', bold: true, font_size: 25}
-            type: Link
-            layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
-            event_bindings: {click: link_3_click}
+          - name: column_panel_6
+            properties: {col_widths: '{"CDCBZX":73,"EUDSPS":30}', border: soli}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ANRFDS,NFIDSR'}
             components:
+            - name: image_1_copy_2_copy_3
+              properties: {height: '65', source: _/theme/th (10).jpeg, display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+            - name: spacer_1_copy_2_copy_3
+              properties: {height: -61}
+              type: Spacer
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
             - name: label_1_copy_2_copy_3
               properties: {text: App Info}
               type: Label
-              layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
       - name: card_6
         properties: {role: card}
         type: ColumnPanel
         layout_properties: {grid_position: 'HQEKWL,MKOLYR'}
         components:
-        - name: column_panel_7
-          properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli}
-          type: ColumnPanel
-          layout_properties: {grid_position: 'LJSBXA,KCHVVH'}
+        - name: link_8
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'JINYBU,BWBKSE'}
+          event_bindings: {click: link_3_click}
           components:
-          - name: image_1_copy_2_copy_2
-            properties: {height: 58.79998779296875, source: _/theme/th (9).jpeg, display_mode: shrink_to_fit}
-            type: Image
-            layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
-          - name: spacer_1_copy_2_copy_2
-            properties: {height: -61}
-            type: Spacer
-            layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
-          - name: link_3_copy_2_copy_2
-            properties: {text: '', bold: true, font_size: 25}
-            type: Link
-            layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
-            event_bindings: {click: link_3_click}
+          - name: column_panel_7
+            properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ORBJYX,UEDISC'}
             components:
+            - name: image_1_copy_2_copy_2
+              properties: {height: '65', source: _/theme/th (9).jpeg, display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+            - name: spacer_1_copy_2_copy_2
+              properties: {height: -61}
+              type: Spacer
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
             - name: label_1_copy_2_copy_2
               properties: {text: Change Password}
               type: Label
-              layout_properties: {grid_position: 'XGAWAJ,MIFHEZ', full_width_row: true}
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
     - name: spacer_2
       properties: {height: 32.79998779296875}
       type: Spacer
@@ -223,28 +223,28 @@ components:
       layout_properties: {grid_position: 'OPEFUA,UELRDB', full_width_row: true}
       components:
       - name: label_9
-        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: '',
+        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White',
           visible: true, text: CopyRight2023@Gwallet, font_size: 16, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
           underline: false, icon: ''}
         type: Label
         layout_properties: {grid_position: 'XZHMAF,AYWPIJ'}
       - name: label_10
-        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: '',
+        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White',
           visible: true, text: Disclaimer, font_size: 16, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
           underline: false, icon: ''}
         type: Label
         layout_properties: {grid_position: 'XZHMAF,BXCDJA'}
       - name: label_11
-        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: '',
+        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White',
           visible: true, text: Privacy Policy, font_size: 16, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
           underline: false, icon: ''}
         type: Label
         layout_properties: {grid_position: 'XZHMAF,BIRREG'}
       - name: label_12
-        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: '',
+        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White',
           visible: true, text: Code Of Commitment, font_size: 16, font: '', spacing_above: small,
           icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
           underline: false, icon: ''}
