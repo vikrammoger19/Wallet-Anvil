@@ -33,7 +33,7 @@ def get_user_for_login(login_input):
 def add_info(username, email, address, phone, aadhar, pan, password):
     try:
         # Ensure aadhar is an integer, set to None if not a number
-        aadhar = int(aadhar) if aadhar.isdigit() else None
+        aadhar = int(aadhar) if str(aadhar).isdigit() else None
 
         user_row = app_tables.wallet_users.add_row(
             username=username,

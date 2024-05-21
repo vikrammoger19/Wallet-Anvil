@@ -8,10 +8,11 @@ import datetime
 from anvil import *
 
 class customer_page(customer_pageTemplate):
-    def __init__(self, user=None, **properties):
+    def __init__(self, user=None,password=None, **properties):
         # Initialize the form
         self.init_components(**properties)
         self.user = user
+        self.password=password
         user_dict = dict(self.user)
         self.refresh_data()
 
@@ -173,7 +174,7 @@ class customer_page(customer_pageTemplate):
         open_form('customer.withdraw', user=self.user)
 
     def link_7_click(self, **event_args):
-        open_form('customer.Viewprofile', user=self.user)
+        open_form('customer.Viewprofile', user=self.user,password=self.password)
 
     def link_6_click(self, **event_args):
         open_form('customer.auto_topup', user=self.user)
