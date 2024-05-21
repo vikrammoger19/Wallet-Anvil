@@ -121,10 +121,10 @@ components:
             layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
             name: xy_panel_5_copy
             components:
-            - properties: {role: null, vertical_align: center, height: 23, tooltip: '',
-                border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
-                alt_text: '', spacing_above: small, source: '', spacing_below: small,
-                background: '', horizontal_align: center}
+            - properties: {role: null, vertical_align: center, height: 33.199981689453125,
+                tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
+                alt_text: '', spacing_above: small, source: _/theme/wallet_12024363.png,
+                spacing_below: small, background: '', horizontal_align: center}
               type: Image
               layout_properties: {x: 38, y: 5, width: 47}
               name: image_4_copy_3_copy
@@ -169,7 +169,7 @@ components:
             components:
             - properties: {role: null, vertical_align: center, height: 26, tooltip: '',
                 border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
-                alt_text: '', spacing_above: small, source: '', spacing_below: small,
+                alt_text: '', spacing_above: small, source: _/theme/wdraw.png, spacing_below: small,
                 background: '', horizontal_align: center}
               type: Image
               layout_properties: {x: 38, y: 5, width: 41}
