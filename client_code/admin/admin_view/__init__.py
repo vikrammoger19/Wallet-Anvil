@@ -290,3 +290,34 @@ class admin_view(admin_viewTemplate):
     def button_4_click(self, **event_args):
       """This method is called when the button is clicked"""
       pass
+
+    def display_user_activity(self, user_phone):
+    # Retrieve user's balance information from the database
+      user_balances = app_tables.wallet_users_balance.search(phone=user_phone)
+    
+    # Reset card visibility
+      self.card_1.visible = False
+      self.card_2.visible = False
+      self.card_3.visible = False
+      self.card_4.visible = False
+    
+    # Loop through each balance record
+      for balance_record in user_balances:
+        currency_type = balance_record['currency_type']
+        balance_amount = balance_record['balance']
+        
+        # Update the corresponding label with the balance amount
+        if currency_type == 'INR':
+            self.card_1.visible = True
+            self.label_10.text = str(balance_amount)
+        elif currency_type == 'USD':
+            self.card_2.visible = True
+            self.label_11.text = str(balance_amount)
+        elif currency_type == 'EUR':
+            self.card_3.visible = True
+            self.label_12.text = str(balance_amount)
+        elif currency_type == 'GBP':
+            self.card_4.visible = True
+            self.label_13.text = str(balance_amount)
+
+    
