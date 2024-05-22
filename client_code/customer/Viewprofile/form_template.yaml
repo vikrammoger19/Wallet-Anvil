@@ -5,7 +5,7 @@ container:
     role: null, html: ''}
 components:
 - type: ColumnPanel
-  properties: {role: card}
+  properties: {role: card, col_widths: '{"EMDQZA":55,"XZFAKU":5}'}
   name: card_1
   layout_properties: {slot: default}
   components:
@@ -82,6 +82,31 @@ components:
     type: FlowPanel
     layout_properties: {grid_position: 'LFDVGD,FLQWNM'}
     components: []
+  - name: xy_panel_1
+    properties: {height: 151.593505859375}
+    type: XYPanel
+    layout_properties: {grid_position: 'HYIYBZ,EMDQZA'}
+    components:
+    - name: image_1
+      properties: {height: 150.96343994140625, role: null, border: '', tooltip: Profile pic,
+        source: _/theme/account.png}
+      type: Image
+      layout_properties: {x: 405.6512455418706, y: 0, width: 181.2207794189453}
+      event_bindings: {mouse_down: image_1_mouse_down}
+    - name: file_loader_1
+      properties: {role: null, border: '', enabled: true, foreground: '', visible: true,
+        text: '', font_size: 25, icon_align: left, italic: false, background: '',
+        underline: false, icon: 'fa:camera'}
+      type: FileLoader
+      layout_properties: {x: 529.5706181004643, y: 99.8831672668457, width: 63.872657775878906}
+      event_bindings: {change: file_loader_1_change}
+      data_bindings: []
+  - name: button_3
+    properties: {text: '', role: rounded-button1, font_size: 16, foreground: white,
+      background: '#258ee0', icon: 'fa:trash'}
+    type: Button
+    layout_properties: {grid_position: 'HYIYBZ,XZFAKU'}
+    event_bindings: {click: button_3_click}
   - name: spacer_21
     properties: {height: 32}
     type: Spacer
@@ -90,12 +115,6 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'WTKNON,ESGPVO'}
-  - name: image_1
-    properties: {height: 150.96343994140625, role: null, border: '', tooltip: Profile pic,
-      source: _/theme/account.png}
-    type: Image
-    layout_properties: {grid_position: 'WTKNON,UQZKJX'}
-    event_bindings: {mouse_down: image_1_mouse_down}
   - name: spacer_23
     properties: {height: 32}
     type: Spacer
@@ -104,29 +123,6 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'WTKNON,VCYDEI'}
-  - name: flow_panel_1
-    properties: {}
-    type: FlowPanel
-    layout_properties: {grid_position: 'CTJGDW,AQNQDZ'}
-    components:
-    - name: spacer_2
-      properties: {height: 32}
-      type: Spacer
-      layout_properties: {width: 406.9323955078125}
-    - name: file_loader_1
-      properties: {role: null, border: '', enabled: true, foreground: '', visible: true,
-        text: '', font_size: 16, icon_align: left, italic: false, background: '',
-        underline: false, icon: 'fa:uploadca'}
-      type: FileLoader
-      layout_properties: {expand: false}
-      event_bindings: {change: file_loader_1_change}
-      data_bindings: []
-    - name: button_3
-      properties: {text: '', role: rounded-button1, font_size: 16, foreground: white,
-        background: '#258ee0', icon: 'fa:trash'}
-      type: Button
-      layout_properties: {}
-      event_bindings: {click: button_3_click}
   - name: card_3
     properties:
       role: [card]
