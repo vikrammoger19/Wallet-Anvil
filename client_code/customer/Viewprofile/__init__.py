@@ -154,7 +154,7 @@ class Viewprofile(ViewprofileTemplate):
     def check_profile_pic(self):
       print(self.user,self.password)
       print(self.user['email'],type(self.user['email']))
-      user_data = app_tables.wallet_users.get(email=str(self.user['email']),password=str(self.password)) #changed
+      user_data = app_tables.wallet_users.get(email=str(self.user['email'])) #changed
       if user_data:
         existing_img = user_data['profile_pic']
         if existing_img != None:

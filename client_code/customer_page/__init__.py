@@ -174,7 +174,7 @@ class customer_page(customer_pageTemplate):
         open_form('customer.withdraw', user=self.user)
 
     def link_7_click(self, **event_args):
-        open_form('customer.Viewprofile', user=self.user,password=self.password)
+        open_form('customer.Viewprofile', user=self.user)
 
     def link_6_click(self, **event_args):
         open_form('customer.auto_topup', user=self.user)
