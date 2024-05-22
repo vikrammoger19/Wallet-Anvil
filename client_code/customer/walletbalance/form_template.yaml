@@ -55,18 +55,14 @@ components:
     foreground: white}
   type: Label
   layout_properties: {grid_position: 'VIJYKQ,BHZMQR', full_width_row: true}
-- name: image_5
-  properties: {source: _/theme/Different-Types-of-Digital-Wallets.jpg}
-  type: Image
-  layout_properties: {grid_position: 'SBEFEV,QKBQVP'}
 - name: label_6
   properties: {bold: true, align: center, font_size: 20, foreground: '#258ee1'}
   type: Label
-  layout_properties: {grid_position: 'JRVRCH,DAUEAZ'}
+  layout_properties: {grid_position: 'TVTUSB,ROOGJR'}
 - name: repeating_panel_1
   properties: {item_template: customer.walletbalance.ItemTemplate18}
   type: RepeatingPanel
-  layout_properties: {grid_position: 'MKCVQN,ESZHYI'}
+  layout_properties: {grid_position: 'TZZBEJ,IODDMR'}
 - name: xy_panel_2_copy_2
   properties: {role: null, width: null, align: center, height: 288.5999755859375,
     tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
