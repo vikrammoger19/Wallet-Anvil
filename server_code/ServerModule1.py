@@ -31,6 +31,9 @@ def get_user_for_login(login_input):
 
 @anvil.server.callable
 def add_info(username, email, address, phone, aadhar, pan, password):
+    # try:
+    #     # Ensure aadhar is an integer, set to None if not a number
+    #     aadhar = int(aadhar) if aadhar.isdigit() else None
     try:
         # Ensure aadhar is an integer, set to None if not a number
         aadhar = int(aadhar) if str(aadhar).isdigit() else None
@@ -49,8 +52,8 @@ def add_info(username, email, address, phone, aadhar, pan, password):
             last_login=datetime.now()
         )
         return user_row
-    except Exception as e:
-        raise RuntimeError(f"Error adding user info: {str(e)}")
+    # except Exception as e:
+    #     raise RuntimeError(f"Error adding user info: {str(e)}")
 
 
 
