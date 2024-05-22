@@ -1,7 +1,0 @@
-container:
-  type: HtmlTemplate
-  properties: {html: "<center style=\"font-style:italic; color:#888; margin: 3em;\"\
-      >\n  <style>\nbody {\n    background-image: url(\"_/theme/background.jpg\");\n\
-      \    background-size: cover;\n  }\n</style>\n</center>"}
-components: []
-is_package: true

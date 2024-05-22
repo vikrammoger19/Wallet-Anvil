@@ -31,32 +31,20 @@ def get_user_for_login(login_input):
 
 @anvil.server.callable
 def add_info(username, email, address, phone, aadhar, pan, password):
-    # try:
-    #     # Ensure aadhar is an integer, set to None if not a number
-    #     aadhar = int(aadhar) if aadhar.isdigit() else None
-    try:
-        # Ensure aadhar is an integer, set to None if not a number
-        aadhar = int(aadhar) if str(aadhar).isdigit() else None
-
-        user_row = app_tables.wallet_users.add_row(
-            username=username,
-            email=email,
-            address=address,
-            phone=phone,
-            aadhar=aadhar,              
-            pan=pan,
-            password=password,   
-            usertype='customer',
-            confirm_email=True,
-            user_limit=100000,
-            last_login=datetime.now()
-        )
-        return user_row
-    # except Exception as e:
-    #     raise RuntimeError(f"Error adding user info: {str(e)}")
-
-
-
+    user_row = app_tables.wallet_users.add_row(
+        username=username,
+        email=email,
+        address=address,
+        phone=phone,
+        aadhar=int(aadhar),              
+        pan=pan,
+        password=password,   
+        usertype='customer',
+        confirm_email=True,
+        user_limit=(100000),
+        last_login = datetime.now()
+    )
+    return user_row
 
 @anvil.server.callable
 def get_acc_data(phone):
