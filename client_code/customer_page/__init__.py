@@ -59,10 +59,17 @@ class customer_page(customer_pageTemplate):
                         transaction_text = "Sent"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
-                    elif transaction_type == 'Debit':
+                    elif transaction_type == 'elif transaction_type == 'Debit':
+                        transaction_text = "Sent"
+                        fund_display = "-" + str(fund)
+                        fund_color = "red"':
                         transaction_text = "Sent"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
+                    elif transaction_type == 'Debit':
+                        transaction_text = "Sent"
+                        fund_display = "-" + str(fund)
+                        fund_color = "red"  
                     else:
                         transaction_text = "Unknown"
                         fund_display = str(fund)
