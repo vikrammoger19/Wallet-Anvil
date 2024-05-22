@@ -249,4 +249,4 @@ class customer_page(customer_pageTemplate):
 
     def link_8_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('customer_page.settings',user = self.u)
+      open_form('customer_page.settings',user = self.user)
