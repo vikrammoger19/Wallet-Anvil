@@ -133,11 +133,11 @@ class transaction_history(transaction_historyTemplate):
         open_form("customer.service",user=self.user)
     
     def button_3_click(self, **event_args):
-        open_form('customer', user=self.user)
+        open_form('customer_page', user=self.user)
 
     def link_1_click(self, **event_args):
         """This method is called when the link is clicked"""
-        open_form('customer',user=self.user)
+        open_form('customer_page',user=self.user)
 
     def link_24_click(self, **event_args):
         """This method is called when the link is clicked"""
