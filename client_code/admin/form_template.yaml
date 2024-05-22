@@ -242,7 +242,7 @@ components:
         components:
         - properties: {height: 54}
           type: Spacer
-          layout_properties: {width: 1001}
+          layout_properties: {width: 544.7999267578125}
           name: spacer_1
         - properties: {height: 32}
           type: Spacer
