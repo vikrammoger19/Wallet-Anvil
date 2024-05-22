@@ -381,3 +381,9 @@ def update_active_status():
                 
             # Save the changes to the table
             user.update()
+
+@anvil.server.callable
+def get_credit_debit(phone_number,default_currency):
+  debit_details = app_tables.wallet_users_transaction.search(transaction_type='Debit',phone=phone_number,currency=default_currency)
+  credit_details = app_tables.wallet_users_transaction.search(transaction_type='Credit',phone = phone_number,currency=default_currency)
+  return {'debit_details':debit_details,'credit_details':credit_details}

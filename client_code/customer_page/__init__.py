@@ -14,7 +14,7 @@ class customer_page(customer_pageTemplate):
         self.user = user
         user_dict = dict(self.user)
         self.refresh_data()
-
+        self.get_credit_debit_details()
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('phone', None)
         if phone_number:
@@ -101,6 +101,32 @@ class customer_page(customer_pageTemplate):
     def refresh_data(self):
         # Get the user's phone number
         phone_number = self.user['phone']
+
+        #getting the data for total wallet amount 
+        now = datetime.datetime.now()
+        formatted_date = now.strftime('%a, %d-%b, %Y')
+        self.label_11.text = formatted_date
+        # Display the username
+        self.label_20.text = self.user['username']
+        # Get the INR balance from the server
+        #currency
+        user_default_currency='INR'
+        if self.user['defaultcurrency'] != None:
+          user_default_currency = self.user['defaultcurrency']
+        else:
+          user_default_currency = 'INR'
+        
+        balance_iterator = anvil.server.call('get_inr_balance', self.user['phone'])
+        if balance_iterator is not None:
+          balance = self.inr_balance(balance_iterator, user_default_currency)
+          if type(balance) == (int or float):
+            self.label_13.text = str(f'{balance:.2f}')
+          else:
+            self.label_13.text = balance
+          self.label_13.icon = f'fa:{user_default_currency.lower()}'
+          self.label_13.icon_align = 'left'
+        else:
+          self.label_13.text =str(0)
   
         # Call the server function to get transactions data
         transactions = anvil.server.call('get_transactions')
@@ -160,6 +186,46 @@ class customer_page(customer_pageTemplate):
   
         self.plot_1.visible = True
 
+    #getting details of credit and debit 
+    def get_credit_debit_details(self):
+      users_phone = self.user['phone']
+      user_default_currency='INR'
+      if self.user['defaultcurrency'] != None:
+        user_default_currency = self.user['defaultcurrency']
+      else:
+        user_default_currency = 'INR'
+        
+      try:
+        cred_debt = anvil.server.call('get_credit_debit',users_phone,user_default_currency)
+        credit_details = cred_debt['credit_details']
+        debit_details = cred_debt['debit_details']
+        credit_sum = 0
+        debit_sum = 0
+        if credit_details is not None:
+          for i in credit_details:
+            print(i['fund'])
+            credit_sum += i['fund']
+          print('credit',credit_sum)
+          self.label_17_copy.text = str(credit_sum)
+          self.label_17_copy.icon = f'fa:{user_default_currency.lower()}'
+          self.label_17_copy.icon_align ='left'
+        else:
+          print('none')
+          self.label_17_copy.text = str(0)
+        if debit_details is not None:
+          for j in debit_details:
+            debit_sum += j['fund']
+            print(j['fund'])
+          print('debit',debit_sum)
+          self.label_15_copy.text = str(debit_sum)
+          self.label_15_copy.icon = f'fa:{user_default_currency.lower()}'
+          self.label_15_copy.icon_align ='left'
+        else:
+          print('none')
+          self.label_15_copy.text = str(0)
+      except Exception as e:
+        print(e)
+
     def link_2_click(self, **event_args):
         open_form('customer.walletbalance', user=self.user)
 
@@ -180,3 +246,7 @@ class customer_page(customer_pageTemplate):
 
     def link_9_click(self, **event_args):
         open_form('Home', user=self.user)
+
+    def link_8_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer_page.settings',user = self.u)

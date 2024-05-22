@@ -7,31 +7,38 @@ from anvil.tables import app_tables
 
 
 class default_currency(default_currencyTemplate):
-    def __init__(self, **properties):
+    def __init__(self,user=None, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
-    
+        self.user = user
+        
         # Set INR as the default currency initially
         self.default_currency = 'INR'
-        phone = app_tables.wallet_users.get()["phone"]
-        self.set_default_currency('INR',phone)
+         # = app_tables.wallet_users.get(phone=self.user['phone'])
+         
+        if self.user['defaultcurrency'] != None:
+          self.default_currency = self.user['defaultcurrency']
+        else:
+          self.default_currency = 'INR'
+        self.phone = self.user['phone']
+        self.set_default_currency(self.default_currency,self.phone)
 
     # Event handlers for each radio button
     def link_1_click(self, **event_args):
-        phone = app_tables.wallet_users.get()["phone"]
-        self.set_default_currency('INR',phone)
+        # phone = app_tables.wallet_users.get()["phone"]
+        self.set_default_currency('INR',self.phone)
 
     def link_2_click(self, **event_args):
-        phone = app_tables.wallet_users.get()["phone"]
-        self.set_default_currency('USD',phone)
+        # phone = app_tables.wallet_users.get()["phone"]
+        self.set_default_currency('USD',self.phone)
 
     def link_3_click(self, **event_args):
-        phone = app_tables.wallet_users.get()["phone"]
-        self.set_default_currency('EUR',phone)
+        # phone = app_tables.wallet_users.get()["phone"]
+        self.set_default_currency('EUR',self.phone)
 
     def link_4_click(self, **event_args):
-        phone = app_tables.wallet_users.get()["phone"]
-        self.set_default_currency('GBP',phone)
+        # phone = app_tables.wallet_users.get()["phone"]
+        self.set_default_currency('GBP',self.phone)
 
     # Function to set default currency and update card backgrounds
     def set_default_currency(self, currency, phone):
@@ -56,4 +63,8 @@ class default_currency(default_currencyTemplate):
         #store the currency to data tables
         def_curr = app_tables.wallet_users.get(phone=phone)
         def_curr.update(defaultcurrency=currency)
+
+    def button_1_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form('customer_page.settings',user=self.user)
     
