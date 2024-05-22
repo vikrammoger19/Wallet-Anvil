@@ -37,7 +37,7 @@ class my_wallet(my_walletTemplate):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('customer',user=self.user)
+    open_form('customer_page',user=self.user)
 
   def link_13_click(self, **event_args):
     """This method is called when the link is clicked"""

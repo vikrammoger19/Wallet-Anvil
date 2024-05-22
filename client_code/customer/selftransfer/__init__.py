@@ -81,3 +81,7 @@ class selftransfer(selftransferTemplate):
     def link_13_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('Home')
+
+    def link_1_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer_page',user=self.user)
