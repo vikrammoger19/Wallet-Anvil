@@ -59,6 +59,14 @@ class customer_page(customer_pageTemplate):
                         transaction_text = "Sent"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
+                    elif transaction_type == 'Deposited':
+                        transaction_text = "Self"
+                        fund_display = "-" + str(fund)
+                        fund_color = "green"
+                    elif transaction_type == 'Withdrawn':
+                        transaction_text = "Self"
+                        fund_display = "-" + str(fund)
+                        fund_color = "red"  
                     else:
                         transaction_text = "Unknown"
                         fund_display = str(fund)
