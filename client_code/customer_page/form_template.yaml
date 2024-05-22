@@ -228,6 +228,7 @@ components:
         - properties: {text: '', align: center, bold: true, icon: ''}
           type: Link
           layout_properties: {grid_position: 'IBKWPS,FYAYIW'}
+          event_bindings: {click: link_8_click}
           name: link_8
           components:
           - properties: {height: 25.79998779296875}
@@ -246,7 +247,6 @@ components:
               type: Label
               layout_properties: {x: 95, y: 0, width: 71.625}
               name: label_3_copy_6
-          event_bindings: {click: link_8_click}
         - properties: {height: 204.5999755859375}
           type: Spacer
           layout_properties: {grid_position: 'ZCYDZV,VFTIPP'}
@@ -254,6 +254,7 @@ components:
         - properties: {text: '', align: center, bold: true, icon: ''}
           type: Link
           layout_properties: {grid_position: 'EOQMMT,GLFTQZ'}
+          event_bindings: {click: link_9_click}
           name: link_9
           components:
           - properties: {height: 25.79998779296875}
@@ -275,7 +276,6 @@ components:
               type: Label
               layout_properties: {x: 91.57499389722943, y: 0, width: 77}
               name: label_3_copy_7
-          event_bindings: {click: link_9_click}
     - properties: {height: 656.4545288085938}
       type: XYPanel
       layout_properties: {width: 1020.272705078125}

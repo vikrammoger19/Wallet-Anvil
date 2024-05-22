@@ -95,3 +95,5 @@ class admin(adminTemplate):
 
     def link_10_click(self, **event_args):
         open_form('admin.add_currency')
+
+    
