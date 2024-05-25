@@ -55,97 +55,14 @@ components:
     foreground: white}
   type: Label
   layout_properties: {grid_position: 'VIJYKQ,BHZMQR', full_width_row: true}
-- name: image_5
-  properties: {source: _/theme/Different-Types-of-Digital-Wallets.jpg}
-  type: Image
-  layout_properties: {grid_position: 'SBEFEV,QKBQVP'}
 - name: label_6
   properties: {bold: true, align: center, font_size: 20, foreground: '#258ee1'}
   type: Label
-  layout_properties: {grid_position: 'JRVRCH,DAUEAZ'}
-- name: card_1
-  properties: {role: card, col_widths: '{"UIAOAP":20,"OMROHP":25,"YMUPRJ":15,"NQYGWE":20,"COGDYK":25,"CBLDUE":15,"NLWEFO":20,"WFJSHC":25,"HOCJKG":15,"CWLBJP":15,"GRHXLS":15,"BKMHLW":15,"VBVAQQ":15,"HCZHOH":15,"XJHZZR":22,"JOYEPV":15,"KBIDEU":65,"WZZORU":5}'}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'KPCLSM,BGDQRO'}
-  components:
-  - name: image_1
-    properties: {height: 40, source: _/theme/flag (1).png, horizontal_align: right}
-    type: Image
-    layout_properties: {grid_position: 'RZZESZ,CWLBJP'}
-  - name: label_2
-    properties: {text: 'INR:', align: left, bold: true}
-    type: Label
-    layout_properties: {grid_position: 'RZZESZ,UIAOAP'}
-  - name: text_box_1
-    properties: {align: right, bold: true}
-    type: TextBox
-    layout_properties: {grid_position: 'RZZESZ,OMROHP'}
-  - name: label_7
-    properties: {text: ₹, bold: true, font_size: 30, foreground: '#258ee1'}
-    type: Label
-    layout_properties: {grid_position: 'RZZESZ,YMUPRJ'}
-  - name: image_2
-    properties: {source: _/theme/united-states-of-america.png, height: '40', horizontal_align: right}
-    type: Image
-    layout_properties: {grid_position: 'GAFUNM,GRHXLS'}
-  - name: label_3
-    properties: {text: 'USD:', align: left, bold: true}
-    type: Label
-    layout_properties: {grid_position: 'GAFUNM,NQYGWE'}
-  - name: text_box_2
-    properties: {align: right, bold: true}
-    type: TextBox
-    layout_properties: {grid_position: 'GAFUNM,COGDYK'}
-  - name: label_8
-    properties: {text: $, font_size: 30, bold: true, foreground: '#258ee1'}
-    type: Label
-    layout_properties: {grid_position: 'GAFUNM,CBLDUE'}
-  - name: image_3
-    properties: {height: '40', source: _/theme/european-union.png, horizontal_align: right}
-    type: Image
-    layout_properties: {grid_position: 'NQVBIF,BKMHLW'}
-  - name: label_4
-    properties: {text: 'EUR:', align: left, bold: true}
-    type: Label
-    layout_properties: {grid_position: 'NQVBIF,NLWEFO'}
-  - name: text_box_3
-    properties: {align: right, bold: true}
-    type: TextBox
-    layout_properties: {grid_position: 'NQVBIF,WFJSHC'}
-  - name: label_9
-    properties: {text: €, font_size: 30, bold: true, foreground: '#258ee1'}
-    type: Label
-    layout_properties: {grid_position: 'NQVBIF,HOCJKG'}
-  - name: image_4
-    properties: {source: _/theme/united-kingdom.png, height: '40', horizontal_align: right}
-    type: Image
-    layout_properties: {grid_position: 'HUYDQV,VBVAQQ'}
-  - name: label_5
-    properties: {text: '   GBP:', bold: true}
-    type: Label
-    layout_properties: {grid_position: 'HUYDQV,HCZHOH'}
-  - name: spacer_2
-    properties: {height: 18}
-    type: Spacer
-    layout_properties: {grid_position: 'HUYDQV,WZZORU'}
-  - name: text_box_4
-    properties: {bold: true, align: right}
-    type: TextBox
-    layout_properties: {grid_position: 'HUYDQV,XJHZZR'}
-  - name: label_10
-    properties: {bold: true, font_size: 30, text: £, foreground: '#258ee1'}
-    type: Label
-    layout_properties: {grid_position: 'HUYDQV,JOYEPV'}
-  - name: spacer_1
-    properties: {height: 44}
-    type: Spacer
-    layout_properties: {grid_position: 'GZXCFJ,ABAWTL'}
-  - name: button_1
-    properties: {text: ADD CURRANCY, background: '#258ee1', foreground: 'theme:Gray
-        50', bold: true, font_size: 18}
-    type: Button
-    layout_properties: {grid_position: 'ZSQCAQ,FXZIIO'}
-    event_bindings: {click: button_1_click}
+  layout_properties: {grid_position: 'TVTUSB,ROOGJR'}
+- name: repeating_panel_1
+  properties: {item_template: customer.walletbalance.ItemTemplate18}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'TZZBEJ,IODDMR'}
 - name: xy_panel_2_copy_2
   properties: {role: null, width: null, align: center, height: 288.5999755859375,
     tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,

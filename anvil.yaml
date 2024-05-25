@@ -95,6 +95,9 @@ db_schema:
     - name: country
       admin_ui: {width: 200, order: 23}
       type: string
+    - name: inactive
+      admin_ui: {order: 24, width: 200}
+      type: bool
     title: wallet_users
   wallet_users_account:
     client: full
@@ -165,7 +168,7 @@ db_schema:
       admin_ui: {width: 200, order: 6}
       type: string
     - name: currency
-      admin_ui: {width: 200, order: 7}
+      admin_ui: {order: 1.5, width: 200}
       type: string
     title: wallet_users_transaction
   actions:
@@ -196,23 +199,6 @@ db_schema:
       admin_ui: {order: 2, width: 200}
       type: string
     title: wallet_users_service
-  wallet_users_interaction:
-    client: full
-    server: full
-    columns:
-    - name: message
-      admin_ui: {width: 200, order: 0}
-      type: string
-    - name: sentnumber
-      admin_ui: {width: 200, order: 1}
-      type: number
-    - name: recivednumber
-      admin_ui: {width: 200, order: 2}
-      type: number
-    - name: date
-      admin_ui: {width: 200, order: 3}
-      type: datetime
-    title: wallet_users_interaction
   wallet_currency:
     title: wallet_currency
     client: full
@@ -224,6 +210,9 @@ db_schema:
     - name: currency_code
       admin_ui: {width: 200, order: 1}
       type: string
+    - name: currency_icon
+      admin_ui: {width: 200, order: 2}
+      type: media
 secrets:
   ? ''
   : value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}

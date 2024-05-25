@@ -79,7 +79,7 @@ class auto_topup(auto_topupTemplate):
                   phone=self.user['phone'],
                   fund=money_value,
                   date=current_datetime,
-                  transaction_type=f"{cur} - Credit",
+                  transaction_type=f"{cur} - Auto_Topup",
                   transaction_status="Minimum-Topup",
                   receiver_phone=None
               )
@@ -87,13 +87,13 @@ class auto_topup(auto_topupTemplate):
             alert("Minimum-topup payment has been successfully added to your account.")
             self.text_box_1.text = ""
             print("minimum topup added") 
-            open_form('customer', user=self.user)
+            open_form('customer_page', user=self.user)
           else:
             # No minimum top-up required
             self.user['minimum_topup'] = False
             anvil.alert("Auto-topup is not required.")
             print("Your balance is not below the limit")
-            open_form('customer', user=self.user)
+            open_form('customer_page', user=self.user)
         else:
           self.label_4.text = "Error: No matching accounts found for the user or invalid account number."
           #open_form('customer', user=self.user)
@@ -139,7 +139,7 @@ class auto_topup(auto_topupTemplate):
                   phone=self.user['phone'],
                   fund=money_value,
                   date=current_datetime,
-                  transaction_type=f"{cur} - Credit",
+                  transaction_type=f"{cur} - Auto_Topup",
                   transaction_status="Timely-Topup",
                   receiver_phone=None
               )
@@ -151,7 +151,7 @@ class auto_topup(auto_topupTemplate):
             self.user['auto_topup'] = False
             anvil.alert("Auto-topup is inactive until the required time duration has expired.")
             print("Your balance is not below the limit")
-            open_form('customer', user=self.user)  
+            open_form('customer_page', user=self.user)  
         else:
           self.label_5.text = "Error: No matching accounts found for the user or invalid account number."
       else:
@@ -180,7 +180,7 @@ class auto_topup(auto_topupTemplate):
       self.minimum_balance_topup.enabled=True
      
     def link_1_click(self, **event_args):
-      open_form('customer',user=self.user)
+      open_form('customer_page',user=self.user)
 
     def minimum_balance_topup_click(self, **event_args):
       self.minimum_balance_topup.enabled=True

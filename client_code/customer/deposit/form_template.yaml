@@ -30,6 +30,11 @@ components:
       properties: {height: 58.19996643066406}
       type: Spacer
       layout_properties: {width: 529.8499755859375}
+    - name: button_2
+      properties: {text: '', icon: 'fa:bank', font_size: 20, foreground: black}
+      type: Button
+      layout_properties: {}
+      event_bindings: {click: button_2_click}
     - name: link_2
       properties: {text: Deposit, align: center, bold: true, foreground: '', icon: ''}
       type: Link

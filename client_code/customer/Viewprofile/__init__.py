@@ -124,7 +124,7 @@ class Viewprofile(ViewprofileTemplate):
 
     def link_1_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer",user=self.user)
+      open_form("customer_page",user=self.user,password=self.password)
 
     # def link_8_click(self, **event_args):
     #   """This method is called when the link is clicked"""
@@ -153,7 +153,8 @@ class Viewprofile(ViewprofileTemplate):
 
     def check_profile_pic(self):
       print(self.user,self.password)
-      user_data = app_tables.wallet_users.get(username=str(self.user['username']),password=str(self.password))
+      print(self.user['email'],type(self.user['email']))
+      user_data = app_tables.wallet_users.get(email=str(self.user['email'])) #changed
       if user_data:
         existing_img = user_data['profile_pic']
         if existing_img != None:
@@ -162,6 +163,8 @@ class Viewprofile(ViewprofileTemplate):
           self.image_1.source = profile_pic_blob
         else: 
           print('no pic')
+      else:
+        print('none')
         
     def button_3_click(self, **event_args):
       """This method is called when the button is clicked"""

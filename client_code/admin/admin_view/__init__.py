@@ -6,14 +6,14 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from datetime import datetime
 import re
-
+import base64
 
 class admin_view(admin_viewTemplate):
     def __init__(self, user_data=None, phone_number=None,user=None, **properties):
         self.user = user
         self.phone_number = phone_number
         self.init_components(**properties)
-        # self.check_profile_pic()
+        self.check_profile_pic()
         self.edit_mode = False  # Initialize edit_mode attribute to False
         
         if phone_number is not None:
@@ -290,3 +290,46 @@ class admin_view(admin_viewTemplate):
     def button_4_click(self, **event_args):
       """This method is called when the button is clicked"""
       pass
+
+    def display_user_activity(self, user_phone):
+    # Retrieve user's balance information from the database
+      user_balances = app_tables.wallet_users_balance.search(phone=user_phone)
+    
+    # Reset card visibility
+      self.card_1.visible = False
+      self.card_2.visible = False
+      self.card_3.visible = False
+      self.card_4.visible = False
+    
+    # Loop through each balance record
+      for balance_record in user_balances:
+        currency_type = balance_record['currency_type']
+        balance_amount = balance_record['balance']
+        
+        # Update the corresponding label with the balance amount
+        if currency_type == 'INR':
+            self.card_1.visible = True
+            self.label_10.text = str(balance_amount)
+        elif currency_type == 'USD':
+            self.card_2.visible = True
+            self.label_11.text = str(balance_amount)
+        elif currency_type == 'EUR':
+            self.card_3.visible = True
+            self.label_12.text = str(balance_amount)
+        elif currency_type == 'GBP':
+            self.card_4.visible = True
+            self.label_13.text = str(balance_amount)
+    def check_profile_pic(self):
+      
+      user_data = app_tables.wallet_users.get(phone=self.phone_number) #changed
+      if user_data:
+        existing_img = user_data['profile_pic'] if user_data['profile_pic'] else print('none')
+        if existing_img != None:
+          decoded_image_bytes = base64.b64decode(existing_img)
+          profile_pic_blob = anvil.BlobMedia("image/png",decoded_image_bytes )
+          self.image_1.source = profile_pic_blob
+        else: 
+          print('no pic')
+      else:
+        print('none')
+    

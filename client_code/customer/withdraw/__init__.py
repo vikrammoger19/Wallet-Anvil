@@ -40,8 +40,9 @@ class withdraw(withdrawTemplate):
         new_transaction = app_tables.wallet_users_transaction.add_row(
                 phone=self.user['phone'],
                 fund=money_value,
+                currency=cur,
                 date=current_datetime,
-                transaction_type="Debit",
+                transaction_type="Withdrawn",
                 transaction_status="Wallet-Withdrawn",
                 receiver_phone=None
             )
@@ -67,7 +68,7 @@ class withdraw(withdrawTemplate):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form("customer",user=self.user)
+    open_form("customer_page",user=self.user)
 
   def link_13_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -80,3 +81,7 @@ class withdraw(withdrawTemplate):
   def link_4_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('customer.withdraw',user=self.user)
+
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    open_form('customer.wallet',user=self.user)
