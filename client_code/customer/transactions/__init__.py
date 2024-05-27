@@ -35,8 +35,10 @@ class transactions(transactionsTemplate):
   def users_balance(self):
     phone = self.user['phone']
     users_details = app_tables.wallet_users.get(phone=phone)
+    default_currency = 'INR'
     try:
-      default_currency = users_details['defaultcurrency']
+      if users_details['defaultcurrency']:
+        default_currency = users_details['defaultcurrency']
       users_balance = app_tables.wallet_users_balance.get(phone=phone,currency_type=default_currency)
       print('yes in')
       try:
@@ -101,7 +103,7 @@ class transactions(transactionsTemplate):
             if transaction_type == 'Credit' or transaction_type == 'Deposited':
                 fund_display = "+" + str(fund)
                 fund_color = "green"
-            elif transaction_type == 'Debit' or transaction_type == 'Withdraw':
+            elif transaction_type == 'Debit' or transaction_type == 'Withdrawn':
                 fund_display = "-" + str(fund)
                 fund_color = "red"
             else:
