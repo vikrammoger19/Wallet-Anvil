@@ -316,7 +316,7 @@ components:
         type: Label
         layout_properties: {grid_position: 'XZUHZG,XIHXOC'}
     - name: repeating_panel_3
-      properties: {item_template: customer.transaction_history1.ItemTemplate20}
+      properties: {item_template: customer.transactions.ItemTemplate19}
       type: RepeatingPanel
-      layout_properties: {x: 9.696243710815907, y: 293.8668446019292, width: 1076.544365234375}
+      layout_properties: {x: 5.607421875, y: 280.7243003845215, width: 1082.0001220703125}
 is_package: true

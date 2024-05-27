@@ -1,4 +1,4 @@
-from ._anvil_designer import ItemTemplate20Template
+from ._anvil_designer import ItemTemplate19Template
 from anvil import *
 import anvil.server
 import anvil.tables as tables
@@ -7,7 +7,7 @@ from anvil.tables import app_tables
 import datetime
 
 
-class ItemTemplate20(ItemTemplate20Template):
+class ItemTemplate19(ItemTemplate19Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
