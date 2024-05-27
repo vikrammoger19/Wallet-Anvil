@@ -241,7 +241,7 @@ class customer_page(customer_pageTemplate):
         open_form('customer.walletbalance', user=self.user)
 
     def link_3_click(self, **event_args):
-        open_form('customer.Form1', user=self.user)
+        open_form('customer.transactions', user=self.user)
 
     def link_4_click(self, **event_args):
         open_form('customer.transfer', user=self.user)

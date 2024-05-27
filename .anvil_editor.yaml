@@ -2,6 +2,7 @@ unique_ids:
   forms:
     customer.transaction_history.ItemTemplate14: '1715243698086414307147381.0864'
     customer.service: '1707717709258481789312633.7267'
+    customer.transactions.ItemTemplate19: '171679675215616920424147.230272'
     admin.audit_trail.ItemTemplate12: '1714625887180559473349917.0771'
     customer.Viewprofile: '1706611287185736171714748.7703'
     customer_page.ItemTemplate17: '1715686735762448094021477.6452'
@@ -9,6 +10,7 @@ unique_ids:
     FAQ: '1713162366636290785265537.6073'
     admin.raise_a_complaint: '1707200483700658281602036.7211'
     admin.account_management: '1706601905143966105557761.9275'
+    customer.transactions: '1716796187597506741227669.97345'
     customer_page.settings: '1715938990266103038093669.8314'
     contact_us.issue_1.report_issue: '1712833077854141392852331.6239'
     customer.wallet: '1706613497096479839153776.76587'
