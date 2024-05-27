@@ -662,5 +662,26 @@ class transactions(transactionsTemplate):
 
   def link_4_click(self, **event_args):
     """This method is called when the link is clicked"""
-    pass
-    # Any code you write here will run before the form opens.
+    open_form('customer.withdraw', user=self.user)
+    
+
+  def link_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('customer.deposit',user = self.user)
+
+  def link_3_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('customer.transfer',user = self.user)
+
+  def link_5_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("customer.service",user=self.user)
+
+  def link_8_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("customer_page",user=self.user)
+
+  def link_9_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("Home")
+    
