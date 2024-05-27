@@ -8,18 +8,25 @@ import datetime
 from anvil import *
 
 class customer_page(customer_pageTemplate):
-    def __init__(self, user=None, **properties):
+    def __init__(self, user=None,password=None, **properties):
         # Initialize the form
         self.init_components(**properties)
         self.user = user
+        self.password=password
+        
         user_dict = dict(self.user)
         self.refresh_data()
         self.get_credit_debit_details()
+          
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('phone', None)
+        default_currency = 'INR'
+        users_def_currency = app_tables.wallet_users.get(phone=self.user['phone'])
+        if users_def_currency['defaultcurrency'] is not None:
+          default_currency = users_def_currency['defaultcurrency']
         if phone_number:
             # Search transactions based on the user's phone number
-            items = app_tables.wallet_users_transaction.search(phone=phone_number)
+            items = app_tables.wallet_users_transaction.search(phone=phone_number,currency=default_currency)
         
             # Sort transactions by date in descending order
             sorted_transactions = sorted(items, key=lambda x: x['date'], reverse=True)
@@ -42,7 +49,7 @@ class customer_page(customer_pageTemplate):
                     transaction_type = transaction['transaction_type']
                     receiver_phone = transaction['receiver_phone']
                     transaction_time = transaction['date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
-        
+                    
                     # Fetch username from wallet_user table using receiver_phone
                     receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
                     if receiver_user:
@@ -59,14 +66,6 @@ class customer_page(customer_pageTemplate):
                         transaction_text = "Sent"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
-                    elif transaction_type == 'Deposited':
-                        transaction_text = "Self"
-                        fund_display = "-" + str(fund)
-                        fund_color = "green"
-                    elif transaction_type == 'Withdrawn':
-                        transaction_text = "Self"
-                        fund_display = "-" + str(fund)
-                        fund_color = "red"  
                     else:
                         transaction_text = "Unknown"
                         fund_display = str(fund)
@@ -78,7 +77,8 @@ class customer_page(customer_pageTemplate):
                         'receiver_username': receiver_username,
                         'transaction_text': transaction_text,
                         'transaction_time': transaction_time,
-                        'fund_color': fund_color
+                        'fund_color': fund_color,
+                        'default_currency':default_currency,
                     })
         
                     # Limit the maximum number of history entries to display
@@ -119,15 +119,16 @@ class customer_page(customer_pageTemplate):
         # Get the INR balance from the server
         #currency
         user_default_currency='INR'
-        if self.user['defaultcurrency'] != None:
-          user_default_currency = self.user['defaultcurrency']
+        users_def_currency = app_tables.wallet_users.get(phone=self.user['phone'])
+        if users_def_currency['defaultcurrency'] is not None:
+          user_default_currency = users_def_currency['defaultcurrency']
         else:
           user_default_currency = 'INR'
         
         balance_iterator = anvil.server.call('get_inr_balance', self.user['phone'])
         if balance_iterator is not None:
           balance = self.inr_balance(balance_iterator, user_default_currency)
-          if type(balance) == (int or float):
+          if balance != '0':
             self.label_13.text = str(f'{balance:.2f}')
           else:
             self.label_13.text = balance
@@ -135,6 +136,7 @@ class customer_page(customer_pageTemplate):
           self.label_13.icon_align = 'left'
         else:
           self.label_13.text =str(0)
+        
   
         # Call the server function to get transactions data
         transactions = anvil.server.call('get_transactions')
@@ -198,11 +200,12 @@ class customer_page(customer_pageTemplate):
     def get_credit_debit_details(self):
       users_phone = self.user['phone']
       user_default_currency='INR'
-      if self.user['defaultcurrency'] != None:
-        user_default_currency = self.user['defaultcurrency']
+      users_def_currency = app_tables.wallet_users.get(phone=self.user['phone'])
+      if users_def_currency['defaultcurrency'] is not None:
+          user_default_currency = users_def_currency['defaultcurrency']
       else:
         user_default_currency = 'INR'
-        
+      
       try:
         cred_debt = anvil.server.call('get_credit_debit',users_phone,user_default_currency)
         credit_details = cred_debt['credit_details']
@@ -233,12 +236,12 @@ class customer_page(customer_pageTemplate):
           self.label_15_copy.text = str(0)
       except Exception as e:
         print(e)
-
+      
     def link_2_click(self, **event_args):
         open_form('customer.walletbalance', user=self.user)
 
     def link_3_click(self, **event_args):
-        open_form('customer.transaction_history', user=self.user)
+        open_form('customer.Form1', user=self.user)
 
     def link_4_click(self, **event_args):
         open_form('customer.transfer', user=self.user)
