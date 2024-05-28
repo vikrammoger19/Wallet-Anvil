@@ -23,81 +23,81 @@ db_schema:
     client: full
     server: full
     columns:
-    - name: username
-      admin_ui: {width: 200, order: 0}
+    - name: users_username
+      admin_ui: {order: 0, width: 200}
       type: string
-    - name: phone
-      admin_ui: {width: 200, order: 1}
+    - name: users_phone
+      admin_ui: {order: 1, width: 200}
       type: number
-    - name: email
-      admin_ui: {width: 200, order: 2}
+    - name: users_email
+      admin_ui: {order: 2, width: 200}
       type: string
-    - name: password
-      admin_ui: {width: 200, order: 3}
+    - name: users_password
+      admin_ui: {order: 3, width: 200}
       type: string
-    - name: confirm_email
-      admin_ui: {width: 200, order: 4}
+    - name: users_confirm_email
+      admin_ui: {order: 4, width: 200}
       type: bool
-    - name: aadhar
-      admin_ui: {width: 200, order: 5}
+    - name: users_aadhar
+      admin_ui: {order: 5, width: 200}
       type: number
-    - name: pan
-      admin_ui: {width: 200, order: 6}
+    - name: users_pan
+      admin_ui: {order: 6, width: 200}
       type: string
-    - name: address
-      admin_ui: {width: 200, order: 7}
+    - name: users_address
+      admin_ui: {order: 7, width: 200}
       type: string
-    - name: usertype
-      admin_ui: {order: 8, width: 147}
-      type: string
-    - name: banned
+    - name: users_banned
       admin_ui: {order: 9, width: 125}
       type: bool
-    - name: user_limit
+    - name: users_user_limit
       admin_ui: {order: 10, width: 180}
       type: number
-    - name: daily_limit
-      admin_ui: {width: 200, order: 11}
+    - name: users_daily_limit
+      admin_ui: {order: 11, width: 200}
       type: number
-    - name: last_login
-      admin_ui: {width: 200, order: 12}
+    - name: users_usertype
+      admin_ui: {width: 147}
+      type: string
+    - name: users_auto_topup
+      admin_ui: {width: 200}
+      type: bool
+    - name: users_country
+      admin_ui: {width: 200}
+      type: string
+    - name: users_default_account
+      admin_ui: {width: 200}
+      type: string
+    - name: users_defaultcurrency
+      admin_ui: {width: 200}
+      type: string
+    - name: users_hold
+      admin_ui: {width: 200}
+      type: bool
+    - name: users_inactive
+      admin_ui: {width: 200}
+      type: bool
+    - name: users_last_auto_topup_time
+      admin_ui: {width: 217}
       type: datetime
-    - name: hold
-      admin_ui: {order: 11.984375, width: 200}
-      type: bool
-    - name: userreferral
-      admin_ui: {order: 14, width: 200}
-      type: string
-    - name: defaultcurrency
-      admin_ui: {width: 200, order: 15}
-      type: string
-    - name: auto_topup
-      admin_ui: {order: 11.5, width: 200}
-      type: bool
-    - name: minimum_topup
-      admin_ui: {order: 11.75, width: 200}
-      type: bool
-    - name: timely_topup
-      admin_ui: {order: 11.875, width: 200}
-      type: bool
-    - name: timely_topup_interval
-      admin_ui: {order: 11.9375, width: 200}
-      type: string
-    - name: last_auto_topup_time
-      admin_ui: {order: 11.96875, width: 200}
+    - name: users_last_login
+      admin_ui: {width: 200}
       type: datetime
-    - name: default_account
-      admin_ui: {width: 200, order: 21}
-      type: string
-    - name: profile_pic
-      admin_ui: {width: 200, order: 22}
-      type: string
-    - name: country
-      admin_ui: {width: 200, order: 23}
-      type: string
-    - name: inactive
-      admin_ui: {order: 24, width: 200}
+    - name: users_minimum_topup
+      admin_ui: {width: 200}
       type: bool
+    - name: users_profile_pic
+      admin_ui: {width: 200}
+      type: string
+    - name: users_referral
+      admin_ui: {width: 200}
+      type: string
+    - name: users_timely_topup
+      admin_ui: {width: 200}
+      type: bool
+    - name: users_timely_topup_interval
+      admin_ui: {width: 220}
+      type: string
     title: wallet_users
   wallet_users_account:
     client: full
