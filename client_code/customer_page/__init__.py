@@ -108,7 +108,7 @@ class customer_page(customer_pageTemplate):
 
     def refresh_data(self):
         # Get the user's phone number
-        phone_number = self.user['phone']
+        phone_number = self.user['usersphone']
 
         #getting the data for total wallet amount 
         now = datetime.datetime.now()
