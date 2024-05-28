@@ -145,13 +145,13 @@ class customer_page(customer_pageTemplate):
         print("Number of transactions retrieved:", len(transactions))
   
         # Filter transactions to include only those involving the user's phone number
-        filtered_transactions = [t for t in transactions if t['phone'] == phone_number or t['receiver_phone'] == phone_number]
+        filtered_transactions = [t for t in transactions if t['users_transaction_phone'] == phone_number or t['users_transaction_receiver_phone'] == phone_number]
   
         # DEBUG: Print the number of transactions after filtering
         print("Number of transactions after filtering:", len(filtered_transactions))
   
         # Filter transactions to include only 'Credit' and 'Debit' types
-        filtered_transactions = [t for t in filtered_transactions if t['transaction_type'] in ['Credit', 'Debit']]
+        filtered_transactions = [t for t in filtered_transactions if t['users_transaction_type'] in ['Credit', 'Debit']]
   
         # Organize data for plotting (aggregate by date and type)
         data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
