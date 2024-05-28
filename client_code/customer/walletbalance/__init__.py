@@ -11,7 +11,7 @@ class walletbalance(walletbalanceTemplate):
         self.init_components(**properties)
         self.user = user
 
-        username = anvil.server.call('get_username', self.user['phone'])
+        username = anvil.server.call('get_username', self.user['users_phone'])
         self.label_656.text = f"{username}"
 
         # Populate balances for the current user
