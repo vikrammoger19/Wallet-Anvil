@@ -31,16 +31,16 @@ class login(loginTemplate):
         # Check if user exists and password matches
         if user is not None and user['users_password'] == password:
             # Check if the user is banned
-            if user['ubanned'] is not None and user['banned']:
+            if user['users_banned'] is not None and user['users_banned']:
                 open_form('LOGIN.banned_form')
                 return
 
             # Check if the user is on hold/freeze
-            if user['hold'] is not None and user['hold']:
+            if user['users_hold'] is not None and user['users_hold']:
                 alert("Your account is on hold/freeze. Please try again later.", title="Account On Hold")
                 return
 
-            user_type = user['usertype']
+            user_type = user['users_usertype']
 
             if user_type == 'admin':
                 open_form('admin', user=user)
