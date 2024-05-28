@@ -26,7 +26,7 @@ components:
     properties: {text: '', align: center, bold: true, foreground: ''}
     type: Link
     layout_properties: {grid_position: 'PRBOOJ,YLPFXX'}
-    event_bindings: {click: link_8_click}
+    event_bindings: {click: link_1_click}
     components:
     - name: xy_panel_3_copy_copy
       properties: {height: 25.79998779296875}
@@ -48,7 +48,7 @@ components:
     properties: {text: '', bold: true, align: center}
     type: Link
     layout_properties: {grid_position: 'UEODOJ,CPLGML'}
-    event_bindings: {click: link_1_click}
+    event_bindings: {click: link_2_click}
     components:
     - name: xy_panel_3_copy_2
       properties: {height: 25.79998779296875}
@@ -72,7 +72,7 @@ components:
     properties: {text: '', align: center, bold: true}
     type: Link
     layout_properties: {grid_position: 'ZZFTUF,WQHMDC'}
-    event_bindings: {click: link_2_click}
+    event_bindings: {click: link_3_click}
     components:
     - name: xy_panel_4_copy
       properties: {height: 25.79998779296875}
@@ -93,35 +93,11 @@ components:
           background: '', horizontal_align: center}
         type: Image
         layout_properties: {x: 38, y: 10, width: 47}
-  - name: link_10
-    properties: {text: '', align: center, bold: true}
-    type: Link
-    layout_properties: {grid_position: 'UMQSVJ,HVKZCT'}
-    event_bindings: {click: link_3_click}
-    components:
-    - name: xy_panel_5_copy_copy
-      properties: {height: 25.79998779296875}
-      type: XYPanel
-      layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
-      components:
-      - name: image_4_copy_3_copy_copy
-        properties: {role: null, vertical_align: center, height: 27.79998779296875,
-          tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
-          alt_text: '', spacing_above: small, source: _/theme/history.png, spacing_below: small,
-          background: '', horizontal_align: center}
-        type: Image
-        layout_properties: {x: 38, y: 5, width: 47}
-      - name: label_3_copy_2_copy_copy
-        properties: {text: 'Transaction Monitoring
-
-            '}
-        type: Label
-        layout_properties: {x: 95, y: 0, width: 153.625}
-  - name: link_8_copy
+  - name: link_4
     properties: {text: '', align: center, bold: true}
     type: Link
     layout_properties: {grid_position: 'SRLSYP,YALGWV'}
-    event_bindings: {click: link_7_click}
+    event_bindings: {click: link_4_click}
     components:
     - name: xy_panel_5_copy_2
       properties: {height: 25.79998779296875}
@@ -139,11 +115,11 @@ components:
         properties: {text: User Management}
         type: Label
         layout_properties: {x: 95, y: 0, width: 127.22500610351562}
-  - name: link_7
+  - name: link_5
     properties: {text: '', bold: true, align: center}
     type: Link
     layout_properties: {grid_position: 'WQRMHP,GRXSFA'}
-    event_bindings: {click: link_10_click}
+    event_bindings: {click: link_5_click}
     components:
     - name: xy_panel_6_copy
       properties: {height: 25.79998779296875}
@@ -164,11 +140,11 @@ components:
           underline: false, icon: ''}
         type: Label
         layout_properties: {x: 95, y: 0, width: 112.3523}
-  - name: link_5
+  - name: link6
     properties: {text: '', align: center, bold: true}
     type: Link
     layout_properties: {grid_position: 'PLLMNK,ALTCIX'}
-    event_bindings: {click: link_5_click}
+    event_bindings: {click: link_6_click}
     components:
     - name: xy_panel_7_copy
       properties: {height: 25.79998779296875}
@@ -190,11 +166,11 @@ components:
     properties: {height: 204.5999755859375}
     type: Spacer
     layout_properties: {grid_position: 'ZCYDZV,VFTIPP'}
-  - name: link_9
+  - name: link_7
     properties: {text: '', align: center, bold: true, icon: ''}
     type: Link
     layout_properties: {grid_position: 'VNHTUI,ZJBXFE'}
-    event_bindings: {click: link_9_click}
+    event_bindings: {click: link_7_click}
     components:
     - name: xy_panel_3_copy_7_copy
       properties: {height: 25.79998779296875}

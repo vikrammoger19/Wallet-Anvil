@@ -236,7 +236,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = all 
-        else:
+        elif (self.date_picker_1.date):
           for i in range(len(self.repeating_panel_items)):
             if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) :
               all.append({'date': self.repeating_panel_items[i]['date'],
@@ -247,7 +247,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = all
-  
+        else:
+          print('None')
       #filtering by dates in received
       if self.link12_clicked :
         self.link11_clicked = False
@@ -267,7 +268,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = received
-        else:
+        elif (self.date_picker_1.date):
           for i in range(len(self.repeating_panel_items)):
             if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Credit' :
               received.append({'date': self.repeating_panel_items[i]['date'],
@@ -278,7 +279,9 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = received
-      
+        else:
+          print('None')
+        
       # filtering by dates in transfered
       if self.link13_clicked :
         self.link11_clicked = False
@@ -298,7 +301,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = transfered
-        else:
+        elif (self.date_picker_1.date):
           for i in range(len(self.repeating_panel_items)):
             if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Debit' :
               transfered.append({'date': self.repeating_panel_items[i]['date'],
@@ -309,7 +312,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = transfered
-  
+        else:
+          print('None')
       # filtering by dates in transfered
       if self.link14_clicked :
         self.link11_clicked = False
@@ -329,7 +333,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = withdraw
-        else:
+        elif (self.date_picker_1.date):
           for i in range(len(self.repeating_panel_items)):
             if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn' :
               withdraw.append({'date': self.repeating_panel_items[i]['date'],
@@ -340,7 +344,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = withdraw
-  
+        else:
+          print('None')
       if self.link15_clicked :
         self.link11_clicked = False
         self.link12_clicked = False
@@ -359,7 +364,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = deposit
-        else:
+        elif (self.date_picker_1.date):
           for i in range(len(self.repeating_panel_items)):
             if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Deposited' :
               deposit.append({'date': self.repeating_panel_items[i]['date'],
@@ -370,6 +375,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = deposit
+        else:
+          print('None')
   
     def drop_down_1_change(self, **event_args):
       """This method is called when an item is selected"""
@@ -627,41 +634,44 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_90
-
     def link_1_click(self, **event_args):
+        """This method is called when the link is clicked"""
+        open_form('admin', user=self.user)
+    def link_2_click(self, **event_args):
         """This method is called when the link is clicked"""
         open_form('admin.report_analysis', user=self.user)
 
-    def link_2_click(self, **event_args):
+    def link_3_click(self, **event_args):
         """This method is called when the link is clicked"""
         open_form('admin.account_management', user=self.user)
-
-    def link_7_click(self, **event_args):
-        """This method is called when the link is clicked"""
-        open_form('admin.transaction_monitoring', user=self.user)
-
-    def link_6_click(self, **event_args):
-        """This method is called when the link is clicked"""
-        open_form('admin.admin_add_user', user=self.user)
-
-    def link_5_click(self, **event_args):
-        """This method is called when the link is clicked"""
-        open_form('admin.audit_trail', user=self.user)
-
     def link_4_click(self, **event_args):
-        """This method is called when the link is clicked"""
-        serves_data = app_tables.wallet_users_service.search()
-        # Open the admin.user_support form and pass the serves_data
-        user_support_form = open_form('admin.user_support', serves_data=serves_data, user=self.user)
-
-    def link_3_click(self, **event_args):
         """This method is called when the link is clicked"""
         show_users_form = open_form('admin.show_users', user=self.user)
 
-    def link_8_copy_click(self, **event_args):
+    def link_5_click(self, **event_args):
         """This method is called when the link is clicked"""
-        open_form('admin', user=self.user)
+        pass
 
-    def button_8_click(self, **event_args):
+    def link_6_click(self, **event_args):
+        """This method is called when the link is clicked"""
+        open_form('admin.audit_trail', user=self.user)
+
+    def link_7_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('Login')
+    
+
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  
