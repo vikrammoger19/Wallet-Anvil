@@ -4,65 +4,629 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from datetime import datetime
+import datetime
 
 class transaction_monitoring(transaction_monitoringTemplate):
     def __init__(self, user=None, **properties):
         # Set Form properties and Data Bindings.
-        self.user = user
-        self.init_components(**properties)
-        
-        # Fetch all transactions for the admin
-        transactions = anvil.server.call('get_wallet_transactions')
-        
-        # Group transactions by date
-        self.grouped_transactions = {}
-        for item in transactions:
+      self.init_components(**properties)
+      self.user = user
+      
+      self.link11_clicked = True
+      self.link12_clicked = False
+      self.link13_clicked = False
+      self.link14_clicked = False
+      self.link15_clicked = False
+      self.repeating_panel_items = []
+      #users transactions all
+      self.all_transactions()
+      # Any code you write here will run before the form opens.
+  
+    def date_picker_1_change(self, **event_args):
+      """This method is called when the selected date changes"""
+      self.date_filter()
+  
+    def date_picker_2_change(self, **event_args):
+      """This method is called when the selected date changes"""
+      print(self.date_picker_2.date)
+      self.date_filter()
+  
+      
+    def all_transactions(self):
+      items = anvil.server.call('get_wallet_transactions')
+      self.grouped_transactions = {}
+      print('yes')
+      if items:
+        for item in items:
+            print('yes1')
             # Extract date in YYYY-MM-DD format without time
             date_str = item['date'].strftime("%Y-%m-%d")
             if date_str not in self.grouped_transactions:
                 self.grouped_transactions[date_str] = {'date': item['date'], 'transactions': []}
             self.grouped_transactions[date_str]['transactions'].append(item)
+      else:
+        return
+  
+      # Sort dates in descending order
+      sorted_dates = sorted(self.grouped_transactions.keys(), reverse=True)
+  
+      # Create a list of dictionaries for repeating_panel_1
+      # repeating_panel_items = []
+      for date_str in sorted_dates:
+          date_info = self.grouped_transactions[date_str]
+          for transaction in reversed(date_info['transactions']):
+              fund = transaction['fund']
+              transaction_type = transaction['transaction_type']
+              receiver_phone = transaction['receiver_phone']
+              transaction_time = transaction['date'].strftime("%I:%M %p")
+              
+              # Fetch username from wallet_user table using receiver_phone
+              receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
+              if receiver_user:
+                  receiver_username = receiver_user['username']
+              else:
+                  user = app_tables.wallet_users.get(phone=transaction['phone'])
+                  receiver_username = user['username']
+              
+              if transaction_type == 'Credit' or transaction_type == 'Deposited':
+                  fund_display = "+" + str(fund)
+                  fund_color = "green"
+              elif transaction_type == 'Debit' or transaction_type == 'Withdrawn':
+                  fund_display = "-" + str(fund)
+                  fund_color = "red"
+              else:
+                  fund_display = str(fund)
+                  fund_color = "black"
+              
+              # Append transaction details with username instead of receiver_phone
+              self.repeating_panel_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
+                                              'fund': fund_display,
+                                              'transaction_status': transaction['transaction_status'],
+                                              'transaction_type':transaction['transaction_type'],
+                                              'receiver_username': receiver_username,
+                                              'currency_type':transaction['currency'],
+                                              'transaction_time':transaction_time,
+                                              'fund_color': fund_color})
+  
+      self.repeating_panel_3.items = self.repeating_panel_items
+      
+    def link_11_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      #all transactions linked
+      """This method is called when the button is clicked"""
+      self.link_11.foreground = '#148efe'
+      self.link_12.foreground = 'black'
+      self.link_13.foreground = 'black'
+      self.link_14.foreground = 'black'
+      self.link_15.foreground = 'black'
+      self.link11_clicked = True
+      self.link12_clicked = False
+      self.link13_clicked = False
+      self.link14_clicked = False
+      self.link15_clicked = False
+      all=[]
+      for i in range(len(self.repeating_panel_items)):
+        all.append({'date': self.repeating_panel_items[i]['date'],
+                                            'fund': self.repeating_panel_items[i]['fund'],
+                                            'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                            'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                            'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                            'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                            'fund_color': self.repeating_panel_items[i]['fund_color']})
+      self.repeating_panel_3.items = all
+  
+    def link_12_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      self.link_11.foreground = 'black'
+      self.link_12.foreground = '#148efe'
+      self.link_13.foreground = 'black'
+      self.link_14.foreground = 'black'
+      self.link_15.foreground = 'black'
+      self.link11_clicked = False
+      self.link12_clicked = True
+      self.link13_clicked = False
+      self.link14_clicked = False
+      self.link15_clicked = False
+      received=[]
+      #all transactions that are received from 
+      for i in range(len(self.repeating_panel_items)):
+            if  self.repeating_panel_items[i]['transaction_type'] == 'Credit' :
+              received.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': self.repeating_panel_items[i]['fund'],
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+      self.repeating_panel_3.items = received
+  
+  
+    def link_13_click(self, **event_args):
+    
+      """This method is called when the button is clicked"""
+      self.link_11.foreground = 'black'
+      self.link_12.foreground = 'black'
+      self.link_13.foreground = '#148efe'
+      self.link_14.foreground = 'black'
+      self.link_15.foreground = 'black'
+      self.link11_clicked = False
+      self.link12_clicked = False
+      self.link13_clicked = True
+      self.link14_clicked = False
+      self.link15_clicked = False
+      transfer=[]
+      #all transactions that are transfered to
+      for i in range(len(self.repeating_panel_items)):
+            if  self.repeating_panel_items[i]['transaction_type'] == 'Debit' :
+              transfer.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': self.repeating_panel_items[i]['fund'],
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+      self.repeating_panel_3.items = transfer
+  
+    def link_14_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      
+      self.link_11.foreground = 'black'
+      self.link_12.foreground = 'black'
+      self.link_13.foreground = 'black'
+      self.link_14.foreground = '#148efe'
+      self.link_15.foreground = 'black'
+      self.link11_clicked = False
+      self.link12_clicked = False
+      self.link13_clicked = False
+      self.link14_clicked = True
+      self.link15_clicked = False
+      withdraw=[]
+      for i in range(len(self.repeating_panel_items)):
+            if  self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn' :
+              withdraw.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+      self.repeating_panel_3.items = withdraw
+  
+    def link_15_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      self.link_11.foreground = 'black'
+      self.link_12.foreground = 'black'
+      self.link_13.foreground = 'black'
+      self.link_14.foreground = 'black'
+      self.link_15.foreground = '#148efe'
+      self.link11_clicked = False
+      self.link12_clicked = False
+      self.link13_clicked = False
+      self.link14_clicked = False
+      self.link15_clicked = True
+      deposit=[]
+      for i in range(len(self.repeating_panel_items)):
+            if  self.repeating_panel_items[i]['transaction_type'] == 'Deposited' :
+              deposit.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund':f"{self.repeating_panel_items[i]['fund']}",
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+      self.repeating_panel_3.items = deposit
+    
+    def date_filter(self):
+      #filtering by dates in all transactions 
+      if self.link11_clicked :
+        self.link12_clicked = False
+        self.link13_clicked = False
+        self.link14_clicked = False
+        self.link15_clicked = False
+        all=[]
+        if (self.date_picker_1.date and self.date_picker_2.date): 
+          
+          for i in range(len(self.repeating_panel_items)):
+            if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")):
+              all.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': self.repeating_panel_items[i]['fund'],
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = all 
+        else:
+          for i in range(len(self.repeating_panel_items)):
+            if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) :
+              all.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': self.repeating_panel_items[i]['fund'],
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = all
+  
+      #filtering by dates in received
+      if self.link12_clicked :
+        self.link11_clicked = False
+        self.link13_clicked = False
+        self.link14_clicked = False
+        self.link15_clicked = False
+        received=[]
+        if (self.date_picker_1.date and self.date_picker_2.date): 
+          
+          for i in range(len(self.repeating_panel_items)):
+            if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")) and self.repeating_panel_items[i]['transaction_type'] == 'Credit':
+              received.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': self.repeating_panel_items[i]['fund'],
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = received
+        else:
+          for i in range(len(self.repeating_panel_items)):
+            if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Credit' :
+              received.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': self.repeating_panel_items[i]['fund'],
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = received
+      
+      # filtering by dates in transfered
+      if self.link13_clicked :
+        self.link11_clicked = False
+        self.link12_clicked = False
+        self.link14_clicked = False
+        self.link15_clicked = False
+        transfered=[]
+        if (self.date_picker_1.date and self.date_picker_2.date): 
+          
+          for i in range(len(self.repeating_panel_items)):
+            if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")) and self.repeating_panel_items[i]['transaction_type'] == 'Debit':
+              transfered.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': self.repeating_panel_items[i]['fund'],
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = transfered
+        else:
+          for i in range(len(self.repeating_panel_items)):
+            if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Debit' :
+              transfered.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': self.repeating_panel_items[i]['fund'],
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = transfered
+  
+      # filtering by dates in transfered
+      if self.link14_clicked :
+        self.link11_clicked = False
+        self.link12_clicked = False
+        self.link13_clicked = False
+        self.link15_clicked = False
+        withdraw=[]
+        if (self.date_picker_1.date and self.date_picker_2.date): 
+          
+          for i in range(len(self.repeating_panel_items)):
+            if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")) and self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn':
+              withdraw.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = withdraw
+        else:
+          for i in range(len(self.repeating_panel_items)):
+            if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn' :
+              withdraw.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = withdraw
+  
+      if self.link15_clicked :
+        self.link11_clicked = False
+        self.link12_clicked = False
+        self.link13_clicked = False
+        self.link14_clicked = False
+        deposit=[]
+        if (self.date_picker_1.date and self.date_picker_2.date): 
+          
+          for i in range(len(self.repeating_panel_items)):
+            if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")) and self.repeating_panel_items[i]['transaction_type'] == 'Deposited':
+              deposit.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = deposit
+        else:
+          for i in range(len(self.repeating_panel_items)):
+            if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Deposited' :
+              deposit.append({'date': self.repeating_panel_items[i]['date'],
+                                                  'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                  'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = deposit
+  
+    def drop_down_1_change(self, **event_args):
+      """This method is called when an item is selected"""
+      print(self.drop_down_1.selected_value)
+      current_date = datetime.date.today()
+      current_date_str = current_date.strftime("%Y-%m-%d")
+      print(current_date)
+      #all transactions
+      if self.link11_clicked:
+        if self.drop_down_1.selected_value == 'past 30 days':
+          print(30)
+          days_30=[]
+          past_30_days = current_date - datetime.timedelta(days=30)
+          print(past_30_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_30_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  :
+                days_30.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_30
+  
+        if self.drop_down_1.selected_value == 'past 60 days':
+          days_60=[]
+          print(60)
+          past_60_days = current_date - datetime.timedelta(days=60)
+          print(past_60_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_60_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  :
+                days_60.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_60
         
-        # Sort dates in descending order
-        sorted_dates = sorted(self.grouped_transactions.keys(), reverse=True)
+        if self.drop_down_1.selected_value == 'past 90 days':
+          days_90=[]
+          print(90)
+          past_90_days = current_date - datetime.timedelta(days=90)
+          print(past_90_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_90_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  :
+                days_90.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_90
+  
+  
+      #received transactions
+      if self.link12_clicked:
+        if self.drop_down_1.selected_value == 'past 30 days':
+          print(30)
+          days_30=[]
+          past_30_days = current_date - datetime.timedelta(days=30)
+          print(past_30_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_30_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Credit') :
+                days_30.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_30
+  
+        if self.drop_down_1.selected_value == 'past 60 days':
+          days_60=[]
+          print(60)
+          past_60_days = current_date - datetime.timedelta(days=60)
+          print(past_60_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_60_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  and (self.repeating_panel_items[i]['transaction_type'] == 'Credit'):
+                days_60.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_60
         
-        # Create a list of dictionaries for repeating_panel_1
-        self.repeating_panel_1.items = self.create_repeating_panel_items(sorted_dates)
-
-    def create_repeating_panel_items(self, sorted_dates):
-        repeating_panel_1_items = []
-        for date_str in sorted_dates:
-            date_info = self.grouped_transactions[date_str]
-            for transaction in reversed(date_info['transactions']):
-                fund = transaction['fund']
-                transaction_type = transaction['transaction_type']
-                receiver_phone = transaction['receiver_phone']
-                
-                # Fetch username from wallet_user table using receiver_phone
-                receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
-                if receiver_user:
-                    receiver_username = receiver_user['username']
-                else:
-                    receiver_username = "Unknown"
-                
-                if transaction_type.lower() == 'credit':
-                    fund_display = "+" + str(fund)
-                    fund_color = "green"
-                elif transaction_type.lower() == 'debit':
-                    fund_display = "-" + str(fund)
-                    fund_color = "red"
-                else:
-                    fund_display = str(fund)
-                    fund_color = "black"
-                
-                # Append transaction details with username instead of receiver_phone
-                repeating_panel_1_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
-                                                'fund': fund_display,
-                                                'transaction_status': transaction['transaction_status'],
-                                                'receiver_username': receiver_username,
-                                                'fund_color': fund_color})
-        return repeating_panel_1_items
+        if self.drop_down_1.selected_value == 'past 90 days':
+          days_90=[]
+          print(90)
+          past_90_days = current_date - datetime.timedelta(days=90)
+          print(past_90_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_90_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Credit') :
+                days_90.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_90
+  
+      #transfered
+      if self.link13_clicked:
+        if self.drop_down_1.selected_value == 'past 30 days':
+          print(30)
+          days_30=[]
+          past_30_days = current_date - datetime.timedelta(days=30)
+          print(past_30_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_30_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Debit') :
+                days_30.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_30
+  
+        if self.drop_down_1.selected_value == 'past 60 days':
+          days_60=[]
+          print(60)
+          past_60_days = current_date - datetime.timedelta(days=60)
+          print(past_60_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_60_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  and (self.repeating_panel_items[i]['transaction_type'] == 'Debit'):
+                days_60.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_60
+        
+        if self.drop_down_1.selected_value == 'past 90 days':
+          days_90=[]
+          print(90)
+          past_90_days = current_date - datetime.timedelta(days=90)
+          print(past_90_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_90_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Debit') :
+                days_90.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_90
+  
+      #withdraw details
+      if self.link14_clicked:
+        if self.drop_down_1.selected_value == 'past 30 days':
+          print(30)
+          days_30=[]
+          past_30_days = current_date - datetime.timedelta(days=30)
+          print(past_30_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_30_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn') :
+                days_30.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_30
+  
+        if self.drop_down_1.selected_value == 'past 60 days':
+          days_60=[]
+          print(60)
+          past_60_days = current_date - datetime.timedelta(days=60)
+          print(past_60_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_60_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  and (self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn'):
+                days_60.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_60
+        
+        if self.drop_down_1.selected_value == 'past 90 days':
+          days_90=[]
+          print(90)
+          past_90_days = current_date - datetime.timedelta(days=90)
+          print(past_90_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_90_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn') :
+                days_90.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_90
+  
+      #deposited
+      if self.link15_clicked:
+        if self.drop_down_1.selected_value == 'past 30 days':
+          print(30)
+          days_30=[]
+          past_30_days = current_date - datetime.timedelta(days=30)
+          print(past_30_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_30_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Deposited') :
+                days_30.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_30
+  
+        if self.drop_down_1.selected_value == 'past 60 days':
+          days_60=[]
+          print(60)
+          past_60_days = current_date - datetime.timedelta(days=60)
+          print(past_60_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_60_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  and (self.repeating_panel_items[i]['transaction_type'] == 'Deposited'):
+                days_60.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_60
+        
+        if self.drop_down_1.selected_value == 'past 90 days':
+          days_90=[]
+          print(90)
+          past_90_days = current_date - datetime.timedelta(days=90)
+          print(past_90_days)
+          for i in range(len(self.repeating_panel_items)):
+              if  str(past_90_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Deposited') :
+                days_90.append({'date': self.repeating_panel_items[i]['date'],
+                                                    'fund': f"{self.repeating_panel_items[i]['fund']}",
+                                                    'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                    'receiver_username': self.repeating_panel_items[i]['receiver_username'],
+                                                    'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                    'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'fund_color': self.repeating_panel_items[i]['fund_color']})
+          self.repeating_panel_3.items = days_90
 
     def link_1_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -101,192 +665,3 @@ class transaction_monitoring(transaction_monitoringTemplate):
     def button_8_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('Login')
-
-    def button_1_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        # Get the user entered in the textbox
-        entered_user = self.textbox_search.text.strip()
-
-        if entered_user:
-            # Filter transactions based on the entered user
-            self.update_transactions_by_receiver(entered_user)
-
-    def text_box_1_pressed_enter(self, **event_args):
-        """This method is called when the user presses Enter in this text box"""
-        receiver_phone = self.text_box_1.text.strip()
-        if receiver_phone:
-            # Display transactions for the entered receiver's phone number
-            self.update_transactions_by_receiver(receiver_phone)
-
-    def drop_down_4_change(self, **event_args):
-        """This method is called when an item is selected"""
-        selected_option = self.drop_down_4.selected_value
-        
-        if selected_option == "Type":
-            # Show dropdown and card for Type
-            self.drop_down_3.visible = True
-            self.card_3.visible = True
-            self.label_13.visible = True
-            # Hide other elements
-            self.label_5.visible = False
-            self.label_2.visible = False
-            self.drop_down_1.visible = False
-            self.drop_down_2.visible = False
-            self.label_3_copy_2.visible = False
-        elif selected_option == "Date":
-            # Show elements for Date
-            self.label_5.visible = True
-            self.label_2.visible = True
-            self.label_3_copy_2.visible = True
-            self.drop_down_1.visible = True
-            self.drop_down_2.visible = True
-            self.card_3.visible = True
-            # Hide other elements
-            self.drop_down_3.visible = False
-            self.label_13.visible = False
-        elif selected_option == "filter":
-            self.drop_down_3.visible = False
-            self.card_3.visible = False
-            self.label_13.visible = False
-            # Hide other elements
-            self.label_5.visible = False
-            self.label_2.visible = False
-            self.drop_down_1.visible = False
-            self.drop_down_2.visible = False
-            self.label_3_copy_2.visible = False
-
-    def drop_down_3_change(self, **event_args):
-        """This method is called when the transaction type dropdown selection changes"""
-        selected_transaction_type = self.drop_down_3.selected_value
-        
-        # Update transactions based on the selected transaction type
-        if selected_transaction_type:
-            self.update_transactions_by_type(selected_transaction_type)
-
-    def drop_down_1_change(self, **event_args):
-        """This method is called when the month dropdown selection changes"""
-        selected_month = self.drop_down_1.selected_value
-        selected_year = self.drop_down_2.selected_value
-        if selected_month and selected_year:
-            self.update_repeating_panel(selected_month, selected_year)
-
-    def drop_down_2_change(self, **event_args):
-        """This method is called when the year dropdown selection changes"""
-        selected_month = self.drop_down_1.selected_value
-        selected_year = self.drop_down_2.selected_value
-        if selected_month and selected_year:
-            self.update_repeating_panel(selected_month, selected_year)
-
-    def update_repeating_panel(self, selected_month, selected_year):
-        """Update the repeating panel with transactions for the selected month and year"""
-        repeating_panel_1_items = []
-        selected_month = int(selected_month)
-        selected_year = int(selected_year)
-        for date_str, date_info in self.grouped_transactions.items():
-            date = date_info['date']
-            if date.month == selected_month and date.year == selected_year:
-                for transaction in reversed(date_info['transactions']):
-                    fund = transaction['fund']
-                    transaction_type = transaction['transaction_type']
-                    receiver_phone = transaction['receiver_phone']
-                    
-                    # Fetch username from wallet_user table using receiver_phone
-                    receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
-                    if receiver_user:
-                        receiver_username = receiver_user['username']
-                    else:
-                        receiver_username = "Unknown"
-                    
-                    if transaction_type.lower() == 'credit':
-                        fund_display = "+" + str(fund)
-                        fund_color = "green"
-                    elif transaction_type.lower() == 'debit':
-                        fund_display = "-" + str(fund)
-                        fund_color = "red"
-                    else:
-                        fund_display = str(fund)
-                        fund_color = "black"
-                        
-                    # Append transaction details with username instead of receiver_phone
-                    repeating_panel_1_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
-                                                    'fund': fund_display,
-                                                    'transaction_status': transaction['transaction_status'],
-                                                    'receiver_username': receiver_username,
-                                                    'fund_color': fund_color})
-        self.repeating_panel_1.items = repeating_panel_1_items
-
-    def update_transactions_by_receiver(self, receiver_phone):
-        
-        receiver_phone_number = int(receiver_phone)  # Convert string to integer
-        """Update the transaction history based on the receiver's phone number"""
-        receiver_user = app_tables.wallet_users.get(phone=receiver_phone_number)
-        if receiver_user:
-            receiver_username = receiver_user['username']
-        else:
-            receiver_username = "Unknown"
-    
-        items = app_tables.wallet_users_transaction.search(receiver_phone=receiver_phone_number)
-        # Rest of the method remains the same...
-        grouped_transactions = {}
-        for item in items:
-            # Extract date in YYYY-MM-DD format without time
-            date_str = item['date'].strftime("%Y-%m-%d")
-            if date_str not in grouped_transactions:
-                grouped_transactions[date_str] = {'date': item['date'], 'transactions': []}
-            grouped_transactions[date_str]['transactions'].append(item)
-
-        # Sort dates in descending order
-        sorted_dates = sorted(grouped_transactions.keys(), reverse=True)
-
-        # Create a list of dictionaries for repeating_panel_1
-        repeating_panel_1_items = []
-        for date_str in sorted_dates:
-            date_info = grouped_transactions[date_str]
-            # repeating_panel_1_items.append({'date': date_info['date'].strftime("%Y-%m-%d")})  # Format date without time
-            for transaction in reversed(date_info['transactions']):
-                fund = transaction['fund']
-                transaction_type = transaction['transaction_type']
-                if transaction_type == 'credit':
-                    fund_display = "+" + str(fund)
-                    fund_color = "forestgreen"
-                elif transaction_type == 'debit':
-                    fund_display = "-" + str(fund)
-                    fund_color = "red"
-                else:
-                    fund_display = str(fund)
-                    fund_color = "black"
-                repeating_panel_1_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),'fund': fund_display,'transaction_status':transaction['transaction_status'], 'receiver_username': receiver_username, 'fund_color': fund_color})
-
-        self.repeating_panel_1.items = repeating_panel_1_items
-
-
-    def update_transactions_by_type(self, transaction_type):
-        """Update the repeating panel with transactions for the given transaction type"""
-        repeating_panel_1_items = []
-        for date_str, date_info in self.grouped_transactions.items():
-            for transaction in date_info['transactions']:
-                if transaction['transaction_type'] == transaction_type:
-                    fund = transaction['fund']
-                    receiver_phone = transaction['receiver_phone']
-                    receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
-                    if receiver_user:
-                        receiver_username = receiver_user['username']
-                    else:
-                        receiver_username = "Unknown"
-                    
-                    if transaction_type.lower() == 'credit':
-                        fund_display = "+" + str(fund)
-                        fund_color = "green"
-                    elif transaction_type.lower() == 'debit':
-                        fund_display = "-" + str(fund)
-                        fund_color = "red"
-                    else:
-                        fund_display = str(fund)
-                        fund_color = "black"
-                    
-                    repeating_panel_1_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
-                                                    'fund': fund_display,
-                                                    'transaction_status': transaction['transaction_status'],
-                                                    'receiver_username': receiver_username,
-                                                    'fund_color': fund_color})
-        self.repeating_panel_1.items = repeating_panel_1_items
