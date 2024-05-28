@@ -13,7 +13,7 @@ class transactions(transactionsTemplate):
     self.init_components(**properties)
     self.user = user
     self.users_balance()
-    self.link11_clicked = False
+    self.link11_clicked = Tr
     self.link12_clicked = False
     self.link13_clicked = False
     self.link14_clicked = False
