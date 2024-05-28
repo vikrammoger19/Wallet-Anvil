@@ -21,7 +21,7 @@ class customer_page(customer_pageTemplate):
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('phone', None)
         default_currency = 'INR'
-        users_def_currency = app_tables.wallet_users.get(phone=self.user['phone'])
+        users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
         if users_def_currency['defaultcurrency'] is not None:
           default_currency = users_def_currency['defaultcurrency']
         if phone_number:
@@ -119,7 +119,8 @@ class customer_page(customer_pageTemplate):
         # Get the INR balance from the server
         #currency
         user_default_currency='INR'
-        users_def_currency = app_tables.wallet_users.get(usersphone=self.user['users_phone'])
+        
+        users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
         if users_def_currency['users_defaultcurrency'] is not None:
           user_default_currency = users_def_currency['users_defaultcurrency']
         else:
@@ -198,11 +199,11 @@ class customer_page(customer_pageTemplate):
 
     #getting details of credit and debit 
     def get_credit_debit_details(self):
-      users_phone = self.user['phone']
+      users_phone = self.user['users_phone']
       user_default_currency='INR'
-      users_def_currency = app_tables.wallet_users.get(phone=self.user['phone'])
-      if users_def_currency['defaultcurrency'] is not None:
-          user_default_currency = users_def_currency['defaultcurrency']
+      users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+      if users_def_currency['users_defaultcurrency'] is not None:
+          user_default_currency = users_def_currency['users_defaultcurrency']
       else:
         user_default_currency = 'INR'
       
