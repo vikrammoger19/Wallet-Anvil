@@ -161,9 +161,6 @@ db_schema:
     - name: message
       admin_ui: {width: 200, order: 6}
       type: string
-    - name: currency
-      admin_ui: {order: 1.5, width: 200}
-      type: string
     title: wallet_users_transaction
   actions:
     client: full
