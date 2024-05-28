@@ -21,9 +21,9 @@ class customer_page(customer_pageTemplate):
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('phone', None)
         default_currency = 'INR'
-        users_def_currency = app_tables.wallet_users.get(phone=self.user['phone'])
-        if users_def_currency['defaultcurrency'] is not None:
-          default_currency = users_def_currency['defaultcurrency']
+        users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+        if users_def_currency['users_defaultcurrency'] is not None:
+          default_currency = users_def_currency['users_defaultcurrency']
         if phone_number:
             # Search transactions based on the user's phone number
             items = app_tables.wallet_users_transaction.search(phone=phone_number,currency=default_currency)
@@ -108,24 +108,25 @@ class customer_page(customer_pageTemplate):
 
     def refresh_data(self):
         # Get the user's phone number
-        phone_number = self.user['usersphone']
+        phone_number = self.user['users_phone']
 
         #getting the data for total wallet amount 
         now = datetime.datetime.now()
         formatted_date = now.strftime('%a, %d-%b, %Y')
         self.label_11.text = formatted_date
         # Display the username
-        self.label_20.text = self.user['username']
+        self.label_20.text = self.user['users_username']
         # Get the INR balance from the server
         #currency
         user_default_currency='INR'
-        users_def_currency = app_tables.wallet_users.get(phone=self.user['phone'])
-        if users_def_currency['defaultcurrency'] is not None:
-          user_default_currency = users_def_currency['defaultcurrency']
+        
+        users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+        if users_def_currency['users_defaultcurrency'] is not None:
+          user_default_currency = users_def_currency['users_defaultcurrency']
         else:
           user_default_currency = 'INR'
         
-        balance_iterator = anvil.server.call('get_inr_balance', self.user['phone'])
+        balance_iterator = anvil.server.call('get_inr_balance', self.user['users_phone'])
         if balance_iterator is not None:
           balance = self.inr_balance(balance_iterator, user_default_currency)
           if balance != '0':
@@ -145,13 +146,13 @@ class customer_page(customer_pageTemplate):
         print("Number of transactions retrieved:", len(transactions))
   
         # Filter transactions to include only those involving the user's phone number
-        filtered_transactions = [t for t in transactions if t['phone'] == phone_number or t['receiver_phone'] == phone_number]
+        filtered_transactions = [t for t in transactions if t['users_transaction_phone'] == phone_number or t['users_transaction_receiver_phone'] == phone_number]
   
         # DEBUG: Print the number of transactions after filtering
         print("Number of transactions after filtering:", len(filtered_transactions))
   
         # Filter transactions to include only 'Credit' and 'Debit' types
-        filtered_transactions = [t for t in filtered_transactions if t['transaction_type'] in ['Credit', 'Debit']]
+        filtered_transactions = [t for t in filtered_transactions if t['users_transaction_type'] in ['Credit', 'Debit']]
   
         # Organize data for plotting (aggregate by date and type)
         data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
@@ -198,11 +199,11 @@ class customer_page(customer_pageTemplate):
 
     #getting details of credit and debit 
     def get_credit_debit_details(self):
-      users_phone = self.user['phone']
+      users_phone = self.user['users_phone']
       user_default_currency='INR'
-      users_def_currency = app_tables.wallet_users.get(phone=self.user['phone'])
-      if users_def_currency['defaultcurrency'] is not None:
-          user_default_currency = users_def_currency['defaultcurrency']
+      users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+      if users_def_currency['users_defaultcurrency'] is not None:
+          user_default_currency = users_def_currency['users_defaultcurrency']
       else:
         user_default_currency = 'INR'
       
