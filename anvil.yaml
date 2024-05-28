@@ -41,16 +41,16 @@ db_schema:
     - name: users_aadhar
       admin_ui: {order: 5, width: 200}
       type: number
-    - name: pan
-      admin_ui: {width: 200, order: 6}
+    - name: users_pan
+      admin_ui: {order: 6, width: 200}
       type: string
-    - name: address
-      admin_ui: {width: 200, order: 7}
+    - name: users_address
+      admin_ui: {order: 7, width: 200}
       type: string
     - name: usertype
       admin_ui: {order: 8, width: 147}
       type: string
-    - name: banned
+    - name: users_banned
       admin_ui: {order: 9, width: 125}
       type: bool
     - name: user_limit
