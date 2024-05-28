@@ -119,7 +119,7 @@ class customer_page(customer_pageTemplate):
         # Get the INR balance from the server
         #currency
         user_default_currency='INR'
-        users_def_currency = app_tables.wallet_users.get(phone=self.user['users_phone'])
+        users_def_currency = app_tables.wallet_users.get(usersphone=self.user['users_phone'])
         if users_def_currency['users_defaultcurrency'] is not None:
           user_default_currency = users_def_currency['users_defaultcurrency']
         else:

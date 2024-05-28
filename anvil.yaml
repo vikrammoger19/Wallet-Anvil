@@ -124,8 +124,8 @@ db_schema:
     - name: users_account_status_confirm
       admin_ui: {order: 6, width: 200}
       type: bool
-    - name: phone
-      admin_ui: {width: 200, order: 7}
+    - name: users_account_phone
+      admin_ui: {width: 200}
       type: number
     title: wallet_users_account
   wallet_users_balance:
