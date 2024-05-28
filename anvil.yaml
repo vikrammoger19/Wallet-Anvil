@@ -56,42 +56,6 @@ db_schema:
     - name: users_daily_limit
       admin_ui: {order: 11, width: 200}
       type: number
-    - name: last_login
-      admin_ui: {width: 200, order: 12}
-      type: datetime
-    - name: hold
-      admin_ui: {order: 11.984375, width: 200}
-      type: bool
-    - name: userreferral
-      admin_ui: {order: 14, width: 200}
-      type: string
-    - name: defaultcurrency
-      admin_ui: {width: 200, order: 15}
-      type: string
-    - name: minimum_topup
-      admin_ui: {order: 11.75, width: 200}
-      type: bool
-    - name: timely_topup
-      admin_ui: {order: 11.875, width: 200}
-      type: bool
-    - name: timely_topup_interval
-      admin_ui: {order: 11.9375, width: 200}
-      type: string
-    - name: last_auto_topup_time
-      admin_ui: {order: 11.96875, width: 200}
-      type: datetime
-    - name: default_account
-      admin_ui: {width: 200, order: 21}
-      type: string
-    - name: profile_pic
-      admin_ui: {width: 200, order: 22}
-      type: string
-    - name: country
-      admin_ui: {width: 200, order: 23}
-      type: string
-    - name: inactive
-      admin_ui: {order: 24, width: 200}
-      type: bool
     - name: users_usertype
       admin_ui: {width: 147}
       type: string
