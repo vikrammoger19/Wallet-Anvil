@@ -131,16 +131,7 @@ db_schema:
   wallet_users_balance:
     client: full
     server: full
-    columns:
-    - name: currency_type
-      admin_ui: {width: 200, order: 0}
-      type: string
-    - name: balance
-      admin_ui: {width: 200, order: 1}
-      type: number
-    - name: phone
-      admin_ui: {width: 200, order: 2}
-      type: number
+    columns: []
     title: wallet_users_balance
   wallet_users_transaction:
     client: full
