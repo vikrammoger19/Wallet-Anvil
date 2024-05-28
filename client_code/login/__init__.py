@@ -29,7 +29,7 @@ class login(loginTemplate):
         user = anvil.server.call('get_user_for_login', login_input)
 
         # Check if user exists and password matches
-        if user is not None and user['password'] == password:
+        if user is not None and user['users_password'] == password:
             # Check if the user is banned
             if user['banned'] is not None and user['banned']:
                 open_form('LOGIN.banned_form')

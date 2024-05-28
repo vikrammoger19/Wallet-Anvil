@@ -313,7 +313,7 @@ def validate_email(email):
     """
     Validates if the provided email exists in the database.
     """
-    matching_users = app_tables.wallet_users.search(email=email)
+    matching_users = app_tables.wallet_users.search(users_email=email)
     return bool(matching_users)
 
 @anvil.server.callable
@@ -365,7 +365,7 @@ def update_active_status():
     # Iterate through each user
     for user in all_users:
         # Get the last login date for the user
-        last_login = user['last_login']
+        last_login = user['users_last_login']
         
         # Calculate the difference in days between last login and today
         if last_login is not None:
