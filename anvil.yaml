@@ -47,17 +47,14 @@ db_schema:
     - name: users_address
       admin_ui: {order: 7, width: 200}
       type: string
-    - name: usertype
-      admin_ui: {order: 8, width: 147}
-      type: string
     - name: users_banned
       admin_ui: {order: 9, width: 125}
       type: bool
-    - name: user_limit
+    - name: users_user_limit
       admin_ui: {order: 10, width: 180}
       type: number
-    - name: daily_limit
-      admin_ui: {width: 200, order: 11}
+    - name: users_daily_limit
+      admin_ui: {order: 11, width: 200}
       type: number
     - name: last_login
       admin_ui: {width: 200, order: 12}
@@ -98,6 +95,9 @@ db_schema:
     - name: inactive
       admin_ui: {order: 24, width: 200}
       type: bool
+    - name: users_usertype
+      admin_ui: {width: 147}
+      type: string
     title: wallet_users
   wallet_users_account:
     client: full
