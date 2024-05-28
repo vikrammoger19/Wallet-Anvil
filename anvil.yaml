@@ -103,26 +103,26 @@ db_schema:
     client: full
     server: full
     columns:
-    - name: account_number
-      admin_ui: {width: 200, order: 0}
+    - name: users_account_number
+      admin_ui: {order: 0, width: 200}
       type: number
-    - name: account_holder_name
-      admin_ui: {width: 200, order: 1}
+    - name: users_account_holder_name
+      admin_ui: {order: 1, width: 230}
       type: string
-    - name: bank_name
-      admin_ui: {width: 200, order: 2}
+    - name: users_account_bank_name
+      admin_ui: {order: 2, width: 200}
       type: string
-    - name: branch_name
-      admin_ui: {width: 200, order: 3}
+    - name: users_account_branch_name
+      admin_ui: {order: 3, width: 200}
       type: string
-    - name: ifsc_code
-      admin_ui: {width: 200, order: 4}
+    - name: users_account_ifsc_code
+      admin_ui: {order: 4, width: 200}
       type: string
-    - name: account_type
-      admin_ui: {width: 200, order: 5}
+    - name: users_account_type
+      admin_ui: {order: 5, width: 200}
       type: string
-    - name: status_confirm
-      admin_ui: {width: 200, order: 6}
+    - name: users_account_status_confirm
+      admin_ui: {order: 6, width: 200}
       type: bool
     - name: phone
       admin_ui: {width: 200, order: 7}
