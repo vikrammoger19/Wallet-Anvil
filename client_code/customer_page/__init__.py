@@ -22,8 +22,8 @@ class customer_page(customer_pageTemplate):
         phone_number = user_dict.get('phone', None)
         default_currency = 'INR'
         users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
-        if users_def_currency['defaultcurrency'] is not None:
-          default_currency = users_def_currency['defaultcurrency']
+        if users_def_currency['users_defaultcurrency'] is not None:
+          default_currency = users_def_currency['users_defaultcurrency']
         if phone_number:
             # Search transactions based on the user's phone number
             items = app_tables.wallet_users_transaction.search(phone=phone_number,currency=default_currency)
