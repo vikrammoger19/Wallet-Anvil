@@ -374,10 +374,10 @@ def update_active_status():
             # Check if the difference is greater than 90 days
             if days_difference > 90:
                 # Update the active column to False
-                user['inactive'] = True
+                user['users_inactive'] = True
             else:
                 # Update the active column to True
-                user['inactive'] = None
+                user['users_inactive'] = None
                 
             # Save the changes to the table
             user.update()

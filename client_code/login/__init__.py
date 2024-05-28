@@ -31,7 +31,7 @@ class login(loginTemplate):
         # Check if user exists and password matches
         if user is not None and user['users_password'] == password:
             # Check if the user is banned
-            if user['banned'] is not None and user['banned']:
+            if user['ubanned'] is not None and user['banned']:
                 open_form('LOGIN.banned_form')
                 return
 
