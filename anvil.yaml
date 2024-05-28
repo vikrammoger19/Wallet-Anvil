@@ -135,6 +135,9 @@ db_schema:
     - name: users_balance
       admin_ui: {width: 200}
       type: number
+    - name: users_balance_currency_type
+      admin_ui: {width: 253}
+      type: string
     title: wallet_users_balance
   wallet_users_transaction:
     client: full
