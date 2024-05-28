@@ -13,15 +13,15 @@ from io import BytesIO
 
 @anvil.server.callable
 def get_user_for_login(login_input):
-  user_by_username = app_tables.wallet_users.get(username=login_input)
+  user_by_username = app_tables.wallet_users.get(users_username=login_input)
   if login_input.isdigit():
     phone_number = int(login_input)
-    user_by_phone = app_tables.wallet_users.get(phone=phone_number)
+    user_by_phone = app_tables.wallet_users.get(users_phone=phone_number)
     return user_by_phone
     # Continue with the rest of your code
   else:
     print("Invalid phone number. Please enter a numeric value.")
-  user_by_email = app_tables.wallet_users.get(email=login_input)
+  user_by_email = app_tables.wallet_users.get(users_email=login_input)
   if user_by_username:
             return user_by_username
   if user_by_email:
@@ -32,17 +32,17 @@ def get_user_for_login(login_input):
 @anvil.server.callable
 def add_info(username, email, address, phone, aadhar, pan, password):
     user_row = app_tables.wallet_users.add_row(
-        username=username,
-        email=email,
-        address=address,
-        phone=phone,
-        aadhar=int(aadhar),              
-        pan=pan,
-        password=password,   
-        usertype='customer',
-        confirm_email=True,
-        user_limit=(100000),
-        last_login = datetime.now()
+        users_username=username,
+        users_email=email,
+        users_address=address,
+        users_phone=phone,
+        users_aadhar=int(aadhar),              
+        users_pan=pan,
+        users_password=password,   
+        users_usertype='customer',
+        users_confirm_email=True,
+        users_user_limit=(100000),
+        users_last_login = datetime.now()
     )
     return user_row
 
@@ -76,7 +76,7 @@ def get_currency_code():
 def get_user_by_phone(phone_number):
     try:
         phone_number = int(phone_number)  # Convert the phone_number to an integer
-        users = app_tables.wallet_users.search(phone=phone_number)
+        users = app_tables.wallet_users.search(users_phone=phone_number)
 
         if users and len(users) > 0:
             return users[0]
