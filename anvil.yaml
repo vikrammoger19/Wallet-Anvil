@@ -23,23 +23,23 @@ db_schema:
     client: full
     server: full
     columns:
-    - name: username
-      admin_ui: {width: 200, order: 0}
+    - name: users_username
+      admin_ui: {order: 0, width: 200}
       type: string
-    - name: phone
-      admin_ui: {width: 200, order: 1}
+    - name: users_phone
+      admin_ui: {order: 1, width: 200}
       type: number
-    - name: email
-      admin_ui: {width: 200, order: 2}
+    - name: users_email
+      admin_ui: {order: 2, width: 200}
       type: string
-    - name: password
-      admin_ui: {width: 200, order: 3}
+    - name: users_password
+      admin_ui: {order: 3, width: 200}
       type: string
-    - name: confirm_email
-      admin_ui: {width: 200, order: 4}
+    - name: users_confirm_email
+      admin_ui: {order: 4, width: 200}
       type: bool
-    - name: aadhar
-      admin_ui: {width: 200, order: 5}
+    - name: users_aadhar
+      admin_ui: {order: 5, width: 200}
       type: number
     - name: pan
       admin_ui: {width: 200, order: 6}
