@@ -165,7 +165,7 @@ class signup(signupTemplate):
         user_email = self.text_box_2.text
         
         # Check if the email exists in the database
-        matching_users = app_tables.wallet_users.search(email=user_email)
+        matching_users = app_tables.wallet_users.search(users_email=user_email)
         
         if matching_users:
             # Email exists, generate OTP
