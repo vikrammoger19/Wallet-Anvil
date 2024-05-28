@@ -68,9 +68,6 @@ db_schema:
     - name: defaultcurrency
       admin_ui: {width: 200, order: 15}
       type: string
-    - name: auto_topup
-      admin_ui: {order: 11.5, width: 200}
-      type: bool
     - name: minimum_topup
       admin_ui: {order: 11.75, width: 200}
       type: bool
@@ -98,6 +95,9 @@ db_schema:
     - name: users_usertype
       admin_ui: {width: 147}
       type: string
+    - name: users_auto_topup
+      admin_ui: {width: 200}
+      type: bool
     title: wallet_users
   wallet_users_account:
     client: full
