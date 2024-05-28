@@ -138,6 +138,9 @@ db_schema:
     - name: users_balance_currency_type
       admin_ui: {width: 253}
       type: string
+    - name: users_balance_phone
+      admin_ui: {width: 200}
+      type: number
     title: wallet_users_balance
   wallet_users_transaction:
     client: full
@@ -163,9 +166,6 @@ db_schema:
       type: number
     - name: message
       admin_ui: {width: 200, order: 6}
-      type: string
-    - name: currency
-      admin_ui: {order: 1.5, width: 200}
       type: string
     title: wallet_users_transaction
   actions:
