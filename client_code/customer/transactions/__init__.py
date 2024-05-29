@@ -138,8 +138,8 @@ class transactions(transactionsTemplate):
     self.link15_clicked = False
     all=[]
     for i in range(len(self.repeating_panel_items)):
-      all.append({'date': self.repeating_panel_items[i]['date'],
-                                          'fund': self.repeating_panel_items[i]['fund'],
+      all.append({'date': self.repeating_panel_items[i]['users_transaction_date'],
+                                          'fund': self.repeating_panel_items[i]['users_transaction_fund'],
                                           'transaction_status': self.repeating_panel_items[i]['transaction_status'],
                                           'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                           'currency_type':self.repeating_panel_items[i]['currency_type'],
