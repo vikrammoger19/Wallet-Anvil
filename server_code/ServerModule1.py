@@ -93,7 +93,7 @@ def get_wallet_transactions():
 
 @anvil.server.callable
 def get_user_bank_name(phone):
-  bank_names = app_tables.wallet_users_account.search(phone=phone)
+  bank_names = app_tables.wallet_users_account.search(users_account_phone=phone)
   return bank_names
 @anvil.server.callable
 def get_username(phone):
