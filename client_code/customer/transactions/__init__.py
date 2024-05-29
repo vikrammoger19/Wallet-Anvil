@@ -88,9 +88,9 @@ class transactions(transactionsTemplate):
     for date_str in sorted_dates:
         date_info = self.grouped_transactions[date_str]
         for transaction in reversed(date_info['transactions']):
-            fund = transaction['users_transactfund']
-            transaction_type = transaction['transaction_type']
-            receiver_phone = transaction['receiver_phone']
+            fund = transaction['users_transaction_fund']
+            transaction_type = transaction['users_transaction_type']
+            receiver_phone = transaction['users_transaction_receiver_phone']
             transaction_time = transaction['date'].strftime("%I:%M %p")
             
             # Fetch username from wallet_user table using receiver_phone
