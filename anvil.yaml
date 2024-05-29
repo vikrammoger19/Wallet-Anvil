@@ -146,8 +146,8 @@ db_schema:
     client: full
     server: full
     columns:
-    - name: date
-      admin_ui: {width: 200, order: 0}
+    - name: users_transaction_date
+      admin_ui: {order: 0, width: 200}
       type: datetime
     - name: fund
       admin_ui: {width: 200, order: 1}
@@ -189,10 +189,10 @@ db_schema:
     - name: users_service_username
       admin_ui: {order: 0, width: 200}
       type: string
-    - name: phone
-      admin_ui: {width: 200, order: 1}
+    - name: users_service_phone
+      admin_ui: {order: 1, width: 200}
       type: number
-    - name: query
+    - name: users_service_query
       admin_ui: {order: 2, width: 200}
       type: string
     title: wallet_users_service
