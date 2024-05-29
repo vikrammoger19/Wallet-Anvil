@@ -158,17 +158,17 @@ db_schema:
     - name: users_transaction_status
       admin_ui: {order: 3, width: 200}
       type: string
-    - name: phone
-      admin_ui: {width: 200, order: 5}
-      type: number
-    - name: message
-      admin_ui: {width: 200, order: 6}
-      type: string
     - name: users_transaction_currency
       admin_ui: {width: 200, order: 7}
       type: string
     - name: users_transaction_receiver_phone
       admin_ui: {width: 266}
+      type: number
+    - name: users_transaction_message
+      admin_ui: {width: 200}
+      type: string
+    - name: users_transaction_phone
+      admin_ui: {width: 200}
       type: number
     title: wallet_users_transaction
   actions:
@@ -210,6 +210,9 @@ db_schema:
     - name: admins_add_currency_country
       admin_ui: {width: 248}
       type: string
+    - name: admins_add_currency_icon
+      admin_ui: {width: 221}
+      type: media
 secrets:
   ? ''
   : value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}
