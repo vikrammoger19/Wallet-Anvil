@@ -58,16 +58,16 @@ def get_user_account_numbers(phone):
 
 @anvil.server.callable
 def get_username(phone):
-    user = app_tables.wallet_users.get(phone=phone)
+    user = app_tables.wallet_users.get(users_phone=phone)
     if user:
-        return user['username']
+        return user['users_username']
     else:
         return "Username Not Found"      
       
 @anvil.server.callable
 def get_currency_code():
-    currencies = app_tables.wallet_currency.search()
-    return [f"{currency['currency_code']}" for currency in currencies]
+    currencies = app_tables.wallet_admins_add_currency.search()
+    return [f"{currency['admins_add_currency_code']}" for currency in currencies]
 
 
 ###
@@ -93,15 +93,15 @@ def get_wallet_transactions():
 
 @anvil.server.callable
 def get_user_bank_name(phone):
-  bank_names = app_tables.wallet_users_account.search(phone=phone)
+  bank_names = app_tables.wallet_users_account.search(users_account_phone=phone)
   return bank_names
 @anvil.server.callable
 def get_username(phone):
-  user = app_tables.wallet_users.get(phone=phone)
-  return user['username'] 
+  user = app_tables.wallet_users.get(users_phone=phone)
+  return user['users_username'] 
 @anvil.server.callable
 def get_user_currency(phone):
-  currency= app_tables.wallet_users_balance.search(phone=phone)
+  currency= app_tables.wallet_users_balance.search(users_balance_phone=phone)
   return currency
 
 @anvil.server.callable
@@ -157,14 +157,14 @@ def update_daily_limit(name, emoney_value):
     user_row = app_tables.users.get(username=name)  # Use get() instead of search() if username is unique
 
     if user_row is not None:
-        user_row['user_limit'] = emoney_value
+        user_row['users_user_limit'] = emoney_value
         user_row.update()
         return "Daily limit updated successfully"
     else:
         return "User not found"
 @anvil.server.callable
 def user_detail(name, no):
-    user_row = app_tables.wallet_users.get(username=name)
+    user_row = app_tables.wallet_users.get(ususername=name)
     
     if user_row is not None:
         try:

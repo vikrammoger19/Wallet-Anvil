@@ -66,7 +66,7 @@ class transactions(transactionsTemplate):
 
     
   def all_transactions(self):
-    items = app_tables.wallet_users_transaction.search(users_transaction_phone=self.user['phone'])
+    items = app_tables.wallet_users_transaction.search(users_transaction_phone=self.user['users_phone'])
     self.grouped_transactions = {}
     print('yes')
     if items:
@@ -88,9 +88,9 @@ class transactions(transactionsTemplate):
     for date_str in sorted_dates:
         date_info = self.grouped_transactions[date_str]
         for transaction in reversed(date_info['transactions']):
-            fund = transaction['fund']
-            transaction_type = transaction['transaction_type']
-            receiver_phone = transaction['receiver_phone']
+            fund = transaction['users_transaction_fund']
+            transaction_type = transaction['users_transaction_type']
+            receiver_phone = transaction['users_transaction_receiver_phone']
             transaction_time = transaction['date'].strftime("%I:%M %p")
             
             # Fetch username from wallet_user table using receiver_phone
@@ -138,8 +138,8 @@ class transactions(transactionsTemplate):
     self.link15_clicked = False
     all=[]
     for i in range(len(self.repeating_panel_items)):
-      all.append({'date': self.repeating_panel_items[i]['date'],
-                                          'fund': self.repeating_panel_items[i]['fund'],
+      all.append({'date': self.repeating_panel_items[i]['users_transaction_date'],
+                                          'fund': self.repeating_panel_items[i]['users_transaction_fund'],
                                           'transaction_status': self.repeating_panel_items[i]['transaction_status'],
                                           'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                           'currency_type':self.repeating_panel_items[i]['currency_type'],
