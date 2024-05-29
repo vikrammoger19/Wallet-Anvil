@@ -34,10 +34,10 @@ class transactions(transactionsTemplate):
 
   def users_balance(self):
     phone = self.user['users_phone']
-    users_details = app_tables.wallet_users.get(phone=phone)
+    users_details = app_tables.wallet_users.get(users_phone=phone)
     default_currency = 'INR'
     try:
-      if users_details['defaultcurrency']:
+      if users_details['users_defaultcurrency']:
         default_currency = users_details['defaultcurrency']
       users_balance = app_tables.wallet_users_balance.get(phone=phone,currency_type=default_currency)
       print('yes in')
