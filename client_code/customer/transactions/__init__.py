@@ -54,7 +54,7 @@ class transactions(transactionsTemplate):
         try:
           if users_balance:
             if float(users_balance['users_balance']):
-              self.label_4.text = f"{float(users_balance['balance']):.2f}"
+              self.label_4.text = f"{float(users_balance['users_balance']):.2f}"
               self.label_4.icon = f'fa:{default_currency.lower()}'
           else:
             self.label_4.text = '0'
