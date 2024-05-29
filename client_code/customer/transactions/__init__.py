@@ -33,18 +33,18 @@ class transactions(transactionsTemplate):
     self.date_filter()
 
   def users_balance(self):
-    phone = self.user['usersphone']
-    users_details = app_tables.wallet_users.get(phone=phone)
+    phone = self.user['users_phone']
+    users_details = app_tables.wallet_users.get(users_phone=phone)
     default_currency = 'INR'
     try:
-      if users_details['defaultcurrency']:
-        default_currency = users_details['defaultcurrency']
-      users_balance = app_tables.wallet_users_balance.get(phone=phone,currency_type=default_currency)
+      if users_details['users_defaultcurrency']:
+        default_currency = users_details['users_defaultcurrency']
+      users_balance = app_tables.wallet_users_balance.get(users_balance_phone=phone,currency_type=default_currency)
       print('yes in')
       try:
         if users_balance:
-          if int(users_balance['balance']) :
-            self.label_4.text = f"{users_balance['balance']:.2f}"
+          if int(users_balance['users_balance']) :
+            self.label_4.text = f"{users_balance['users_balance']:.2f}"
             self.label_4.icon = f'fa:{default_currency.lower()}'
         else:
             self.label_4.text = '0'
@@ -53,8 +53,8 @@ class transactions(transactionsTemplate):
         print(e)
         try:
           if users_balance:
-            if float(users_balance['balance']):
-              self.label_4.text = f"{float(users_balance['balance']):.2f}"
+            if float(users_balance['users_balance']):
+              self.label_4.text = f"{float(users_balance['users_balance']):.2f}"
               self.label_4.icon = f'fa:{default_currency.lower()}'
           else:
             self.label_4.text = '0'
