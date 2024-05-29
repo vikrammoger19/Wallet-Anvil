@@ -66,7 +66,7 @@ class transactions(transactionsTemplate):
 
     
   def all_transactions(self):
-    items = app_tables.wallet_users_transaction.search(phone=self.user['phone'])
+    items = app_tables.wallet_users_transaction.search(users_transaction_phone=self.user['phone'])
     self.grouped_transactions = {}
     print('yes')
     if items:
