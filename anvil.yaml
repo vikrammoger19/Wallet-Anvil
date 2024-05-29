@@ -152,11 +152,11 @@ db_schema:
     - name: users_transaction_fund
       admin_ui: {order: 1, width: 200}
       type: number
-    - name: transaction_type
-      admin_ui: {width: 200, order: 2}
+    - name: users_transaction_type
+      admin_ui: {order: 2, width: 200}
       type: string
-    - name: transaction_status
-      admin_ui: {width: 200, order: 3}
+    - name: users_transaction_status
+      admin_ui: {order: 3, width: 200}
       type: string
     - name: receiver_phone
       admin_ui: {width: 200, order: 4}
