@@ -164,7 +164,7 @@ def update_daily_limit(name, emoney_value):
         return "User not found"
 @anvil.server.callable
 def user_detail(name, no):
-    user_row = app_tables.wallet_users.get(username=name)
+    user_row = app_tables.wallet_users.get(ususername=name)
     
     if user_row is not None:
         try:
