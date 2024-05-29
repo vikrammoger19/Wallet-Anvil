@@ -203,16 +203,7 @@ db_schema:
     title: wallet_currency
     client: full
     server: full
-    columns:
-    - name: country
-      admin_ui: {width: 200, order: 0}
-      type: string
-    - name: currency_code
-      admin_ui: {width: 200, order: 1}
-      type: string
-    - name: currency_icon
-      admin_ui: {width: 200, order: 2}
-      type: media
+    columns: []
 secrets:
   ? ''
   : value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}
