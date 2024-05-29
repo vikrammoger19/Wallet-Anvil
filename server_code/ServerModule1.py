@@ -98,7 +98,7 @@ def get_user_bank_name(phone):
 @anvil.server.callable
 def get_username(phone):
   user = app_tables.wallet_users.get(users_phone=phone)
-  return user['username'] 
+  return user['users_username'] 
 @anvil.server.callable
 def get_user_currency(phone):
   currency= app_tables.wallet_users_balance.search(users_balance_phone=phone)
@@ -157,7 +157,7 @@ def update_daily_limit(name, emoney_value):
     user_row = app_tables.users.get(username=name)  # Use get() instead of search() if username is unique
 
     if user_row is not None:
-        user_row['user_limit'] = emoney_value
+        user_row['users_user_limit'] = emoney_value
         user_row.update()
         return "Daily limit updated successfully"
     else:
