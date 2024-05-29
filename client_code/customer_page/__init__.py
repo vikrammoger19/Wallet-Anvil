@@ -245,7 +245,7 @@ class customer_page(customer_pageTemplate):
         open_form('customer.transactions', user=self.user)
 
     def link_4_click(self, **event_args):
-        open_form('customer.ad', user=self.user)
+        open_form('customer.deposit', user=self.user)
 
     def link_5_click(self, **event_args):
         open_form('customer.withdraw', user=self.user)
