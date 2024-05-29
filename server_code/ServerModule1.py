@@ -58,16 +58,16 @@ def get_user_account_numbers(phone):
 
 @anvil.server.callable
 def get_username(phone):
-    user = app_tables.wallet_users.get(phone=phone)
+    user = app_tables.wallet_users.get(users_phone=phone)
     if user:
-        return user['username']
+        return user['users_username']
     else:
         return "Username Not Found"      
       
 @anvil.server.callable
 def get_currency_code():
-    currencies = app_tables.wallet_currency.search()
-    return [f"{currency['currency_code']}" for currency in currencies]
+    currencies = app_tables.wallet_admins_add_currency.search()
+    return [f"{currency['admins_add_currency_code']}" for currency in currencies]
 
 
 ###
