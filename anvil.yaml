@@ -170,6 +170,9 @@ db_schema:
     - name: users_transaction_currency
       admin_ui: {width: 200, order: 7}
       type: string
+    - name: users_transaction_receiver_phone
+      admin_ui: {width: 266}
+      type: number
     title: wallet_users_transaction
   actions:
     client: full
