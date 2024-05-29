@@ -33,7 +33,7 @@ class transactions(transactionsTemplate):
     self.date_filter()
 
   def users_balance(self):
-    phone = self.user['phone']
+    phone = self.user['usersphone']
     users_details = app_tables.wallet_users.get(phone=phone)
     default_currency = 'INR'
     try:

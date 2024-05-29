@@ -182,12 +182,12 @@ def user_detail(name, no):
 # anvil.server.call('get_username', self.user['phone'])
 @anvil.server.callable
 def get_username(phone_number):
-    user = app_tables.wallet_users.get(phone=phone_number)
-    return user['username'] if user else None
+    user = app_tables.wallet_users.get(users_phone=phone_number)
+    return user['users_username'] if user else None
 
 @anvil.server.callable
 def get_inr_balance(phone):
-  balance = app_tables.wallet_users_balance.search(phone=phone)
+  balance = app_tables.wallet_users_balance.search(users_balance_phone=phone)
   return balance
 
 @anvil.server.callable
