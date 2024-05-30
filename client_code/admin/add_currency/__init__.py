@@ -16,7 +16,7 @@ class add_currency(add_currencyTemplate):
       self.country_type_filter = [user for user in app_tables.wallet_currency.search()
                                   if user['country'].lower().startswith(country_filter.lower())]
     else:
-      self.country_type_filter = [user for user in app_tables.wallet_currency.search()]
+      self.country_type_filter = [user for user in app_tables.wallet_admins_add_currency.search()]
     self.repeating_panel_1.items = self.country_type_filter
 
   def button_1_click(self, **event_args):
