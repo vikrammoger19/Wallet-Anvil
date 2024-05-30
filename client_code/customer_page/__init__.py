@@ -96,7 +96,7 @@ class customer_page(customer_pageTemplate):
 
     def link_10_click(self, **event_args):
         """This method is called when the link is clicked"""
-        open_form("customer.transaction_history", user=self.user)
+        open_form("customer.add", user=self.user)
 
     def init_graph(self):
         # Create an empty figure
