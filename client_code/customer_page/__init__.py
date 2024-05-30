@@ -96,7 +96,7 @@ class customer_page(customer_pageTemplate):
 
     def link_10_click(self, **event_args):
         """This method is called when the link is clicked"""
-        open_form("customer.add", user=self.user)
+        open_form("customer.deposit", user=self.user)
 
     def init_graph(self):
         # Create an empty figure
@@ -245,7 +245,7 @@ class customer_page(customer_pageTemplate):
         open_form('customer.transactions', user=self.user)
 
     def link_4_click(self, **event_args):
-        open_form('customer.deposit', user=self.user)
+        open_form('customer.transfer', user=self.user)
 
     def link_5_click(self, **event_args):
         open_form('customer.withdraw', user=self.user)
