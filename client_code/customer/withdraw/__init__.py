@@ -15,6 +15,7 @@ class withdraw(withdrawTemplate):
     username = anvil.server.call('get_username', self.user['users_phone'])
     self.label_1.text = f"Welcome to Green Gate Financial, {username}"
     bank_names = anvil.server.call('get_user_bank_name', self.user['users_account_phone'])
+    
     currencies=anvil.server.call('get_user_currency',self.user['phone'])
     self.drop_down_1.items = [str(row['bank_name']) for row in bank_names]
     self.drop_down_2.items= [str(row['currency_type']) for row in currencies]
