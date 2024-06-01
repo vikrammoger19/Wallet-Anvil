@@ -14,10 +14,10 @@ class default_currency(default_currencyTemplate):
         
         # Set INR as the default currency initially
         self.default_currency = 'INR'
-         # = app_tables.wallet_users.get(phone=self.user['phone'])
+        users = app_tables.wallet_users.get(phone=self.user['phone'])
          
-        if self.user['defaultcurrency'] != None:
-          self.default_currency = self.user['defaultcurrency']
+        if users['defaultcurrency'] != None:
+          self.default_currency = users['defaultcurrency']
         else:
           self.default_currency = 'INR'
         self.phone = self.user['phone']

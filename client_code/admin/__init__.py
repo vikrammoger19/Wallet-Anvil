@@ -10,7 +10,7 @@ class admin(adminTemplate):
         self.init_components(**properties)
         self.user = user
         if user is not None:
-            self.label_2.text = user['username']
+            self.label_2.text = user['users_username']
         self.refresh_data()
 
     def refresh_data(self):

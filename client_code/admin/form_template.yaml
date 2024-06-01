@@ -230,7 +230,7 @@ components:
             name: label_3_copy_7
     - properties: {col_widths: '{}'}
       type: ColumnPanel
-      layout_properties: {width: 1020.5400244140626}
+      layout_properties: {width: 1041.8401904296875}
       name: content_panel
       components:
       - properties: {role: null, vertical_align: middle, spacing: medium, align: left,

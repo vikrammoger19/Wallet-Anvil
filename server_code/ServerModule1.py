@@ -13,15 +13,15 @@ from io import BytesIO
 
 @anvil.server.callable
 def get_user_for_login(login_input):
-  user_by_username = app_tables.wallet_users.get(username=login_input)
+  user_by_username = app_tables.wallet_users.get(users_username=login_input)
   if login_input.isdigit():
     phone_number = int(login_input)
-    user_by_phone = app_tables.wallet_users.get(phone=phone_number)
+    user_by_phone = app_tables.wallet_users.get(users_phone=phone_number)
     return user_by_phone
     # Continue with the rest of your code
   else:
     print("Invalid phone number. Please enter a numeric value.")
-  user_by_email = app_tables.wallet_users.get(email=login_input)
+  user_by_email = app_tables.wallet_users.get(users_email=login_input)
   if user_by_username:
             return user_by_username
   if user_by_email:
@@ -32,17 +32,17 @@ def get_user_for_login(login_input):
 @anvil.server.callable
 def add_info(username, email, address, phone, aadhar, pan, password):
     user_row = app_tables.wallet_users.add_row(
-        username=username,
-        email=email,
-        address=address,
-        phone=phone,
-        aadhar=int(aadhar),              
-        pan=pan,
-        password=password,   
-        usertype='customer',
-        confirm_email=True,
-        user_limit=(100000),
-        last_login = datetime.now()
+        users_username=username,
+        users_email=email,
+        users_address=address,
+        users_phone=phone,
+        users_aadhar=int(aadhar),              
+        users_pan=pan,
+        users_password=password,   
+        users_usertype='customer',
+        users_confirm_email=True,
+        users_user_limit=(100000),
+        users_last_login = datetime.now()
     )
     return user_row
 
@@ -58,16 +58,16 @@ def get_user_account_numbers(phone):
 
 @anvil.server.callable
 def get_username(phone):
-    user = app_tables.wallet_users.get(phone=phone)
+    user = app_tables.wallet_users.get(users_phone=phone)
     if user:
-        return user['username']
+        return user['users_username']
     else:
         return "Username Not Found"      
       
 @anvil.server.callable
 def get_currency_code():
-    currencies = app_tables.wallet_currency.search()
-    return [f"{currency['currency_code']}" for currency in currencies]
+    currencies = app_tables.wallet_admins_add_currency.search()
+    return [f"{currency['admins_add_currency_code']}" for currency in currencies]
 
 
 ###
@@ -76,7 +76,7 @@ def get_currency_code():
 def get_user_by_phone(phone_number):
     try:
         phone_number = int(phone_number)  # Convert the phone_number to an integer
-        users = app_tables.wallet_users.search(phone=phone_number)
+        users = app_tables.wallet_users.search(users_phone=phone_number)
 
         if users and len(users) > 0:
             return users[0]
@@ -93,15 +93,15 @@ def get_wallet_transactions():
 
 @anvil.server.callable
 def get_user_bank_name(phone):
-  bank_names = app_tables.wallet_users_account.search(phone=phone)
+  bank_names = app_tables.wallet_users_account.search(users_account_phone=phone)
   return bank_names
 @anvil.server.callable
 def get_username(phone):
-  user = app_tables.wallet_users.get(phone=phone)
-  return user['username'] 
+  user = app_tables.wallet_users.get(users_phone=phone)
+  return user['users_username'] 
 @anvil.server.callable
 def get_user_currency(phone):
-  currency= app_tables.wallet_users_balance.search(phone=phone)
+  currency= app_tables.wallet_users_balance.search(users_balance_phone=phone)
   return currency
 
 @anvil.server.callable
@@ -157,14 +157,14 @@ def update_daily_limit(name, emoney_value):
     user_row = app_tables.users.get(username=name)  # Use get() instead of search() if username is unique
 
     if user_row is not None:
-        user_row['user_limit'] = emoney_value
+        user_row['users_user_limit'] = emoney_value
         user_row.update()
         return "Daily limit updated successfully"
     else:
         return "User not found"
 @anvil.server.callable
 def user_detail(name, no):
-    user_row = app_tables.wallet_users.get(username=name)
+    user_row = app_tables.wallet_users.get(ususername=name)
     
     if user_row is not None:
         try:
@@ -182,12 +182,12 @@ def user_detail(name, no):
 # anvil.server.call('get_username', self.user['phone'])
 @anvil.server.callable
 def get_username(phone_number):
-    user = app_tables.wallet_users.get(phone=phone_number)
-    return user['username'] if user else None
+    user = app_tables.wallet_users.get(users_phone=phone_number)
+    return user['users_username'] if user else None
 
 @anvil.server.callable
 def get_inr_balance(phone):
-  balance = app_tables.wallet_users_balance.search(phone=phone)
+  balance = app_tables.wallet_users_balance.search(users_balance_phone=phone)
   return balance
 
 @anvil.server.callable
@@ -313,7 +313,7 @@ def validate_email(email):
     """
     Validates if the provided email exists in the database.
     """
-    matching_users = app_tables.wallet_users.search(email=email)
+    matching_users = app_tables.wallet_users.search(users_email=email)
     return bool(matching_users)
 
 @anvil.server.callable
@@ -365,7 +365,7 @@ def update_active_status():
     # Iterate through each user
     for user in all_users:
         # Get the last login date for the user
-        last_login = user['last_login']
+        last_login = user['users_last_login']
         
         # Calculate the difference in days between last login and today
         if last_login is not None:
@@ -374,10 +374,10 @@ def update_active_status():
             # Check if the difference is greater than 90 days
             if days_difference > 90:
                 # Update the active column to False
-                user['inactive'] = True
+                user['users_inactive'] = True
             else:
                 # Update the active column to True
-                user['inactive'] = None
+                user['users_inactive'] = None
                 
             # Save the changes to the table
             user.update()

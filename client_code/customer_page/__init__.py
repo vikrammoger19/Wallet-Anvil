@@ -8,18 +8,25 @@ import datetime
 from anvil import *
 
 class customer_page(customer_pageTemplate):
-    def __init__(self, user=None, **properties):
+    def __init__(self, user=None,password=None, **properties):
         # Initialize the form
         self.init_components(**properties)
         self.user = user
+        self.password=password
+        
         user_dict = dict(self.user)
         self.refresh_data()
         self.get_credit_debit_details()
+          
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('phone', None)
+        default_currency = 'INR'
+        users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+        if users_def_currency['users_defaultcurrency'] is not None:
+          default_currency = users_def_currency['users_defaultcurrency']
         if phone_number:
             # Search transactions based on the user's phone number
-            items = app_tables.wallet_users_transaction.search(phone=phone_number)
+            items = app_tables.wallet_users_transaction.search(phone=phone_number,currency=default_currency)
         
             # Sort transactions by date in descending order
             sorted_transactions = sorted(items, key=lambda x: x['date'], reverse=True)
@@ -42,7 +49,7 @@ class customer_page(customer_pageTemplate):
                     transaction_type = transaction['transaction_type']
                     receiver_phone = transaction['receiver_phone']
                     transaction_time = transaction['date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
-        
+                    
                     # Fetch username from wallet_user table using receiver_phone
                     receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
                     if receiver_user:
@@ -59,14 +66,6 @@ class customer_page(customer_pageTemplate):
                         transaction_text = "Sent"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
-                    elif transaction_type == 'Deposited':
-                        transaction_text = "Self"
-                        fund_display = "-" + str(fund)
-                        fund_color = "green"
-                    elif transaction_type == 'Withdrawn':
-                        transaction_text = "Self"
-                        fund_display = "-" + str(fund)
-                        fund_color = "red"  
                     else:
                         transaction_text = "Unknown"
                         fund_display = str(fund)
@@ -78,7 +77,8 @@ class customer_page(customer_pageTemplate):
                         'receiver_username': receiver_username,
                         'transaction_text': transaction_text,
                         'transaction_time': transaction_time,
-                        'fund_color': fund_color
+                        'fund_color': fund_color,
+                        'default_currency':default_currency,
                     })
         
                     # Limit the maximum number of history entries to display
@@ -108,26 +108,28 @@ class customer_page(customer_pageTemplate):
 
     def refresh_data(self):
         # Get the user's phone number
-        phone_number = self.user['phone']
+        phone_number = self.user['users_phone']
 
         #getting the data for total wallet amount 
         now = datetime.datetime.now()
         formatted_date = now.strftime('%a, %d-%b, %Y')
         self.label_11.text = formatted_date
         # Display the username
-        self.label_20.text = self.user['username']
+        self.label_20.text = self.user['users_username']
         # Get the INR balance from the server
         #currency
         user_default_currency='INR'
-        if self.user['defaultcurrency'] != None:
-          user_default_currency = self.user['defaultcurrency']
+        
+        users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+        if users_def_currency['users_defaultcurrency'] is not None:
+          user_default_currency = users_def_currency['users_defaultcurrency']
         else:
           user_default_currency = 'INR'
         
-        balance_iterator = anvil.server.call('get_inr_balance', self.user['phone'])
+        balance_iterator = anvil.server.call('get_inr_balance', self.user['users_phone'])
         if balance_iterator is not None:
           balance = self.inr_balance(balance_iterator, user_default_currency)
-          if type(balance) == (int or float):
+          if balance != '0':
             self.label_13.text = str(f'{balance:.2f}')
           else:
             self.label_13.text = balance
@@ -135,6 +137,7 @@ class customer_page(customer_pageTemplate):
           self.label_13.icon_align = 'left'
         else:
           self.label_13.text =str(0)
+        
   
         # Call the server function to get transactions data
         transactions = anvil.server.call('get_transactions')
@@ -143,13 +146,13 @@ class customer_page(customer_pageTemplate):
         print("Number of transactions retrieved:", len(transactions))
   
         # Filter transactions to include only those involving the user's phone number
-        filtered_transactions = [t for t in transactions if t['phone'] == phone_number or t['receiver_phone'] == phone_number]
+        filtered_transactions = [t for t in transactions if t['users_transaction_phone'] == phone_number or t['users_transaction_receiver_phone'] == phone_number]
   
         # DEBUG: Print the number of transactions after filtering
         print("Number of transactions after filtering:", len(filtered_transactions))
   
         # Filter transactions to include only 'Credit' and 'Debit' types
-        filtered_transactions = [t for t in filtered_transactions if t['transaction_type'] in ['Credit', 'Debit']]
+        filtered_transactions = [t for t in filtered_transactions if t['users_transaction_type'] in ['Credit', 'Debit']]
   
         # Organize data for plotting (aggregate by date and type)
         data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
@@ -196,13 +199,14 @@ class customer_page(customer_pageTemplate):
 
     #getting details of credit and debit 
     def get_credit_debit_details(self):
-      users_phone = self.user['phone']
+      users_phone = self.user['users_phone']
       user_default_currency='INR'
-      if self.user['defaultcurrency'] != None:
-        user_default_currency = self.user['defaultcurrency']
+      users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+      if users_def_currency['users_defaultcurrency'] is not None:
+          user_default_currency = users_def_currency['users_defaultcurrency']
       else:
         user_default_currency = 'INR'
-        
+      
       try:
         cred_debt = anvil.server.call('get_credit_debit',users_phone,user_default_currency)
         credit_details = cred_debt['credit_details']
@@ -233,12 +237,12 @@ class customer_page(customer_pageTemplate):
           self.label_15_copy.text = str(0)
       except Exception as e:
         print(e)
-
+      
     def link_2_click(self, **event_args):
         open_form('customer.walletbalance', user=self.user)
 
     def link_3_click(self, **event_args):
-        open_form('customer.transaction_history', user=self.user)
+        open_form('customer.transactions', user=self.user)
 
     def link_4_click(self, **event_args):
         open_form('customer.transfer', user=self.user)

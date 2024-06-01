@@ -1,7 +1,7 @@
 unique_ids:
   forms:
-    customer.transaction_history.ItemTemplate14: '1715243698086414307147381.0864'
     customer.service: '1707717709258481789312633.7267'
+    customer.transactions.ItemTemplate19: '171679675215616920424147.230272'
     admin.audit_trail.ItemTemplate12: '1714625887180559473349917.0771'
     customer.Viewprofile: '1706611287185736171714748.7703'
     customer_page.ItemTemplate17: '1715686735762448094021477.6452'
@@ -9,6 +9,7 @@ unique_ids:
     FAQ: '1713162366636290785265537.6073'
     admin.raise_a_complaint: '1707200483700658281602036.7211'
     admin.account_management: '1706601905143966105557761.9275'
+    customer.transactions: '1716796187597506741227669.97345'
     customer_page.settings: '1715938990266103038093669.8314'
     contact_us.issue_1.report_issue: '1712833077854141392852331.6239'
     customer.wallet: '1706613497096479839153776.76587'
@@ -35,15 +36,12 @@ unique_ids:
     customer_page.ItemTemplate16: '1715686643405932076834027.5503'
     admin.admin_add_user: '1706852604723522748937974.84314'
     customer.walletbalance.ItemTemplate18: '1716063948795941150082670.7487'
-    customer.my_wallet: '1715082636183719212791.5660596'
     admin.transaction_monitoring.ItemTemplate1: '1706769788928229752038805.30936'
     admin.raise_a_complaint.ItemTemplate7: '1707720975300750450311906.8728'
     admin.audit_trail.ItemTemplate5: '1707362299988983753861065.0303'
-    customer.transaction_history.ItemTemplate15: '1715243707035249731787962.26248'
     admin.show_users: '1706598382099409992504742.12134'
     contact_us.issue_2.payment_declined: '1712909233906820853588995.3335'
     admin.user_support.ItemTemplate2: '1706772895856983440243812.7405'
-    customer.transaction_history: '1706863205953494045225931.17737'
     signup: '171378707915592960328944.48158'
     contact_us.issue_4: '171283266296553426721913.95837'
     customer.transfer: '1706861257421800965545598.7214'
@@ -62,13 +60,10 @@ unique_ids:
     customer.interaction: '1713068366646569179889519.1067'
     admin.audit_trail: '1707199544108890058053883.2203'
     contact_us: '1712830949022485346992244.11383'
-    admin.adduser: '1714730898287928958674109.2032'
-    customer.transaction_history.ItemTemplate4: '1707316525850348797108903.8433'
     customer.selftransfer: '1709811618527375182796379.1019'
     Home: '171255588966496929858571.2235'
     Reset_password: '1713419439814309058689607.435'
     contact_us.issue_2.hold: '1712909161862806922988853.1917'
-    customer.my_wallet.ItemTemplate13: '171508280274876213733172.49702'
   modules: {}
   server_modules:
     ServerModule1: NY42SAYP5FYGHN634PGHEXXJHR2NROPJ
@@ -81,6 +76,7 @@ unique_ids:
     th__11_-removebg-preview.png: '1715940049236441633260117.6347'
     wdraw.png: '1716271364728498280972822.58496'
     Report & Analysis.jpg: '1716374655709546220817468.5115'
+    history.png: '1716886321992401346666621.14984'
     Add User.jpg: '1716374748518251140739956.84195'
     Image (1).png: '1712493878351910663547487.5881'
     united-states-of-america.png: '1714024798901323696038865.2268'
@@ -89,6 +85,7 @@ unique_ids:
     Screenshot 2024-05-08 161550.png: '1715173029904431814301843.3631'
     Main-Banner-change-the-currency.png: '171517260622640908175822.192085'
     th.jpg: '1706603452711597157111823.0679'
+    financial-audit.png: '171688639257560664982836.6066'
     vector-wallet-icon-design-removebg-preview.png: '1715939125838354038000917.08624'
     new6.png: '1712560511643557308040308.1758'
     th__6_-removebg-preview.png: '1715939086987114561055317.02354'
@@ -100,6 +97,7 @@ unique_ids:
     th (9).jpeg: '1715939328476864088311659.5286'
     step-1.png: '1713781923824689505873717.1365'
     wallet_12024363.png: '1716271346737215705848111.63007'
+    customer.png: '1716886353724585796205417.5931'
     account.png: '1714716089856109130943667.11462'
     64e29c39f403f0bb7b7315ef_Pesa_Door_II.png: '1713526045621777005623245.1241'
     background.jpg: '1716370997930746738082302.5284'
@@ -116,6 +114,7 @@ unique_ids:
     Account Management.jpg: '1716374681067660754600728.5441'
     new3.png: '1712560577375754432362590.0046'
     triphone.png: '1712557740869930136560679.1516'
+    circle.png: '1716886374072431738688936.6164'
     bgg-removebg-preview.png: '171401887492274510431234.9616'
     Screenshot_2024-04-22_172619-removebg-preview.png: '171379119277194268283691.21254'
     technical-support.png: '1716374833872302830938783.442'
@@ -132,6 +131,7 @@ unique_ids:
     64c16a2cc3c5ca3ba65320fa_borderless--nomads.png: S3DY6VDMXY2YCSX4TFCZNCOSTPS3X4GA
     Main-Banner-change-the-currency-removebg-preview (1).png: '1715172587493461715552116.53503'
     Screenshot_2024-04-22_154227-removebg-preview.png: ESIOQ3JAPK37IBNSYRPJXRKJKQ5WO7TW
+    analytics.png: '1716886264517575782017535.3712'
     new7.png: FEJGBTWE72TRLWVUXAVA6WWSZWHDL4IH
     output-onlinetools (2).jpg: JPDREPW3NZVM4ZXUL66PPWNHSY4FEYOK
     indian flag.jpg: CLREQOO5CB4LZHPUL7LUSHUQPQN6KQJO
@@ -147,6 +147,7 @@ unique_ids:
     th (5)p.jpg: '1715173001742153477283120.92657'
     64d3d91ea136e6cd012be0a0_woman-holding--phone.jpg: '171377835889563956004796.657196'
     audit.png: '1716374794365511523059178.73987'
+    dashboard.png: '1716886235337164915684996.81342'
     new2.png: '1712560560380368306807105.6304'
     64b82a87cb0494dc2f745ac8_euro.svg: '1713764450832729893941153.893'
     Transaction Monitoring.jpg: '1716374705103904824162646.8387'
@@ -157,6 +158,7 @@ unique_ids:
     new5.png: '1712560541888534832329472.7708'
     Screenshot_2024-04-25_154058-removebg-preview.png: OHMLLZLPD5HFCJOTZPKIYSO63VWVYSVB
     Different-Types-of-Digital-Wallets.jpg: H6SFFE7FARARM2K24V27GJNEXY77CAEQ
+    user (1).png: '1716886291124359730037772.8605'
     Screenshot_2024-04-22_172433-removebg-preview (1).png: GSSC7OEIHDI6LGDC3SYASR54LQUHS7M4
     64ddd972b71a4e6f4372e031_country-mockup.png: 467FR47EOEXBJQSDIYNMOSJAUBPB5OAE
     Screenshot_2024-04-22_154217-removebg-preview.png: S3LK2T2LVUWJSUSDRSFAZLBL2R2GPRWF
