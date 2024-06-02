@@ -15,7 +15,7 @@ class deposit(depositTemplate):
       username = anvil.server.call('get_username', self.user['users_phone'])
       self.label_1.text = f"Welcome to Green Gate Financial, {username}"
       bank_names = anvil.server.call('get_user_bank_name', self.user['users_phone'])
-      self.drop_down_1.items = [str(row['bank_name']) for row in bank_names]
+      self.drop_down_1.items = [str(row['users_account_bank_name']) for row in bank_names]
       self.drop_down_2.items= anvil.server.call('get_currency_code')
       self.display()
 
@@ -32,28 +32,28 @@ class deposit(depositTemplate):
         money_value=resp['response']['value']
         if self.user :
             # Check if a balance row already exists for the user
-            existing_balance = app_tables.wallet_users_balance.get(phone=self.user['phone'],currency_type=cur)
+            existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur)
 
             if existing_balance:
                 # Update the existing balance
-                existing_balance['balance'] += money_value
+                existing_balance['users_balance'] += money_value
             else:
                 # Add a new row for the user if no existing balance
                 balance = app_tables.wallet_users_balance.add_row(
-                    currency_type=cur,  # Replace with the actual currency type
-                    balance=money_value,
-                    phone=self.user['phone']
+                    users_balance_currency_type=cur,  # Replace with the actual currency type
+                    users_balance=money_value,
+                    users_balance_phone=self.user['users_phone']
                 )
 
             # Add a new transaction row
             new_transaction = app_tables.wallet_users_transaction.add_row(
-                phone=self.user['phone'],
-                fund=money_value,
-                currency=cur,
-                date=current_datetime,
-                transaction_type="Deposited",
-                transaction_status="Wallet-Topup",
-                receiver_phone=None
+                users_transaction_phone=self.user['users_phone'],
+                users_transaction_fund=money_value,
+                users_transaction_currency=cur,
+                users_transaction_date=current_datetime,
+                users_transaction_type="Deposited",
+                users_transaction_status="Wallet-Topup",
+                users_transaction_receiver_phone=self.user['users_phone']
             )
 
             self.label_2.text = "Money added successfully to the account."

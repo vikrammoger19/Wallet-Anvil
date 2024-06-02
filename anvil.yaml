@@ -168,20 +168,6 @@ db_schema:
       admin_ui: {width: 200}
       type: number
     title: wallet_users_transaction
-  actions:
-    client: full
-    server: full
-    columns:
-    - name: username
-      admin_ui: {width: 200, order: 0}
-      type: string
-    - name: changes
-      admin_ui: {width: 200, order: 1}
-      type: string
-    - name: date
-      admin_ui: {width: 200, order: 2}
-      type: datetime
-    title: actions
   wallet_users_service:
     client: full
     server: full
@@ -210,6 +196,20 @@ db_schema:
     - name: admins_add_currency_icon
       admin_ui: {width: 221}
       type: media
+  wallet_admins_actions:
+    client: full
+    server: full
+    columns:
+    - name: admins_actions_username
+      admin_ui: {order: 0, width: 224}
+      type: string
+    - name: admins_actions
+      admin_ui: {order: 1, width: 200}
+      type: string
+    - name: admins_actions_date
+      admin_ui: {order: 2, width: 200}
+      type: datetime
+    title: wallet_admins_actions
 secrets:
   ? ''
   : value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}

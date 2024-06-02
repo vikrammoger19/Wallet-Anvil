@@ -1,239 +1,238 @@
+is_package: true
 container: {type: ColumnPanel}
 components:
-- name: card_1
-  properties: {role: card}
+- properties: {role: card}
   type: ColumnPanel
   layout_properties: {grid_position: 'YWQUMJ,PAJXYF', full_width_row: true}
+  name: card_1
   components:
-  - name: flow_panel_1_copy
-    properties: {}
+  - properties: {}
     type: FlowPanel
     layout_properties: {grid_position: 'QLYBQE,QFONYV', full_width_row: true}
+    name: flow_panel_1_copy
     components:
-    - name: image_1_copy_copy
-      properties: {role: null, vertical_align: center, height: 44.80000305175781,
+    - properties: {role: null, vertical_align: center, height: 44.80000305175781,
         tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
         spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
         background: white, horizontal_align: right}
       type: Image
       layout_properties: {width: 89.19999694824219}
-    - name: label_7_copy_2_copy
-      properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
+      name: image_1_copy_copy
+    - properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
         font: a, italic: false, underline: false, foreground: black}
       type: Label
       layout_properties: {}
-    - name: spacer_3_copy_copy
-      properties: {height: 58.19996643066406}
+      name: label_7_copy_2_copy
+    - properties: {height: 58.19996643066406}
       type: Spacer
       layout_properties: {width: 552.0499267578125}
-    - name: button_2
-      properties: {text: '', icon: 'fa:bank', font_size: 25, foreground: black}
+      name: spacer_3_copy_copy
+    - properties: {text: '', icon: 'fa:bank', font_size: 25, foreground: black}
       type: Button
       layout_properties: {}
       event_bindings: {click: button_2_click}
-    - name: link_2
-      properties: {text: Deposit, align: center, bold: true, foreground: '', icon: ''}
+      name: button_2
+    - properties: {text: Deposit, align: center, bold: true, foreground: '', icon: ''}
       type: Link
       event_bindings: {click: link_2_click}
       layout_properties: {}
-    - name: link_3
-      properties: {text: Money Transfer, bold: true, align: center, foreground: '',
+      name: link_2
+    - properties: {text: Money Transfer, bold: true, align: center, foreground: '',
         icon: ''}
       type: Link
       event_bindings: {click: link_3_click}
       layout_properties: {}
-    - name: link_4
-      properties: {text: Withdraw, bold: true, align: center, foreground: '', icon: ''}
+      name: link_3
+    - properties: {text: Withdraw, bold: true, align: center, foreground: '', icon: ''}
       type: Link
       event_bindings: {click: link_4_click}
       layout_properties: {}
-    - name: link_7
-      properties: {text: Help, align: center, bold: true, foreground: '', icon: ''}
+      name: link_4
+    - properties: {text: Help, align: center, bold: true, foreground: '', icon: ''}
       type: Link
       event_bindings: {click: link_7_click}
       layout_properties: {}
-    - name: link_1_copy
-      properties: {text: Home, bold: true, foreground: '', align: center, icon: ''}
+      name: link_7
+    - properties: {text: Home, bold: true, foreground: '', align: center, icon: ''}
       type: Link
       event_bindings: {click: link_1_click}
       layout_properties: {}
-    - name: link_13
-      properties: {align: center, bold: true, text: Logout, foreground: '', icon: 'fa:sign-out'}
+      name: link_1_copy
+    - properties: {align: center, bold: true, text: Logout, foreground: '', icon: 'fa:sign-out'}
       type: Link
       event_bindings: {click: link_13_click}
       layout_properties: {}
-  - name: label_1
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: white,
+      name: link_13
+  - properties: {role: null, align: center, tooltip: '', border: '', foreground: white,
       visible: true, text: Withdraw, font_size: 25, font: a, spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '#258ee1',
       bold: true, underline: true, icon: ''}
     type: Label
     layout_properties: {grid_position: 'LONAYV,UGTVSA', full_width_row: true}
-  - name: spacer_1
-    properties: {height: 30}
+    name: label_1
+  - properties: {height: 30}
     type: Spacer
     layout_properties: {grid_position: 'QEFOQQ,OPIEQO'}
-  - name: spacer_2
-    properties: {height: 49}
+    name: spacer_1
+  - properties: {height: 49}
     type: Spacer
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK MSOCDT,HLOSHT'}
-  - name: label_7
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+    name: spacer_2
+  - properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Enter Amount:', font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK ZKTJKG,XJESZP'}
-  - name: text_box_2
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
+    name: label_7
+  - properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
       border: '', enabled: true, foreground: '', visible: true, text: '', font_size: 18,
       font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
       background: white, bold: false, underline: false}
     type: TextBox
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK ZKTJKG,OHOKZA'}
     event_bindings: {}
-  - name: label_8
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+    name: text_box_2
+  - properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Choose Bank Account:', font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,YYOVNO EGMJCK,LOPETX'}
-  - name: label_8_copy
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+    name: label_8
+  - properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Choose Currency:', font_size: 16, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
       underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,YYOVNO RCTLXE,HBJDCI'}
-  - name: drop_down_1
-    properties: {}
+    name: label_8_copy
+  - properties: {}
     type: DropDown
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,DJNLKG EQXJFB,YDDFYN'}
-  - name: drop_down_2
-    properties: {}
+    name: drop_down_1
+  - properties: {}
     type: DropDown
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,DJNLKG CBWTXD,DYFJZH'}
-  - name: label_2
-    properties: {align: center}
+    name: drop_down_2
+  - properties: {align: center}
     type: Label
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK UBVSXQ,DJNLKG LRUQDS,ZXGRJA'}
-  - name: spacer_7
-    properties: {height: 40}
+    name: label_2
+  - properties: {height: 40}
     type: Spacer
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK RZOFWI,TPWFPP'}
-  - name: button_1
-    properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
+    name: spacer_7
+  - properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: 'theme:Gray 50', visible: true, text: Submit, font_size: 18, font: '',
       spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '#258ee1', bold: true, underline: false, icon: ''}
     type: Button
     layout_properties: {grid_position: 'GDLRHW,ZUZJAK LAAXQE,JJXQTO'}
     event_bindings: {click: button_1_click}
-  - name: image_1
-    properties: {source: 'https://t3.ftcdn.net/jpg/03/18/68/18/360_F_318681827_ymoKRqzQWvvONbeTGA48Fj4kXCBnaHkO.jpg',
+    name: button_1
+  - properties: {source: 'https://t3.ftcdn.net/jpg/03/18/68/18/360_F_318681827_ymoKRqzQWvvONbeTGA48Fj4kXCBnaHkO.jpg',
       height: 253.79998779296875}
     type: Image
     layout_properties: {grid_position: 'GDLRHW,VIVXLQ'}
-  - name: spacer_3
-    properties: {height: '100.25'}
+    name: image_1
+  - properties: {height: '100.25'}
     type: Spacer
     layout_properties: {grid_position: 'PTSRXU,ZMNOJA'}
-  - name: xy_panel_2_copy_2
-    properties: {role: null, width: null, align: center, height: 288.5999755859375,
+    name: spacer_3
+  - properties: {role: null, width: null, align: center, height: 288.5999755859375,
       tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
       spacing_below: small, background: 'theme:Gray 200'}
     type: XYPanel
     layout_properties: {grid_position: 'FLWCOE,KSWQKO', full_width_row: true}
+    name: xy_panel_2_copy_2
     components:
-    - name: label_21_copy
-      properties: {text: 'G-Wallet is your trusted companion for effortless financial
+    - properties: {text: 'G-Wallet is your trusted companion for effortless financial
           transactions, providing a secure and intuitive platform to manage your money
           with ease.', align: center, font_size: 17, font: ''}
       type: Label
       layout_properties: {x: 22, y: 102.7626953125, width: 387.98798168945314}
-    - name: label_22_copy
-      properties: {text: '   Quick Links', align: left, bold: true, font: '', font_size: 17}
+      name: label_21_copy
+    - properties: {text: '   Quick Links', align: left, bold: true, font: '', font_size: 17}
       type: Label
       layout_properties: {x: 637.7125244140625, y: 53.91269531250009, width: 200}
-    - name: label_23_copy
-      properties: {text: '    Mail to us', align: left, bold: true, font: '', font_size: 16}
+      name: label_22_copy
+    - properties: {text: '    Mail to us', align: left, bold: true, font: '', font_size: 16}
       type: Label
       layout_properties: {x: 1108.84997558594, y: 56.7626953125, width: 112}
-    - name: column_panel_9_copy
-      properties: {col_widths: '{"CSMVUD":15,"RVPCNA":15,"BSEUCM":15,"MNOFRN":15}'}
+      name: label_23_copy
+    - properties: {col_widths: '{"CSMVUD":15,"RVPCNA":15,"BSEUCM":15,"MNOFRN":15}'}
       type: ColumnPanel
       layout_properties: {x: 1032.7000732421875, y: 184.212646484375, width: 252.1499023437499}
+      name: column_panel_9_copy
       components:
-      - name: primary_color_2
-        properties: {text: '', role: primary-color, icon: 'fa:facebook-f'}
+      - properties: {text: '', role: primary-color, icon: 'fa:facebook-f'}
         type: Button
         layout_properties: {grid_position: 'JBVNGZ,CSMVUD'}
-      - name: primary_color_3
-        properties: {text: '', role: primary-color, icon: 'fa:linkedin'}
+        name: primary_color_2
+      - properties: {text: '', role: primary-color, icon: 'fa:linkedin'}
         type: Button
         layout_properties: {grid_position: 'JBVNGZ,RVPCNA'}
-      - name: primary_color_4
-        properties: {text: '', role: primary-color, icon: 'fa:instagram'}
+        name: primary_color_3
+      - properties: {text: '', role: primary-color, icon: 'fa:instagram'}
         type: Button
         layout_properties: {grid_position: 'JBVNGZ,BSEUCM'}
-      - name: primary_color_5
-        properties: {text: '', role: primary-color, icon: 'fa:twitter'}
+        name: primary_color_4
+      - properties: {text: '', role: primary-color, icon: 'fa:twitter'}
         type: Button
         layout_properties: {grid_position: 'JBVNGZ,MNOFRN'}
-    - name: label_24_copy
-      properties: {text: '            Find us', align: left, bold: true, font: '',
+        name: primary_color_5
+    - properties: {text: '            Find us', align: left, bold: true, font: '',
         font_size: 16}
       type: Label
       layout_properties: {x: 1075.38757324219, y: 138.212646484375, width: 123.199951171875}
-    - name: link_24
-      properties: {text: 'What is G-Wallet?', font_size: 20, font: '', foreground: '',
+      name: label_24_copy
+    - properties: {text: 'What is G-Wallet?', font_size: 20, font: '', foreground: '',
         underline: false, role: selected, visible: true}
       type: Link
       layout_properties: {x: 646.6000488288701, y: 89.19999694824219, width: 200}
       event_bindings: {click: link_24_click}
-      data_bindings: []
-    - name: link_25
-      properties: {text: Products, font_size: 20, font: '', foreground: '', role: hover-link}
+      name: link_24
+    - properties: {text: Products, font_size: 20, font: '', foreground: '', role: hover-link}
       type: Link
       layout_properties: {x: 648.0000122077763, y: 120, width: 200}
       event_bindings: {click: link_25_click}
-    - name: link_26
-      properties: {text: FAQs, font_size: 20, font: '', foreground: '', role: hover-link}
+      name: link_25
+    - properties: {text: FAQs, font_size: 20, font: '', foreground: '', role: hover-link}
       type: Link
       layout_properties: {x: 649.5000122077763, y: 147.787506103516, width: 198.5}
       event_bindings: {click: link_26_click}
-    - name: link_27
-      properties: {text: Contact Us, font_size: 20, font: '', foreground: '', role: hover-link}
+      name: link_26
+    - properties: {text: Contact Us, font_size: 20, font: '', foreground: '', role: hover-link}
       type: Link
       layout_properties: {x: 648.499981690198, y: 178, width: 200}
       event_bindings: {click: link_27_click}
-    - name: label_3_copy_copy
-      properties: {text: G-Wallet, bold: true, font: '', font_size: 28}
+      name: link_27
+    - properties: {text: G-Wallet, bold: true, font: '', font_size: 28}
       type: Label
       layout_properties: {x: 112.987500000745, y: 51.51249694824219, width: 200}
-    - name: link_8_copy
-      properties: {text: '         MAIL@GTPL.IN', align: left}
+      name: label_3_copy_copy
+    - properties: {text: '         MAIL@GTPL.IN', align: left}
       type: Link
       layout_properties: {x: 1070.4000244140625, y: 89.20000457763672, width: 200}
-    - name: label_25
-      properties: {font_size: 20, text: Code Of Commitment, bold: true, align: right}
+      name: link_8_copy
+    - properties: {font_size: 20, text: Code Of Commitment, bold: true, align: right}
       type: Label
       layout_properties: {x: 1112.7625427246094, y: 235.63751220703125, width: 246.3999267578125}
-    - name: label_19_copy
-      properties: {text: CopyRight2024@G-wallet, bold: true, font_size: 20}
+      name: label_25
+    - properties: {text: CopyRight2024@G-wallet, bold: true, font_size: 20}
       type: Label
       layout_properties: {x: 34.587494660168886, y: 235.63751220703125, width: 281.9875183105469}
-    - name: label_20_copy
-      properties: {text: Disclaimer, bold: true, font_size: 20}
+      name: label_19_copy
+    - properties: {text: Disclaimer, bold: true, font_size: 20}
       type: Label
       layout_properties: {x: 446.73750000074506, y: 235.63751220703125, width: 200}
-    - name: label_24
-      properties: {text: Privacy Policy, bold: true, font_size: 20}
+      name: label_20_copy
+    - properties: {text: Privacy Policy, bold: true, font_size: 20}
       type: Label
       layout_properties: {x: 807.6624877937138, y: 235.63751220703125, width: 200}
-    - name: image_3_copy
-      properties: {height: 46.39996337890625, source: _/theme/letter-g.png}
+      name: label_24
+    - properties: {height: 46.39996337890625, source: _/theme/letter-g.png}
       type: Image
       layout_properties: {x: 43.624996948987246, y: 54.000003814697266, width: 83.5875015258789}
-is_package: true
+      name: image_3_copy

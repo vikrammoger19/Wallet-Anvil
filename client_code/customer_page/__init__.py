@@ -90,13 +90,13 @@ class customer_page(customer_pageTemplate):
     def inr_balance(self, balance, currency_type):
         # Iterate through the iterator to find the balance for the specified currency_type
         for row in balance:
-            if row['currency_type'] == currency_type:
-                return row['balance']  # Return the balance for INR
-        return '0'  # Fallback in case the currency_type is not found
+            if row['users_balance_currency_type'] == currency_type:
+                return row['users_balance']  # Return the balance for INR
+        return '0'  # Fallback ibalancen case the currency_type is not found
 
     def link_10_click(self, **event_args):
         """This method is called when the link is clicked"""
-        open_form("customer.transaction_history", user=self.user)
+        open_form("customer.deposit", user=self.user)
 
     def init_graph(self):
         # Create an empty figure
@@ -157,10 +157,10 @@ class customer_page(customer_pageTemplate):
         # Organize data for plotting (aggregate by date and type)
         data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
         for transaction in filtered_transactions:
-            date = transaction['date'].strftime("%Y-%m-%d")  # Format date as string for grouping
+            date = transaction['users_transaction_date'].strftime("%Y-%m-%d")  # Format date as string for grouping
   
-            trans_type = transaction['transaction_type']
-            fund = transaction['fund']  # Retrieve the 'fund' field
+            trans_type = transaction['users_transaction_type']
+            fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
   
             if date not in data_for_plot[trans_type]:
                 data_for_plot[trans_type][date] = 0

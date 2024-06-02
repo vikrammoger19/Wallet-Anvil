@@ -113,7 +113,7 @@ components:
         - properties: {text: '', align: center, bold: true}
           type: Link
           layout_properties: {grid_position: 'XPTKGF,VKMBUX'}
-          event_bindings: {click: link_4_click}
+          event_bindings: {click: link_10_click}
           name: link_10
           components:
           - properties: {height: 25.79998779296875}

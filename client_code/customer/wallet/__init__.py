@@ -13,7 +13,7 @@ class wallet(walletTemplate):
         self.init_components(**properties)
         self.user = user
         
-        self.label_1.text = f"Welcome to Green Gate Financial, {user['username']}"
+        self.label_1.text = f"Welcome to Green Gate Financial, {user['users_username']}"
         self.bank_details_visible = False
         self.label_bank_details_error = Label(text="", role="alert")
         self.label_bank_name.visible = False
@@ -62,14 +62,14 @@ class wallet(walletTemplate):
         # Save the bank details to the 'accounts' table
         
         new_account = app_tables.wallet_users_account.add_row(
-            phone= self.user['phone'],
-            account_number=int(account_number),
-            bank_name=bank_name, 
-            ifsc_code=ifsc_code,
-            account_holder_name = account_holder_name,
-            branch_name = branch_name,
-            account_type = account_Type,
-            status_confirm=True
+            users_account_phone= self.user['users_phone'],
+            users_account_number=int(account_number),
+            users_account_bank_name=bank_name, 
+            users_account_ifsc_code=ifsc_code,
+            users_account_holder_name = account_holder_name,
+            users_account_branch_name = branch_name,
+            users_account_type = account_Type,
+            users_account_status_confirm=True
         )
        
         self.label_bank_details_error.text = "Bank details saved successfully."
