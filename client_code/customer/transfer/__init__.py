@@ -15,7 +15,7 @@ class transfer(transferTemplate):
         username = anvil.server.call('get_username', self.user['users_phone'])
         self.label_1.text = f"Welcome to Green Gate Financial, {username}"
         currencies=anvil.server.call('get_user_currency',self.user['users_phone'])
-        self.drop_down_2.items= [str(row['currency_type']) for row in currencies]
+        self.drop_down_2.items= [str(row['users_balance_currency_type']) for row in currencies]
         self.display()
      
 
@@ -30,40 +30,40 @@ class transfer(transferTemplate):
         receiver_phone_number = float(self.text_box_2.text)
         transfer_amount = float(self.text_box_3.text)
         cur=self.drop_down_2.selected_value
-        depositor_phone_number = self.user['phone']
+        depositor_phone_number = self.user['users_phone']
         
         # Use the entered phone number to identify the receiver's account
-        receiver_balance = app_tables.wallet_users_balance.get(phone=receiver_phone_number,currency_type=cur)
+        receiver_balance = app_tables.wallet_users_balance.get(users_balance_phone=receiver_phone_number,users_balance_currency_type=cur)
         if self.user :
-          depositor_balance = app_tables.wallet_users_balance.get(phone=self.user['phone'],currency_type=cur)
-          print(depositor_balance['balance'])
+          depositor_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balancecurrency_type=cur)
+          print(depositor_balance['users_balance'])
           
           money_value = transfer_amount if transfer_amount else 0.0
-          if depositor_balance['balance'] >=money_value:
+          if depositor_balance['users_balance'] >=money_value:
             if receiver_balance is not None:
-              depositor_balance['balance'] -= money_value
-              receiver_balance['balance']+= money_value
+              depositor_balance['users_balance'] -= money_value
+              receiver_balance['users_balance']+= money_value
               new_transaction = app_tables.wallet_users_transaction.add_row(
-                phone=self.user['phone'],
-                fund=money_value,
-                currency=cur,
-                date=current_datetime,
-                transaction_type="Debit",
-                transaction_status="transfered-to",
-                receiver_phone=receiver_phone_number
+                users_transaction_phone=self.user['users_phone'],
+                users_transaction_fund=money_value,
+                users_transaction_currency=cur,
+                users_transaction_date=current_datetime,
+                users_transaction_type="Debit",
+                users_transaction_status="transfered-to",
+                users_transaction_receiver_phone=self.user['users_phone']
             )
               new_transaction = app_tables.wallet_users_transaction.add_row(
-                phone=receiver_phone_number,
-                fund=money_value,
-                currency=cur,
-                date=current_datetime,
-                transaction_type="Credit",
-                transaction_status="recieved-from",
-                receiver_phone=self.user['phone']
+                users_transaction_phone=self.user['users_phone'],
+                users_transaction_fund=money_value,
+                users_transaction_currency=cur,
+                users_transaction_date=current_datetime,
+                users_transaction_type="Credit",
+                users_transaction_status="recieved-from",
+                users_transaction_receiver_phone=self.user['users_phone']
             )
               self.label_4.text = "Money transferred successfully to the account."
             else:
-              reciver = app_tables.wallet_users.get(phone=receiver_phone_number)
+              reciver = app_tables.wallet_users.get(users_phone=receiver_phone_number)
               if reciver:
                 depositor_balance['balance'] -= money_value
                 balance = app_tables.wallet_users_balance.add_row(

@@ -90,9 +90,9 @@ class customer_page(customer_pageTemplate):
     def inr_balance(self, balance, currency_type):
         # Iterate through the iterator to find the balance for the specified currency_type
         for row in balance:
-            if row['currency_type'] == currency_type:
-                return row['balance']  # Return the balance for INR
-        return '0'  # Fallback in case the currency_type is not found
+            if row['users_balance_currency_type'] == currency_type:
+                return row['users_balance']  # Return the balance for INR
+        return '0'  # Fallback ibalancen case the currency_type is not found
 
     def link_10_click(self, **event_args):
         """This method is called when the link is clicked"""
