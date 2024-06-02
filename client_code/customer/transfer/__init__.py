@@ -35,7 +35,7 @@ class transfer(transferTemplate):
         # Use the entered phone number to identify the receiver's account
         receiver_balance = app_tables.wallet_users_balance.get(users_balance_phone=receiver_phone_number,users_balance_currency_type=cur)
         if self.user :
-          depositor_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balancecurrency_type=cur)
+          depositor_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur)
           print(depositor_balance['users_balance'])
           
           money_value = transfer_amount if transfer_amount else 0.0
@@ -65,29 +65,29 @@ class transfer(transferTemplate):
             else:
               reciver = app_tables.wallet_users.get(users_phone=receiver_phone_number)
               if reciver:
-                depositor_balance['balance'] -= money_value
+                depositor_balance['users_balance'] -= money_value
                 balance = app_tables.wallet_users_balance.add_row(
-                      currency_type=cur,  # Replace with the actual currency type
-                      balance=money_value,
-                      phone=receiver_phone_number
+                      users_balance_currency_type=cur,  # Replace with the actual currency type
+                      users_balance=money_value,
+                      users_balance_phone=receiver_phone_number
                   )
                 new_transaction = app_tables.wallet_users_transaction.add_row(
-                  phone=self.user['phone'],
-                  fund=money_value,
-                  currency=cur,
-                  date=current_datetime,
-                  transaction_type="Debit",
-                  transaction_status="transfered-to",
-                  receiver_phone=receiver_phone_number
+                  users_transaction_phone=self.user['users_phone'],
+                users_transaction_fund=money_value,
+                users_transaction_currency=cur,
+                users_transaction_date=current_datetime,
+                users_transaction_type="Debit",
+                users_transaction_status="transfered-to",
+                users_transaction_receiver_phone=self.user['users_phone']
               )
                 new_transaction = app_tables.wallet_users_transaction.add_row(
-                  phone=receiver_phone_number,
-                  fund=money_value,
-                  currency=cur,
-                  date=current_datetime,
-                  transaction_type="Credit",
-                  transaction_status="recieved-from",
-                  receiver_phone=self.user['phone']
+                  users_transaction_phone=self.user['users_phone'],
+                users_transaction_fund=money_value,
+                users_transaction_currency=cur,
+                users_transaction_date=current_datetime,
+                users_transaction_type="Credit",
+                users_transaction_status="recieved-from",
+                users_transaction_receiver_phone=self.user['users_phone']
               )
                 self.label_4.text = "Money transferred successfully to the account."
               else:

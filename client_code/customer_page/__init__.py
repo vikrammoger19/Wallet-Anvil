@@ -157,10 +157,10 @@ class customer_page(customer_pageTemplate):
         # Organize data for plotting (aggregate by date and type)
         data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
         for transaction in filtered_transactions:
-            date = transaction['date'].strftime("%Y-%m-%d")  # Format date as string for grouping
+            date = transaction['users_transaction_date'].strftime("%Y-%m-%d")  # Format date as string for grouping
   
-            trans_type = transaction['transaction_type']
-            fund = transaction['fund']  # Retrieve the 'fund' field
+            trans_type = transaction['users_transaction_type']
+            fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
   
             if date not in data_for_plot[trans_type]:
                 data_for_plot[trans_type][date] = 0
