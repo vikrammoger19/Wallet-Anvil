@@ -124,6 +124,9 @@ db_schema:
     - name: users_account_phone
       admin_ui: {width: 200}
       type: number
+    - name: users_account_bank_icon
+      admin_ui: {width: 200, order: 8}
+      type: media
     title: wallet_users_account
   wallet_users_balance:
     client: full
