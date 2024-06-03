@@ -39,23 +39,23 @@ class add_currency(add_currencyTemplate):
         print(country_name)
         
         if len(currency_code) == 3 and currency_code.isalpha():
-            existing_country = app_tables.wallet_currency.search(country=country_name) 
+            existing_country = app_tables.wallet_admins_add_currency.search(admins_add_currency_country=country_name) 
             
             if len(existing_country) == 0:
                 # Check if an image has been uploaded
                 if self.file_loader_1.file:
                     # Save the uploaded image to the currency_icon column
-                    new_currency = app_tables.wallet_currency.add_row(
-                        country=country_name,
-                        currency_code=currency_code.upper(),
-                        currency_icon=self.file_loader_1.file
+                    new_currency = app_tables.wallet_admins_add_currency.add_row(
+                        admins_add_currency_country=country_name,
+                        admins_add_currency_code=currency_code.upper(),
+                        admins_add_currency_icon=self.file_loader_1.file
                     )
                 else:
                     # If no image is uploaded, set currency_icon to None
-                    new_currency = app_tables.wallet_currency.add_row(
-                        country=country_name,
-                        currency_code=currency_code.upper(),
-                        currency_icon=None
+                    new_currency = app_tables.wallet_admins_add_currency.add_row(
+                        admins_add_currency_country=country_name,
+                        admins_add_currency_code=currency_code.upper(),
+                        admins_add_currency_icon=None
                     )
                 
                 self.refresh_users()
