@@ -124,6 +124,9 @@ db_schema:
     - name: users_account_phone
       admin_ui: {width: 200}
       type: number
+    - name: users_account_bank_icon
+      admin_ui: {width: 200, order: 8}
+      type: media
     title: wallet_users_account
   wallet_users_balance:
     client: full
@@ -210,6 +213,17 @@ db_schema:
       admin_ui: {order: 2, width: 200}
       type: datetime
     title: wallet_admins_actions
+  wallet_admins_add_bank:
+    client: full
+    server: full
+    columns:
+    - name: admins_add_bank_names
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: admins_add_bank_icons
+      admin_ui: {width: 200, order: 1}
+      type: media
+    title: wallet_admins_add_bank
 secrets:
   ? ''
   : value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}

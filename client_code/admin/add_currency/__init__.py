@@ -13,8 +13,8 @@ class add_currency(add_currencyTemplate):
 
   def refresh_users(self, country_filter=None):
     if country_filter:
-      self.country_type_filter = [user for user in app_tables.wallet_currency.search()
-                                  if user['country'].lower().startswith(country_filter.lower())]
+      self.country_type_filter = [user for user in app_tables.wallet_admins_add_currency.search()
+                                  if user['admins_add_currency_country'].lower().startswith(country_filter.lower())]
     else:
       self.country_type_filter = [user for user in app_tables.wallet_admins_add_currency.search()]
     self.repeating_panel_1.items = self.country_type_filter
