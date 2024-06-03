@@ -126,7 +126,7 @@ components:
       type: TextBox
       layout_properties: {width: 244.79998779296875}
       data_bindings:
-      - {property: text, code: 'self.item[''country'']', writeback: false}
+      - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
       event_bindings: {pressed_enter: text_box_1_pressed_enter}
     - name: spacer_7
       properties: {height: 37.600006103515625}
@@ -137,7 +137,7 @@ components:
       type: TextBox
       layout_properties: {width: 251.199951171875}
       data_bindings:
-      - {property: text, code: 'self.item[''country_code'']', writeback: false}
+      - {property: text, code: 'self.item[''admins_add_currency_code'']', writeback: false}
     - name: spacer_9
       properties: {height: 37.199981689453125}
       type: Spacer

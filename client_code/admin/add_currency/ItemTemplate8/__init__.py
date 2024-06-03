@@ -13,8 +13,8 @@ class ItemTemplate8(ItemTemplate8Template):
   def view_user_click(self, **event_args):
     if not self.user_count_displayed:
       selected_currency = self.item
-      currency_code = selected_currency['currency_code']
-      currency_type_matches = app_tables.wallet_users_balance.search(currency_type=currency_code)
+      currency_code = selected_currency['admins_add_currency_code']
+      currency_type_matches = app_tables.wallet_users_balance.search(users_balance_currency_type=currency_code)
       count_of_users = len(currency_type_matches)
       self.view_user.text = f"{count_of_users} Users"
       self.user_count_displayed = True
