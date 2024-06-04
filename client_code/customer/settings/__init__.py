@@ -34,8 +34,7 @@ class settings(settingsTemplate):
     pass
 
   def link_8_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    pass
+    open_form('Reset_password', user=self.user)
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -55,7 +54,7 @@ class settings(settingsTemplate):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form("customer_page",user=self.user)
+    open_form("customer",user=self.user)
 
   def link_13_click(self, **event_args):
     """This method is called when the link is clicked"""

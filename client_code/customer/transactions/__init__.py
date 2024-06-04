@@ -686,7 +686,7 @@ class transactions(transactionsTemplate):
 
   def link_8_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form("customer_page",user=self.user)
+    open_form("customer",user=self.user)
 
   def link_9_click(self, **event_args):
     """This method is called when the link is clicked"""

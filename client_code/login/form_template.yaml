@@ -119,8 +119,8 @@ components:
             layout_properties: {x: 0, y: 0, width: 329}
           - name: link_1
             properties: {role: null, url: '', align: center, tooltip: '', border: '',
-              foreground: '', visible: true, text: 'Can’t login?', font_size: 14,
-              wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small,
+              foreground: '', visible: true, text: 'Forgot password?  Can’t login?',
+              font_size: 14, wrap_on: mobile, font: '', col_spacing: medium, spacing_above: small,
               icon_align: left, col_widths: '{}', spacing_below: small, italic: false,
               background: 'theme:Primary 70', bold: true, underline: false, icon: ''}
             type: Link
