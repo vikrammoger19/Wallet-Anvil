@@ -21,7 +21,7 @@ class admin(adminTemplate):
         print("Number of transactions retrieved:", len(transactions))
 
         # Filter transactions to include only 'Credit' and 'Debit' types
-        filtered_transactions = [t for t in transactions if t['transaction_type'] in ['Credit', 'Debit']]
+        filtered_transactions = [t for t in transactions if t['users_transaction_type'] in ['Credit', 'Debit']]
 
         # DEBUG: Print the number of transactions after filtering
         print("Number of transactions after filtering:", len(filtered_transactions))
@@ -29,10 +29,10 @@ class admin(adminTemplate):
         # Organize data for plotting (aggregate by date and type)
         data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
         for transaction in filtered_transactions:
-            date = transaction['date'].strftime("%Y-%m-%d")  # Format date as string for grouping
+            date = transaction['users_transaction_date'].strftime("%Y-%m-%d")  # Format date as string for grouping
 
-            trans_type = transaction['transaction_type']
-            fund = transaction['fund']  # Retrieve the 'fund' field
+            trans_type = transaction['users_transaction_type']
+            fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
 
             if date not in data_for_plot[trans_type]:
                 data_for_plot[trans_type][date] = 0

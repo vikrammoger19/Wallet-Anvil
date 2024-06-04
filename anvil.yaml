@@ -95,6 +95,9 @@ db_schema:
     - name: users_timely_topup_interval
       admin_ui: {width: 220}
       type: string
+    - name: users_profile_pic
+      admin_ui: {width: 200, order: 24}
+      type: media
     title: wallet_users
   wallet_users_account:
     client: full

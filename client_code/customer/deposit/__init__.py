@@ -26,11 +26,16 @@ class deposit(depositTemplate):
         money=float(self.text_box_2.text)
         endpoint = 'convert'
         api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
-        # Set base currency and any other parameters (replace 'USD' with your desired base currency)
-        base_currency = 'INR'
-        resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
-        money_value=resp['response']['value']
-        if self.user :
+        # Set base currency and any other parameters (replace 'USD' with your desired base currency
+      
+        
+        if self.drop_down_1.selected_value == None and self.drop_down_2.selected_value == None:
+          alert('Please enter a bank details')
+        else:
+          base_currency = 'INR'
+          resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
+          money_value=resp['response']['value']
+          if self.user :
             # Check if a balance row already exists for the user
             existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur)
 
@@ -57,7 +62,7 @@ class deposit(depositTemplate):
             )
 
             self.label_2.text = "Money added successfully to the account."
-        else:
+          else:
             self.label_2.text = "Error: No matching accounts found for the user or invalid account number."
 
     def drop_down_1_change(self, **event_args):

@@ -69,6 +69,11 @@ def get_currency_code():
     currencies = app_tables.wallet_admins_add_currency.search()
     return [f"{currency['admins_add_currency_code']}" for currency in currencies]
 
+@anvil.server.callable
+def get_all_banks_name():
+    banks = app_tables.wallet_admins_add_bank.search()
+    return [f"{bank['admins_add_bank_names']}" for bank in banks]
+
 
 ###
 
