@@ -17,7 +17,7 @@ class wallet(walletTemplate):
         self.bank_details_visible = False
         self.label_bank_details_error = Label(text="", role="alert")
         self.label_bank_name.visible = False
-        self.textbox_bank_name.visible = False
+        self.drop_down_2.visible = False
         self.label_account_number.visible = False
         self.textbox_account_number.visible = False
         self.label_ifsc_code.visible = False
@@ -35,7 +35,7 @@ class wallet(walletTemplate):
        # Toggle the visibility of bank details labels and textboxes
         self.bank_details_visible = not self.bank_details_visible
         self.label_bank_name.visible = self.bank_details_visible
-        self.textbox_bank_name.visible = self.bank_details_visible
+        self.drop_down_2.visible = self.bank_details_visible
         self.label_account_number.visible = self.bank_details_visible
         self.textbox_account_number.visible = self.bank_details_visible
         self.label_ifsc_code.visible = self.bank_details_visible
@@ -47,11 +47,12 @@ class wallet(walletTemplate):
         self.text_box_1.visible=self.bank_details_visible
         self.text_box_2.visible=self.bank_details_visible
         self.drop_down_1.visible=self.bank_details_visible
+        self.drop_down_2.items = anvil.server.call('get_all_banks_name')
         
         self.label_bank_details_error.text = ""
        
     def button_save_bank_details_click(self, **event_args):
-      bank_name = self.textbox_bank_name.text
+      bank_name = self.drop_down_2.selected_value
       account_number = self.textbox_account_number.text
       ifsc_code = self.textbox_ifsc_code.text
       account_holder_name = self.text_box_1.text
