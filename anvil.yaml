@@ -6,8 +6,9 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {custom_smtp: true, test_mode: false, smtp_host: smtp.gmail.com,
-    smtp_port: 1}
+  server_config: {custom_smtp: true, test_mode: true, smtp_host: smtp.gmail.com, smtp_port: 467,
+    smtp_user: shivaprasadgowda9380@gmail.com, smtp_password: 0gKmHw81G8V5Ydb4CMwe3ytJDQNUbfKgJbfVWPdYVnrzmZ7IDIiRTWnqC7r3A5zH0tgY8UBW/E7LTHCnNT6ZDyj9xCmK+tdgGfrvpCmGe9d73ELvbEPUza+wAekSGN8OOJofUNPgrZrAUd9Uv25m8rKe8b1qn20cWBBttEnNNjEk9lJW,
+    smtp_encryption: starttls}
 - source: /runtime/services/anvil/secrets.yml
   client_config: {}
   server_config: {}
