@@ -19,6 +19,106 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
 metadata: {}
 startup_form: null
 db_schema:
+  wallet_users_balance:
+    client: full
+    server: full
+    columns:
+    - name: users_balance
+      admin_ui: {width: 200}
+      type: number
+    - name: users_balance_currency_type
+      admin_ui: {width: 253}
+      type: string
+    - name: users_balance_phone
+      admin_ui: {width: 200}
+      type: number
+    title: wallet_users_balance
+  wallet_users_transaction:
+    client: full
+    server: full
+    columns:
+    - name: users_transaction_date
+      admin_ui: {order: 0, width: 200}
+      type: datetime
+    - name: users_transaction_fund
+      admin_ui: {order: 1, width: 200}
+      type: number
+    - name: users_transaction_type
+      admin_ui: {order: 2, width: 200}
+      type: string
+    - name: users_transaction_status
+      admin_ui: {order: 3, width: 200}
+      type: string
+    - name: users_transaction_currency
+      admin_ui: {order: 7, width: 247}
+      type: string
+    - name: users_transaction_receiver_phone
+      admin_ui: {width: 266}
+      type: number
+    - name: users_transaction_message
+      admin_ui: {width: 200}
+      type: string
+    - name: users_transaction_phone
+      admin_ui: {width: 200}
+      type: number
+    title: wallet_users_transaction
+  wallet_admins_create_admin_account:
+    client: none
+    server: full
+    columns:
+    - name: admins_email
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: admins_username
+      admin_ui: {order: 1, width: 200}
+      type: string
+    - name: admins_phone
+      admin_ui: {order: 2, width: 200}
+      type: number
+    - name: admins_date_of_birth
+      admin_ui: {order: 3, width: 200}
+      type: date
+    - name: admins_gender
+      admin_ui: {order: 4, width: 200}
+      type: string
+    - name: admins_password
+      admin_ui: {order: 5, width: 200}
+      type: string
+    - name: admins_last_login
+      admin_ui: {order: 6.5, width: 200}
+      type: datetime
+    - name: which_admin_created_account
+      admin_ui: {order: 8, width: 246}
+      type: string
+    - name: date_of_admins_account_created
+      admin_ui: {order: 9, width: 200}
+      type: date
+    title: wallet_admins_create_admin_account
+  wallet_users_service:
+    client: full
+    server: full
+    columns:
+    - name: users_service_username
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: users_service_phone
+      admin_ui: {order: 1, width: 200}
+      type: number
+    - name: users_service_query
+      admin_ui: {order: 2, width: 200}
+      type: string
+    title: wallet_users_service
+  wallet_admins_add_bank:
+    client: full
+    server: full
+    columns:
+    - name: admins_add_bank_names
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: admins_add_bank_icons
+      admin_ui: {width: 200, order: 1}
+      type: media
+    title: wallet_admins_add_bank
   wallet_users:
     client: full
     server: full
@@ -131,77 +231,6 @@ db_schema:
       admin_ui: {width: 200, order: 8}
       type: media
     title: wallet_users_account
-  wallet_users_balance:
-    client: full
-    server: full
-    columns:
-    - name: users_balance
-      admin_ui: {width: 200}
-      type: number
-    - name: users_balance_currency_type
-      admin_ui: {width: 253}
-      type: string
-    - name: users_balance_phone
-      admin_ui: {width: 200}
-      type: number
-    title: wallet_users_balance
-  wallet_users_transaction:
-    client: full
-    server: full
-    columns:
-    - name: users_transaction_date
-      admin_ui: {order: 0, width: 200}
-      type: datetime
-    - name: users_transaction_fund
-      admin_ui: {order: 1, width: 200}
-      type: number
-    - name: users_transaction_type
-      admin_ui: {order: 2, width: 200}
-      type: string
-    - name: users_transaction_status
-      admin_ui: {order: 3, width: 200}
-      type: string
-    - name: users_transaction_currency
-      admin_ui: {order: 7, width: 247}
-      type: string
-    - name: users_transaction_receiver_phone
-      admin_ui: {width: 266}
-      type: number
-    - name: users_transaction_message
-      admin_ui: {width: 200}
-      type: string
-    - name: users_transaction_phone
-      admin_ui: {width: 200}
-      type: number
-    title: wallet_users_transaction
-  wallet_users_service:
-    client: full
-    server: full
-    columns:
-    - name: users_service_username
-      admin_ui: {order: 0, width: 200}
-      type: string
-    - name: users_service_phone
-      admin_ui: {order: 1, width: 200}
-      type: number
-    - name: users_service_query
-      admin_ui: {order: 2, width: 200}
-      type: string
-    title: wallet_users_service
-  wallet_admins_add_currency:
-    title: wallet_admins_add_currency
-    client: full
-    server: full
-    columns:
-    - name: admins_add_currency_code
-      admin_ui: {width: 226}
-      type: string
-    - name: admins_add_currency_country
-      admin_ui: {width: 248}
-      type: string
-    - name: admins_add_currency_icon
-      admin_ui: {width: 221}
-      type: media
   wallet_admins_actions:
     client: full
     server: full
@@ -216,17 +245,20 @@ db_schema:
       admin_ui: {order: 2, width: 200}
       type: datetime
     title: wallet_admins_actions
-  wallet_admins_add_bank:
+  wallet_admins_add_currency:
+    title: wallet_admins_add_currency
     client: full
     server: full
     columns:
-    - name: admins_add_bank_names
-      admin_ui: {width: 200, order: 0}
+    - name: admins_add_currency_code
+      admin_ui: {width: 226}
       type: string
-    - name: admins_add_bank_icons
-      admin_ui: {width: 200, order: 1}
+    - name: admins_add_currency_country
+      admin_ui: {width: 248}
+      type: string
+    - name: admins_add_currency_icon
+      admin_ui: {width: 221}
       type: media
-    title: wallet_admins_add_bank
 secrets:
   ? ''
   : value: {? '' : t60Z4iDuhInEOjWQ4bU7PdzvFnQ38Weuirbdt/MNZ1p+CqpxVOavkKZ1bDUo1ShCnx3gvrNyXfCOegbjGO03zKgd/dZ/sSrIaLqzHogAmtBqwHDHHoPTvQfjSLbWktutA6/SM5YCSoxPtfcumUJZX6zZuGH8tRQ=}
