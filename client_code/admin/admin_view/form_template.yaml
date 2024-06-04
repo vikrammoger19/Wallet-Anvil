@@ -302,7 +302,7 @@ components:
           type: Label
           layout_properties: {x: 57.28515625, y: 32.5390625, width: 199.9609375}
           data_bindings:
-          - {property: text, code: 'self.item[''username'']'}
+          - {property: text, code: 'self.item[''users_username'']', writeback: false}
         - name: image_5
           properties: {height: '46.75', source: _/theme/id-card (1).png}
           type: Image
@@ -312,7 +312,7 @@ components:
           type: Label
           layout_properties: {x: 292.75390625, y: 30.46875, width: 124.961}
           data_bindings:
-          - {property: text, code: 'self.item[''phone'']'}
+          - {property: text, code: 'self.item[''users_phone'']', writeback: false}
         - name: image_3
           properties: {height: 57.5, source: _/theme/call (1).png}
           type: Image
@@ -326,13 +326,13 @@ components:
           type: Label
           layout_properties: {x: 728.96484375, y: 24.043031250000013, width: 126.172}
           data_bindings:
-          - {property: text, code: 'self.item[''email'']'}
+          - {property: text, code: 'self.item[''users_email'']', writeback: false}
         - name: label_501
           properties: {font_size: 20, bold: true}
           type: Label
           layout_properties: {x: 506.328125, y: 25.48828125, width: 159.9609375}
           data_bindings:
-          - {property: text, code: 'self.item[''aadhar'']'}
+          - {property: text, code: 'self.item[''users_aadhar'']', writeback: false}
         - name: image_7
           properties: {source: _/theme/business-card.png, height: '45.75'}
           type: Image
@@ -353,19 +353,19 @@ components:
           type: Label
           layout_properties: {x: 728.96484375, y: 114.10546875, width: 159.961}
           data_bindings:
-          - {property: text, code: 'self.item[''adress'']'}
+          - {property: text, code: 'self.item[''users_adress'']', writeback: false}
         - name: label_601
           properties: {font_size: 20, bold: true}
           type: Label
           layout_properties: {x: 291.73828125, y: 114.1015625, width: 159.961}
           data_bindings:
-          - {property: text, code: 'self.item[''pan'']'}
+          - {property: text, code: 'self.item[''users_pan'']', writeback: false}
         - name: label_801
           properties: {bold: true, font_size: 20}
           type: Label
           layout_properties: {x: 59.980474999999956, y: 114.1015625, width: 159.961}
           data_bindings:
-          - {property: text, code: 'self.item[''country'']'}
+          - {property: text, code: 'self.item[''users_country'']', writeback: false}
         - name: image_9
           properties: {role: null, vertical_align: center, height: '46.75', tooltip: '',
             border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
