@@ -9,26 +9,41 @@ class account_management(account_managementTemplate):
   def __init__(self, user= None, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.button_1.visible = False
+    self.button_100000.visible = False
     self.user =user
+    if user is not None:
+       self.label_656.text = user['username']
+    
     #print(mail)
     self.refresh_users()
 
-  def refresh_users(self, username_filter=None):
-        # If a username filter is provided, filter users based on the username
-        if username_filter:
-            customer_type_filter = [user for user in app_tables.wallet_users.search()
-                                    if user['users_usertype'] == 'customer' and user['users_username'].lower().startswith(username_filter.lower())]
-        else:
-            # If no username filter, show all customers
-            customer_type_filter = [user for user in app_tables.wallet_users.search() if user['users_usertype'] == 'customer']
+  def refresh_users(self, username_filter=None, status_filter=None):
+    # Fetch all users from the table
+    users = app_tables.wallet_users.search()
 
-        # Set items in the repeating panel
-        self.repeating_panel_1.items = customer_type_filter
+    # Filter users based on customer type
+    users = [user for user in users if user['users_usertype'] == 'customer']
 
-  def button_1_click(self, **event_args):
-        # Toggle visibility of the repeating panel
-        self.repeating_panel_1.visible = not self.repeating_panel_1.visible
+    # Filter users based on status if status filter is provided
+    if status_filter == "Active":
+      users = [user for user in users if user['users_inactive'] is None]
+    elif status_filter == "Inactive":
+      users = [user for user in users if user['users_inactive'] is True]
+
+    # Filter users based on username if username filter is provided
+    if username_filter:
+      users = [user for user in users if user['users_username'].lower().startswith(username_filter.lower())]
+
+    # Set items in the repeating panel
+    self.repeating_panel_1.items = users
+    self.label_5.text = f"Total users: {len(users)}"
+
+
+
+
+  # def button_1_click(self, **event_args):
+  #       # Toggle visibility of the repeating panel
+  #       self.repeating_panel_1.visible = not self.repeating_panel_1.visible
 
   def button_2_click(self, **event_args):
         # Handle search button click event to refresh users based on entered username
@@ -49,7 +64,7 @@ class account_management(account_managementTemplate):
     open_form('Login')
 
   def button_3_click(self, **event_args):
-    open_form('admin')
+    open_form('admin.adduser',user= self.user)
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -81,5 +96,14 @@ class account_management(account_managementTemplate):
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
     show_users_form = open_form('admin.show_users',user=self.user)
+
+  def drop_down_1_change(self, **event_args):
+    """This method is called when an item is selected"""
+    # Get the selected status filter
+    status_filter = self.drop_down_1.selected_value
+
+    # Refresh users based on the selected status filter
+    self.refresh_users(status_filter=status_filter)
+
 
  
