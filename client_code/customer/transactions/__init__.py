@@ -73,9 +73,9 @@ class transactions(transactionsTemplate):
       for item in items:
           print('yes1')
           # Extract date in YYYY-MM-DD format without time
-          date_str = item['date'].strftime("%Y-%m-%d")
+          date_str = item['users_transaction_date'].strftime("%Y-%m-%d")
           if date_str not in self.grouped_transactions:
-              self.grouped_transactions[date_str] = {'date': item['date'], 'transactions': []}
+              self.grouped_transactions[date_str] = {'date': item['users_transaction_date'], 'transactions': []}
           self.grouped_transactions[date_str]['transactions'].append(item)
     else:
       return
@@ -91,14 +91,14 @@ class transactions(transactionsTemplate):
             fund = transaction['users_transaction_fund']
             transaction_type = transaction['users_transaction_type']
             receiver_phone = transaction['users_transaction_receiver_phone']
-            transaction_time = transaction['date'].strftime("%I:%M %p")
+            transaction_time = transaction['users_transaction_date'].strftime("%I:%M %p")
             
             # Fetch username from wallet_user table using receiver_phone
-            receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
+            receiver_user = app_tables.wallet_users.get(users_phone=receiver_phone)
             if receiver_user:
-                receiver_username = receiver_user['username']
+                receiver_username = receiver_user['users_username']
             else:
-                receiver_username = self.user['username']
+                receiver_username = self.user['users_username']
             
             if transaction_type == 'Credit' or transaction_type == 'Deposited':
                 fund_display = "+" + str(fund)
@@ -113,10 +113,10 @@ class transactions(transactionsTemplate):
             # Append transaction details with username instead of receiver_phone
             self.repeating_panel_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
                                             'fund': fund_display,
-                                            'transaction_status': transaction['transaction_status'],
-                                            'transaction_type':transaction['transaction_type'],
+                                            'transaction_status': transaction['users_transaction_status'],
+                                            'transaction_type':transaction['users_transaction_type'],
                                             'receiver_username': receiver_username,
-                                            'currency_type':transaction['currency'],
+                                            'currency_type':transaction['users_transaction_currency'],
                                             'transaction_time':transaction_time,
                                             'fund_color': fund_color})
 
@@ -140,7 +140,7 @@ class transactions(transactionsTemplate):
     for i in range(len(self.repeating_panel_items)):
       all.append({'date': self.repeating_panel_items[i]['users_transaction_date'],
                                           'fund': self.repeating_panel_items[i]['users_transaction_fund'],
-                                          'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                          'transaction_status': self.repeating_panel_items[i]['users_transaction_status'],
                                           'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                           'currency_type':self.repeating_panel_items[i]['currency_type'],
                                           'transaction_time':self.repeating_panel_items[i]['transaction_time'],

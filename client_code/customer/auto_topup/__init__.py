@@ -12,10 +12,10 @@ class auto_topup(auto_topupTemplate):
       self.init_components(**properties)
       self.user = user
       # Set Form properties and Data Bindings.
-      username = anvil.server.call('get_username', self.user['phone'])
+      username = anvil.server.call('get_username', self.user['users_phone'])
       self.label_1.text = f"Welcome to Green Gate Financial, {username}"
-      currencies = anvil.server.call('get_user_currency', self.user['phone'])
-      self.drop_down_2.items= [str(row['currency_type']) for row in currencies]
+      currencies = anvil.server.call('get_user_currency', self.user['users_phone'])
+      self.drop_down_2.items= [str(row['users_balance_currency_type']) for row in currencies]
       self.display()
       self.card_2.visible = False
       self.button_5.visible=False
@@ -25,7 +25,7 @@ class auto_topup(auto_topupTemplate):
       self.label_5.visible=False
       self.button_off_visible = False
       self.button_on_visible= True
-      if self.user['auto_topup']== True:
+      if self.user['users_auto_topup']== True:
         self.button_on.visible= False
       else:
         self.button_off.visible= False
@@ -58,7 +58,7 @@ class auto_topup(auto_topupTemplate):
       self.text_box_2.text = 1000
 
     def button_5_click(self, **event_args):
-      if self.user['auto_topup']== True:
+      if self.user['users_auto_topup']== True:
         current_datetime = datetime.now()
         w_bal = self.drop_down_1.selected_value
         cur= self.drop_down_2.selected_value
@@ -71,17 +71,17 @@ class auto_topup(auto_topupTemplate):
         money_value=resp['response']['value']
         if self.user :
           # Check if a balance row already exists for the user
-          existing_balance = app_tables.wallet_users_balance.get(phone=self.user['phone'],currency_type=cur) 
-          if existing_balance['balance'] < int(w_bal):
-            self.user['minimum_topup'] = True
-            existing_balance['balance'] += money_value
+          existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur) 
+          if existing_balance['users_balance'] < int(w_bal):
+            self.user['users_minimum_topup'] = True
+            existing_balance['users_balance'] += money_value
             new_transaction = app_tables.wallet_users_transaction.add_row(
-                  phone=self.user['phone'],
-                  fund=money_value,
-                  date=current_datetime,
-                  transaction_type=f"{cur} - Auto_Topup",
-                  transaction_status="Minimum-Topup",
-                  receiver_phone=None
+                  users_transaction_phone=self.user['users_phone'],
+                  users_transaction_fund=money_value,
+                  users_transaction_date=current_datetime,
+                  users_transaction_type=f"{cur} - Auto_Topup",
+                  users_transaction_status="Minimum-Topup",
+                  users_transaction_receiver_phone=self.user['users_phone']
               )
             #self.label_4.text = "Minimum-topup payment has been successfully added to your account."
             alert("Minimum-topup payment has been successfully added to your account.")
@@ -90,7 +90,7 @@ class auto_topup(auto_topupTemplate):
             open_form('customer_page', user=self.user)
           else:
             # No minimum top-up required
-            self.user['minimum_topup'] = False
+            self.user['users_minimum_topup'] = False
             anvil.alert("Auto-topup is not required.")
             print("Your balance is not below the limit")
             open_form('customer_page', user=self.user)
@@ -101,7 +101,7 @@ class auto_topup(auto_topupTemplate):
         alert("Please enable the auto-topup switch to proceed.")
       
     def button_6_click(self, **event_args):
-      if self.user['auto_topup']== True:
+      if self.user['users_auto_topup']== True:
         from datetime import datetime, timezone
         current_datetime = datetime.now().replace(tzinfo=timezone.utc)
         frequency = self.drop_down_3.selected_value
@@ -116,7 +116,7 @@ class auto_topup(auto_topupTemplate):
         print(f"Your entered amount is {money_value}")
         if self.user :
           # Check if a balance row already exists for the user
-          existing_balance = app_tables.wallet_users_balance.get(phone=self.user['phone'],currency_type=cur)         
+          existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur)         
           
           # Calculate the time interval based on the frequency
           if frequency == "Every Week":
@@ -132,23 +132,23 @@ class auto_topup(auto_topupTemplate):
           
           # Check if the required time duration has elapsed or if the frequency is different
           if (self.user['last_auto_topup_time'] is None) or ((current_datetime - self.user['last_auto_topup_time']).days >= interval_days):
-            self.user['timely_topup'] = True
-            self.user['timely_topup_interval'] = frequency
+            self.user['users_timely_topup'] = True
+            self.user['users_timely_topup_interval'] = frequency
             existing_balance['balance'] += money_value
             new_transaction = app_tables.wallet_users_transaction.add_row(
-                  phone=self.user['phone'],
-                  fund=money_value,
-                  date=current_datetime,
-                  transaction_type=f"{cur} - Auto_Topup",
-                  transaction_status="Timely-Topup",
-                  receiver_phone=None
+                  users_transaction_phone=self.user['users_phone'],
+                  users_transaction_fund=money_value,
+                  users_transaction_date=current_datetime,
+                  users_transaction_type=f"{cur} - Auto_Topup",
+                  users_transaction_status="Timely-Topup",
+                  users_transaction_receiver_phone=self.user['users_phone']
               )
             self.label_5.text = f"{frequency}-topup payment has been successfully added to your account."
             # Update the last auto-topup time in user data
-            self.user['last_auto_topup_time'] = current_datetime
+            self.user['users_last_auto_topup_time'] = current_datetime
             open_form('customer', user=self.user)  
           else:
-            self.user['auto_topup'] = False
+            self.user['users_auto_topup'] = False
             anvil.alert("Auto-topup is inactive until the required time duration has expired.")
             print("Your balance is not below the limit")
             open_form('customer_page', user=self.user)  
@@ -158,13 +158,13 @@ class auto_topup(auto_topupTemplate):
         alert("Please enable the auto-topup switch to proceed.")    
         
     def button_on_click(self, **event_args):
-      self.user['auto_topup']= True
+      self.user['users_auto_topup']= True
       self.user.update()
       self.button_on.visible = False
       self.button_off.visible = True
   
     def button_off_click(self, **event_args):
-      self.user['auto_topup']= False
+      self.user['users_auto_topup']= False
       self.user.update()
       self.button_on.visible = True
       self.button_off.visible = False

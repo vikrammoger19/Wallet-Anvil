@@ -111,10 +111,11 @@ components:
       underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'UHAHTV,KBSAAE'}
-  - name: textbox_bank_name
-    properties: {background: white, font_size: 17}
-    type: TextBox
-    layout_properties: {grid_position: 'UHAHTV,XKHCYK'}
+  - name: drop_down_2
+    properties:
+      items: [Select Bank Account]
+    type: DropDown
+    layout_properties: {grid_position: 'UHAHTV,XQQENL'}
   - name: label_4
     properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Branch Name:', font_size: 17, font: '', spacing_above: small,
@@ -164,7 +165,7 @@ components:
       border: ''
       enabled: true
       foreground: ''
-      items: [Select Account, Savings Account, Current Account, Personal Account]
+      items: [Select Account Type, Savings Account, Current Account, Personal Account]
       visible: true
       font_size: 17
       font: ''

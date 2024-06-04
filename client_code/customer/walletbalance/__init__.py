@@ -20,8 +20,8 @@ class walletbalance(walletbalanceTemplate):
     def populate_balances(self):
         try:
             # Retrieve balances for the current user
-            user_phone = self.user['phone']
-            user_balances = app_tables.wallet_users_balance.search(phone=user_phone)
+            user_phone = self.user['users_phone']
+            user_balances = app_tables.wallet_users_balance.search(users_balance_phone=user_phone)
 
             # Print the retrieved data
             print("Retrieved balances:", user_balances)
@@ -34,13 +34,13 @@ class walletbalance(walletbalanceTemplate):
 
             # Iterate over user balances and update card components
             for balance in user_balances:
-                currency_type = balance['currency_type']
-                balance_amount = balance['balance']
+                currency_type = balance['users_balance_currency_type']
+                balance_amount = balance['users_balance']
 
                 # Lookup the currency icon, symbol, and country in the wallet_currency table
-                currency_record = app_tables.wallet_currency.get(currency_code=currency_type)
-                currency_icon = currency_record['currency_icon'] if currency_record else None
-                country = currency_record['country'] if currency_record else None
+                currency_record = app_tables.wallet_admins_add_currency.get(admins_add_currency_code=currency_type)
+                currency_icon = currency_record['admins_add_currency_icon'] if currency_record else None
+                country = currency_record['admins_add_currency_country'] if currency_record else None
                
 
                 # Get card and components for the current index
@@ -89,16 +89,16 @@ class walletbalance(walletbalanceTemplate):
             currency_type = currency_type.upper()
             
             # Retrieve balance for the entered currency type
-            user_phone = self.user['phone']
-            balance_record = app_tables.wallet_users_balance.get(phone=user_phone, currency_type=currency_type)
+            user_phone = self.user['users_phone']
+            balance_record = app_tables.wallet_users_balance.get(users_balance_phone=user_phone, users_balance_currency_type=currency_type)
             
             if balance_record:
-                balance_amount = balance_record['balance']
+                balance_amount = balance_record['users_balance']
                 
                 # Lookup the currency icon, symbol, and country in the wallet_currency table
-                currency_record = app_tables.wallet_currency.get(currency_code=currency_type)
-                currency_icon = currency_record['currency_icon'] if currency_record else None
-                country = currency_record['country'] if currency_record else None
+                currency_record = app_tables.wallet_admins_add_currency.get(admins_add_currency_code=currency_type)
+                currency_icon = currency_record['admins_add_currency_icon'] if currency_record else None
+                country = currency_record['admins_add_currency_country'] if currency_record else None
                 
 
                 # Update card_1 components with balance data

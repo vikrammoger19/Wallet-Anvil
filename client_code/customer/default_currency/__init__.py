@@ -14,13 +14,13 @@ class default_currency(default_currencyTemplate):
         
         # Set INR as the default currency initially
         self.default_currency = 'INR'
-        users = app_tables.wallet_users.get(phone=self.user['phone'])
+        users = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
          
-        if users['defaultcurrency'] != None:
-          self.default_currency = users['defaultcurrency']
+        if users['users_defaultcurrency'] != None:
+          self.default_currency = users['users_defaultcurrency']
         else:
           self.default_currency = 'INR'
-        self.phone = self.user['phone']
+        self.phone = self.user['users_phone']
         self.set_default_currency(self.default_currency,self.phone)
 
     # Event handlers for each radio button
@@ -61,8 +61,8 @@ class default_currency(default_currencyTemplate):
         # Update default currency
         self.default_currency = currency
         #store the currency to data tables
-        def_curr = app_tables.wallet_users.get(phone=phone)
-        def_curr.update(defaultcurrency=currency)
+        def_curr = app_tables.wallet_users.get(users_phone=phone)
+        def_curr.update(users_defaultcurrency=currency)
 
     def button_1_click(self, **event_args):
       """This method is called when the button is clicked"""

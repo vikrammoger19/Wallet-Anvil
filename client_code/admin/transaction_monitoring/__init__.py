@@ -61,12 +61,12 @@ class transaction_monitoring(transaction_monitoringTemplate):
               transaction_time = transaction['date'].strftime("%I:%M %p")
               
               # Fetch username from wallet_user table using receiver_phone
-              receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
+              receiver_user = app_tables.wallet_users.get(users_phone=receiver_phone)
               if receiver_user:
                   receiver_username = receiver_user['username']
               else:
-                  user = app_tables.wallet_users.get(phone=transaction['phone'])
-                  receiver_username = user['username']
+                  user = app_tables.wallet_users.get(users_phone=transaction['phone'])
+                  receiver_username = user['users_username']
               
               if transaction_type == 'Credit' or transaction_type == 'Deposited':
                   fund_display = "+" + str(fund)
