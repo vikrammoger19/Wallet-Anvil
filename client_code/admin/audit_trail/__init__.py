@@ -10,7 +10,7 @@ class audit_trail(audit_trailTemplate):
     # Set Form properties and Data Bindings.
     self.user=user
     self.init_components(**properties)
-    actions_data = app_tables.actions.search()
+    actions_data = app_tables.wallet_admins_actions.search()
         # Set the fetched data as the items for the repeating panel
     self.repeating_panel_1.items = actions_data
     # Any code you write here will run before the form opens.
