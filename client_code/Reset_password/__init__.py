@@ -86,3 +86,9 @@ class Reset_password(Reset_passwordTemplate):
             # Show a success message (you can replace this with any desired action)
             alert("Password updated successfully!")
             open_form('login')
+
+    def link_1_click(self, **event_args):
+      open_form('login')
+
+    def link_2_click(self, **event_args):
+      open_form('signup')
