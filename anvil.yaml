@@ -52,17 +52,17 @@ db_schema:
       admin_ui: {order: 3, width: 200}
       type: string
     - name: users_transaction_currency
-      admin_ui: {order: 7, width: 247}
+      admin_ui: {order: 4.5, width: 247}
       type: string
     - name: users_transaction_receiver_phone
-      admin_ui: {width: 266}
+      admin_ui: {order: 7.5, width: 266}
+      type: number
+    - name: users_transaction_phone
+      admin_ui: {order: 8, width: 200}
       type: number
     - name: users_transaction_message
-      admin_ui: {width: 200}
+      admin_ui: {width: 200, order: 9}
       type: string
-    - name: users_transaction_phone
-      admin_ui: {width: 200}
-      type: number
     title: wallet_users_transaction
   wallet_admins_create_admin_account:
     client: none

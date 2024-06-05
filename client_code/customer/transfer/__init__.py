@@ -50,10 +50,10 @@ class transfer(transferTemplate):
                 users_transaction_date=current_datetime,
                 users_transaction_type="Debit",
                 users_transaction_status="transfered-to",
-                users_transaction_receiver_phone=self.user['users_phone']
+                users_transaction_receiver_phone=receiver_phone_number
             )
               new_transaction = app_tables.wallet_users_transaction.add_row(
-                users_transaction_phone=self.user['users_phone'],
+                users_transaction_phone=receiver_phone_number,
                 users_transaction_fund=money_value,
                 users_transaction_currency=cur,
                 users_transaction_date=current_datetime,
@@ -78,10 +78,10 @@ class transfer(transferTemplate):
                 users_transaction_date=current_datetime,
                 users_transaction_type="Debit",
                 users_transaction_status="transfered-to",
-                users_transaction_receiver_phone=self.user['users_phone']
+                users_transaction_receiver_phone=receiver_phone_number
               )
                 new_transaction = app_tables.wallet_users_transaction.add_row(
-                  users_transaction_phone=self.user['users_phone'],
+                  users_transaction_phone=receiver_phone_number,
                 users_transaction_fund=money_value,
                 users_transaction_currency=cur,
                 users_transaction_date=current_datetime,
