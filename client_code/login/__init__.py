@@ -62,3 +62,5 @@ class login(loginTemplate):
     def link_2_click(self, **event_args):
       open_form('signup')
 
+    def link_1_click(self, **event_args):
+      open_form('forgot_password')

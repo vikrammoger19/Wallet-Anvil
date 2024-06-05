@@ -14,7 +14,7 @@ class forgot_password(forgot_passwordTemplate):
         user_email = self.text_box_1.text
         
         # Check if the email exists in the database
-        matching_users = app_tables.wallet_users.search(email=user_email)
+        matching_users = app_tables.wallet_users.search(users_email=user_email)
         
         if matching_users:
             # Email exists, generate OTP
@@ -72,12 +72,12 @@ class forgot_password(forgot_passwordTemplate):
               ):
                   # Password meets criteria, update the password
                   user_email = self.text_box_1.text
-                  matching_users = app_tables.wallet_users.search(email=user_email)
+                  matching_users = app_tables.wallet_users.search(users_email=user_email)
                   if matching_users and len(matching_users) > 0:
-                      matching_users[0]['password'] = new_password
+                      matching_users[0]['users_password'] = new_password
                       matching_users[0].update()
                       alert("Password updated successfully!")
-                      open_form('Login')
+                      open_form('login')
                   else:
                       alert("Email not found. Please enter a valid email address.")
               else:

@@ -21,7 +21,7 @@ class Reset_password(Reset_passwordTemplate):
         entered_email = self.text_box_1.text
 
         # Check if the entered email matches the user's email
-        if entered_email == self.user['email']:
+        if entered_email == self.user['users_email']:
             # Email is correct, hide the email error message label
             self.label_3.text = ""  # Clear any existing error message
             self.label_3.visible = False
@@ -36,7 +36,7 @@ class Reset_password(Reset_passwordTemplate):
         entered_old_password = self.text_box_2.text
 
         # Check if the entered old password matches the user's actual old password
-        if entered_old_password == self.user['password']:
+        if entered_old_password == self.user['users_password']:
             # Old password is correct, hide the password error message label
             self.label_4.text = ""  # Clear any existing error message
             self.label_4.visible = False
@@ -81,8 +81,14 @@ class Reset_password(Reset_passwordTemplate):
         # Check if all checks pass (email, old password, new passwords match, and new password strength)
         if not self.label_3.visible and not self.label_4.visible and not self.label_5.visible:
             # Update the user's password to the new password
-            self.user['password'] = self.text_box_4.text
+            self.user['users_password'] = self.text_box_4.text
             self.user.update()
             # Show a success message (you can replace this with any desired action)
             alert("Password updated successfully!")
-            open_form('Login')
+            open_form('login')
+
+    def link_1_click(self, **event_args):
+      open_form('login')
+
+    def link_2_click(self, **event_args):
+      open_form('signup')
