@@ -50,7 +50,7 @@ class transfer(transferTemplate):
                 users_transaction_date=current_datetime,
                 users_transaction_type="Debit",
                 users_transaction_status="transfered-to",
-                users_transaction_receiver_phone=self.user['users_phone']
+                users_transaction_receiver_phone=receiver_phone_number
             )
               new_transaction = app_tables.wallet_users_transaction.add_row(
                 users_transaction_phone=self.user['users_phone'],
@@ -59,7 +59,7 @@ class transfer(transferTemplate):
                 users_transaction_date=current_datetime,
                 users_transaction_type="Credit",
                 users_transaction_status="recieved-from",
-                users_transaction_receiver_phone=self.user['users_phone']
+                users_transaction_receiver_phone=receiver_phone_number
             )
               self.label_4.text = "Money transferred successfully to the account."
             else:
@@ -78,7 +78,7 @@ class transfer(transferTemplate):
                 users_transaction_date=current_datetime,
                 users_transaction_type="Debit",
                 users_transaction_status="transfered-to",
-                users_transaction_receiver_phone=self.user['users_phone']
+                users_transaction_receiver_phone=receiver_phone_number
               )
                 new_transaction = app_tables.wallet_users_transaction.add_row(
                   users_transaction_phone=self.user['users_phone'],
@@ -87,7 +87,7 @@ class transfer(transferTemplate):
                 users_transaction_date=current_datetime,
                 users_transaction_type="Credit",
                 users_transaction_status="recieved-from",
-                users_transaction_receiver_phone=self.user['users_phone']
+                users_transaction_receiver_phone=receiver_phone_number
               )
                 self.label_4.text = "Money transferred successfully to the account."
               else:
