@@ -248,10 +248,10 @@ class admin_view(admin_viewTemplate):
         action_log = ", ".join(actions)
 
         # Insert the log entry into the table
-        app_tables.admin_activity_log.add_row(
-            username=username,
-            timestamp=timestamp,
-            action=action_log
+        app_tables.wallet_admins_actions.add_row(
+            admins_actions_username=username,
+            admins_actions_date=timestamp,
+            admins_actions=action_log
         )
 
     # def check_profile_pic(self):
@@ -283,7 +283,7 @@ class admin_view(admin_viewTemplate):
 
     def has_balances(self):
         user_phone = self.phone_number
-        user_balances = app_tables.wallet_users_balance.search(users_phone=user_phone)
+        user_balances = app_tables.wallet_users_balance.search(users_balance_phone=user_phone)
         
         # Check if there are any balances for the user
         return bool(list(user_balances))
@@ -386,3 +386,9 @@ class admin_view(admin_viewTemplate):
       """This method is called when the button is clicked"""
       self.card_51.visible = True
       self.label_1000.visible = True
+
+    def button_4_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      username = self.label_100.text
+      self.log_action( username,["User Setlimt changed"])
+      open_form('admin.set_limit')
