@@ -32,7 +32,7 @@ class login(loginTemplate):
         if user is not None and user['users_password'] == password:
             # Check if the user is banned
             if user['users_banned'] is not None and user['users_banned']:
-                open_form('LOGIN.banned_form')
+                open_form('login.banned_form',user=user)
                 return
 
             # Check if the user is on hold/freeze
