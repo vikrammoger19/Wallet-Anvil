@@ -9,4 +9,69 @@ components:
     properties: {}
     type: Label
     layout_properties: {grid_position: 'BTMRLQ,EJJDGG'}
+- name: card_2
+  properties: {role: card, col_widths: '{"JUKPCL":4,"WVJPMY":56,"ICVGMB":4,"TSNWKX":56,"LRYJAE":4,"LTYDLK":56,"FJSLCA":4,"UDPFPV":56}'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'HGHQXN,PYZFZA'}
+  components:
+  - name: label_2
+    properties: {text: Term and condition for  banning, bold: true, foreground: red}
+    type: Label
+    layout_properties: {grid_position: 'FAYOXL,FFUSHQ'}
+  - name: label_3
+    properties: {text: '1 Violation of Terms of Service:', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'HYKTBU,HNILFP'}
+  - name: spacer_1
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'KSEMHY,JUKPCL'}
+  - name: label_4
+    properties: {text: 'You have repeatedly violated our Terms of Service, which all
+        users agree to upon registration.', icon: 'fa:dot-circle-o'}
+    type: Label
+    layout_properties: {grid_position: 'KSEMHY,WVJPMY'}
+  - name: label_5
+    properties: {text: '2 Fraudulent Activities:', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'EQRFNC,YNZENN'}
+  - name: spacer_1_copy
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'VIDWZS,ICVGMB'}
+  - name: label_5_copy
+    properties: {text: 'We have detected activities on your account that are indicative
+        of fraud or unauthorized transactions. This includes, but is not limited to,
+        suspicious transactions, chargebacks, or use of the wallet for fraudulent
+        purposes.', bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge}
+    type: Label
+    layout_properties: {grid_position: 'VIDWZS,TSNWKX'}
+  - name: label_5_copy_2
+    properties: {text: '3 Multiple Accounts:', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'OLJHVP,GKVJJN'}
+  - name: spacer_1_copy_copy
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'OSNHWG,LRYJAE'}
+  - name: label_5_copy_copy
+    properties: {text: 'Our records show that you have created and used multiple accounts,
+        which is against our policy designed to prevent fraud and abuse.', bold: false,
+      icon: 'fa:dot-circle-o', align: left, icon_align: left_edge}
+    type: Label
+    layout_properties: {grid_position: 'OSNHWG,LTYDLK'}
+  - name: label_5_copy_2_copy
+    properties: {text: '4 Unauthorized Use:', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'VNLYHG,SZBZIR'}
+  - name: spacer_1_copy_copy_copy
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'MTSZCL,FJSLCA'}
+  - name: label_5_copy_copy_copy
+    properties: {text: 'Your account has been used in ways that indicate it is being
+        accessed by unauthorized persons, which compromises the security of our platform.',
+      bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge}
+    type: Label
+    layout_properties: {grid_position: 'MTSZCL,UDPFPV'}
 is_package: true
