@@ -1,29 +1,33 @@
 is_package: true
 container: {type: ColumnPanel}
 components:
-- name: text_box_1
-  properties: {}
-  type: TextBox
-  layout_properties: {grid_position: 'NPHRJI,MUIGPS'}
-  data_bindings:
-  - {property: text, code: 'self.item['''']', writeback: false}
-- name: text_box_2
-  properties: {}
-  type: TextBox
-  layout_properties: {grid_position: 'NPHRJI,SLSKUL'}
-- name: text_box_3
-  properties: {}
-  type: TextBox
-  layout_properties: {grid_position: 'NPHRJI,JVSMET'}
-- name: text_box_4
-  properties: {}
-  type: TextBox
-  layout_properties: {grid_position: 'NPHRJI,MYHZAT'}
-- name: text_box_5
-  properties: {}
-  type: TextBox
-  layout_properties: {grid_position: 'NPHRJI,EEIBXI'}
-- name: button_1
-  properties: {text: '', icon: 'fa:align-justify'}
-  type: Button
-  layout_properties: {grid_position: 'NPHRJI,FKPIOQ'}
+- name: card_1
+  properties: {role: card, background: 'theme:Gray 100'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'MLAEWX,LBPGFA', full_width_row: true}
+  components:
+  - name: text_box_1
+    properties: {bold: true, align: center, border: 1px solid var(--gray100)}
+    type: TextBox
+    layout_properties: {grid_position: 'VSSFBA,HAUTOZ'}
+    data_bindings:
+    - {property: text, code: 'self.item[''admins_actions_username'']', writeback: true}
+    - {property: tag, code: 'self.item[''admins_actions_username'']', writeback: false}
+  - name: text_box_2
+    properties: {bold: true, align: center, border: 1px solid var(--gray100)}
+    type: TextBox
+    layout_properties: {grid_position: 'VSSFBA,XQBJNS'}
+    data_bindings:
+    - {property: text, code: 'self.item[''admins_actions'']', writeback: false}
+    - {property: tag, code: 'self.item[''admins_actions'']', writeback: false}
+  - name: text_box_3
+    properties: {bold: true, align: center, border: 1px solid var(--gray100)}
+    type: TextBox
+    layout_properties: {grid_position: 'VSSFBA,EFBJSJ'}
+    data_bindings:
+    - {property: tag, code: 'self.item[''admins_actions_date'']', writeback: false}
+    - {property: text, code: 'self.item[''admins_actions_date'']', writeback: false}
+  - name: button_1
+    properties: {text: '', icon: 'fa:align-justify'}
+    type: Button
+    layout_properties: {grid_position: 'VSSFBA,XLROJH'}
