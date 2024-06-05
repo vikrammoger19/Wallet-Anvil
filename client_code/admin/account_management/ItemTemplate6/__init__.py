@@ -28,7 +28,7 @@ class ItemTemplate6(ItemTemplate6Template):
     selected_user = self.item  # Assuming you have set the 'item' property of the repeating panel to the user row
     
     # Extract the phone number from the second text box
-    phone_number = selected_user['phone']  # Assuming 'phone_number' is the key for the phone number in your data
+    phone_number = selected_user['users_phone']  # Assuming 'phone_number' is the key for the phone number in your data
     
     # Open the admin_view form and pass the phone number
     open_form('admin.admin_view', phone_number=phone_number)
