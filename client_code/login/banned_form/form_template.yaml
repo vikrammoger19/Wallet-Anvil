@@ -10,9 +10,9 @@ components:
     type: Label
     layout_properties: {grid_position: 'BTMRLQ,EJJDGG'}
 - name: card_2
-  properties: {role: card, col_widths: '{"JUKPCL":4,"WVJPMY":56,"ICVGMB":4,"TSNWKX":56,"LRYJAE":4,"LTYDLK":56,"FJSLCA":4,"UDPFPV":56}'}
+  properties: {role: card, col_widths: '{"JUKPCL":4,"WVJPMY":56,"ICVGMB":4,"TSNWKX":56,"LRYJAE":4,"LTYDLK":56,"FJSLCA":4,"UDPFPV":56,"ADBCID":4,"RIVXMI":56,"OVLBWR":4,"SNNWAI":56}'}
   type: ColumnPanel
-  layout_properties: {grid_position: 'HGHQXN,PYZFZA'}
+  layout_properties: {grid_position: 'MIAJNT,IRDYPT'}
   components:
   - name: label_2
     properties: {text: Term and condition for  banning, bold: true, foreground: red}
@@ -74,4 +74,32 @@ components:
       bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge}
     type: Label
     layout_properties: {grid_position: 'MTSZCL,UDPFPV'}
+  - name: label_5_copy_2_copy_copy
+    properties: {text: '5 Abuse of Referral Program:', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'VVOMPO,LIKAIT'}
+  - name: spacer_1_copy_copy_copy_copy
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'CYVXTB,ADBCID'}
+  - name: label_5_copy_copy_copy_copy
+    properties: {text: 'Your account has been used in ways that indicate it is being
+        accessed by unauthorized persons, which compromises the security of our platform.',
+      bold: false, icon: 'fa:dot-circle-o', align: left, icon_align: left_edge}
+    type: Label
+    layout_properties: {grid_position: 'CYVXTB,RIVXMI'}
+  - name: label_5_copy_2_copy_copy_copy
+    properties: {text: '6 Money Laundering Activities:', bold: true}
+    type: Label
+    layout_properties: {grid_position: 'WVOMJM,VQUVPP'}
+  - name: spacer_1_copy_copy_copy_copy_copy
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'RPQVGG,OVLBWR'}
+  - name: label_5_copy_copy_copy_copy_copy
+    properties: {text: 'You have initiated multiple chargebacks without valid reasons,
+        which is considered abuse of our system.', bold: false, icon: 'fa:dot-circle-o',
+      align: left, icon_align: left_edge}
+    type: Label
+    layout_properties: {grid_position: 'RPQVGG,SNNWAI'}
 is_package: true
