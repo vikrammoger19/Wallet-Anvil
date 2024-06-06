@@ -374,10 +374,12 @@ components:
                 type: Link
                 layout_properties: {}
                 name: link_12_copy
+                event_bindings: {click: link_12_copy_click}
               - properties: {text: Month, bold: true}
                 type: Link
                 layout_properties: {}
                 name: link_13_copy
+                event_bindings: {click: link_13_copy_click}
               - properties: {text: Year, bold: true, col_widths: '{}'}
                 type: Link
                 event_bindings: {click: link_14_click}

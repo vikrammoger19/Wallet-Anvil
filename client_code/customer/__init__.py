@@ -262,3 +262,15 @@ class customer(customerTemplate):
     def link_8_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('customer.settings',user = self.user)
+
+    def link_12_copy_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      pass
+
+    def link_13_copy_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      pass
+
+    def link_14_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      pass
