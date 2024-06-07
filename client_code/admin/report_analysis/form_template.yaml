@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"KFJOGA":15,"BOTJKE":45,"FIIILU":35}'}
+  properties: {col_widths: '{"KFJOGA":15,"BOTJKE":45}'}
 components:
 - name: card_1_copy
   properties: {role: card, col_widths: '{}'}
@@ -243,10 +243,6 @@ components:
     type: Link
     layout_properties: {grid_position: 'CAUWMO,BOTJKE LUYVQJ,SNQRMG', x: 301, y: 61.6319465637207,
       width: 319.253}
-- name: spacer_1
-  properties: {height: 32}
-  type: Spacer
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE LUYVQJ,FIIILU'}
 - name: card_1
   properties: {role: card}
   type: ColumnPanel
