@@ -232,7 +232,7 @@ components:
     type: XYPanel
     layout_properties: {x: 21.933243222534657, y: 117.07064766436815, width: 1049.9134106445313}
     components:
-    - name: drop_down_1_copy
+    - name: drop_down_1
       properties:
         items: [None, past 30 days, past 60 days, past 90 days]
       type: DropDown

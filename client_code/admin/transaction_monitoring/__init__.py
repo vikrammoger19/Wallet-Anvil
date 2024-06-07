@@ -40,9 +40,9 @@ class transaction_monitoring(transaction_monitoringTemplate):
         for item in items:
             print('yes1')
             # Extract date in YYYY-MM-DD format without time
-            date_str = item['date'].strftime("%Y-%m-%d")
+            date_str = item['users_transaction_date'].strftime("%Y-%m-%d")
             if date_str not in self.grouped_transactions:
-                self.grouped_transactions[date_str] = {'date': item['date'], 'transactions': []}
+                self.grouped_transactions[date_str] = {'date': item['users_transaction_date'], 'transactions': []}
             self.grouped_transactions[date_str]['transactions'].append(item)
       else:
         return
@@ -55,17 +55,32 @@ class transaction_monitoring(transaction_monitoringTemplate):
       for date_str in sorted_dates:
           date_info = self.grouped_transactions[date_str]
           for transaction in reversed(date_info['transactions']):
-              fund = transaction['fund']
-              transaction_type = transaction['transaction_type']
-              receiver_phone = transaction['receiver_phone']
-              transaction_time = transaction['date'].strftime("%I:%M %p")
-              
+              fund = transaction['users_transaction_fund']
+              transaction_type = transaction['users_transaction_type']
+              receiver_phone = transaction['users_transaction_receiver_phone']
+              transaction_time = transaction['users_transaction_date'].strftime("%I:%M %p")
+              profile_pic = '_/theme/account.png'
+              if transaction_type == 'Withdrawn' or transaction_type == 'Deposited':
+                userr = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
+                if userr:
+                  if userr['users_profile_pic'] is not None:
+                    profile_pic = userr['users_profile_pic'] 
+                  else:
+                    profile_pic = '_/theme/account.png'
+                    
+              if  transaction_type == 'Credit' or transaction_type == 'Debit':
+                trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
+                if trans_user :
+                  if trans_user['users_profile_pic'] is not None:
+                    profile_pic = trans_user['users_profile_pic'] 
+                  else:
+                    profile_pic = '_/theme/account.png'
               # Fetch username from wallet_user table using receiver_phone
               receiver_user = app_tables.wallet_users.get(users_phone=receiver_phone)
               if receiver_user:
-                  receiver_username = receiver_user['username']
+                  receiver_username = receiver_user['users_username']
               else:
-                  user = app_tables.wallet_users.get(users_phone=transaction['phone'])
+                  user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
                   receiver_username = user['users_username']
               
               if transaction_type == 'Credit' or transaction_type == 'Deposited':
@@ -81,11 +96,12 @@ class transaction_monitoring(transaction_monitoringTemplate):
               # Append transaction details with username instead of receiver_phone
               self.repeating_panel_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
                                               'fund': fund_display,
-                                              'transaction_status': transaction['transaction_status'],
-                                              'transaction_type':transaction['transaction_type'],
+                                              'transaction_status': transaction['users_transaction_status'],
+                                              'transaction_type':transaction['users_transaction_type'],
                                               'receiver_username': receiver_username,
-                                              'currency_type':transaction['currency'],
+                                              'currency_type':transaction['users_transaction_currency'],
                                               'transaction_time':transaction_time,
+                                              'profile_pic':profile_pic,
                                               'fund_color': fund_color})
   
       self.repeating_panel_3.items = self.repeating_panel_items
@@ -112,6 +128,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                             'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                             'currency_type':self.repeating_panel_items[i]['currency_type'],
                                             'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                            'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                            'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                             'fund_color': self.repeating_panel_items[i]['fund_color']})
       self.repeating_panel_3.items = all
   
@@ -137,6 +155,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
       self.repeating_panel_3.items = received
   
@@ -164,6 +184,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
       self.repeating_panel_3.items = transfer
   
@@ -189,6 +211,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
       self.repeating_panel_3.items = withdraw
   
@@ -213,6 +237,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
       self.repeating_panel_3.items = deposit
     
@@ -234,6 +260,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = all 
         elif (self.date_picker_1.date):
@@ -245,6 +273,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = all
         else:
@@ -266,6 +296,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = received
         elif (self.date_picker_1.date):
@@ -277,6 +309,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = received
         else:
@@ -299,6 +333,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = transfered
         elif (self.date_picker_1.date):
@@ -310,6 +346,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = transfered
         else:
@@ -331,6 +369,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = withdraw
         elif (self.date_picker_1.date):
@@ -342,6 +382,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = withdraw
         else:
@@ -362,6 +404,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = deposit
         elif (self.date_picker_1.date):
@@ -373,6 +417,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = deposit
         else:
@@ -399,6 +445,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_30
   
@@ -415,6 +463,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_60
         
@@ -431,6 +481,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_90
   
@@ -450,6 +502,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_30
   
@@ -466,6 +520,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_60
         
@@ -482,6 +538,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_90
   
@@ -500,6 +558,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_30
   
@@ -516,6 +576,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_60
         
@@ -532,6 +594,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_90
   
@@ -550,6 +614,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_30
   
@@ -566,6 +632,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_60
         
@@ -582,6 +650,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_90
   
@@ -600,6 +670,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_30
   
@@ -616,6 +688,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_60
         
@@ -632,6 +706,8 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                    'transaction_type':self.repeating_panel_items[i]['transaction_type'],
+                                                    'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
           self.repeating_panel_3.items = days_90
     def link_1_click(self, **event_args):

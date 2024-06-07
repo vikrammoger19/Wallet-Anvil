@@ -2,17 +2,32 @@ from ._anvil_designer import adminTemplate
 from anvil import *
 import plotly.graph_objects as go
 import anvil.server
-
+from anvil.tables import app_tables
 
 class admin(adminTemplate):
     def __init__(self, user=None, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.user = user
+        print(self.user['users_username'])
         if user is not None:
             self.label_2.text = user['users_username']
         self.refresh_data()
+        self.check_profile_pic()
 
+  
+    def check_profile_pic(self):
+      user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
+      if user_data:
+        existing_img = user_data['users_profile_pic']
+        if existing_img != None:
+          self.image_3.source = existing_img
+        else: 
+          print('no pic')
+      else:
+        print('none')
+
+  
     def refresh_data(self):
         # Call the server function to get transactions data
         transactions = anvil.server.call('get_transactions')
@@ -70,30 +85,30 @@ class admin(adminTemplate):
         self.plot_1.visible = True
 
     def link_1_click(self, **event_args):
-        open_form('admin.report_analysis')
+        open_form('admin.report_analysis',user=self.user)
 
     def link_2_click(self, **event_args):
-        open_form('admin.account_management')
+        open_form('admin.account_management',user = self.user)
 
     def link_3_click(self, **event_args):
-        open_form('admin.transaction_monitoring')
+        open_form('admin.transaction_monitoring',user=self.user)
 
     def link_4_click(self, **event_args):
         open_form('admin.admin_add_user',user=self.user)
 
     def link_5_click(self, **event_args):
-        open_form('admin.audit_trail')
+        open_form('admin.audit_trail',user=self.user)
 
     def link_6_click(self, **event_args):
-        open_form('admin.user_support')
+        open_form('admin.user_support',user=self.user)
 
     def link_7_click(self, **event_args):
-        open_form('admin.show_users')
+        open_form('admin.show_users',user=self.user)
 
     def link_9_click(self, **event_args):
         open_form('Home')
 
     def link_10_click(self, **event_args):
-        open_form('admin.add_currency')
+        open_form('admin.add_currency',user=self.user)
 
     

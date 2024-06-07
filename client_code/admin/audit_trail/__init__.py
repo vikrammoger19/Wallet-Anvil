@@ -12,7 +12,21 @@ class audit_trail(audit_trailTemplate):
     self.init_components(**properties)
     self.load_all_actions()
     # Any code you write here will run before the form opens.
-
+    self.check_profile_pic()
+  
+  def check_profile_pic(self):
+        print(self.user)
+        print(self.user['users_email'],type(self.user['users_email']))
+        user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
+        if user_data:
+          existing_img = user_data['users_profile_pic']
+          if existing_img != None:
+            self.image_3_copy.source = existing_img
+          else: 
+            print('no pic')
+        else:
+          print('none')
+  
   def load_all_actions(self):
     """Load all actions into the repeating panel."""
     actions_data = app_tables.wallet_admins_actions.search()

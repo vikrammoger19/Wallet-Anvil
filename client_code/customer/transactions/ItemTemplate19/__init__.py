@@ -46,14 +46,16 @@ class ItemTemplate19(ItemTemplate19Template):
     self.label_3.foreground = self.item['fund_color']
     
     
-    if self.item['transaction_status'] == 'transfered-to':
+    if self.item['transaction_type'] == 'Debit':
       self.label_4.text = 'Transfer'
-    if self.item['transaction_status'] == 'recieved-from':
+    if self.item['transaction_type'] == 'Credit':
       self.label_4.text = 'Received'
-    if self.item['transaction_status'] == 'Wallet-Topup':
+    if self.item['transaction_type'] == 'Deposited':
       self.label_4.text='Topup'
-    if self.item['transaction_status'] == 'Wallet-Withdrawn':
+    if self.item['transaction_type'] == 'Withdrawn':
       self.label_4.text = 'Withdraw'
     self.label_4.foreground = self.item['fund_color']
+
+    self.image_1.source = self.item['profile_pic']
 
     # Any code you write here will run before the form opens.

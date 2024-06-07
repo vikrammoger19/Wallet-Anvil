@@ -11,11 +11,11 @@ class selftransfer(selftransferTemplate):
         self.init_components(**properties) 
         self.user = user
         # Set Form properties and Data Bindings.
-        username = anvil.server.call('get_username', self.user['phone'])
+        username = anvil.server.call('get_username', self.user['users_phone'])
         self.label_1.text = f"Welcome to Green Gate Financial, {username}"
         
         # Call the server function to get bank names based on the user's phone number
-        bank_iterator = anvil.server.call('get_user_bank_name', self.user['phone'])
+        bank_iterator = anvil.server.call('get_user_bank_name', self.user['users_phone'])
         
         # Extract bank names from the iterator
         self.bank_names = [row['bank_name'] for row in bank_iterator]
