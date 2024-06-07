@@ -14,4 +14,8 @@ class banned_form(banned_formTemplate):
         if user is not None:
               user1= user['users_username']
               self.label_1.text= f"Hi {user1}, your account has been banned because of suspicious activity."
+
+    def button_1_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      open_form('login.banned_form.banned_user_withdraw',user = self.user)
        

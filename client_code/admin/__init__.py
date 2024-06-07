@@ -2,15 +2,17 @@ from ._anvil_designer import adminTemplate
 from anvil import *
 import plotly.graph_objects as go
 import anvil.server
-
+import datetime
+from anvil.tables import app_tables
 class admin(adminTemplate):
     def __init__(self, user=None, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.user = user
-        print(self.user['users_username'])
+        
         if user is not None:
             self.label_2.text = user['users_username']
+            self.image_3.source=user['users_profile_pic']
         self.refresh_data()
         self.check_profile_pic()
 
@@ -62,7 +64,7 @@ class admin(adminTemplate):
 
         # Set the layout to include month and year labels, highlighting current year
         self.plot_1.layout = go.Layout(
-            title='Monthly Credit Transactions',
+            title='Monthly  Transaction in Wallet',
             xaxis=dict(
                 title='Month',
                 tickmode='array',
