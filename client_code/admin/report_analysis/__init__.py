@@ -18,9 +18,9 @@ class report_analysis(report_analysisTemplate):
         if user is not None:
             self.label_656.text = user['users_username']
         
-        
         # Hide plot initially
         self.plot_1.visible = False
+        self.refresh_data("transaction_trends")
 
     def refresh_data(self, data_type):
         if data_type == "transaction_trends":
@@ -66,7 +66,7 @@ class report_analysis(report_analysisTemplate):
                 {'x': categories, 'y': withdrawal_values, 'type': 'bar', 'name': 'Credit'},
                 {'x': categories, 'y': e_wallet_values, 'type': 'bar', 'name': 'Account to E-wallet'}
             ]
-            self.plot_1.title = "Transaction Trends"
+            self.plot_1.layout.title = "Transaction Trends"
         
         elif data_type == "user_activity":
             # Call the server function to get user data
@@ -90,7 +90,7 @@ class report_analysis(report_analysisTemplate):
             values = [banned_percentage, unbanned_percentage, active_percentage, inactive_percentage]
 
             self.plot_1.data = [{'labels': labels, 'values': values, 'type': 'pie'}]
-            self.plot_1.title = "User Activity Distribution"
+            self.plot_1.layout.title = "User Activity Distribution"
         
         elif data_type == "system_performance":
             # Call the server function to get transaction proof data
@@ -110,10 +110,11 @@ class report_analysis(report_analysisTemplate):
             values = [success_percentage, failed_percentage]
 
             self.plot_1.data = [{'labels': labels, 'values': values, 'type': 'pie'}]
-            self.plot_1.title = "System Performance Distribution"
+            self.plot_1.layout.title = "System Performance Distribution"
 
         # Show the plot
         self.plot_1.visible = True
+
 
     def link_44_click(self, **event_args):
         """This method is called when the button is clicked"""

@@ -64,7 +64,7 @@ class admin(adminTemplate):
 
         # Set the layout to include month and year labels, highlighting current year
         self.plot_1.layout = go.Layout(
-            title='Monthly Credit Transactions',
+            title='Monthly  Transaction in Wallet',
             xaxis=dict(
                 title='Month',
                 tickmode='array',
