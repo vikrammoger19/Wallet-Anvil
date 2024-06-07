@@ -358,3 +358,11 @@ class customer(customerTemplate):
     def link_14_click(self, **event_args):
       """This method is called when the link is clicked"""
       pass
+
+    def plot_1_click(self, points, **event_args):
+      """This method is called when a data point is clicked."""
+      pass
+
+    def button_1_copy_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      pass
