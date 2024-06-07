@@ -12,10 +12,23 @@ class account_management(account_managementTemplate):
     self.button_100000.visible = False
     self.user =user
     if user is not None:
-       self.label_656.text = user['username']
+       self.label_656.text = user['users_username']
     
     #print(mail)
     self.refresh_users()
+    self.check_profile_pic()
+  
+  def check_profile_pic(self):
+        # print(self.user['users_email'],type(self.user['users_email']))
+        user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
+        if user_data:
+          existing_img = user_data['users_profile_pic']
+          if existing_img != None:
+            self.image_3.source = existing_img
+          else: 
+            print('no pic')
+        else:
+          print('none')
 
   def refresh_users(self, username_filter=None, status_filter=None):
     # Fetch all users from the table
@@ -36,6 +49,7 @@ class account_management(account_managementTemplate):
 
     # Set items in the repeating panel
     self.repeating_panel_1.items = users
+    print(users)
     self.label_5.text = f"Total users: {len(users)}"
 
 
@@ -53,7 +67,7 @@ class account_management(account_managementTemplate):
 
   def link_8_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin')
+    open_form('admin',user=self.user)
 
   def link_10_copy_click(self, **event_args):
     """This method is called when the link is clicked"""

@@ -9,13 +9,14 @@ import re
 import base64
 class Viewprofile(ViewprofileTemplate):
     def __init__(self, user=None,password=None, **properties):
+        
         self.init_components(**properties)
         self.user = user
         self.password = password
         self.check_profile_pic()
         self.edit_mode = False  # Initial edit mode is set to False
         if user:
-            self.label_8.text = f"Welcome to Green Gate Financial, {user['username']}"
+            self.label_8.text = f"Welcome to Green Gate Financial, {user['users_username']}"
             self.display_user_profile(user)  # Display user profile on form load
 
     def toggle_edit_mode_components(self):
@@ -29,13 +30,13 @@ class Viewprofile(ViewprofileTemplate):
     def display_user_profile(self, user):
         # Fetch and display data for the logged-in user
         # You can customize this based on your table structure
-        user_data = app_tables.wallet_users.get(phone=user['phone'])
-        self.text_box_1.text = f"{user_data['email']}"
-        self.text_box_2.text = f"{user_data['phone']}"
-        self.text_box_3.text = f"{user_data['pan']}"
-        self.text_box_4.text = f"{user_data['aadhar']}"
-        self.text_box_5.text = f"{user_data['username']}"
-        self.text_box_6.text = f"{user_data['address']}"
+        user_data = app_tables.wallet_users.get(users_phone=user['users_phone'])
+        self.text_box_1.text = f"{user_data['users_email']}"
+        self.text_box_2.text = f"{user_data['users_phone']}"
+        self.text_box_3.text = f"{user_data['users_pan']}"
+        self.text_box_4.text = f"{user_data['users_aadhar']}"
+        self.text_box_5.text = f"{user_data['users_username']}"
+        self.text_box_6.text = f"{user_data['users_address']}"
 
 
 
@@ -46,7 +47,7 @@ class Viewprofile(ViewprofileTemplate):
             self.toggle_edit_mode_components()
         else:
             # Save changes and toggle back to view mode
-            user_data = app_tables.wallet_users.get(phone=self.user['phone'])
+            user_data = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
             count=0
             
             phone_number= self.text_box_2.text
@@ -60,12 +61,12 @@ class Viewprofile(ViewprofileTemplate):
                   count=count+1
                    
             if user_data is not None and count==3:
-              user_data['email'] = self.text_box_1.text
-              user_data['phone'] = self.text_box_2.text
-              user_data['aadhar'] = self.text_box_4.text
-              user_data['pan']= self.text_box_3.text
-              user_data['address'] = self.text_box_6.text
-              user_data['username'] = self.text_box_5.text
+              user_data['users_email'] = self.text_box_1.text
+              user_data['users_phone'] = self.text_box_2.text
+              user_data['users_aadhar'] = self.text_box_4.text
+              user_data['users_pan']= self.text_box_3.text
+              user_data['users_address'] = self.text_box_6.text
+              user_data['users_username'] = self.text_box_5.text
                 
               alert("User details updated successfully.", title="Success")
             else:
@@ -143,8 +144,8 @@ class Viewprofile(ViewprofileTemplate):
           # Check if the file is an image by inspecting the content type or file extension
           if uploaded_file.content_type.startswith("image/"):
             resized_image = anvil.server.call('resizing_image',uploaded_file)
-            user_data = app_tables.wallet_users.get(phone=self.user['phone'])
-            user_data.update(profile_pic=resized_image['base_64'])
+            user_data = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+            user_data.update(users_profile_pic=resized_image['media_obj'])
             
             self.image_1.source=resized_image['media_obj']
             # print(f"Uploaded image: {uploaded_file.name}")
@@ -153,14 +154,12 @@ class Viewprofile(ViewprofileTemplate):
 
     def check_profile_pic(self):
       print(self.user,self.password)
-      print(self.user['email'],type(self.user['email']))
-      user_data = app_tables.wallet_users.get(email=str(self.user['email'])) #changed
+      print(self.user['users_email'],type(self.user['users_email']))
+      user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
       if user_data:
-        existing_img = user_data['profile_pic']
+        existing_img = user_data['users_profile_pic']
         if existing_img != None:
-          decoded_image_bytes = base64.b64decode(existing_img)
-          profile_pic_blob = anvil.BlobMedia("image/png",decoded_image_bytes )
-          self.image_1.source = profile_pic_blob
+          self.image_1.source = existing_img
         else: 
           print('no pic')
       else:
@@ -168,12 +167,7 @@ class Viewprofile(ViewprofileTemplate):
         
     def button_3_click(self, **event_args):
       """This method is called when the button is clicked"""
-      if self.user['profile_pic'] != None:
-        user_data = app_tables.wallet_users.get(phone=self.user['phone'])
-        user_data.update(profile_pic=None)
+      if self.user['users_profile_pic'] != None:
+        user_data = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+        user_data.update(users_profile_pic=None)
         self.image_1.source = '_/theme/account.png'
-
-
-
-
-

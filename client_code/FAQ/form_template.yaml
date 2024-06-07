@@ -660,7 +660,7 @@ components:
             properties: {text: FAQs, font_size: 20, font: '', foreground: '', role: hover-link}
             type: Link
             layout_properties: {x: 649.5000122077763, y: 147.787506103516, width: 198.5}
-            event_bindings: {click: link_26_click}
+            event_bindings: {}
           - name: link_27_copy
             properties: {text: Contact Us, font_size: 20, font: '', foreground: '',
               role: hover-link}

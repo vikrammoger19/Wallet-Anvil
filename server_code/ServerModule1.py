@@ -48,13 +48,13 @@ def add_info(username, email, address, phone, aadhar, pan, password):
 
 @anvil.server.callable
 def get_acc_data(phone):
-    user_accounts = app_tables.wallet_users_account.search(phone=phone)
-    return [acc['account_number'] for acc in user_accounts]
+    user_accounts = app_tables.wallet_users_account.search(users_account_phone=phone)
+    return [acc['users_account_account_number'] for acc in user_accounts]
 
 @anvil.server.callable
 def get_user_account_numbers(phone):
-    user_accounts = app_tables.wallet_users_account.search(phone=phone)
-    return [acc['account_number'] for acc in user_accounts]
+    user_accounts = app_tables.wallet_users_account.search(users_account_phone=phone)
+    return [acc['users_account_account_number'] for acc in user_accounts]
 
 @anvil.server.callable
 def get_username(phone):
@@ -134,22 +134,22 @@ def get_user_data():
     # Iterate through each user's data
     for user_row in users_data:
         # Check the 'banned' column to determine if the user is active or non-active
-        if user_row['banned'] is None:
+        if user_row['users_banned'] is None:
             status = 'Active'
         else:
             status = 'Non-Active'
 
         # Check the 'inactive' column to determine if the user is inactive
-        if user_row['inactive'] is None:
+        if user_row['users_inactive'] is None:
             activity_status = 'Active'
         else:
             activity_status = 'Inactive'
 
         # Append user information to the list
         user_info = {
-            'username': user_row['username'],
-            'banned': user_row['banned'],
-            'inactive': user_row['inactive'],
+            'username': user_row['users_username'],
+            'banned': user_row['users_banned'],
+            'inactive': user_row['users_inactive'],
             'status': status,  # Include the 'status' information based on the 'banned' column
             'activity_status': activity_status  # Include the 'activity_status' information based on the 'inactive' column
         }
@@ -159,7 +159,7 @@ def get_user_data():
 
 @anvil.server.callable
 def update_daily_limit(name, emoney_value):
-    user_row = app_tables.users.get(username=name)  # Use get() instead of search() if username is unique
+    user_row = app_tables.wallet_users.get(users_username=name)  # Use get() instead of search() if username is unique
 
     if user_row is not None:
         user_row['users_user_limit'] = emoney_value
@@ -169,13 +169,13 @@ def update_daily_limit(name, emoney_value):
         return "User not found"
 @anvil.server.callable
 def user_detail(name, no):
-    user_row = app_tables.wallet_users.get(ususername=name)
+    user_row = app_tables.wallet_users.get(users_username=name)
     
     if user_row is not None:
         try:
             # Try to convert 'no' to a numeric type
             numeric_no = float(no)
-            user_row['daily_limit'] = numeric_no
+            user_row['users_daily_limit'] = numeric_no
             user_row.update()
             return "Daily limit updated successfully"
         except ValueError:
@@ -201,8 +201,8 @@ def get_balance_using_phone_number(phone_number, currency_type):
     phone_number = int(phone_number)
     # Use query to filter rows based on both 'phone' and 'currency_type'
     account = app_tables.wallet_users_balance.search(
-        phone=phone_number,
-        currency_type=currency_type
+        users_balance_phone=phone_number,
+        users_balance_currency_type=currency_type
     )
     try:
         return account[0]
@@ -215,19 +215,19 @@ def update_balance_transaction(phone_number, new_balance, currency_type):
     print(f"Updating balance for {phone_number} with new balance {new_balance} in currency {currency_type}")
     phone_number = int(phone_number)
     balances = app_tables.wallet_users_balance.search(
-        phone=phone_number,
-        currency_type=currency_type
+        users_balance_phone=phone_number,
+        users_balance_currency_type=currency_type
     )
     # Iterate through the list of balances or choose the appropriate row based on your criteria
     for balance in balances:
         # Convert new_balance to the appropriate type (number)
         new_balance = float(new_balance)
-        balance.update(balance=new_balance)
+        balance.update(users_balance=new_balance)
     # If you want to handle the case where no rows matched the query
     if not balances:
         print("Adding a new row...")
         # Create a new row with the provided information
-        app_tables.wallet_users_balance.add_row(phone=phone_number, balance=new_balance, currency_type=currency_type)
+        app_tables.wallet_users_balance.add_row(users_balance_phone=phone_number, users_balance=new_balance, users_balance_currency_type=currency_type)
     else:
         print("Row already exists.")
     print("Update complete.")
@@ -240,17 +240,17 @@ def update_depositor_balance(depositor_phone_number, new_balance, currency_type)
     depositor_phone_number = int(depositor_phone_number)
     # Use search to get all rows matching the query for depositor
     depositor_balances = app_tables.wallet_users_balance.search(
-        phone=depositor_phone_number,
-        currency_type=currency_type
+        users_balance_phone=depositor_phone_number,
+        users_balance_currency_type=currency_type
     )
     # Iterate through the list of depositor_balances or choose the appropriate row based on your criteria
     for depositor_balance in depositor_balances:
         new_balance = float(new_balance)
-        depositor_balance.update(balance=new_balance)
+        depositor_balance.update(users_balance=new_balance)
     # If you want to handle the case where no rows matched the query for depositor
     if not depositor_balances:
         # Create a new row with the provided information for depositor
-        app_tables.wallet_users_balance.add_row(phone=depositor_phone_number, balance=new_balance, currency_type=currency_type)
+        app_tables.wallet_users_balance.add_row(users_balance_phone=depositor_phone_number, users_balance=new_balance, users_balance_currency_type=currency_type)
 
 
 @anvil.server.callable
@@ -259,26 +259,26 @@ def update_receiver_balance(receiver_phone_number, new_balance, currency_type):
     receiver_phone_number = int(receiver_phone_number)
     # Use search to get all rows matching the query for receiver
     receiver_balances = app_tables.wallet_users_balance.search(
-        phone=receiver_phone_number,
-        currency_type=currency_type
+        users_balance_phone=receiver_phone_number,
+        users_balance_currency_type=currency_type
     )
     # Iterate through the list of receiver_balances or choose the appropriate row based on your criteria
     for receiver_balance in receiver_balances:
         new_balance = float(new_balance)
-        receiver_balance.update(balance=new_balance)
+        receiver_balance.update(users_balance=new_balance)
     # If you want to handle the case where no rows matched the query for receiver
     if not receiver_balances:
         # Create a new row with the provided information for receiver
-        app_tables.wallet_users_balance.add_row(phone=receiver_phone_number, balance=new_balance, currency_type=currency_type)
+        app_tables.wallet_users_balance.add_row(users_balance_phone=receiver_phone_number, users_balance=new_balance, users_balance_currency_type=currency_type)
 
 @anvil.server.callable
 def get_currency_balance(user_phone, currency_type):
     # Retrieve the balance for the given user and currency type
-    user_rows = app_tables.wallet_users_balance.search(phone=user_phone, currency_type=currency_type)
+    user_rows = app_tables.wallet_users_balance.search(users_balance_phone=user_phone, users_balance_currency_type=currency_type)
     
     if len(user_rows) > 0:
         # Assuming there's only one row per user and currency type, return the balance
-        return user_rows[0]['balance']
+        return user_rows[0]['users_balance']
     else:
         return None 
       
@@ -351,10 +351,8 @@ def resizing_image(file):
             img.save(processed,format="PNG")
             processed.seek(0)
             media_obj = anvil.BlobMedia(f"image/png", processed.read())
-            processed.seek(0)
-            for_base64 = processed.read()
-            image_base64 = base64.b64encode(for_base64).decode('utf-8')
-      return {'media_obj':media_obj,'base_64':image_base64}
+           
+      return {'media_obj':media_obj}
     except Exception as e:
       print(e)
 
@@ -389,6 +387,6 @@ def update_active_status():
 
 @anvil.server.callable
 def get_credit_debit(phone_number,default_currency):
-  debit_details = app_tables.wallet_users_transaction.search(transaction_type='Debit',phone=phone_number,currency=default_currency)
-  credit_details = app_tables.wallet_users_transaction.search(transaction_type='Credit',phone = phone_number,currency=default_currency)
+  debit_details = app_tables.wallet_users_transaction.search(users_transaction_type='Debit',users_transaction_phone=phone_number,users_transaction_currency=default_currency)
+  credit_details = app_tables.wallet_users_transaction.search(users_transaction_type='Credit',users_transaction_phone = phone_number,users_transaction_currency=default_currency)
   return {'debit_details':debit_details,'credit_details':credit_details}

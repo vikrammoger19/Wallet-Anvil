@@ -36,7 +36,7 @@ class paycontacts(paycontactsTemplate):
         return
 
     # Filter transactions based on the entered user
-    filtered_transactions = app_tables.wallet_users.search(phone==entered_user)
+    filtered_transactions = app_tables.wallet_users.search(users_phone=entered_user)
 
     # Update the repeating panel with the filtered transactions
     self.repeating_panel_1.items = filtered_transactions

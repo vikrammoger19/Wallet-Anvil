@@ -47,6 +47,19 @@ class admin_view(admin_viewTemplate):
                 self.label_901.text = ""
 
             self.set_button_text()
+        self.check_profile_pic()
+
+    def check_profile_pic(self):
+          # print(self.user['users_email'],type(self.user['users_email']))
+          user_data = app_tables.wallet_users.get(users_phone = self.phone_number) #changed
+          if user_data:
+            existing_img = user_data['users_profile_pic']
+            if existing_img != None:
+              self.image_1.source = existing_img
+            else: 
+              print('no pic')
+          else:
+            print('none')
 
     def set_status_label(self, inactive_status):
         if inactive_status:
@@ -391,4 +404,4 @@ class admin_view(admin_viewTemplate):
       """This method is called when the button is clicked"""
       username = self.label_100.text
       self.log_action( username,["User Setlimt changed"])
-      open_form('admin.set_limit')
+      open_form('admin.set_limit',user=self.user)

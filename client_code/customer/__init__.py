@@ -17,20 +17,21 @@ class customer(customerTemplate):
         user_dict = dict(self.user)
         self.refresh_data()
         self.get_credit_debit_details()
-
+        print(user_dict)
+        self.check_profile_pic()
         # Assuming user has a 'phone' attribute
-        phone_number = user_dict.get('phone', None)
+        phone_number = user_dict.get('users_phone', None)
         default_currency = 'INR'
         users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
         if users_def_currency['users_defaultcurrency'] is not None:
-            default_currency = users_def_currency['users_defaultcurrency']
+          default_currency = users_def_currency['users_defaultcurrency']
         if phone_number:
             # Search transactions based on the user's phone number
-            items = app_tables.wallet_users_transaction.search(phone=phone_number, currency=default_currency)
-
+            items = app_tables.wallet_users_transaction.search(users_transaction_phone=phone_number,users_transaction_currency=default_currency)
+        
             # Sort transactions by date in descending order
-            sorted_transactions = sorted(items, key=lambda x: x['date'], reverse=True)
-
+            sorted_transactions = sorted(items, key=lambda x: x['users_transaction_date'], reverse=True)
+        
             # Check if there are any transactions
             if not sorted_transactions:
                 self.repeating_panel_2.items = [{
@@ -45,18 +46,32 @@ class customer(customerTemplate):
                 self.repeating_panel_2_items = []
                 max_history_entries = 5  # Maximum number of history entries to display
                 for transaction in sorted_transactions:
-                    fund = transaction['fund']
-                    transaction_type = transaction['transaction_type']
-                    receiver_phone = transaction['receiver_phone']
-                    transaction_time = transaction['date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
-
+                    fund = transaction['users_transaction_fund']
+                    transaction_type = transaction['users_transaction_type']
+                    receiver_phone = transaction['users_transaction_receiver_phone']
+                    transaction_time = transaction['users_transaction_date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
+                    profile_pic = '_/theme/account.png'
+                    if transaction_type == 'Withdrawn' or transaction_type == 'Deposited':
+                      userr = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+                      if userr:
+                        if userr['users_profile_pic']:
+                           profile_pic = userr['users_profile_pic']
+                        else:
+                          profile_pic = '_/theme/account.png'
+                    if  transaction_type == 'Credit' or transaction_type == 'Debit':
+                      trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
+                      if trans_user :
+                        if trans_user['users_profile_pic']:
+                          profile_pic = trans_user['users_profile_pic']
+                        else:
+                          profile_pic = '_/theme/account.png'
                     # Fetch username from wallet_user table using receiver_phone
-                    receiver_user = app_tables.wallet_users.get(phone=receiver_phone)
+                    receiver_user = app_tables.wallet_users.get(users_phone=receiver_phone)
                     if receiver_user:
-                        receiver_username = receiver_user['username']
+                        receiver_username = receiver_user['users_username']
                     else:
-                        receiver_username = "Unknown"
-
+                        receiver_username = self.user['users_username']
+        
                     # Set the transaction text and color based on transaction type
                     if transaction_type == 'Credit':
                         transaction_text = "Received"
@@ -66,11 +81,19 @@ class customer(customerTemplate):
                         transaction_text = "Sent"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
+                    elif transaction_type == 'Deposited':
+                        transaction_text = "Deposit"
+                        fund_display = "+" + str(fund)
+                        fund_color = "green"
+                    elif transaction_type == 'Withdrawn':
+                        transaction_text = "Withdarw"
+                        fund_display = "-" + str(fund)
+                        fund_color = "red"
                     else:
                         transaction_text = "Unknown"
                         fund_display = str(fund)
                         fund_color = "black"
-
+        
                     # Append transaction details with username, transaction text, time, and day
                     self.repeating_panel_2_items.append({
                         'fund': fund_display,
@@ -78,13 +101,14 @@ class customer(customerTemplate):
                         'transaction_text': transaction_text,
                         'transaction_time': transaction_time,
                         'fund_color': fund_color,
-                        'default_currency': default_currency,
+                        'default_currency':default_currency,
+                        'profile_pic':profile_pic
                     })
-
+        
                     # Limit the maximum number of history entries to display
                     if len(self.repeating_panel_2_items) >= max_history_entries:
                         break
-
+        
                 self.repeating_panel_2.items = self.repeating_panel_2_items
 
     def inr_balance(self, balance, currency_type):
@@ -110,60 +134,60 @@ class customer(customerTemplate):
         # Get the user's phone number
         phone_number = self.user['users_phone']
 
-        # Getting the data for total wallet amount
+        #getting the data for total wallet amount 
         now = datetime.datetime.now()
         formatted_date = now.strftime('%a, %d-%b, %Y')
         self.label_11.text = formatted_date
         # Display the username
         self.label_20.text = self.user['users_username']
         # Get the INR balance from the server
-        # currency
-        user_default_currency = 'INR'
-
+        #currency
+        user_default_currency='INR'
+        
         users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
         if users_def_currency['users_defaultcurrency'] is not None:
-            user_default_currency = users_def_currency['users_defaultcurrency']
+          user_default_currency = users_def_currency['users_defaultcurrency']
         else:
-            user_default_currency = 'INR'
-
+          user_default_currency = 'INR'
+        
         balance_iterator = anvil.server.call('get_inr_balance', self.user['users_phone'])
         if balance_iterator is not None:
-            balance = self.inr_balance(balance_iterator, user_default_currency)
-            if balance != '0':
-                self.label_13.text = str(f'{balance:.2f}')
-            else:
-                self.label_13.text = balance
-            self.label_13.icon = f'fa:{user_default_currency.lower()}'
-            self.label_13.icon_align = 'left'
+          balance = self.inr_balance(balance_iterator, user_default_currency)
+          if balance != '0':
+            self.label_13.text = str(f'{balance:.2f}')
+          else:
+            self.label_13.text = balance
+          self.label_13.icon = f'fa:{user_default_currency.lower()}'
+          self.label_13.icon_align = 'left'
         else:
-            self.label_13.text = str(0)
+          self.label_13.text =str(0)
 
         # Call the server function to get transactions data
         transactions = anvil.server.call('get_transactions')
-
+  
         # DEBUG: Print the number of transactions retrieved from the server
         print("Number of transactions retrieved:", len(transactions))
-
+  
         # Filter transactions to include only those involving the user's phone number
-        filtered_transactions = [t for t in transactions if t['users_transaction_phone'] == phone_number]
-
+        filtered_transactions = [t for t in transactions if t['users_transaction_phone'] == phone_number ]
+  
         # DEBUG: Print the number of transactions after filtering
         print("Number of transactions after filtering:", len(filtered_transactions))
-
+  
         # Filter transactions to include only 'Credit' and 'Debit' types
         filtered_transactions = [t for t in filtered_transactions if t['users_transaction_type'] in ['Credit', 'Debit']]
-
+  
         # Organize data for plotting (aggregate by date and type)
         data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
         for transaction in filtered_transactions:
             date = transaction['users_transaction_date'].strftime("%Y-%m-%d")  # Format date as string for grouping
-
+  
             trans_type = transaction['users_transaction_type']
             fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
-
+  
             if date not in data_for_plot[trans_type]:
                 data_for_plot[trans_type][date] = 0
-
+  
             # Ensure fund is a string or a number before conversion
             if isinstance(fund, (int, float)):
                 money_amount = fund
@@ -175,64 +199,79 @@ class customer(customerTemplate):
                     money_amount = 0  # Handle cases where conversion to float fails
             else:
                 money_amount = 0  # Default to 0 if 'fund' is neither a string nor a number
-
+  
             # Aggregate transaction amounts by date and type
             if trans_type in data_for_plot:
                 data_for_plot[trans_type][date] += money_amount
-
+  
         # DEBUG: Print the data for plotting
         print("Data for plotting:", data_for_plot)
-
+  
         # Plot the data
         categories = list(set(data_for_plot['Credit'].keys()) | set(data_for_plot['Debit'].keys()))  # Combine dates from Credit and Debit transactions
         categories.sort()  # Sort the dates for a proper time series plot
         credit_values = [data_for_plot['Credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
-        debit_values = [data_for_plot['Debit'].get(date, 0) for date in categories]  # Get debit values for each date or 0 if date not present
-
+        debit_values = [data_for_plot['Debit'].get(date, 0) for date in categories]    # Get debit values for each date or 0 if date not present
+  
         self.plot_1.data = [
             {'x': categories, 'y': debit_values, 'type': 'bar', 'name': 'Debit', 'marker': {'color': 'gray'}},
             {'x': categories, 'y': credit_values, 'type': 'bar', 'name': 'Credit', 'marker': {'color': 'lightblue'}}
         ]
-
+  
         self.plot_1.visible = True
 
     def get_credit_debit_details(self):
-        users_phone = self.user['users_phone']
+      users_phone = self.user['users_phone']
+      user_default_currency='INR'
+      users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+      if users_def_currency['users_defaultcurrency'] is not None:
+          user_default_currency = users_def_currency['users_defaultcurrency']
+      else:
         user_default_currency = 'INR'
-        users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
-        if users_def_currency['users_defaultcurrency'] is not None:
-            user_default_currency = users_def_currency['users_defaultcurrency']
+      
+      try:
+        cred_debt = anvil.server.call('get_credit_debit',users_phone,user_default_currency)
+        credit_details = cred_debt['credit_details']
+        debit_details = cred_debt['debit_details']
+        credit_sum = 0
+        debit_sum = 0
+        if credit_details is not None:
+          for i in credit_details:
+            print(i['users_transaction_fund'])
+            credit_sum += i['users_transaction_fund']
+          print('credit',credit_sum)
+          self.label_17_copy.text = str(credit_sum)
+          self.label_17_copy.icon = f'fa:{user_default_currency.lower()}'
+          self.label_17_copy.icon_align ='left'
         else:
-            user_default_currency = 'INR'
+          print('none')
+          self.label_17_copy.text = str(0)
+        if debit_details is not None:
+          for j in debit_details:
+            debit_sum += j['users_transaction_fund']
+            print(j['users_transaction_fund'])
+          print('debit',debit_sum)
+          self.label_15_copy.text = str(debit_sum)
+          self.label_15_copy.icon = f'fa:{user_default_currency.lower()}'
+          self.label_15_copy.icon_align ='left'
+        else:
+          print('none')
+          self.label_15_copy.text = str(0)
+      except Exception as e:
+        print(e)
 
-        try:
-            cred_debt = anvil.server.call('get_credit_debit', users_phone, user_default_currency)
-            credit_details = cred_debt['credit_details']
-            debit_details = cred_debt['debit_details']
-            credit_sum = 0
-            debit_sum = 0
-            if credit_details is not None:
-                for i in credit_details:
-                    print(i['fund'])
-                    credit_sum += i['fund']
-                print('credit', credit_sum)
-                self.label_17_copy.text = str(credit_sum)
-                self.label_17_copy.icon = f'fa:{user_default_currency.lower()}'
-                self.label_17_copy.icon_align = 'left'
-            else:
-                self.label_17_copy.text = str(0)
-            if debit_details is not None:
-                for i in debit_details:
-                    print(i['fund'])
-                    debit_sum += i['fund']
-                print('debit', debit_sum)
-                self.label_19.text = str(debit_sum)
-                self.label_19.icon = f'fa:{user_default_currency.lower()}'
-                self.label_19.icon_align = 'left'
-            else:
-                self.label_19.text = str(0)
-        except Exception as e:
-            print('exception: ', e)
+    def check_profile_pic(self):
+        print(self.user)
+        print(self.user['users_email'],type(self.user['users_email']))
+        user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
+        if user_data:
+          existing_img = user_data['users_profile_pic']
+          if existing_img != None:
+            self.image_2_copy.source = existing_img
+          else: 
+            print('no pic')
+        else:
+          print('none')
 
     def filter_transactions_by_period(self, transactions, period):
         now = datetime.datetime.now()
