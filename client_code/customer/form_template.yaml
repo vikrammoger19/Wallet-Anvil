@@ -398,7 +398,7 @@ components:
               layout_properties: {x: 0, y: 102, width: 560}
               event_bindings: {click: plot_1_click}
               name: plot_1
-        - properties: {role: card, col_widths: '{"LHYRHT":50,"SLIHOF":10}'}
+        - properties: {role: card, col_widths: '{"LHYRHT":45,"SLIHOF":15}'}
           type: ColumnPanel
           layout_properties: {x: 643.2500457763672, y: 338.1932067871094, width: 332.773}
           name: card_7_copy

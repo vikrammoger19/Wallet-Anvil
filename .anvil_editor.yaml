@@ -1,6 +1,5 @@
 unique_ids:
   forms:
-    customer.service: '1707717709258481789312633.7267'
     customer.transactions.ItemTemplate19: '171679675215616920424147.230272'
     admin.audit_trail.ItemTemplate12: '1714625887180559473349917.0771'
     customer.Viewprofile: '1706611287185736171714748.7703'
@@ -38,6 +37,7 @@ unique_ids:
     customer.ItemTemplate16.selftransfer: '1709811618527375182796379.1019'
     admin.transaction_monitoring.ItemTemplate1: '1706769788928229752038805.30936'
     admin.raise_a_complaint.ItemTemplate7: '1707720975300750450311906.8728'
+    customer.report_bug: '1707717709258481789312633.7267'
     admin.audit_trail.ItemTemplate5: '1707362299988983753861065.0303'
     admin.show_users: '1706598382099409992504742.12134'
     contact_us.issue_2.payment_declined: '1712909233906820853588995.3335'
@@ -106,6 +106,7 @@ unique_ids:
     letter-g.png: '1706857847685132550582332.4915'
     user.png: '1717496532654354264482142.87244'
     1ghg-removebg-preview.png: '1714625640179106696814631.87186'
+    support1.png: '1717744871463983546389132.8171'
     th (2).jpeg: '1714626853015956561658061.543'
     output-onlinetools (3).jpg: '1712493872241858082505377.2513'
     home.png: '1715082878941119947318178.51312'
@@ -125,6 +126,7 @@ unique_ids:
     EUlogo-1024x1024.png: '1715939950533609428744906.8759'
     output-onlinetools.jpg: '1712493774686239916153761.4649'
     th__8_-removebg-preview.png: '1715939269818559209681538.0061'
+    support2.png: '171774488344025341179046.543648'
     prioritize (1).png: 6GUBQBGOYFZR6HKYPLTUUI5TQCMN645K
     64b8169293a4eedcc0ccd62f_requesti-is-easy.svg: LEZLTZ5CTKGFIXRIQON6EEOWLK7ZUS4E
     receive-amount.png: '1715082918711155063430338.66376'

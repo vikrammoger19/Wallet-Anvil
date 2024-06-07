@@ -41,5 +41,6 @@ class ItemTemplate17(ItemTemplate17Template):
             self.label_2.foreground = self.item['fund_color']
             # self.text_box_2.visible= True
             self.image_1.visible = True
+            self.image_1.source = self.item['profile_pic']
 
  

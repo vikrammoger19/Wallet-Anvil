@@ -39,23 +39,23 @@ class interaction(interactionTemplate):
         if is_number:
             # Store it in the "fund" column
             app_tables.wallet_users_transaction.add_row(
-                fund=fund,
-                message=None,
-                phone=self.user,
-                receiver_phone=self.phone_number,
-                transaction_status="success",
-                transaction_type="debit",
-                date=current_datetime  # Store the current date and time
+                users_transaction_fund=fund,
+                users_transaction_message=None,
+                users_transaction_phone=self.user,
+                users_transaction_receiver_phone=self.phone_number,
+                users_transaction_status="success",
+                users_transaction_type="debit",
+                users_transaction_date=current_datetime  # Store the current date and time
             )
         else:
             # Store it in the "message" column
             app_tables.wallet_users_transaction.add_row(
-                fund=None,
-                message=user_input,
-                phone=self.user,
-                receiver_phone=self.phone_number,
-                transaction_type=None,
-                date=current_datetime  # Store the current date and time
+                users_transaction_fund=None,
+                users_transaction_message=user_input,
+                users_transaction_phone=self.user,
+                users_transaction_receiver_phone=self.phone_number,
+                users_transaction_type=None,
+                users_transaction_date=current_datetime  # Store the current date and time
             )
 
         # After adding a new transaction, update the panels
@@ -67,9 +67,9 @@ class interaction(interactionTemplate):
       panel2_items = []
       
       for transaction in transactions:
-          if transaction['receiver_phone'] == self.phone_number and transaction['phone'] == self.user:
+          if transaction['users_transaction_receiver_phone'] == self.phone_number and transaction['users_transaction_phone'] == self.user:
               panel1_items.append(transaction)
-          elif transaction['receiver_phone'] == self.user and transaction['phone'] == self.phone_number:
+          elif transaction['users_transaction_receiver_phone'] == self.user and transaction['users_transaction_phone'] == self.phone_number:
               panel2_items.append(transaction)
       
       self.repeating_panel_1.items = panel1_items

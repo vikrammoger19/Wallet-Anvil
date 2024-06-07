@@ -15,14 +15,29 @@ class set_limit(set_limitTemplate):
         self.user_data = user_data
         if self.user is not None:
             print("DEBUG: Before accessing 'email'")
-            self.name = self.user['email']
-            print(name)
+            self.name = self.user['users_email']
+            print(self.name)
             print("DEBUG: After accessing 'email'")
+        self.check_profile_pic()
+    # Any code you write here will run before the form opens.
+
+  def check_profile_pic(self):
+        print(self.user)
+        print(self.user['users_email'],type(self.user['users_email']))
+        user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
+        if user_data:
+          existing_img = user_data['users_profile_pic']
+          if existing_img != None:
+            self.image_2.source = existing_img
+          else: 
+            print('no pic')
+        else:
+          print('none')
         
         # Now you can access the username or any other user data
             
   def outlined_button_1_click(self, **event_args):
-    username = self.user_data['username']
+    username = self.user_data['users_username']
     new_limit = self.text_box_1.text
         
     # Call the server function and update the user's limit
@@ -38,11 +53,11 @@ class set_limit(set_limitTemplate):
 
   def log_action(self, username, changes,email):
         # Retrieve last_login from the 'users' table
-        user = app_tables.wallet_users.get(username=username)
+        user = app_tables.wallet_users.get(users_username=username)
         last_login = None
         
         if user and user['last_login']:
-            last_login = user['last_login']
+            last_login = user['users_last_login']
         # Log actions to 'actions' table if changes were made
         if changes:
             print("reached changes")
