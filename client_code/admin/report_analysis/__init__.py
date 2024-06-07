@@ -11,10 +11,13 @@ import re  # Import the regular expression module
 
 class report_analysis(report_analysisTemplate):
     def __init__(self, user=None, **properties):
-        self.user = user
+        
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
-        self.button_3.text = "System Performance"
+        self.user = user
+        if user is not None:
+            self.label_656.text = user['users_username']
+        
         
         # Hide plot initially
         self.plot_1.visible = False
@@ -112,15 +115,15 @@ class report_analysis(report_analysisTemplate):
         # Show the plot
         self.plot_1.visible = True
 
-    def button_1_click(self, **event_args):
+    def link_44_click(self, **event_args):
         """This method is called when the button is clicked"""
         self.refresh_data("transaction_trends")
 
-    def button_2_click(self, **event_args):
+    def link_66_click(self, **event_args):
         """This method is called when the button is clicked"""
         self.refresh_data("user_activity")
 
-    def button_3_click(self, **event_args):
+    def link_99_click(self, **event_args):
         """This method is called when the button is clicked"""
         self.refresh_data("system_performance")
 

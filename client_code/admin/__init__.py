@@ -9,7 +9,7 @@ class admin(adminTemplate):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.user = user
-        print(self.user['users_username'])
+        
         if user is not None:
             self.label_2.text = user['users_username']
             self.image_3.source=user['users_profile_pic']
