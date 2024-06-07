@@ -90,7 +90,7 @@ class report_analysis(report_analysisTemplate):
             values = [banned_percentage, unbanned_percentage, active_percentage, inactive_percentage]
 
             self.plot_1.data = [{'labels': labels, 'values': values, 'type': 'pie'}]
-            self.plot_1.layout.title = "User Activity Distribution"
+            self.plot_1.layout.title = "User Activity "
         
         elif data_type == "system_performance":
             # Call the server function to get transaction proof data
@@ -110,7 +110,7 @@ class report_analysis(report_analysisTemplate):
             values = [success_percentage, failed_percentage]
 
             self.plot_1.data = [{'labels': labels, 'values': values, 'type': 'pie'}]
-            self.plot_1.layout.title = "System Performance Distribution"
+            self.plot_1.layout.title = "System Performance "
 
         # Show the plot
         self.plot_1.visible = True
