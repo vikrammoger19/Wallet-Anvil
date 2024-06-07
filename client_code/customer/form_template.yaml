@@ -323,7 +323,7 @@ components:
           components:
           - properties: {height: 420.20001220703125, width: 685.525}
             type: XYPanel
-            layout_properties: {grid_position: 'UPLAGE,DHUMFC'}
+            layout_properties: {grid_position: 'WKUECY,WYIOUP'}
             name: xy_panel_15_copy
             components:
             - properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
@@ -341,9 +341,10 @@ components:
               type: Button
               layout_properties: {x: 392.04547119140625, y: 10, width: 157.716}
               name: button_1_copy
+              event_bindings: {click: button_1_copy_click}
             - properties: {}
               type: FlowPanel
-              layout_properties: {x: 0, y: 50.27499999999998, width: 648.55}
+              layout_properties: {x: 0, y: 50.27499999999998, width: 570.285}
               name: flow_panel_1_copy
               components:
               - properties: {height: 32}
@@ -374,10 +375,12 @@ components:
                 type: Link
                 layout_properties: {}
                 name: link_12_copy
+                event_bindings: {click: link_12_copy_click}
               - properties: {text: Month, bold: true}
                 type: Link
                 layout_properties: {}
                 name: link_13_copy
+                event_bindings: {click: link_13_copy_click}
               - properties: {text: Year, bold: true, col_widths: '{}'}
                 type: Link
                 event_bindings: {click: link_14_click}
@@ -388,7 +391,7 @@ components:
                 spacing_below: none, italic: false, background: '', bold: false, underline: false,
                 icon: ''}
               type: Label
-              layout_properties: {x: 0, y: 56, width: 632.975}
+              layout_properties: {x: 0, y: 56, width: 652.469}
               name: label_5_copy_copy
             - properties: {height: 320.7818145751953}
               type: Plot

@@ -11,7 +11,7 @@ components:
   type: Button
   layout_properties: {grid_position: 'KQKPGJ,OWGIJP'}
 - name: card_1
-  properties: {role: card, col_widths: '{"DSMUUI":4,"DYCVIT":56}', col_spacing: tiny}
+  properties: {role: card, col_widths: '{}', col_spacing: tiny}
   type: ColumnPanel
   layout_properties: {grid_position: 'SIQCAM,CNCVAZ'}
   components:
@@ -19,15 +19,20 @@ components:
     properties: {bold: true, font_size: 20, foreground: 'theme:Primary 500', align: center}
     type: Label
     layout_properties: {grid_position: 'BTMRLQ,EJJDGG'}
-  - name: label_6
-    properties: {text: 'NOTE:', bold: true, italic: false, align: right}
-    type: Label
-    layout_properties: {grid_position: 'VHPRZC,DSMUUI'}
-  - name: label_7
-    properties: {text: 'Withdraw your amount with in 15 days ,your account will deactivate
-        in 15 days .'}
-    type: Label
-    layout_properties: {grid_position: 'VHPRZC,DYCVIT'}
+  - name: card_3
+    properties: {role: card, col_widths: '{"ONPGXE":5,"RTYHSZ":55}', border: 2px solid black}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'MZAGRP,MGEYYE'}
+    components:
+    - name: label_6
+      properties: {text: 'NOTE:', bold: true, italic: false, align: right}
+      type: Label
+      layout_properties: {grid_position: 'ZWVZSC,ONPGXE'}
+    - name: label_7
+      properties: {text: 'Withdraw your amount with in 15 days ,your account will
+          deactivate in 15 days .'}
+      type: Label
+      layout_properties: {grid_position: 'ZWVZSC,RTYHSZ'}
 - name: card_2
   properties: {role: card, col_widths: '{"JUKPCL":4,"WVJPMY":56,"ICVGMB":4,"TSNWKX":56,"LRYJAE":4,"LTYDLK":56,"FJSLCA":4,"UDPFPV":56,"ADBCID":4,"RIVXMI":56,"OVLBWR":4,"SNNWAI":56,"JKEGQS":4,"ZOXZDU":56,"RANASX":4,"CDTNLG":56,"JXVBKX":4,"MTLRMX":56,"ZXQSDI":4,"QSSWHF":56}',
     background: 'theme:Gray 50'}
