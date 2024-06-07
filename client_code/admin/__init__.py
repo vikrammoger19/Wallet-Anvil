@@ -2,7 +2,8 @@ from ._anvil_designer import adminTemplate
 from anvil import *
 import plotly.graph_objects as go
 import anvil.server
-
+import datetime
+from anvil.tables import app_tables
 class admin(adminTemplate):
     def __init__(self, user=None, **properties):
         # Set Form properties and Data Bindings.
@@ -11,6 +12,7 @@ class admin(adminTemplate):
         print(self.user['users_username'])
         if user is not None:
             self.label_2.text = user['users_username']
+            self.image_3.source=user['users_profile_pic']
         self.refresh_data()
         self.check_profile_pic()
 
