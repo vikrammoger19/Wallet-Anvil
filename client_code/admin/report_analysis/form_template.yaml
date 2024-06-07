@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"KFJOGA":15,"BOTJKE":45}'}
+  properties: {col_widths: '{"KFJOGA":15,"BOTJKE":45,"FIIILU":35}'}
 components:
 - name: card_1_copy
   properties: {role: card, col_widths: '{}'}
@@ -215,100 +215,47 @@ components:
           underline: false, icon: ''}
         type: Label
         layout_properties: {x: 91.57499389722943, y: 0, width: 77}
-- name: spacer_2
-  properties: {height: 32}
-  type: Spacer
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE FWCQTP,ZDRTAR'}
-- name: button_1
-  properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
-    foreground: white, visible: true, text: ' Transaction Trends', font_size: null,
-    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: true,
-    background: '#1d86da', bold: true, underline: false, icon: 'fa:angle-down'}
-  type: Button
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE XGOJWV,FQZZAS'}
-  event_bindings: {click: button_1_click}
-- name: button_2
-  properties: {role: filled-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: white, visible: true, text: User Activity, font_size: null, font: '',
-    spacing_above: small, icon_align: left, spacing_below: small, italic: true, background: '#1d86da',
-    bold: true, underline: false, icon: 'fa:angle-double-down'}
-  type: Button
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE XGOJWV,MEWRTI'}
-  event_bindings: {click: button_2_click}
-- name: button_3
-  properties: {role: filled-button, align: right, tooltip: '', border: '', enabled: true,
-    foreground: white, visible: true, text: System performance, font_size: null, font: '',
-    spacing_above: small, icon_align: left, spacing_below: small, italic: true, background: '#1d86da',
-    bold: true, underline: false, icon: 'fa:angle-double-down'}
-  type: Button
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE XGOJWV,XRDRCF'}
-  event_bindings: {click: button_3_click}
+- name: card_2
+  properties: {role: card}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'CAUWMO,BOTJKE HGGSML,ACWGIB'}
+- name: xy_panel_1
+  properties: {height: 100}
+  type: XYPanel
+  layout_properties: {grid_position: 'CAUWMO,BOTJKE DBEKGA,HOGOBX'}
+  components:
+  - name: link_4
+    properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: '',
+      visible: true, text: ' Transaction Trends', font_size: null, wrap_on: mobile,
+      font: '', col_spacing: medium, spacing_above: none, icon_align: left, col_widths: '',
+      spacing_below: none, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    type: Link
+    layout_properties: {grid_position: 'CAUWMO,BOTJKE LUYVQJ,VKFHXK', x: 0, y: 61.649,
+      width: 131.927}
+  - name: link_6
+    properties: {text: User Activity, align: center}
+    type: Link
+    layout_properties: {grid_position: 'CAUWMO,BOTJKE LUYVQJ,MHSJJS', x: 136, y: 61.649,
+      width: 165.608}
+  - name: link_9
+    properties: {text: System performance, align: center, spacing_below: none}
+    type: Link
+    layout_properties: {grid_position: 'CAUWMO,BOTJKE LUYVQJ,SNQRMG', x: 301, y: 61.6319465637207,
+      width: 319.253}
 - name: spacer_1
   properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE LVNJOU,CVKQOW'}
-- name: plot_1
-  properties: {height: 561.6363677978516}
-  type: Plot
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE BFBACH,PBVZKA'}
-  event_bindings: {click: plot_1_click}
-  data_bindings: []
-- name: plot_2
-  properties: {height: 360.727294921875}
-  type: Plot
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE FAAHAO,HRMMJV'}
-  event_bindings: {click: plot_2_click}
-- name: plot_3
-  properties: {}
-  type: Plot
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE HQBLIJ,DEIQOA'}
-- name: spacer_5
-  properties: {height: 32}
-  type: Spacer
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE UCLEGB,HQWNDC'}
-- name: button_3_copy
-  properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-    foreground: white, visible: true, text: back, font_size: null, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: true, background: '#1d86da', bold: true,
-    underline: false, icon: 'fa:backward'}
-  type: Button
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE QFBHHX,AHAJHJ'}
-  event_bindings: {click: button_3_copy_click}
-- name: spacer_6
-  properties: {height: 32}
-  type: Spacer
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE VITHDY,LTUTSI'}
-- name: outlined_card_1
-  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-    wrap_on: mobile, col_spacing: none, spacing_above: none, col_widths: '{"VMILPR":8,"FDANOO":15,"HAKDVS":15}',
-    spacing_below: none, background: '#2270ad'}
+  layout_properties: {grid_position: 'CAUWMO,BOTJKE LUYVQJ,FIIILU'}
+- name: card_1
+  properties: {role: card}
   type: ColumnPanel
-  layout_properties: {grid_position: 'CAUWMO,BOTJKE TSHRPE,YGJTZS', full_width_row: true}
+  layout_properties: {grid_position: 'CAUWMO,BOTJKE BAWDTC,KWTQCC'}
   components:
-  - name: label_1
-    properties: {text: CopyRight2023@Gwallet, align: left, bold: true, font_size: 16,
-      visible: true, role: input-prompt, foreground: 'theme:On Primary'}
-    type: Label
-    layout_properties: {grid_position: 'XSXLAE,XVKBKL'}
-  - name: label_2
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
-        Primary', visible: true, text: Disclaimer, font_size: 18, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
-    type: Label
-    layout_properties: {grid_position: 'XSXLAE,VMILPR'}
-  - name: label_3
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:On
-        Primary', visible: true, text: Privacy Policy, font_size: 18, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
-    type: Label
-    layout_properties: {grid_position: 'XSXLAE,FDANOO'}
-  - name: label_4
-    properties: {role: null, align: right, tooltip: '', border: '', foreground: 'theme:On
-        Primary', visible: true, text: Code Of Commitment, font_size: 18, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '', bold: true, underline: false, icon: ''}
-    type: Label
-    layout_properties: {grid_position: 'XSXLAE,HAKDVS'}
+  - name: plot_1
+    properties: {height: 561.6363677978516}
+    type: Plot
+    layout_properties: {grid_position: 'UONMNI,FKDVMM'}
+    event_bindings: {click: plot_1_click}
+    data_bindings: []
 is_package: true
