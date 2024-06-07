@@ -27,7 +27,7 @@ class settings(settingsTemplate):
 
   def link_6_click(self, **event_args):
     """This method is called when the link is clicked"""
-    pass
+    open_form('help',user=self.user)
 
   def link_7_click(self, **event_args):
     """This method is called when the link is clicked"""

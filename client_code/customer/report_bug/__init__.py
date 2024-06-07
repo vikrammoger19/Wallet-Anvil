@@ -1,4 +1,4 @@
-from ._anvil_designer import serviceTemplate
+from ._anvil_designer import report_bugTemplate
 from anvil import *
 import anvil.server
 import anvil.tables as tables
@@ -6,7 +6,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 
-class service(serviceTemplate):
+class report_bug(report_bugTemplate):
     def __init__(self,user=None,**properties):
         self.init_components(**properties)
         self.user = user
