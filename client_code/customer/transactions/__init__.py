@@ -21,8 +21,23 @@ class transactions(transactionsTemplate):
     self.repeating_panel_items = []
     #users transactions all
     self.all_transactions()
+    self.check_profile_pic()
     # Any code you write here will run before the form opens.
 
+  def check_profile_pic(self):
+        print(self.user)
+        print(self.user['users_email'],type(self.user['users_email']))
+        user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
+        if user_data:
+          existing_img = user_data['users_profile_pic']
+          if existing_img != None:
+            self.image_2.source = existing_img
+          else: 
+            print('no pic')
+        else:
+          print('none')
+
+  
   def date_picker_1_change(self, **event_args):
     """This method is called when the selected date changes"""
     self.date_filter()
@@ -39,7 +54,7 @@ class transactions(transactionsTemplate):
     try:
       if users_details['users_defaultcurrency']:
         default_currency = users_details['users_defaultcurrency']
-      users_balance = app_tables.wallet_users_balance.get(users_balance_phone=phone,currency_type=default_currency)
+      users_balance = app_tables.wallet_users_balance.get(users_balance_phone=phone,users_balance_currency_type=default_currency)
       print('yes in')
       try:
         if users_balance:
@@ -92,7 +107,23 @@ class transactions(transactionsTemplate):
             transaction_type = transaction['users_transaction_type']
             receiver_phone = transaction['users_transaction_receiver_phone']
             transaction_time = transaction['users_transaction_date'].strftime("%I:%M %p")
-            
+            profile_pic = '_/theme/account.png'
+            if transaction_type == 'Withdrawn' or transaction_type == 'Deposited':
+              userr = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+              if userr:
+                if userr['users_profile_pic']:
+                  profile_pic = userr['users_profile_pic'] 
+                else:
+                  profile_pic = '_/theme/account.png'
+                  
+            if  transaction_type == 'Credit' or transaction_type == 'Debit':
+              trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
+              if trans_user :
+                if trans_user['users_profile_pic'] is not None:
+                  profile_pic = trans_user['users_profile_pic'] 
+                else:
+                  profile_pic = '_/theme/account.png'
+              
             # Fetch username from wallet_user table using receiver_phone
             receiver_user = app_tables.wallet_users.get(users_phone=receiver_phone)
             if receiver_user:
@@ -118,8 +149,9 @@ class transactions(transactionsTemplate):
                                             'receiver_username': receiver_username,
                                             'currency_type':transaction['users_transaction_currency'],
                                             'transaction_time':transaction_time,
+                                            'profile_pic':profile_pic,
                                             'fund_color': fund_color})
-
+    print(self.repeating_panel_items)
     self.repeating_panel_3.items = self.repeating_panel_items
     
   def link_11_click(self, **event_args):
@@ -138,13 +170,15 @@ class transactions(transactionsTemplate):
     self.link15_clicked = False
     all=[]
     for i in range(len(self.repeating_panel_items)):
-      all.append({'date': self.repeating_panel_items[i]['users_transaction_date'],
-                                          'fund': self.repeating_panel_items[i]['users_transaction_fund'],
-                                          'transaction_status': self.repeating_panel_items[i]['users_transaction_status'],
+      all.append({'date': self.repeating_panel_items[i]['date'],
+                                          'fund': self.repeating_panel_items[i]['fund'],
+                                          'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                           'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                           'currency_type':self.repeating_panel_items[i]['currency_type'],
                                           'transaction_time':self.repeating_panel_items[i]['transaction_time'],
-                                          'fund_color': self.repeating_panel_items[i]['fund_color']})
+                                          'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                                          'fund_color': self.repeating_panel_items[i]['fund_color']}),
+                                          
     self.repeating_panel_3.items = all
 
   def link_12_click(self, **event_args):
@@ -165,10 +199,11 @@ class transactions(transactionsTemplate):
           if  self.repeating_panel_items[i]['transaction_type'] == 'Credit' :
             received.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': self.repeating_panel_items[i]['fund'],
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
     self.repeating_panel_3.items = received
 
@@ -192,10 +227,11 @@ class transactions(transactionsTemplate):
           if  self.repeating_panel_items[i]['transaction_type'] == 'Debit' :
             transfer.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': self.repeating_panel_items[i]['fund'],
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
     self.repeating_panel_3.items = transfer
 
@@ -217,10 +253,11 @@ class transactions(transactionsTemplate):
           if  self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn' :
             withdraw.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
     self.repeating_panel_3.items = withdraw
 
@@ -241,10 +278,11 @@ class transactions(transactionsTemplate):
           if  self.repeating_panel_items[i]['transaction_type'] == 'Deposited' :
             deposit.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund':f"{self.repeating_panel_items[i]['fund']}",
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
     self.repeating_panel_3.items = deposit
   
@@ -262,10 +300,11 @@ class transactions(transactionsTemplate):
           if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")):
             all.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': self.repeating_panel_items[i]['fund'],
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = all 
       elif (self.date_picker_1.date):
@@ -273,10 +312,11 @@ class transactions(transactionsTemplate):
           if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) :
             all.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': self.repeating_panel_items[i]['fund'],
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = all
       else:
@@ -294,10 +334,11 @@ class transactions(transactionsTemplate):
           if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")) and self.repeating_panel_items[i]['transaction_type'] == 'Credit':
             received.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': self.repeating_panel_items[i]['fund'],
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = received
       elif (self.date_picker_1.date):
@@ -305,10 +346,11 @@ class transactions(transactionsTemplate):
           if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Credit' :
             received.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': self.repeating_panel_items[i]['fund'],
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = received
       else:
@@ -327,10 +369,11 @@ class transactions(transactionsTemplate):
           if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")) and self.repeating_panel_items[i]['transaction_type'] == 'Debit':
             transfered.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': self.repeating_panel_items[i]['fund'],
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = transfered
       elif (self.date_picker_1.date):
@@ -338,10 +381,11 @@ class transactions(transactionsTemplate):
           if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Debit' :
             transfered.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': self.repeating_panel_items[i]['fund'],
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = transfered
       else:
@@ -359,10 +403,11 @@ class transactions(transactionsTemplate):
           if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")) and self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn':
             withdraw.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = withdraw
       elif (self.date_picker_1.date):
@@ -370,10 +415,11 @@ class transactions(transactionsTemplate):
           if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn' :
             withdraw.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = withdraw
       else:
@@ -390,10 +436,11 @@ class transactions(transactionsTemplate):
           if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")) and self.repeating_panel_items[i]['transaction_type'] == 'Deposited':
             deposit.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = deposit
       elif (self.date_picker_1.date):
@@ -401,10 +448,11 @@ class transactions(transactionsTemplate):
           if  str(self.date_picker_1.date.strftime("%Y-%m-%d")) == str(self.repeating_panel_items[i]['date']) and self.repeating_panel_items[i]['transaction_type'] == 'Deposited' :
             deposit.append({'date': self.repeating_panel_items[i]['date'],
                                                 'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                 'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                 'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                 'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                 'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = deposit
       else:
@@ -427,10 +475,11 @@ class transactions(transactionsTemplate):
             if  str(past_30_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  :
               days_30.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_30
 
@@ -443,10 +492,11 @@ class transactions(transactionsTemplate):
             if  str(past_60_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  :
               days_60.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_60
       
@@ -459,10 +509,11 @@ class transactions(transactionsTemplate):
             if  str(past_90_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  :
               days_90.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_90
 
@@ -478,10 +529,11 @@ class transactions(transactionsTemplate):
             if  str(past_30_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Credit') :
               days_30.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_30
 
@@ -494,10 +546,11 @@ class transactions(transactionsTemplate):
             if  str(past_60_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  and (self.repeating_panel_items[i]['transaction_type'] == 'Credit'):
               days_60.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_60
       
@@ -510,10 +563,11 @@ class transactions(transactionsTemplate):
             if  str(past_90_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Credit') :
               days_90.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_90
 
@@ -528,10 +582,11 @@ class transactions(transactionsTemplate):
             if  str(past_30_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Debit') :
               days_30.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_30
 
@@ -544,10 +599,11 @@ class transactions(transactionsTemplate):
             if  str(past_60_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  and (self.repeating_panel_items[i]['transaction_type'] == 'Debit'):
               days_60.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_60
       
@@ -560,10 +616,11 @@ class transactions(transactionsTemplate):
             if  str(past_90_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Debit') :
               days_90.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_90
 
@@ -578,10 +635,11 @@ class transactions(transactionsTemplate):
             if  str(past_30_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn') :
               days_30.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_30
 
@@ -594,10 +652,11 @@ class transactions(transactionsTemplate):
             if  str(past_60_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  and (self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn'):
               days_60.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_60
       
@@ -610,10 +669,11 @@ class transactions(transactionsTemplate):
             if  str(past_90_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Withdrawn') :
               days_90.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_90
 
@@ -628,10 +688,11 @@ class transactions(transactionsTemplate):
             if  str(past_30_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Deposited') :
               days_30.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_30
 
@@ -644,10 +705,11 @@ class transactions(transactionsTemplate):
             if  str(past_60_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str)  and (self.repeating_panel_items[i]['transaction_type'] == 'Deposited'):
               days_60.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_60
       
@@ -660,10 +722,11 @@ class transactions(transactionsTemplate):
             if  str(past_90_days) <= str(self.repeating_panel_items[i]['date']) <= str(current_date_str) and (self.repeating_panel_items[i]['transaction_type'] == 'Deposited') :
               days_90.append({'date': self.repeating_panel_items[i]['date'],
                                                   'fund': f"{self.repeating_panel_items[i]['fund']}",
-                                                  'transaction_status': self.repeating_panel_items[i]['transaction_status'],
+                                                  'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'receiver_username': self.repeating_panel_items[i]['receiver_username'],
                                                   'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                   'transaction_time':self.repeating_panel_items[i]['transaction_time'],
+                                                  'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
         self.repeating_panel_3.items = days_90
 
@@ -686,9 +749,8 @@ class transactions(transactionsTemplate):
 
   def link_8_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form("customer_page",user=self.user)
+    open_form("customer",user=self.user)
 
   def link_9_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form("Home")
-    

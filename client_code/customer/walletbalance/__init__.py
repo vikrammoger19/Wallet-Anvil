@@ -16,7 +16,22 @@ class walletbalance(walletbalanceTemplate):
 
         # Populate balances for the current user
         self.populate_balances()
+        self.check_profile_pic()
 
+    def check_profile_pic(self):
+        print(self.user)
+        print(self.user['users_email'],type(self.user['users_email']))
+        user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
+        if user_data:
+          existing_img = user_data['users_profile_pic']
+          if existing_img != None:
+            self.image_3.source = existing_img
+          else: 
+            print('no pic')
+        else:
+          print('none')
+
+  
     def populate_balances(self):
         try:
             # Retrieve balances for the current user
@@ -153,7 +168,7 @@ class walletbalance(walletbalanceTemplate):
 
     def link_1_click(self, **event_args):
         """This method is called when the link is clicked"""
-        open_form('customer_page', user=self.user)
+        open_form('customer', user=self.user)
 
     def link_13_click(self, **event_args):
         """This method is called when the link is clicked"""

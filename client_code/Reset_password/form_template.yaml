@@ -108,3 +108,4 @@ components:
             background: '', bold: true, underline: false, icon: ''}
           type: Link
           layout_properties: {grid_position: 'SBKSKE,CIJEPJ'}
+          event_bindings: {click: link_2_click}

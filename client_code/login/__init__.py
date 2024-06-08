@@ -32,7 +32,8 @@ class login(loginTemplate):
         if user is not None and user['users_password'] == password:
             # Check if the user is banned
             if user['users_banned'] is not None and user['users_banned']:
-                open_form('LOGIN.banned_form')
+                alert("This Account is Banned")
+                open_form('login.banned_form',user=user)
                 return
 
             # Check if the user is on hold/freeze
@@ -45,8 +46,8 @@ class login(loginTemplate):
             if user_type == 'admin':
                 open_form('admin', user=user)
             elif user_type == 'customer':
-                open_form('customer_page', user=user)
-        elif user is not None and user['password'] != password:
+                open_form('customer', user=user)
+        elif user is not None and user['users_password'] != password:
             self.card_3.visible = True
             self.label_4.visible = True
             self.label_5.visible = False
@@ -62,3 +63,5 @@ class login(loginTemplate):
     def link_2_click(self, **event_args):
       open_form('signup')
 
+    def link_1_click(self, **event_args):
+      open_form('forgot_password')
