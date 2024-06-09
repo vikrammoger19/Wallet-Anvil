@@ -66,5 +66,5 @@ class default_currency(default_currencyTemplate):
 
     def button_1_click(self, **event_args):
       """This method is called when the button is clicked"""
-      open_form('customer_page.settings',user=self.user)
+      open_form('customer.settings',user=self.user)
     

@@ -42,8 +42,14 @@ class ItemTemplate19(ItemTemplate19Template):
           self.label_3.text = f"{float(self.item['fund']):.2f}"
       except Exception as e:
         print(e)
-    self.label_3.icon = f"fa:{self.item['currency_type'].lower()}"
-    self.label_3.foreground = self.item['fund_color']
+    # self.label_3.icon = f"fa:{self.item['currency_type'].lower()}"
+    # self.label_3.foreground = self.item['fund_color']
+    if self.item['currency_type'] is not None:
+      self.label_3.icon = f"fa:{self.item['currency_type'].lower()}"
+    else:
+      self.label_3.icon = "fa:default-icon"  # Set a default icon or handle the case where currency_type is None
+
+    self.label_3.foreground = self.item.get('fund_color', 'default-color')  # Default color if fund_color is not provided
     
     
     if self.item['transaction_type'] == 'Debit':
