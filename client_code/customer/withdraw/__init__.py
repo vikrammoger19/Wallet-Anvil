@@ -13,7 +13,7 @@ class withdraw(withdrawTemplate):
     self.user = user
     # Set Form properties and Data Bindings.
     username = anvil.server.call('get_username', self.user['users_phone'])
-    self.label_1.text = f"Welcome to Green Gate Financial, {username}"
+    #self.label_1.text = f"Welcome to Green Gate Financial, {username}"
     bank_names = anvil.server.call('get_user_bank_name', self.user['users_phone'])
     
     currencies=anvil.server.call('get_user_currency',self.user['users_phone'])
@@ -48,12 +48,15 @@ class withdraw(withdrawTemplate):
                 users_transaction_receiver_phone=self.user['users_phone']
             )
         self.label_2.text = "Money Withdrawn successfully to the account."
+        alert("Money Withdrawn successfully to the account.")
+        self.text_box_2.text = ''
         
       else:
         anvil.alert("Insufficient balance. Please add funds.")
         print("fund illa")
     else:
       self.label_2.text = "Error: No matching accounts found for the user or invalid account number."
+      alert("Error: No matching accounts found for the user or invalid account number.")
       print("enaitho gottilla")
   def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -86,3 +89,5 @@ class withdraw(withdrawTemplate):
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('customer.wallet',user=self.user)
+
+  

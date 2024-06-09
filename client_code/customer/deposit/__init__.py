@@ -61,9 +61,12 @@ class deposit(depositTemplate):
                 users_transaction_receiver_phone=self.user['users_phone']
             )
 
-            self.label_2.text = "Money added successfully to the account."
+            #self.label_2.text = "Money added successfully to the account."
+            alert("Money added successfully to the account.")
+            self.text_box_2.text = ''
           else:
-            self.label_2.text = "Error: No matching accounts found for the user or invalid account number."
+            #self.label_2.text = "Error: No matching accounts found for the user or invalid account number."
+            alert("Error: No matching accounts found for the user or invalid account number.")
 
     def drop_down_1_change(self, **event_args):
         self.display()

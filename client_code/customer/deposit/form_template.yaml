@@ -275,7 +275,7 @@ components:
     layout_properties: {grid_position: 'FRVCAC,XNZCHX PDANLR,HNMRSM'}
   - name: label_1
     properties: {role: null, align: center, tooltip: '', border: '', foreground: white,
-      visible: true, text: Deposit, font_size: 25, font: a, spacing_above: small,
+      visible: true, text: Deposit, font_size: 25, font: '', spacing_above: small,
       icon_align: left, spacing_below: small, italic: false, background: '#258ee1',
       bold: true, underline: true, icon: ''}
     type: Label
@@ -334,7 +334,7 @@ components:
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK UBVSXQ,DJNLKG
         AXFNQW,MSWGDK'}
   - name: label_2
-    properties: {align: center}
+    properties: {align: center, visible: false}
     type: Label
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK UBVSXQ,DJNLKG
         MCBSJY,AEKVPR'}
@@ -365,7 +365,7 @@ components:
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCTQPN,SARLKQ'}
   - name: xy_panel_2_copy_2
     properties: {role: null, width: null, align: center, height: 288.5999755859375,
-      tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
+      tooltip: '', border: '', foreground: '', visible: false, spacing_above: small,
       spacing_below: small, background: 'theme:Gray 200'}
     type: XYPanel
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ IYHHCU,WRXQIS'}
