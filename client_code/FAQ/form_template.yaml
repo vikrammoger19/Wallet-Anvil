@@ -28,50 +28,40 @@ components:
         layout_properties: {width: 1356.599951171875}
         components:
         - name: label_7_copy_2_copy_copy_copy
-          properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
-            font: '', italic: false, underline: false, foreground: black}
+          properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true, font: '', italic: false, underline: false, foreground: black}
           type: Label
           layout_properties: {x: 76.45000152662396, y: 3.8374977111816406, width: 131.9500045776367}
         - name: image_1_copy_copy_copy_copy
-          properties: {role: null, vertical_align: center, height: 51.80000305175781,
-            tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
-            spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
-            background: white, horizontal_align: right}
+          properties: {role: null, vertical_align: center, height: 51.80000305175781, tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small, source: _/theme/letter-g.png, spacing_below: small, background: white, horizontal_align: right}
           type: Image
           layout_properties: {x: 0, y: 1.199993897229433, width: 60.39999694824219}
         - name: about_us
-          properties: {text: About us, foreground: '', bold: true, icon: 'fa:adn',
-            font_size: 18, font: '', align: center}
+          properties: {text: About us, foreground: '', bold: true, icon: 'fa:adn', font_size: 18, font: '', align: center}
           type: Link
           layout_properties: {x: 472.87499694898725, y: 10.237498093396425, width: 155.675048828125}
           event_bindings: {click: about_us_click}
         - name: products
-          properties: {text: Products, icon: 'fa:shopping-cart', foreground: '', bold: true,
-            font_size: 18, font: '', align: center}
+          properties: {text: Products, icon: 'fa:shopping-cart', foreground: '', bold: true, font_size: 18, font: '', align: center}
           type: Link
           layout_properties: {x: 638.5500457771122, y: 10.549999237060547, width: 133.13801220703124}
           event_bindings: {click: products_click}
         - name: contact_us
-          properties: {text: Contact, bold: true, foreground: '', icon: 'fa:phone',
-            font_size: 18, font: '', align: center}
+          properties: {text: Contact, bold: true, foreground: '', icon: 'fa:phone', font_size: 18, font: '', align: center}
           type: Link
           layout_properties: {x: 789.7375457771122, y: 10.549999237060547, width: 108.5880244140625}
           event_bindings: {click: contact_click}
         - name: help
-          properties: {text: Help, bold: true, foreground: '', icon: 'fa:question-circle',
-            font_size: 18, font: '', align: center}
+          properties: {text: Help, bold: true, foreground: '', icon: 'fa:question-circle', font_size: 18, font: '', align: center}
           type: Link
           layout_properties: {x: 921.0875213630497, y: 10.549999237060547, width: 89.6500244140625}
           event_bindings: {click: help_click}
         - name: home
-          properties: {text: Home, icon: 'fa:home', foreground: '', bold: true, font: '',
-            font_size: 18, align: center}
+          properties: {text: Home, icon: 'fa:home', foreground: '', bold: true, font: '', font_size: 18, align: center}
           type: Link
           layout_properties: {x: 344.1499908454716, y: 10.549999237060547, width: 119.9000015258789}
           event_bindings: {click: home_click}
         - name: button_4
-          properties: {text: 'Login ', background: 'theme:Primary 500', foreground: 'theme:White',
-            bold: true, font_size: 16}
+          properties: {text: 'Login ', background: 'theme:Primary 500', foreground: 'theme:White', bold: true, font_size: 16}
           type: Button
           layout_properties: {x: 1243.5876434333622, y: 6.912497330456972, width: 101}
           event_bindings: {click: button_4_click}
@@ -86,15 +76,12 @@ components:
       layout_properties: {grid_position: 'CCHZRO,LRBTDV', full_width_row: true}
       components:
       - name: xy_panel_2
-        properties: {height: 80.60000610351562, background: 'theme:Primary 500', align: left,
-          foreground: 'theme:Primary 700'}
+        properties: {height: 80.60000610351562, background: 'theme:Primary 500', align: left, foreground: 'theme:Primary 700'}
         type: XYPanel
         layout_properties: {grid_position: 'CEICRP,RJOQQS', full_width_row: true}
         components:
         - name: label_2
-          properties: {text: Frequently Asked Questions, align: center, font_size: 42,
-            foreground: 'theme:White', bold: true, font: '', spacing_above: none,
-            spacing_below: none}
+          properties: {text: Frequently Asked Questions, align: center, font_size: 42, foreground: 'theme:White', bold: true, font: '', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {x: 95, y: 4.4000061042607, width: 1254.9099755859374}
       - name: card_2
@@ -103,8 +90,7 @@ components:
         layout_properties: {grid_position: 'VINDJQ,YANVWP', full_width_row: true}
         components:
         - name: label_4_copy_2
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'WNNQZQ,ZWHHIU'}
         - name: column_panel_1_copy
@@ -113,10 +99,7 @@ components:
           layout_properties: {grid_position: 'HSALJA,JOAHYW'}
           components:
           - name: link_1_copy
-            properties: {role: null, align: left, text: "1.\tWhat is a multi-currency\
-                \ digital transaction wallet app?", font_size: 22, wrap_on: mobile,
-              font: '', col_spacing: none, spacing_above: none, icon_align: right_edge,
-              col_widths: '{"FUWHNF":2,"OSQSPV":58}', spacing_below: none, icon: 'fa:angle-down'}
+            properties: {role: null, align: left, text: "1.\tWhat is a multi-currency digital transaction wallet app?", font_size: 22, wrap_on: mobile, font: '', col_spacing: none, spacing_above: none, icon_align: right_edge, col_widths: '{"FUWHNF":2,"OSQSPV":58}', spacing_below: none, icon: 'fa:angle-down'}
             type: Link
             layout_properties: {grid_position: 'VCXTKC,UUEBQJ', full_width_row: true}
             event_bindings: {click: link_1_click}
@@ -131,24 +114,16 @@ components:
               layout_properties: {grid_position: 'YHKYFP,OSQSPV'}
               components:
               - name: label_21
-                properties: {text: 'A Multi-Currency digital transaction wallet app
-                    is a mobile application that allows users to manage finances across
-                    various currencies. It enables money transfers, integrates with
-                    bank accounts, supports QR code payments, provides transaction
-                    history, and ensures security measures.', font_size: 20, foreground: 'theme:Black',
-                  spacing_above: none, align: left, spacing_below: none, role: null}
+                properties: {text: 'A Multi-Currency digital transaction wallet app is a mobile application that allows users to manage finances across various currencies. It enables money transfers, integrates with bank accounts, supports QR code payments, provides transaction history, and ensures security measures.', font_size: 20, foreground: 'theme:Black', spacing_above: none, align: left, spacing_below: none, role: null}
                 type: Label
                 layout_properties: {grid_position: 'ILKIYR,AAGVTT'}
                 event_bindings: {}
         - name: label_4
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'NMBLNS,NUFRBE'}
         - name: link_2_copy
-          properties: {text: "2.\tHow do I sign up for the app?", icon: 'fa:angle-down',
-            icon_align: right_edge, font_size: 22, font: '', spacing_below: none,
-            spacing_above: none, align: left}
+          properties: {text: "2.\tHow do I sign up for the app?", icon: 'fa:angle-down', icon_align: right_edge, font_size: 22, font: '', spacing_below: none, spacing_above: none, align: left}
           type: Link
           layout_properties: {grid_position: 'VWIPRV,IHZZNQ'}
           event_bindings: {click: link_2_click}
@@ -163,22 +138,15 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'JSIZYR,CQYFNC'}
             - name: label_22
-              properties: {font_size: 20, text: 'To sign up for the app, download
-                  it , then follow the prompts to create an account. You''ll typically
-                  need to provide your email address, set a password, and verify your
-                  identity. Once your account is created, you can start using the
-                  app''s features.', foreground: 'theme:Black', spacing_above: none,
-                spacing_below: none}
+              properties: {font_size: 20, text: 'To sign up for the app, download it , then follow the prompts to create an account. You''ll typically need to provide your email address, set a password, and verify your identity. Once your account is created, you can start using the app''s features.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'JSIZYR,OZSNAF'}
         - name: label_5
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'AVKSIO,BELKMH'}
         - name: link_3_copy
-          properties: {text: "3.\tWhat currencies does the app support?", icon_align: right_edge,
-            icon: 'fa:angle-down', font_size: 22, font: '', spacing_above: none, spacing_below: none}
+          properties: {text: "3.\tWhat currencies does the app support?", icon_align: right_edge, icon: 'fa:angle-down', font_size: 22, font: '', spacing_above: none, spacing_below: none}
           type: Link
           layout_properties: {grid_position: 'AGTXLR,CEKLUC', full_width_row: false}
           event_bindings: {click: link_3_click}
@@ -193,23 +161,15 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'IPJKXG,QKKPOS'}
             - name: label_23
-              properties: {font_size: 20, text: 'The app supports a wide range of
-                  currencies, including major global currencies like INR,USD, EUR,
-                  GBP, as well as many others depending on the region and market demand.
-                  Users can typically manage multiple currencies within the app to
-                  facilitate international transactions and diverse financial needs.',
-                foreground: 'theme:Black', spacing_above: none, spacing_below: none}
+              properties: {font_size: 20, text: 'The app supports a wide range of currencies, including major global currencies like INR,USD, EUR, GBP, as well as many others depending on the region and market demand. Users can typically manage multiple currencies within the app to facilitate international transactions and diverse financial needs.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'IPJKXG,DIHBPT'}
         - name: label_6
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'PIOMJS,WMQTGX'}
         - name: link_4_copy
-          properties: {text: "4.\tHow can I add funds to my wallet?", icon: 'fa:angle-down',
-            icon_align: right_edge, font_size: 22, font: '', spacing_above: none,
-            spacing_below: none}
+          properties: {text: "4.\tHow can I add funds to my wallet?", icon: 'fa:angle-down', icon_align: right_edge, font_size: 22, font: '', spacing_above: none, spacing_below: none}
           type: Link
           layout_properties: {grid_position: 'HCIMOT,KYERSG'}
           event_bindings: {click: link_4_click}
@@ -224,21 +184,15 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'EKCTMY,GAZURE'}
             - name: label_34
-              properties: {font_size: 20, text: 'You can add funds to your wallet
-                  through various convenient methods provided by the app, such as
-                  initiating bank transfers, securely using credit/debit cards, or
-                  even leveraging cryptocurrency deposits.', foreground: 'theme:Black',
-                spacing_above: none, spacing_below: none}
+              properties: {font_size: 20, text: 'You can add funds to your wallet through various convenient methods provided by the app, such as initiating bank transfers, securely using credit/debit cards, or even leveraging cryptocurrency deposits.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'EKCTMY,PLAIVU'}
         - name: label_7
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'QDQNWN,ZFVCYY'}
         - name: link_5_copy
-          properties: {text: '5.  How do I send money to others using the app?', icon_align: right_edge,
-            icon: 'fa:angle-down', font_size: 22, font: '', spacing_above: none, spacing_below: none}
+          properties: {text: '5.  How do I send money to others using the app?', icon_align: right_edge, icon: 'fa:angle-down', font_size: 22, font: '', spacing_above: none, spacing_below: none}
           type: Link
           layout_properties: {grid_position: 'RNFIXI,VWNVDJ'}
           event_bindings: {click: link_5_click}
@@ -253,23 +207,15 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'AYXYCG,KFJTPZ'}
             - name: label_35
-              properties: {font_size: 20, text: 'With its array of functionalities,
-                  the app enables users to effortlessly send money through various
-                  methods such as bank transfers, paying contacts, and scanning QR
-                  codes, offering a comprehensive and convenient platform for seamless
-                  transactions.', foreground: 'theme:Black', spacing_above: none,
-                spacing_below: none}
+              properties: {font_size: 20, text: 'With its array of functionalities, the app enables users to effortlessly send money through various methods such as bank transfers, paying contacts, and scanning QR codes, offering a comprehensive and convenient platform for seamless transactions.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'AYXYCG,AWEPTY'}
         - name: label_8
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'UAVSGL,UJXNQP'}
         - name: link_6
-          properties: {text: '6. Is there a fee for transactions?', icon: 'fa:angle-down',
-            icon_align: right_edge, font_size: 22, font: '', spacing_above: none,
-            spacing_below: none}
+          properties: {text: '6. Is there a fee for transactions?', icon: 'fa:angle-down', icon_align: right_edge, font_size: 22, font: '', spacing_above: none, spacing_below: none}
           type: Link
           layout_properties: {grid_position: 'SLWGKY,OCXZSI'}
           event_bindings: {click: link_6_click}
@@ -284,25 +230,15 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'DTRIVA,MFFRQY'}
             - name: label_36
-              properties: {font_size: 20, text: 'Fees may apply for certain transactions
-                  within the app, such as sending money, currency conversion, or other
-                  actions. These fees can vary depending on factors such as transaction
-                  amount, currency exchange rates, and the specific service provider
-                  or financial institution involved. Users should review the app''s
-                  terms and conditions or consult with customer support for detailed
-                  information on applicable fees and charges.', foreground: 'theme:Black',
-                spacing_above: none, spacing_below: none}
+              properties: {font_size: 20, text: 'Fees may apply for certain transactions within the app, such as sending money, currency conversion, or other actions. These fees can vary depending on factors such as transaction amount, currency exchange rates, and the specific service provider or financial institution involved. Users should review the app''s terms and conditions or consult with customer support for detailed information on applicable fees and charges.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'DTRIVA,GRSHOW'}
         - name: label_9
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none,
-            align: left}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none, align: left}
           type: Label
           layout_properties: {grid_position: 'XNQRYF,IZVYXS'}
         - name: link_7
-          properties: {text: '7. Is my money safe in the app?', icon_align: right_edge,
-            icon: 'fa:angle-down', font_size: 22, font: '', spacing_above: none, spacing_below: none}
+          properties: {text: '7. Is my money safe in the app?', icon_align: right_edge, icon: 'fa:angle-down', font_size: 22, font: '', spacing_above: none, spacing_below: none}
           type: Link
           layout_properties: {grid_position: 'ZCBMYB,MMAUNR'}
           event_bindings: {click: link_7_click}
@@ -317,24 +253,15 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'ULKUIX,OJBRWR'}
             - name: label_37
-              properties: {font_size: 20, text: 'Yes, your money is protected by robust
-                  security measures implemented within the app. These measures typically
-                  include encryption protocols to safeguard your personal information
-                  and financial data. Additionally, features like two-factor authentication
-                  add an extra layer of security to prevent unauthorized access to
-                  your account.', foreground: 'theme:Black', spacing_above: none,
-                spacing_below: none}
+              properties: {font_size: 20, text: 'Yes, your money is protected by robust security measures implemented within the app. These measures typically include encryption protocols to safeguard your personal information and financial data. Additionally, features like two-factor authentication add an extra layer of security to prevent unauthorized access to your account.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'ULKUIX,PLVLKE'}
         - name: label_10
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'LZDALY,FKDIOY'}
         - name: link_12
-          properties: {text: '8. Can I withdraw funds from my wallet?', icon: 'fa:angle-down',
-            icon_align: right_edge, font_size: 22, font: '', spacing_above: none,
-            spacing_below: none}
+          properties: {text: '8. Can I withdraw funds from my wallet?', icon: 'fa:angle-down', icon_align: right_edge, font_size: 22, font: '', spacing_above: none, spacing_below: none}
           type: Link
           layout_properties: {grid_position: 'NPKOPA,JEHFDR'}
           event_bindings: {click: link_12_click}
@@ -349,24 +276,15 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'FYQYMX,KTUXED'}
             - name: label_38
-              properties: {font_size: 20, text: 'Yes, you can withdraw funds from
-                  your wallet through various methods provided by the app. Typically,
-                  you can transfer money directly to your linked bank account or other
-                  supported payment methods. Simply navigate to the withdrawal or
-                  transfer section within the app, input the desired amount, select
-                  the destination, and follow the prompts to complete the transaction.',
-                foreground: 'theme:Black', spacing_above: none, spacing_below: none}
+              properties: {font_size: 20, text: 'Yes, you can withdraw funds from your wallet through various methods provided by the app. Typically, you can transfer money directly to your linked bank account or other supported payment methods. Simply navigate to the withdrawal or transfer section within the app, input the desired amount, select the destination, and follow the prompts to complete the transaction.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'FYQYMX,TWVUAU'}
         - name: label_11
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'SKIRKB,GTVCPQ'}
         - name: link_14
-          properties: {text: '9. What should I do if I encounter a problem with the
-              app?', icon: 'fa:angle-down', icon_align: right_edge, font_size: 22,
-            font: '', spacing_above: none, spacing_below: none}
+          properties: {text: '9. What should I do if I encounter a problem with the app?', icon: 'fa:angle-down', icon_align: right_edge, font_size: 22, font: '', spacing_above: none, spacing_below: none}
           type: Link
           layout_properties: {grid_position: 'RCBTTL,IIWLMX'}
           event_bindings: {click: link_14_click}
@@ -381,24 +299,15 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'UQBUZY,BUQYQF'}
             - name: label_39
-              properties: {font_size: 20, text: 'If you encounter any issues with
-                  the app, you can reach out to customer support for assistance. Look
-                  for the "Contact Us" section within the app and provide details
-                  about the problem you''re experiencing, such as technical issues,
-                  transaction inquiries, or account-related concerns. The support
-                  team will guide you through resolving the issue.', foreground: 'theme:Black',
-                spacing_above: none, spacing_below: none}
+              properties: {font_size: 20, text: 'If you encounter any issues with the app, you can reach out to customer support for assistance. Look for the "Contact Us" section within the app and provide details about the problem you''re experiencing, such as technical issues, transaction inquiries, or account-related concerns. The support team will guide you through resolving the issue.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'UQBUZY,RUCXNM'}
         - name: label_12
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'PFTJYD,DHECLC'}
         - name: link_18
-          properties: {text: '10. Is there a limit to how much I can transact?', icon: 'fa:angle-down',
-            icon_align: right_edge, font_size: 22, font: '', spacing_above: none,
-            spacing_below: none}
+          properties: {text: '10. Is there a limit to how much I can transact?', icon: 'fa:angle-down', icon_align: right_edge, font_size: 22, font: '', spacing_above: none, spacing_below: none}
           type: Link
           layout_properties: {grid_position: 'RHKROK,IFZROK'}
           event_bindings: {click: link_18_click}
@@ -413,24 +322,15 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'WIFLUW,GWHXYQ'}
             - name: label_40
-              properties: {font_size: 20, text: 'Yes, there may be limits on how much
-                  you can transact within the app. These limits can vary depending
-                  on factors such as account verification status, transaction type,
-                  and applicable regulations or policies. To learn more about your
-                  specific transaction limits, review the app''s terms and conditions
-                  or contact customer support.', foreground: 'theme:Black', spacing_above: none,
-                spacing_below: none}
+              properties: {font_size: 20, text: 'Yes, there may be limits on how much you can transact within the app. These limits can vary depending on factors such as account verification status, transaction type, and applicable regulations or policies. To learn more about your specific transaction limits, review the app''s terms and conditions or contact customer support.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'WIFLUW,JUQTEX'}
         - name: label_13
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'EWGKYH,VRFHRG'}
         - name: link_19
-          properties: {text: '11. Can I use the app for online purchases or in-store
-              payments?', icon: 'fa:angle-down', icon_align: right_edge, font_size: 22,
-            font: '', spacing_above: none, spacing_below: none, col_widths: '{"JFYFWY":2,"HMPWOD":58}'}
+          properties: {text: '11. Can I use the app for online purchases or in-store payments?', icon: 'fa:angle-down', icon_align: right_edge, font_size: 22, font: '', spacing_above: none, spacing_below: none, col_widths: '{"JFYFWY":2,"HMPWOD":58}'}
           type: Link
           layout_properties: {grid_position: 'NMKDWR,WBIHMT'}
           event_bindings: {click: link_19_click}
@@ -445,23 +345,14 @@ components:
             layout_properties: {grid_position: 'PAJAIY,HMPWOD'}
             components:
             - name: label_41
-              properties: {font_size: 20, text: 'Yes, you can use the app for online
-                  purchases and in-store payments. The app supports these transactions
-                  through features such as linking to merchants, paying via QR codes,
-                  or using the wallet balance directly for transactions. These options
-                  provide you with convenient and secure ways to make purchases both
-                  online and in physical stores.', foreground: 'theme:Black', spacing_above: none,
-                spacing_below: none}
+              properties: {font_size: 20, text: 'Yes, you can use the app for online purchases and in-store payments. The app supports these transactions through features such as linking to merchants, paying via QR codes, or using the wallet balance directly for transactions. These options provide you with convenient and secure ways to make purchases both online and in physical stores.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
         - name: label_14
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'BSKMME,FFYYCR'}
         - name: link_20
-          properties: {text: '12. What happens if I lose my phone or forget my password?',
-            icon_align: right_edge, icon: 'fa:angle-down', font_size: 22, font: '',
-            spacing_above: none, spacing_below: none}
+          properties: {text: '12. What happens if I lose my phone or forget my password?', icon_align: right_edge, icon: 'fa:angle-down', font_size: 22, font: '', spacing_above: none, spacing_below: none}
           type: Link
           layout_properties: {grid_position: 'OMXWWP,ZVDDMC'}
           event_bindings: {click: link_20_click}
@@ -476,26 +367,15 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'HITKGT,QOMSEC'}
             - name: label_42
-              properties: {font_size: 20, text: 'If you lose your phone or forget
-                  your password, follow the app''s account recovery procedures to
-                  regain access. Most apps offer options to reset your password, typically
-                  by sending a verification code or link to your registered email
-                  or phone number. If you lose your phone, contact customer support
-                  for guidance on securing your account and possibly deactivating
-                  it temporarily. Once you verify your identity, you can set a new
-                  password or restore access to your account on a new device.', foreground: 'theme:Black',
-                spacing_above: none, spacing_below: none}
+              properties: {font_size: 20, text: 'If you lose your phone or forget your password, follow the app''s account recovery procedures to regain access. Most apps offer options to reset your password, typically by sending a verification code or link to your registered email or phone number. If you lose your phone, contact customer support for guidance on securing your account and possibly deactivating it temporarily. Once you verify your identity, you can set a new password or restore access to your account on a new device.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'HITKGT,YEOBYQ'}
         - name: label_15
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'JIZBQE,YXQUDL'}
         - name: link_21
-          properties: {text: '13. Do I need to verify my identity to use the app?',
-            icon_align: right_edge, icon: 'fa:angle-down', font_size: 22, font: '',
-            spacing_above: none, spacing_below: none, bold: false}
+          properties: {text: '13. Do I need to verify my identity to use the app?', icon_align: right_edge, icon: 'fa:angle-down', font_size: 22, font: '', spacing_above: none, spacing_below: none, bold: false}
           type: Link
           layout_properties: {grid_position: 'LIMFWN,BRKIYA'}
           event_bindings: {click: link_21_click}
@@ -510,27 +390,16 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'TVZHKS,PFLBZV'}
             - name: label_43
-              properties: {font_size: 20, text: 'Yes, you may need to verify your
-                  identity to use the app, as many financial services require this
-                  to comply with regulatory standards and prevent fraud. This process
-                  typically involves providing identification documents, such as a
-                  passport or driver''s license, and possibly a proof of address.
-                  Identity verification helps ensure the security of your account
-                  and transactions, protecting both you and the app from potential
-                  fraudulent activity.', foreground: 'theme:Black', spacing_above: none,
-                spacing_below: none}
+              properties: {font_size: 20, text: 'Yes, you may need to verify your identity to use the app, as many financial services require this to comply with regulatory standards and prevent fraud. This process typically involves providing identification documents, such as a passport or driver''s license, and possibly a proof of address. Identity verification helps ensure the security of your account and transactions, protecting both you and the app from potential fraudulent activity.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'TVZHKS,OOFZBG'}
               data_bindings: []
         - name: label_16
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'KIZADU,HHFZDB'}
         - name: link_22
-          properties: {text: '14. Can I link multiple bank accounts or cards to my
-              wallet?', icon_align: right_edge, icon: 'fa:angle-down', font_size: 22,
-            font: '', spacing_above: none, spacing_below: none, align: left}
+          properties: {text: '14. Can I link multiple bank accounts or cards to my wallet?', icon_align: right_edge, icon: 'fa:angle-down', font_size: 22, font: '', spacing_above: none, spacing_below: none, align: left}
           type: Link
           layout_properties: {grid_position: 'FACJVC,YBVEGQ'}
           event_bindings: {click: link_22_click}
@@ -545,24 +414,15 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'CHBUHS,GQDTNJ'}
             - name: label_44
-              properties: {font_size: 20, foreground: 'theme:Black', text: 'Yes, you
-                  can usually link multiple bank accounts or cards to your wallet.
-                  This feature allows you to manage various financial accounts within
-                  the app for convenient access and transactions. You can choose which
-                  account or card to use for different purposes, such as making payments
-                  or transferring funds, giving you flexibility and control over your
-                  finances.', spacing_above: none, spacing_below: none}
+              properties: {font_size: 20, foreground: 'theme:Black', text: 'Yes, you can usually link multiple bank accounts or cards to your wallet. This feature allows you to manage various financial accounts within the app for convenient access and transactions. You can choose which account or card to use for different purposes, such as making payments or transferring funds, giving you flexibility and control over your finances.', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'CHBUHS,GWPXTJ'}
         - name: label_17
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'FEJDZB,DHZTAM'}
         - name: link_23
-          properties: {text: '15. How does the app handle currency exchange rates?',
-            icon_align: right_edge, icon: 'fa:angle-down', font_size: 22, font: '',
-            spacing_above: none, spacing_below: none}
+          properties: {text: '15. How does the app handle currency exchange rates?', icon_align: right_edge, icon: 'fa:angle-down', font_size: 22, font: '', spacing_above: none, spacing_below: none}
           type: Link
           layout_properties: {grid_position: 'NKSOSR,LAYMWS'}
           event_bindings: {click: link_23_click}
@@ -577,44 +437,29 @@ components:
               type: GridPanel
               layout_properties: {grid_position: 'DFIVLA,UHPKVV'}
             - name: label_45
-              properties: {font_size: 20, text: 'The app typically handles currency
-                  exchange rates by using rates provided by trusted financial institutions
-                  or market data sources. These rates are updated regularly to reflect
-                  current market conditions. When converting currencies within the
-                  app, you may encounter a fee or markup on top of the base exchange
-                  rate. The app should clearly display the conversion rate and any
-                  associated fees before you complete a transaction. Always review
-                  the details to understand the full cost of currency conversions.',
-                foreground: 'theme:Black', spacing_above: none, spacing_below: none}
+              properties: {font_size: 20, text: 'The app typically handles currency exchange rates by using rates provided by trusted financial institutions or market data sources. These rates are updated regularly to reflect current market conditions. When converting currencies within the app, you may encounter a fee or markup on top of the base exchange rate. The app should clearly display the conversion rate and any associated fees before you complete a transaction. Always review the details to understand the full cost of currency conversions.', foreground: 'theme:Black', spacing_above: none, spacing_below: none}
               type: Label
               layout_properties: {grid_position: 'DFIVLA,NIGYLV'}
               data_bindings: []
         - name: label_18
-          properties: {text: __________________________________________________________________________________________________________________________________________________________,
-            foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
+          properties: {text: __________________________________________________________________________________________________________________________________________________________, foreground: 'theme:Gray 600', spacing_above: none, spacing_below: none}
           type: Label
           layout_properties: {grid_position: 'SCLPIX,GYSDCL'}
         - name: xy_panel_2_copy_2_copy
-          properties: {role: null, width: null, align: center, height: 288.5999755859375,
-            tooltip: '', border: '', foreground: '', visible: true, spacing_above: small,
-            spacing_below: small, background: 'theme:Gray 200'}
+          properties: {role: null, width: null, align: center, height: 288.5999755859375, tooltip: '', border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small, background: 'theme:Gray 200'}
           type: XYPanel
           layout_properties: {grid_position: 'VASTRM,YBYFRP', full_width_row: true}
           components:
           - name: label_21_copy_copy
-            properties: {text: 'G-Wallet is your trusted companion for effortless
-                financial transactions, providing a secure and intuitive platform
-                to manage your money with ease.', align: center, font_size: 17, font: ''}
+            properties: {text: 'G-Wallet is your trusted companion for effortless financial transactions, providing a secure and intuitive platform to manage your money with ease.', align: center, font_size: 17, font: ''}
             type: Label
             layout_properties: {x: 22, y: 102.7626953125, width: 387.98798168945314}
           - name: label_22_copy_copy
-            properties: {text: '   Quick Links', align: left, bold: true, font: '',
-              font_size: 17}
+            properties: {text: '   Quick Links', align: left, bold: true, font: '', font_size: 17}
             type: Label
             layout_properties: {x: 637.7125244140625, y: 53.91269531250009, width: 200}
           - name: label_23_copy_copy
-            properties: {text: '    Mail to us', align: left, bold: true, font: '',
-              font_size: 16}
+            properties: {text: '    Mail to us', align: left, bold: true, font: '', font_size: 16}
             type: Label
             layout_properties: {x: 1108.84997558594, y: 56.7626953125, width: 112}
           - name: column_panel_9_copy_copy
@@ -639,20 +484,17 @@ components:
               type: Button
               layout_properties: {grid_position: 'JBVNGZ,MNOFRN'}
           - name: label_24_copy_copy
-            properties: {text: '            Find us', align: left, bold: true, font: '',
-              font_size: 16}
+            properties: {text: '            Find us', align: left, bold: true, font: '', font_size: 16}
             type: Label
             layout_properties: {x: 1075.38757324219, y: 138.212646484375, width: 123.199951171875}
           - name: link_24_copy
-            properties: {text: 'What is G-Wallet?', font_size: 20, font: '', foreground: '',
-              underline: false, role: selected, visible: true}
+            properties: {text: 'What is G-Wallet?', font_size: 20, font: '', foreground: '', underline: false, role: selected, visible: true}
             type: Link
             layout_properties: {x: 646.6000488288701, y: 89.19999694824219, width: 200}
             event_bindings: {click: link_24_click}
             data_bindings: []
           - name: link_25_copy
-            properties: {text: Products, font_size: 20, font: '', foreground: '',
-              role: hover-link}
+            properties: {text: Products, font_size: 20, font: '', foreground: '', role: hover-link}
             type: Link
             layout_properties: {x: 648.0000122077763, y: 120, width: 200}
             event_bindings: {click: link_25_click}
@@ -662,8 +504,7 @@ components:
             layout_properties: {x: 649.5000122077763, y: 147.787506103516, width: 198.5}
             event_bindings: {}
           - name: link_27_copy
-            properties: {text: Contact Us, font_size: 20, font: '', foreground: '',
-              role: hover-link}
+            properties: {text: Contact Us, font_size: 20, font: '', foreground: '', role: hover-link}
             type: Link
             layout_properties: {x: 648.499981690198, y: 178, width: 200}
             event_bindings: {click: link_27_click}
