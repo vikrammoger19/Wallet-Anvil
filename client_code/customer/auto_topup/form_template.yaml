@@ -14,7 +14,7 @@ components:
     layout_properties: {grid_position: 'YVTBAD,EADRAK', full_width_row: true}
     components:
     - name: card_1_copy_2
-      properties: {role: card, col_widths: '{"XNZCHX":11,"CSXXAZ":49,"UTGZHD":5,"ZUZJAK":30,"XJESZP":25,"OHOKZA":35,"YYOVNO":25,"DJNLKG":35}'}
+      properties: {role: card, col_widths: '{"XNZCHX":11,"CSXXAZ":49}'}
       type: ColumnPanel
       layout_properties: {width: 1429.9369633789063}
       components:
@@ -241,129 +241,68 @@ components:
         properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: true, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Auto-Topup}
         type: Label
         layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCCHCB,FJRJTH'}
-      - name: spacer_1_copy_3
-        properties: {height: 30}
-        type: Spacer
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ QYQYAJ,DRQVAL'}
-      - name: spacer_6
-        properties: {height: 338.6000061035156}
-        type: Spacer
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,UTGZHD'}
-      - name: spacer_2
-        properties: {height: 49}
-        type: Spacer
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK MSOCDT,HLOSHT'}
-      - name: label_7_copy
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Enter Amount:'}
-        type: Label
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK ZKTJKG,XJESZP'}
-      - name: text_box_2_copy
-        properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
-        type: TextBox
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK ZKTJKG,OHOKZA'}
-        event_bindings: {}
-      - name: label_8_copy_2
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Bank Account:'}
-        type: Label
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK UBVSXQ,YYOVNO PSDGTJ,LGSCKN'}
-      - name: label_8_copy_copy
+      - name: flow_panel_1
+        properties: {align: right}
+        type: FlowPanel
+        layout_properties: {grid_position: 'FRVCAC,CSXXAZ IBQTJB,FNIAQP'}
+        components:
+        - name: column_panel_1
+          properties: {}
+          type: ColumnPanel
+          layout_properties: {width: 199.9998779296875}
+          components:
+          - name: label_8
+            properties: {align: center, text: Switch on/off, bold: true, underline: true, font_size: 16}
+            type: Label
+            layout_properties: {grid_position: 'HVOUCR,RWSEME'}
+          - name: button_on
+            properties: {text: 'on', icon: 'fa:toggle-on', foreground: '#000000', bold: true, align: center, background: '#d9e6f2'}
+            type: Button
+            layout_properties: {grid_position: 'NZLMNV,URGDEC'}
+            event_bindings: {click: button_on_click}
+          - name: button_off
+            properties:
+              text: |
+                off
+              icon: fa:toggle-off
+              foreground: '#000000'
+              bold: true
+              background: '#d9e6f2'
+              font_size: 13
+            type: Button
+            layout_properties: {grid_position: 'KFNJLN,LFHTVV'}
+            event_bindings: {click: button_off_click}
+      - name: label_8_copy
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Currency:'}
         type: Label
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK UBVSXQ,YYOVNO VMOSLP,NQMPHA'}
-      - name: drop_down_1_copy
+        layout_properties: {grid_position: 'FRVCAC,CSXXAZ OINSCL,EFTWUW'}
+      - name: drop_down_2
         properties: {}
         type: DropDown
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK UBVSXQ,DJNLKG IDEQXF,UFZECZ'}
-      - name: drop_down_2_copy
-        properties: {}
-        type: DropDown
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK UBVSXQ,DJNLKG AXFNQW,MSWGDK'}
-      - name: label_2_copy
-        properties: {align: center, visible: false}
-        type: Label
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK UBVSXQ,DJNLKG MCBSJY,AEKVPR'}
-      - name: spacer_7
-        properties: {height: 40}
+        layout_properties: {grid_position: 'FRVCAC,CSXXAZ OINSCL,CXGYKX'}
+        event_bindings: {change: drop_down_2_change}
+      - name: spacer_1_copy
+        properties: {height: 52}
         type: Spacer
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK RZOFWI,TPWFPP'}
-      - name: button_1_copy
-        properties: {role: filled-button, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Gray 50', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: Submit}
+        layout_properties: {grid_position: 'FRVCAC,CSXXAZ WAMWRT,BFOUUK'}
+      - name: minimum_balance_topup
+        properties: {text: MINIMUM BALANCE TOPUP, bold: true, font_size: 15, background: '#2586d0', foreground: 'theme:White', icon: 'fa:angle-down', icon_align: right, enabled: true}
         type: Button
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,ZUZJAK TIVYHZ,JDTEQW'}
-        event_bindings: {click: button_1_click}
-      - name: spacer_3_copy
-        properties: {height: 310.5999755859375}
+        layout_properties: {grid_position: 'FRVCAC,CSXXAZ ACWDOX,VBLIIC'}
+        event_bindings: {click: minimum_balance_topup_click}
+      - name: timely_topup
+        properties: {text: TIMELY TOPUP, bold: true, font_size: 15, background: '#2586d0', foreground: 'theme:White', icon: 'fa:angle-down', icon_align: right, enabled: true}
+        type: Button
+        layout_properties: {grid_position: 'FRVCAC,CSXXAZ ACWDOX,WXBNHM'}
+        event_bindings: {click: timely_topup_click}
+      - name: spacer_3
+        properties: {height: 14.7777099609375}
         type: Spacer
-        layout_properties: {grid_position: 'FRVCAC,CSXXAZ DKLMRM,PCVBMM'}
-  - name: flow_panel_1
-    properties: {align: right}
-    type: FlowPanel
-    layout_properties: {grid_position: 'PKYKKQ,YTAIWA', full_width_row: true}
-    components:
-    - name: label_2_copy_3_copy
-      properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: true, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 18, tooltip: '', text: Auto-Topup}
-      type: Label
-    - name: spacer_1
-      properties: {height: 32}
-      type: Spacer
-      layout_properties: {width: 512}
-    - name: column_panel_1
-      properties: {}
-      type: ColumnPanel
-      layout_properties: {width: 199.9998779296875}
-      components:
-      - name: label_8
-        properties: {align: center, text: Switch on/off, bold: true, underline: true, font_size: 16}
-        type: Label
-        layout_properties: {grid_position: 'HVOUCR,RWSEME'}
-      - name: button_on
-        properties: {text: 'on', icon: 'fa:toggle-on', foreground: '#000000', bold: true, align: center, background: '#d9e6f2'}
-        type: Button
-        layout_properties: {grid_position: 'NZLMNV,URGDEC'}
-        event_bindings: {click: button_on_click}
-      - name: button_off
-        properties:
-          text: |
-            off
-          icon: fa:toggle-off
-          foreground: '#000000'
-          bold: true
-          background: '#d9e6f2'
-          font_size: 13
-        type: Button
-        layout_properties: {grid_position: 'KFNJLN,LFHTVV'}
-        event_bindings: {click: button_off_click}
-  - name: label_8_copy
-    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Currency:'}
-    type: Label
-    layout_properties: {grid_position: 'AGBNIT,OLLYUO'}
-  - name: drop_down_2
-    properties: {}
-    type: DropDown
-    layout_properties: {grid_position: 'AGBNIT,IGZAPD'}
-    event_bindings: {change: drop_down_2_change}
-  - name: spacer_1_copy
-    properties: {height: 20.666656494140625}
-    type: Spacer
-    layout_properties: {grid_position: 'NUPILV,RUAQJB'}
+        layout_properties: {grid_position: 'FRVCAC,CSXXAZ FTEHNM,XREPUM'}
   - name: spacer_1_copy_copy
     properties: {height: 20.666656494140625}
     type: Spacer
     layout_properties: {grid_position: 'UCANOS,GVIGKS'}
-  - name: minimum_balance_topup
-    properties: {text: MINIMUM BALANCE TOPUP, bold: true, font_size: 15, background: '#2586d0', foreground: 'theme:White', icon: 'fa:angle-down', icon_align: right, enabled: true}
-    type: Button
-    layout_properties: {grid_position: 'PDBLDS,KPLVDA'}
-    event_bindings: {click: minimum_balance_topup_click}
-  - name: timely_topup
-    properties: {text: TIMELY TOPUP, bold: true, font_size: 15, background: '#2586d0', foreground: 'theme:White', icon: 'fa:angle-down', icon_align: right, enabled: true}
-    type: Button
-    layout_properties: {grid_position: 'PDBLDS,ZRAOTB'}
-    event_bindings: {click: timely_topup_click}
-  - name: spacer_3
-    properties: {height: 14.7777099609375}
-    type: Spacer
-    layout_properties: {grid_position: 'XFKRFW,JOORTS'}
   - name: card_2
     properties: {role: card, col_widths: '{"HONYFV":25,"OSGMXY":35,"XSMVAK":25,"VCYUTB":35}'}
     type: ColumnPanel
