@@ -15,8 +15,9 @@ class Viewprofile(ViewprofileTemplate):
         self.password = password
         self.check_profile_pic()
         self.edit_mode = False  # Initial edit mode is set to False
+        self.label_12.text=self.user['users_last_login']
         if user:
-            self.label_8.text = f"Welcome to Green Gate Financial, {user['users_username']}"
+            #self.label_8.text = f"Welcome to Green Gate Financial, {user['users_username']}"
             self.display_user_profile(user)  # Display user profile on form load
 
     def toggle_edit_mode_components(self):
@@ -25,7 +26,7 @@ class Viewprofile(ViewprofileTemplate):
             textbox = getattr(self, f'text_box_{i}')
             textbox.visible = self.edit_mode
 
-        self.button_1.text = "Edit" if not self.edit_mode else "Save"
+        self.button_11.text = "Edit" if not self.edit_mode else "Save"
 
     def display_user_profile(self, user):
         # Fetch and display data for the logged-in user
@@ -40,7 +41,7 @@ class Viewprofile(ViewprofileTemplate):
 
 
 
-    def button_1_click(self, **event_args):
+    def button_11_click(self, **event_args):
         if not self.edit_mode:
             # Toggle to edit mode
             self.edit_mode = True
@@ -75,7 +76,7 @@ class Viewprofile(ViewprofileTemplate):
             # Toggle back to view mode
             self.edit_mode = False
             self.display_user_profile(self.user)
-            self.button_1.text = "Edit" if not self.edit_mode else "Save"
+            self.button_11.text = "Edit" if not self.edit_mode else "Save"
       
     def validate_phone_number(self, phone_number):
       pattern = r'^[6-9]\d{9}$'
@@ -103,9 +104,9 @@ class Viewprofile(ViewprofileTemplate):
     def text_box_2_pressed_enter(self, **event_args):
       phone_number = self.text_box_2.text.strip()
 
-    def link_2_click(self, **event_args):
+    def button_2_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.deposit",user=self.user)
+      open_form("Reset_password",user=self.user)
 
     def link_3_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -127,13 +128,6 @@ class Viewprofile(ViewprofileTemplate):
       """This method is called when the link is clicked"""
       open_form("customer",user=self.user,password=self.password)
 
-    # def link_8_click(self, **event_args):
-    #   """This method is called when the link is clicked"""
-    #   open_form("service",user=self.user)
-
-    def button_2_click(self, **event_args):
-      """This method is called when the button is clicked"""
-      open_form('Reset_password',user=self.user)
 
     def file_loader_1_change(self, file, **event_args):
       """This method is called when a new file is loaded into this FileLoader"""
@@ -171,3 +165,15 @@ class Viewprofile(ViewprofileTemplate):
         user_data = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
         user_data.update(users_profile_pic=None)
         self.image_1.source = '_/theme/account.png'
+
+    def text_box_5_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def text_box_3_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def button_1_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      pass
