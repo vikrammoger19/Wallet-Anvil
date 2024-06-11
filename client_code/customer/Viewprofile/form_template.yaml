@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: card_1_copy
-    properties: {role: card, col_widths: '{"XNZCHX":11,"CSXXAZ":49,"UTGZHD":5}'}
+    properties: {role: card, col_widths: '{"XNZCHX":11,"CSXXAZ":49,"MZPUMV":10,"DWRSNP":50}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'HQRYCG,ALIAKP', full_width_row: true}
     components:
@@ -233,7 +233,7 @@ components:
               type: Label
               layout_properties: {x: 91.57499389722943, y: 0, width: 77}
     - name: label_1_copy_2
-      properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: true, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: View/Edit Profile}
+      properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: true, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: View Profile}
       type: Label
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCCHCB,FJRJTH'}
     - name: spacer_1_copy_2
@@ -243,7 +243,53 @@ components:
     - name: spacer_6
       properties: {height: 338.6000061035156}
       type: Spacer
-      layout_properties: {grid_position: 'FRVCAC,CSXXAZ GDLRHW,UTGZHD'}
+      layout_properties: {grid_position: 'FRVCAC,CSXXAZ PSGSUV,MZPUMV'}
+    - name: flow_panel_1
+      properties: {}
+      type: FlowPanel
+      layout_properties: {grid_position: 'FRVCAC,CSXXAZ PSGSUV,DWRSNP'}
+      components:
+      - name: xy_panel_2
+        properties: {height: 397.79998779296875}
+        type: XYPanel
+        layout_properties: {width: 884.986951171875}
+        components:
+        - name: image_1
+          properties: {height: 180.79998779296875, role: null, border: '', tooltip: Profile pic, source: _/theme/account.png, horizontal_align: left, vertical_align: center}
+          type: Image
+          layout_properties: {x: 0, y: 0, width: 197.788}
+          event_bindings: {mouse_down: image_1_mouse_down}
+        - name: file_loader_1
+          properties: {role: null, background: '', icon: 'fa:camera', underline: false, icon_align: left, foreground: '', visible: true, border: '', italic: false, enabled: true, font_size: 25, text: ''}
+          type: FileLoader
+          layout_properties: {x: 88.84998779371381, y: 132.07500457763672, width: 113}
+          event_bindings: {change: file_loader_1_change}
+          data_bindings: []
+        - name: label_12
+          properties: {font_size: 12, text: 'Last Login: 02-06-2024', foreground: 'theme:Gray 600', bold: true}
+          type: Label
+          layout_properties: {x: 242.23753051832318, y: 110.31250457838178, width: 200}
+        - name: label_13
+          properties: {text: Edit Profile, bold: true, font_size: 25, foreground: '#258ee1'}
+          type: Label
+          layout_properties: {x: 5.787518311291933, y: 238.32501983642578, width: 137.5999755859375}
+        - name: label_14
+          properties: {text: _______________________________________________________________________________________________________________________, foreground: 'theme:Gray 600'}
+          type: Label
+          layout_properties: {x: 130.7500122077763, y: 240.09998321533203, width: 750.3999633789062}
+        - name: column_panel_1
+          properties: {}
+          type: ColumnPanel
+          layout_properties: {x: 447.9749877937138, y: 82.13750457763672, width: 200}
+          components:
+          - name: label_1
+            properties: {text: Kohila, font_size: 26, foreground: '#258ee1', bold: true}
+            type: Label
+            layout_properties: {grid_position: 'MZAMFH,LLSTRO'}
+          - name: label_8
+            properties: {text: kohilain16@gmail.com, font_size: 18, foreground: 'theme:Gray 600', bold: true}
+            type: Label
+            layout_properties: {grid_position: 'YEVWQV,NORFOS'}
     - name: spacer_3_copy
       properties: {height: 310.5999755859375}
       type: Spacer
@@ -261,18 +307,7 @@ components:
     properties: {height: 151.593505859375}
     type: XYPanel
     layout_properties: {grid_position: 'HYIYBZ,EMDQZA'}
-    components:
-    - name: image_1
-      properties: {height: 150.96343994140625, role: null, border: '', tooltip: Profile pic, source: _/theme/account.png}
-      type: Image
-      layout_properties: {x: 405.6512455418706, y: 0, width: 181.2207794189453}
-      event_bindings: {mouse_down: image_1_mouse_down}
-    - name: file_loader_1
-      properties: {role: null, background: '', icon: 'fa:camera', underline: false, icon_align: left, foreground: '', visible: true, border: '', italic: false, enabled: true, font_size: 25, text: ''}
-      type: FileLoader
-      layout_properties: {x: 529.5706181004643, y: 99.8831672668457, width: 63.872657775878906}
-      event_bindings: {change: file_loader_1_change}
-      data_bindings: []
+    components: []
   - name: button_3
     properties: {text: '', role: rounded-button1, font_size: 16, foreground: white, background: '#258ee0', icon: 'fa:trash'}
     type: Button
