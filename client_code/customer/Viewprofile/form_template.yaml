@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: card_1_copy
-    properties: {role: card, col_widths: '{"XNZCHX":11,"CSXXAZ":49,"MZPUMV":10,"DWRSNP":50}'}
+    properties: {role: card, col_widths: '{"XNZCHX":11,"CSXXAZ":49,"MZPUMV":8,"DWRSNP":52}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'HQRYCG,ALIAKP', full_width_row: true}
     components:
@@ -250,7 +250,7 @@ components:
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ PSGSUV,DWRSNP'}
       components:
       - name: xy_panel_2
-        properties: {height: 397.79998779296875}
+        properties: {height: 753.7999877929688}
         type: XYPanel
         layout_properties: {width: 884.986951171875}
         components:
@@ -265,10 +265,6 @@ components:
           layout_properties: {x: 88.84998779371381, y: 132.07500457763672, width: 113}
           event_bindings: {change: file_loader_1_change}
           data_bindings: []
-        - name: label_12
-          properties: {font_size: 12, text: 'Last Login: 02-06-2024', foreground: 'theme:Gray 600', bold: true}
-          type: Label
-          layout_properties: {x: 242.23753051832318, y: 110.31250457838178, width: 200}
         - name: label_13
           properties: {text: Edit Profile, bold: true, font_size: 25, foreground: '#258ee1'}
           type: Label
@@ -280,7 +276,7 @@ components:
         - name: column_panel_1
           properties: {}
           type: ColumnPanel
-          layout_properties: {x: 447.9749877937138, y: 82.13750457763672, width: 200}
+          layout_properties: {x: 220.0749633796513, y: 17.437504578381777, width: 200}
           components:
           - name: label_1
             properties: {text: Kohila, font_size: 26, foreground: '#258ee1', bold: true}
@@ -290,6 +286,38 @@ components:
             properties: {text: kohilain16@gmail.com, font_size: 18, foreground: 'theme:Gray 600', bold: true}
             type: Label
             layout_properties: {grid_position: 'YEVWQV,NORFOS'}
+          - name: label_12
+            properties: {font_size: 12, text: 'Last Login: 02-06-2024', foreground: 'theme:Gray 600', bold: true}
+            type: Label
+            layout_properties: {grid_position: 'DSMJSV,CJSTAS'}
+        - name: column_panel_2
+          properties: {col_widths: '{}'}
+          type: ColumnPanel
+          layout_properties: {x: 61.63751220703125, y: 322.1375045776367, width: 200}
+          components:
+          - name: label_5
+            properties: {bold: true, text: Username}
+            type: Label
+            layout_properties: {x: 61.64997558668256, y: 421.64999771118164, width: 200, grid_position: 'TMPQPB,WRROCU'}
+          - name: text_box_5
+            properties: {align: center, spacing_above: none, border: white, enabled: true}
+            type: TextBox
+            layout_properties: {grid_position: 'UMVVEE,KDHDWP', x: -277, y: 370.1375045776367, width: 884.975}
+          - type: Spacer
+            properties: {height: 22}
+            name: spacer_2
+            layout_properties: {grid_position: 'EILYEW,XUMXGR'}
+          - name: label_9
+            properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Phone Number}
+            type: Label
+            layout_properties: {grid_position: 'YDKIXW,HGCZCU'}
+          - name: text_box_2
+            properties: {role: null, bold: false, align: center, placeholder: '', spacing_above: none, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: white, italic: false, enabled: false, font_size: null, tooltip: '', text: ''}
+            type: TextBox
+            layout_properties: {grid_position: 'SGWUBG,XCAIHP', x: 271.63751220703125, y: 314, width: 682.15}
+            data_bindings:
+            - {property: text, code: 'self.item[''phone'']', writeback: true}
+            event_bindings: {pressed_enter: text_box_2_pressed_enter}
     - name: spacer_3_copy
       properties: {height: 310.5999755859375}
       type: Spacer
@@ -386,18 +414,10 @@ components:
       properties: {height: 267.45166015625}
       type: Spacer
       layout_properties: {grid_position: 'KQUPTK,UDXEQH'}
-    - name: label_5
-      properties: {bold: true, text: Username}
-      type: Label
-      layout_properties: {grid_position: 'KQUPTK,MSWTBG FRGRKE,CXNAKR'}
     - name: label_7
       properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Email ID}
       type: Label
       layout_properties: {grid_position: 'KQUPTK,MSWTBG RQDLHJ,UFVCLW'}
-    - name: label_9
-      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Phone Number}
-      type: Label
-      layout_properties: {grid_position: 'KQUPTK,MSWTBG VJVYVL,TEDTAN'}
     - name: label_10
       properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Pan Card}
       type: Label
@@ -414,23 +434,12 @@ components:
       properties: {height: 276.32916259765625}
       type: Spacer
       layout_properties: {grid_position: 'KQUPTK,KXNOQN'}
-    - name: text_box_5
-      properties: {align: center, spacing_above: none, border: white, enabled: true}
-      type: TextBox
-      layout_properties: {grid_position: 'KQUPTK,YSGIZA EZBPDV,AGZWJI'}
     - name: text_box_1
       properties: {background: white, align: center, foreground: '', border: white, spacing_above: none}
       type: TextBox
       layout_properties: {grid_position: 'KQUPTK,YSGIZA YYIYPG,RLLNQO'}
       data_bindings:
       - {property: text, code: 'self.item[''email'']', writeback: true}
-    - name: text_box_2
-      properties: {role: null, bold: false, align: center, placeholder: '', spacing_above: none, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: white, italic: false, enabled: false, font_size: null, tooltip: '', text: ''}
-      type: TextBox
-      layout_properties: {grid_position: 'KQUPTK,YSGIZA XRRCZW,EKDLQR'}
-      data_bindings:
-      - {property: text, code: 'self.item[''phone'']', writeback: true}
-      event_bindings: {pressed_enter: text_box_2_pressed_enter}
     - name: text_box_3
       properties: {background: white, enabled: false, align: center, border: white, foreground: '', spacing_above: none}
       type: TextBox
