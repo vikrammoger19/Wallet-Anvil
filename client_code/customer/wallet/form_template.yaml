@@ -1,8 +1,7 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
-    role: null, html: ''}
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true, role: null, html: ''}
 components:
 - type: ColumnPanel
   properties: {role: card}
@@ -15,15 +14,11 @@ components:
     layout_properties: {grid_position: 'OKZBRI,SLBTYP', full_width_row: true}
     components:
     - name: image_1_copy_copy
-      properties: {role: null, vertical_align: center, height: 44.80000305175781,
-        tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
-        spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
-        background: white, horizontal_align: right}
+      properties: {role: null, vertical_align: center, height: 44.80000305175781, tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small, source: _/theme/letter-g.png, spacing_below: small, background: white, horizontal_align: right}
       type: Image
       layout_properties: {width: 89.19999694824219}
     - name: label_7_copy_2_copy
-      properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
-        font: a, italic: false, underline: false, foreground: black}
+      properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true, font: a, italic: false, underline: false, foreground: black}
       type: Label
       layout_properties: {}
     - name: spacer_3_copy_copy
@@ -36,8 +31,7 @@ components:
       event_bindings: {click: link_2_click}
       layout_properties: {}
     - name: link_3
-      properties: {text: Money Transfer, bold: true, align: center, foreground: '',
-        icon: ''}
+      properties: {text: Money Transfer, bold: true, align: center, foreground: '', icon: ''}
       type: Link
       event_bindings: {click: link_3_click}
       layout_properties: {}
@@ -62,8 +56,7 @@ components:
       event_bindings: {click: link_13_click}
       layout_properties: {}
   - name: image_1
-    properties: {source: 'https://cdni.iconscout.com/illustration/premium/thumb/e-wallet-4487367-3722728.png',
-      background: '#258ee1', horizontal_align: center, height: 274.39996337890625}
+    properties: {source: 'https://cdni.iconscout.com/illustration/premium/thumb/e-wallet-4487367-3722728.png', background: '#258ee1', horizontal_align: center, height: 274.39996337890625}
     type: Image
     layout_properties: {grid_position: 'VLLMBY,BBSAZA', full_width_row: true}
   - name: spacer_1
@@ -71,10 +64,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'XWRQRR,RSVXCK'}
   - name: label_1
-    properties: {role: null, align: center, tooltip: '', border: '', foreground: '#2887d1',
-      visible: true, text: '', font_size: 24, font: a, spacing_above: small, icon_align: left,
-      spacing_below: small, italic: false, background: '', bold: true, underline: true,
-      icon: ''}
+    properties: {role: null, align: center, tooltip: '', border: '', foreground: '#2887d1', visible: true, text: '', font_size: 24, font: a, spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: true, icon: ''}
     type: Label
     layout_properties: {grid_position: 'TRZGVC,TKONKA'}
   - name: spacer_2
@@ -82,10 +72,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'FXASSI,YMBFIE'}
   - name: button_add_bank_details_click
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: white, visible: true, text: Add bank details, font_size: 15, font: '',
-      spacing_above: small, icon_align: right, spacing_below: small, italic: false,
-      background: '#2586d0', bold: true, underline: false, icon: 'fa:angle-down'}
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: white, visible: true, text: Add bank details, font_size: 15, font: '', spacing_above: small, icon_align: right, spacing_below: small, italic: false, background: '#2586d0', bold: true, underline: false, icon: 'fa:angle-down'}
     type: Button
     layout_properties: {grid_position: 'FLHNFM,XHDMJK'}
     event_bindings: {click: button_add_bank_details_click_click}
@@ -94,10 +81,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'WHCJAM,ILYKSE'}
   - name: label_3
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Account Holder''s Name:', font_size: 17, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Account Holder''s Name:', font_size: 17, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'JPXNAX,PAYIQB'}
   - name: text_box_1
@@ -105,10 +89,7 @@ components:
     type: TextBox
     layout_properties: {grid_position: 'JPXNAX,DIDIRR'}
   - name: label_bank_name
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Bank Name:', font_size: 17, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Bank Name:', font_size: 17, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'UHAHTV,KBSAAE'}
   - name: drop_down_2
@@ -117,10 +98,7 @@ components:
     type: DropDown
     layout_properties: {grid_position: 'UHAHTV,XQQENL'}
   - name: label_4
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Branch Name:', font_size: 17, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Branch Name:', font_size: 17, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'AWISZW,ZCFBMB'}
   - name: text_box_2
@@ -128,10 +106,7 @@ components:
     type: TextBox
     layout_properties: {grid_position: 'AWISZW,WDPMPH'}
   - name: label_account_number
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Account Number:', font_size: 17, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Account Number:', font_size: 17, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'KSKRJR,AMHCRC'}
   - name: textbox_account_number
@@ -139,10 +114,7 @@ components:
     type: TextBox
     layout_properties: {grid_position: 'KSKRJR,XZZJBL'}
   - name: label_ifsc_code
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'IFSC Code:', font_size: 17, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'IFSC Code:', font_size: 17, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'RGGVAN,MGRMJC'}
   - name: textbox_ifsc_code
@@ -150,10 +122,7 @@ components:
     type: TextBox
     layout_properties: {grid_position: 'RGGVAN,KWCHWN'}
   - name: label_5
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Account Type:', font_size: 17, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-      underline: false, icon: ''}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: 'Account Type:', font_size: 17, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
     type: Label
     layout_properties: {grid_position: 'UEIOAA,AKMVWN'}
   - name: drop_down_1
@@ -183,49 +152,33 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'ZVJOTZ,BJOABO'}
   - name: button_save_bank_details
-    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
-      foreground: white, visible: true, text: 'Submit   ', font_size: 17, font: '',
-      spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#2887d1', bold: true, underline: false, icon: ''}
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true, foreground: white, visible: true, text: 'Submit   ', font_size: 17, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#2887d1', bold: true, underline: false, icon: ''}
     type: Button
     layout_properties: {grid_position: 'RXAPXE,JLLOXX'}
     event_bindings: {click: button_save_bank_details_click}
   - name: outlined_card_1
-    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: none, spacing_above: none, col_widths: '{"VMILPR":8,"FDANOO":15,"HAKDVS":15}',
-      spacing_below: none, background: '#2270ad'}
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: none, spacing_above: none, col_widths: '{"VMILPR":8,"FDANOO":15,"HAKDVS":15}', spacing_below: none, background: '#2270ad'}
     type: ColumnPanel
     layout_properties: {grid_position: 'XCXRDT,PTWGAN', full_width_row: true}
     components:
     - name: label_1_copy
-      properties: {text: CopyRight2023@Gwallet, align: left, bold: false, font_size: 16,
-        visible: true, role: input-prompt, foreground: 'theme:White'}
+      properties: {text: CopyRight2023@Gwallet, align: left, bold: false, font_size: 16, visible: true, role: input-prompt, foreground: 'theme:White'}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,XVKBKL'}
     - name: label_2_copy
-      properties: {role: null, align: right, tooltip: '', border: '', foreground: 'theme:White',
-        visible: true, text: Disclaimer, font_size: 16, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+      properties: {role: null, align: right, tooltip: '', border: '', foreground: 'theme:White', visible: true, text: Disclaimer, font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,VMILPR'}
     - name: label_3_copy
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:White',
-        visible: true, text: Privacy Policy, font_size: 16, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:White', visible: true, text: Privacy Policy, font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,FDANOO'}
     - name: label_4_copy
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:White',
-        visible: true, text: Code Of Commitment, font_size: 16, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: 'theme:White', visible: true, text: Code Of Commitment, font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
       type: Label
       layout_properties: {grid_position: 'XSXLAE,HAKDVS'}
     - name: link_8
-      properties: {align: right, text: Customer Service, foreground: 'theme:White',
-        font_size: 16, bold: false}
+      properties: {align: right, text: Customer Service, foreground: 'theme:White', font_size: 16, bold: false}
       type: Link
       layout_properties: {grid_position: 'XSXLAE,NFTMSZ'}
       event_bindings: {click: link_8_click}

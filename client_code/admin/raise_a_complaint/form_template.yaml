@@ -1,8 +1,7 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
-    role: null, html: ''}
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true, role: null, html: ''}
 components:
 - type: ColumnPanel
   properties: {}
@@ -10,28 +9,20 @@ components:
   layout_properties: {slot: default}
   components:
   - name: flow_panel_1
-    properties: {role: null, vertical_align: full, spacing: medium, align: left, tooltip: '',
-      border: '', foreground: '', visible: true, spacing_above: small, spacing_below: large,
-      background: ''}
+    properties: {role: null, vertical_align: full, spacing: medium, align: left, tooltip: '', border: '', foreground: '', visible: true, spacing_above: small, spacing_below: large, background: ''}
     type: FlowPanel
     layout_properties: {grid_position: 'VZYVCS,YGAPAK', full_width_row: true}
     components:
     - name: flow_panel_1_copy
-      properties: {role: null, vertical_align: full, spacing: large, align: left,
-        tooltip: '', border: '', foreground: '', visible: true, spacing_above: medium,
-        spacing_below: small, background: ''}
+      properties: {role: null, vertical_align: full, spacing: large, align: left, tooltip: '', border: '', foreground: '', visible: true, spacing_above: medium, spacing_below: small, background: ''}
       type: FlowPanel
       components:
       - name: image_1_copy
-        properties: {role: null, vertical_align: center, height: 44.80000305175781,
-          tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
-          spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
-          background: white, horizontal_align: right}
+        properties: {role: null, vertical_align: center, height: 44.80000305175781, tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small, source: _/theme/letter-g.png, spacing_below: small, background: white, horizontal_align: right}
         type: Image
         layout_properties: {width: 89.19999694824219}
       - name: label_7_copy_2_copy
-        properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
-          font: a, italic: false, underline: false, foreground: black}
+        properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true, font: a, italic: false, underline: false, foreground: black}
         type: Label
         layout_properties: {}
       - name: spacer_1_copy
@@ -73,8 +64,7 @@ components:
         type: Link
         event_bindings: {click: link_3_click}
       - name: link_8_copy_copy
-        properties: {text: 'Home ', align: center, bold: false, foreground: '#000',
-          font_size: 15}
+        properties: {text: 'Home ', align: center, bold: false, foreground: '#000', font_size: 15}
         type: Link
         event_bindings: {click: link_8_copy_click}
       - name: button_8_copy
@@ -110,8 +100,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'KVBEOP,GVFVOG'}
   - name: button_1
-    properties: {text: Submit, background: 'theme:Primary 500', bold: true, foreground: 'theme:Gray
-        50'}
+    properties: {text: Submit, background: 'theme:Primary 500', bold: true, foreground: 'theme:Gray 50'}
     type: Button
     layout_properties: {grid_position: 'CQJXHU,MEWYNC', row_background: 'theme:White'}
     event_bindings: {click: button_1_click}

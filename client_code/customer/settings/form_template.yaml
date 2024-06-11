@@ -14,15 +14,11 @@ components:
     layout_properties: {grid_position: 'NPMKAV,GXCWYG', full_width_row: true}
     components:
     - name: image_1_copy_copy
-      properties: {role: null, vertical_align: center, height: 44.80000305175781,
-        tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
-        spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
-        background: white, horizontal_align: right}
+      properties: {role: null, vertical_align: center, height: 44.80000305175781, tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small, source: _/theme/letter-g.png, spacing_below: small, background: white, horizontal_align: right}
       type: Image
       layout_properties: {width: 89.19999694824219}
     - name: label_7_copy_2_copy
-      properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
-        font: a, italic: false, underline: false, foreground: black}
+      properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true, font: a, italic: false, underline: false, foreground: black}
       type: Label
       layout_properties: {}
     - name: spacer_3_copy_copy
@@ -35,8 +31,7 @@ components:
       event_bindings: {click: link_2_click}
       layout_properties: {}
     - name: link_9
-      properties: {text: Money Transfer, bold: true, align: center, foreground: '',
-        icon: ''}
+      properties: {text: Money Transfer, bold: true, align: center, foreground: '', icon: ''}
       type: Link
       event_bindings: {click: link_9_click}
       layout_properties: {}
@@ -100,8 +95,7 @@ components:
             layout_properties: {grid_position: 'PCBZMN,BGRFKJ'}
             components:
             - name: image_1
-              properties: {height: '65', source: _/theme/th__6_-removebg-preview.png,
-                display_mode: shrink_to_fit}
+              properties: {height: '65', source: _/theme/th__6_-removebg-preview.png, display_mode: shrink_to_fit}
               type: Image
               layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
             - name: spacer_1_copy
@@ -129,8 +123,7 @@ components:
             layout_properties: {grid_position: 'ZAVMKT,KSUIHY'}
             components:
             - name: image_1_copy
-              properties: {height: '65', source: _/theme/vector-wallet-icon-design-removebg-preview.png,
-                display_mode: shrink_to_fit}
+              properties: {height: '65', source: _/theme/vector-wallet-icon-design-removebg-preview.png, display_mode: shrink_to_fit}
               type: Image
               layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
             - name: spacer_1_copy_copy
@@ -138,9 +131,9 @@ components:
               type: Spacer
               layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
             - name: label_1_copy
-              properties: {text: 'Payment Settings
-
-                  '}
+              properties:
+                text: |
+                  Payment Settings
               type: Label
               layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
     - name: column_panel_8
@@ -165,8 +158,7 @@ components:
             layout_properties: {grid_position: 'YLHKZI,ZTEWVH'}
             components:
             - name: image_1_copy_2_copy
-              properties: {height: '65', source: _/theme/th__8_-removebg-preview.png,
-                display_mode: shrink_to_fit}
+              properties: {height: '65', source: _/theme/th__8_-removebg-preview.png, display_mode: shrink_to_fit}
               type: Image
               layout_properties: {grid_position: 'QXDXHF,EUDSPS', full_width_row: true}
             - name: label_1_copy_2_copy
@@ -190,8 +182,7 @@ components:
             layout_properties: {grid_position: 'FBJKLC,TLDEYI'}
             components:
             - name: image_1_copy_2
-              properties: {height: 63, source: _/theme/Black-Question-mark-PNG-Images-HD.png,
-                display_mode: shrink_to_fit}
+              properties: {height: 63, source: _/theme/Black-Question-mark-PNG-Images-HD.png, display_mode: shrink_to_fit}
               type: Image
               layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
             - name: spacer_1_copy_2
@@ -268,37 +259,23 @@ components:
       type: Spacer
       layout_properties: {grid_position: 'AKUVXB,QGGRRO'}
     - name: card_1_copy
-      properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
-        wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-        spacing_below: small, background: '#2270ad'}
+      properties: {role: card, tooltip: '', border: '', foreground: '', visible: true, wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}', spacing_below: small, background: '#2270ad'}
       type: ColumnPanel
       layout_properties: {grid_position: 'OPEFUA,UELRDB', full_width_row: true}
       components:
       - name: label_9
-        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White',
-          visible: true, text: CopyRight2023@Gwallet, font_size: 16, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
+        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White', visible: true, text: CopyRight2023@Gwallet, font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
         type: Label
         layout_properties: {grid_position: 'XZHMAF,AYWPIJ'}
       - name: label_10
-        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White',
-          visible: true, text: Disclaimer, font_size: 16, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
+        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White', visible: true, text: Disclaimer, font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
         type: Label
         layout_properties: {grid_position: 'XZHMAF,BXCDJA'}
       - name: label_11
-        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White',
-          visible: true, text: Privacy Policy, font_size: 16, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
+        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White', visible: true, text: Privacy Policy, font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
         type: Label
         layout_properties: {grid_position: 'XZHMAF,BIRREG'}
       - name: label_12
-        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White',
-          visible: true, text: Code Of Commitment, font_size: 16, font: '', spacing_above: small,
-          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-          underline: false, icon: ''}
+        properties: {role: input-prompt, align: center, tooltip: '', border: '', foreground: 'theme:White', visible: true, text: Code Of Commitment, font_size: 16, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: true, underline: false, icon: ''}
         type: Label
         layout_properties: {grid_position: 'XZHMAF,AGQBOT'}

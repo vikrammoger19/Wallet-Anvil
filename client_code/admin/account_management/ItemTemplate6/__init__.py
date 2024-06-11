@@ -41,4 +41,4 @@ class ItemTemplate6(ItemTemplate6Template):
     phone_number = selected_user['users_phone']  # Assuming 'phone_number' is the key for the phone number in your data
     
     # Open the admin_view form and pass the phone number
-    open_form('admin.admin_view',user =self.user, phone_number=phone_number)
+    open_form('admin.admin_view_user_details',user =self.user, phone_number=phone_number)

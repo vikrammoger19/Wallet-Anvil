@@ -11,8 +11,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'SLMNGT,FISHPH FVDJWK,ELQDEN'}
   - name: image_1
-    properties: {height: 95.1448974609375, source: '', role: null, visible: true,
-      horizontal_align: left}
+    properties: {height: 95.1448974609375, source: '', role: null, visible: true, horizontal_align: left}
     type: Image
     layout_properties: {grid_position: 'SLMNGT,FISHPH XUOXUW,ZZECAM'}
     data_bindings: []
@@ -41,10 +40,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'SLMNGT,BSWUIY TFHZHT,UNMJOR'}
   - name: text_box_2
-    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-      border: white, enabled: true, foreground: '', visible: true, text: '', font_size: null,
-      font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
-      background: '', bold: true, underline: false}
+    properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: white, enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: number, spacing_below: small, italic: false, background: '', bold: true, underline: false}
     type: TextBox
     layout_properties: {grid_position: 'SLMNGT,BSWUIY TLAXKN,ADYRSW'}
     data_bindings:

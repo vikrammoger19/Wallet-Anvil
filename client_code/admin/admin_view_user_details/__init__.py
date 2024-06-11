@@ -1,4 +1,4 @@
-from ._anvil_designer import admin_viewTemplate
+from ._anvil_designer import admin_view_user_detailsTemplate
 from anvil import *
 import anvil.server
 import anvil.tables as tables
@@ -8,7 +8,7 @@ from datetime import datetime
 import re
 import base64
 
-class admin_view(admin_viewTemplate):
+class admin_view_user_details(admin_view_user_detailsTemplate):
     def __init__(self, user_data=None, phone_number=None, user=None, **properties):
         self.user = user
         if self.user is not None:
