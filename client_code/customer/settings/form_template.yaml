@@ -263,11 +263,11 @@ components:
               properties: {text: Default Currency, font_size: 16}
               type: Label
               layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
-        - name: link_4_copy_6
+        - name: link_11
           properties: {text: '', bold: true, font_size: 25}
           type: Link
           layout_properties: {grid_position: 'HVBAHS,YGNFNJ IFSLZU,QVZJQE'}
-          event_bindings: {click: link_4_click}
+          event_bindings: {click: link_11_click}
           components:
           - name: column_panel_3_copy_5
             properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli, role: card}
@@ -290,7 +290,7 @@ components:
           properties: {height: 32}
           type: Spacer
           layout_properties: {grid_position: 'HVBAHS,IOBAFC'}
-        - name: link_4_copy_3
+        - name: link_10
           properties: {text: '', bold: true, font_size: 25}
           type: Link
           layout_properties: {grid_position: 'HVBAHS,ELICDZ TMUQCV,PRUABD FSCGIW,WAXWUI'}
@@ -316,7 +316,7 @@ components:
                 font_size: 16
               type: Label
               layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
-        - name: link_4_copy_5
+        - name: link_12
           properties: {text: '', bold: true, font_size: 25}
           type: Link
           layout_properties: {grid_position: 'HVBAHS,ELICDZ TMUQCV,PRUABD XGQNPN,WGHWYQ'}
@@ -343,7 +343,7 @@ components:
           properties: {height: 32}
           type: Spacer
           layout_properties: {grid_position: 'HVBAHS,ELICDZ TMUQCV,FLDGAD'}
-        - name: link_4_copy_4
+        - name: link_9
           properties: {text: '', bold: true, font_size: 25}
           type: Link
           layout_properties: {grid_position: 'HVBAHS,ELICDZ TMUQCV,XCOFVV FICWQX,MGDTYU'}
@@ -366,7 +366,7 @@ components:
               properties: {text: Change Password, font_size: 16}
               type: Label
               layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
-        - name: link_4_copy_2
+        - name: link_13
           properties: {text: '', bold: true, font_size: 25}
           type: Link
           layout_properties: {grid_position: 'HVBAHS,ELICDZ TMUQCV,XCOFVV LMYBKU,XFRIZO'}
