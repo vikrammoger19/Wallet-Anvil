@@ -81,7 +81,7 @@ class account_management(account_managementTemplate):
     open_form('Login')
 
   def button_3_click(self, **event_args):
-    open_form('admin.adduser',user= self.user)
+    open_form('admin.admin_add_user',user= self.user)
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
