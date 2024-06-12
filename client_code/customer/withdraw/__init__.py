@@ -30,34 +30,71 @@ class withdraw(withdrawTemplate):
   def button_1_click(self, **event_args):
     current_datetime = datetime.now()
     acc = self.drop_down_1.selected_value
-    cur= self.drop_down_2.selected_value
-    if self.user :
-      entered_amount = ''.join(filter(str.isdigit, str(self.text_box_2.text)))
-      money_value = float(entered_amount) if entered_amount else 0.0
-     # Check if a balance row already exists for the user
-      existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur) 
-      if existing_balance['users_balance'] >=money_value:
-        existing_balance['users_balance'] -= money_value
-        new_transaction = app_tables.wallet_users_transaction.add_row(
+    cur = self.drop_down_2.selected_value
+    money = float(self.text_box_2.text)
+    endpoint = 'convert'
+    api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
+
+    if acc is None or cur is None:
+        alert('Please enter bank details')
+    else:
+        base_currency = 'INR'
+        resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
+        money_value = resp['response']['value']
+        
+        if self.user:
+            # Retrieve user data
+            user_data = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+            if not user_data:
+                self.label_2.text = "Error: No matching accounts found for the user."
+                return
+            
+            users_daily_limit = user_data['users_daily_limit']
+            users_user_limit = user_data['users_user_limit']
+
+            # Check the limits
+            if money_value > users_daily_limit:
+                alert("Daily limit exceeded.", buttons=[("OK", True)], large=True)
+                open_form('admin', user=self.user)
+                return
+            elif money_value > users_user_limit:
+                alert("Monthly limit exceeded.", buttons=[("OK", True)], large=True)
+                open_form('admin', user=self.user)
+                return
+            
+            # Check if a balance row already exists for the user
+            existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'], users_balance_currency_type=cur)
+
+            if existing_balance:
+                # Update the existing balance
+                existing_balance['users_balance'] += money_value
+            else:
+                # Add a new row for the user if no existing balance
+                app_tables.wallet_users_balance.add_row(
+                    users_balance_currency_type=cur,
+                    users_balance=money_value,
+                    users_balance_phone=self.user['users_phone']
+                )
+
+            # Add a new transaction row
+            app_tables.wallet_users_transaction.add_row(
                 users_transaction_phone=self.user['users_phone'],
                 users_transaction_fund=money_value,
                 users_transaction_currency=cur,
                 users_transaction_date=current_datetime,
-                users_transaction_type="Withdrawn",
-                users_transaction_status="Wallet-Withdrawn",
+                users_transaction_type="Deposited",
+                users_transaction_status="Wallet-Topup",
                 users_transaction_receiver_phone=self.user['users_phone']
             )
-        self.label_2.text = "Money Withdrawn successfully to the account."
-        alert("Money Withdrawn successfully to the account.")
-        self.text_box_2.text = ''
-        
-      else:
-        anvil.alert("Insufficient balance. Please add funds.")
-        print("fund illa")
-    else:
-      self.label_2.text = "Error: No matching accounts found for the user or invalid account number."
-      alert("Error: No matching accounts found for the user or invalid account number.")
-      print("enaitho gottilla")
+
+            # Update the limits
+            user_data['users_daily_limit'] -= money_value
+            user_data['users_user_limit'] -= money_value
+
+            self.label_2.text = "Money added successfully to the account."
+        else:
+            self.label_2.text = "Error: No matching accounts found for the user or invalid account number."
+
   def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form("customer.deposit",user=self.user)

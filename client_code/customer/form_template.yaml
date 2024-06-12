@@ -333,10 +333,6 @@ components:
                 type: Link
                 event_bindings: {click: link_14_click}
                 name: link_14_copy
-            - properties: {role: null, bold: false, align: left, spacing_above: none, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Gray 300', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: _____________________________________________________________________________________________________}
-              type: Label
-              layout_properties: {x: 0, y: 56, width: 652.469}
-              name: label_5_copy_copy
             - properties: {height: 320.7818145751953}
               type: Plot
               layout_properties: {x: 0, y: 102, width: 560}
