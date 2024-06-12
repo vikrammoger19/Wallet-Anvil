@@ -12,7 +12,7 @@ class ItemTemplate6(ItemTemplate6Template):
     self.user = user
     #test = self.user['users_username']
     print('hi admin test')
-    print(us)
+    
 
     # Set data bindings for label_3
     self.label_3.text = self.get_status_text()
