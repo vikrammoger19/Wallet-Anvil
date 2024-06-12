@@ -26,77 +26,75 @@ class transfer(transferTemplate):
       acc = self.drop_down_2.selected_value
 
     def button_1_click(self, **event_args):
-        current_datetime = datetime.now()
-        receiver_phone_number = float(self.text_box_2.text)
-        transfer_amount = float(self.text_box_3.text)
-        cur=self.drop_down_2.selected_value
-        depositor_phone_number = self.user['users_phone']
-        
-        # Use the entered phone number to identify the receiver's account
-        receiver_balance = app_tables.wallet_users_balance.get(users_balance_phone=receiver_phone_number,users_balance_currency_type=cur)
-        if self.user :
-          depositor_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur)
-          print(depositor_balance['users_balance'])
+      current_datetime = datetime.now()
+      receiver_phone_number = float(self.text_box_2.text)
+      transfer_amount = float(self.text_box_3.text)
+      cur = self.drop_down_2.selected_value
+      depositor_phone_number = self.user['users_phone']
+      
+      # Use the entered phone number to identify the receiver's account
+      receiver_balance = app_tables.wallet_users_balance.get(users_balance_phone=receiver_phone_number, users_balance_currency_type=cur)
+      depositor_balance = app_tables.wallet_users_balance.get(users_balance_phone=depositor_phone_number, users_balance_currency_type=cur)
+      
+      if depositor_balance:
+          depositor = app_tables.wallet_users.get(users_phone=depositor_phone_number)
           
-          money_value = transfer_amount if transfer_amount else 0.0
-          if depositor_balance['users_balance'] >=money_value:
-            if receiver_balance is not None:
-              depositor_balance['users_balance'] -= money_value
-              receiver_balance['users_balance']+= money_value
-              new_transaction = app_tables.wallet_users_transaction.add_row(
-                users_transaction_phone=self.user['users_phone'],
-                users_transaction_fund=money_value,
-                users_transaction_currency=cur,
-                users_transaction_date=current_datetime,
-                users_transaction_type="Debit",
-                users_transaction_status="transfered-to",
-                users_transaction_receiver_phone=receiver_phone_number
-            )
-              new_transaction = app_tables.wallet_users_transaction.add_row(
-                users_transaction_phone=receiver_phone_number,
-                users_transaction_fund=money_value,
-                users_transaction_currency=cur,
-                users_transaction_date=current_datetime,
-                users_transaction_type="Credit",
-                users_transaction_status="recieved-from",
-                users_transaction_receiver_phone=self.user['users_phone']
-            )
-              self.label_4.text = "Money transferred successfully to the account."
-            else:
-              reciver = app_tables.wallet_users.get(users_phone=receiver_phone_number)
-              if reciver:
-                depositor_balance['users_balance'] -= money_value
-                balance = app_tables.wallet_users_balance.add_row(
-                      users_balance_currency_type=cur,  # Replace with the actual currency type
-                      users_balance=money_value,
-                      users_balance_phone=receiver_phone_number
-                  )
-                new_transaction = app_tables.wallet_users_transaction.add_row(
-                  users_transaction_phone=self.user['users_phone'],
-                users_transaction_fund=money_value,
-                users_transaction_currency=cur,
-                users_transaction_date=current_datetime,
-                users_transaction_type="Debit",
-                users_transaction_status="transfered-to",
-                users_transaction_receiver_phone=receiver_phone_number
-              )
-                new_transaction = app_tables.wallet_users_transaction.add_row(
-                  users_transaction_phone=receiver_phone_number,
-                users_transaction_fund=money_value,
-                users_transaction_currency=cur,
-                users_transaction_date=current_datetime,
-                users_transaction_type="Credit",
-                users_transaction_status="recieved-from",
-                users_transaction_receiver_phone=self.user['users_phone']
-              )
-                self.label_4.text = "Money transferred successfully to the account."
-              else:
-                anvil.alert("User does not exist")
+          users_daily_limit = depositor['users_daily_limit']
+          users_user_limit = depositor['users_user_limit']
+          
+          if transfer_amount > users_daily_limit:
+              anvil.alert("Daily limit exceeded.")
+          elif transfer_amount > users_user_limit:
+              anvil.alert("Monthly limit exceeded.")
           else:
-            anvil.alert("Insufficient balance. Please add funds.")
-        else:
+              money_value = transfer_amount if transfer_amount else 0.0
+              if depositor_balance['users_balance'] >= money_value:
+                  if receiver_balance:
+                      depositor_balance['users_balance'] -= money_value
+                      receiver_balance['users_balance'] += money_value
+                  else:
+                      receiver = app_tables.wallet_users.get(users_phone=receiver_phone_number)
+                      if receiver:
+                          depositor_balance['users_balance'] -= money_value
+                          app_tables.wallet_users_balance.add_row(
+                              users_balance_currency_type=cur,
+                              users_balance=money_value,
+                              users_balance_phone=receiver_phone_number
+                          )
+                      else:
+                          anvil.alert("User does not exist")
+                          return
+                  
+                  new_transaction = app_tables.wallet_users_transaction.add_row(
+                      users_transaction_phone=depositor_phone_number,
+                      users_transaction_fund=money_value,
+                      users_transaction_currency=cur,
+                      users_transaction_date=current_datetime,
+                      users_transaction_type="Debit",
+                      users_transaction_status="transferred-to",
+                      users_transaction_receiver_phone=receiver_phone_number
+                  )
+                  new_transaction = app_tables.wallet_users_transaction.add_row(
+                      users_transaction_phone=receiver_phone_number,
+                      users_transaction_fund=money_value,
+                      users_transaction_currency=cur,
+                      users_transaction_date=current_datetime,
+                      users_transaction_type="Credit",
+                      users_transaction_status="received-from",
+                      users_transaction_receiver_phone=depositor_phone_number
+                  )
+  
+                  # Update the limits after successful transaction
+                  depositor['users_daily_limit'] -= money_value
+                  depositor['users_user_limit'] -= money_value
+  
+                  self.label_4.text = "Money transferred successfully to the account."
+              else:
+                  anvil.alert("Insufficient balance. Please add funds.")
+      else:
           self.label_4.text = "Error: No matching accounts found for the user or invalid account number."
-        open_form('customer.transfer',user=self.user)  
+  
+      open_form('customer.transfer', user=self.user)
           
     def link_8_click(self, **event_args):
       """This method is called when the link is clicked"""
