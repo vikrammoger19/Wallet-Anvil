@@ -11,6 +11,9 @@ class account_management(account_managementTemplate):
     self.init_components(**properties)
     self.button_100000.visible = False
     self.user =user
+    one = self.user['users_username'] 
+    print('hi admin1')
+    print(one)
     if user is not None:
        self.label_656.text = user['users_username']
     

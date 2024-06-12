@@ -10,6 +10,7 @@ class login(loginTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
         self.card_3.visible = False
+        self.text_box_2.visible = False
       
     def text_box_3_pressed_enter(self, **event_args):
         self.primary_color_1_click()

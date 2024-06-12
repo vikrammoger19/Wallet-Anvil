@@ -10,6 +10,9 @@ class ItemTemplate6(ItemTemplate6Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.user = user
+    #test = self.user['users_username']
+    print('hi admin test')
+    print(us)
 
     # Set data bindings for label_3
     self.label_3.text = self.get_status_text()
@@ -23,7 +26,7 @@ class ItemTemplate6(ItemTemplate6Template):
         if self.item['users_profile_pic'] is not None:
             self.image_1.source =self.item['users_profile_pic']
         else:
-          print('none')
+          print('user image none')
   
   def get_status_text(self):
     # Return "Inactive" if self.item['inactive'] is True, otherwise "Active"
@@ -37,8 +40,23 @@ class ItemTemplate6(ItemTemplate6Template):
     # Access the data for the selected user
     selected_user = self.item  # Assuming you have set the 'item' property of the repeating panel to the user row
     
-    # Extract the phone number from the second text box
-    phone_number = selected_user['users_phone']  # Assuming 'phone_number' is the key for the phone number in your data
+    # Extract the phone number and username
+    phone_number = selected_user['users_phone']
+    print(phone_number)
+    username = selected_user['users_username']
+    print(username)
     
-    # Open the admin_view form and pass the phone number
-    open_form('admin.admin_view_user_details',user =self.user, phone_number=phone_number)
+    # Open the admin_view form and pass the phone number and admin username
+    open_form('admin.admin_view_user_details', user=self.user, phone_number=phone_number, username=username)
+
+  # def button_1_click(self, **event_args):
+  #   # Access the data for the selected user
+  #   selected_user = self.item  # Assuming you have set the 'item' property of the repeating panel to the user row
+    
+  #   # Extract the phone number from the second text box
+  #   phone_number = selected_user['users_phone']  # Assuming 'phone_number' is the key for the phone number in your data
+    
+  #   # Open the admin_view form and pass the phone number
+  #   open_form('admin.admin_view_user_details',user =self.user, phone_number=phone_number)
+    
+    
