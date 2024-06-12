@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: card_1_copy_copy
-    properties: {role: card, col_widths: '{"XNZCHX":11,"CSXXAZ":49,"MZPUMV":8,"DWRSNP":52}', background: ''}
+    properties: {role: card, col_widths: '{"XNZCHX":11,"CSXXAZ":49,"MZPUMV":5,"DWRSNP":55}', background: ''}
     type: ColumnPanel
     layout_properties: {grid_position: 'LNDVHS,HJJRCW', full_width_row: true}
     components:
@@ -226,6 +226,169 @@ components:
       properties: {height: 16.79998779296875}
       type: Spacer
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ QYQYAJ,DRQVAL'}
+    - name: xy_panel_2
+      properties: {height: 601.7999877929688, border: 3px solid light grey, background: white, role: null}
+      type: XYPanel
+      layout_properties: {grid_position: 'FRVCAC,CSXXAZ HDLRQJ,TPCUUZ'}
+      components:
+      - name: spacer_2_copy
+        properties: {height: 22}
+        type: Spacer
+        layout_properties: {grid_position: 'HVBAHS,YGNFNJ EILYEW,XUMXGR'}
+      - name: column_panel_2_copy
+        properties: {col_widths: '{"YGNFNJ":15,"IOBAFC":5,"ELICDZ":40,"PRUABD":25,"FLDGAD":10,"XCOFVV":25}'}
+        type: ColumnPanel
+        layout_properties: {x: 58.82502441480756, y: 52.58750610426068, width: 959.624951171875}
+        components:
+        - name: link_4
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'HVBAHS,YGNFNJ GVALXP,AHFAHV'}
+          event_bindings: {click: link_4_click}
+          components:
+          - name: column_panel_3
+            properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli, role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ZAVMKT,KSUIHY'}
+            components:
+            - name: image_1_copy
+              properties: {height: 43.600006103515625, source: _/theme/th__6_-removebg-preview.png, display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+            - name: spacer_1_copy_copy
+              properties: {height: -61}
+              type: Spacer
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+            - name: label_1_copy
+              properties: {text: Default Currency, font_size: 16}
+              type: Label
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        - name: link_4_copy_6
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'HVBAHS,YGNFNJ IFSLZU,QVZJQE'}
+          event_bindings: {click: link_4_click}
+          components:
+          - name: column_panel_3_copy_5
+            properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli, role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ZAVMKT,KSUIHY'}
+            components:
+            - name: image_1_copy_copy_6
+              properties: {height: 43.600006103515625, source: _/theme/th__8_-removebg-preview.png, display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+            - name: spacer_1_copy_copy_copy_5
+              properties: {height: -61}
+              type: Spacer
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+            - name: label_1_copy_copy_6
+              properties: {text: Profile Settings, font_size: 16}
+              type: Label
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        - name: spacer_7
+          properties: {height: 32}
+          type: Spacer
+          layout_properties: {grid_position: 'HVBAHS,IOBAFC'}
+        - name: link_4_copy_3
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'HVBAHS,ELICDZ TMUQCV,PRUABD FSCGIW,WAXWUI'}
+          event_bindings: {click: link_4_click}
+          components:
+          - name: column_panel_3_copy_2
+            properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli, background: white, role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ZAVMKT,KSUIHY'}
+            components:
+            - name: image_1_copy_copy_3
+              properties: {height: 43.600006103515625, source: _/theme/vector-wallet-icon-design-removebg-preview.png, display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+            - name: spacer_1_copy_copy_copy_2
+              properties: {height: -61}
+              type: Spacer
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+            - name: label_1_copy_copy_3
+              properties:
+                text: |
+                  Payment Settings
+                font_size: 16
+              type: Label
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        - name: link_4_copy_5
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'HVBAHS,ELICDZ TMUQCV,PRUABD XGQNPN,WGHWYQ'}
+          event_bindings: {click: link_4_click}
+          components:
+          - name: column_panel_3_copy_4
+            properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli, role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'NOAFSK,AMNPAR'}
+            components:
+            - name: image_1_copy_copy_5
+              properties: {height: 43.600006103515625, source: _/theme/Black-Question-mark-PNG-Images-HD.png, display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+            - name: spacer_1_copy_copy_copy_4
+              properties: {height: -61}
+              type: Spacer
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+            - name: label_1_copy_copy_5
+              properties: {text: Help & Support, font_size: 16}
+              type: Label
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        - name: spacer_3
+          properties: {height: 32}
+          type: Spacer
+          layout_properties: {grid_position: 'HVBAHS,ELICDZ TMUQCV,FLDGAD'}
+        - name: link_4_copy_4
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'HVBAHS,ELICDZ TMUQCV,XCOFVV FICWQX,MGDTYU'}
+          event_bindings: {click: link_4_click}
+          components:
+          - name: column_panel_3_copy_3
+            properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli, role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ZAVMKT,KSUIHY'}
+            components:
+            - name: image_1_copy_copy_4
+              properties: {height: 43.79998779296875, source: _/theme/th (9).jpeg, display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+            - name: spacer_1_copy_copy_copy_3
+              properties: {height: -61}
+              type: Spacer
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+            - name: label_1_copy_copy_4
+              properties: {text: Change Password, font_size: 16}
+              type: Label
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        - name: link_4_copy_2
+          properties: {text: '', bold: true, font_size: 25}
+          type: Link
+          layout_properties: {grid_position: 'HVBAHS,ELICDZ TMUQCV,XCOFVV LMYBKU,XFRIZO'}
+          event_bindings: {click: link_4_click}
+          components:
+          - name: column_panel_3_copy
+            properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli, role: card}
+            type: ColumnPanel
+            layout_properties: {grid_position: 'ZAVMKT,KSUIHY'}
+            components:
+            - name: image_1_copy_copy
+              properties: {height: 43.600006103515625, source: _/theme/th (10).jpeg, display_mode: shrink_to_fit}
+              type: Image
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
+            - name: spacer_1_copy_copy_copy
+              properties: {height: -61}
+              type: Spacer
+              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
+            - name: label_1_copy_copy_2
+              properties: {text: App info, font_size: 16}
+              type: Label
+              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
     - name: spacer_6
       properties: {height: 338.6000061035156}
       type: Spacer
@@ -234,126 +397,7 @@ components:
       properties: {}
       type: FlowPanel
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ PSGSUV,DWRSNP'}
-      components:
-      - name: xy_panel_2
-        properties: {height: 601.7999877929688, border: 3px solid light grey, background: white, role: null}
-        type: XYPanel
-        layout_properties: {width: 884.986951171875}
-        components:
-        - name: spacer_2_copy
-          properties: {height: 22}
-          type: Spacer
-          layout_properties: {grid_position: 'HVBAHS,YGNFNJ EILYEW,XUMXGR'}
-        - name: label_13
-          properties: {text: Edit Profile, bold: true, font_size: 25, foreground: '#258ee1'}
-          type: Label
-          layout_properties: {x: 6.675000000745058, y: 208.82502441480756, width: 137.58750915527344}
-        - name: label_14
-          properties: {text: _______________________________________________________________________________________________________________________, foreground: 'theme:Gray 600'}
-          type: Label
-          layout_properties: {x: 134.5875244140625, y: 209.92503051832318, width: 750.3875122070312}
-        - name: column_panel_2_copy
-          properties: {col_widths: '{"YGNFNJ":25,"IOBAFC":10,"ELICDZ":25}'}
-          type: ColumnPanel
-          layout_properties: {x: 73.13749389722943, y: 296.48750000074506, width: 714.4249877929688}
-          components:
-          - name: label_5
-            properties: {bold: true, text: Username, font_size: 16}
-            type: Label
-            layout_properties: {x: 61.64997558668256, y: 421.64999771118164, width: 200, grid_position: 'HVBAHS,YGNFNJ TMPQPB,WRROCU'}
-          - name: text_box_5
-            properties: {align: left, spacing_above: none, border: 3px solid light grey, enabled: true, placeholder: ' ', font_size: 16, foreground: 'theme:Gray 600'}
-            type: TextBox
-            layout_properties: {grid_position: 'HVBAHS,YGNFNJ UMVVEE,KDHDWP', x: -277, y: 370.1375045776367, width: 884.975}
-            event_bindings: {pressed_enter: text_box_5_pressed_enter}
-          - name: label_9_copy
-            properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Phone Number}
-            type: Label
-            layout_properties: {grid_position: 'HVBAHS,YGNFNJ YDKIXW,HGCZCU'}
-          - name: text_box_2
-            properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: none, background: white, type: number, underline: false, font: '', hide_text: false, foreground: 'theme:Gray 600', spacing_below: small, visible: true, border: 3px solid light grey, italic: false, enabled: false, font_size: 16, tooltip: '', text: ''}
-            type: TextBox
-            layout_properties: {grid_position: 'HVBAHS,YGNFNJ SGWUBG,XCAIHP', x: 271.63751220703125, y: 314, width: 682.15}
-            data_bindings:
-            - {property: text, code: 'self.item[''phone'']', writeback: true}
-            event_bindings: {pressed_enter: text_box_2_pressed_enter}
-          - name: label_11_copy
-            properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Aadhar details}
-            type: Label
-            layout_properties:
-              col_widths: {}
-              grid_position: HVBAHS,YGNFNJ XKDCMR,XAKCSC
-          - name: text_box_4
-            properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: none, background: white, type: number, underline: false, font: '', hide_text: false, foreground: 'theme:Gray 600', spacing_below: small, visible: true, border: 3px solid light grey, italic: false, enabled: false, font_size: 16, tooltip: '', text: ''}
-            type: TextBox
-            layout_properties: {grid_position: 'HVBAHS,YGNFNJ USIOEW,WONBPK', x: 25, y: 276.1375045776367, width: 884.975}
-            data_bindings:
-            - {property: text, code: 'self.item[''aadhar'']', writeback: true}
-          - name: spacer_7
-            properties: {height: 32}
-            type: Spacer
-            layout_properties: {grid_position: 'HVBAHS,IOBAFC'}
-          - name: label_7_copy
-            properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Email ID}
-            type: Label
-            layout_properties:
-              col_widths: {}
-              grid_position: HVBAHS,ELICDZ IOBUAN,UYLFLU
-          - name: text_box_1
-            properties: {background: white, align: left, foreground: 'theme:Gray 600', border: 3px solid light grey, spacing_above: none, font_size: 16}
-            type: TextBox
-            layout_properties:
-              col_widths: {}
-              grid_position: HVBAHS,ELICDZ MEURZW,YZMGNC
-            data_bindings:
-            - {property: text, code: 'self.item[''email'']', writeback: true}
-          - name: label_6
-            properties: {bold: true, text: Address, font_size: 16}
-            type: Label
-            layout_properties:
-              col_widths: {}
-              grid_position: HVBAHS,ELICDZ GVFVCR,OHMBGQ
-          - name: text_box_6
-            properties: {spacing_above: none, align: left, border: 3px solid light grey, enabled: true, foreground: 'theme:Gray 600', font_size: 16}
-            type: TextBox
-            layout_properties:
-              col_widths: {}
-              grid_position: HVBAHS,ELICDZ CAHNTR,OLMNYT
-          - name: label_10_copy
-            properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Pan Card}
-            type: Label
-            layout_properties:
-              col_widths: {}
-              grid_position: HVBAHS,ELICDZ NCFWGU,AUJMGB
-          - name: text_box_3
-            properties: {background: white, enabled: false, align: left, border: 3px solid light grey, foreground: 'theme:Gray 600', spacing_above: none, font_size: 16}
-            type: TextBox
-            layout_properties: {grid_position: 'HVBAHS,ELICDZ HAYCDQ,DHQCPK', x: -52, y: 276.1375045776367, width: 884.975}
-            data_bindings:
-            - {property: text, code: 'self.item[''pan'']', writeback: true}
-        - name: link_3
-          properties: {text: '', bold: true, font_size: 25}
-          type: Link
-          layout_properties: {x: 0, y: 0, width: 330.39996337890625}
-          event_bindings: {click: link_3_click}
-          components:
-          - name: column_panel_2
-            properties: {col_widths: '{"CDCBZX":73,"EUDSPS":30}', border: soli}
-            type: ColumnPanel
-            layout_properties: {grid_position: 'PCBZMN,BGRFKJ'}
-            components:
-            - name: image_1
-              properties: {height: '65', source: _/theme/th__6_-removebg-preview.png, display_mode: shrink_to_fit}
-              type: Image
-              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
-            - name: spacer_1_copy
-              properties: {height: -61}
-              type: Spacer
-              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
-            - name: label_1
-              properties: {text: Default Currency}
-              type: Label
-              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+      components: []
   - name: spacer_1
     properties: {height: 37.600006103515625}
     type: Spacer
@@ -377,32 +421,7 @@ components:
         properties: {role: card}
         type: ColumnPanel
         layout_properties: {grid_position: 'AOEGGO,NYGFPF'}
-        components:
-        - name: link_4
-          properties: {text: '', bold: true, font_size: 25}
-          type: Link
-          layout_properties: {grid_position: 'CUULLV,MDHYNZ'}
-          event_bindings: {click: link_4_click}
-          components:
-          - name: column_panel_3
-            properties: {col_widths: '{"CDCBZX":78,"EUDSPS":25}', border: soli}
-            type: ColumnPanel
-            layout_properties: {grid_position: 'ZAVMKT,KSUIHY'}
-            components:
-            - name: image_1_copy
-              properties: {height: '65', source: _/theme/vector-wallet-icon-design-removebg-preview.png, display_mode: shrink_to_fit}
-              type: Image
-              layout_properties: {grid_position: 'QXDXHF,EUDSPS NOQHVX,GMUAZB', full_width_row: true}
-            - name: spacer_1_copy_copy
-              properties: {height: -61}
-              type: Spacer
-              layout_properties: {grid_position: 'QXDXHF,EUDSPS KNVBVE,XYDQUR'}
-            - name: label_1_copy
-              properties:
-                text: |
-                  Payment Settings
-              type: Label
-              layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
+        components: []
     - name: column_panel_8
       properties: {}
       type: ColumnPanel
@@ -429,7 +448,7 @@ components:
               type: Image
               layout_properties: {grid_position: 'QXDXHF,EUDSPS', full_width_row: true}
             - name: label_1_copy_2_copy
-              properties: {text: Profile Settings}
+              properties: {text: ''}
               type: Label
               layout_properties: {grid_position: 'QXDXHF,CDCBZX'}
       - name: card_3
