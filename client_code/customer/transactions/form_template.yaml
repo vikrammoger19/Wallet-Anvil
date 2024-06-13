@@ -228,10 +228,6 @@ components:
         type: DatePicker
         layout_properties: {x: 580.8021854385734, y: 0, width: 140.34268188476562}
         event_bindings: {change: date_picker_1_change}
-      - properties: {align: center, bold: true, text: --, border: white, enabled: false}
-        type: TextBox
-        layout_properties: {x: 721.8848270401359, y: 2.667435072362423, width: 17.601245880126953}
-        name: text_box_1
       - properties:
           items: [Select Days, past 30 days, past 60 days, past 90 days]
           border: 'solid #e9e9eb'
@@ -254,6 +250,10 @@ components:
         type: DatePicker
         layout_properties: {x: 751.8545383885503, y: 0, width: 139.6612091064453}
         event_bindings: {change: date_picker_2_change}
+      - properties: {align: center, bold: true, text: --, border: white, enabled: false}
+        type: TextBox
+        layout_properties: {x: 734.0682224705815, y: 2.7015156224370003, width: 17.596376419067383}
+        name: text_box_1
     - properties: {role: card, col_widths: '{"LZQPCJ":10,"YWYLTQ":8,"JVTZFG":9,"XAKKJF":8,"QUSECK":9,"GBUFFL":2,"XIHXOC":14}', background: '#efeff0'}
       type: ColumnPanel
       layout_properties: {x: 26.2703857421875, y: 199.88316292315722, width: 1040.396943359375}
