@@ -42,6 +42,7 @@ def add_info(username, email, address, phone, aadhar, pan, password):
         users_usertype='customer',
         users_confirm_email=True,
         users_user_limit=(100000),
+        users_daily_limit=(40000),
         users_last_login = datetime.now()
     )
     return user_row
@@ -400,7 +401,7 @@ def update_user_limit(username, field, new_limit):
 
 @anvil.server.callable
 def update_user_limit_by_phone(phone, field, new_limit):
-    user = app_tables.wallet_usersusers.get(phone=phone)  # Assuming phone is a unique identifier in your users table
+    user = app_tables.wallet_users.get(users_phone=phone)  # Assuming phone is a unique identifier in your users table
     if user:
         user[field] = new_limit
     else:

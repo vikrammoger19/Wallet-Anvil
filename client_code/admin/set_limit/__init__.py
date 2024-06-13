@@ -108,7 +108,7 @@ class set_limit(set_limitTemplate):
   
     def link_4_click(self, **event_args):
         """This method is called when the link is clicked"""
-        serves_data = app_tables.sevices.search()
+        serves_data = app_tables.services.search()
         user_support_form = open_form('admin.user_support', serves_data=serves_data, user=self.user)
   
     def link_3_click(self, **event_args):
@@ -120,6 +120,6 @@ class set_limit(set_limitTemplate):
         options_list = ['Daily', 'Monthly']
         self.drop_down_2.items = options_list
 
-    def primary_color_2_click(self,user=None, **event_args):
-      """This method is called when the button is clicked"""
-      open_form('admin.account_management',user=self.user)
+    def primary_color_2_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        open_form('admin.account_management',user=self.user)

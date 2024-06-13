@@ -107,4 +107,4 @@ class set_limit(set_limitTemplate):
 
     def primary_color_2_click(self, user=None, **event_args):
         """This method is called when the button is clicked"""
-        open_form('admin.account_management', user=self.user)
+        open_form('customer.walletbalance', user=self.user)
