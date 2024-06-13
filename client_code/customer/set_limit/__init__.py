@@ -16,8 +16,8 @@ class set_limit(set_limitTemplate):
         # Debugging statements
         if self.user is not None:
             print("DEBUG: User is present")
-            self.name = self.user['users_email']
-            print(f"DEBUG: User's email: {self.name}")
+            self.phone_number = self.user['users_phone']  # Assuming 'users_phone' is the key for phone number in the user object
+            print(f"DEBUG: User's phone number: {self.phone_number}")
         else:
             print("DEBUG: User is None")
 
@@ -35,8 +35,8 @@ class set_limit(set_limitTemplate):
 
         try:
             # Call the server function to update the user's limit
-            setter = anvil.server.call('update_user_limit', self.name, field_to_update, new_limit)
-            anvil.alert(f"{field_to_update} updated to {new_limit} for user {self.name}")
+            setter = anvil.server.call('update_user_limit_by_phone', self.phone_number, field_to_update, new_limit)
+            anvil.alert(f"{field_to_update} updated to {new_limit} for user with phone {self.phone_number}")
         except Exception as e:
             anvil.alert(f"An error occurred: {str(e)}")
 

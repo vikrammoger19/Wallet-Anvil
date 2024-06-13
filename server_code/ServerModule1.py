@@ -397,3 +397,11 @@ def update_user_limit(username, field, new_limit):
         user[field] = new_limit
         return True
     return False
+
+@anvil.server.callable
+def update_user_limit_by_phone(phone, field, new_limit):
+    user = app_tables.wallet_usersusers.get(phone=phone)  # Assuming phone is a unique identifier in your users table
+    if user:
+        user[field] = new_limit
+    else:
+        raise ValueError("User not found")
