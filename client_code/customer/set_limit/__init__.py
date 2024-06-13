@@ -28,11 +28,6 @@ class set_limit(set_limitTemplate):
         if new_limit is None:
             return  # Early return if limit is invalid
 
-        # Prompt the admin to enter the username directly
-        username = self._prompt_username()
-        if username is None:
-            return  # Early return if username is not provided
-
         # Determine which limit to update based on the selection
         field_to_update = self._get_field_to_update(limit_type)
         if field_to_update is None:
@@ -40,8 +35,8 @@ class set_limit(set_limitTemplate):
 
         try:
             # Call the server function to update the user's limit
-            setter = anvil.server.call('update_user_limit', username, field_to_update, new_limit)
-            anvil.alert(f"{field_to_update} updated to {new_limit} for user {username}")
+            setter = anvil.server.call('update_user_limit', self.name, field_to_update, new_limit)
+            anvil.alert(f"{field_to_update} updated to {new_limit} for user {self.name}")
         except Exception as e:
             anvil.alert(f"An error occurred: {str(e)}")
 
@@ -60,17 +55,6 @@ class set_limit(set_limitTemplate):
         else:
             anvil.alert("Invalid limit type selected")
             return None
-
-    def _prompt_username(self):
-        username = anvil.alert(
-            title="Enter Username",
-            content=TextBox(placeholder="Enter the username"),
-            buttons=[("Submit", True), ("Cancel", False)]
-        )
-        if not username:
-            anvil.alert("Username is required.")
-            return None
-        return username
 
     def link_8_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
