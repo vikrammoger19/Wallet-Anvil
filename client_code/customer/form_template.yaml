@@ -343,7 +343,7 @@ components:
           layout_properties: {x: 643.2500457763672, y: 338.1932067871094, width: 332.773}
           name: card_7_copy
           components:
-          - properties: {text: Last activity, bold: true}
+          - properties: {text: Transaction History, bold: true}
             type: Label
             layout_properties: {grid_position: 'BDKNPZ,LHYRHT'}
             name: label_25_copy
@@ -351,7 +351,7 @@ components:
             type: Link
             layout_properties: {grid_position: 'BDKNPZ,SLIHOF'}
             name: link_10_copy
-          - properties: {height: -4.60003662109375}
+          - properties: {height: '7.051422119140625'}
             type: Spacer
             layout_properties: {grid_position: 'RANDTF,ZQCOBZ'}
             name: spacer_3
@@ -359,6 +359,10 @@ components:
             type: RepeatingPanel
             layout_properties: {grid_position: 'DNNVWW,YJLQRX'}
             name: repeating_panel_2
+          - name: spacer_2
+            properties: {height: 13.266387939453125}
+            type: Spacer
+            layout_properties: {grid_position: 'YDKWEL,UAZCQX'}
         - properties: {role: card}
           type: ColumnPanel
           layout_properties: {x: 643.2500305175781, y: 89.6500015258789, width: 325.788}
@@ -403,7 +407,7 @@ components:
             layout_properties: {grid_position: 'SIXIYT,EZISWG'}
             name: xy_panel_13_copy
             components:
-            - properties: {font_size: 16, text: Recieve, bold: true, align: left, foreground: 'theme:Gray 600'}
+            - properties: {font_size: 16, text: Recieved, bold: true, align: left, foreground: 'theme:Gray 600', icon: 'fa:arrow-circle-down'}
               type: Label
               layout_properties: {x: 0, y: 0, width: 126.7500244140625}
               name: label_16_copy
@@ -425,7 +429,7 @@ components:
             layout_properties: {grid_position: 'VLIFFI,BFPEDO'}
             name: xy_panel_12_copy
             components:
-            - properties: {font_size: 16, text: Send, bold: true, align: left, foreground: 'theme:Gray 600'}
+            - properties: {font_size: 16, text: Sent, bold: true, align: left, foreground: 'theme:Gray 600', icon: 'fa:arrow-circle-up'}
               type: Label
               layout_properties: {x: 0, y: 0, width: 132.562}
               name: label_14_copy

@@ -44,7 +44,7 @@ class customer(customerTemplate):
             else:
                 # Process transactions as before
                 self.repeating_panel_2_items = []
-                max_history_entries = 5  # Maximum number of history entries to display
+                max_history_entries = 4  # Maximum number of history entries to display
                 for transaction in sorted_transactions:
                     fund = transaction['users_transaction_fund']
                     transaction_type = transaction['users_transaction_type']
@@ -86,7 +86,7 @@ class customer(customerTemplate):
                         fund_display = "+" + str(fund)
                         fund_color = "green"
                     elif transaction_type == 'Withdrawn':
-                        transaction_text = "Withdarw"
+                        transaction_text = "Withdrawn"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
                     else:
@@ -108,7 +108,24 @@ class customer(customerTemplate):
                     # Limit the maximum number of history entries to display
                     if len(self.repeating_panel_2_items) >= max_history_entries:
                         break
-        
+                # h=268.2103271484375-207.65887451171875 92.59344482421875
+                if len(self.repeating_panel_2_items) == 1:
+                  self.spacer_3.visible = True
+                  self.spacer_3.height =9.051422119140625
+                  self.spacer_2.height =268.2103271484375
+                elif len(sorted_transactions)==0:
+                  self.spacer_2.height = 271.2103271484375
+                elif len(self.repeating_panel_2_items) == 2:
+                  self.spacer_2.height = 204.65887451171875
+                elif len(self.repeating_panel_2_items) == 3:
+                  self.spacer_2.height = 105.59344482421875
+                  self.spacer_3.visible = True
+                  self.spacer_3.height =3.45
+                elif len(self.repeating_panel_2_items) == 4:
+                  self.spacer_2.height =  26.799102783203125
+                elif len(self.repeating_panel_2_items) == 5:
+                  self.spacer_2.visible=False
+                   
                 self.repeating_panel_2.items = self.repeating_panel_2_items
 
     def inr_balance(self, balance, currency_type):
