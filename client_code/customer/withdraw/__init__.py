@@ -55,11 +55,11 @@ class withdraw(withdrawTemplate):
             # Check the limits
             if money_value > users_daily_limit:
                 alert("Daily limit exceeded.", buttons=[("OK", True)], large=True)
-                open_form('admin', user=self.user)
+                open_form('customer', user=self.user)
                 return
             elif money_value > users_user_limit:
                 alert("Monthly limit exceeded.", buttons=[("OK", True)], large=True)
-                open_form('admin', user=self.user)
+                open_form('customer', user=self.user)
                 return
             
             # Check if a balance row already exists for the user
