@@ -75,6 +75,13 @@ def get_all_banks_name():
     return [f"{bank['admins_add_bank_names']}" for bank in banks]
 
 
+@anvil.server.callable
+def total_users(customer):
+    users = app_tables.wallet_users.search(users_usertype=customer)
+    print(users)
+    return len(users)
+
+
 ###
 
 @anvil.server.callable

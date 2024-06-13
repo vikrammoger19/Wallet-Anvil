@@ -246,7 +246,7 @@ components:
               properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Gray 600', spacing_below: small, visible: true, border: '', italic: false, font_size: 14, tooltip: '', text: Admin}
               type: Label
               layout_properties: {x: 0, y: 23, width: 136.6}
-      - properties: {role: card, col_widths: '{}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
+      - properties: {role: card, col_widths: '{"LXVJJB":25,"SAZHHR":35}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
         type: ColumnPanel
         layout_properties: {grid_position: 'OSRJAU,LQQXFO', full_width_row: false}
         name: card_2_copy_3
@@ -263,7 +263,7 @@ components:
           type: Label
           layout_properties: {grid_position: 'VKEAEM,SAZHHR'}
           name: total_user
-      - properties: {role: card, col_widths: '{}'}
+      - properties: {role: card, col_widths: '{"LXVJJB":30,"SAZHHR":30}'}
         type: ColumnPanel
         layout_properties: {grid_position: 'OSRJAU,ZLYWBK', full_width_row: true}
         name: card_2
@@ -297,7 +297,7 @@ components:
           type: Label
           layout_properties: {grid_position: 'VKEAEM,SAZHHR'}
           name: total_revenue
-      - properties: {role: card, col_widths: '{}'}
+      - properties: {role: card, col_widths: '{"LXVJJB":25,"SAZHHR":35}'}
         type: ColumnPanel
         layout_properties: {grid_position: 'OSRJAU,ZGRLVZ', full_width_row: false}
         name: card_2_copy_2
