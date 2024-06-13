@@ -11,9 +11,9 @@ class account_management(account_managementTemplate):
     self.init_components(**properties)
     self.button_100000.visible = False
     self.user =user
-    #  one = self.user['users_username'] 
-    #  print('hi admin1')
-    # print(one)
+    one = self.user['users_username'] 
+    print('hi admin1')
+    print(one)
     if user is not None:
        self.label_656.text = user['users_username']
     
@@ -21,17 +21,17 @@ class account_management(account_managementTemplate):
     self.refresh_users()
     # self.check_profile_pic()
   
-  def check_profile_pic(self):
-        # print(self.user['users_email'],type(self.user['users_email']))
-        user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
-        if user_data:
-          existing_img = user_data['users_profile_pic']
-          if existing_img != None:
-            self.image_3.source = existing_img
-          else: 
-            print('no pic')
-        else:
-          print('none')
+  # def check_profile_pic(self):
+  #       # print(self.user['users_email'],type(self.user['users_email']))
+  #       user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
+  #       if user_data:
+  #         existing_img = user_data['users_profile_pic']
+  #         if existing_img != None:
+  #           self.image_3.source = existing_img
+  #         else: 
+  #           print('no pic')
+  #       else:
+  #         print('none')
 
   def refresh_users(self, username_filter=None, status_filter=None):
     # Fetch all users from the table
