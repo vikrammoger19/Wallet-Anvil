@@ -20,14 +20,18 @@ class set_limit(set_limitTemplate):
             print(f"DEBUG: User's email: {self.name}")
         else:
             print("DEBUG: User is None")
-    
+
     def primary_color_1_click(self, **event_args):
-        username = self.text_box_username.text  # New field for username input
         new_limit = self._get_valid_limit()
         limit_type = self.drop_down_2.selected_value
 
         if new_limit is None:
             return  # Early return if limit is invalid
+
+        # Prompt the admin to enter the username directly
+        username = self._prompt_username()
+        if username is None:
+            return  # Early return if username is not provided
 
         # Determine which limit to update based on the selection
         field_to_update = self._get_field_to_update(limit_type)
@@ -37,13 +41,7 @@ class set_limit(set_limitTemplate):
         try:
             # Call the server function to update the user's limit
             setter = anvil.server.call('update_user_limit', username, field_to_update, new_limit)
-            
-            # Log changes to 'actions' table
-            changes_made = [f"{field_to_update} updated to {new_limit} by admin"]
-            if self.user is not None:
-                self.log_action(username, changes_made, self.name)
-            else:
-                print("DEBUG: self.user is None - not logging action")
+            anvil.alert(f"{field_to_update} updated to {new_limit} for user {username}")
         except Exception as e:
             anvil.alert(f"An error occurred: {str(e)}")
 
@@ -63,28 +61,16 @@ class set_limit(set_limitTemplate):
             anvil.alert("Invalid limit type selected")
             return None
 
-    def log_action(self, username, changes, email):
-        # Retrieve last_login from the 'users' table
-        user = app_tables.wallet_users.get(users_username=username)
-        last_login = None
-        
-        if user and user['users_last_login']:
-            last_login = user['users_last_login']
-        
-        # Log actions to 'actions' table if changes were made
-        if changes:
-            print("DEBUG: Changes to be logged")
-            current_datetime = datetime.now()
-            try:
-                app_tables.actions.add_row(
-                    username=username,
-                    last_login=last_login,
-                    changes=", ".join(changes),
-                    date=current_datetime,
-                    admin_email=email
-                )
-            except Exception as e:
-                print(f"DEBUG: Failed to log action: {str(e)}")
+    def _prompt_username(self):
+        username = anvil.alert(
+            title="Enter Username",
+            content=TextBox(placeholder="Enter the username"),
+            buttons=[("Submit", True), ("Cancel", False)]
+        )
+        if not username:
+            anvil.alert("Username is required.")
+            return None
+        return username
 
     def link_8_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
