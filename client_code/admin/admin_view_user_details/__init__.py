@@ -12,7 +12,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
     def __init__(self, user_data=None, phone_number=None, user=None, **properties):
         self.user = user
         if self.user is not None:
-            self.label_6566.text = self.user
+          self.label_6566.text = self.user['users_username']
 
         self.phone_number = phone_number
         self.init_components(**properties)

@@ -19,7 +19,7 @@ class account_management(account_managementTemplate):
     
     #print(mail)
     self.refresh_users()
-    self.check_profile_pic()
+    # self.check_profile_pic()
   
   def check_profile_pic(self):
         # print(self.user['users_email'],type(self.user['users_email']))
