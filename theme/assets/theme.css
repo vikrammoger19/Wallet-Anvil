@@ -672,7 +672,7 @@ input.anvil-component, textarea.anvil-component, .anvil-component select, .anvil
   font-size: inherit;
 }
 
-input.anvil-component, .anvil-component select, .anvil-datepicker input {
+input.anvil-component, .anvil-component select {
   padding: 8px 0 4px;
   border: 0;
   border-bottom: 1px solid rgba(0,0,0,0.42);
@@ -742,12 +742,12 @@ input.anvil-component::placeholder, textarea.anvil-component::placeholder  {
 }
 
 input.anvil-component:hover, .anvil-component select:hover, .anvil-datepicker input:hover {
-  border-bottom: 2px solid rgba(0,0,0,.87);
+  /* border-bottom: 2px solid rgba(0,0,0,.87); */
   padding-bottom: 3px;
 }
 
 input.anvil-component:focus, .anvil-component select:focus, .anvil-datepicker input:focus {
-  border-bottom: 2px solid %color:Primary 700%;
+  /* border-bottom: 2px solid %color:Primary 700%; */
   padding-bottom: 3px;
   box-shadow: none;
 }
@@ -794,6 +794,14 @@ textarea.anvil-component[disabled] {
   font-size: 16px;
 }
 
+.anvil-datepicker input {
+  padding: 8px 0 4px;
+  border: 0;
+  /* border-bottom: 1px solid rgba(0,0,0,0.42); */
+
+  transition: border-bottom 0.2s, padding-bottom 0.2s;
+  -moz-transition: none; /* Firefox is jumpy, so disable transitions */
+}
 /* Shadow values taken from 
 https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-material-design-elevations
 */

@@ -10,9 +10,11 @@ class audit_trail(audit_trailTemplate):
     # Set Form properties and Data Bindings.
     self.user = user
     self.init_components(**properties)
+    self.repeating_panel_items=[]
     self.load_all_actions()
     # Any code you write here will run before the form opens.
     self.check_profile_pic()
+    self.label_7.text = self.user['users_username']
   
   def check_profile_pic(self):
         print(self.user)
@@ -29,9 +31,100 @@ class audit_trail(audit_trailTemplate):
   
   def load_all_actions(self):
     """Load all actions into the repeating panel."""
+    self.repeating_panel_items=[]
     actions_data = app_tables.wallet_admins_actions.search()
-    self.repeating_panel_2.items = actions_data
+    self.grouped_details = {}
+    if actions_data:
+      for item in actions_data:
+          print('yes1')
+          # Extract date in YYYY-MM-DD format without time
+          date_str = item['admins_actions_date'].strftime("%Y-%m-%d")
+          if date_str not in self.grouped_details:
+              self.grouped_details[date_str] = {'date': item['admins_actions_date'], 'details': []}
+          self.grouped_details[date_str]['details'].append(item)
+    else:
+      return
 
+    # Sort dates in descending order
+    sorted_dates = sorted(self.grouped_details.keys(), reverse=True)
+
+    # Create a list of dictionaries for repeating_panel_1
+    # repeating_panel_items = []
+    for date_str in sorted_dates:
+        date_info = self.grouped_details[date_str]
+        for action in reversed(date_info['details']):
+            admin_action = action['admins_actions']
+            admin_action_username = action['admins_actions_username']
+            profile_pic = '_/theme/account.png'
+            userr = app_tables.wallet_users.get(users_username= action['admins_actions_username'])
+            if userr:
+              if userr['users_profile_pic']:
+                profile_pic = userr['users_profile_pic'] 
+              else:
+                profile_pic = '_/theme/account.png'
+            
+            # Append transaction details with username instead of receiver_phone
+            self.repeating_panel_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
+                                            'admin_name':action['admins_actions_name'],
+                                            'admin_action':admin_action,
+                                            'admin_action_username':admin_action_username,
+                                            'profile_pic':profile_pic,
+                                            })
+    self.repeating_panel_2.items = self.repeating_panel_items
+    self.data_grid_1.rows_per_page = int(self.text_box_2.text)+1
+
+  def date_picker_1_change(self, **event_args):
+    start = []
+    end=[]
+    if self.date_picker_1.date and self.date_picker_2.date:
+      for i in range(len(self.repeating_panel_items)):
+        if str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")):
+          end.append({'date': self.repeating_panel_items[i]['date'],
+                        'admin_name':self.repeating_panel_items[i]['admin_name'],
+                        'admin_action':self.repeating_panel_items[i]['admin_action'],
+                        'admin_action_username':self.repeating_panel_items[i]['admin_action_username'],
+                        'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                        })
+      self.repeating_panel_2.items = end
+    elif self.date_picker_1.date:
+      for i in range(len(self.repeating_panel_items)):
+        if str(self.repeating_panel_items[i]['date']) == str(self.date_picker_1.date.strftime("%Y-%m-%d")):
+          start.append({'date': self.repeating_panel_items[i]['date'],
+                        'admin_name':self.repeating_panel_items[i]['admin_name'],
+                        'admin_action':self.repeating_panel_items[i]['admin_action'],
+                        'admin_action_username':self.repeating_panel_items[i]['admin_action_username'],
+                        'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                        })
+      self.repeating_panel_2.items = start
+
+    else:
+      print('no')
+      self.load_all_actions()
+
+  def button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    username = self.text_box_1.text.strip()
+    users=[]
+    search_results = app_tables.wallet_admins_actions.search(admins_actions_username=username)
+    if search_results:
+      # Perform the search for users based on the entered username 
+      for i in range(len(self.repeating_panel_items)):
+        if username == self.repeating_panel_items[i]['admin_action_username'].strip():
+          users.append({'date': self.repeating_panel_items[i]['date'],
+                        'admin_name':self.repeating_panel_items[i]['admin_name'],
+                        'admin_action':self.repeating_panel_items[i]['admin_action'],
+                        'admin_action_username':self.repeating_panel_items[i]['admin_action_username'],
+                        'profile_pic':self.repeating_panel_items[i]['profile_pic'],
+                        })
+      self.repeating_panel_2.items = users  
+    print('seeing',users)
+    if not users:
+      # If the search box is empty, load all actions
+      print('reaching')
+      anvil.alert('User not found.')
+      self.load_all_actions()
+
+  
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('admin.report_analysis', user=self.user)
@@ -79,16 +172,17 @@ class audit_trail(audit_trailTemplate):
     """This method is called when the link is clicked"""
     open_form('Home')
 
-  def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    username = self.text_box_1.text.strip()
-    if username:
-      # Perform the search for users based on the entered username
-      search_results = app_tables.wallet_admins_actions.search(admins_actions_username=username)
-      self.repeating_panel_2.items = search_results
+  # def button_1_click(self, **event_args):
+  #   """This method is called when the button is clicked"""
+  #   username = self.text_box_1.text.strip()
+  #   if username:
+  #     # Perform the search for users based on the entered username
+  #     search_results = app_tables.wallet_admins_actions.search(admins_actions_username=username)
+  #     self.repeating_panel_2.items = search_results
     
       
-    else:
-      # If the search box is empty, load all actions
-      self.load_all_actions()
+  #   else:
+  #     # If the search box is empty, load all actions
+  #     self.load_all_actions()
+
 

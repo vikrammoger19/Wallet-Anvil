@@ -63,12 +63,13 @@ class set_limit(set_limitTemplate):
         if changes:
             print("DEBUG: Changes to be logged")
             current_datetime = datetime.now()
-            app_tables.actions.add_row(
-                username=username,
-                last_login=last_login,
-                changes=", ".join(changes),
-                date=current_datetime,
-                admin_email=email
+            app_tables.wallet_admins_actions.add_row(
+                admins_actions_name=self.user['users_username'],
+                admins_actions_username=username,
+                # last_login=last_login,
+                admins_actions=", ".join(changes),
+                admins_actions_date=current_datetime,
+                # admin_email= email
             )
     
     def link_8_copy_click(self, **event_args):
