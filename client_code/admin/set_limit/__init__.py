@@ -120,6 +120,6 @@ class set_limit(set_limitTemplate):
         options_list = ['Daily', 'Monthly']
         self.drop_down_2.items = options_list
 
-    def primary_color_2_click(self, **event_args):
+    def primary_color_2_click(self,user=None, **event_args):
       """This method is called when the button is clicked"""
-      open_form('admin.admin_view',user=self.user)
+      open_form('admin.account_management',user=self.user)

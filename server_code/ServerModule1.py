@@ -390,3 +390,10 @@ def get_credit_debit(phone_number,default_currency):
   debit_details = app_tables.wallet_users_transaction.search(users_transaction_type='Debit',users_transaction_phone=phone_number,users_transaction_currency=default_currency)
   credit_details = app_tables.wallet_users_transaction.search(users_transaction_type='Credit',users_transaction_phone = phone_number,users_transaction_currency=default_currency)
   return {'debit_details':debit_details,'credit_details':credit_details}
+@anvil.server.callable
+def update_user_limit(username, field, new_limit):
+    user = app_tables.wallet_users.get(users_username=username)
+    if user:
+        user[field] = new_limit
+        return True
+    return False

@@ -19,6 +19,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
         # self.check_profile_pic()
         self.populate_balances()
         self.edit_mode = False
+        self.user = user_data
 
         if phone_number is not None:
             self.label_401.text = phone_number
@@ -403,5 +404,10 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
     def button_4_click(self, **event_args):
       """This method is called when the button is clicked"""
       username = self.label_100.text
-      self.log_action( username,["User Setlimt changed"])
-      open_form('admin.set_limit',user=self.user)
+      user_data = app_tables.wallet_users.get(users_phone=self.phone_number)  # Retrieve user_data
+      
+      # Log the action
+      self.log_action(username, ["User Setlimt changed"])
+      
+      # Open the admin.set_limit form with user and user_data
+      open_form('admin.set_limit', user=self.user, user_data=user_data)
