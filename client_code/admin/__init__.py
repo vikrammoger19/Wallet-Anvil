@@ -12,7 +12,7 @@ class admin(adminTemplate):
         self.total_user.text = anvil.server.call('total_users',self.user['users_usertype'])
         if user is not None:
             self.label_4.text = user['users_username']
-            self.image_3.source=user['users_profile_pic']
+            #self.image_3.source=user['users_profile_pic']
         self.refresh_data()
         self.check_profile_pic()
 
@@ -94,7 +94,7 @@ class admin(adminTemplate):
         open_form('admin.audit_trail',user=self.user)
 
     def link_6_click(self, **event_args):
-        open_form('admin.user_support',user=self.user)
+        open_form('admin.raise_a_complaint',user=self.user)
 
     def link_7_click(self, **event_args):
         open_form('admin.show_users',user=self.user)

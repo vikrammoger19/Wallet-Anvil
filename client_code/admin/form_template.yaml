@@ -168,6 +168,25 @@ components:
             type: Image
             layout_properties: {x: 38, y: 1, width: 47}
             name: image_4_copy_5
+      - name: link_6
+        properties: {text: '', align: center, bold: true}
+        type: Link
+        layout_properties: {grid_position: 'SZPVXF,EAZPND'}
+        event_bindings: {click: link_6_click}
+        components:
+        - name: xy_panel_7_copy
+          properties: {height: 25.79998779296875}
+          type: XYPanel
+          layout_properties: {grid_position: 'QIZNTB,ORSKYD'}
+          components:
+          - name: label_3_copy_4_copy
+            properties: {text: user support}
+            type: Label
+            layout_properties: {x: 95, y: 0, width: 117.5999755859375}
+          - name: image_4_copy_5_copy
+            properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: '', foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 34}
+            type: Image
+            layout_properties: {x: 38, y: 1, width: 47}
       - properties: {height: 204.5999755859375}
         type: Spacer
         layout_properties: {grid_position: 'ZCYDZV,VFTIPP'}

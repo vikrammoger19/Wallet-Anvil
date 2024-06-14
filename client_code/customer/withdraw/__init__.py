@@ -83,7 +83,7 @@ class withdraw(withdrawTemplate):
                 users_transaction_currency=cur,
                 users_transaction_date=current_datetime,
                 users_transaction_bank_name=acc,
-                users_transaction_type="Withdrawal",
+                users_transaction_type="Withdrawn",
                 users_transaction_status="Wallet-Withdraw",
                 users_transaction_receiver_phone=self.user['users_phone']
             )
