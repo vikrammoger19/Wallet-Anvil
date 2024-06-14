@@ -32,6 +32,8 @@ class transfer(transferTemplate):
       cur = self.drop_down_2.selected_value
       depositor_phone_number = self.user['users_phone']
       
+      
+      
       # Use the entered phone number to identify the receiver's account
       receiver_balance = app_tables.wallet_users_balance.get(users_balance_phone=receiver_phone_number, users_balance_currency_type=cur)
       depositor_balance = app_tables.wallet_users_balance.get(users_balance_phone=depositor_phone_number, users_balance_currency_type=cur)

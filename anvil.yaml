@@ -57,6 +57,9 @@ db_schema:
     - name: users_transaction_message
       admin_ui: {width: 200, order: 9}
       type: string
+    - name: users_transaction_bank_name
+      admin_ui: {order: 6.5, width: 239}
+      type: string
     title: wallet_users_transaction
   wallet_users_account:
     client: full
