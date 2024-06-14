@@ -1,62 +1,61 @@
+is_package: true
 container:
   type: ColumnPanel
   properties: {visible: true}
 components:
-- name: card_1
-  properties: {role: card, col_widths: '{"AZRTEL":38,"IKKFJE":15,"WOUQAC":27,"CXGDGX":20,"MRRLHD":40,"GAHBOO":20,"RRIFBC":40}'}
+- properties: {role: card, col_widths: '{"AZRTEL":38,"IKKFJE":15,"WOUQAC":27,"CXGDGX":20,"MRRLHD":40,"GAHBOO":20,"RRIFBC":40}'}
   type: ColumnPanel
   layout_properties: {grid_position: 'RQFAWF,RRVERZ'}
+  name: card_1
   components:
-  - name: label_1
-    properties: {text: SET USERS LIMIT, bold: true, align: center, font_size: 25, foreground: 'theme:Primary 500'}
+  - properties: {text: SET USERS LIMIT, bold: true, align: center, font_size: 25, foreground: 'theme:Primary 500'}
     type: Label
     layout_properties: {grid_position: 'PQEFSW,MWOKAH'}
-  - name: spacer_4
-    properties: {height: 85.77777099609375}
+    name: label_1
+  - properties: {height: 85.77777099609375}
     type: Spacer
     layout_properties: {grid_position: 'FAENOV,UCXCTF'}
-  - name: label_3
-    properties: {text: 'Set Transaction Limit:', align: center, bold: true, font_size: 15}
+    name: spacer_4
+  - properties: {text: 'Set Transaction Limit:', align: center, bold: true, font_size: 15}
     type: Label
     layout_properties: {grid_position: 'WJMMJE,CXGDGX JFMAHG,SZMMQW'}
-  - name: label_4_copy
-    properties: {text: '                                     Limit Type:', align: left, bold: true, font_size: 15}
+    name: label_3
+  - properties: {text: '                                     Limit Type:', align: left, bold: true, font_size: 15}
     type: Label
     layout_properties: {grid_position: 'WJMMJE,CXGDGX SQUZDY,ORLUPI'}
-  - name: text_box_1
-    properties: {placeholder: Enter the amount, bold: false, align: center}
+    name: label_4_copy
+  - properties: {placeholder: Enter the amount, bold: false, align: center}
     type: TextBox
     layout_properties: {grid_position: 'WJMMJE,MRRLHD OSIYOX,TKTVKR', full_width_row: true}
-  - name: drop_down_2
-    properties: {align: full}
+    name: text_box_1
+  - properties: {align: full}
     type: DropDown
     layout_properties: {grid_position: 'WJMMJE,MRRLHD YXIHXF,EWLESH'}
     event_bindings: {change: drop_down_2_change, show: drop_down_2_show}
-  - name: spacer_2
-    properties: {height: 34.444427490234375}
+    name: drop_down_2
+  - properties: {height: 34.444427490234375}
     type: Spacer
     layout_properties: {grid_position: 'OLNLYF,GAHBOO VIJNTQ,TVMYNX'}
-  - name: label_6
-    properties: {text: '                                      Description:', bold: true, align: left}
+    name: spacer_2
+  - properties: {text: '                                      Description:', bold: true, align: left}
     type: Label
     layout_properties: {grid_position: 'OLNLYF,GAHBOO EKACZI,WAYTLD'}
-  - name: text_area_1
-    properties: {placeholder: Optional, height: 113}
+    name: label_6
+  - properties: {placeholder: Optional, height: 113}
     type: TextArea
     layout_properties: {grid_position: 'OLNLYF,RRIFBC'}
-    data_bindings: []
-  - name: spacer_1
-    properties: {height: 32}
+    name: text_area_1
+  - properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'HNRVIR,WOUQAC'}
-  - name: primary_color_1
-    properties: {text: Proceed, role: primary-color, align: left, font_size: 14}
+    name: spacer_1
+  - properties: {text: Proceed, role: primary-color, align: left, font_size: 14}
     type: Button
     layout_properties: {grid_position: 'HNRVIR,AZRTEL'}
     event_bindings: {click: primary_color_1_click}
-  - name: primary_color_2
-    properties: {text: BACK, role: primary-color, icon: 'fa:angle-double-left', align: right}
+    name: primary_color_1
+  - properties: {text: BACK, role: primary-color, icon: 'fa:angle-double-left', align: right}
     type: Button
     layout_properties: {grid_position: 'HNRVIR,IKKFJE'}
     event_bindings: {click: primary_color_2_click}
-is_package: true
+    name: primary_color_2
