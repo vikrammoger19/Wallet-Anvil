@@ -59,6 +59,10 @@ class deposit(depositTemplate):
                   label_country.text = country
                   image_icon.source = currency_icon
   
+                  # Align icon and text closer together if possible
+                  # Adjust layout properties depending on your framework
+                  # Example: label_balance.icon_style = "margin-right: 5px;"  # Adjust as needed
+  
                   # Set card visibility to True
                   card.visible = True
   
@@ -78,6 +82,7 @@ class deposit(depositTemplate):
       except Exception as e:
           # Print any exception that occurs during the process
           print("Error occurred during population of balances:", e)
+
 
     def button_1_click(self, **event_args):
         current_datetime = datetime.now()
