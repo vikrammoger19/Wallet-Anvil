@@ -4,7 +4,7 @@ container:
   properties: {tooltip: '', background: '', foreground: '', border: '', visible: true, role: null, html: ''}
 components:
 - type: ColumnPanel
-  properties: {role: card, col_widths: '{"XNZCHX":13,"CSXXAZ":47,"QLXILY":2,"ODQCJM":13,"QXYOJO":2,"RYEOOA":13,"MNIDKT":2,"OVSSIU":14,"GHOKGX":2,"BJPWVR":14,"IXSDOJ":2,"TBHNCL":2,"ZRUBKX":12,"SUGFAK":2,"ROHVQF":12,"MCHCFA":2,"POJQZG":13,"UQBKCD":2,"JWFPTJ":13,"WQYXTE":2,"SGXBKF":2,"CVKESU":12,"OSPTQU":2,"GJLGIA":12,"QGGUGF":2,"BAGZVB":13,"CCJPEK":2,"SJJINH":13,"JGBGHW":2,"MRVVFP":2,"KRGWQT":12,"VSMKON":2,"ZQOFTW":12,"JPDOFS":2,"SKYSJQ":13,"JDWUXZ":2,"ALCRDU":13,"LNQZHY":2,"PDPDMA":73,"HVADEA":2,"PZXFWK":5}', background: 'theme:Gray 100'}
+  properties: {role: card, col_widths: '{"XNZCHX":13,"CSXXAZ":47,"QLXILY":2,"ODQCJM":12,"QXYOJO":3,"RYEOOA":13,"MNIDKT":2,"OVSSIU":14,"GHOKGX":2,"BJPWVR":14,"IXSDOJ":2,"TBHNCL":2,"ZRUBKX":12,"SUGFAK":2,"ROHVQF":12,"MCHCFA":2,"POJQZG":13,"UQBKCD":2,"JWFPTJ":13,"WQYXTE":2,"SGXBKF":2,"CVKESU":12,"OSPTQU":2,"GJLGIA":12,"QGGUGF":2,"BAGZVB":13,"CCJPEK":2,"SJJINH":13,"JGBGHW":2,"MRVVFP":2,"KRGWQT":12,"VSMKON":2,"ZQOFTW":12,"JPDOFS":2,"SKYSJQ":13,"JDWUXZ":2,"ALCRDU":13,"LNQZHY":2,"PDPDMA":75,"HVADEA":2}', background: 'theme:Gray 100'}
   name: card_111
   layout_properties: {slot: default}
   components:
@@ -875,10 +875,6 @@ components:
     properties: {height: 5.666656494140625}
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ CENURX,LNQZHY'}
-  - name: spacer_4
-    properties: {height: 13.666656494140625}
-    type: Spacer
-    layout_properties: {grid_position: 'FRVCAC,CSXXAZ BVGFQI,PZXFWK'}
   - name: card_120
     properties: {role: card}
     type: ColumnPanel
