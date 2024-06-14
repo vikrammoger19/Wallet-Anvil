@@ -8,14 +8,16 @@ from anvil.tables import app_tables
 class raise_a_complaint(raise_a_complaintTemplate):
   def __init__(self,user=None, **properties):
     # Set Form properties and Data Bindings.
-    self.user=user
+    
     self.init_components(**properties)
+    if user is not None:
+      self.repeating_panel_1.items = app_tables.wallet_users_service.search()
 
     # Any code you write here will run before the form opens.
     #email = anvil.server.call('email')
 
     
-    self.text_box_1.text = {user['email']}
+    #self.text_box_1.text = {user['users_email']}
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""

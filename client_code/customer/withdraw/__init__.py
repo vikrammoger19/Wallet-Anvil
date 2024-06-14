@@ -67,7 +67,7 @@ class withdraw(withdrawTemplate):
 
             if existing_balance:
                 # Update the existing balance
-                existing_balance['users_balance'] += money_value
+                existing_balance['users_balance'] -= money_value
             else:
                 # Add a new row for the user if no existing balance
                 app_tables.wallet_users_balance.add_row(
@@ -82,8 +82,9 @@ class withdraw(withdrawTemplate):
                 users_transaction_fund=money_value,
                 users_transaction_currency=cur,
                 users_transaction_date=current_datetime,
-                users_transaction_type="Deposited",
-                users_transaction_status="Wallet-Topup",
+                users_transaction_bank_name=acc,
+                users_transaction_type="Withdrawn",
+                users_transaction_status="Wallet-Withdraw",
                 users_transaction_receiver_phone=self.user['users_phone']
             )
 

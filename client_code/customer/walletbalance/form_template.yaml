@@ -1,6 +1,4 @@
-container:
-  type: ColumnPanel
-
+container: {type: ColumnPanel}
 components:
 - name: card_1_copy
   properties: {role: card, col_widths: '{}'}

@@ -56,6 +56,7 @@ class deposit(depositTemplate):
                 users_transaction_fund=money_value,
                 users_transaction_currency=cur,
                 users_transaction_date=current_datetime,
+                users_transaction_bank_name=acc,
                 users_transaction_type="Deposited",
                 users_transaction_status="Wallet-Topup",
                 users_transaction_receiver_phone=self.user['users_phone']
