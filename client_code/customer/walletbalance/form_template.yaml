@@ -225,7 +225,7 @@ components:
   type: Spacer
   layout_properties: {grid_position: 'YAOOOQ,KAIDML CJQDFX,XJJWUA'}
 - name: button_1
-  properties: {text: Set Limit, role: raised, background: 'theme:Primary 500', foreground: 'theme:White'}
+  properties: {text: Set Limit, role: raised, background: 'theme:Primary 500', foreground: 'theme:White', align: right}
   type: Button
   layout_properties: {grid_position: 'YAOOOQ,KAIDML CJQDFX,GRGSIJ'}
   event_bindings: {click: button_1_click}
@@ -408,7 +408,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'XKQBLK,OJSVSZ', full_width_row: true}
   - name: card_5
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":17,"VZEOPY":23}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":19,"VZEOPY":41}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'XKQBLK,EENMQE', full_width_row: true}
     components:
@@ -437,7 +437,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_10
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -447,7 +447,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'XKQBLK,SVXPLY'}
   - name: card_6
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":27,"DYNMSH":33,"TTALBD":15,"VZEOPY":29}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":27,"DYNMSH":33,"TTALBD":13,"VZEOPY":35}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'XKQBLK,AGJJRN'}
     components:
@@ -476,7 +476,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_12
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -486,7 +486,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'XKQBLK,PCMKHD'}
   - name: card_7
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":27,"DYNMSH":33,"TTALBD":15,"VZEOPY":25}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":27,"DYNMSH":33,"TTALBD":13,"VZEOPY":29}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'XKQBLK,ECQXZM'}
     components:
@@ -515,7 +515,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_14
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -525,7 +525,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'XKQBLK,WBONDA'}
   - name: card_8
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"GXWTEF":27,"ECBIWK":33}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"GXWTEF":18,"ECBIWK":42}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'XKQBLK,JYPFHO'}
     components:
@@ -546,7 +546,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
     - name: spacer_16
-      properties: {height: 7.33331298828125}
+      properties: {height: 0.999969482421875}
       type: Spacer
       layout_properties: {grid_position: 'GIQXVY,GXWTEF ALKSXZ,YATEPA'}
     - name: label_1111_copy_7
@@ -554,7 +554,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'GIQXVY,GXWTEF CZCMYL,VFTTOE'}
     - name: label_16
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'GIQXVY,ECBIWK'}
       data_bindings:
@@ -568,9 +568,9 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'GDCJKQ,HGYKZV', full_width_row: true}
   - name: card_9
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":26,"DYNMSH":34,"TTALBD":25,"VZEOPY":35}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":26,"DYNMSH":34,"TTALBD":18,"VZEOPY":42}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
-    layout_properties: {grid_position: 'GDCJKQ,GONLHW', full_width_row: true}
+    layout_properties: {grid_position: 'GDCJKQ,GONLHW'}
     components:
     - name: image_icon_9
       properties: {height: 32}
@@ -593,11 +593,11 @@ components:
       type: Spacer
       layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
     - name: label_1111_copy_8
-      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: right}
+      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_18
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -607,7 +607,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'GDCJKQ,FLBEOB'}
   - name: card_10
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":24,"DYNMSH":36,"TTALBD":20,"VZEOPY":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":24,"DYNMSH":36,"TTALBD":17,"VZEOPY":43}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'GDCJKQ,CDRZZU'}
     components:
@@ -636,7 +636,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_20
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -646,7 +646,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'GDCJKQ,QRZPYM'}
   - name: card_11
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":25,"DYNMSH":35,"TTALBD":23,"VZEOPY":37}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":25,"DYNMSH":35,"TTALBD":15,"VZEOPY":45}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'GDCJKQ,MABJEQ'}
     components:
@@ -675,7 +675,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_22
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -685,7 +685,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'GDCJKQ,WRVOFS'}
   - name: card_12
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":26,"DYNMSH":34,"TTALBD":21,"VZEOPY":39}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":26,"DYNMSH":34,"TTALBD":16,"VZEOPY":44}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'GDCJKQ,MQSCVP'}
     components:
@@ -714,7 +714,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_24
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -728,7 +728,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'OFOQVN,IQEXZV', full_width_row: true}
   - name: card_13
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":22,"VZEOPY":38}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":20,"VZEOPY":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'OFOQVN,WFGCZB', full_width_row: true}
     components:
@@ -757,7 +757,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_26
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -767,7 +767,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'OFOQVN,HJSZTH'}
   - name: card_14
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":23,"VZEOPY":37}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":17,"VZEOPY":43}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'OFOQVN,REWYCQ'}
     components:
@@ -796,7 +796,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_28
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -806,7 +806,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'OFOQVN,KADOLL'}
   - name: card_15
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":23,"DYNMSH":37,"TTALBD":22,"VZEOPY":38}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":23,"DYNMSH":37,"TTALBD":18,"VZEOPY":42}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'OFOQVN,PHKIQS'}
     components:
@@ -835,7 +835,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_30
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -845,7 +845,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'OFOQVN,RAYKLU'}
   - name: card_16
-    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":21,"VZEOPY":39}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":17,"VZEOPY":43}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'OFOQVN,ONPXZT'}
     components:
@@ -874,7 +874,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_32
-      properties: {font_size: 22, bold: true, align: left, foreground: Black}
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
