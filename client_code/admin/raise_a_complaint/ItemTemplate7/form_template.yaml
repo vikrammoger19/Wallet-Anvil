@@ -8,9 +8,11 @@ components:
   type: Spacer
   layout_properties: {grid_position: 'VJYUMV,YCUHVG KUQBGI,YGDDEL'}
 - name: label_1
-  properties: {}
+  properties: {text: ''}
   type: Label
   layout_properties: {grid_position: 'VJYUMV,YCUHVG IBBJBM,SSVOKV'}
+  data_bindings:
+  - {property: text, code: 'self.item[''users_service_username'']', writeback: false}
 - name: spacer_1
   properties: {height: 4.600006103515625}
   type: Spacer
@@ -19,6 +21,8 @@ components:
   properties: {}
   type: Label
   layout_properties: {grid_position: 'VJYUMV,JHNFSK'}
+  data_bindings:
+  - {property: text, code: 'self.item[''users_service_phone'']', writeback: false}
 - name: spacer_3
   properties: {height: 6.399932861328125}
   type: Spacer
@@ -27,9 +31,12 @@ components:
   properties: {}
   type: Label
   layout_properties: {grid_position: 'VJYUMV,VGYGMB CQEPIN,KAZEET'}
+  data_bindings:
+  - {property: text, code: 'self.item[''users_service_email'']', writeback: false}
 - type: TextArea
   properties: {}
   name: text_area_1
   layout_properties: {grid_position: 'VJYUMV,ILSYCO'}
   data_bindings:
-  - {property: text, code: 'self.item[''query'']', writeback: true}
+  - {property: text, code: '', writeback: true}
+  event_bindings: {change: text_area_1_change}

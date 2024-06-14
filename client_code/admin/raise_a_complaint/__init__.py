@@ -8,10 +8,10 @@ from anvil.tables import app_tables
 class raise_a_complaint(raise_a_complaintTemplate):
   def __init__(self,user=None, **properties):
     # Set Form properties and Data Bindings.
-    self.user=user
+    
     self.init_components(**properties)
-    search_results = app_tables.wallet_users_service.search(users_service_phone=self.user['users_phone'])
-    self.repeating_panel_1.items = search_results
+    if user is not None:
+      self.repeating_panel_1.items = user
 
     # Any code you write here will run before the form opens.
     #email = anvil.server.call('email')
