@@ -52,6 +52,7 @@ unique_ids:
     customer.auto_topup: '1710397128169605223033622.6243'
     customer.default_currency: '171517227142274657825032.8116'
     admin.add_currency.ItemTemplate8: '1710845258502266735003505.84134'
+    customer.set_limit: CMNMN3EUMZ5HJWTQBNOLWWUKDPV4WCUQ
     customer: '1715664458201467583983670.0026'
     contact_us.issue_1: '1712832619074470273189761.9521'
     login: '1713787389746186752188078.1391'
