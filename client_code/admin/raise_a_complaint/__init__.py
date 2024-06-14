@@ -11,7 +11,7 @@ class raise_a_complaint(raise_a_complaintTemplate):
     
     self.init_components(**properties)
     if user is not None:
-      self.repeating_panel_1.items = user
+      self.repeating_panel_1.items = app_tables.wallet_users_service.search()
 
     # Any code you write here will run before the form opens.
     #email = anvil.server.call('email')
