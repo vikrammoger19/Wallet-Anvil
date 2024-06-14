@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"NLKLVH":11,"KAIDML":49,"XJJWUA":50,"GRGSIJ":10}'}
+
 components:
 - name: card_1_copy
   properties: {role: card, col_widths: '{}'}
