@@ -235,65 +235,15 @@ components:
     properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: true, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Deposit}
     type: Label
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCCHCB,FJRJTH'}
-  - name: label_3333
-    properties: {align: center, text: Transfer funds from your account to your e-Wallet seamlessly, bold: true}
-    type: Label
-    layout_properties: {grid_position: 'FRVCAC,CSXXAZ QXRRFU,UYDNTF'}
   - name: card_51
-    properties: {role: card, col_widths: '{"DBJTPO":15,"MMSYAM":15,"PYMPDI":15,"RQOUFI":15,"MVKOLV":2,"OYJGZG":3,"ZCIJOF":3,"EENMQE":15,"SVXPLY":2,"AGJJRN":15,"PCMKHD":3,"ECQXZM":15,"WBONDA":3,"JYPFHO":15,"GONLHW":15,"FLBEOB":2,"CDRZZU":15,"QRZPYM":3,"MABJEQ":15,"WRVOFS":3,"MQSCVP":15,"WFGCZB":15,"HJSZTH":2,"REWYCQ":15,"KADOLL":3,"PHKIQS":15,"RAYKLU":3,"ONPXZT":15,"AVRURS":2,"HMNYKX":3,"OJSVSZ":3,"INOAAF":2,"HGYKZV":3,"BDTYJZ":2,"IQEXZV":3,"KQDORY":2}', col_spacing: small}
+    properties: {role: card, col_widths: '{"DBJTPO":15,"MMSYAM":15,"PYMPDI":15,"RQOUFI":15,"MVKOLV":2,"OYJGZG":3,"ZCIJOF":3,"EENMQE":15,"SVXPLY":2,"AGJJRN":15,"PCMKHD":3,"ECQXZM":15,"WBONDA":3,"JYPFHO":15,"GONLHW":15,"FLBEOB":2,"CDRZZU":15,"QRZPYM":3,"MABJEQ":15,"WRVOFS":3,"MQSCVP":15,"WFGCZB":15,"HJSZTH":2,"REWYCQ":15,"KADOLL":3,"PHKIQS":15,"RAYKLU":3,"ONPXZT":15,"AVRURS":2,"HMNYKX":3,"OJSVSZ":3,"INOAAF":2,"HGYKZV":3,"BDTYJZ":2,"IQEXZV":3,"KQDORY":2}', col_spacing: small, visible: false}
     type: ColumnPanel
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ JZDIGZ,KXZPEP', full_width_row: true}
     components:
-    - name: spacer_1
-      properties: {height: 47}
-      type: Spacer
-      layout_properties: {grid_position: 'IKMJOQ,RFUFDY'}
-    - name: label_7000
-      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Enter Amount:'}
-      type: Label
-      layout_properties: {grid_position: 'OIIHGI,NNSAMS'}
-    - name: text_box_2
-      properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
-      type: TextBox
-      layout_properties: {grid_position: 'OIIHGI,WRBORH'}
-      event_bindings: {}
-    - name: label_800
-      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Bank Account:'}
-      type: Label
-      layout_properties: {grid_position: 'VMIFJN,EWOYBV'}
-    - name: drop_down_1
-      properties: {}
-      type: DropDown
-      layout_properties: {grid_position: 'VMIFJN,TXNTOI'}
-    - name: label_8_copy
-      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Currency:'}
-      type: Label
-      layout_properties: {grid_position: 'QHCJUM,BCSBIP'}
-    - name: drop_down_2
-      properties: {}
-      type: DropDown
-      layout_properties: {grid_position: 'QHCJUM,QEOOUK AGWTXE,UTVUHT'}
-    - name: label_200
-      properties: {align: center, visible: false}
-      type: Label
-      layout_properties: {grid_position: 'QHCJUM,QEOOUK ZTEDSU,CGNVFM'}
-    - name: spacer_7
-      properties: {height: 40}
-      type: Spacer
-      layout_properties: {grid_position: 'MRAIXV,TRVBHA'}
-    - name: button_1
-      properties: {role: filled-button, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Gray 50', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: Submit}
-      type: Button
-      layout_properties: {grid_position: 'PEXKXF,LZDNMW'}
-      event_bindings: {click: button_1_click}
-    - name: spacer_2
-      properties: {height: 49.777740478515625}
-      type: Spacer
-      layout_properties: {grid_position: 'RZDICS,LBJEWR'}
     - name: label_33333
-      properties: {align: center, bold: true, font_size: 25, text: Balance, foreground: 'theme:Primary 500', border: '1px solid '}
+      properties: {align: center, bold: true, font_size: 25, text: Balance, foreground: 'theme:Primary 500', border: 3px solid skyblue}
       type: Label
-      layout_properties: {grid_position: 'GTSDUM,HXNXPW'}
+      layout_properties: {grid_position: 'GTSDUM,HXNXPW', full_width_row: true}
     - name: spacer_14
       properties: {height: 32}
       type: Spacer
@@ -934,6 +884,53 @@ components:
       properties: {height: 32}
       type: Spacer
       layout_properties: {grid_position: 'OFOQVN,KQDORY'}
+  - name: card_17
+    properties: {role: card}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ BVGFQI,PDPDMA'}
+    components:
+    - name: spacer_1
+      properties: {height: 47}
+      type: Spacer
+      layout_properties: {grid_position: 'RENZSD,SWYDLU'}
+    - name: label_7000
+      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Enter Amount:'}
+      type: Label
+      layout_properties: {grid_position: 'GEBEYO,WFLYML'}
+    - name: text_box_2
+      properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
+      type: TextBox
+      layout_properties: {grid_position: 'GEBEYO,GFFQJE'}
+      event_bindings: {}
+    - name: label_800
+      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Bank Account:'}
+      type: Label
+      layout_properties: {grid_position: 'BUUQQQ,TKNCWI'}
+    - name: drop_down_1
+      properties: {}
+      type: DropDown
+      layout_properties: {grid_position: 'BUUQQQ,LDFAJF'}
+    - name: label_8_copy
+      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Currency:'}
+      type: Label
+      layout_properties: {grid_position: 'CFQLBP,CCRGXL'}
+    - name: drop_down_2
+      properties: {}
+      type: DropDown
+      layout_properties: {grid_position: 'CFQLBP,LMODYX YORTKP,XUWMCJ'}
+    - name: label_200
+      properties: {align: center, visible: false}
+      type: Label
+      layout_properties: {grid_position: 'CFQLBP,LMODYX JITLBB,VEZHSM'}
+    - name: spacer_7
+      properties: {height: 40}
+      type: Spacer
+      layout_properties: {grid_position: 'PAOOHK,GMOZOD'}
+    - name: button_1
+      properties: {role: filled-button, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Gray 50', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: Submit}
+      type: Button
+      layout_properties: {grid_position: 'MSYDIX,TLPBOH'}
+      event_bindings: {click: button_1_click}
   - name: xy_panel_2_copy_2
     properties: {role: null, align: center, spacing_above: small, width: null, background: 'theme:Gray 200', foreground: '', spacing_below: small, visible: false, border: '', tooltip: '', height: 288.5999755859375}
     type: XYPanel
