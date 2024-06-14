@@ -4,7 +4,7 @@ container:
   properties: {tooltip: '', background: '', foreground: '', border: '', visible: true, role: null, html: ''}
 components:
 - type: ColumnPanel
-  properties: {role: card, col_widths: '{"XNZCHX":13,"CSXXAZ":47,"QLXILY":2,"ODQCJM":13,"QXYOJO":2,"RYEOOA":13,"MNIDKT":2,"OVSSIU":14,"GHOKGX":2,"BJPWVR":14,"IXSDOJ":2,"TBHNCL":2,"ZRUBKX":12,"SUGFAK":2,"ROHVQF":12,"MCHCFA":2,"POJQZG":13,"UQBKCD":2,"JWFPTJ":13,"WQYXTE":2,"SGXBKF":2,"CVKESU":12,"OSPTQU":2,"GJLGIA":12,"QGGUGF":2,"BAGZVB":13,"CCJPEK":5,"SJJINH":6,"JGBGHW":6}', background: 'theme:Gray 100'}
+  properties: {role: card, col_widths: '{"XNZCHX":13,"CSXXAZ":47,"QLXILY":2,"ODQCJM":13,"QXYOJO":2,"RYEOOA":13,"MNIDKT":2,"OVSSIU":14,"GHOKGX":2,"BJPWVR":14,"IXSDOJ":2,"TBHNCL":2,"ZRUBKX":12,"SUGFAK":2,"ROHVQF":12,"MCHCFA":2,"POJQZG":13,"UQBKCD":2,"JWFPTJ":13,"WQYXTE":2,"SGXBKF":2,"CVKESU":12,"OSPTQU":2,"GJLGIA":12,"QGGUGF":2,"BAGZVB":13,"CCJPEK":2,"SJJINH":13,"JGBGHW":2,"MRVVFP":2,"KRGWQT":12,"VSMKON":2,"ZQOFTW":12,"JPDOFS":2,"SKYSJQ":13,"JDWUXZ":2,"ALCRDU":13,"LNQZHY":2,"PDPDMA":73,"HVADEA":2,"PZXFWK":5}', background: 'theme:Gray 100'}
   name: card_111
   layout_properties: {slot: default}
   components:
@@ -232,13 +232,9 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,XNZCHX PDANLR,HNMRSM'}
   - name: label_1000000
-    properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: true, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Deposit}
+    properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Deposit}
     type: Label
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCCHCB,FJRJTH'}
-  - name: label_33333
-    properties: {align: center, bold: true, font_size: 25, text: Balance, foreground: 'theme:Primary 500', border: 3px solid skyblue}
-    type: Label
-    layout_properties: {grid_position: 'FRVCAC,CSXXAZ NIPZRD,VDAXHN', full_width_row: true}
   - name: spacer_14
     properties: {height: 39.666656494140625}
     type: Spacer
@@ -400,7 +396,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ SCDQUF,IXSDOJ'}
   - name: spacer_15
-    properties: {height: 32}
+    properties: {height: 7.999969482421875}
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ NIGVSL,TBHNCL'}
   - name: card_5
@@ -439,7 +435,7 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''balance'']', writeback: false}
   - name: spacer_17
-    properties: {height: 32}
+    properties: {height: 6.222198486328125}
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ NIGVSL,SUGFAK'}
   - name: card_6
@@ -478,7 +474,7 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''balance'']', writeback: false}
   - name: spacer_9
-    properties: {height: 32}
+    properties: {height: 6.999969482421875}
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ NIGVSL,MCHCFA'}
   - name: card_7
@@ -517,7 +513,7 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''balance'']', writeback: false}
   - name: spacer_8
-    properties: {height: 32}
+    properties: {height: 4.77777099609375}
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ NIGVSL,UQBKCD'}
   - name: card_8
@@ -556,11 +552,11 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''balance'']', writeback: false}
   - name: spacer_7_copy
-    properties: {height: 32}
+    properties: {height: 8.444427490234375}
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ NIGVSL,WQYXTE'}
   - name: spacer_18
-    properties: {height: 32}
+    properties: {height: 4.666656494140625}
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ TEIZSN,SGXBKF'}
   - name: card_9
@@ -599,7 +595,7 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''balance'']', writeback: false}
   - name: spacer_19
-    properties: {height: 32}
+    properties: {height: 6.77777099609375}
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ TEIZSN,OSPTQU'}
   - name: card_10
@@ -638,7 +634,7 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''balance'']', writeback: false}
   - name: spacer_10
-    properties: {height: 32}
+    properties: {height: 6.888885498046875}
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ TEIZSN,QGGUGF'}
   - name: card_11
@@ -677,7 +673,7 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''balance'']', writeback: false}
   - name: spacer_11
-    properties: {height: 32}
+    properties: {height: 5.77777099609375}
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ TEIZSN,CCJPEK'}
   - name: card_12
@@ -716,174 +712,173 @@ components:
       data_bindings:
       - {property: text, code: 'self.item[''balance'']', writeback: false}
   - name: spacer_12
-    properties: {height: 32}
+    properties: {height: 7}
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ TEIZSN,JGBGHW'}
-  - name: card_51
-    properties: {role: card, col_widths: '{"WFGCZB":15,"HJSZTH":2,"REWYCQ":15,"KADOLL":3,"PHKIQS":15,"RAYKLU":3,"ONPXZT":15,"IQEXZV":3,"KQDORY":2}', col_spacing: small, visible: true}
+  - name: spacer_20
+    properties: {height: 4.666656494140625}
+    type: Spacer
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ CENURX,MRVVFP'}
+  - name: card_13
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":20,"VZEOPY":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
-    layout_properties: {grid_position: 'FRVCAC,CSXXAZ JZDIGZ,KXZPEP', full_width_row: true}
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ CENURX,KRGWQT'}
     components:
-    - name: spacer_20
+    - name: image_icon_13
       properties: {height: 32}
+      type: Image
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      data_bindings:
+      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
+    - name: label_25_copy
+      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
+      type: Label
+      layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
+      data_bindings:
+      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
+    - name: label_62
+      properties: {align: left}
+      type: Label
+      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+    - name: spacer_2_copy_12
+      properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'OFOQVN,IQEXZV', full_width_row: true}
-    - name: card_13
-      properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":20,"VZEOPY":40}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'OFOQVN,WFGCZB', full_width_row: true}
-      components:
-      - name: image_icon_13
-        properties: {height: 32}
-        type: Image
-        layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-        data_bindings:
-        - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-      - name: label_25_copy
-        properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-        type: Label
-        layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-        data_bindings:
-        - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-      - name: label_62
-        properties: {align: left}
-        type: Label
-        layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-      - name: spacer_2_copy_12
-        properties: {height: 1}
-        type: Spacer
-        layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-      - name: label_1111_copy_12
-        properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
-        type: Label
-        layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-      - name: label_26
-        properties: {font_size: 20, bold: true, align: left, foreground: Black}
-        type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-        data_bindings:
-        - {property: text, code: 'self.item[''balance'']', writeback: false}
-    - name: spacer_3_copy_3
+      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+    - name: label_1111_copy_12
+      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
+      type: Label
+      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+    - name: label_26
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      type: Label
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      data_bindings:
+      - {property: text, code: 'self.item[''balance'']', writeback: false}
+  - name: spacer_3_copy_3
+    properties: {height: 6.888885498046875}
+    type: Spacer
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ CENURX,VSMKON'}
+  - name: card_14
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":17,"VZEOPY":43}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ CENURX,ZQOFTW'}
+    components:
+    - name: image_icon_14
       properties: {height: 32}
+      type: Image
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      data_bindings:
+      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
+    - name: label_27
+      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
+      type: Label
+      layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
+      data_bindings:
+      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
+    - name: label_63
+      properties: {align: left}
+      type: Label
+      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+    - name: spacer_2_copy_13
+      properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'OFOQVN,HJSZTH'}
-    - name: card_14
-      properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":17,"VZEOPY":43}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'OFOQVN,REWYCQ'}
-      components:
-      - name: image_icon_14
-        properties: {height: 32}
-        type: Image
-        layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-        data_bindings:
-        - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-      - name: label_27
-        properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-        type: Label
-        layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-        data_bindings:
-        - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-      - name: label_63
-        properties: {align: left}
-        type: Label
-        layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-      - name: spacer_2_copy_13
-        properties: {height: 1}
-        type: Spacer
-        layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-      - name: label_1111_copy_13
-        properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
-        type: Label
-        layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-      - name: label_28
-        properties: {font_size: 20, bold: true, align: left, foreground: Black}
-        type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-        data_bindings:
-        - {property: text, code: 'self.item[''balance'']', writeback: false}
-    - name: spacer_3_copy_copy
+      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+    - name: label_1111_copy_13
+      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
+      type: Label
+      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+    - name: label_28
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      type: Label
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      data_bindings:
+      - {property: text, code: 'self.item[''balance'']', writeback: false}
+  - name: spacer_3_copy_copy
+    properties: {height: 3.5555419921875}
+    type: Spacer
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ CENURX,JPDOFS'}
+  - name: card_15
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":23,"DYNMSH":37,"TTALBD":18,"VZEOPY":42}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ CENURX,SKYSJQ'}
+    components:
+    - name: image_icon_15
       properties: {height: 32}
+      type: Image
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      data_bindings:
+      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
+    - name: label_29
+      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
+      type: Label
+      layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
+      data_bindings:
+      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
+    - name: label_64
+      properties: {align: left}
+      type: Label
+      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+    - name: spacer_2_copy_14
+      properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'OFOQVN,KADOLL'}
-    - name: card_15
-      properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":23,"DYNMSH":37,"TTALBD":18,"VZEOPY":42}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'OFOQVN,PHKIQS'}
-      components:
-      - name: image_icon_15
-        properties: {height: 32}
-        type: Image
-        layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-        data_bindings:
-        - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-      - name: label_29
-        properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-        type: Label
-        layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-        data_bindings:
-        - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-      - name: label_64
-        properties: {align: left}
-        type: Label
-        layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-      - name: spacer_2_copy_14
-        properties: {height: 1}
-        type: Spacer
-        layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-      - name: label_1111_copy_14
-        properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
-        type: Label
-        layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-      - name: label_30
-        properties: {font_size: 20, bold: true, align: left, foreground: Black}
-        type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-        data_bindings:
-        - {property: text, code: 'self.item[''balance'']', writeback: false}
-    - name: spacer_3_copy_2
+      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+    - name: label_1111_copy_14
+      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
+      type: Label
+      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+    - name: label_30
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      type: Label
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      data_bindings:
+      - {property: text, code: 'self.item[''balance'']', writeback: false}
+  - name: spacer_3_copy_2
+    properties: {height: 6.111083984375}
+    type: Spacer
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ CENURX,JDWUXZ'}
+  - name: card_16
+    properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":17,"VZEOPY":43}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ CENURX,ALCRDU'}
+    components:
+    - name: image_icon_16
       properties: {height: 32}
+      type: Image
+      layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
+      data_bindings:
+      - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
+    - name: label_31
+      properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
+      type: Label
+      layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
+      data_bindings:
+      - {property: text, code: 'self.item[''currency_type'']', writeback: false}
+    - name: label_65
+      properties: {align: left}
+      type: Label
+      layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
+    - name: spacer_2_copy_15
+      properties: {height: 1}
       type: Spacer
-      layout_properties: {grid_position: 'OFOQVN,RAYKLU'}
-    - name: card_16
-      properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":17,"VZEOPY":43}', background: '', visible: false, col_spacing: medium, spacing_above: small}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'OFOQVN,ONPXZT'}
-      components:
-      - name: image_icon_16
-        properties: {height: 32}
-        type: Image
-        layout_properties: {grid_position: 'LIHKJD,GUJCHK'}
-        data_bindings:
-        - {property: source, code: 'self.item[''currency_icon'']', writeback: false}
-      - name: label_31
-        properties: {font_size: 21, bold: true, align: center, foreground: Black, spacing_above: none}
-        type: Label
-        layout_properties: {grid_position: 'LIHKJD,ZLHUGJ'}
-        data_bindings:
-        - {property: text, code: 'self.item[''currency_type'']', writeback: false}
-      - name: label_65
-        properties: {align: left}
-        type: Label
-        layout_properties: {grid_position: 'LIHKJD,DYNMSH'}
-      - name: spacer_2_copy_15
-        properties: {height: 1}
-        type: Spacer
-        layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
-      - name: label_1111_copy_15
-        properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
-        type: Label
-        layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
-      - name: label_32
-        properties: {font_size: 20, bold: true, align: left, foreground: Black}
-        type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
-        data_bindings:
-        - {property: text, code: 'self.item[''balance'']', writeback: false}
-    - name: spacer_21
-      properties: {height: 32}
-      type: Spacer
-      layout_properties: {grid_position: 'OFOQVN,KQDORY'}
+      layout_properties: {grid_position: 'MXJVRD,TTALBD ZHWXHA,WPOEQT'}
+    - name: label_1111_copy_15
+      properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
+      type: Label
+      layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+    - name: label_32
+      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      type: Label
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      data_bindings:
+      - {property: text, code: 'self.item[''balance'']', writeback: false}
+  - name: spacer_21
+    properties: {height: 5.666656494140625}
+    type: Spacer
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ CENURX,LNQZHY'}
+  - name: spacer_4
+    properties: {height: 13.666656494140625}
+    type: Spacer
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ BVGFQI,PZXFWK'}
   - name: card_120
     properties: {role: card}
     type: ColumnPanel
@@ -931,6 +926,10 @@ components:
       type: Button
       layout_properties: {grid_position: 'MSYDIX,TLPBOH'}
       event_bindings: {click: button_1_click}
+  - name: spacer_3
+    properties: {height: 11.5555419921875}
+    type: Spacer
+    layout_properties: {grid_position: 'FRVCAC,CSXXAZ BVGFQI,HVADEA', full_width_row: true}
   - name: xy_panel_2_copy_2
     properties: {role: null, align: center, spacing_above: small, width: null, background: 'theme:Gray 200', foreground: '', spacing_below: small, visible: false, border: '', tooltip: '', height: 288.5999755859375}
     type: XYPanel
