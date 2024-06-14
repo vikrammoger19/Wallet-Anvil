@@ -146,7 +146,7 @@ class walletbalance(walletbalanceTemplate):
 
     def button_1_click(self, **event_args):
         """This method is called when the button is clicked"""
-        open_form('customer.deposit', user=self.user)
+        open_form('customer.set_limit', user=self.user)
 
     # Other link click methods omitted for brevity
 

@@ -42,6 +42,7 @@ def add_info(username, email, address, phone, aadhar, pan, password):
         users_usertype='customer',
         users_confirm_email=True,
         users_user_limit=(100000),
+        users_daily_limit=(40000),
         users_last_login = datetime.now()
     )
     return user_row
@@ -390,3 +391,18 @@ def get_credit_debit(phone_number,default_currency):
   debit_details = app_tables.wallet_users_transaction.search(users_transaction_type='Debit',users_transaction_phone=phone_number,users_transaction_currency=default_currency)
   credit_details = app_tables.wallet_users_transaction.search(users_transaction_type='Credit',users_transaction_phone = phone_number,users_transaction_currency=default_currency)
   return {'debit_details':debit_details,'credit_details':credit_details}
+@anvil.server.callable
+def update_user_limit(username, field, new_limit):
+    user = app_tables.wallet_users.get(users_username=username)
+    if user:
+        user[field] = new_limit
+        return True
+    return False
+
+@anvil.server.callable
+def update_user_limit_by_phone(phone, field, new_limit):
+    user = app_tables.wallet_users.get(users_phone=phone)  # Assuming phone is a unique identifier in your users table
+    if user:
+        user[field] = new_limit
+    else:
+        raise ValueError("User not found")
