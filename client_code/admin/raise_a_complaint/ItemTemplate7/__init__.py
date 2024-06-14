@@ -10,6 +10,6 @@ class ItemTemplate7(ItemTemplate7Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.user=user
-    self.text_box_1.text = {user['users_email']}
+    self.label_1.text = self.item['receiver_username']
 
     # Any code you write here will run before the form opens.
