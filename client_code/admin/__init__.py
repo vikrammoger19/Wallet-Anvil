@@ -9,9 +9,9 @@ class admin(adminTemplate):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.user = user
-        
+        self.total_user.text = anvil.server.call('total_users',self.user['users_usertype'])
         if user is not None:
-            self.label_2.text = user['users_username']
+            self.label_4.text = user['users_username']
             self.image_3.source=user['users_profile_pic']
         self.refresh_data()
         self.check_profile_pic()
@@ -104,5 +104,9 @@ class admin(adminTemplate):
 
     def link_10_click(self, **event_args):
         open_form('admin.add_currency',user=self.user)
+
+    def plot_1_click(self, points, **event_args):
+      """This method is called when a data point is clicked."""
+      pass
 
     
