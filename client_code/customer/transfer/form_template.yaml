@@ -248,7 +248,7 @@ components:
       properties: {height: 4.666656494140625}
       type: Spacer
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ SCDQUF,QLXILY', full_width_row: true}
-    - name: card_1_copy_2
+    - name: card_1
       properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":14,"TSAAMN":35}', background: '', visible: false, col_spacing: tiny, spacing_above: small}
       type: ColumnPanel
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ SCDQUF,ODQCJM', full_width_row: true}
