@@ -12,11 +12,11 @@ class create_admin(create_adminTemplate):
     self.init_components(**properties)
     self.user = user
     self.label_12.text = datetime.now().strftime('%d %b %Y')
-    self.who_created_acc = user['username']
-    print(self.who_created_acc)
+    self.which_admin_created_account = user['username']
+    print(self.which_admin_created_account)
 
   def button_1_click(self, **event_args): 
-        date_of_acc_created = datetime.now().date()
+        date_of_admins_account_created = datetime.now().date()
         existing_admin = anvil.server.call('get_admin_by_phone', str(self.text_box_4.text).strip())
 
         if existing_admin:
@@ -51,17 +51,17 @@ class create_admin(create_adminTemplate):
                   self.text_box_5.text,
                 )
                 print('Admin credentials stored for login')
-                app_tables.wallet_admins.add_row(
-                    username=self.text_box_1.text,
-                    email=self.text_box_2.text,
-                    phone=self.text_box_4.text,
-                    password=self.text_box_5.text,
-                    date_of_birth=self.date_picker_1.date,
-                    gender=self.drop_down_1.selected_value,
-                    who_created_acc=f'Admin - {self.who_created_acc}',
-                    date_of_acc_created=date_of_acc_created,
-                    usertype='admin',
-                    last_login=datetime.now()
+                app_tables.wallet_admins_create_admin_account.add_row(
+                    admins_username=self.text_box_1.text,
+                    admins_email=self.text_box_2.text,
+                    admins_phone=self.text_box_4.text,
+                    admins_password=self.text_box_5.text,
+                    admins_date_of_birth=self.date_picker_1.date,
+                    admins_gender=self.drop_down_1.selected_value,
+                    which_admin_created_account=f'Admin - {self.which_admin_created_account}',
+                    date_of_admins_account_created=date_of_admins_account_created,
+                    #usertype='admin',
+                    admins_last_login=datetime.now()
                   )
                 alert (self.text_box_1.text + ' added')
                 open_form('admin')

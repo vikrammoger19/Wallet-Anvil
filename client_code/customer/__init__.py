@@ -44,7 +44,7 @@ class customer(customerTemplate):
             else:
                 # Process transactions as before
                 self.repeating_panel_2_items = []
-                max_history_entries = 5  # Maximum number of history entries to display
+                max_history_entries = 4  # Maximum number of history entries to display
                 for transaction in sorted_transactions:
                     fund = transaction['users_transaction_fund']
                     transaction_type = transaction['users_transaction_type']
@@ -86,7 +86,7 @@ class customer(customerTemplate):
                         fund_display = "+" + str(fund)
                         fund_color = "green"
                     elif transaction_type == 'Withdrawn':
-                        transaction_text = "Withdarw"
+                        transaction_text = "Withdrawn"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
                     else:
@@ -108,7 +108,24 @@ class customer(customerTemplate):
                     # Limit the maximum number of history entries to display
                     if len(self.repeating_panel_2_items) >= max_history_entries:
                         break
-        
+                # h=268.2103271484375-207.65887451171875 92.59344482421875
+                if len(self.repeating_panel_2_items) == 1:
+                  self.spacer_3.visible = True
+                  self.spacer_3.height =9.051422119140625
+                  self.spacer_2.height =268.2103271484375
+                elif len(sorted_transactions)==0:
+                  self.spacer_2.height = 271.2103271484375
+                elif len(self.repeating_panel_2_items) == 2:
+                  self.spacer_2.height = 204.65887451171875
+                elif len(self.repeating_panel_2_items) == 3:
+                  self.spacer_2.height = 105.59344482421875
+                  self.spacer_3.visible = True
+                  self.spacer_3.height =3.45
+                elif len(self.repeating_panel_2_items) == 4:
+                  self.spacer_2.height =  26.799102783203125
+                elif len(self.repeating_panel_2_items) == 5:
+                  self.spacer_2.visible=False
+                   
                 self.repeating_panel_2.items = self.repeating_panel_2_items
 
     def inr_balance(self, balance, currency_type):
@@ -131,94 +148,93 @@ class customer(customerTemplate):
         self.plot_1.layout = fig.layout
 
     def refresh_data(self):
-        # Get the user's phone number
-        phone_number = self.user['users_phone']
-
-        #getting the data for total wallet amount 
-        now = datetime.datetime.now()
-        formatted_date = now.strftime('%a, %d-%b, %Y')
-        self.label_11.text = formatted_date
-        # Display the username
-        self.label_20.text = self.user['users_username']
-        # Get the INR balance from the server
-        #currency
-        user_default_currency='INR'
-        
-        users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
-        if users_def_currency['users_defaultcurrency'] is not None:
+    # Get the user's phone number
+      phone_number = self.user['users_phone']
+  
+      # Get the current date and format it
+      now = datetime.datetime.now()
+      formatted_date = now.strftime('%a, %d-%b, %Y')
+      self.label_11.text = formatted_date
+  
+      # Display the username
+      self.label_20.text = self.user['users_username']
+  
+      # Get the user's default currency
+      user_default_currency = 'INR'
+      users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+      if users_def_currency['users_defaultcurrency'] is not None:
           user_default_currency = users_def_currency['users_defaultcurrency']
-        else:
-          user_default_currency = 'INR'
-        
-        balance_iterator = anvil.server.call('get_inr_balance', self.user['users_phone'])
-        if balance_iterator is not None:
+  
+      # Get the INR balance from the server and update the label
+      balance_iterator = anvil.server.call('get_inr_balance', self.user['users_phone'])
+      if balance_iterator is not None:
           balance = self.inr_balance(balance_iterator, user_default_currency)
           if balance != '0':
-            self.label_13.text = str(f'{balance:.2f}')
+              self.label_13.text = str(f'{balance:.2f}')
           else:
-            self.label_13.text = balance
+              self.label_13.text = balance
           self.label_13.icon = f'fa:{user_default_currency.lower()}'
           self.label_13.icon_align = 'left'
-        else:
-          self.label_13.text =str(0)
-
-        # Call the server function to get transactions data
-        transactions = anvil.server.call('get_transactions')
+      else:
+          self.label_13.text = str(0)
   
-        # DEBUG: Print the number of transactions retrieved from the server
-        print("Number of transactions retrieved:", len(transactions))
+      # Call the server function to get transactions data
+      transactions = anvil.server.call('get_transactions')
   
-        # Filter transactions to include only those involving the user's phone number
-        filtered_transactions = [t for t in transactions if t['users_transaction_phone'] == phone_number ]
+      # DEBUG: Print the number of transactions retrieved from the server
+      print("Number of transactions retrieved:", len(transactions))
   
-        # DEBUG: Print the number of transactions after filtering
-        print("Number of transactions after filtering:", len(filtered_transactions))
+      # Filter transactions to include only those involving the user's phone number and default currency
+      filtered_transactions = [t for t in transactions if t['users_transaction_phone'] == phone_number and t['users_transaction_currency'] == user_default_currency]
   
-        # Filter transactions to include only 'Credit' and 'Debit' types
-        filtered_transactions = [t for t in filtered_transactions if t['users_transaction_type'] in ['Credit', 'Debit']]
+      # DEBUG: Print the number of transactions after filtering
+      print("Number of transactions after filtering:", len(filtered_transactions))
   
-        # Organize data for plotting (aggregate by date and type)
-        data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
-        for transaction in filtered_transactions:
-            date = transaction['users_transaction_date'].strftime("%Y-%m-%d")  # Format date as string for grouping
+      # Filter transactions to include only 'Credit' and 'Debit' types
+      filtered_transactions = [t for t in filtered_transactions if t['users_transaction_type'] in ['Credit', 'Debit']]
   
-            trans_type = transaction['users_transaction_type']
-            fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
+      # Organize data for plotting (aggregate by date and type)
+      data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
+      for transaction in filtered_transactions:
+          date = transaction['users_transaction_date'].strftime("%Y-%m-%d")  # Format date as string for grouping
   
-            if date not in data_for_plot[trans_type]:
-                data_for_plot[trans_type][date] = 0
+          trans_type = transaction['users_transaction_type']
+          fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
   
-            # Ensure fund is a string or a number before conversion
-            if isinstance(fund, (int, float)):
-                money_amount = fund
-            elif isinstance(fund, str):
-                # Extract numeric value from the 'fund' field
-                try:
-                    money_amount = float(fund)
-                except ValueError:
-                    money_amount = 0  # Handle cases where conversion to float fails
-            else:
-                money_amount = 0  # Default to 0 if 'fund' is neither a string nor a number
+          if date not in data_for_plot[trans_type]:
+              data_for_plot[trans_type][date] = 0
   
-            # Aggregate transaction amounts by date and type
-            if trans_type in data_for_plot:
-                data_for_plot[trans_type][date] += money_amount
+          # Ensure fund is a string or a number before conversion
+          if isinstance(fund, (int, float)):
+              money_amount = fund
+          elif isinstance(fund, str):
+              # Extract numeric value from the 'fund' field
+              try:
+                  money_amount = float(fund)
+              except ValueError:
+                  money_amount = 0  # Handle cases where conversion to float fails
+          else:
+              money_amount = 0  # Default to 0 if 'fund' is neither a string nor a number
   
-        # DEBUG: Print the data for plotting
-        print("Data for plotting:", data_for_plot)
+          # Aggregate transaction amounts by date and type
+          if trans_type in data_for_plot:
+              data_for_plot[trans_type][date] += money_amount
   
-        # Plot the data
-        categories = list(set(data_for_plot['Credit'].keys()) | set(data_for_plot['Debit'].keys()))  # Combine dates from Credit and Debit transactions
-        categories.sort()  # Sort the dates for a proper time series plot
-        credit_values = [data_for_plot['Credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
-        debit_values = [data_for_plot['Debit'].get(date, 0) for date in categories]    # Get debit values for each date or 0 if date not present
+      # DEBUG: Print the data for plotting
+      print("Data for plotting:", data_for_plot)
   
-        self.plot_1.data = [
-            {'x': categories, 'y': debit_values, 'type': 'bar', 'name': 'Debit', 'marker': {'color': 'gray'}},
-            {'x': categories, 'y': credit_values, 'type': 'bar', 'name': 'Credit', 'marker': {'color': 'lightblue'}}
-        ]
+      # Plot the data
+      categories = list(set(data_for_plot['Credit'].keys()) | set(data_for_plot['Debit'].keys()))  # Combine dates from Credit and Debit transactions
+      categories.sort()  # Sort the dates for a proper time series plot
+      credit_values = [data_for_plot['Credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
+      debit_values = [data_for_plot['Debit'].get(date, 0) for date in categories]    # Get debit values for each date or 0 if date not present
   
-        self.plot_1.visible = True
+      self.plot_1.data = [
+          {'x': categories, 'y': debit_values, 'type': 'bar', 'name': 'Debit', 'marker': {'color': 'gray'}},
+          {'x': categories, 'y': credit_values, 'type': 'bar', 'name': 'Credit', 'marker': {'color': 'lightblue'}}
+      ]
+  
+      self.plot_1.visible = True
 
     def get_credit_debit_details(self):
       users_phone = self.user['users_phone']
@@ -293,73 +309,99 @@ class customer(customerTemplate):
         return filtered_transactions
 
     def plot_transactions(self, transactions, plot_component):
-        # Organize data for plotting (aggregate by date and type)
-        data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
-        for transaction in transactions:
-            date = transaction['users_transaction_date'].strftime("%Y-%m-%d")  # Format date as string for grouping
-
-            trans_type = transaction['users_transaction_type']
-            fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
-
-            if date not in data_for_plot[trans_type]:
-                data_for_plot[trans_type][date] = 0
-
-            # Ensure fund is a string or a number before conversion
-            if isinstance(fund, (int, float)):
-                money_amount = fund
-            elif isinstance(fund, str):
-                # Extract numeric value from the 'fund' field
-                try:
-                    money_amount = float(fund)
-                except ValueError:
-                    money_amount = 0  # Handle cases where conversion to float fails
-            else:
-                money_amount = 0  # Default to 0 if 'fund' is neither a string nor a number
-
-            # Aggregate transaction amounts by date and type
-            if trans_type in data_for_plot:
-                data_for_plot[trans_type][date] += money_amount
-
-        # DEBUG: Print the data for plotting
-        print("Data for plotting:", data_for_plot)
-
-        # Plot the data
-        categories = list(set(data_for_plot['Credit'].keys()) | set(data_for_plot['Debit'].keys()))  # Combine dates from Credit and Debit transactions
-        categories.sort()  # Sort the dates for a proper time series plot
-        credit_values = [data_for_plot['Credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
-        debit_values = [data_for_plot['Debit'].get(date, 0) for date in categories]  # Get debit values for each date or 0 if date not present
-
-        plot_component.data = [
-            {'x': categories, 'y': debit_values, 'type': 'bar', 'name': 'Debit', 'marker': {'color': 'gray'}},
-            {'x': categories, 'y': credit_values, 'type': 'bar', 'name': 'Credit', 'marker': {'color': 'lightblue'}}
-        ]
-
-        plot_component.visible = True
-
+    # Organize data for plotting (aggregate by date and type)
+      data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
+      for transaction in transactions:
+          date = transaction['users_transaction_date'].strftime("%Y-%m-%d")  # Format date as string for grouping
+  
+          trans_type = transaction['users_transaction_type']
+          fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
+  
+          if date not in data_for_plot[trans_type]:
+              data_for_plot[trans_type][date] = 0
+  
+          # Ensure fund is a string or a number before conversion
+          if isinstance(fund, (int, float)):
+              money_amount = fund
+          elif isinstance(fund, str):
+              # Extract numeric value from the 'fund' field
+              try:
+                  money_amount = float(fund)
+              except ValueError:
+                  money_amount = 0  # Handle cases where conversion to float fails
+          else:
+              money_amount = 0  # Default to 0 if 'fund' is neither a string nor a number
+  
+          # Aggregate transaction amounts by date and type
+          if trans_type in data_for_plot:
+              data_for_plot[trans_type][date] += money_amount
+  
+      # DEBUG: Print the data for plotting
+      print("Data for plotting:", data_for_plot)
+  
+      # Plot the data
+      categories = list(set(data_for_plot['Credit'].keys()) | set(data_for_plot['Debit'].keys()))  # Combine dates from Credit and Debit transactions
+      categories.sort()  # Sort the dates for a proper time series plot
+      credit_values = [data_for_plot['Credit'].get(date, 0) for date in categories]  # Get credit values for each date or 0 if date not present
+      debit_values = [data_for_plot['Debit'].get(date, 0) for date in categories]  # Get debit values for each date or 0 if date not present
+  
+      plot_component.data = [
+          {'x': categories, 'y': debit_values, 'type': 'bar', 'name': 'Debit', 'marker': {'color': 'gray'}},
+          {'x': categories, 'y': credit_values, 'type': 'bar', 'name': 'Credit', 'marker': {'color': 'lightblue'}}
+      ]
+  
+      plot_component.visible = True
+  
     def link_12_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
         transactions = anvil.server.call('get_transactions')
         phone_number = self.user['users_phone']
-        user_transactions = [t for t in transactions if t['users_transaction_phone'] == phone_number]
+        user_default_currency = self.get_user_default_currency()
+    
+        # Filter transactions based on phone number and default currency
+        user_transactions = [
+            t for t in transactions 
+            if t['users_transaction_phone'] == phone_number and t['users_transaction_currency'] == user_default_currency
+        ]
         weekly_transactions = self.filter_transactions_by_period(user_transactions, 'week')
         self.plot_transactions(weekly_transactions, self.plot_1)
-
+    
     def link_13_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
         transactions = anvil.server.call('get_transactions')
         phone_number = self.user['users_phone']
-        user_transactions = [t for t in transactions if t['users_transaction_phone'] == phone_number]
+        user_default_currency = self.get_user_default_currency()
+    
+        # Filter transactions based on phone number and default currency
+        user_transactions = [
+            t for t in transactions 
+            if t['users_transaction_phone'] == phone_number and t['users_transaction_currency'] == user_default_currency
+        ]
         monthly_transactions = self.filter_transactions_by_period(user_transactions, 'month')
         self.plot_transactions(monthly_transactions, self.plot_1)
-
+    
     def link_14_click(self, **event_args):
         """This method is called when the link is clicked"""
         transactions = anvil.server.call('get_transactions')
         phone_number = self.user['users_phone']
-        user_transactions = [t for t in transactions if t['users_transaction_phone'] == phone_number]
+        user_default_currency = self.get_user_default_currency()
+    
+        # Filter transactions based on phone number and default currency
+        user_transactions = [
+            t for t in transactions 
+            if t['users_transaction_phone'] == phone_number and t['users_transaction_currency'] == user_default_currency
+        ]
         yearly_transactions = self.filter_transactions_by_period(user_transactions, 'year')
         self.plot_transactions(yearly_transactions, self.plot_1)
-
+    
+    def get_user_default_currency(self):
+        """Helper function to get the user's default currency"""
+        user_default_currency = 'INR'
+        users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+        if users_def_currency and users_def_currency['users_defaultcurrency']:
+            user_default_currency = users_def_currency['users_defaultcurrency']
+        return user_default_currency
+  
       
     def link_2_click(self, **event_args):
         open_form('customer.walletbalance', user=self.user)
@@ -386,22 +428,6 @@ class customer(customerTemplate):
       """This method is called when the link is clicked"""
       open_form('customer.settings',user = self.user)
 
-    def link_12_copy_click(self, **event_args):
-      """This method is called when the link is clicked"""
-      pass
+    
 
-    def link_13_copy_click(self, **event_args):
-      """This method is called when the link is clicked"""
-      pass
-
-    def link_14_click(self, **event_args):
-      """This method is called when the link is clicked"""
-      pass
-
-    def plot_1_click(self, points, **event_args):
-      """This method is called when a data point is clicked."""
-      pass
-
-    def button_1_copy_click(self, **event_args):
-      """This method is called when the button is clicked"""
-      pass
+   

@@ -1,37 +1,28 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true,
-    role: null, html: ''}
+  properties: {tooltip: '', background: '', foreground: '', border: '', visible: true, role: null, html: ''}
 components:
 - type: ColumnPanel
-  properties: {}
+  properties: {col_widths: '{}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
   - name: flow_panel_1
-    properties: {role: null, vertical_align: full, spacing: medium, align: left, tooltip: '',
-      border: '', foreground: '', visible: true, spacing_above: small, spacing_below: large,
-      background: ''}
+    properties: {role: null, vertical_align: full, align: left, spacing_above: small, background: '', foreground: '', spacing_below: large, visible: true, border: '', tooltip: '', spacing: medium}
     type: FlowPanel
     layout_properties: {grid_position: 'VZYVCS,YGAPAK', full_width_row: true}
     components:
     - name: flow_panel_1_copy
-      properties: {role: null, vertical_align: full, spacing: large, align: left,
-        tooltip: '', border: '', foreground: '', visible: true, spacing_above: medium,
-        spacing_below: small, background: ''}
+      properties: {role: null, vertical_align: full, align: left, spacing_above: medium, background: '', foreground: '', spacing_below: small, visible: true, border: '', tooltip: '', spacing: large}
       type: FlowPanel
       components:
       - name: image_1_copy
-        properties: {role: null, vertical_align: center, height: 44.80000305175781,
-          tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit,
-          spacing_above: small, source: _/theme/letter-g.png, spacing_below: small,
-          background: white, horizontal_align: right}
+        properties: {role: null, vertical_align: center, spacing_above: small, background: white, horizontal_align: right, source: _/theme/letter-g.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 44.80000305175781}
         type: Image
         layout_properties: {width: 89.19999694824219}
       - name: label_7_copy_2_copy
-        properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true,
-          font: a, italic: false, underline: false, foreground: black}
+        properties: {text: 'G-Wallet         ', font_size: 25, align: left, bold: true, font: a, italic: false, underline: false, foreground: black}
         type: Label
         layout_properties: {}
       - name: spacer_1_copy
@@ -73,8 +64,7 @@ components:
         type: Link
         event_bindings: {click: link_3_click}
       - name: link_8_copy_copy
-        properties: {text: 'Home ', align: center, bold: false, foreground: '#000',
-          font_size: 15}
+        properties: {text: 'Home ', align: center, bold: false, foreground: '#000', font_size: 15}
         type: Link
         event_bindings: {click: link_8_copy_click}
       - name: button_8_copy
@@ -88,19 +78,32 @@ components:
   - name: spacer_2
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'XTEINH,FGHWPD'}
-  - name: label_1
-    properties: {text: Username}
-    type: Label
-    layout_properties: {grid_position: 'HBXXPW,KUBCJX'}
-  - name: label_2
-    properties: {text: Phone}
-    type: Label
-    layout_properties: {grid_position: 'HBXXPW,LHHACW'}
-  - name: label_3
-    properties: {text: Query}
-    type: Label
-    layout_properties: {grid_position: 'HBXXPW,IRGVHV'}
+    layout_properties: {grid_position: 'ZRKCQI,XMEXEG'}
+  - name: card_3_copy
+    properties: {role: card, col_widths: '{"LZQPCJ":12,"JVTZFG":8,"QUSECK":15,"XIHXOC":25,"RFCJGF":12}', background: '#efeff0'}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'BMGZOV,PIXDOH'}
+    components:
+    - name: label_6
+      properties: {bold: true, align: center, font_size: 15, text: Name}
+      type: Label
+      layout_properties: {grid_position: 'XZUHZG,LZQPCJ'}
+    - name: label_7
+      properties: {align: center, bold: true, font_size: 15, text: Phone}
+      type: Label
+      layout_properties: {grid_position: 'XZUHZG,JVTZFG'}
+    - name: label_8
+      properties: {align: center, bold: true, font_size: 15, text: Email}
+      type: Label
+      layout_properties: {grid_position: 'XZUHZG,QUSECK'}
+    - name: label_9
+      properties: {align: center, bold: true, font_size: 15, text: Query}
+      type: Label
+      layout_properties: {grid_position: 'XZUHZG,XIHXOC'}
+    - name: label_1
+      properties: {text: Status, bold: true, align: center}
+      type: Label
+      layout_properties: {grid_position: 'XZUHZG,RFCJGF'}
   - name: repeating_panel_1
     properties: {item_template: admin.raise_a_complaint.ItemTemplate7}
     type: RepeatingPanel
@@ -109,9 +112,3 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'KVBEOP,GVFVOG'}
-  - name: button_1
-    properties: {text: Submit, background: 'theme:Primary 500', bold: true, foreground: 'theme:Gray
-        50'}
-    type: Button
-    layout_properties: {grid_position: 'CQJXHU,MEWYNC', row_background: 'theme:White'}
-    event_bindings: {click: button_1_click}

@@ -13,11 +13,76 @@ class deposit(depositTemplate):
       self.user = user
       # Set Form properties and Data Bindings.
       username = anvil.server.call('get_username', self.user['users_phone'])
-      self.label_1.text = f"Welcome to Green Gate Financial, {username}"
+      #self.label_1.text = f"Welcome to Green Gate Financial, {username}"
       bank_names = anvil.server.call('get_user_bank_name', self.user['users_phone'])
       self.drop_down_1.items = [str(row['users_account_bank_name']) for row in bank_names]
       self.drop_down_2.items= anvil.server.call('get_currency_code')
       self.display()
+      self.populate_balances()
+    def populate_balances(self):
+      try:
+          # Retrieve balances for the current user
+          user_phone = self.user['users_phone']
+          user_balances = app_tables.wallet_users_balance.search(users_balance_phone=user_phone)
+  
+          # Print the retrieved data
+          print("Retrieved balances:", user_balances)
+  
+          # Initialize index for card and components
+          card_index = 1
+          label_index = 1  # Start from label_1
+          country_label_index = 50  # Start from label_50 for country
+          image_index = 1
+  
+          # Iterate over user balances and update card components
+          for balance in user_balances:
+              currency_type = balance['users_balance_currency_type']
+              balance_amount = round(balance['users_balance'], 2)  # Round to 2 decimal places
+  
+              # Lookup the currency icon, symbol, and country in the wallet_currency table
+              currency_record = app_tables.wallet_admins_add_currency.get(admins_add_currency_code=currency_type)
+              currency_icon = currency_record['admins_add_currency_icon'] if currency_record else None
+              country = currency_record['admins_add_currency_country'] if currency_record else None
+  
+              # Get card and components for the current index
+              card = getattr(self, f'card_{card_index}', None)
+              label_curr_type = getattr(self, f'label_{label_index}', None)
+              label_balance = getattr(self, f'label_{label_index + 1}', None)
+              label_country = getattr(self, f'label_{country_label_index}', None)
+              image_icon = getattr(self, f'image_icon_{image_index}', None)
+  
+              if card and label_curr_type and label_balance and image_icon and label_country:
+                  # Update card components with balance data
+                  label_curr_type.text = currency_type
+                  label_balance.text = f"{balance_amount:.2f}"  # Format to 2 decimal places
+                  label_balance.icon = f"fa:{currency_type.lower()}"
+                  label_country.text = country
+                  image_icon.source = currency_icon
+  
+                  # Align icon and text closer together if possible
+                  # Adjust layout properties depending on your framework
+                  # Example: label_balance.icon_style = "margin-right: 5px;"  # Adjust as needed
+  
+                  # Set card visibility to True
+                  card.visible = True
+  
+                  # Increment indices for the next iteration
+                  card_index += 1
+                  label_index += 2
+                  country_label_index += 1
+                  image_index += 1
+  
+          # Set visibility of remaining cards to False if no data
+          while card_index <= 12:
+              card = getattr(self, f'card_{card_index}', None)
+              if card:
+                  card.visible = False
+              card_index += 1
+  
+      except Exception as e:
+          # Print any exception that occurs during the process
+          print("Error occurred during population of balances:", e)
+
 
     def button_1_click(self, **event_args):
         current_datetime = datetime.now()
@@ -56,14 +121,18 @@ class deposit(depositTemplate):
                 users_transaction_fund=money_value,
                 users_transaction_currency=cur,
                 users_transaction_date=current_datetime,
+                users_transaction_bank_name=acc,
                 users_transaction_type="Deposited",
                 users_transaction_status="Wallet-Topup",
                 users_transaction_receiver_phone=self.user['users_phone']
             )
 
-            self.label_2.text = "Money added successfully to the account."
+            #self.label_200.text = "Money added successfully to the account."
+            alert("Money added successfully to the account.")
+            self.text_box_200.text = ''
           else:
-            self.label_2.text = "Error: No matching accounts found for the user or invalid account number."
+            #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."
+            alert("Error: No matching accounts found for the user or invalid account number.")
 
     def drop_down_1_change(self, **event_args):
         self.display()
@@ -100,7 +169,7 @@ class deposit(depositTemplate):
 
     def link_8_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.service",user=self.user)
+      open_form("customer.wallet",user=self.user)
     def label_7_copy_2_copy(self, **event_args):
       open_form("customer_page",user=self.user)
 

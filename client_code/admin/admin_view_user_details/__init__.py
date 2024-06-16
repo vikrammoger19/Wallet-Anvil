@@ -1,4 +1,4 @@
-from ._anvil_designer import admin_viewTemplate
+from ._anvil_designer import admin_view_user_detailsTemplate
 from anvil import *
 import anvil.server
 import anvil.tables as tables
@@ -8,17 +8,19 @@ from datetime import datetime
 import re
 import base64
 
-class admin_view(admin_viewTemplate):
+class admin_view_user_details(admin_view_user_detailsTemplate):
     def __init__(self, user_data=None, phone_number=None, user=None, **properties):
         self.user = user
         if self.user is not None:
-            self.label_6566.text = self.user
+          self.label_6566.text = self.user['users_username']
+          self.label_6566.text = self.user['users_username']
 
         self.phone_number = phone_number
         self.init_components(**properties)
         # self.check_profile_pic()
         self.populate_balances()
         self.edit_mode = False
+        self.user = user_data
 
         if phone_number is not None:
             self.label_401.text = phone_number
@@ -262,6 +264,7 @@ class admin_view(admin_viewTemplate):
 
         # Insert the log entry into the table
         app_tables.wallet_admins_actions.add_row(
+            admins_actions_name=self.user['users_username'],
             admins_actions_username=username,
             admins_actions_date=timestamp,
             admins_actions=action_log
@@ -403,5 +406,10 @@ class admin_view(admin_viewTemplate):
     def button_4_click(self, **event_args):
       """This method is called when the button is clicked"""
       username = self.label_100.text
-      self.log_action( username,["User Setlimt changed"])
-      open_form('admin.set_limit',user=self.user)
+      user_data = app_tables.wallet_users.get(users_phone=self.phone_number)  # Retrieve user_data
+      
+      # Log the action
+      self.log_action(username, ["User Setlimt changed"])
+      
+      # Open the admin.set_limit form with user and user_data
+      open_form('admin.set_limit', user=self.user, user_data=user_data)

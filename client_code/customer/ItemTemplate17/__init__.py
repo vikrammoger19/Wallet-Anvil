@@ -35,9 +35,23 @@ class ItemTemplate17(ItemTemplate17Template):
             self.label_2.icon_align = 'left'
             self.text_box_1.visible = True
             self.text_box_1.text = self.item['transaction_text']
+            self.text_box_1.foreground = self.item['fund_color']
             self.text_box_3.visible = True
             self.text_box_3.text = self.item['transaction_time']
-            self.label_1.text = self.item['receiver_username']
+            name=''
+            self.label_1.text = f"{self.item['receiver_username']}"
+            if self.item['transaction_text'] == 'Sent':
+              name='Sent to'
+              self.label_1.text = f"{name} {self.item['receiver_username']}"
+            elif self.item['transaction_text'] == 'Received':
+              name='Payment from'
+              self.label_1.text = f"{name} {self.item['receiver_username']}"
+            elif self.item['transaction_text'] == 'Deposit':
+              name='Deposit by you'
+              self.label_1.text = f"{name}"
+            elif self.item['transaction_text'] == 'Withdrawn':
+              name = 'Withdraw by you'
+              self.label_1.text = f"{name}"
             self.label_2.foreground = self.item['fund_color']
             # self.text_box_2.visible= True
             self.image_1.visible = True
