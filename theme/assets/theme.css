@@ -805,4 +805,11 @@ textarea.anvil-component[disabled] {
 /* Shadow values taken from 
 https://stackoverflow.com/questions/30533055/calculating-shadow-values-for-all-material-design-elevations
 */
+.balance-icon {
+    margin-right: 5px; /* Adjust this value as needed */
+    vertical-align: middle; /* Aligns icon with text */
+}
+.balance-text {
+    margin-left: 0; /* Ensure there's no extra margin */
+}
 
