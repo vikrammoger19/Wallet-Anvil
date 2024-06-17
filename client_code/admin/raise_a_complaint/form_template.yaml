@@ -80,7 +80,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'ZRKCQI,XMEXEG'}
   - name: card_3_copy
-    properties: {role: card, col_widths: '{"LZQPCJ":12,"JVTZFG":8,"QUSECK":15,"XIHXOC":25,"RFCJGF":12}', background: '#efeff0'}
+    properties: {role: card, col_widths: '{"LZQPCJ":12,"JVTZFG":8,"QUSECK":20,"XIHXOC":10,"RFCJGF":22}', background: '#efeff0'}
     type: ColumnPanel
     layout_properties: {grid_position: 'BMGZOV,PIXDOH'}
     components:

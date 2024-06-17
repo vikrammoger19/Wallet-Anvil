@@ -8,7 +8,7 @@ from anvil.tables import app_tables
 class raise_a_complaint(raise_a_complaintTemplate):
   def __init__(self,user=None, **properties):
     # Set Form properties and Data Bindings.
-    
+    self.user=user
     self.init_components(**properties)
     if user is not None:
       self.repeating_panel_1.items = app_tables.wallet_users_service.search()
