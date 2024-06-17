@@ -6,7 +6,7 @@ services:
   server_config: {}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {custom_smtp: true, test_mode: false, smtp_host: smtp.gmail.com, smtp_port: 467, smtp_user: shivaprasadgowda9380@gmail.com, smtp_password: AQkLwiwrAzIcF1QYfiOm9z9ifehylvfRXNyXvL/37A3C3c1jrwV9GDCul6vsjWlwdPJvSMQJlFmIqxg6HCksTJKqsjVGD5/I+XRRHn/SsER5bDxoZ4u7++hGjeHGwEq99XRuthrVN1BPVCYMfl+Cq1+63PlQ7kd7iMTK++Ws8vQIeWug, smtp_encryption: starttls}
+  server_config: {custom_smtp: true, test_mode: false, smtp_host: smtp.gmail.com, smtp_port: 587, smtp_user: ascenddefilabs@gmail.com, smtp_password: GTkm7oNQL4cPlNlltcAWuXuazgXrH+B64e3lzwtacQ+yfoW5y4XO7Y6ZabwxacegD1Upcm4WXHQGK1xeVX+RThPQthyJsDtvESLlL6qQ1Xaq6onM2YHKMViEDe9h7K7TRQJz9dub9KSEFVY6tVAGx/W/fwjrky8Ime6A1FQbgKmAyRb2Isl76Id3HQ==, smtp_encryption: ''}
 - source: /runtime/services/anvil/secrets.yml
   client_config: {}
   server_config: {}
