@@ -129,7 +129,7 @@ class deposit(depositTemplate):
 
             #self.label_200.text = "Money added successfully to the account."
             alert("Money added successfully to the account.")
-            self.text_box_200.text = ''
+            self.text_box_2.text = ''
           else:
             #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."
             alert("Error: No matching accounts found for the user or invalid account number.")
