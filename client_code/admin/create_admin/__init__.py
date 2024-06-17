@@ -105,4 +105,4 @@ class create_admin(create_adminTemplate):
 
   def link_6_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('customer.report_bug',user=self.user)
+    open_form('admin.raise_a',user=self.user)

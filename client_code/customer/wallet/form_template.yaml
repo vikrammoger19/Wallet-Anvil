@@ -267,7 +267,7 @@ components:
       layout_properties: {row: RHTZTH, width_xs: 5, col_xs: 0}
     - name: drop_down_2
       properties:
-        items: [Select Bank Account]
+        items: [Select Bank Account, SBI, ICICI, 'Yes', Axis, HDFC, '']
       type: DropDown
       layout_properties: {row: RHTZTH, width_xs: 5, col_xs: 6}
     - name: label_4
