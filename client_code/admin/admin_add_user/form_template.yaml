@@ -6,14 +6,14 @@ components:
   layout_properties: {grid_position: 'AFEVIQ,TNUTUJ', full_width_row: true}
   components:
   - name: card_1_copy
-    properties: {role: card, col_widths: '{"CSXXAZ":48,"MDGRKU":17}'}
+    properties: {role: card, col_widths: '{"CSXXAZ":50,"MDGRKU":15}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'KYWTBV,GKIMZF', full_width_row: true}
     components:
     - name: card_1_copy_copy_2
       properties: {role: card, col_widths: '{}'}
       type: ColumnPanel
-      layout_properties: {grid_position: 'FRVCAC,MDGRKU'}
+      layout_properties: {grid_position: 'FRVCAC,MDGRKU', full_width_row: true}
       components:
       - name: xy_panel_1_copy
         properties: {height: 60, background: 'theme:Gray 50'}
@@ -162,7 +162,7 @@ components:
             type: Label
             layout_properties: {x: 95, y: 0, width: 117.5999755859375}
           - name: image_4_copy_5_copy_copy
-            properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer-support.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 34}
+            properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer-service.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 34}
             type: Image
             layout_properties: {x: 38, y: 1, width: 47}
       - name: spacer_1_copy_copy_2
@@ -192,6 +192,10 @@ components:
       properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: true, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: 'Add User''s:'}
       type: Label
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCCHCB,FJRJTH'}
+    - name: spacer_1
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'FRVCAC,CSXXAZ OURSBK,ETQHYP'}
     - name: card_1
       properties: {role: card}
       type: ColumnPanel

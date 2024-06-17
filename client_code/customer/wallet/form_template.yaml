@@ -208,45 +208,11 @@ components:
       type: Link
       layout_properties: {grid_position: 'EOQMMT,GLFTQZ'}
       event_bindings: {click: link_9_click}
-  - name: spacer_1
-    properties: {height: 14.399993896484375}
-    type: Spacer
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI XWRQRR,RSVXCK'}
   - name: content_panel_copy
     properties: {background: 'theme:White'}
     type: ColumnPanel
     layout_properties: {grid_position: 'EKNWFM,TKSRFI HJARVT,JABKMP'}
     components: []
-  - name: spacer_3
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI WHCJAM,ILYKSE'}
-  - name: outlined_card_1
-    properties: {role: null, col_widths: '{"VMILPR":8,"FDANOO":15,"HAKDVS":15}', spacing_above: none, background: '#2270ad', wrap_on: mobile, col_spacing: none, foreground: '', spacing_below: none, visible: true, border: '', tooltip: ''}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI XCXRDT,PTWGAN', full_width_row: true}
-    components:
-    - name: label_1_copy
-      properties: {text: CopyRight2023@Gwallet, align: left, bold: false, font_size: 16, visible: true, role: input-prompt, foreground: 'theme:White'}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,XVKBKL'}
-    - name: label_2_copy
-      properties: {role: null, bold: false, align: right, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Disclaimer}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,VMILPR'}
-    - name: label_3_copy
-      properties: {role: null, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Privacy Policy}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,FDANOO'}
-    - name: label_4_copy
-      properties: {role: null, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Code Of Commitment}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,HAKDVS'}
-    - name: link_8
-      properties: {align: right, text: Customer Service, foreground: 'theme:White', font_size: 16, bold: false}
-      type: Link
-      layout_properties: {grid_position: 'XSXLAE,NFTMSZ'}
-      event_bindings: {click: link_8_click}
   - name: label_1000000
     properties:
       role: null
@@ -278,6 +244,10 @@ components:
     type: Button
     layout_properties: {grid_position: 'EKNWFM,ULOKUC INVOFW,CHIDZQ'}
     event_bindings: {click: button_add_bank_details_click_click}
+  - name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'EKNWFM,ULOKUC MRMBBA,YICFNT'}
   - name: grid_panel_1
     properties: {}
     type: GridPanel
