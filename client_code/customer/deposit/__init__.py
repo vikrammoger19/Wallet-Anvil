@@ -145,15 +145,15 @@ class deposit(depositTemplate):
         
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.deposit",user=self.user)
+      open_form("customer.walletbalance",user=self.user)
 
     def link_3_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.transfer",user=self.user)
+      open_form("customer.transactions",user=self.user)
 
     def link_4_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.withdraw",user=self.user)
+      open_form("customer.transfer",user=self.user)
 
     def link_7_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -176,3 +176,11 @@ class deposit(depositTemplate):
     def button_2_click(self, **event_args):
       """This method is called when the button is clicked"""
       open_form('customer.wallet',user=self.user)
+
+    def link_10_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      pass
+
+    def link_5_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.withdraw',)
