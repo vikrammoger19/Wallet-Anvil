@@ -40,7 +40,7 @@ class admin_add_user(admin_add_userTemplate):
                 self.text_box_6.text = ''
                 self.text_box_6.focus()
 
-            aadhar = self.text_box_8.text
+            aadhar = str(self.text_box_8.text)
             if len(aadhar) == 12 and aadhar.isdigit():
                 self.label_16.text = "Aadhar details correct"
                 count += 1
@@ -62,7 +62,7 @@ class admin_add_user(admin_add_userTemplate):
                     self.text_box_3.text
                 )
                 alert(self.text_box_2.text + ' added')
-                open_form('LOGIN')
+                open_form('login')
             except Exception as e:
                 alert(f"Error adding user: {str(e)}")
 
@@ -72,8 +72,13 @@ class admin_add_user(admin_add_userTemplate):
     def is_pan_card_detail(self, text):
         return len(text) == 10 and text[:5].isalpha() and text[5:9].isdigit() and text[9].isalpha()
 
+    # def validate_phone_number(self, phone_number):
+    #     return re.match(r'^[6-9]\d{9}$', phone_number) is not None
+
     def validate_phone_number(self, phone_number):
-        return re.match(r'^[6-9]\d{9}$', phone_number) is not None
+        if phone_number is None:
+            phone_number = ""
+        return re.match(r'^[6-9]\d{9}$', str(phone_number)) is not None
 
     def link_1_click(self, **event_args):
         open_form('admin.report_analysis')
@@ -100,7 +105,7 @@ class admin_add_user(admin_add_userTemplate):
         open_form('admin.transaction_monitoring', user=self.user)
 
     def link_6_click(self, **event_args):
-        open_form('admin.admin_add_user', user=self.user)
+        open_form('admin.raise_a_complaint', user=self.user)
 
     def link_5_click(self, **event_args):
         open_form('admin.audit_trail', user=self.user)
@@ -110,4 +115,9 @@ class admin_add_user(admin_add_userTemplate):
         user_support_form = open_form('admin.user_support', serves_data=serves_data)
 
     def link_3_click(self, **event_args):
-        show_users_form = open_form('admin.show_users', user=self.user)
+        #show_users_form = open_form('admin.show_users', user=self.user)
+        open_form('admin.transaction_monitoring',user=self.user)
+
+    def link_10_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.add_currency',user=self.user)

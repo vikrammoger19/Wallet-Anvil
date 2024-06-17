@@ -38,7 +38,7 @@ components:
   data_bindings:
   - {property: source, code: 'self.item[''admins_add_currency_icon'']', writeback: false}
 - name: view_user
-  properties: {text: View number of user, background: '#1d6eae', foreground: 'theme:White', bold: true, italic: true, align: center}
+  properties: {text: View number of user, background: '#1d86da', foreground: 'theme:White', bold: true, italic: true, align: center}
   type: Button
   layout_properties: {grid_position: 'LYTDQS,NNWBPE'}
   event_bindings: {click: view_user_click}

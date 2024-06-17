@@ -129,7 +129,7 @@ class deposit(depositTemplate):
 
             #self.label_200.text = "Money added successfully to the account."
             alert("Money added successfully to the account.")
-            self.text_box_200.text = ''
+            self.text_box_2.text = ''
           else:
             #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."
             alert("Error: No matching accounts found for the user or invalid account number.")
@@ -145,19 +145,19 @@ class deposit(depositTemplate):
         
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.deposit",user=self.user)
+      open_form("customer.walletbalance",user=self.user)
 
     def link_3_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.transfer",user=self.user)
+      open_form("customer.transactions",user=self.user)
 
     def link_4_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.withdraw",user=self.user)
+      open_form("customer.transfer",user=self.user)
 
     def link_7_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.service",user=self.user)
+      open_form("customer.Viewprofile",user=self.user)
 
     def link_1_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -176,3 +176,15 @@ class deposit(depositTemplate):
     def button_2_click(self, **event_args):
       """This method is called when the button is clicked"""
       open_form('customer.wallet',user=self.user)
+
+    def link_10_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      pass
+
+    def link_5_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.withdraw',user=self.user)
+
+    def link_6_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.auto_topup',user=self.user)

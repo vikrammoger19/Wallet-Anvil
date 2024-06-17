@@ -609,8 +609,7 @@ class transactions(transactionsTemplate):
     open_form('customer.auto_topup', user=self.user)
 
   def link_7_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    pass
+    open_form('customer.Viewprofile',user=self.user)
 
   def link_2_copy_click(self, **event_args):
     """This method is called when the link is clicked"""

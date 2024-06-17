@@ -27,7 +27,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'QEDMJL,VILMIP'}
   - name: label_4
-    properties: {}
+    properties: {visible: false}
     type: Label
     layout_properties: {grid_position: 'QEDMJL,QQXUDJ'}
 - name: spacer_2
