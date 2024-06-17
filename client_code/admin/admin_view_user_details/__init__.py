@@ -413,3 +413,19 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
       
       # Open the admin.set_limit form with user and user_data
       open_form('admin.set_limit', user=self.user, user_data=user_data)
+
+    def link_2_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.report_analysis',user=self.user)
+
+    def link_3_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.account_management',user=self.user)
+
+    def link_5_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.add_currency',user=self.user)
+
+    def link_6_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.audit_trail',user=self.user)

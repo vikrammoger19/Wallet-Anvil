@@ -68,5 +68,5 @@ class add_currency(add_currencyTemplate):
         else:
             alert('Invalid currency code')
   def link_8_copy_click(self, **event_args):
-    open_form('admin')
+    open_form('admin', user=self.user)
 

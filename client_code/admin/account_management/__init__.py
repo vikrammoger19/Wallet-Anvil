@@ -85,7 +85,7 @@ class account_management(account_managementTemplate):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.report_analysis',user=self.user)
+    open_form('admin',user=self.user)
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -97,11 +97,11 @@ class account_management(account_managementTemplate):
 
   def link_6_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.admin_add_user',user=self.user)
+    open_form('admin.audit_trail',user=self.user)
 
   def link_5_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.audit_trail',user=self.user)
+    open_form('admin.add_currency',user=self.user)
 
   def link_4_click(self, **event_args):
     """This method is called when the link is clicked"""

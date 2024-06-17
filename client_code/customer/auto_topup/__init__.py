@@ -13,7 +13,7 @@ class auto_topup(auto_topupTemplate):
       self.user = user
       # Set Form properties and Data Bindings.
       username = anvil.server.call('get_username', self.user['users_phone'])
-      self.label_1.text = f"Welcome to Green Gate Financial, {username}"
+      #self.label_1.text = f"Welcome to Green Gate Financial, {username}"
       currencies = anvil.server.call('get_user_currency', self.user['users_phone'])
       self.drop_down_2.items= [str(row['users_balance_currency_type']) for row in currencies]
       self.display()
@@ -93,7 +93,7 @@ class auto_topup(auto_topupTemplate):
             self.user['users_minimum_topup'] = False
             anvil.alert("Auto-topup is not required.")
             print("Your balance is not below the limit")
-            open_form('customer_page', user=self.user)
+            open_form('customer', user=self.user)
         else:
           self.label_4.text = "Error: No matching accounts found for the user or invalid account number."
           #open_form('customer', user=self.user)
@@ -204,20 +204,29 @@ class auto_topup(auto_topupTemplate):
 
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.deposit",user=self.user)
+      open_form("customer.walletbalance",user=self.user)
 
     def link_3_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('customer.transfer',user=self.user)
+      open_form('customer.transactions',user=self.user)
 
     def link_4_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('customer.withdraw',user=self.user)
+      open_form('customer.transfer',user=self.user)
 
     def link_7_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('customer.service',user=self.user)
+      open_form('customer.Viewprofile',user=self.user)
 
     def link_13_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form("Home")
+
+    def link_10_click(self, **event_args):
+      open_form('customer.deposit',user=self.user)
+
+    def link_5_click(self, **event_args):
+      open_form('customer.withdraw',user=self.user)
+
+    def link_8_click(self, **event_args):
+      open_form('customer.settings',user=self.user)

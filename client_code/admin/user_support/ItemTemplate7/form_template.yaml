@@ -3,7 +3,7 @@ container:
   type: ColumnPanel
   properties: {col_widths: '{"YCUHVG":10,"JHNFSK":10,"VGYGMB":10,"TIEFWR":18,"WPJCXN":12}', visible: true, background: '#efeff0'}
 components:
-- name: label_11
+- name: label_1
   properties: {text: '', align: center}
   type: Label
   layout_properties: {grid_position: 'VJYUMV,YCUHVG'}

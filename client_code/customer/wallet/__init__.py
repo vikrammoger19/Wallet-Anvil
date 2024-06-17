@@ -13,7 +13,7 @@ class wallet(walletTemplate):
         self.init_components(**properties)
         self.user = user
         
-        self.label_1.text = f"Welcome to Green Gate Financial, {user['users_username']}"
+        #self.label_1.text = f"Welcome to Green Gate Financial, {user['users_username']}"
         self.bank_details_visible = False
         self.label_bank_details_error = Label(text="", role="alert")
         self.label_bank_name.visible = False
@@ -80,19 +80,19 @@ class wallet(walletTemplate):
 
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.deposit",user=self.user)
+      open_form("customer.walletbalance",user=self.user)
 
     def link_3_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.transfer",user=self.user)
+      open_form("customer.transactions",user=self.user)
 
     def link_4_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.withdraw",user=self.user)
+      open_form("customer.transfer",user=self.user)
 
     def link_7_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.service",user=self.user)
+      open_form("customer.Viewprofile",user=self.user)
 
     def link_1_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -104,7 +104,18 @@ class wallet(walletTemplate):
 
     def link_8_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.service",user=self.user)
+      open_form("customer.wallet",user=self.user)
+
+    def link_10_click(self, **event_args):
+      open_form('customer.deposit',user=self.user)
+
+    def link_5_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.withdraw',user=self.user)
+
+    def link_6_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.auto_topup',user=self.user)
 
 
 

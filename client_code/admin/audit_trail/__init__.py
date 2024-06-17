@@ -14,7 +14,7 @@ class audit_trail(audit_trailTemplate):
     self.load_all_actions()
     # Any code you write here will run before the form opens.
     self.check_profile_pic()
-    #self.label_7.text = self.user['users_username']
+    self.label_7.text = self.user['users_username']
   
   def check_profile_pic(self):
         print(self.user)
@@ -170,7 +170,7 @@ class audit_trail(audit_trailTemplate):
 
   def link_8_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('Home')
+    open_form('admin',user=self.user)
 
   # def button_1_click(self, **event_args):
   #   """This method is called when the button is clicked"""

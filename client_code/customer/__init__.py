@@ -41,6 +41,7 @@ class customer(customerTemplate):
                     'transaction_time': "",
                     'fund_color': "black"
                 }]
+                self.spacer_2.height = 293.34112548828125
             else:
                 # Process transactions as before
                 self.repeating_panel_2_items = []
@@ -102,7 +103,8 @@ class customer(customerTemplate):
                         'transaction_time': transaction_time,
                         'fund_color': fund_color,
                         'default_currency':default_currency,
-                        'profile_pic':profile_pic
+                        'profile_pic':profile_pic,
+                        'bank_name':transaction['users_transaction_bank_name']
                     })
         
                     # Limit the maximum number of history entries to display
@@ -113,8 +115,6 @@ class customer(customerTemplate):
                   self.spacer_3.visible = True
                   self.spacer_3.height =9.051422119140625
                   self.spacer_2.height =268.2103271484375
-                elif len(sorted_transactions)==0:
-                  self.spacer_2.height = 271.2103271484375
                 elif len(self.repeating_panel_2_items) == 2:
                   self.spacer_2.height = 204.65887451171875
                 elif len(self.repeating_panel_2_items) == 3:

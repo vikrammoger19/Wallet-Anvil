@@ -47,10 +47,10 @@ class ItemTemplate17(ItemTemplate17Template):
               name='Payment from'
               self.label_1.text = f"{name} {self.item['receiver_username']}"
             elif self.item['transaction_text'] == 'Deposit':
-              name='Deposit by you'
+              name=self.item['bank_name']
               self.label_1.text = f"{name}"
             elif self.item['transaction_text'] == 'Withdrawn':
-              name = 'Withdraw by you'
+              name=self.item['bank_name']
               self.label_1.text = f"{name}"
             self.label_2.foreground = self.item['fund_color']
             # self.text_box_2.visible= True

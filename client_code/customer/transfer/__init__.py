@@ -17,6 +17,70 @@ class transfer(transferTemplate):
         currencies=anvil.server.call('get_user_currency',self.user['users_phone'])
         self.drop_down_2.items= [str(row['users_balance_currency_type']) for row in currencies]
         self.display()
+        self.populate_balances()
+    def populate_balances(self):
+      try:
+          # Retrieve balances for the current user
+          user_phone = self.user['users_phone']
+          user_balances = app_tables.wallet_users_balance.search(users_balance_phone=user_phone)
+  
+          # Print the retrieved data
+          print("Retrieved balances:", user_balances)
+  
+          # Initialize index for card and components
+          card_index = 1
+          label_index = 1  # Start from label_1
+          country_label_index = 50  # Start from label_50 for country
+          image_index = 1
+  
+          # Iterate over user balances and update card components
+          for balance in user_balances:
+              currency_type = balance['users_balance_currency_type']
+              balance_amount = round(balance['users_balance'], 2)  # Round to 2 decimal places
+  
+              # Lookup the currency icon, symbol, and country in the wallet_currency table
+              currency_record = app_tables.wallet_admins_add_currency.get(admins_add_currency_code=currency_type)
+              currency_icon = currency_record['admins_add_currency_icon'] if currency_record else None
+              country = currency_record['admins_add_currency_country'] if currency_record else None
+  
+              # Get card and components for the current index
+              card = getattr(self, f'card_{card_index}', None)
+              label_curr_type = getattr(self, f'label_{label_index}', None)
+              label_balance = getattr(self, f'label_{label_index + 1}', None)
+              label_country = getattr(self, f'label_{country_label_index}', None)
+              image_icon = getattr(self, f'image_icon_{image_index}', None)
+  
+              if card and label_curr_type and label_balance and image_icon and label_country:
+                  # Update card components with balance data
+                  label_curr_type.text = currency_type
+                  label_balance.text = f"{balance_amount:.2f}"  # Format to 2 decimal places
+                  label_balance.icon = f"fa:{currency_type.lower()}"
+                  label_country.text = country
+                  image_icon.source = currency_icon
+  
+                  # Align icon and text closer together if possible
+                  # Adjust layout properties depending on your framework
+                  # Example: label_balance.icon_style = "margin-right: 5px;"  # Adjust as needed
+  
+                  # Set card visibility to True
+                  card.visible = True
+  
+                  # Increment indices for the next iteration
+                  card_index += 1
+                  label_index += 2
+                  country_label_index += 1
+                  image_index += 1
+  
+          # Set visibility of remaining cards to False if no data
+          while card_index <= 12:
+              card = getattr(self, f'card_{card_index}', None)
+              if card:
+                  card.visible = False
+              card_index += 1
+  
+      except Exception as e:
+          # Print any exception that occurs during the process
+          print("Error occurred during population of balances:", e)
      
 
     def drop_down_1_change(self, **event_args):
@@ -100,7 +164,7 @@ class transfer(transferTemplate):
           
     def link_8_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.service",user=self.user)
+      open_form("customer.wallet",user=self.user)
 
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -112,7 +176,7 @@ class transfer(transferTemplate):
 
     def link_4_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.withdraw",user=self.user)
+      open_form("customer.transfer",user=self.user)
 
     def link_7_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -125,6 +189,17 @@ class transfer(transferTemplate):
     def link_13_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form("Home")
+
+    def link_10_click(self, **event_args):
+      open_form('customer.deposit',user=self.user)
+
+    def link_5_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.withdraw',user=self.user)
+
+    def link_6_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.auto_topup',user=self.user)
 
   
 
