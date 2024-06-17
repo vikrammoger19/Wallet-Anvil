@@ -13,7 +13,7 @@ class wallet(walletTemplate):
         self.init_components(**properties)
         self.user = user
         
-        self.label_1.text = f"Welcome to Green Gate Financial, {user['users_username']}"
+        #self.label_1.text = f"Welcome to Green Gate Financial, {user['users_username']}"
         self.bank_details_visible = False
         self.label_bank_details_error = Label(text="", role="alert")
         self.label_bank_name.visible = False
