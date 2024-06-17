@@ -4,7 +4,7 @@ container:
   properties: {tooltip: '', background: '', foreground: '', border: '', visible: true, role: null, html: ''}
 components:
 - type: ColumnPanel
-  properties: {role: card, col_widths: '{"GVPNGK":10}'}
+  properties: {role: card, col_widths: '{"GVPNGK":10,"TKSRFI":3,"ULOKUC":15}'}
   name: card_1
   layout_properties: {slot: default}
   components:
@@ -221,65 +221,6 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'EKNWFM,TKSRFI WHCJAM,ILYKSE'}
-  - name: label_4
-    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'Branch Name:'}
-    type: Label
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI AWISZW,ZCFBMB'}
-  - name: text_box_2
-    properties: {background: white, font_size: 17}
-    type: TextBox
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI AWISZW,WDPMPH'}
-  - name: label_account_number
-    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'Account Number:'}
-    type: Label
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI KSKRJR,AMHCRC'}
-  - name: textbox_account_number
-    properties: {background: white, font_size: 17}
-    type: TextBox
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI KSKRJR,XZZJBL'}
-  - name: label_ifsc_code
-    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'IFSC Code:'}
-    type: Label
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI RGGVAN,MGRMJC'}
-  - name: textbox_ifsc_code
-    properties: {background: white, font_size: 17}
-    type: TextBox
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI RGGVAN,KWCHWN'}
-  - name: label_5
-    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'Account Type:'}
-    type: Label
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI UEIOAA,AKMVWN'}
-  - name: drop_down_1
-    properties:
-      role: null
-      include_placeholder: false
-      bold: false
-      align: full
-      placeholder: ''
-      spacing_above: small
-      background: white
-      underline: false
-      font: ''
-      foreground: ''
-      items: [Select Account Type, Savings Account, Current Account, Personal Account]
-      spacing_below: small
-      visible: true
-      border: ''
-      italic: false
-      enabled: true
-      font_size: 17
-      tooltip: ''
-    type: DropDown
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI UEIOAA,MZEQCJ'}
-  - name: spacer_1_copy_1_copy_1
-    properties: {height: 38.24993896484375}
-    type: Spacer
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI ZVJOTZ,BJOABO'}
-  - name: button_save_bank_details
-    properties: {role: outlined-button, bold: true, align: center, spacing_above: small, background: '#2887d1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 17, tooltip: '', text: 'Submit   '}
-    type: Button
-    layout_properties: {grid_position: 'EKNWFM,TKSRFI RXAPXE,JLLOXX'}
-    event_bindings: {click: button_save_bank_details_click}
   - name: outlined_card_1
     properties: {role: null, col_widths: '{"VMILPR":8,"FDANOO":15,"HAKDVS":15}', spacing_above: none, background: '#2270ad', wrap_on: mobile, col_spacing: none, foreground: '', spacing_below: none, visible: true, border: '', tooltip: ''}
     type: ColumnPanel
@@ -306,23 +247,6 @@ components:
       type: Link
       layout_properties: {grid_position: 'XSXLAE,NFTMSZ'}
       event_bindings: {click: link_8_click}
-  - name: label_3
-    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'Account Holder''s Name:'}
-    type: Label
-    layout_properties: {grid_position: 'EKNWFM,WTFKDZ'}
-  - name: label_bank_name
-    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'Bank Name:'}
-    type: Label
-    layout_properties: {grid_position: 'EKNWFM,HOTYSQ'}
-  - name: drop_down_2
-    properties:
-      items: [Select Bank Account]
-    type: DropDown
-    layout_properties: {grid_position: 'EKNWFM,RZKHBG'}
-  - name: text_box_1
-    properties: {background: white, font_size: 17}
-    type: TextBox
-    layout_properties: {grid_position: 'EKNWFM,SVTLLQ'}
   - name: label_1000000
     properties:
       role: null
@@ -344,13 +268,94 @@ components:
       text: |
         Bank Accounts
     type: Label
-    layout_properties: {grid_position: 'EKNWFM,MWIGFU BXWEZH,HMSLUS'}
+    layout_properties: {grid_position: 'EKNWFM,ULOKUC OHFBAP,JDJRVG'}
   - name: spacer_2
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'EKNWFM,MWIGFU XHAUZD,OQSRRW'}
+    layout_properties: {grid_position: 'EKNWFM,ULOKUC ZGEWPT,XCYBYQ'}
   - name: button_add_bank_details_click
     properties: {role: outlined-button, bold: true, align: center, spacing_above: small, background: '#2586d0', icon: 'fa:angle-down', underline: false, font: '', icon_align: right, foreground: white, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 15, tooltip: '', text: Add bank details}
     type: Button
-    layout_properties: {grid_position: 'EKNWFM,MWIGFU MMVJZY,DHJMJB'}
+    layout_properties: {grid_position: 'EKNWFM,ULOKUC INVOFW,CHIDZQ'}
     event_bindings: {click: button_add_bank_details_click_click}
+  - name: grid_panel_1
+    properties: {}
+    type: GridPanel
+    layout_properties: {grid_position: 'EKNWFM,ULOKUC RBJAFS,DIQQIZ'}
+    components:
+    - name: label_3
+      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'Account Holder''s Name:'}
+      type: Label
+      layout_properties: {row: WSCAXG, width_xs: 5, col_xs: 0}
+    - name: text_box_1
+      properties: {background: white, font_size: 17}
+      type: TextBox
+      layout_properties: {row: WSCAXG, width_xs: 5, col_xs: 6}
+    - name: label_bank_name
+      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'Bank Name:'}
+      type: Label
+      layout_properties: {row: RHTZTH, width_xs: 5, col_xs: 0}
+    - name: drop_down_2
+      properties:
+        items: [Select Bank Account]
+      type: DropDown
+      layout_properties: {row: RHTZTH, width_xs: 5, col_xs: 6}
+    - name: label_4
+      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'Branch Name:'}
+      type: Label
+      layout_properties: {row: UVPDYP, width_xs: 5, col_xs: 0}
+    - name: text_box_2
+      properties: {background: white, font_size: 17}
+      type: TextBox
+      layout_properties: {row: UVPDYP, width_xs: 5, col_xs: 6}
+    - name: label_account_number
+      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'Account Number:'}
+      type: Label
+      layout_properties: {row: VHYVUX, width_xs: 5, col_xs: 0}
+    - name: textbox_account_number
+      properties: {background: white, font_size: 17}
+      type: TextBox
+      layout_properties: {row: VHYVUX, width_xs: 5, col_xs: 6}
+    - name: label_ifsc_code
+      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'IFSC Code:'}
+      type: Label
+      layout_properties: {row: DTYKKA, width_xs: 5, col_xs: 0}
+    - name: textbox_ifsc_code
+      properties: {background: white, font_size: 17}
+      type: TextBox
+      layout_properties: {row: DTYKKA, width_xs: 5, col_xs: 6}
+    - name: label_5
+      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'Account Type:'}
+      type: Label
+      layout_properties: {row: HCXDYN, width_xs: 5, col_xs: 0}
+    - name: drop_down_1
+      properties:
+        role: null
+        include_placeholder: false
+        bold: false
+        align: full
+        placeholder: ''
+        spacing_above: small
+        background: white
+        underline: false
+        font: ''
+        foreground: ''
+        items: [Select Account Type, Savings Account, Current Account, Personal Account]
+        spacing_below: small
+        visible: true
+        border: ''
+        italic: false
+        enabled: true
+        font_size: 17
+        tooltip: ''
+      type: DropDown
+      layout_properties: {row: HCXDYN, width_xs: 5, col_xs: 6}
+    - name: spacer_1_copy_1_copy_1
+      properties: {height: 38.24993896484375}
+      type: Spacer
+      layout_properties: {row: WZDLDK, width_xs: 10, col_xs: 1}
+    - name: button_save_bank_details
+      properties: {role: outlined-button, bold: true, align: center, spacing_above: small, background: '#2887d1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 17, tooltip: '', text: 'Submit   '}
+      type: Button
+      layout_properties: {row: WXDDBS, width_xs: 5, col_xs: 3}
+      event_bindings: {click: button_save_bank_details_click}
