@@ -218,19 +218,15 @@ components:
       layout_properties: {x: 18.5601806640625, y: 7.432826466858387, width: 1053.2855224609375}
       name: card_2
       components:
-      - properties: {col_widths: '{"EJEIKP":20,"HTDXFR":45,"KXUJWZ":10,"JFHEUS":9,"KKUNDF":20}'}
+      - properties: {col_widths: '{"EJEIKP":45,"JFHEUS":8,"KKUNDF":7}'}
         type: ColumnPanel
         layout_properties: {grid_position: 'USQCPA,BCTJCN'}
         name: column_panel_2
         components:
-        - properties: {align: center, bold: true, font_size: 24, text: Transactions}
+        - properties: {align: center, bold: true, font_size: 24, text: Transactions, foreground: 'theme:White', italic: true}
           type: Label
           layout_properties: {grid_position: 'LFQUJB,EJEIKP'}
           name: label_2
-        - properties: {height: 32}
-          type: Spacer
-          layout_properties: {grid_position: 'LFQUJB,HTDXFR'}
-          name: spacer_2
         - properties: {height: 7.78973388671875}
           type: XYPanel
           layout_properties: {grid_position: 'LFQUJB,KKUNDF'}
@@ -244,15 +240,6 @@ components:
             type: Label
             layout_properties: {x: 54.48307842761278, y: 0, width: 111.59461975097656}
             name: label_4
-        - properties: {height: 27.32244873046875}
-          type: XYPanel
-          layout_properties: {grid_position: 'LFQUJB,KXUJWZ'}
-          name: xy_panel_9
-          components:
-          - properties: {align: center, icon: 'fa:bell-o', font_size: 25, foreground: white, visible: false}
-            type: Link
-            layout_properties: {x: 0, y: 7.321844100952148, width: 68.234954296875}
-            name: link_16
         - properties: {height: 43.80841064453125, source: _/theme/account.png}
           type: Image
           layout_properties: {grid_position: 'LFQUJB,JFHEUS'}
