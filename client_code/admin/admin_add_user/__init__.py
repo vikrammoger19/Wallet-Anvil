@@ -105,7 +105,7 @@ class admin_add_user(admin_add_userTemplate):
         open_form('admin.transaction_monitoring', user=self.user)
 
     def link_6_click(self, **event_args):
-        open_form('admin.admin_add_user', user=self.user)
+        open_form('admin.raise_a_complaint', user=self.user)
 
     def link_5_click(self, **event_args):
         open_form('admin.audit_trail', user=self.user)
@@ -115,4 +115,9 @@ class admin_add_user(admin_add_userTemplate):
         user_support_form = open_form('admin.user_support', serves_data=serves_data)
 
     def link_3_click(self, **event_args):
-        show_users_form = open_form('admin.show_users', user=self.user)
+        #show_users_form = open_form('admin.show_users', user=self.user)
+        open_form('admin.transaction_monitoring',user=self.user)
+
+    def link_10_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.add_currency',user=self.user)
