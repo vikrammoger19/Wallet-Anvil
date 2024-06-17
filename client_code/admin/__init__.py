@@ -9,7 +9,7 @@ class admin(adminTemplate):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.user = user
-        self.total_user.text = anvil.server.call('total_users',self.user['users_usertype'])
+        #self.total_user.text = anvil.server.call('total_users',self.user['users_usertype'])
         if user is not None:
             self.label_4.text = user['users_username']
             #self.image_3.source=user['users_profile_pic']
@@ -100,7 +100,7 @@ class admin(adminTemplate):
         open_form('admin.show_users',user=self.user)
 
     def link_9_click(self, **event_args):
-        open_form('Home')
+        open_form('Home',user=self.user)
 
     def link_10_click(self, **event_args):
         open_form('admin.add_currency',user=self.user)
