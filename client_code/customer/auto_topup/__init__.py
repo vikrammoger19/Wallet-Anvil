@@ -93,7 +93,7 @@ class auto_topup(auto_topupTemplate):
             self.user['users_minimum_topup'] = False
             anvil.alert("Auto-topup is not required.")
             print("Your balance is not below the limit")
-            open_form('customer_page', user=self.user)
+            open_form('customer', user=self.user)
         else:
           self.label_4.text = "Error: No matching accounts found for the user or invalid account number."
           #open_form('customer', user=self.user)
