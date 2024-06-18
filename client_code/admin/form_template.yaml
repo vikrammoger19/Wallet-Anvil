@@ -228,6 +228,7 @@ components:
             type: Label
             layout_properties: {x: 91.57499389722943, y: 0, width: 77}
             name: label_3_copy_7
+      layout_properties: {width: 263.55682373046875}
     - properties: {col_widths: '{}'}
       type: ColumnPanel
       layout_properties: {width: 1041.8401904296875}

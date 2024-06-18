@@ -12,7 +12,7 @@ class create_admin(create_adminTemplate):
     self.init_components(**properties)
     self.user = user
     self.label_12.text = datetime.now().strftime('%d %b %Y')
-    self.which_admin_created_account = user['username']
+    self.which_admin_created_account = user['users_username']
     print(self.which_admin_created_account)
 
   def button_1_click(self, **event_args): 
