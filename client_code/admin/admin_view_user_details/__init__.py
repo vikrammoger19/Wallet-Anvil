@@ -13,7 +13,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
         self.user = user
         if self.user is not None:
           self.label_6566.text = self.user['users_username']
-          self.label_6566.text = self.user['users_username']
+          # self.label_6566.text = self.user['users_username']
 
         self.phone_number = phone_number
         self.init_components(**properties)
