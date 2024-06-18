@@ -14,7 +14,13 @@ startup: {type: form, module: Home}
 package_name: d1
 allow_embedding: false
 name: Wallet Anvil
-runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox, server_spec: null}
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python3-sandbox
+  server_spec: null
+  server_persist: false
+  server_spec_disabled: {requirements: '', base: python310-standard}
 metadata: {}
 startup_form: null
 db_schema:
