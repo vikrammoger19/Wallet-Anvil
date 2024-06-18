@@ -32,7 +32,7 @@ class admin(adminTemplate):
     def refresh_data(self):
     # Call the server function to get transactions data
       transactions = anvil.server.call('get_transactions')
-  
+    
       # Check if there are no transactions
       if not transactions:
           self.plot_1.data = [go.Scatter(x=[0], y=[0], mode='text', text=['No transactions'], textposition='middle center')]
@@ -109,6 +109,8 @@ class admin(adminTemplate):
       )
   
       self.plot_1.visible = True
+
+
 
 
     def link_1_click(self, **event_args):
