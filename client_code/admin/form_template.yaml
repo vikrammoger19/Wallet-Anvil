@@ -15,7 +15,6 @@ components:
     components:
     - properties: {role: card, col_widths: '{}'}
       type: ColumnPanel
-      layout_properties: {width: 293.6000061035156}
       name: card_1_copy
       components:
       - properties: {height: 60, background: 'theme:Gray 50'}
