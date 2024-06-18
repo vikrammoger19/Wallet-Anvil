@@ -33,6 +33,17 @@ class admin(adminTemplate):
     # Call the server function to get transactions data
       transactions = anvil.server.call('get_transactions')
   
+      # Check if there are no transactions
+      if not transactions:
+          self.plot_1.data = [go.Scatter(x=[0], y=[0], mode='text', text=['No transactions'], textposition='center')]
+          self.plot_1.layout = go.Layout(
+              title='Monthly Credit Transactions in Wallet by Currency',
+              xaxis=dict(title='Month'),
+              yaxis=dict(title='Amount')
+          )
+          self.plot_1.visible = True
+          return
+  
       # Filter transactions to include only 'Credit' type
       credit_transactions = [t for t in transactions if t['users_transaction_type'] == 'Credit']
   
@@ -46,7 +57,7 @@ class admin(adminTemplate):
       credit_by_month_and_currency = {currency: {} for currency in currency_types}
       for currency in currency_types:
           for year in years:
-              for month in range(1, 13):
+              for month in range(1, 12+1):
                   key = f"{year}-{month:02}"
                   credit_by_month_and_currency[currency][key] = 0
   
@@ -93,6 +104,7 @@ class admin(adminTemplate):
       )
   
       self.plot_1.visible = True
+
 
     def link_1_click(self, **event_args):
         open_form('admin.report_analysis',user=self.user)
