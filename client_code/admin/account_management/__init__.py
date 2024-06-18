@@ -4,6 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from .ItemTemplate6 import ItemTemplate6
 
 class account_management(account_managementTemplate):
   def __init__(self, user= None, **properties):
@@ -19,6 +20,7 @@ class account_management(account_managementTemplate):
     
     #print(mail)
     self.refresh_users()
+    ItemTemplate6.user=self.user
     # self.check_profile_pic()
   
   # def check_profile_pic(self):
