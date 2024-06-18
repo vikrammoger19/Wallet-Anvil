@@ -305,7 +305,7 @@ components:
             type: Label
             layout_properties: {grid_position: 'YXQQIJ,LJAUCU'}
           - name: label_6
-            properties: {bold: true, text: Admin, visible: false}
+            properties: {bold: true, text: Admin, visible: true}
             type: Label
             layout_properties: {grid_position: 'YXQQIJ,CPQDLF'}
         - name: repeating_panel_2
