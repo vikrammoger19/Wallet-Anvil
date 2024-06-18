@@ -18,9 +18,9 @@ runtime_options:
   version: 2
   client_version: '3'
   server_version: python3-sandbox
-  server_spec: {base: python310-standard}
+  server_spec: null
   server_persist: false
-  server_spec_disabled: {requirements: '', base: python310-standard}
+  server_spec_disabled: {base: python310-standard, requirements: ''}
 metadata: {}
 startup_form: null
 db_schema:
