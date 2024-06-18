@@ -14,7 +14,13 @@ startup: {type: form, module: Home}
 package_name: d1
 allow_embedding: false
 name: Wallet Anvil
-runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox, server_spec: null}
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python3-sandbox
+  server_spec: {base: python310-standard}
+  server_persist: false
+  server_spec_disabled: {base: python310-standard, requirements: ''}
 metadata: {}
 startup_form: null
 db_schema:
@@ -214,7 +220,7 @@ db_schema:
       admin_ui: {width: 147}
       type: string
     - name: users_auto_topup
-      admin_ui: {width: 200}
+      admin_ui: {order: 5.25, width: 200}
       type: bool
     - name: users_country
       admin_ui: {width: 200}
@@ -232,10 +238,10 @@ db_schema:
       admin_ui: {order: 6, width: 200}
       type: bool
     - name: users_last_auto_topup_time
-      admin_ui: {width: 217}
+      admin_ui: {order: 8.875, width: 217}
       type: datetime
     - name: users_last_login
-      admin_ui: {width: 200}
+      admin_ui: {order: 5.125, width: 200}
       type: datetime
     - name: users_minimum_topup
       admin_ui: {width: 200}
@@ -244,10 +250,10 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     - name: users_timely_topup
-      admin_ui: {width: 200}
+      admin_ui: {order: 8.5, width: 200}
       type: bool
     - name: users_timely_topup_interval
-      admin_ui: {width: 220}
+      admin_ui: {order: 8.75, width: 220}
       type: string
     - name: users_profile_pic
       admin_ui: {width: 200, order: 24}

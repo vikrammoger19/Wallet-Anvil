@@ -126,7 +126,7 @@ class admin(adminTemplate):
         open_form('admin.admin_add_user',user=self.user)
 
     def link_5_click(self, **event_args):
-        open_form('admin.audit_trail',user=self.user)
+        open_form('admin.audit_tra',user=self.user)
 
     def link_6_click(self, **event_args):
         open_form('admin.raise_a_complaint',user=self.user)
@@ -135,7 +135,7 @@ class admin(adminTemplate):
         open_form('admin.show_users',user=self.user)
 
     def link_9_click(self, **event_args):
-        open_form('Home',user=self.user)
+        open_form('admin.create_admin',user=self.user)
 
     def link_10_click(self, **event_args):
         open_form('admin.add_currency',user=self.user)

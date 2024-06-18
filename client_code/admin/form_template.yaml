@@ -15,7 +15,6 @@ components:
     components:
     - properties: {role: card, col_widths: '{}'}
       type: ColumnPanel
-      layout_properties: {width: 293.6000061035156}
       name: card_1_copy
       components:
       - properties: {height: 60, background: 'theme:Gray 50'}
@@ -111,31 +110,31 @@ components:
             type: Label
             layout_properties: {x: 95, y: 0, width: 153.625}
             name: label_3_copy_2_copy
+      - properties: {text: '', bold: true, align: center}
+        type: Link
+        layout_properties: {grid_position: 'QROGHY,XTGDKX'}
+        event_bindings: {click: link_10_click}
+        name: link_10
+        components:
+        - properties: {height: 25.79998779296875}
+          type: XYPanel
+          layout_properties: {grid_position: 'WAPTBK,USGOHT'}
+          name: xy_panel_6
+          components:
+          - properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/circle.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 32.5999755859375}
+            type: Image
+            layout_properties: {x: 38, y: 5, width: 41}
+            name: image_4_copy_4
+          - properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Add Currency}
+            type: Label
+            layout_properties: {x: 95, y: 0, width: 112.3523}
+            name: label_3_copy_3
       - properties: {text: '', align: center, bold: true}
         type: Link
         layout_properties: {grid_position: 'AXHMPX,XIALMA'}
         event_bindings: {click: link_4_click}
         name: link_7
         components:
-        - properties: {text: '', bold: true, align: center}
-          type: Link
-          layout_properties: {grid_position: 'GRJEUN,SSLIHF'}
-          event_bindings: {click: link_10_click}
-          name: link_10
-          components:
-          - properties: {height: 25.79998779296875}
-            type: XYPanel
-            layout_properties: {grid_position: 'WAPTBK,USGOHT'}
-            name: xy_panel_6
-            components:
-            - properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/circle.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 32.5999755859375}
-              type: Image
-              layout_properties: {x: 38, y: 5, width: 41}
-              name: image_4_copy_4
-            - properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Add Currency}
-              type: Label
-              layout_properties: {x: 95, y: 0, width: 112.3523}
-              name: label_3_copy_3
         - properties: {height: 25.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
@@ -168,11 +167,11 @@ components:
             type: Image
             layout_properties: {x: 38, y: 1, width: 47}
             name: image_4_copy_5
-      - name: link_5_copy
+      - name: link_9
         properties: {text: '', align: center, bold: true}
         type: Link
         layout_properties: {grid_position: 'VNVGNO,ICIEXM'}
-        event_bindings: {click: link_5_click}
+        event_bindings: {click: link_9_click}
         components:
         - name: xy_panel_7_copy_2
           properties: {height: 25.79998779296875}
@@ -184,9 +183,9 @@ components:
             type: Label
             layout_properties: {x: 95, y: 0, width: 105.53751220703126}
           - name: image_4_copy_5_copy_2
-            properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/add-user_15714241.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 34}
+            properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/add-user_15714241.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 30.09088134765625}
             type: Image
-            layout_properties: {x: 38, y: 1, width: 47}
+            layout_properties: {x: 38, y: 1, width: 46.999999999999986}
       - properties: {text: '', align: center, bold: true}
         type: Link
         layout_properties: {grid_position: 'SZPVXF,EAZPND'}

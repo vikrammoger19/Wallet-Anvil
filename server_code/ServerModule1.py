@@ -7,7 +7,7 @@ from anvil import tables, app
 import random
 import anvil.email
 import base64
-# from PIL import Image,ImageDraw
+from PIL import Image,ImageDraw
 from io import BytesIO
 #import datetime
 
