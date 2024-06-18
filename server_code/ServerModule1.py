@@ -82,6 +82,17 @@ def total_users(customer):
     print(users)
     return len(users)
 
+@anvil.server.callable
+def add_admins_info(username, email, phone_number, password):
+    admin_row = app_tables.wallet_users.add_row(
+        users_username=username,
+        users_email=email, 
+        users_phone=phone_number,
+        users_password=password,
+        users_usertype='admin',
+    )
+    return admin_row
+
 
 ###
 
