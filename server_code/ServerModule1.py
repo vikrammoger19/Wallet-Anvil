@@ -118,6 +118,20 @@ def get_user_currency(phone):
   return currency
 
 @anvil.server.callable
+def get_admin_by_phone(phone_number):
+    try:
+        phone_number = int(phone_number)  # Convert the phone_number to an integer
+        admins = app_tables.wallet_admins_create_admin_account.search(admins_phone=phone_number)
+
+        if admins and len(admins) > 0:
+            return admins[0]
+        else:
+            return None
+    except ValueError:
+        # Handle the case where the input cannot be converted to an integer
+        return None
+
+@anvil.server.callable
 def get_wallet_transactions():
     return app_tables.wallet_users_transaction.search()
 
