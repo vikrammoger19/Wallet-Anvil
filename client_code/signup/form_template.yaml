@@ -45,7 +45,7 @@ components:
           data_bindings:
           - {property: text, code: 'self.item[''username'']', writeback: false}
         - name: text_box_2
-          properties: {role: null, bold: false, align: left, placeholder: Email, spacing_above: small, background: 'theme:White', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 14, tooltip: '', text: ''}
+          properties: {role: null, bold: false, align: left, placeholder: Email*, spacing_above: small, background: 'theme:White', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 14, tooltip: '', text: ''}
           type: TextBox
           layout_properties: {grid_position: 'CWITMQ,GWILGX FNFWWO,XCKBHR'}
           data_bindings:
@@ -73,7 +73,7 @@ components:
           type: DropDown
           layout_properties: {grid_position: 'NTNVOX,EVGLIN'}
         - name: text_box_3
-          properties: {role: null, bold: false, align: left, placeholder: Your Phone Number, spacing_above: small, background: 'theme:White', type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 14, tooltip: '', text: ''}
+          properties: {role: null, bold: false, align: left, placeholder: Your Phone Number*, spacing_above: small, background: 'theme:White', type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 14, tooltip: '', text: ''}
           type: TextBox
           layout_properties: {grid_position: 'VFERJI,MWUYIS'}
           event_bindings: {pressed_enter: text_box_3_pressed_enter}
@@ -98,7 +98,7 @@ components:
           type: TextBox
           layout_properties: {grid_position: 'WDUWVY,KOKYSF'}
         - name: text_box_7
-          properties: {placeholder: 'Your Aadhar ', font_size: 14, type: number, background: 'theme:White'}
+          properties: {placeholder: Your Aadhar*, font_size: 14, type: number, background: 'theme:White'}
           type: TextBox
           layout_properties: {grid_position: 'ITPQXB,LABTCX'}
           data_bindings:
@@ -113,7 +113,7 @@ components:
             type: Label
             layout_properties: {grid_position: 'OFVZIZ,TGBOVG'}
         - name: text_box_8
-          properties: {placeholder: Pan, font_size: 14, background: 'theme:White'}
+          properties: {placeholder: Pan*, font_size: 14, background: 'theme:White'}
           type: TextBox
           layout_properties: {grid_position: 'BXUSSY,LJQTOI'}
           data_bindings:
@@ -128,13 +128,13 @@ components:
             type: Label
             layout_properties: {grid_position: 'OFVZIZ,TGBOVG'}
         - name: text_box_5
-          properties: {placeholder: Create Password, font_size: 14, hide_text: true, background: 'theme:White'}
+          properties: {placeholder: Create Password*, font_size: 14, hide_text: true, background: 'theme:White'}
           type: TextBox
           layout_properties: {grid_position: 'BIKDYG,RILSSO'}
           data_bindings:
           - {property: text, code: 'self.item[''password'']', writeback: false}
         - name: text_box_6
-          properties: {placeholder: Confirm Password, spacing_below: none, font_size: 14, hide_text: true, background: 'theme:White'}
+          properties: {placeholder: Confirm Password*, spacing_below: none, font_size: 14, hide_text: true, background: 'theme:White'}
           type: TextBox
           layout_properties: {grid_position: 'SKYAGY,DEPGRH'}
           data_bindings:
