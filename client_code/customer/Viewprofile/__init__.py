@@ -15,6 +15,8 @@ class Viewprofile(ViewprofileTemplate):
         self.password = password
         self.check_profile_pic()
         self.edit_mode = False  # Initial edit mode is set to False
+        self.label_1.text=self.user['users_username']
+        self.label_8.text=self.user['users_email']
         self.label_12.text=self.user['users_last_login']
         if user:
             #self.label_8.text = f"Welcome to Green Gate Financial, {user['users_username']}"
