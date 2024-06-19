@@ -16,17 +16,31 @@ class admin(adminTemplate):
         self.refresh_data()
         self.check_profile_pic()
 
-  
     def check_profile_pic(self):
-      user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
-      if user_data:
-        existing_img = user_data['users_profile_pic']
-        if existing_img != None:
-          self.image_3.source = existing_img
-        else: 
-          print('no pic')
-      else:
-        print('none')
+        if self.user and 'users_email' in self.user:
+            user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email']))
+            if user_data:
+                existing_img = user_data.get('users_profile_pic')
+                if existing_img:
+                    self.image_3.source = existing_img
+                else:
+                    print('No profile picture found')
+            else:
+                print('No user data found')
+        else:
+            print('User data is incomplete or missing')
+
+  
+    # def check_profile_pic(self):
+    #   user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
+    #   if user_data:
+    #     existing_img = user_data['users_profile_pic']
+    #     if existing_img != None:
+    #       self.image_3.source = existing_img
+    #     else: 
+    #       print('no pic')
+    #   else:
+    #     print('none')
 
   
     def refresh_data(self):
@@ -123,16 +137,16 @@ class admin(adminTemplate):
         open_form('admin.transaction_monitoring',user=self.user)
 
     def link_4_click(self, **event_args):
-        open_form('admin.admin_add_user',user=self.user)
+        open_form('admin.add_bank_account',user=self.user)
 
     def link_5_click(self, **event_args):
-        open_form('admin.audit_tra',user=self.user)
+        open_form('admin.audit_trail',user=self.user)
 
     def link_6_click(self, **event_args):
-        open_form('admin.raise_a_complaint',user=self.user)
+        open_form('admin.user_support',user=self.user)
 
     def link_7_click(self, **event_args):
-        open_form('admin.show_users',user=self.user)
+        open_form('admin.admin_add_user',user=self.user)
 
     def link_9_click(self, **event_args):
         open_form('admin.create_admin',user=self.user)

@@ -82,6 +82,17 @@ def total_users(customer):
     print(users)
     return len(users)
 
+@anvil.server.callable
+def add_admins_info(username, email, phone_number, password):
+    admin_row = app_tables.wallet_users.add_row(
+        users_username=username,
+        users_email=email, 
+        users_phone=phone_number,
+        users_password=password,
+        users_usertype='admin',
+    )
+    return admin_row
+
 
 ###
 
@@ -116,6 +127,20 @@ def get_username(phone):
 def get_user_currency(phone):
   currency= app_tables.wallet_users_balance.search(users_balance_phone=phone)
   return currency
+
+@anvil.server.callable
+def get_admin_by_phone(phone_number):
+    try:
+        phone_number = int(phone_number)  # Convert the phone_number to an integer
+        admins = app_tables.wallet_admins_create_admin_account.search(admins_phone=phone_number)
+
+        if admins and len(admins) > 0:
+            return admins[0]
+        else:
+            return None
+    except ValueError:
+        # Handle the case where the input cannot be converted to an integer
+        return None
 
 @anvil.server.callable
 def get_wallet_transactions():

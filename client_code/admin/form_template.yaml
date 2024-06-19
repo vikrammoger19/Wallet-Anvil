@@ -132,7 +132,7 @@ components:
       - properties: {text: '', align: center, bold: true}
         type: Link
         layout_properties: {grid_position: 'AXHMPX,XIALMA'}
-        event_bindings: {click: link_4_click}
+        event_bindings: {click: link_7_click}
         name: link_7
         components:
         - properties: {height: 25.79998779296875}
@@ -197,7 +197,7 @@ components:
           layout_properties: {grid_position: 'QIZNTB,ORSKYD'}
           name: xy_panel_7_copy
           components:
-          - properties: {text: user support}
+          - properties: {text: Users Support}
             type: Label
             layout_properties: {x: 95, y: 0, width: 117.5999755859375}
             name: label_3_copy_4_copy
@@ -205,6 +205,25 @@ components:
             type: Image
             layout_properties: {x: 38, y: 1, width: 47}
             name: image_4_copy_5_copy
+      - name: link_4
+        properties: {text: '', align: center, bold: true}
+        type: Link
+        layout_properties: {grid_position: 'TXCVNF,DYMHNG'}
+        event_bindings: {click: link_4_click}
+        components:
+        - name: xy_panel_7_copy_copy
+          properties: {height: 25.79998779296875}
+          type: XYPanel
+          layout_properties: {grid_position: 'QIZNTB,ORSKYD'}
+          components:
+          - name: label_3_copy_4_copy_copy
+            properties: {text: Add Bank Names}
+            type: Label
+            layout_properties: {x: 95, y: 0, width: 117.5999755859375}
+          - name: image_4_copy_5_copy_copy
+            properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/bank (1).png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 31.181793212890625}
+            type: Image
+            layout_properties: {x: 38, y: 1, width: 47}
       - properties: {height: 204.5999755859375}
         type: Spacer
         layout_properties: {grid_position: 'ZCYDZV,VFTIPP'}
@@ -228,6 +247,7 @@ components:
             type: Label
             layout_properties: {x: 91.57499389722943, y: 0, width: 77}
             name: label_3_copy_7
+      layout_properties: {width: 263.55682373046875}
     - properties: {col_widths: '{}'}
       type: ColumnPanel
       layout_properties: {width: 1041.8401904296875}
@@ -361,24 +381,3 @@ components:
         type: Spacer
         layout_properties: {grid_position: 'TLWMUD,LKJBXZ'}
         name: spacer_3
-      - properties: {role: card, col_widths: '{}', spacing_above: small, background: '#2270ad', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
-        type: ColumnPanel
-        layout_properties: {grid_position: 'TUMFJB,YEPGZI', full_width_row: true}
-        name: card_1
-        components:
-        - properties: {role: input-prompt, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: CopyRight2023@Gwallet}
-          type: Label
-          layout_properties: {grid_position: 'XZHMAF,AYWPIJ'}
-          name: label_9
-        - properties: {role: input-prompt, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Disclaimer}
-          type: Label
-          layout_properties: {grid_position: 'XZHMAF,BXCDJA'}
-          name: label_10
-        - properties: {role: input-prompt, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Privacy Policy}
-          type: Label
-          layout_properties: {grid_position: 'XZHMAF,BIRREG'}
-          name: label_11
-        - properties: {role: input-prompt, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Code Of Commitment}
-          type: Label
-          layout_properties: {grid_position: 'XZHMAF,AGQBOT'}
-          name: label_12
