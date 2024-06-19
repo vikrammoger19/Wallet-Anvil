@@ -45,7 +45,7 @@ class report_analysis(report_analysisTemplate):
                 fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
         
                 if date not in data_for_plot:
-                    data_for_plot[date] = {'Debit': 0, 'Credit': 0, 'Account to E-wallet': 0}
+                    data_for_plot[date] = {'Debit': 0, 'Credit': 0, 'Account to G-wallet': 0}
         
                 # Ensure fund is a string or a number before conversion
                 if isinstance(fund, (int, float)):
@@ -63,18 +63,18 @@ class report_analysis(report_analysisTemplate):
                     data_for_plot[date]['Debit'] += money_amount
                 elif trans_type == 'Credit':
                     data_for_plot[date]['Credit'] += money_amount
-                elif trans_type == 'Account to E-wallet':
-                    data_for_plot[date]['Account to E-wallet'] += money_amount
+                elif trans_type == 'Account to G-wallet':
+                    data_for_plot[date]['Account to G-wallet'] += money_amount
         
             categories = list(data_for_plot.keys())
             deposit_values = [data['Debit'] for data in data_for_plot.values()]
             withdrawal_values = [data['Credit'] for data in data_for_plot.values()]
-            e_wallet_values = [data['Account to E-wallet'] for data in data_for_plot.values()]
+            e_wallet_values = [data['Account to G-wallet'] for data in data_for_plot.values()]
         
             self.plot_1.data = [
                 {'x': categories, 'y': deposit_values, 'type': 'bar', 'name': 'Debit'},
                 {'x': categories, 'y': withdrawal_values, 'type': 'bar', 'name': 'Credit'},
-                {'x': categories, 'y': e_wallet_values, 'type': 'bar', 'name': 'Account to E-wallet'}
+                {'x': categories, 'y': e_wallet_values, 'type': 'bar', 'name': 'Account to G-wallet'}
             ]
             self.plot_1.layout = go.Layout(title="Transaction Trends")
         
@@ -159,10 +159,7 @@ class report_analysis(report_analysisTemplate):
 
     def link_4_click(self, **event_args):
         """This method is called when the link is clicked"""
-        serves_data = app_tables.wallet_users_service.search()
-
-        # Open the admin.user_support form and pass the serves_data
-        user_support_form = open_form('admin.user_support', serves_data=serves_data, user=self.user)
+        open_form('admin.account_management',user=self.user)
 
     def link_3_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -183,3 +180,7 @@ class report_analysis(report_analysisTemplate):
     def link_8_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('admin',user=self.user)
+
+    def link_10_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.add_currency',user=self.user)
