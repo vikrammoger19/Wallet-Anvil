@@ -147,15 +147,10 @@ class audit_trail(audit_trailTemplate):
         open_form('admin.audit_trail', user=self.user)
 
     def link_4_click(self, **event_args):
-        """This method is called when the link is clicked"""
-        serves_data = app_tables.wallet_admins_actions.search()
-
-        # Open the admin.user_support form and pass the serves_data
-        user_support_form = open_form('admin.user_support', serves_data=serves_data, user=self.user)
+        open_form('admin.admin_add_user',user=self.user)
 
     def link_3_click(self, **event_args):
-        """This method is called when the link is clicked"""
-        show_users_form = open_form('admin.show_users', user=self.user)
+        open_form('admin.transaction_monitoring',user=self.user)
 
     def link_8_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -382,5 +377,9 @@ class audit_trail(audit_trailTemplate):
 #   #   else:
 #   #     # If the search box is empty, load all actions
 #   #     self.load_all_actions()
+
+    def link_10_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.add_currency',user=self.user)
 
 

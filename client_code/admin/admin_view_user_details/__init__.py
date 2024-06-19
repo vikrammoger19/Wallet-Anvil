@@ -429,3 +429,10 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
     def link_6_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('admin.audit_trail',user=self.user)
+
+    def link_1_click(self, **event_args):
+      open_form('admin',user=self.user)
+
+    def link_4_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.admin_add_user',user=self.user)
