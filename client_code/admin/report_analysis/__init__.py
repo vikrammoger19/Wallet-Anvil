@@ -9,9 +9,19 @@ import anvil.tables as tables
 import anvil.tables.query as q
 import re  # Import the regular expression module
 
+from ._anvil_designer import report_analysisTemplate
+from anvil import *
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
+import plotly.graph_objects as go
+import anvil.server
+import anvil.tables as tables
+import anvil.tables.query as q
+import re  # Import the regular expression module
+
 class report_analysis(report_analysisTemplate):
     def __init__(self, user=None, **properties):
-        
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
         self.user = user
@@ -66,7 +76,7 @@ class report_analysis(report_analysisTemplate):
                 {'x': categories, 'y': withdrawal_values, 'type': 'bar', 'name': 'Credit'},
                 {'x': categories, 'y': e_wallet_values, 'type': 'bar', 'name': 'Account to E-wallet'}
             ]
-            self.plot_1.layout.title = "Transaction Trends"
+            self.plot_1.layout = go.Layout(title="Transaction Trends")
         
         elif data_type == "user_activity":
             # Call the server function to get user data
@@ -90,7 +100,7 @@ class report_analysis(report_analysisTemplate):
             values = [banned_percentage, unbanned_percentage, active_percentage, inactive_percentage]
 
             self.plot_1.data = [{'labels': labels, 'values': values, 'type': 'pie'}]
-            self.plot_1.layout.title = "User Activity "
+            self.plot_1.layout = go.Layout(title="User Activity")
         
         elif data_type == "system_performance":
             # Call the server function to get transaction proof data
@@ -110,11 +120,10 @@ class report_analysis(report_analysisTemplate):
             values = [success_percentage, failed_percentage]
 
             self.plot_1.data = [{'labels': labels, 'values': values, 'type': 'pie'}]
-            self.plot_1.layout.title = "System Performance "
+            self.plot_1.layout = go.Layout(title="System Performance")
 
         # Show the plot
         self.plot_1.visible = True
-
 
     def link_44_click(self, **event_args):
         """This method is called when the button is clicked"""
@@ -157,7 +166,7 @@ class report_analysis(report_analysisTemplate):
 
     def link_3_click(self, **event_args):
         """This method is called when the link is clicked"""
-        show_users_form = open_form('admin.show_users', user=self.user)
+        show_users_form = open_form('admin.transaction_monitoring', user=self.user)
 
     def link_8_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -170,3 +179,7 @@ class report_analysis(report_analysisTemplate):
     def button_3_copy_click(self, **event_args):
         """This method is called when the button is clicked"""
         open_form('admin', user=self.user)
+
+    def link_8_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin',user=self.user)
