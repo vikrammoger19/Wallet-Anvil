@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: card_111
-    properties: {role: null, col_widths: '{"XNZCHX":10,"CSXXAZ":50,"QLXILY":2,"ODQCJM":14,"QXYOJO":2,"RYEOOA":12,"MNIDKT":3,"OVSSIU":14,"GHOKGX":2,"BJPWVR":13,"IXSDOJ":2,"TBHNCL":2,"ZRUBKX":13,"SUGFAK":2,"ROHVQF":11,"MCHCFA":3,"POJQZG":13,"UQBKCD":2,"JWFPTJ":12,"WQYXTE":2,"SGXBKF":2,"CVKESU":13,"OSPTQU":2,"GJLGIA":11,"QGGUGF":3,"BAGZVB":13,"CCJPEK":2,"SJJINH":12,"JGBGHW":2,"MRVVFP":2,"KRGWQT":13,"VSMKON":2,"ZQOFTW":11,"JPDOFS":3,"SKYSJQ":13,"JDWUXZ":2,"ALCRDU":12,"LNQZHY":2,"HVADEA":3,"WWEHJG":2}', background: 'theme:White'}
+    properties: {role: null, col_widths: '{"XNZCHX":13,"CSXXAZ":47,"QLXILY":2,"ODQCJM":14,"QXYOJO":2,"RYEOOA":12,"MNIDKT":3,"OVSSIU":14,"GHOKGX":2,"BJPWVR":13,"IXSDOJ":2,"TBHNCL":2,"ZRUBKX":13,"SUGFAK":2,"ROHVQF":11,"MCHCFA":3,"POJQZG":13,"UQBKCD":2,"JWFPTJ":12,"WQYXTE":2,"SGXBKF":2,"CVKESU":13,"OSPTQU":2,"GJLGIA":11,"QGGUGF":3,"BAGZVB":13,"CCJPEK":2,"SJJINH":12,"JGBGHW":2,"MRVVFP":2,"KRGWQT":13,"VSMKON":2,"ZQOFTW":11,"JPDOFS":3,"SKYSJQ":13,"JDWUXZ":2,"ALCRDU":12,"LNQZHY":2,"HVADEA":3,"WWEHJG":2}', background: 'theme:White'}
     type: ColumnPanel
     layout_properties: {grid_position: 'QFPCNU,EUESGD', full_width_row: true}
     components:

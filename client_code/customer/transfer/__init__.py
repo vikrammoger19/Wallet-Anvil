@@ -175,7 +175,7 @@ class transfer(transferTemplate):
 
     def link_3_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.transfer",user=self.user)
+      open_form("customer.transactions",user=self.user)
 
     def link_4_click(self, **event_args):
       """This method is called when the link is clicked"""

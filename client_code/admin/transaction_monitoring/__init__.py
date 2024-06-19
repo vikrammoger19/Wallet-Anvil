@@ -721,12 +721,10 @@ class transaction_monitoring(transaction_monitoringTemplate):
         """This method is called when the link is clicked"""
         open_form('admin.account_management', user=self.user)
     def link_4_click(self, **event_args):
-        """This method is called when the link is clicked"""
-        show_users_form = open_form('admin.show_users', user=self.user)
+        open_form('admin.admin_add_user',user=self.user)
 
     def link_5_click(self, **event_args):
-        """This method is called when the link is clicked"""
-        pass
+        open_form('admin.add_currency',user=self.user)
 
     def link_6_click(self, **event_args):
         """This method is called when the link is clicked"""

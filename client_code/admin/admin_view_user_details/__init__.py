@@ -32,8 +32,8 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
                 self.label_501.text = user_data['users_aadhar']
                 self.label_601.text = user_data['users_pan']
                 self.label_401.text = user_data['users_phone']
+                self.label_801.text = user_data['users_address']
                 self.label_701.text = user_data['users_address']
-                self.label_801.text = user_data['users_country']
                 
                 # Set the status label
                 self.set_status_label(user_data['users_inactive'])
@@ -429,3 +429,10 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
     def link_6_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('admin.audit_trail',user=self.user)
+
+    def link_1_click(self, **event_args):
+      open_form('admin',user=self.user)
+
+    def link_4_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.admin_add_user',user=self.user)

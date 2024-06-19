@@ -19,7 +19,7 @@ components:
       layout_properties: {grid_position: 'XXPHZE,XYYHWI', full_width_row: true}
       components:
       - name: card_2
-        properties: {role: card, col_widths: '{"GWILGX":60,"KJZQEH":25,"MWUYIS":40,"XVQFUP":20}', spacing_above: small, background: 'theme:White', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: 'theme:Gray 600', tooltip: ''}
+        properties: {role: card, col_widths: '{"MWUYIS":40}', spacing_above: small, background: 'theme:White', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: 'theme:Gray 600', tooltip: ''}
         type: ColumnPanel
         layout_properties: {x: 547.2000122070312, y: 141.8000030517578, width: 353}
         data_bindings:
@@ -39,7 +39,7 @@ components:
           type: Label
           layout_properties: {grid_position: 'NEUKIK,JKMRZI'}
         - name: text_box_1
-          properties: {role: null, bold: false, align: left, placeholder: Your Name, spacing_above: small, background: 'theme:White', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 14, tooltip: '', text: ''}
+          properties: {role: null, bold: false, align: left, placeholder: Full Name, spacing_above: small, background: 'theme:White', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 14, tooltip: '', text: ''}
           type: TextBox
           layout_properties: {grid_position: 'RFLATG,FKJTQT'}
           data_bindings:
@@ -47,18 +47,13 @@ components:
         - name: text_box_2
           properties: {role: null, bold: false, align: left, placeholder: Email, spacing_above: small, background: 'theme:White', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 14, tooltip: '', text: ''}
           type: TextBox
-          layout_properties: {grid_position: 'CWITMQ,GWILGX FNFWWO,XCKBHR'}
+          layout_properties: {grid_position: 'FNFWWO,XCKBHR'}
           data_bindings:
           - {property: text, code: 'self.item[''email'']', writeback: false}
         - name: label_3
           properties: {}
           type: Label
-          layout_properties: {grid_position: 'CWITMQ,GWILGX GVHZTA,PRCMUG'}
-        - name: button_1
-          properties: {text: verify, foreground: white, background: '#1eb0ed', visible: false}
-          type: Button
-          layout_properties: {grid_position: 'CWITMQ,KJZQEH'}
-          event_bindings: {click: button_1_click}
+          layout_properties: {grid_position: 'GVHZTA,PRCMUG'}
         - name: text_box_9
           properties: {visible: false, placeholder: ENTER OTP}
           type: TextBox
@@ -66,24 +61,19 @@ components:
           event_bindings: {pressed_enter: text_box_9_pressed_enter}
         - name: drop_down_1
           properties:
-            items: [Australia, Denmark, "France\t", "India\t", "Kuwait\t", "Malaysia\t", "Nepal\t", "New Zealand\t", Philippines, Qatar, Singapore, Sri Lanka, United Arab Emirates, "United Kingdom\t", United States, '']
+            items: [Choose Country, Australia, Denmark, "France\t", "India\t", "Kuwait\t", "Malaysia\t", "Nepal\t", "New Zealand\t", Philippines, Qatar, Singapore, Sri Lanka, United Arab Emirates, "United Kingdom\t", United States, '']
             font_size: 14
             visible: true
             background: theme:White
           type: DropDown
           layout_properties: {grid_position: 'NTNVOX,EVGLIN'}
         - name: text_box_3
-          properties: {role: null, bold: false, align: left, placeholder: Your Phone Number, spacing_above: small, background: 'theme:White', type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 14, tooltip: '', text: ''}
+          properties: {role: null, bold: false, align: left, placeholder: Phone Number, spacing_above: small, background: 'theme:White', type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 14, tooltip: '', text: ''}
           type: TextBox
           layout_properties: {grid_position: 'VFERJI,MWUYIS'}
           event_bindings: {pressed_enter: text_box_3_pressed_enter}
           data_bindings:
           - {property: text, code: 'self.item[''phone'']', writeback: false}
-        - name: button_2
-          properties: {text: Verify, foreground: white, background: '#1eb0ed', visible: false}
-          type: Button
-          layout_properties: {grid_position: 'VFERJI,XVQFUP'}
-          event_bindings: {click: button_2_click}
         - name: phone_card
           properties: {role: null, background: ''}
           type: ColumnPanel
@@ -98,7 +88,7 @@ components:
           type: TextBox
           layout_properties: {grid_position: 'WDUWVY,KOKYSF'}
         - name: text_box_7
-          properties: {placeholder: 'Your Aadhar ', font_size: 14, type: number, background: 'theme:White'}
+          properties: {placeholder: 'Aadhar ', font_size: 14, type: number, background: 'theme:White'}
           type: TextBox
           layout_properties: {grid_position: 'ITPQXB,LABTCX'}
           data_bindings:
@@ -180,3 +170,13 @@ components:
         properties: {height: 32}
         type: Spacer
         layout_properties: {x: 613.0832926444709, y: 1100, width: 200}
+      - name: button_1
+        properties: {text: verify, foreground: white, background: '#1eb0ed', visible: false}
+        type: Button
+        layout_properties: {x: 828.5694376640022, y: 472.58329010009766, width: 329}
+        event_bindings: {click: button_1_click}
+      - name: button_2
+        properties: {text: Verify, foreground: white, background: '#1eb0ed', visible: false}
+        type: Button
+        layout_properties: {x: 960.7916056327522, y: 657.694450378418, width: 99}
+        event_bindings: {click: button_2_click}
