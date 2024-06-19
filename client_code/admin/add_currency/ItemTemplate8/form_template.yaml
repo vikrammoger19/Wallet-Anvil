@@ -1,8 +1,12 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"CPIXHW":8,"HOSDSI":17,"OXHOGY":5,"JXYPFP":5,"OUJISL":7,"TPWRPX":3}'}
+  properties: {col_widths: '{"CPIXHW":9,"HOSDSI":21,"OXHOGY":5,"OUJISL":8,"TPWRPX":17}'}
 components:
+- name: spacer_3
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'GGBXBF,YMRKHW'}
 - name: spacer_1
   properties: {height: 39.39996337890625}
   type: Spacer
@@ -19,10 +23,6 @@ components:
   properties: {height: 32}
   type: Spacer
   layout_properties: {grid_position: 'LYTDQS,OXHOGY'}
-- name: spacer_3
-  properties: {height: 32}
-  type: Spacer
-  layout_properties: {grid_position: 'LYTDQS,JXYPFP'}
 - name: image_1
   properties: {height: 44.222198486328125}
   type: Image
