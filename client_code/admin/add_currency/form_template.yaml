@@ -4,7 +4,7 @@ container:
   properties: {tooltip: '', background: '', foreground: '', border: '', visible: true, role: null, html: ''}
 components:
 - type: ColumnPanel
-  properties: {role: card, col_widths: '{"CFMGQN":4,"CNQHXO":2,"LSMZSZ":10,"LRGNMU":5,"JNNYLP":10,"AXWACX":36,"GVCBXO":55,"JUSJXK":5}'}
+  properties: {role: card, col_widths: '{"JNNYLP":10,"AXWACX":36,"GVCBXO":55,"JUSJXK":5}'}
   name: card_1
   layout_properties: {slot: default}
   components:
@@ -164,7 +164,7 @@ components:
           type: Image
           layout_properties: {x: 38, y: 1, width: 47}
     - name: spacer_1_copy
-      properties: {height: 204.5999755859375}
+      properties: {height: 320.3999938964844}
       type: Spacer
       layout_properties: {grid_position: 'ZCYDZV,VFTIPP'}
     - name: link_9_copy
@@ -255,57 +255,3 @@ components:
     properties: {item_template: admin.add_currency.ItemTemplate8}
     type: RepeatingPanel
     layout_properties: {grid_position: 'BKVPBL,AXWACX JTNDIN,WKCXPY'}
-  - name: image_1
-    properties: {height: 311, source: _/theme/66122.jpg, visible: false}
-    type: Image
-    layout_properties: {grid_position: 'IWYALO,LOJDIS'}
-  - name: spacer_1
-    properties: {height: 15}
-    type: Spacer
-    layout_properties: {grid_position: 'QNZEVQ,ZITTUF'}
-  - name: spacer_6
-    properties: {height: 17.5999755859375}
-    type: Spacer
-    layout_properties: {grid_position: 'WCGRQY,ITVYMV'}
-  - name: spacer_3
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'QAGTPP,CFMGQN'}
-  - name: spacer_4
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'QAGTPP,CNQHXO'}
-  - name: spacer_10
-    properties: {height: 26.999969482421875}
-    type: Spacer
-    layout_properties: {grid_position: 'QAGTPP,LRGNMU'}
-  - name: spacer_5
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'QAGTPP,LSMZSZ'}
-  - name: outlined_card_1
-    properties: {role: null, col_widths: '{"VMILPR":8,"FDANOO":15,"HAKDVS":15}', spacing_above: none, background: '#2270ad', wrap_on: mobile, col_spacing: none, foreground: '', spacing_below: none, visible: true, border: '', tooltip: ''}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'UWBSWG,CPONAE', full_width_row: true}
-    components:
-    - name: label_1_copy_copy
-      properties: {text: CopyRight2023@Gwallet, align: left, bold: false, font_size: 16, visible: true, role: input-prompt, foreground: 'theme:White'}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,XVKBKL'}
-    - name: label_2_copy
-      properties: {role: null, bold: false, align: right, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Disclaimer}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,VMILPR'}
-    - name: label_3_copy
-      properties: {role: null, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Privacy Policy}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,FDANOO'}
-    - name: label_4_copy
-      properties: {role: null, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Code Of Commitment}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,HAKDVS'}
-    - name: link_8_copy
-      properties: {align: right, text: Customer Service, foreground: white, font_size: 16, bold: false}
-      type: Link
-      layout_properties: {grid_position: 'XSXLAE,NFTMSZ'}
-      event_bindings: {click: link_8_click}

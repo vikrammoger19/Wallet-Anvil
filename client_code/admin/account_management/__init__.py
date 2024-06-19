@@ -106,11 +106,7 @@ class account_management(account_managementTemplate):
     open_form('admin.add_currency',user=self.user)
 
   def link_4_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    serves_data = app_tables.wallet_users_service.search()
-
-    # Open the admin.user_support form and pass the serves_data
-    user_support_form = open_form('admin.user_support', serves_data=serves_data)
+    open_form('admin.admin_add_user',user)
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
