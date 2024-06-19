@@ -125,25 +125,6 @@ components:
           properties: {text: User Management}
           type: Label
           layout_properties: {x: 95, y: 0, width: 127.22500610351562}
-    - name: link_10
-      properties: {text: '', bold: true, align: center}
-      type: Link
-      layout_properties: {grid_position: 'MAEOBJ,IHGTRI'}
-      event_bindings: {click: link_10_click}
-      components:
-      - name: xy_panel_6
-        properties: {height: 25.79998779296875}
-        type: XYPanel
-        layout_properties: {grid_position: 'WAPTBK,USGOHT'}
-        components:
-        - name: image_4_copy_4
-          properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/circle.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 32.5999755859375}
-          type: Image
-          layout_properties: {x: 38, y: 5, width: 41}
-        - name: label_3_copy_3
-          properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Add Currency}
-          type: Label
-          layout_properties: {x: 95, y: 0, width: 112.3523}
     - name: link_5_copy
       properties: {text: '', align: center, bold: true}
       type: Link
