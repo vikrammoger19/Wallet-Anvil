@@ -156,6 +156,7 @@ class transfer(transferTemplate):
   
                   #self.label_4.text = "Money transferred successfully to the account"
                   alert("Money transferred successfully to the account")
+                  self.populate_balances()
               else:
                   anvil.alert("Insufficient balance. Please add funds")
       else:

@@ -157,6 +157,7 @@ class withdraw(withdrawTemplate):
 
             #self.label_200.text = "Money withdrawn successfully from the account"
             alert("Money withdrawn successfully from the account")
+            self.populate_balances()
         else:
             #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."
             alert("Error: No matching accounts found for the user or invalid account number.")
