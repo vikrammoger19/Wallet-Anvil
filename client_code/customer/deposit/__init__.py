@@ -129,6 +129,7 @@ class deposit(depositTemplate):
 
             #self.label_200.text = "Money added successfully to the account."
             alert("Money added successfully to the account.")
+            self.populate_balances()
             self.text_box_2.text = ''
           else:
             #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."

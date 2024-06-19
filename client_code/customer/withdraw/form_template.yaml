@@ -2,7 +2,7 @@ is_package: true
 container: {type: ColumnPanel}
 components:
 - name: card_111
-  properties: {role: card, col_widths: '{"XNZCHX":14,"CSXXAZ":46,"QLXILY":2,"ODQCJM":14,"QXYOJO":2,"RYEOOA":12,"MNIDKT":3,"OVSSIU":14,"GHOKGX":2,"BJPWVR":13,"IXSDOJ":2,"TBHNCL":2,"ZRUBKX":12,"SUGFAK":2,"ROHVQF":12,"MCHCFA":2,"POJQZG":13,"UQBKCD":2,"JWFPTJ":13,"WQYXTE":2,"SGXBKF":2,"CVKESU":12,"OSPTQU":2,"GJLGIA":12,"QGGUGF":2,"BAGZVB":13,"CCJPEK":2,"SJJINH":13,"JGBGHW":2,"MRVVFP":2,"KRGWQT":12,"VSMKON":2,"ZQOFTW":12,"JPDOFS":2,"SKYSJQ":13,"JDWUXZ":2,"ALCRDU":13,"LNQZHY":2}', background: 'theme:Gray 100'}
+  properties: {role: card, col_widths: '{"XNZCHX":14,"CSXXAZ":46,"QLXILY":2,"ODQCJM":14,"QXYOJO":2,"RYEOOA":12,"MNIDKT":3,"OVSSIU":14,"GHOKGX":2,"BJPWVR":13,"IXSDOJ":2,"TBHNCL":2,"ZRUBKX":12,"SUGFAK":2,"ROHVQF":12,"MCHCFA":2,"POJQZG":13,"UQBKCD":2,"JWFPTJ":13,"WQYXTE":2,"SGXBKF":2,"CVKESU":12,"OSPTQU":2,"GJLGIA":12,"QGGUGF":2,"BAGZVB":13,"CCJPEK":2,"SJJINH":13,"JGBGHW":2,"MRVVFP":2,"KRGWQT":12,"VSMKON":2,"ZQOFTW":12,"JPDOFS":2,"SKYSJQ":13,"JDWUXZ":2,"ALCRDU":13,"LNQZHY":2}', background: 'theme:White'}
   type: ColumnPanel
   layout_properties: {grid_position: 'ROLOOS,UVFFON', full_width_row: true}
   components:
@@ -217,7 +217,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,XNZCHX PDANLR,HNMRSM', full_width_row: true}
   - name: label_1000000
-    properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: true, font_size: 24, tooltip: '', text: Withdraw}
+    properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Withdraw}
     type: Label
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCCHCB,FJRJTH', full_width_row: false}
   - name: spacer_6
@@ -869,7 +869,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ IYTPSB,NOZLEB', full_width_row: true}
   - name: card_1_copy_copy_2
-    properties: {role: card, col_widths: '{"XJESZP":25,"OHOKZA":35,"YYOVNO":25,"DJNLKG":35}'}
+    properties: {role: null, col_widths: '{"XJESZP":25,"OHOKZA":35,"YYOVNO":25,"DJNLKG":35}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'FRVCAC,CSXXAZ CWYCSO,OYERDP'}
     components:
@@ -915,85 +915,94 @@ components:
       type: Button
       layout_properties: {grid_position: 'TIVYHZ,JDTEQW'}
       event_bindings: {click: button_1_click}
-  - name: xy_panel_2_copy_2
-    properties: {role: null, align: center, spacing_above: small, width: null, background: 'theme:Gray 200', foreground: '', spacing_below: small, visible: true, border: '', tooltip: '', height: 288.5999755859375}
+  - name: xy_panel_2_copy_2_copy
+    properties: {role: null, align: center, spacing_above: small, width: null, background: 'theme:Gray 200', foreground: '', spacing_below: small, visible: false, border: '', tooltip: '', height: 288.5999755859375}
     type: XYPanel
-    layout_properties: {grid_position: 'USNOKF,PEXVMU', full_width_row: true}
+    layout_properties: {grid_position: 'YHXDZB,VDTONB', full_width_row: true}
     components:
-    - name: label_21_copy
+    - name: label_21_copy_copy
       properties: {text: 'G-Wallet is your trusted companion for effortless financial transactions, providing a secure and intuitive platform to manage your money with ease.', align: center, font_size: 17, font: ''}
       type: Label
       layout_properties: {x: 22, y: 102.7626953125, width: 387.98798168945314}
-    - name: label_22_copy
+    - name: label_22_copy_copy
       properties: {text: '   Quick Links', align: left, bold: true, font: '', font_size: 17}
       type: Label
       layout_properties: {x: 637.7125244140625, y: 53.91269531250009, width: 200}
-    - name: label_23_copy
+    - name: label_23_copy_copy
       properties: {text: '    Mail to us', align: left, bold: true, font: '', font_size: 16}
       type: Label
       layout_properties: {x: 1108.84997558594, y: 56.7626953125, width: 112}
-    - name: column_panel_9_copy
-      properties: {col_widths: '{"BSEUCM":15,"MNOFRN":15}'}
+    - name: column_panel_9_copy_copy
+      properties: {col_widths: '{"CSMVUD":15,"RVPCNA":15,"BSEUCM":15,"MNOFRN":15}'}
       type: ColumnPanel
       layout_properties: {x: 1032.7000732421875, y: 184.212646484375, width: 252.1499023437499}
       components:
-      - name: primary_color_4
+      - name: primary_color_2
+        properties: {text: '', role: primary-color, icon: 'fa:facebook-f'}
+        type: Button
+        layout_properties: {grid_position: 'JBVNGZ,CSMVUD'}
+      - name: primary_color_3
+        properties: {text: '', role: primary-color, icon: 'fa:linkedin'}
+        type: Button
+        layout_properties: {grid_position: 'JBVNGZ,RVPCNA'}
+      - name: primary_color_4_copy
         properties: {text: '', role: primary-color, icon: 'fa:instagram'}
         type: Button
         layout_properties: {grid_position: 'JBVNGZ,BSEUCM'}
-      - name: primary_color_5
+      - name: primary_color_5_copy
         properties: {text: '', role: primary-color, icon: 'fa:twitter'}
         type: Button
         layout_properties: {grid_position: 'JBVNGZ,MNOFRN'}
-    - name: label_24_copy
+    - name: label_24_copy_copy
       properties: {text: '            Find us', align: left, bold: true, font: '', font_size: 16}
       type: Label
       layout_properties: {x: 1075.38757324219, y: 138.212646484375, width: 123.199951171875}
-    - name: link_24
+    - name: link_24_copy
       properties: {text: 'What is G-Wallet?', font_size: 20, font: '', foreground: '', underline: false, role: selected, visible: true}
       type: Link
       layout_properties: {x: 646.6000488288701, y: 89.19999694824219, width: 200}
       event_bindings: {click: link_24_click}
-    - name: link_25
+      data_bindings: []
+    - name: link_25_copy
       properties: {text: Products, font_size: 20, font: '', foreground: '', role: hover-link}
       type: Link
       layout_properties: {x: 648.0000122077763, y: 120, width: 200}
       event_bindings: {click: link_25_click}
-    - name: link_26
+    - name: link_26_copy
       properties: {text: FAQs, font_size: 20, font: '', foreground: '', role: hover-link}
       type: Link
       layout_properties: {x: 649.5000122077763, y: 147.787506103516, width: 198.5}
       event_bindings: {click: link_26_click}
-    - name: link_27
+    - name: link_27_copy
       properties: {text: Contact Us, font_size: 20, font: '', foreground: '', role: hover-link}
       type: Link
       layout_properties: {x: 648.499981690198, y: 178, width: 200}
       event_bindings: {click: link_27_click}
-    - name: link_8_copy
+    - name: label_3_copy_copy_copy
+      properties: {text: G-Wallet, bold: true, font: '', font_size: 28}
+      type: Label
+      layout_properties: {x: 112.987500000745, y: 51.51249694824219, width: 200}
+    - name: link_8_copy_copy
       properties: {text: '         MAIL@GTPL.IN', align: left}
       type: Link
       layout_properties: {x: 1070.4000244140625, y: 89.20000457763672, width: 200}
-    - name: label_25
+    - name: label_25_copy_2
       properties: {font_size: 20, text: Code Of Commitment, bold: true, align: right}
       type: Label
       layout_properties: {x: 1112.7625427246094, y: 235.63751220703125, width: 246.3999267578125}
-    - name: label_19_copy
+    - name: label_19_copy_copy
       properties: {text: CopyRight2024@G-wallet, bold: true, font_size: 20}
       type: Label
       layout_properties: {x: 34.587494660168886, y: 235.63751220703125, width: 281.9875183105469}
-    - name: label_20_copy
+    - name: label_20_copy_copy
       properties: {text: Disclaimer, bold: true, font_size: 20}
       type: Label
       layout_properties: {x: 446.73750000074506, y: 235.63751220703125, width: 200}
-    - name: label_2444
+    - name: label_24000
       properties: {text: Privacy Policy, bold: true, font_size: 20}
       type: Label
       layout_properties: {x: 807.6624877937138, y: 235.63751220703125, width: 200}
-    - name: image_3_copy
+    - name: image_3_copy_copy
       properties: {height: 46.39996337890625, source: _/theme/letter-g.png}
       type: Image
       layout_properties: {x: 43.624996948987246, y: 54.000003814697266, width: 83.5875015258789}
-    - name: label_3_copy_copy
-      properties: {text: G-Wallet, bold: true, font: '', font_size: 28}
-      type: Label
-      layout_properties: {x: 134.1666802316904, y: 232.62152481079102, width: 200.00001525878906}
