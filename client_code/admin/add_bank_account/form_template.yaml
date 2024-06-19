@@ -269,9 +269,9 @@ components:
       type: Label
       layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,FERZBM'}
     - name: repeating_panel_1
-      properties: {item_template: admin.add_currency.ItemTemplate8}
+      properties: {item_template: admin.add_bank_account.ItemTemplate2}
       type: RepeatingPanel
-      layout_properties: {grid_position: 'BKVPBL,AXWACX YEJPAX,WCMPCJ'}
+      layout_properties: {grid_position: 'BKVPBL,AXWACX IEMDWL,VKIPNB'}
     - name: image_1
       properties: {height: 311, source: _/theme/66122.jpg, visible: false}
       type: Image

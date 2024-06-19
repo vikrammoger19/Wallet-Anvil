@@ -21,6 +21,7 @@ unique_ids:
     admin.audit_trail.ItemTemplate4: '1718247129462665156551117.2468'
     customer.interaction.ItemTemplate10: '171306880497545908192037.96937'
     contact_us.issue_2.negavtive_bal: '1712909183554675912061753.6128'
+    admin.add_bank_account.ItemTemplate2: '1718767237589100161671004.32005'
     admin.set_limit: '1706853730604507981795383.5013'
     admin: '1714042720894437224041237.0796'
     customer.ItemTemplate17: '1715686735762448094021477.6452'

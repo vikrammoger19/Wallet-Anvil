@@ -15,6 +15,9 @@ components:
   properties: {}
   type: TextBox
   layout_properties: {grid_position: 'LYTDQS,MAAGXS'}
+  event_bindings: {pressed_enter: text_box_1_pressed_enter}
+  data_bindings:
+  - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
 - name: spacer_2
   properties: {height: 32}
   type: Spacer
@@ -23,6 +26,8 @@ components:
   properties: {}
   type: TextBox
   layout_properties: {grid_position: 'LYTDQS,OXHOGY'}
+  data_bindings:
+  - {property: text, code: 'self.item[''admins_add_currency_code'']', writeback: false}
 - name: spacer_5
   properties: {height: 32}
   type: Spacer
@@ -41,3 +46,4 @@ components:
   properties: {text: View number of user, background: '#1d6eae', foreground: 'theme:White', bold: true, italic: true}
   type: Button
   layout_properties: {grid_position: 'LYTDQS,EMRTBP'}
+  event_bindings: {click: view_user_click}

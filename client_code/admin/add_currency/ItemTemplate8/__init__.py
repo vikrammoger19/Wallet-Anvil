@@ -21,3 +21,7 @@ class ItemTemplate8(ItemTemplate8Template):
     else:
       self.view_user.text = "view number of user"
       self.user_count_displayed = False
+
+  def text_box_1_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
