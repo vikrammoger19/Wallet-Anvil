@@ -4,6 +4,7 @@ import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
+from .ItemTemplate6 import ItemTemplate6
 
 class account_management(account_managementTemplate):
   def __init__(self, user= None, **properties):
@@ -11,14 +12,15 @@ class account_management(account_managementTemplate):
     self.init_components(**properties)
     self.button_100000.visible = False
     self.user =user
-    one = self.user['users_username'] 
-    print('hi admin1')
-    print(one)
+    # one = self.user['users_username'] 
+    # print('hi admin1')
+    # print(one)
     if user is not None:
        self.label_656.text = user['users_username']
     
     #print(mail)
     self.refresh_users()
+    ItemTemplate6.user=self.user
     # self.check_profile_pic()
   
   # def check_profile_pic(self):
@@ -89,7 +91,7 @@ class account_management(account_managementTemplate):
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.account_management', user= self.user)
+    open_form('admin.report_analysis', user= self.user)
 
   def link_7_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -104,15 +106,11 @@ class account_management(account_managementTemplate):
     open_form('admin.add_currency',user=self.user)
 
   def link_4_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    serves_data = app_tables.wallet_users_service.search()
-
-    # Open the admin.user_support form and pass the serves_data
-    user_support_form = open_form('admin.user_support', serves_data=serves_data)
+    open_form('admin.admin_add_user',user=self.user)
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    show_users_form = open_form('admin.show_users',user=self.user)
+    pass
 
   def drop_down_1_change(self, **event_args):
     """This method is called when an item is selected"""

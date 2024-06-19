@@ -13,7 +13,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
         self.user = user
         if self.user is not None:
           self.label_6566.text = self.user['users_username']
-          self.label_6566.text = self.user['users_username']
+          # self.label_6566.text = self.user['users_username']
 
         self.phone_number = phone_number
         self.init_components(**properties)
@@ -32,8 +32,8 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
                 self.label_501.text = user_data['users_aadhar']
                 self.label_601.text = user_data['users_pan']
                 self.label_401.text = user_data['users_phone']
+                self.label_801.text = user_data['users_address']
                 self.label_701.text = user_data['users_address']
-                self.label_801.text = user_data['users_country']
                 
                 # Set the status label
                 self.set_status_label(user_data['users_inactive'])
@@ -218,7 +218,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
             alert(alert_message, title="Status")
 
             # Log the action
-            self.log_action(username, [alert_message])
+            self.log_action(username,self.label_6566.text, [alert_message])
             print("Button 5 Clicked and action logged")  # Debug statement
 
     def set_button_text(self):
@@ -246,7 +246,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
                 user_to_delete.delete()
                 
                 # Log the deletion action
-                self.log_action(username, ["User deleted"])
+                self.log_action(username, self.label_6566.text,["User deleted"])
                 
                 # Open the admin.account_management form
                 open_form('admin.account_management', user=self.user)
@@ -257,14 +257,14 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
             # If the user has balances, inform the admin that they cannot delete the user
             alert("User has balances. Please clear the balances before deleting.", title="Status")
 
-    def log_action(self, username, actions):
+    def log_action(self, username,adminname, actions):
         # Log the action to the app_tables.admin_activity_log table
         timestamp = datetime.now()
         action_log = ", ".join(actions)
 
         # Insert the log entry into the table
         app_tables.wallet_admins_actions.add_row(
-            admins_actions_name=self.user['users_username'],
+            admins_actions_name=adminname,
             admins_actions_username=username,
             admins_actions_date=timestamp,
             admins_actions=action_log
@@ -409,7 +409,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
       user_data = app_tables.wallet_users.get(users_phone=self.phone_number)  # Retrieve user_data
       
       # Log the action
-      self.log_action(username, ["User Setlimt changed"])
+      self.log_action(username,self.label_6566.text, ["User Setlimt changed"])
       
       # Open the admin.set_limit form with user and user_data
       open_form('admin.set_limit', user=self.user, user_data=user_data)
@@ -429,3 +429,10 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
     def link_6_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('admin.audit_trail',user=self.user)
+
+    def link_1_click(self, **event_args):
+      open_form('admin',user=self.user)
+
+    def link_4_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('admin.admin_add_user',user=self.user)

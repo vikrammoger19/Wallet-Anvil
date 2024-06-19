@@ -155,10 +155,13 @@ class withdraw(withdrawTemplate):
             user_data['users_daily_limit'] -= money_value
             user_data['users_user_limit'] -= money_value
 
-            self.label_2.text = "Money added successfully to the account."
+            #self.label_200.text = "Money withdrawn successfully from the account"
+            alert("Money withdrawn successfully from the account")
+            self.populate_balances()
         else:
-            self.label_2.text = "Error: No matching accounts found for the user or invalid account number."
-
+            #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."
+            alert("Error: No matching accounts found for the user or invalid account number.")
+  
   def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form("customer.walletbalance",user=self.user)

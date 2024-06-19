@@ -4,7 +4,7 @@ container:
   properties: {tooltip: '', background: '', foreground: '', border: '', visible: true, role: null, html: ''}
 components:
 - type: ColumnPanel
-  properties: {role: card, col_widths: '{"CFMGQN":4,"CNQHXO":2,"LSMZSZ":10,"LRGNMU":5,"JNNYLP":10,"AXWACX":30,"GVCBXO":55,"JUSJXK":5}'}
+  properties: {role: card, col_widths: '{"JNNYLP":10,"AXWACX":36,"GVCBXO":55,"JUSJXK":5}'}
   name: card_1
   layout_properties: {slot: default}
   components:
@@ -125,25 +125,6 @@ components:
           properties: {text: User Management}
           type: Label
           layout_properties: {x: 95, y: 0, width: 127.22500610351562}
-    - name: link_10
-      properties: {text: '', bold: true, align: center}
-      type: Link
-      layout_properties: {grid_position: 'MAEOBJ,IHGTRI'}
-      event_bindings: {click: link_10_click}
-      components:
-      - name: xy_panel_6
-        properties: {height: 25.79998779296875}
-        type: XYPanel
-        layout_properties: {grid_position: 'WAPTBK,USGOHT'}
-        components:
-        - name: image_4_copy_4
-          properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/circle.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 32.5999755859375}
-          type: Image
-          layout_properties: {x: 38, y: 5, width: 41}
-        - name: label_3_copy_3
-          properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Add Currency}
-          type: Label
-          layout_properties: {x: 95, y: 0, width: 112.3523}
     - name: link_5_copy
       properties: {text: '', align: center, bold: true}
       type: Link
@@ -179,11 +160,11 @@ components:
           type: Label
           layout_properties: {x: 95, y: 0, width: 117.5999755859375}
         - name: image_4_copy_5_copy
-          properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer-support.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 34}
+          properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer-service.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 34}
           type: Image
           layout_properties: {x: 38, y: 1, width: 47}
     - name: spacer_1_copy
-      properties: {height: 204.5999755859375}
+      properties: {height: 320.3999938964844}
       type: Spacer
       layout_properties: {grid_position: 'ZCYDZV,VFTIPP'}
     - name: link_9_copy
@@ -223,22 +204,22 @@ components:
     - name: spacer_8
       properties: {height: 38}
       type: Spacer
-      layout_properties: {width: 54.18751220703125}
+      layout_properties: {width: 74.09088813476563}
     - name: text_box_1
       properties: {placeholder: country}
       type: TextBox
-      layout_properties: {width: 156.38698779296874}
+      layout_properties: {width: 168.2843525390625}
       data_bindings:
       - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
       event_bindings: {pressed_enter: text_box_1_pressed_enter}
     - name: spacer_7
       properties: {height: 37.600006103515625}
       type: Spacer
-      layout_properties: {width: 33.23259697265625}
+      layout_properties: {width: 39.215905078125}
     - name: text_box_2
       properties: {placeholder: currency code}
       type: TextBox
-      layout_properties: {width: 220.5880244140625}
+      layout_properties: {width: 253.38605761718748}
       data_bindings:
       - {property: text, code: 'self.item[''admins_add_currency_code'']', writeback: false}
     - name: spacer_9
@@ -274,57 +255,3 @@ components:
     properties: {item_template: admin.add_currency.ItemTemplate8}
     type: RepeatingPanel
     layout_properties: {grid_position: 'BKVPBL,AXWACX JTNDIN,WKCXPY'}
-  - name: image_1
-    properties: {height: 311, source: _/theme/66122.jpg, visible: false}
-    type: Image
-    layout_properties: {grid_position: 'IWYALO,LOJDIS'}
-  - name: spacer_1
-    properties: {height: 15}
-    type: Spacer
-    layout_properties: {grid_position: 'QNZEVQ,ZITTUF'}
-  - name: spacer_6
-    properties: {height: 17.5999755859375}
-    type: Spacer
-    layout_properties: {grid_position: 'WCGRQY,ITVYMV'}
-  - name: spacer_3
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'QAGTPP,CFMGQN'}
-  - name: spacer_4
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'QAGTPP,CNQHXO'}
-  - name: spacer_10
-    properties: {height: 26.999969482421875}
-    type: Spacer
-    layout_properties: {grid_position: 'QAGTPP,LRGNMU'}
-  - name: spacer_5
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'QAGTPP,LSMZSZ'}
-  - name: outlined_card_1
-    properties: {role: null, col_widths: '{"VMILPR":8,"FDANOO":15,"HAKDVS":15}', spacing_above: none, background: '#2270ad', wrap_on: mobile, col_spacing: none, foreground: '', spacing_below: none, visible: true, border: '', tooltip: ''}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'UWBSWG,CPONAE', full_width_row: true}
-    components:
-    - name: label_1_copy_copy
-      properties: {text: CopyRight2023@Gwallet, align: left, bold: false, font_size: 16, visible: true, role: input-prompt, foreground: 'theme:White'}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,XVKBKL'}
-    - name: label_2_copy
-      properties: {role: null, bold: false, align: right, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Disclaimer}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,VMILPR'}
-    - name: label_3_copy
-      properties: {role: null, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Privacy Policy}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,FDANOO'}
-    - name: label_4_copy
-      properties: {role: null, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Code Of Commitment}
-      type: Label
-      layout_properties: {grid_position: 'XSXLAE,HAKDVS'}
-    - name: link_8_copy
-      properties: {align: right, text: Customer Service, foreground: white, font_size: 16, bold: false}
-      type: Link
-      layout_properties: {grid_position: 'XSXLAE,NFTMSZ'}
-      event_bindings: {click: link_8_click}

@@ -154,11 +154,14 @@ class transfer(transferTemplate):
                   depositor['users_daily_limit'] -= money_value
                   depositor['users_user_limit'] -= money_value
   
-                  self.label_4.text = "Money transferred successfully to the account."
+                  #self.label_4.text = "Money transferred successfully to the account"
+                  alert("Money transferred successfully to the account")
+                  self.populate_balances()
               else:
-                  anvil.alert("Insufficient balance. Please add funds.")
+                  anvil.alert("Insufficient balance. Please add funds")
       else:
-          self.label_4.text = "Error: No matching accounts found for the user or invalid account number."
+          #self.label_4.text = "Error: No matching accounts found for the user or invalid account number"
+          alert("Error: No matching accounts found for the user or invalid account number")
   
       open_form('customer.transfer', user=self.user)
           
@@ -172,7 +175,7 @@ class transfer(transferTemplate):
 
     def link_3_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form("customer.transfer",user=self.user)
+      open_form("customer.transactions",user=self.user)
 
     def link_4_click(self, **event_args):
       """This method is called when the link is clicked"""

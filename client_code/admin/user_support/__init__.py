@@ -21,11 +21,11 @@ class user_support(user_supportTemplate):
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.report_analysis',user=self.user)
+    open_form('admin',user=self.user)
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.account_management', user= self.user)
+    open_form('admin.report_analysis', user= self.user)
 
   def link_7_click(self, **event_args):
     """This method is called when the link is clicked"""
@@ -33,22 +33,18 @@ class user_support(user_supportTemplate):
 
   def link_6_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.admin_add_user',user=self.user)
+    open_form('admin.audit_trail',user=self.user)
 
   def link_5_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.audit_trail', user = self.user)
+    open_form('admin.add_currency', user = self.user)
 
   def link_4_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    serves_data = app_tables.sevices.search()
-
-    # Open the admin.user_support form and pass the serves_data
-    user_support_form = open_form('admin.user_support', serves_data=serves_data,user=self.user)
+    open_form('admin.admin_add_user',user=self.user)
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    show_users_form = open_form('admin.show_users',user=self.user)
+    open_form('admin.account_management',user=self.user)
 
   def link_8_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
