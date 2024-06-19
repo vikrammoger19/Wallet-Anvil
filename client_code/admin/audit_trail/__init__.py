@@ -14,7 +14,7 @@ class audit_trail(audit_trailTemplate):
     self.load_all_actions()
     # Any code you write here will run before the form opens.
     self.check_profile_pic()
-    self.label_7.text = self.user['users_username']
+    #self.label_7.text = self.user['users_username']
   
   def check_profile_pic(self):
         print(self.user)

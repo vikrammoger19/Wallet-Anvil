@@ -4,7 +4,7 @@ container:
   properties: {tooltip: '', background: '', foreground: '', border: '', visible: true, role: null, html: ''}
 components:
 - type: ColumnPanel
-  properties: {role: card, col_widths: '{"CFMGQN":4,"CNQHXO":2,"LSMZSZ":10,"LRGNMU":5,"JNNYLP":10,"AXWACX":30,"GVCBXO":55,"JUSJXK":5}'}
+  properties: {role: card, col_widths: '{"CFMGQN":4,"CNQHXO":2,"LSMZSZ":10,"LRGNMU":5,"JNNYLP":10,"AXWACX":36,"GVCBXO":55,"JUSJXK":5}'}
   name: card_1
   layout_properties: {slot: default}
   components:
@@ -223,22 +223,22 @@ components:
     - name: spacer_8
       properties: {height: 38}
       type: Spacer
-      layout_properties: {width: 54.18751220703125}
+      layout_properties: {width: 74.09088813476563}
     - name: text_box_1
       properties: {placeholder: country}
       type: TextBox
-      layout_properties: {width: 156.38698779296874}
+      layout_properties: {width: 168.2843525390625}
       data_bindings:
       - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
       event_bindings: {pressed_enter: text_box_1_pressed_enter}
     - name: spacer_7
       properties: {height: 37.600006103515625}
       type: Spacer
-      layout_properties: {width: 33.23259697265625}
+      layout_properties: {width: 39.215905078125}
     - name: text_box_2
       properties: {placeholder: currency code}
       type: TextBox
-      layout_properties: {width: 220.5880244140625}
+      layout_properties: {width: 266.47741015625}
       data_bindings:
       - {property: text, code: 'self.item[''admins_add_currency_code'']', writeback: false}
     - name: spacer_9

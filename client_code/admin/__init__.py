@@ -16,6 +16,20 @@ class admin(adminTemplate):
         self.refresh_data()
         self.check_profile_pic()
 
+    def check_profile_pic(self):
+        if self.user and 'users_email' in self.user:
+            user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email']))
+            if user_data:
+                existing_img = user_data.get('users_profile_pic')
+                if existing_img:
+                    self.image_3.source = existing_img
+                else:
+                    print('No profile picture found')
+            else:
+                print('No user data found')
+        else:
+            print('User data is incomplete or missing')
+
   
     # def check_profile_pic(self):
     #   user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
@@ -126,7 +140,7 @@ class admin(adminTemplate):
         open_form('admin.admin_add_user',user=self.user)
 
     def link_5_click(self, **event_args):
-        open_form('admin.audit_tra',user=self.user)
+        open_form('admin.audit_trail',user=self.user)
 
     def link_6_click(self, **event_args):
         open_form('admin.raise_a_complaint',user=self.user)
