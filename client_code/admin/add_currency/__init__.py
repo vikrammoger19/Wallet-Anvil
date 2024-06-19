@@ -70,3 +70,6 @@ class add_currency(add_currencyTemplate):
   def link_8_copy_click(self, **event_args):
     open_form('admin', user=self.user)
 
+  def link_8_click(self, **event_args):
+    open_form('ad')
+

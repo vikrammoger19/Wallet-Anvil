@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: card_1
-    properties: {role: card, col_widths: '{"CFMGQN":4,"CNQHXO":2,"LRGNMU":5,"JNNYLP":10,"AXWACX":36,"GVCBXO":55,"JUSJXK":5,"ZMUYBE":10,"GKOTCL":20,"MVICQD":5,"FERZBM":25}'}
+    properties: {role: card, col_widths: '{"CFMGQN":4,"CNQHXO":2,"LRGNMU":5,"JNNYLP":10,"AXWACX":36,"GVCBXO":55,"JUSJXK":5,"ZMUYBE":11,"GKOTCL":20,"MVICQD":4,"FERZBM":25}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'DMXPJQ,PFCGDT', full_width_row: true}
     components:
@@ -227,18 +227,18 @@ components:
       - name: spacer_8
         properties: {height: 38}
         type: Spacer
-        layout_properties: {width: 138.88623388671874}
+        layout_properties: {width: 169.42041015625}
       - name: text_box_1
         properties: {placeholder: Bank Name, italic: true}
         type: TextBox
-        layout_properties: {width: 235.81782373046875}
+        layout_properties: {width: 319.5337626953125}
         data_bindings:
         - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
         event_bindings: {pressed_enter: text_box_1_pressed_enter}
       - name: spacer_7
         properties: {height: 37.600006103515625}
         type: Spacer
-        layout_properties: {width: 39.215905078125}
+        layout_properties: {width: 55.45457626953125}
       - name: file_loader_1
         properties: {text: Upload icon}
         type: FileLoader

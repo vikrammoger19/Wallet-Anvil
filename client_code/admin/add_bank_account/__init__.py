@@ -73,5 +73,5 @@ class add_bank_account(add_bank_accountTemplate):
     open_form('admin', user=self.user)
 
   def link_8_click(self, **event_args):
-    open_form('admin',user=self.user)
+    open_form('admin')
     
