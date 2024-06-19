@@ -118,10 +118,9 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
               if card and label_curr_type and label_balance and image_icon and label_country:
                   # Update card components with balance data
                   label_curr_type.text = currency_type
-                  label_balance.text = f"{balance_amount} "
+                  label_balance.text = f"{balance_amount:.2f}"  # Format balance amount to 2 decimal places
                   label_country.text = country
                   label_balance.icon = f"fa:{currency_type.lower()}"
-                  
   
                   # Ensure image_icon exists and update if it does
                   if image_icon:
@@ -146,6 +145,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
       except Exception as e:
           # Print any exception that occurs during the process
           print("Error occurred during population of balances:", e)
+  
 
 
     # def fetch_and_display_balance(self, currency_type):
