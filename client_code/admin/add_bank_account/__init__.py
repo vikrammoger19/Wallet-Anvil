@@ -74,4 +74,20 @@ class add_bank_account(add_bank_accountTemplate):
 
   def link_8_click(self, **event_args):
     open_form('admin')
+
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('admin.report_analysis')
+
+  def link_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('admin.account_management')
+
+  def link_3_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('admin.transaction_monitoring')
+
+  def link_5_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('admin.audit_trail')
     

@@ -111,25 +111,6 @@ components:
                 Transaction Monitoring
             type: Label
             layout_properties: {x: 95, y: 0, width: 153.625}
-      - name: link_7_copy
-        properties: {text: '', align: center, bold: true}
-        type: Link
-        layout_properties: {grid_position: 'AXHMPX,XIALMA'}
-        event_bindings: {click: link_4_click}
-        components:
-        - name: xy_panel_5
-          properties: {height: 25.79998779296875}
-          type: XYPanel
-          layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
-          components:
-          - name: image_4_copy_3
-            properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 28.79998779296875}
-            type: Image
-            layout_properties: {x: 38, y: 10, width: 47}
-          - name: label_3_copy_2
-            properties: {text: User Management}
-            type: Label
-            layout_properties: {x: 95, y: 0, width: 127.22500610351562}
       - name: link_10
         properties: {text: '', bold: true, align: center}
         type: Link
@@ -184,7 +165,7 @@ components:
             type: Label
             layout_properties: {x: 95, y: 0, width: 117.5999755859375}
           - name: image_4_copy_5_copy
-            properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer-support.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 34}
+            properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer-service.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 34}
             type: Image
             layout_properties: {x: 38, y: 1, width: 47}
       - name: spacer_1_copy

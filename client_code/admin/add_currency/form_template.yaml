@@ -160,7 +160,7 @@ components:
           type: Label
           layout_properties: {x: 95, y: 0, width: 117.5999755859375}
         - name: image_4_copy_5_copy
-          properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer-support.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 34}
+          properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer-service.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 34}
           type: Image
           layout_properties: {x: 38, y: 1, width: 47}
     - name: spacer_1_copy

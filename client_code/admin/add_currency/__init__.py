@@ -85,3 +85,15 @@ class add_currency(add_currencyTemplate):
     """This method is called when the link is clicked"""
     open_form('admin.transaction_monitoring')
 
+  def link_4_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('admin.admin_add_user')
+
+  def link_5_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('admin.audit_trail')
+
+  def link_6_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('admin.user_support')
+
