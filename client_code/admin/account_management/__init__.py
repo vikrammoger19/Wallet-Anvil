@@ -10,7 +10,7 @@ class account_management(account_managementTemplate):
   def __init__(self, user= None, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    #self.button_100000.visible = False
+    self.button_100000.visible = False
     self.user =user
     # one = self.user['users_username'] 
     # print('hi admin1')
