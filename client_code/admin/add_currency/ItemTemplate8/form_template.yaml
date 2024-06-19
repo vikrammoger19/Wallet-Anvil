@@ -1,7 +1,7 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"CPIXHW":8,"HOSDSI":17,"LKMAXS":25,"NNWBPE":24,"OXHOGY":5,"JXYPFP":5,"OUJISL":7,"TPWRPX":3}'}
+  properties: {col_widths: '{"CPIXHW":8,"HOSDSI":17,"OXHOGY":5,"JXYPFP":5,"OUJISL":7,"TPWRPX":3}'}
 components:
 - name: spacer_1
   properties: {height: 39.39996337890625}
@@ -19,14 +19,6 @@ components:
   properties: {height: 32}
   type: Spacer
   layout_properties: {grid_position: 'LYTDQS,OXHOGY'}
-- name: text_box_2
-  properties: {bold: false, align: left}
-  type: TextBox
-  layout_properties: {grid_position: 'LYTDQS,LKMAXS'}
-  data_bindings:
-  - {property: placeholder, code: '', writeback: false}
-  - {property: text, code: 'self.item[''admins_add_currency_code'']', writeback: false}
-  event_bindings: {pressed_enter: text_box_2_pressed_enter}
 - name: spacer_3
   properties: {height: 32}
   type: Spacer
@@ -41,8 +33,3 @@ components:
   properties: {height: 32}
   type: Spacer
   layout_properties: {grid_position: 'LYTDQS,TPWRPX'}
-- name: view_user
-  properties: {text: View number of user, background: '#1d86da', foreground: 'theme:White', bold: true, italic: true, align: center}
-  type: Button
-  layout_properties: {grid_position: 'LYTDQS,NNWBPE'}
-  event_bindings: {click: view_user_click}

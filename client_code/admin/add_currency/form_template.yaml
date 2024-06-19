@@ -238,7 +238,7 @@ components:
     - name: text_box_2
       properties: {placeholder: currency code}
       type: TextBox
-      layout_properties: {width: 266.47741015625}
+      layout_properties: {width: 253.38605761718748}
       data_bindings:
       - {property: text, code: 'self.item[''admins_add_currency_code'']', writeback: false}
     - name: spacer_9
