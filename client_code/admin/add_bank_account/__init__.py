@@ -1,0 +1,77 @@
+from ._anvil_designer import add_bank_accountTemplate
+from anvil import *
+import anvil.server
+import anvil.tables as tables
+import anvil.tables.query as q
+from anvil.tables import app_tables
+
+
+class add_bank_account(add_bank_accountTemplate):
+  def __init__(self, **properties):
+    # Set Form properties and Data Bindings.
+    self.init_components(**properties)
+    self.flow_panel_1.visible = False
+    self.refresh_users()
+
+    # Any code you write here will run before the form opens.
+
+  def refresh_users(self, bank_filter=None):
+    if bank_filter:
+      self.bank_type_filter = [user for user in app_tables.wallet_admins_add_bank.search()
+                                  if user['admins_add_bank_names'].lower().startswith(bank_filter.lower())]
+    else:
+      self.bank_type_filter = [user for user in app_tables.wallet_admins_add_bank.search()]
+    self.repeating_panel_1.items = self.bank_type_filter
+
+  def button_1_click(self, **event_args):
+    bank_filter = self.textbox_search.text
+    self.refresh_users(bank_filter)
+
+  def textbox_search_pressed_enter(self, **event_args):
+    bank_filter = self.textbox_search.text
+    self.refresh_users(bank_filter)
+
+  def button_2_click(self,add_bank=None, **event_args):
+    self.flow_panel_1.visible = True
+
+  def button_3_click(self, **event_args):
+    bank_name = self.text_box_1.text.strip()
+    
+    
+    if bank_name:
+            bank_name = bank_name.capitalize()
+            print(bank_name)
+            existing_bank = app_tables.wallet_admins_add_bank.search(admins_add_bank_names=bank_name) 
+        
+        # if len(currency_code) == 3 and currency_code.isalpha():
+        #     existing_country = app_tables.wallet_admins_add_currency.search(admins_add_currency_country=country_name) 
+            
+            if len(existing_bank) == 0:
+                # Check if an image has been uploaded
+                if self.file_loader_1.file:
+                    # Save the uploaded image to the bank_icon column
+                    new_currency = app_tables.wallet_admins_add_bank.add_row(
+                        admins_add_bank_names=bank_name,
+                        admins_add_bank_icons=self.file_loader_1.file
+                    )
+                else:
+                    # If no image is uploaded, set bank_icon to None
+                    new_currency = app_tables.wallet_admins_add_bank.add_row(
+                        admins_add_bank_names=bank_name,
+                        admins_add_bank_icons=None
+                    )
+                
+                self.refresh_users()
+                self.text_box_1.text = ''
+                self.flow_panel_1.visible = False
+                alert('Bank name added successfully')
+            else:
+                alert('Bank already exists')
+    else:
+        alert('Incorrect bank name')
+  def link_8_copy_click(self, **event_args):
+    open_form('admin', user=self.user)
+
+  def link_8_click(self, **event_args):
+    open_form('admin',user=self.user)
+    

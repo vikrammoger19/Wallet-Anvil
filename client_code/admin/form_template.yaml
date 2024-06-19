@@ -132,7 +132,7 @@ components:
       - properties: {text: '', align: center, bold: true}
         type: Link
         layout_properties: {grid_position: 'AXHMPX,XIALMA'}
-        event_bindings: {click: link_4_click}
+        event_bindings: {click: link_7_click}
         name: link_7
         components:
         - properties: {height: 25.79998779296875}
@@ -205,6 +205,11 @@ components:
             type: Image
             layout_properties: {x: 38, y: 1, width: 47}
             name: image_4_copy_5_copy
+      - name: link_4
+        properties: {text: add bank}
+        type: Link
+        layout_properties: {grid_position: 'DAHERR,BBCAIQ'}
+        event_bindings: {click: link_4_click}
       - properties: {height: 204.5999755859375}
         type: Spacer
         layout_properties: {grid_position: 'ZCYDZV,VFTIPP'}
