@@ -18,6 +18,9 @@ class transaction_monitoring(transaction_monitoringTemplate):
       self.link14_clicked = False
       self.link15_clicked = False
       self.repeating_panel_items = []
+      self.button1_clicked=True
+      self.button3_clicked=True
+      self.button2_clicked=True
       #users transactions all
       self.all_transactions()
       # Any code you write here will run before the form opens.
@@ -538,22 +541,53 @@ class transaction_monitoring(transaction_monitoringTemplate):
 
 
     def button_1_click(self, **event_args):
-      self.spacer_8.visible = True
-      self.spacer_9.visible = True
-      self.drop_down_2.visible = True
+      if self.button1_clicked:
+        self.drop_down_2.visible = True
+        self.button1_clicked = False
+      else:
+        self.drop_down_2.visible = False
+        self.button1_clicked = True
+  
+      if self.button1_clicked and self.button2_clicked and self.button3_clicked:
+        self.spacer_8.visible = False
+        self.spacer_9.visible = False
+      else:
+        self.spacer_8.visible = True
+        self.spacer_9.visible = True
 
     def button_2_click(self, **event_args):
       """This method is called when the button is clicked"""
-      self.spacer_8.visible = True
-      self.spacer_9.visible = True
-      self.date_picker_1.visible = True
-      self.date_picker_2.visible = True
+      if self.button2_clicked:
+        self.date_picker_1.visible = True
+        self.date_picker_2.visible = True
+        self.button2_clicked = False
+      else:
+        self.date_picker_1.visible = False
+        self.date_picker_2.visible = False
+        self.button2_clicked = True
+  
+      if self.button1_clicked and self.button2_clicked and self.button3_clicked:
+        self.spacer_8.visible = False
+        self.spacer_9.visible = False
+      else:
+        self.spacer_8.visible = True
+        self.spacer_9.visible = True
   
     def button_3_click(self, **event_args):
       """This method is called when the button is clicked"""
-      self.spacer_8.visible = True
-      self.spacer_9.visible = True
-      self.drop_down_1.visible = True
+      if self.button3_clicked:
+        self.drop_down_1.visible = True
+        self.button3_clicked=False
+      else:
+        self.drop_down_1.visible = False
+        self.button3_clicked=True
+  
+      if self.button1_clicked and self.button2_clicked and self.button3_clicked:
+        self.spacer_8.visible = False
+        self.spacer_9.visible = False
+      else:
+        self.spacer_8.visible = True
+        self.spacer_9.visible = True
   
     def link_1_click(self, **event_args):
         """This method is called when the link is clicked"""
