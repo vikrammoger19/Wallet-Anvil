@@ -583,6 +583,24 @@ class transactions(transactionsTemplate):
                                             
         self.repeating_panel_3.items = all
 
+  def button_1_click(self, **event_args):
+    self.spacer_8.visible = True
+    self.spacer_9.visible = True
+    self.drop_down_2.visible = True
+
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.spacer_8.visible = True
+    self.spacer_9.visible = True
+    self.date_picker_1.visible = True
+    self.date_picker_2.visible = True
+
+  def button_3_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    self.spacer_8.visible = True
+    self.spacer_9.visible = True
+    self.drop_down_1.visible = True
+  
   def link_4_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('customer.withdraw', user=self.user)
