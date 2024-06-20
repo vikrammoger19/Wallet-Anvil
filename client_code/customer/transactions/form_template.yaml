@@ -212,12 +212,12 @@ components:
       layout_properties: {grid_position: 'DXIICR,UHZRZD', full_width_row: true}
       components:
       - name: column_panel_2
-        properties: {col_widths: '{"EJEIKP":20,"HTDXFR":60,"KXUJWZ":7,"JFHEUS":9,"KKUNDF":15}'}
+        properties: {col_widths: '{"EJEIKP":20,"HTDXFR":60,"KXUJWZ":7,"KKUNDF":15}'}
         type: ColumnPanel
         layout_properties: {grid_position: 'USQCPA,BCTJCN'}
         components:
         - name: label_2
-          properties: {align: center, bold: true, font_size: 24, text: Transactions, italic: true}
+          properties: {align: center, bold: true, font_size: 24, text: Transactions, italic: true, foreground: white}
           type: Label
           layout_properties: {grid_position: 'LFQUJB,EJEIKP'}
         - name: spacer_2
@@ -225,35 +225,27 @@ components:
           type: Spacer
           layout_properties: {grid_position: 'LFQUJB,HTDXFR'}
         - name: xy_panel_7
-          properties: {height: 7.78973388671875}
+          properties: {height: 38.4439697265625}
           type: XYPanel
           layout_properties: {grid_position: 'LFQUJB,KKUNDF'}
           components:
-          - name: image_4_copy_copy
-            properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/wallet_12024363.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 46.920562744140625}
-            type: Image
-            layout_properties: {x: 0, y: 0, width: 47.86798858642578}
           - name: label_4
             properties: {bold: true, font_size: 15, align: left, icon: '', icon_align: left}
             type: Label
             layout_properties: {x: 54.48307842761278, y: 0, width: 72.61282490234375}
-        - name: spacer_10
-          properties: {height: -0.256988525390625}
-          type: Spacer
-          layout_properties: {grid_position: 'LFQUJB,KXUJWZ KWQFVE,SXNUQR'}
+          - name: image_4_copy_copy
+            properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/wallet_12024363.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 40.369171142578125}
+            type: Image
+            layout_properties: {x: 4.7166599705815315, y: 0, width: 47.86798858642578}
         - name: xy_panel_9
-          properties: {height: 27.32244873046875}
+          properties: {height: 30.58416748046875}
           type: XYPanel
-          layout_properties: {grid_position: 'LFQUJB,KXUJWZ NWDGOZ,DVYXXY'}
+          layout_properties: {grid_position: 'LFQUJB,KXUJWZ'}
           components:
           - name: link_16
             properties: {align: center, icon: 'fa:bell-o', font_size: 25, foreground: white}
             type: Link
-            layout_properties: {x: 0, y: 0, width: 29.659438085937502}
-        - name: image_2
-          properties: {height: 43.80841064453125, source: _/theme/account.png, visible: true}
-          type: Image
-          layout_properties: {grid_position: 'LFQUJB,JFHEUS'}
+            layout_properties: {x: 0, y: 0, width: 33.3260478515625}
     - name: spacer_4
       properties: {height: 22.126220703125}
       type: Spacer
