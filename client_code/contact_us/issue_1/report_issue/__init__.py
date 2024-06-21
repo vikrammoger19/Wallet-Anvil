@@ -9,7 +9,7 @@ from ..login_issue import login_issueTemplate
 from ... import contact_us
 
 class report_issue(report_issueTemplate):
-  def _init_(self, **properties):
+  def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 

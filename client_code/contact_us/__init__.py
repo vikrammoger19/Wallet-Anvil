@@ -15,7 +15,7 @@ from .issue_4 import issue_4
 from .issue_5 import issue_5
 
 class contact_us(contact_usTemplate):
-  def _init_(self, **properties):
+  def __init__(self, **properties):
     self.init_components(**properties)
     
     self.tabs={
@@ -48,7 +48,7 @@ class contact_us(contact_usTemplate):
   
   def switch_tab(self,tab_name):
     self.card.clear()
-    self.card.add_component(self.tabs[tab_])
+    self.card.add_component(self.tabs[tab_name])
 
 
   def set_card_overflow(self, **event_args):

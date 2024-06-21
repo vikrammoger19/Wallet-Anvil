@@ -10,7 +10,7 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class issue_1(issue_1Template):
-  def _init_(self, **properties):
+  def __init__(self, **properties):
     self.init_components(**properties)
     #self.card_1.visible = False
     # self.card_3.visible = False

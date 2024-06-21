@@ -11,7 +11,7 @@ from anvil.tables import app_tables
 
 
 class login_issue(login_issueTemplate):
-  def _init_(self, **properties):
+  def __init__(self, **properties):
     self.init_components(**properties)
     self.user = anvil.users.get_user()
     # self.card_1.visible = False

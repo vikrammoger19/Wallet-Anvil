@@ -7,7 +7,7 @@ import anvil.users
 import anvil.server
 
 class issue_4(issue_4Template):
-  def _init_(self, **properties):
+  def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 

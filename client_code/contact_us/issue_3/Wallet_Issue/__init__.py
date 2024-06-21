@@ -11,7 +11,7 @@ from anvil.tables import app_tables
 
 
 class Wallet_Issue(Wallet_IssueTemplate):
-  def _init_(self, **properties):
+  def __init__(self, **properties):
     self.init_components(**properties)
     # self.card_1.visible = False
     # self.card_3.visible = False

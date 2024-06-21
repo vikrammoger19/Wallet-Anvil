@@ -13,7 +13,7 @@ from anvil.tables import app_tables
 
 
 class MessageUs(MessageUsTemplate):
-  def _init_(self, **properties):
+  def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
