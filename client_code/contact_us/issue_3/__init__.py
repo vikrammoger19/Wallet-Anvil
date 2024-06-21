@@ -1,9 +1,10 @@
 from ._anvil_designer import issue_3Template
 from anvil import *
+import anvil.users
 import anvil.server
 
 class issue_3(issue_3Template):
-  def __init__(self, **properties):
+  def _init_(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
@@ -20,3 +21,16 @@ class issue_3(issue_3Template):
 
   def button_3_click(self, **event_args):
     open_form('Login')
+
+  def link_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("contact_us.issue_3.Add_Bank")
+
+  def link_3_click(self, **event_args):
+    open_form("contact_us.issue_3.Verify_Phone")
+
+  def link_5_click(self, **event_args):
+    open_form('contact_us.issue_3.Verify_Email_Address')
+
+  def link_4_click(self, **event_args):
+    open_form("contact_us.issue_3.Wallet_Issue")
