@@ -6,6 +6,10 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import datetime
 from anvil import *
+import anvil.facebook.auth
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
+import anvil.users
 
 class customer(customerTemplate):
     def __init__(self, user=None, password=None, **properties):

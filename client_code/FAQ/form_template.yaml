@@ -32,7 +32,7 @@ components:
           type: Label
           layout_properties: {x: 76.45000152662396, y: 3.8374977111816406, width: 131.9500045776367}
         - name: image_1_copy_copy_copy_copy
-          properties: {role: null, vertical_align: center, height: 51.80000305175781, tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small, source: _/theme/letter-g.png, spacing_below: small, background: white, horizontal_align: right}
+          properties: {role: null, vertical_align: center, spacing_above: small, background: white, horizontal_align: right, source: _/theme/letter-g.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 51.80000305175781}
           type: Image
           layout_properties: {x: 0, y: 1.199993897229433, width: 60.39999694824219}
         - name: about_us
@@ -99,7 +99,7 @@ components:
           layout_properties: {grid_position: 'HSALJA,JOAHYW'}
           components:
           - name: link_1_copy
-            properties: {role: null, align: left, text: "1.\tWhat is a multi-currency digital transaction wallet app?", font_size: 22, wrap_on: mobile, font: '', col_spacing: none, spacing_above: none, icon_align: right_edge, col_widths: '{"FUWHNF":2,"OSQSPV":58}', spacing_below: none, icon: 'fa:angle-down'}
+            properties: {role: null, align: left, col_widths: '{"FUWHNF":2,"OSQSPV":58}', spacing_above: none, icon: 'fa:angle-down', wrap_on: mobile, font: '', col_spacing: none, icon_align: right_edge, spacing_below: none, font_size: 22, text: "1.\tWhat is a multi-currency digital transaction wallet app?"}
             type: Link
             layout_properties: {grid_position: 'VCXTKC,UUEBQJ', full_width_row: true}
             event_bindings: {click: link_1_click}
@@ -446,7 +446,7 @@ components:
           type: Label
           layout_properties: {grid_position: 'SCLPIX,GYSDCL'}
         - name: xy_panel_2_copy_2_copy
-          properties: {role: null, width: null, align: center, height: 288.5999755859375, tooltip: '', border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small, background: 'theme:Gray 200'}
+          properties: {role: null, align: center, spacing_above: small, width: null, background: 'theme:Gray 200', foreground: '', spacing_below: small, visible: true, border: '', tooltip: '', height: 288.5999755859375}
           type: XYPanel
           layout_properties: {grid_position: 'VASTRM,YBYFRP', full_width_row: true}
           components:

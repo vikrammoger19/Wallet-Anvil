@@ -1,5 +1,8 @@
 from ._anvil_designer import contact_usTemplate
 from anvil import *
+import anvil.facebook.auth
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
 import anvil.users
 import anvil.server
 import anvil.tables as tables
@@ -45,7 +48,7 @@ class contact_us(contact_usTemplate):
   
   def switch_tab(self,tab_name):
     self.card.clear()
-    self.card.add_component(self.tabs[tab_name])
+    self.card.add_component(self.tabs[tab_])
 
 
   def set_card_overflow(self, **event_args):

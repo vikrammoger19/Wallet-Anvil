@@ -1,5 +1,9 @@
 from ._anvil_designer import payment_declinedTemplate
 from anvil import *
+import anvil.facebook.auth
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
+import anvil.users
 import anvil.server
 
 class payment_declined(payment_declinedTemplate):

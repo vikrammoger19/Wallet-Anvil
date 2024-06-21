@@ -1,5 +1,8 @@
 from ._anvil_designer import issue_5Template
 from anvil import *
+import anvil.facebook.auth
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
@@ -32,4 +35,4 @@ class issue_5(issue_5Template):
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form("contact_us.issue_4.Misssing_Transaction")
+    open_form("contact_us.issue_5.Device_Compatibility")
