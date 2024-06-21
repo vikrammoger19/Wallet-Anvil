@@ -1,13 +1,4 @@
-from ._anvil_designer import report_analysisTemplate
-from anvil import *
-import anvil.tables as tables
-import anvil.tables.query as q
-from anvil.tables import app_tables
-import plotly.graph_objects as go
-import anvil.server
-import anvil.tables as tables
-import anvil.tables.query as q
-import re  # Import the regular expression module
+
 
 from ._anvil_designer import report_analysisTemplate
 from anvil import *
@@ -79,26 +70,24 @@ class report_analysis(report_analysisTemplate):
             self.plot_1.layout = go.Layout(title="Transaction Trends")
         
         elif data_type == "user_activity":
-            # Call the server function to get user data
+    # Call the server function to get user data
             users = anvil.server.call('get_user_data')
-
-            # Count the number of active and non-active users
-            unbanned_users = sum(1 for user in users if user['banned'] is None)
+        
+            # Count the number of active, inactive, and banned users
+            active_users = sum(1 for user in users if user['inactive'] is None and user['banned'] is None)
+            inactive_users = sum(1 for user in users if user['inactive'] is True and user['banned'] is None)
             banned_users = sum(1 for user in users if user['banned'] is True)
-            active_users = sum(1 for user in users if user['inactive'] is None)
-            inactive_users = sum(1 for user in users if user['inactive'] is True)
-
+        
             # Calculate percentages
-            total_users = banned_users + unbanned_users + active_users + inactive_users
+            total_users = banned_users + active_users + inactive_users
             banned_percentage = (banned_users / total_users) * 100
-            unbanned_percentage = (unbanned_users / total_users) * 100
             active_percentage = (active_users / total_users) * 100
             inactive_percentage = (inactive_users / total_users) * 100
-
+        
             # Create pie chart data
-            labels = ['Banned Users', 'Unbanned Users', 'Active Users', 'Inactive Users']
-            values = [banned_percentage, unbanned_percentage, active_percentage, inactive_percentage]
-
+            labels = ['Banned Users', 'Active Users', 'Inactive Users']
+            values = [banned_percentage, active_percentage, inactive_percentage]
+        
             self.plot_1.data = [{'labels': labels, 'values': values, 'type': 'pie'}]
             self.plot_1.layout = go.Layout(title="User Activity")
         
@@ -133,9 +122,9 @@ class report_analysis(report_analysisTemplate):
         """This method is called when the button is clicked"""
         self.refresh_data("user_activity")
 
-    def link_99_click(self, **event_args):
-        """This method is called when the button is clicked"""
-        self.refresh_data("system_performance")
+    # def link_99_click(self, **event_args):
+    #     """This method is called when the button is clicked"""
+    #     self.refresh_data("system_performance")
 
     def link_1_click(self, **event_args):
         """This method is called when the link is clicked"""

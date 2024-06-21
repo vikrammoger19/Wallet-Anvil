@@ -173,7 +173,7 @@ components:
     type: Image
     layout_properties: {grid_position: 'NMGVCA,VYXSYB'}
   - name: label_656
-    properties: {text: '', bold: true, font_size: 14, spacing_above: medium, spacing_below: small}
+    properties: {text: '', bold: true, font_size: 14, spacing_above: medium, spacing_below: small, foreground: 'theme:White'}
     type: Label
     layout_properties: {grid_position: 'NMGVCA,QSUDAZ'}
 - name: spacer_2
@@ -210,7 +210,7 @@ components:
     underline: false
     font: ''
     foreground: white
-    items: [Active, Inactive]
+    items: [All, Active, Inactive, Hold]
     spacing_below: none
     visible: true
     border: ''
