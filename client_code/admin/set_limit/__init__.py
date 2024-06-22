@@ -71,7 +71,12 @@ class set_limit(set_limitTemplate):
                 admins_actions_date=current_datetime,
                 # admin_email= email
             )
-    
+
+    def link_5_click(self, **event_args):
+          """This method is called when the link is clicked"""
+          openform('admin.acco', user=self.user)
+      
+      
     def link_8_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
         open_form('admin', user=self.user)
