@@ -28,7 +28,7 @@ components:
         type: Label
         layout_properties: {x: 76.45000152662396, y: 3.8374977111816406, width: 131.9500045776367}
       - name: image_1_copy_copy_copy_copy
-        properties: {role: null, vertical_align: center, height: 51.80000305175781, tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small, source: _/theme/letter-g.png, spacing_below: small, background: white, horizontal_align: right}
+        properties: {role: null, vertical_align: center, spacing_above: small, background: white, horizontal_align: right, source: _/theme/letter-g.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 51.80000305175781}
         type: Image
         layout_properties: {x: 0, y: 1.199993897229433, width: 60.39999694824219}
       - name: about_us
@@ -101,7 +101,7 @@ components:
         type: Image
         layout_properties: {x: 1121.800048828125, y: 22.399993896484375, width: 227}
     - name: primary_color_1
-      properties: {role: primary-color, align: center, enabled: true, foreground: 'theme:White', text: Get Started, font_size: 18, icon_align: right, background: 'theme:Primary 500', bold: true, underline: false, icon: 'fa:arrow-circle-o-right'}
+      properties: {role: primary-color, bold: true, align: center, background: 'theme:Primary 500', icon: 'fa:arrow-circle-o-right', underline: false, icon_align: right, foreground: 'theme:White', enabled: true, font_size: 18, text: Get Started}
       type: Button
       layout_properties: {grid_position: 'GSZCJX,MHXAAN'}
     - name: spacer_2
@@ -322,7 +322,7 @@ components:
       type: Spacer
       layout_properties: {grid_position: 'PLBEAS,ECJJTP'}
     - name: xy_panel_2_copy_2
-      properties: {role: null, width: null, align: center, height: 288.5999755859375, tooltip: '', border: '', foreground: '', visible: true, spacing_above: small, spacing_below: small, background: 'theme:Gray 200'}
+      properties: {role: null, align: center, spacing_above: small, width: null, background: 'theme:Gray 200', foreground: '', spacing_below: small, visible: true, border: '', tooltip: '', height: 288.5999755859375}
       type: XYPanel
       layout_properties: {grid_position: 'YPOWGP,HWVVKU', full_width_row: true}
       components:

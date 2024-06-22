@@ -23,7 +23,7 @@ components:
       type: Label
       layout_properties: {x: 76.45000152662396, y: 3.8374977111816406, width: 131.9500045776367}
     - name: image_1_copy_copy_copy_copy
-      properties: {role: null, vertical_align: center, height: 51.80000305175781, tooltip: '', border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small, source: _/theme/letter-g.png, spacing_below: small, background: white, horizontal_align: right}
+      properties: {role: null, vertical_align: center, spacing_above: small, background: white, horizontal_align: right, source: _/theme/letter-g.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 51.80000305175781}
       type: Image
       layout_properties: {x: 0, y: 1.199993897229433, width: 60.39999694824219}
     - name: about_us

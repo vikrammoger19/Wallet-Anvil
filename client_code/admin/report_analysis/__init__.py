@@ -1,5 +1,3 @@
-
-
 from ._anvil_designer import report_analysisTemplate
 from anvil import *
 import anvil.tables as tables

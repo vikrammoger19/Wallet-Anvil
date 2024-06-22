@@ -6,13 +6,13 @@ container:
   - {property: tag, code: 'self.item[''transaction_type'']'}
 components:
 - type: TextBox
-  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: number, spacing_below: small, italic: false, background: '', bold: false, underline: false}
+  properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: '', type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
   name: text_box_1
   layout_properties: {grid_position: 'EZOGOE,BRTYAK'}
   data_bindings:
   - {property: text, code: 'self.item[''phone'']', writeback: true}
 - type: TextBox
-  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: number, spacing_below: small, italic: false, background: '', bold: false, underline: false}
+  properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: '', type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
   name: text_box_2
   layout_properties: {grid_position: 'EZOGOE,EKFMDB'}
   data_bindings:
@@ -25,7 +25,7 @@ components:
   - {property: text, code: 'self.item[''transaction_type'']', writeback: true}
   event_bindings: {pressed_enter: text_box_3_pressed_enter}
 - type: TextBox
-  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '', border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, type: number, spacing_below: small, italic: false, background: '', bold: false, underline: false}
+  properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: '', type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
   name: text_box_4
   layout_properties: {grid_position: 'EZOGOE,PZDEGC'}
   data_bindings:
