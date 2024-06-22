@@ -33,12 +33,21 @@ class ItemTemplate6(ItemTemplate6Template):
           print('user image none')
   
   def get_status_text(self):
-    # Return "Inactive" if self.item['inactive'] is True, otherwise "Active"
-    return "Inactive" if self.item['users_inactive'] else "Active"
+        if self.item['users_hold']:
+            return "Hold"
+        return "Inactive" if self.item['users_inactive'] else "Active"
   
   def get_status_color(self):
-    # Return "red" if self.item['inactive'] is True, otherwise "green"
-    return "red" if self.item['users_inactive'] else "green"
+    # Check for hold status first
+    if self.item['users_hold']:
+        return "red"
+    # Check for inactive status next
+    elif self.item['users_inactive']:
+        return "red"
+    # If neither hold nor inactive, return green for active
+    else:
+        return "green"
+
 
   def button_1_click(self, **event_args):
     # Access the data for the selected user

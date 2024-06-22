@@ -140,7 +140,7 @@ db_schema:
       type: string
     title: wallet_users_service
   wallet_admins_create_admin_account:
-    client: none
+    client: full
     server: full
     columns:
     - name: admins_email
