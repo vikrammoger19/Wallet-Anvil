@@ -1,5 +1,9 @@
 from ._anvil_designer import account_managementTemplate
 from anvil import *
+import anvil.facebook.auth
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
+import anvil.users
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -10,7 +14,7 @@ class account_management(account_managementTemplate):
   def __init__(self, user= None, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.button_100000.visible = False
+    # self.button_100000.visible = False
     self.user =user
     # one = self.user['users_username'] 
     # print('hi admin1')
@@ -36,26 +40,38 @@ class account_management(account_managementTemplate):
   #         print('none')
 
   def refresh_users(self, username_filter=None, status_filter=None):
-    # Fetch all users from the table
-    users = app_tables.wallet_users.search()
+        # Fetch all users from the table
+        users = app_tables.wallet_users.search()
+        # Filter users based on customer type
+        users = [user for user in users if user['users_usertype'] == 'customer']
 
-    # Filter users based on customer type
-    users = [user for user in users if user['users_usertype'] == 'customer']
+        # Filter users based on status if status filter is provided
+        if status_filter == "Active":
+            users = [user for user in users if user['users_inactive'] is None and user['users_hold'] is None]
+        elif status_filter == "Inactive":
+            users = [user for user in users if user['users_inactive'] is True]
+        elif status_filter == "Hold":
+            users = [user for user in users if user['users_hold'] is True]
 
-    # Filter users based on status if status filter is provided
-    if status_filter == "Active":
-      users = [user for user in users if user['users_inactive'] is None]
-    elif status_filter == "Inactive":
-      users = [user for user in users if user['users_inactive'] is True]
+        # Filter users based on username if username filter is provided
+        if username_filter:
+            users = [user for user in users if user['users_username'].lower().startswith(username_filter.lower())]
 
-    # Filter users based on username if username filter is provided
-    if username_filter:
-      users = [user for user in users if user['users_username'].lower().startswith(username_filter.lower())]
+        # Create a list of dictionaries with status color for display purposes
+        user_list = []
+        for user in users:
+            user_dict = dict(user)
+            if user['users_hold']:
+                user_dict['status_color'] = 'red'
+            elif user['users_inactive']:
+                user_dict['status_color'] = 'gray'
+            else:
+                user_dict['status_color'] = 'green'
+            user_list.append(user_dict)
 
-    # Set items in the repeating panel
-    self.repeating_panel_1.items = users
-    print(users)
-    self.label_5.text = f"Total users: {len(users)}"
+        # Set items in the repeating panel
+        self.repeating_panel_1.items = user_list
+        self.label_5.text = f"Total users: {len(user_list)}"
 
 
 

@@ -1,5 +1,9 @@
 from ._anvil_designer import admin_view_user_detailsTemplate
 from anvil import *
+import anvil.facebook.auth
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
+import anvil.users
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -10,17 +14,22 @@ import base64
 
 class admin_view_user_details(admin_view_user_detailsTemplate):
     def __init__(self, user_data=None, phone_number=None, user=None, **properties):
-        self.user = user
-        if self.user is not None:
-          self.label_6566.text = self.user['users_username']
-          # self.label_6566.text = self.user['users_username']
-
+        # self.user = user
         self.phone_number = phone_number
         self.init_components(**properties)
+        self.user = user
+        if self.user is not None:
+            if 'users_username' in self.user:
+                self.label_6566.text = self.user['users_username']
+            else:
+                print("users_username not found in user object")
+        
         # self.check_profile_pic()
         self.populate_balances()
         self.edit_mode = False
         self.user = user_data
+        # if self.user is not None:
+        #     self.label_6566.text = self.user['users_username']
 
         if phone_number is not None:
             self.label_401.text = phone_number
@@ -36,7 +45,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
                 self.label_701.text = user_data['users_address']
                 
                 # Set the status label
-                self.set_status_label(user_data['users_inactive'])
+                self.set_status_label(user_data)
 
             else:
                 self.label_100.text = ""
@@ -63,13 +72,27 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
           else:
             print('none')
 
-    def set_status_label(self, inactive_status):
-        if inactive_status:
-            self.label_901.text = "Inactive"
-            self.label_901.foreground = "red"
-        else:
-            self.label_901.text = "Active"
-            self.label_901.foreground = "green"
+    def set_status_label(self, user_data):
+      if user_data:
+          if user_data['users_banned']:
+              self.label_901.text = "Hold"
+              self.label_901.foreground = "red"
+          
+          elif user_data['users_inactive']:
+              self.label_901.text = "Inactive"
+              self.label_901.foreground = "red"
+          else:
+              self.label_901.text = "Active"
+              self.label_901.foreground = "green"
+      else:
+          self.label_901.text = "No Data"
+          self.label_901.foreground = "gray"
+
+  
+
+
+
+
 
     def populate_balances(self):
       try:
@@ -195,7 +218,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
 
     def button_5_click(self, **event_args):
         username = self.label_100.text
-        user_to_update = app_tables.wallet_users.get(users_username=username)
+        user_to_update = app_tables.wallet_users.get(users_phone=self.phone_number)
 
         if user_to_update is not None:
             # Check the current state of 'hold' column
@@ -212,22 +235,42 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
 
             # Update button text based on the new state
             self.set_button_text()
+            self.set_status_label(user_to_update)
 
             # Display alert based on the action
             alert_message = "User is frozen." if new_state else "User is unfrozen."
             alert(alert_message, title="Status")
 
             # Log the action
-            self.log_action(username,self.label_6566.text, [alert_message])
+            self.log_action(username,self.label_100.text, [alert_message])
             print("Button 5 Clicked and action logged")  # Debug statement
 
     def set_button_text(self):
         username = self.label_100.text
-        user_to_update = app_tables.wallet_users.get(users_username=username)
+        user_to_update = app_tables.wallet_users.get(users_phone=self.phone_number)
 
         # Get the current hold state from the database
         current_state = user_to_update['users_hold'] if user_to_update else None
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
         # Set the button text based on the current hold state
         self.button_5.text = "Unfreeze" if current_state else "Freeze"
 
@@ -246,7 +289,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
                 user_to_delete.delete()
                 
                 # Log the deletion action
-                self.log_action(username, self.label_6566.text,["User deleted"])
+                self.log_action(username, self.label_100.text,["User deleted"])
                 
                 # Open the admin.account_management form
                 open_form('admin.account_management', user=self.user)
@@ -409,7 +452,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
       user_data = app_tables.wallet_users.get(users_phone=self.phone_number)  # Retrieve user_data
       
       # Log the action
-      self.log_action(username,self.label_6566.text, ["User Setlimt changed"])
+      self.log_action(username,self.label_100.text, ["User Setlimt changed"])
       
       # Open the admin.set_limit form with user and user_data
       open_form('admin.set_limit', user=self.user, user_data=user_data)

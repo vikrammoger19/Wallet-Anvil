@@ -1,5 +1,9 @@
 from ._anvil_designer import transactionsTemplate
 from anvil import *
+import anvil.facebook.auth
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
+import anvil.users
 import anvil.server
 import anvil.tables as tables
 import anvil.tables.query as q
@@ -19,23 +23,26 @@ class transactions(transactionsTemplate):
     self.link14_clicked = False
     self.link15_clicked = False
     self.repeating_panel_items = []
+    self.button1_clicked=True
+    self.button3_clicked=True
+    self.button2_clicked=True
     #users transactions all
     self.all_transactions()
-    self.check_profile_pic()
+    # self.check_profile_pic()
     # Any code you write here will run before the form opens.
 
-  def check_profile_pic(self):
-        print(self.user)
-        print(self.user['users_email'],type(self.user['users_email']))
-        user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
-        if user_data:
-          existing_img = user_data['users_profile_pic']
-          if existing_img != None:
-            self.image_2.source = existing_img
-          else: 
-            print('no pic')
-        else:
-          print('none')
+  # def check_profile_pic(self):
+  #       print(self.user)
+  #       print(self.user['users_email'],type(self.user['users_email']))
+  #       user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email'])) #changed
+  #       if user_data:
+  #         existing_img = user_data['users_profile_pic']
+  #         if existing_img != None:
+  #           self.image_2.source = existing_img
+  #         else: 
+  #           print('no pic')
+  #       else:
+  #         print('none')
 
   
   def date_picker_1_change(self, **event_args):
@@ -583,6 +590,55 @@ class transactions(transactionsTemplate):
                                             
         self.repeating_panel_3.items = all
 
+  def button_1_click(self, **event_args):
+    if self.button1_clicked:
+      self.drop_down_2.visible = True
+      self.button1_clicked = False
+    else:
+      self.drop_down_2.visible = False
+      self.button1_clicked = True
+
+    if self.button1_clicked and self.button2_clicked and self.button3_clicked:
+      self.spacer_8.visible = False
+      self.spacer_9.visible = False
+    else:
+      self.spacer_8.visible = True
+      self.spacer_9.visible = True
+
+  def button_2_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if self.button2_clicked:
+      self.date_picker_1.visible = True
+      self.date_picker_2.visible = True
+      self.button2_clicked = False
+    else:
+      self.date_picker_1.visible = False
+      self.date_picker_2.visible = False
+      self.button2_clicked = True
+
+    if self.button1_clicked and self.button2_clicked and self.button3_clicked:
+      self.spacer_8.visible = False
+      self.spacer_9.visible = False
+    else:
+      self.spacer_8.visible = True
+      self.spacer_9.visible = True
+
+  def button_3_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    if self.button3_clicked:
+      self.drop_down_1.visible = True
+      self.button3_clicked=False
+    else:
+      self.drop_down_1.visible = False
+      self.button3_clicked=True
+
+    if self.button1_clicked and self.button2_clicked and self.button3_clicked:
+      self.spacer_8.visible = False
+      self.spacer_9.visible = False
+    else:
+      self.spacer_8.visible = True
+      self.spacer_9.visible = True
+  
   def link_4_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('customer.withdraw', user=self.user)

@@ -1,5 +1,9 @@
 from ._anvil_designer import issue_4Template
 from anvil import *
+import anvil.facebook.auth
+import anvil.google.auth, anvil.google.drive
+from anvil.google.drive import app_files
+import anvil.users
 import anvil.server
 
 class issue_4(issue_4Template):
@@ -20,3 +24,11 @@ class issue_4(issue_4Template):
 
   def link_16_click(self, **event_args):
     open_form('contact_us')
+
+  def link_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("contact_us.issue_4.Failed_Transaction")
+
+  def link_3_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("contact_us.issue_4.Misssing_Transaction")
