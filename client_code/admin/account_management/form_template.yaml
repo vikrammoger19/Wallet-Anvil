@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"CSTTCF":15,"GPRHZV":45,"TRHIBH":37,"DCCPYN":2,"PQXSFW":9,"ZBAWMA":12,"YTEXEH":40,"LYPRMO":20}'}
+  properties: {col_widths: '{"CSTTCF":15,"GPRHZV":45,"TRHIBH":37,"DCCPYN":2,"PQXSFW":9,"ZBAWMA":12,"YTEXEH":40,"LYPRMO":20,"IMMKSI":13,"DKRLID":10,"QMXSUV":15,"ZDOQZI":10,"KXUSCM":15,"OCGVEQ":8,"IXJXGD":7}'}
 components:
 - name: card_1_copy
   properties: {role: card, col_widths: '{}'}
@@ -176,6 +176,10 @@ components:
     properties: {text: '', bold: true, font_size: 14, spacing_above: medium, spacing_below: small, foreground: 'theme:White'}
     type: Label
     layout_properties: {grid_position: 'NMGVCA,QSUDAZ'}
+- name: spacer_5
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'CBUYOA,GPRHZV XFVVXB,IXJXGD'}
 - name: card_3
   properties: {role: card}
   type: ColumnPanel
@@ -189,6 +193,10 @@ components:
     properties: {bold: true, font_size: 17}
     type: Label
     layout_properties: {grid_position: 'UFNICA,RSKAPC'}
+- name: spacer_2
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'CBUYOA,GPRHZV XFVVXB,DKRLID'}
 - name: card_5
   properties: {role: card}
   type: ColumnPanel
@@ -202,6 +210,10 @@ components:
     properties: {font_size: 17, bold: true}
     type: Label
     layout_properties: {grid_position: 'PRNLHX,IQGGQN'}
+- name: spacer_3
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'CBUYOA,GPRHZV XFVVXB,ZDOQZI'}
 - name: card_6
   properties: {role: card}
   type: ColumnPanel
@@ -215,6 +227,10 @@ components:
     properties: {font_size: 17, bold: true}
     type: Label
     layout_properties: {grid_position: 'HRRKCI,SOFVQU'}
+- name: spacer_4
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'CBUYOA,GPRHZV XFVVXB,OCGVEQ'}
 - name: card_2
   properties: {role: null, col_widths: '{"GPLUVH":10,"VPTPGR":15,"KECVOR":10,"HKLKLM":25}'}
   type: ColumnPanel
@@ -224,18 +240,22 @@ components:
     properties: {text: view All, spacing_below: none, spacing_above: small, align: center}
     type: Link
     layout_properties: {grid_position: 'FYSXES,GPLUVH'}
+    event_bindings: {click: link_6_click}
   - name: link_8
     properties: {text: customer, spacing_below: none, align: center}
     type: Link
     layout_properties: {grid_position: 'FYSXES,VPTPGR'}
+    event_bindings: {click: link_8_click}
   - name: link_9
     properties: {text: Admin, spacing_above: small, spacing_below: none, align: center}
     type: Link
     layout_properties: {grid_position: 'FYSXES,KECVOR'}
+    event_bindings: {click: link_9_click}
   - name: link_10
     properties: {text: Super admin, spacing_above: small, spacing_below: none, align: center}
     type: Link
     layout_properties: {grid_position: 'FYSXES,HKLKLM'}
+    event_bindings: {click: link_10_click}
 - name: text_box_1
   properties: {role: outlined, bold: false, align: left, placeholder: 🔎  search by username, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: 3px solid skyblue, italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
   type: TextBox
