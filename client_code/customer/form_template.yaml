@@ -449,6 +449,7 @@ components:
           type: Link
           layout_properties: {x: 935.0380305175781, y: 33.6875, width: 34}
           name: link_15_copy
+          event_bindings: {click: link_15_copy_click}
         - properties: {font_size: 10, text: Good Morning, bold: true, foreground: 'theme:Gray 600'}
           type: Label
           layout_properties: {x: 700.2250061035156, y: 24.087501525878906, width: 116.175}
@@ -461,6 +462,36 @@ components:
           type: Label
           layout_properties: {x: 393.64997558668256, y: 34.000001192092896, width: 29.774999618530273}
           name: label_26_copy
+        - name: label_2
+          properties: {foreground: red}
+          type: Label
+          layout_properties: {x: 950.3503574803472, y: 17.75700993090868, width: 25.7009334564209}
+        - name: column_panel_2
+          properties: {visible: false, background: '#f8f8f8', border: solid white, role: card, col_widths: '{"CDCWSO":35,"GSSSKI":25}'}
+          type: ColumnPanel
+          layout_properties: {x: 615.0700230076909, y: 72.07943577319384, width: 370.812220703125}
+          components:
+          - name: repeating_panel_1
+            properties: {item_template: customer.ItemTemplate3}
+            type: RepeatingPanel
+            layout_properties: {grid_position: 'JDRBZK,HNBXLF'}
+          - name: label_4
+            properties: {align: center, text: No notifications, bold: true, background: '#87cefa', border: white, visible: false}
+            type: Label
+            layout_properties: {grid_position: 'OVBXAE,DDMDQX'}
+          - name: spacer_5
+            properties: {height: 5.723785400390625}
+            type: Spacer
+            layout_properties: {grid_position: 'MBTRGK,TPZWGT'}
+          - name: spacer_4
+            properties: {height: 32}
+            type: Spacer
+            layout_properties: {grid_position: 'WZMGUV,CDCWSO'}
+          - name: link_11
+            properties: {align: center, text: see all, font_size: 12}
+            type: Link
+            layout_properties: {grid_position: 'WZMGUV,GSSSKI'}
+            event_bindings: {click: link_11_click}
   - properties: {background: '', col_widths: '{}'}
     type: ColumnPanel
     name: content_panel_1

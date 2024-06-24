@@ -45,7 +45,7 @@ class audit_trail(audit_trailTemplate):
             for item in actions_data:
                 print('yes1')
                 # Extract date in YYYY-MM-DD format without time
-                date_str = item['admins_actions_date'].strftime("%Y-%m-%d")
+                date_str = item['admins_actions_date'] #.strftime("%Y-%m-%d")
                 if date_str not in self.grouped_details:
                     self.grouped_details[date_str] = {'date': item['admins_actions_date'], 'details': []}
                 self.grouped_details[date_str]['details'].append(item)
@@ -72,6 +72,7 @@ class audit_trail(audit_trailTemplate):
 
                 # Append transaction details with username instead of receiver_phone
                 self.repeating_panel_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
+                                                   'time': date_info['date'].strftime("%I:%M %p"),
                                                    'admin_name': action['admins_actions_name'],
                                                    'admin_action': admin_action,
                                                    'admin_action_username': admin_action_username,
@@ -87,6 +88,7 @@ class audit_trail(audit_trailTemplate):
             for i in range(len(self.repeating_panel_items)):
                 if str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")):
                     end.append({'date': self.repeating_panel_items[i]['date'],
+                                'time': self.repeating_panel_items[i]['time'],
                                 'admin_name': self.repeating_panel_items[i]['admin_name'],
                                 'admin_action': self.repeating_panel_items[i]['admin_action'],
                                 'admin_action_username': self.repeating_panel_items[i]['admin_action_username'],
@@ -97,6 +99,7 @@ class audit_trail(audit_trailTemplate):
             for i in range(len(self.repeating_panel_items)):
                 if str(self.repeating_panel_items[i]['date']) == str(self.date_picker_1.date.strftime("%Y-%m-%d")):
                     start.append({'date': self.repeating_panel_items[i]['date'],
+                                  'time': self.repeating_panel_items[i]['time'],
                                   'admin_name': self.repeating_panel_items[i]['admin_name'],
                                   'admin_action': self.repeating_panel_items[i]['admin_action'],
                                   'admin_action_username': self.repeating_panel_items[i]['admin_action_username'],
@@ -117,6 +120,7 @@ class audit_trail(audit_trailTemplate):
             for i in range(len(self.repeating_panel_items)):
                 if username == self.repeating_panel_items[i]['admin_action_username'].strip():
                     users.append({'date': self.repeating_panel_items[i]['date'],
+                                  'time': self.repeating_panel_items[i]['time'],
                                   'admin_name': self.repeating_panel_items[i]['admin_name'],
                                   'admin_action': self.repeating_panel_items[i]['admin_action'],
                                   'admin_action_username': self.repeating_panel_items[i]['admin_action_username'],
@@ -386,4 +390,5 @@ class audit_trail(audit_trailTemplate):
       """This method is called when the link is clicked"""
       open_form('admin.add_currency',user=self.user)
 
+    
 

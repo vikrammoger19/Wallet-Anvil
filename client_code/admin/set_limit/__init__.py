@@ -39,8 +39,10 @@ class set_limit(set_limitTemplate):
         # Determine which limit to update based on the selection
         if limit_type == 'Daily':
             field_to_update = 'users_daily_limit'
+            text='users daily limit'
         elif limit_type == 'Monthly':
-            field_to_update = 'users_user_limit'
+            field_to_update = 'users_us_limit'
+            text='users monthly limit'
         else:
             anvil.alert("Invalid limit type selected")
             return
@@ -49,7 +51,7 @@ class set_limit(set_limitTemplate):
         setter = anvil.server.call('update_user_limit', phone_number, field_to_update, new_limit)
         
         # Log changes to 'actions' table
-        changes_made = [f"{field_to_update} updated to {new_limit} by admin"]
+        changes_made = [f"{text} updated to {new_limit} by admin"]
         if self.user is not None:
             self.log_action(phone_number, changes_made, self.name)
         else:
