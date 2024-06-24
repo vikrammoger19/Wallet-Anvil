@@ -14,12 +14,12 @@ import base64
 
 class admin_view_user_details(admin_view_user_detailsTemplate):
     def __init__(self, user_data=None, phone_number=None, user=None, **properties):
-        # self.user = user
+        self.admin = user
         self.phone_number = phone_number
         self.init_components(**properties)
-        self.user = user
-        if self.user is not None:
-            self.label_6566.text = self.user['users_username']
+        # self.user = user
+        if self.admin is not None:
+            self.label_6566.text = self.admin['users_username']
             # if 'users_username' in self.user:
             #     self.label_6566.text = self.user['users_username']
             # else:
@@ -243,7 +243,7 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
             alert(alert_message, title="Status")
 
             # Log the action
-            self.log_action(username,self.label_100.text, [alert_message])
+            self.log_action(username, [alert_message])
             print("Button 5 Clicked and action logged")  # Debug statement
 
     def set_button_text(self):
@@ -290,10 +290,10 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
                 user_to_delete.delete()
                 
                 # Log the deletion action
-                self.log_action(username, self.label_100.text,["User deleted"])
+                self.log_action(username,["User deleted"])
                 
                 # Open the admin.account_management form
-                open_form('admin.account_management', user=self.user)
+                open_form('admin.account_management', user=self.admin)
                 
                 # Optionally, display an alert to inform the user
                 alert("User deleted successfully.", title="Status")
@@ -301,14 +301,14 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
             # If the user has balances, inform the admin that they cannot delete the user
             alert("User has balances. Please clear the balances before deleting.", title="Status")
 
-    def log_action(self, username,adminname, actions):
+    def log_action(self, username, actions):
         # Log the action to the app_tables.admin_activity_log table
         timestamp = datetime.now()
         action_log = ", ".join(actions)
 
         # Insert the log entry into the table
         app_tables.wallet_admins_actions.add_row(
-            admins_actions_name=adminname,
+            admins_actions_name=self.admin['users_username'],
             admins_actions_username=username,
             admins_actions_date=timestamp,
             admins_actions=action_log
@@ -453,30 +453,30 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
       user_data = app_tables.wallet_users.get(users_phone=self.phone_number)  # Retrieve user_data
       
       # Log the action
-      self.log_action(username,self.label_100.text, ["User Setlimt changed"])
+      # self.log_action(username,self.label_100.text, ["User Setlimt changed"])
       
       # Open the admin.set_limit form with user and user_data
-      open_form('admin.set_limit', user=self.user, user_data=user_data)
+      open_form('admin.set_limit', user=self.admin, user_data=user_data)
 
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.report_analysis',user=self.user)
+      open_form('admin.report_analysis',user=self.admin)
 
     def link_3_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.account_management',user=self.user)
+      open_form('admin.account_management',user=self.admin)
 
     def link_5_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.add_currency',user=self.user)
+      open_form('admin.add_currency',user=self.admin)
 
     def link_6_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.audit_trail',user=self.user)
+      open_form('admin.audit_trail',user=self.admin)
 
     def link_1_click(self, **event_args):
-      open_form('admin',user=self.user)
+      open_form('admin',user=self.admin)
 
     def link_4_click(self, **event_args):
       """This method is called when the link is clicked"""
-      open_form('admin.admin_add_user',user=self.user)
+      open_form('admin.admin_add_user',user=self.admin)

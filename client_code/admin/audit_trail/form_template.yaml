@@ -267,7 +267,7 @@ components:
             type: Label
             layout_properties: {grid_position: 'YXQQIJ,YCCYUH'}
           - name: label_5
-            properties: {bold: true, text: Time}
+            properties: {bold: true, text: Date and Time}
             type: Label
             layout_properties: {grid_position: 'YXQQIJ,LJAUCU'}
           - name: label_6

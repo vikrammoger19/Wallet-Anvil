@@ -17,7 +17,8 @@ class customer(customerTemplate):
         self.init_components(**properties)
         self.user = user
         self.password = password
-
+        self.link_clicked=True #changed
+        self.notifications()
         user_dict = dict(self.user)
         self.refresh_data()
         self.get_credit_debit_details()
@@ -432,6 +433,89 @@ class customer(customerTemplate):
       """This method is called when the link is clicked"""
       open_form('customer.settings',user = self.user)
 
+    def notifications(self):
+      items=[]
+      self.repeating_panel_1.items=items
+      an=anvil.server.call('get_notifications',self.user['users_phone'])
+      so=sorted(an,key=lambda x:x['users_notification_date_time'],reverse=True)
+      # length=0
+      if so:
+        for i in so:
+          # column3=ColumnPanel(border='white',background='#87cefa')
+          if i['users_notification_read'] is None or i['users_notification_read'] is not True:
+            a=i['users_notification_text']
+            b=i['users_notification_date_time'] #.strftime("%a-%I:%M %p")
+            items.append({'text':a,
+                        'date':b,
+                          'phone':self.user['users_phone']})
+            
+        if len(items)>0:
+          self.label_2.text=len(items)
+        else:
+          self.label_2.text=''
     
+    def link_15_copy_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      # n=anvil.Notification('hi',title='Remainder',timeout=None)
+      # self.column_panel_2.clear()
+      items=[]
+      self.repeating_panel_1.items=items
+      
+      if self.link_clicked:
+        self.column_panel_2.visible = True
+        
+        # self.column_panel_2.add_component(Spacer(height=2))
+        # self.column_panel_2.add_component(Button(text='Mark as read',align='right',font_size=15,foreground='white',background='#87cefa',border='white'))
+        an=anvil.server.call('get_notifications',self.user['users_phone'])
+        so=sorted(an,key=lambda x:x['users_notification_date_time'],reverse=True)
+        length=0
+        # total_notifications=len(so)
+        for i in so:
+          # column3=ColumnPanel(border='white',background='#87cefa')
+          if i['users_notification_read'] is None or i['users_notification_read'] is not True:
+            a=i['users_notification_text']
+            b=i['users_notification_date_time'] #.strftime("%a-%I:%M %p")
+            sender=i['users_notification_sender']
+            items.append({'text':a,
+                        'date':b,
+                          'phone':self.user['users_phone'],
+                         'sender_phone':sender})
+            length +=1
+            if length>4:
+              break
+        if len(items)>0:
+          self.repeating_panel_1.items=items
+          self.label_2.text=len(items)
+        else:
+          # label=Label(background='#87cefa',text='No notifications',align='center',font_size=15,border='white')
+          self.label_4.visible=True
+          self.label_2.text=''
+          # self.column_panel_2.add_component(label)
+          self.repeating_panel_1.visible=False
+          # self.flowpanel2=FlowPanel()
+          # self.flowpanel3=FlowPanel()
+          # self.flowpanel2.add_component(Spacer(width=7,spacing_below=0))
+          # self.flowpanel2.add_component(Label(text=a,align='left',font_size=17,spacing_below=0,bold=True),)
+          # self.flowpanel2.add_component(Spacer(width=20,spacing_below=0))
+          # link=Link(icon='fa:ellipsis-v',icon_align='right')
+          # button.set_event_handler('x-click',self.dummy)
+          # link.set_event_handler('click',self.dummy)
+          # self.flowpanel2.add_component(link)
+          # column3.add_component(self.flowpanel2)
+          # self.flowpanel3.add_component(Spacer(width=7,spacing_below=0))
+          # self.flowpanel3.add_component(Label(text=b,align='left',font_size=13,spacing_above=0,))
+          # # self.flowpanel3.add_component(Label(icon='fa:ellipsis-v',icon_align='right'))
+          # column3.add_component(self.flowpanel3)
+          # self.column_panel_2.add_component(column3)
+          # self.column_panel_2.add_component(Spacer(height=20))
+        self.link_clicked=False
+      else:
+        self.column_panel_2.visible = False
+        self.notifications()
+        self.link_clicked=True
+
+    def link_11_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.notifications',user=self.user)
 
    

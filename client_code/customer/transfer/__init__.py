@@ -153,7 +153,10 @@ class transfer(transferTemplate):
                       users_transaction_status="received-from",
                       users_transaction_receiver_phone=depositor_phone_number
                   )
-  
+        
+                  users_text=f"You have received **{self.drop_down_2.selected_value} {self.text_box_3.text}**from {self.user['users_username']}"
+                  anvil.server.call('notify',users_text,current_datetime,self.text_box_2.text,self.user['users_phone'])
+                
                   # Update the limits after successful transaction
                   depositor['users_daily_limit'] -= money_value
                   depositor['users_user_limit'] -= money_value

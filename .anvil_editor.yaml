@@ -7,6 +7,7 @@ unique_ids:
     FAQ: '1713162366636290785265537.6073'
     admin.account_management: '1706601905143966105557761.9275'
     customer.transactions: '1716796187597506741227669.97345'
+    customer.notifications.ItemTemplate5: '1719228870025439896159898.193'
     contact_us.issue_1.report_issue: '1712833077854141392852331.6239'
     customer.wallet: '1706613497096479839153776.76587'
     customer.paycontacts: '1713067555374449438699973.1308'
@@ -34,6 +35,7 @@ unique_ids:
     admin.report_analysis: '1706849892451295392053187.22784'
     customer.ItemTemplate16: '1715686643405932076834027.5503'
     contact_us.issue_1.login_issue: '1712832948361953236696228.9753'
+    customer.ItemTemplate3: '1719228254920510635849275.69836'
     customer.walletbalance: '1708587943688864687686091.5021'
     product: '1713526007325330001402688.80695'
     admin.account_management.ItemTemplate6: '17066021727573565195254.0898256'
@@ -57,6 +59,7 @@ unique_ids:
     customer.paycontacts.ItemTemplate9: '1713067946922565331028383.4034'
     customer.auto_topup: '1710397128169605223033622.6243'
     customer.default_currency: '171517227142274657825032.8116'
+    customer.notifications: '1719228747195932748587110.67'
     admin.add_currency.ItemTemplate8: '1710845258502266735003505.84134'
     MessageUs: '1718944042968848180852283.852'
     customer.set_limit: CMNMN3EUMZ5HJWTQBNOLWWUKDPV4WCUQ
