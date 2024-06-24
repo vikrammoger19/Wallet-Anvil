@@ -444,3 +444,19 @@ def update_user_limit_by_phone(phone, field, new_limit):
         user[field] = new_limit
     else:
         raise ValueError("User not found")
+
+
+@anvil.server.callable
+def notify(users_text,datetime,receiver_phone,sender):
+  notify = app_tables.wallet_users_notifications.add_row(users_notification_date_time=datetime,users_notification_text=users_text,users_notification_phone=int(receiver_phone),users_notification_sender=sender)
+
+@anvil.server.callable
+def get_notifications(user_phone):
+  a=app_tables.wallet_users_notifications.search(users_notification_phone=user_phone)
+  return a
+
+@anvil.server.callable
+def get_notification_details(phone,text,date):
+  a=app_tables.wallet_users_notifications.get(users_notification_date_time=date,users_notification_phone=phone,users_notification_text=text)
+  a.update(users_notification_read=True)
+  return a

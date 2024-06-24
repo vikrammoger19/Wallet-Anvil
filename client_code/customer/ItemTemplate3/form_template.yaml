@@ -1,0 +1,43 @@
+is_package: true
+container: {type: ColumnPanel}
+components:
+- name: column_panel_1
+  properties: {col_widths: '{"ALHBNM":55,"GTBKJM":48,"BAVHKC":15,"WZGMGI":59,"XNNOHU":40,"IGALID":20}', background: '#87cefa'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'VCNWUX,ZGCVZQ'}
+  components:
+  - name: spacer_1
+    properties: {height: 10.258575439453125}
+    type: Spacer
+    layout_properties: {grid_position: 'IJLOZM,BAVHKC PQVPPT,DZSWWH'}
+  - name: image_1
+    properties: {height: 49.788177490234375}
+    type: Image
+    layout_properties: {grid_position: 'IJLOZM,BAVHKC RBTRWT,RKQXVD'}
+  - name: label_1
+    properties: {font_size: 15}
+    type: Label
+    layout_properties: {grid_position: 'IJLOZM,WZGMGI BYAYKK,ALHBNM'}
+  - name: label_2
+    properties: {font_size: 12, italic: false}
+    type: Label
+    layout_properties: {grid_position: 'IJLOZM,WZGMGI ACSKRW,GTBKJM'}
+  - name: spacer_2
+    properties: {height: 14.75238037109375}
+    type: Spacer
+    layout_properties: {grid_position: 'IJLOZM,BLMLQP OXRAZF,BHSIBD'}
+  - name: button_1
+    properties: {text: '', icon: 'fa:ellipsis-v', foreground: black, role: null, bold: true}
+    type: Button
+    layout_properties: {grid_position: 'IJLOZM,BLMLQP VOJCVV,OBYNYH'}
+    data_bindings: []
+    event_bindings: {click: button_1_click}
+  - name: spacer_3
+    properties: {height: 32, visible: false}
+    type: Spacer
+    layout_properties: {grid_position: 'IQXPPG,XNNOHU'}
+  - name: link_1
+    properties: {align: center, bold: true, font_size: 12, text: MARK AS READ, visible: false, background: white}
+    type: Link
+    layout_properties: {grid_position: 'IQXPPG,IGALID'}
+    event_bindings: {click: link_1_click}
