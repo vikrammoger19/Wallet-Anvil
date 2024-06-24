@@ -19,10 +19,11 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
         self.init_components(**properties)
         self.user = user
         if self.user is not None:
-            if 'users_username' in self.user:
-                self.label_6566.text = self.user['users_username']
-            else:
-                print("users_username not found in user object")
+            self.label_6566.text = self.user['users_username']
+            # if 'users_username' in self.user:
+            #     self.label_6566.text = self.user['users_username']
+            # else:
+            #     print("users_username not found in user object")
         
         # self.check_profile_pic()
         self.populate_balances()

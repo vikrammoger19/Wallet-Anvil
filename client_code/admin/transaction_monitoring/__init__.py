@@ -15,6 +15,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
         # Set Form properties and Data Bindings.
       self.init_components(**properties)
       self.user = user
+      self.label_1.text=self.user['users_username']
       
       self.link11_clicked = True
       self.link12_clicked = False
