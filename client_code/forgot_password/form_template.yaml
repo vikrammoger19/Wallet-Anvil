@@ -7,7 +7,7 @@ components:
   type: Spacer
   layout_properties: {grid_position: 'TMMBGY,VIHCBB'}
 - name: spacer_6
-  properties: {height: 126.66665649414062}
+  properties: {height: 83.66665649414062}
   type: Spacer
   layout_properties: {grid_position: 'TMMBGY,MLAASD PQUBAA,LMLXRN'}
 - name: spacer_4
@@ -40,7 +40,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'NEUKIK,JKMRZI'}
   - name: label_3
-    properties: {bold: true, font_size: 10, visible: false}
+    properties: {bold: true, font_size: 14, visible: false}
     type: Label
     layout_properties: {grid_position: 'PGTVQD,JGBARL'}
   - name: text_box_1
@@ -48,7 +48,7 @@ components:
     type: TextBox
     layout_properties: {grid_position: 'RFLATG,FKJTQT'}
   - name: label_4
-    properties: {bold: true, font_size: 10, visible: false}
+    properties: {bold: true, font_size: 14, visible: false}
     type: Label
     layout_properties: {grid_position: 'HJAWSF,PXUXHH'}
   - name: button_1
@@ -66,7 +66,7 @@ components:
     type: TextBox
     layout_properties: {grid_position: 'DIOMGB,LNUZEP'}
   - name: label_5
-    properties: {font_size: 10, bold: true, visible: false}
+    properties: {font_size: 14, bold: true, visible: false}
     type: Label
     layout_properties: {grid_position: 'VPULVN,PCKOIR'}
   - name: text_box_4
