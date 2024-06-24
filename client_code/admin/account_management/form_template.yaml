@@ -176,70 +176,62 @@ components:
     properties: {text: '', bold: true, font_size: 14, spacing_above: medium, spacing_below: small, foreground: 'theme:White'}
     type: Label
     layout_properties: {grid_position: 'NMGVCA,QSUDAZ'}
-- name: card_7
-  properties: {role: null, col_widths: '{"IRTLYH":5,"YXBDJW":17,"LVJCYR":20,"KMNBTI":21,"NRUGDP":11,"ZNBICS":11,"DTSSVF":5}', background: '#fffafa'}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'CBUYOA,GPRHZV HTSRYR,FCIJAJ'}
+- name: spacer_8
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'CBUYOA,GPRHZV CJNKJM,BRTJZX'}
+- name: xy_panel_2
+  properties: {height: 131, background: 'theme:Gray 50'}
+  type: XYPanel
+  layout_properties: {grid_position: 'CBUYOA,GPRHZV IFTVGR,VZCNJM'}
   components:
-  - name: spacer_5
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'SRYHFS,IRTLYH'}
-  - name: card_3
-    properties: {role: card}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'SRYHFS,YXBDJW'}
-    components:
-    - name: label_8
-      properties: {text: customers, foreground: '#c5c4c4'}
-      type: Label
-      layout_properties: {grid_position: 'GEFNVF,MQYSIN'}
-    - name: label_5
-      properties: {bold: true, font_size: 25}
-      type: Label
-      layout_properties: {grid_position: 'UFNICA,RSKAPC'}
-  - name: spacer_3
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'SRYHFS,NRUGDP'}
   - name: card_5
-    properties: {role: card}
+    properties: {role: card, spacing_above: small, spacing_below: small}
     type: ColumnPanel
-    layout_properties: {grid_position: 'SRYHFS,LVJCYR'}
+    layout_properties: {grid_position: 'SRYHFS,LVJCYR', x: 500.35418701171875, y: 16.625, width: 253.042}
     components:
     - name: label_9
-      properties: {background: '', text: Admins, foreground: '#c5c4c4'}
+      properties: {background: '', text: Admins, foreground: '#c5c4c4', spacing_below: none, spacing_above: none}
       type: Label
       layout_properties: {grid_position: 'NCNKXR,WYDQCY'}
     - name: label_10
-      properties: {font_size: 25, bold: true}
+      properties: {font_size: 25, bold: true, spacing_above: none, spacing_below: none}
       type: Label
       layout_properties: {grid_position: 'PRNLHX,IQGGQN'}
-  - name: spacer_4
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'SRYHFS,ZNBICS'}
-  - name: card_6
-    properties: {role: card}
+  - name: card_3
+    properties: {role: card, spacing_below: small, spacing_above: small}
     type: ColumnPanel
-    layout_properties: {grid_position: 'SRYHFS,KMNBTI'}
+    layout_properties: {grid_position: 'SRYHFS,YXBDJW', x: 46.5, y: 16.625, width: 259.125}
+    components:
+    - name: label_8
+      properties: {text: customers, foreground: '#c5c4c4', spacing_above: none, spacing_below: none}
+      type: Label
+      layout_properties: {grid_position: 'GEFNVF,MQYSIN'}
+    - name: label_5
+      properties: {bold: true, font_size: 25, spacing_above: none, spacing_below: none}
+      type: Label
+      layout_properties: {grid_position: 'UFNICA,RSKAPC'}
+  - name: card_6
+    properties: {role: card, spacing_above: small, spacing_below: small}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'SRYHFS,KMNBTI', x: 953.729248046875, y: 16.625, width: 239.771}
     components:
     - name: label_11
-      properties: {text: Super Admins, foreground: '#c5c4c4'}
+      properties: {text: Super Admins, foreground: '#c5c4c4', spacing_above: none, spacing_below: none}
       type: Label
       layout_properties: {grid_position: 'AVSEIL,PXBIYL'}
     - name: label_12
-      properties: {font_size: 25, bold: true}
+      properties: {font_size: 25, bold: true, spacing_above: none, spacing_below: none}
       type: Label
       layout_properties: {grid_position: 'HRRKCI,SOFVQU'}
-  - name: spacer_2
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'SRYHFS,DTSSVF'}
+- name: spacer_7
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'CBUYOA,GPRHZV RAFLAS,URTHUP'}
 - name: card_2
-  properties: {role: null, col_widths: '{"GPLUVH":10,"VPTPGR":15,"KECVOR":10,"HKLKLM":25}', col_spacing: none}
+  properties: {role: null, col_widths: '{"GPLUVH":15,"VPTPGR":10,"KECVOR":14,"HKLKLM":21}', col_spacing: none, background: 'theme:Gray 50'}
   type: ColumnPanel
-  layout_properties: {grid_position: 'CBUYOA,GPRHZV HPRETO,TRHIBH TVLZDV,YTEXEH'}
+  layout_properties: {grid_position: 'CBUYOA,GPRHZV HPRETO,TRHIBH TVLZDV,YTEXEH DPTCZN,BKDJGN'}
   components:
   - name: link_6
     properties: {text: view All, spacing_below: none, spacing_above: small, align: center}
@@ -261,8 +253,12 @@ components:
     type: Link
     layout_properties: {grid_position: 'FYSXES,HKLKLM'}
     event_bindings: {click: link_10_click}
+- name: spacer_6
+  properties: {height: 18.666656494140625}
+  type: Spacer
+  layout_properties: {grid_position: 'CBUYOA,GPRHZV HPRETO,TRHIBH TVLZDV,YTEXEH YHVFTE,LCDQER'}
 - name: text_box_1
-  properties: {role: outlined, bold: false, align: left, placeholder: 🔎  search by username, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: 3px solid skyblue, italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+  properties: {role: outlined, bold: false, align: left, placeholder: 🔎  search by username, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '2px solid #f5f5f5', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
   type: TextBox
   layout_properties: {grid_position: 'CBUYOA,GPRHZV HPRETO,TRHIBH TVLZDV,LYPRMO'}
   event_bindings: {pressed_enter: text_box_1_pressed_enter}
@@ -301,35 +297,27 @@ components:
   type: ColumnPanel
   layout_properties: {grid_position: 'CBUYOA,GPRHZV IHBXPD,QYURUJ'}
   components:
-  - name: card_4
-    properties: {role: null, background: '#f5f5f5', col_widths: '{"DGZHEC":23,"CUURZJ":15,"YXCHIE":17,"ATGBXO":10,"NCIMOU":3,"DQJBPO":14}', spacing_above: none, spacing_below: none}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'SJEJHH,XCKARP', full_width_row: true}
+  - name: xy_panel_1
+    properties: {height: 32.666656494140625, background: 'theme:Gray 50'}
+    type: XYPanel
+    layout_properties: {grid_position: 'MTBNTE,UOQVNF', full_width_row: true}
     components:
-    - name: spacer_1
-      properties: {height: 32}
-      type: Spacer
-      layout_properties: {grid_position: 'OYGRKN,NCIMOU'}
     - name: label_1
       properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Username:'}
       type: Label
-      layout_properties: {grid_position: 'OYGRKN,DGZHEC'}
+      layout_properties: {x: 101.52084350585938, y: 9, width: 168.938}
     - name: label_7
       properties: {text: Role, bold: true}
       type: Label
-      layout_properties: {grid_position: 'OYGRKN,DQJBPO'}
+      layout_properties: {x: 470.3125305175781, y: 9, width: 133}
     - name: label_2
       properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Phone:'}
       type: Label
-      layout_properties: {grid_position: 'OYGRKN,CUURZJ'}
+      layout_properties: {grid_position: 'UFRGKR,JPRTHK', x: 665.1459045410156, y: 9, width: 144}
     - name: label_3
       properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: status}
       type: Label
-      layout_properties: {grid_position: 'OYGRKN,YXCHIE'}
-    - name: label_4
-      properties: {}
-      type: Label
-      layout_properties: {grid_position: 'OYGRKN,ATGBXO'}
+      layout_properties: {grid_position: 'IZMBOO,RKGPLO', x: 909.1459045410156, y: 9, width: 125}
   - name: repeating_panel_1
     properties: {item_template: admin.account_management.ItemTemplate6, border: '', spacing_above: none, spacing_below: none}
     type: RepeatingPanel
