@@ -130,6 +130,7 @@ class default_currency(default_currencyTemplate):
         # phone = app_tables.wallet_users.get()["phone"]
         
         self.set_default_currency(self.label_1.text,1)
+        # open_form("customer.ItemTemplate17")
 
     def link_2_click(self, **event_args):
         currency=self.label_3.text
