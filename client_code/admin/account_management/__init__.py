@@ -21,13 +21,27 @@ class account_management(account_managementTemplate):
         self.refresh_users()  # Load all users initially
         ItemTemplate6.user = self.user
 
-    def refresh_users(self, username_filter=None, status_filter=None, filter_customers=False):
+    def refresh_users(self, username_filter=None, status_filter=None, filter_usertype=None):
         # Fetch all users from the table
         users = app_tables.wallet_users.search()
         
-        # Filter users based on customer type if filter_customers is True
-        if filter_customers:
-            users = [user for user in users if user['users_usertype'] == 'customer']
+        # Counters for different user types
+        total_customers = 0
+        total_admins = 0
+        total_super_admins = 0
+        
+        # Count the users of each type
+        for user in users:
+            if user['users_usertype'] == 'customer':
+                total_customers += 1
+            elif user['users_usertype'] == 'admin':
+                total_admins += 1
+            elif user['users_usertype'] == 'super_admin':
+                total_super_admins += 1
+
+        # Filter users based on usertype if filter_usertype is provided
+        if filter_usertype:
+            users = [user for user in users if user['users_usertype'] == filter_usertype]
 
         # Filter users based on status if status filter is provided
         if status_filter == "Active":
@@ -55,23 +69,20 @@ class account_management(account_managementTemplate):
 
         # Set items in the repeating panel
         self.repeating_panel_1.items = user_list
-        self.label_5.text = f"Total users: {len(user_list)}"
+        
+        self.label_5.text =  total_customers
+        self.label_10.text =  total_admins
+        self.label_12.text =  total_super_admins
 
-    def button_2_click(self, **event_args):
-        # Handle search button click event to refresh users based on entered username
-        username_filter = self.text_box_1.text
-        self.refresh_users(username_filter)
+    
 
     def link_8_click(self, **event_args):
         """This method is called when the link is clicked"""
-        self.refresh_users(filter_customers=True)  # Filter for customers only
-        open_form('admin', user=self.user)
+        self.refresh_users(filter_usertype='customer')  # Filter for customers only
 
     def link_10_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
         open_form('admin.user_support', user=self.user)
-
-    
 
     def button_3_click(self, **event_args):
         open_form('admin.admin_add_user', user=self.user)
@@ -90,7 +101,7 @@ class account_management(account_managementTemplate):
 
     def link_6_click(self, **event_args):
         """This method is called when the link is clicked"""
-        pass
+        self.refresh_users()  # Display all users
 
     def link_5_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -111,12 +122,16 @@ class account_management(account_managementTemplate):
         # Refresh users based on the selected status filter
         self.refresh_users(status_filter=status_filter)
 
-   d
-
     def link_9_click(self, **event_args):
         """This method is called when the link is clicked"""
-        pass
+        self.refresh_users(filter_usertype='admin')  # Filter for admin users only
 
     def link_10_click(self, **event_args):
         """This method is called when the link is clicked"""
-        pass
+        self.refresh_users(filter_usertype='super_admin')  # Filter for super admin users only
+
+    def text_box_1_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      username_filter = self.text_box_1.text
+      self.refresh_users(username_filter)
+
