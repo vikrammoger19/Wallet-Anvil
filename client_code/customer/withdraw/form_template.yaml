@@ -2,7 +2,7 @@ is_package: true
 container: {type: ColumnPanel}
 components:
 - name: card_111
-  properties: {role: card, col_widths: '{"XNZCHX":14,"CSXXAZ":46,"QLXILY":2,"ODQCJM":14,"QXYOJO":2,"RYEOOA":13,"MNIDKT":2,"OVSSIU":14,"GHOKGX":2,"BJPWVR":13,"IXSDOJ":2,"TBHNCL":2,"ZRUBKX":12,"SUGFAK":2,"ROHVQF":12,"MCHCFA":2,"POJQZG":13,"UQBKCD":2,"JWFPTJ":13,"WQYXTE":2,"SGXBKF":2,"CVKESU":12,"OSPTQU":2,"GJLGIA":12,"QGGUGF":2,"BAGZVB":13,"CCJPEK":2,"SJJINH":13,"JGBGHW":2,"MRVVFP":2,"KRGWQT":12,"VSMKON":2,"ZQOFTW":12,"JPDOFS":2,"SKYSJQ":13,"JDWUXZ":2,"ALCRDU":13,"LNQZHY":2}', background: 'theme:White'}
+  properties: {role: card, col_widths: '{"XNZCHX":14,"CSXXAZ":46,"QLXILY":2,"ODQCJM":14,"QXYOJO":2,"RYEOOA":13,"MNIDKT":2,"OVSSIU":14,"GHOKGX":2,"BJPWVR":13,"IXSDOJ":2,"TBHNCL":2,"ZRUBKX":13,"SUGFAK":2,"ROHVQF":12,"MCHCFA":2,"POJQZG":13,"UQBKCD":2,"JWFPTJ":12,"WQYXTE":2,"SGXBKF":2,"CVKESU":13,"OSPTQU":2,"GJLGIA":12,"QGGUGF":2,"BAGZVB":13,"CCJPEK":2,"SJJINH":12,"JGBGHW":2,"MRVVFP":2,"KRGWQT":13,"VSMKON":2,"ZQOFTW":12,"JPDOFS":2,"SKYSJQ":13,"JDWUXZ":2,"ALCRDU":12,"LNQZHY":2}', background: 'theme:White'}
   type: ColumnPanel
   layout_properties: {grid_position: 'ROLOOS,UVFFON', full_width_row: true}
   components:
@@ -258,7 +258,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_2
-      properties: {font_size: 20, bold: true, align: left, foreground: Black, italic: false}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black, italic: false}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TSAAMN'}
       data_bindings:
@@ -297,7 +297,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_4
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,STTDVI'}
       data_bindings:
@@ -336,7 +336,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_6
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY PQPAEC,RJJVDV'}
       data_bindings:
@@ -375,7 +375,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD LDBLMU,RDJXNN'}
     - name: label_8
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -418,7 +418,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_10
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -457,7 +457,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_12
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -496,7 +496,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_14
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -535,7 +535,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'GIQXVY,GXWTEF CZCMYL,VFTTOE'}
     - name: label_16
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'GIQXVY,ECBIWK'}
       data_bindings:
@@ -578,7 +578,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_18
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -617,7 +617,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_20
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -656,7 +656,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_22
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -695,7 +695,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_24
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -738,7 +738,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_26
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -777,7 +777,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_28
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -816,7 +816,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_30
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
@@ -855,7 +855,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
     - name: label_32
-      properties: {font_size: 20, bold: true, align: left, foreground: Black}
+      properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
       layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
       data_bindings:
