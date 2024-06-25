@@ -98,8 +98,10 @@ class deposit(depositTemplate):
         # Set base currency and any other parameters (replace 'USD' with your desired base currency
       
         
-        if self.drop_down_1.selected_value == None and self.drop_down_2.selected_value == None:
-          alert('Please enter a bank details')
+        if self.drop_down_1.selected_value == None:
+          alert('Please select a bank account')
+        elif self.drop_down_2.selected_value == None:
+          alert('Please choose a currency')
         else:
           base_currency = 'INR'
           resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
