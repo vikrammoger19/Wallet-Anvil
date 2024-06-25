@@ -256,14 +256,14 @@ components:
             type: Label
             layout_properties: {grid_position: 'HVOUCR,RWSEME'}
           - name: button_on
-            properties: {text: 'on', icon: 'fa:toggle-on', foreground: '#000000', bold: true, align: center, background: '#d9e6f2'}
+            properties: {text: 'off', icon: 'fa:toggle-on', foreground: '#000000', bold: true, align: center, background: '#d9e6f2'}
             type: Button
             layout_properties: {grid_position: 'NZLMNV,URGDEC'}
             event_bindings: {click: button_on_click}
           - name: button_off
             properties:
               text: |
-                off
+                on
               icon: fa:toggle-off
               foreground: '#000000'
               bold: true
