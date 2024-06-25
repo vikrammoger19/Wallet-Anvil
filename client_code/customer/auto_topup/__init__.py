@@ -78,8 +78,9 @@ class auto_topup(auto_topupTemplate):
           existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur) 
           if existing_balance['users_balance'] < int(w_bal):
             self.user['users_minimum_topup'] = True
-            existing_balance['users_balance'] += money_value
             app_tables.wallet_users.add_row(users_minimum_topup_amount=int(self.drop_down_1.selected_value))
+            existing_balance['users_balance'] += money_value
+            
             new_transaction = app_tables.wallet_users_transaction.add_row(
                   users_transaction_phone=self.user['users_phone'],
                   users_transaction_fund=money_value,
