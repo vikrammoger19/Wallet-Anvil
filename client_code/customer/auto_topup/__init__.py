@@ -78,12 +78,15 @@ class auto_topup(auto_topupTemplate):
           existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur) 
           if existing_balance['users_balance'] < int(w_bal):
             self.user['users_minimum_topup'] = True
+            self.user['users_minimum_topup_amount_below']=int(self.drop_down_1.selected_value)
             existing_balance['users_balance'] += money_value
+            
             new_transaction = app_tables.wallet_users_transaction.add_row(
                   users_transaction_phone=self.user['users_phone'],
                   users_transaction_fund=money_value,
                   users_transaction_date=current_datetime,
-                  users_transaction_type=f"{cur} - Auto_Topup",
+                  users_transaction_currency=cur,
+                  users_transaction_type="Auto_Topup",
                   users_transaction_status="Minimum-Topup",
                   users_transaction_receiver_phone=self.user['users_phone']
               )
@@ -91,7 +94,7 @@ class auto_topup(auto_topupTemplate):
             alert("Minimum-topup payment has been successfully added to your account.")
             self.text_box_1.text = ""
             print("minimum topup added") 
-            open_form('customer_page', user=self.user)
+            #open_form('customer_page', user=self.user)
           else:
             # No minimum top-up required
             self.user['users_minimum_topup'] = False
@@ -155,23 +158,23 @@ class auto_topup(auto_topupTemplate):
             self.user['users_auto_topup'] = False
             anvil.alert("Auto-topup is inactive until the required time duration has expired.")
             print("Your balance is not below the limit")
-            open_form('customer_page', user=self.user)  
+            open_form('customer', user=self.user)  
         else:
           self.label_5.text = "Error: No matching accounts found for the user or invalid account number."
       else:
         alert("Please enable the auto-topup switch to proceed.")    
         
-    def button_on_click(self, **event_args):
-      self.user['users_auto_topup']= True
-      self.user.update()
-      self.button_on.visible = False
-      self.button_off.visible = True
-  
     def button_off_click(self, **event_args):
       self.user['users_auto_topup']= False
       self.user.update()
       self.button_on.visible = True
       self.button_off.visible = False
+  
+    def button_on_click(self, **event_args):
+      self.user['users_auto_topup']= True
+      self.user.update()
+      self.button_on.visible = False
+      self.button_off.visible = True
       self.minimum_balance_topup.visible=True
       self.timely_topup.visible=True
       self.card_2.visible = False
@@ -234,3 +237,6 @@ class auto_topup(auto_topupTemplate):
 
     def link_8_click(self, **event_args):
       open_form('customer.settings',user=self.user)
+
+   
+ 
