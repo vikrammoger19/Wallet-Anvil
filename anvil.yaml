@@ -75,6 +75,18 @@ db_schema:
     - name: users_transaction_bank_name
       admin_ui: {order: 6.5, width: 239}
       type: string
+    - name: users_transaction_money_received_phone
+      admin_ui: {width: 315}
+      type: number
+    - name: users_transaction_money_sent_phone
+      admin_ui: {width: 295}
+      type: number
+    - name: users_transaction_type_credit
+      admin_ui: {width: 237}
+      type: string
+    - name: users_transaction_type_debit
+      admin_ui: {width: 231}
+      type: string
     title: wallet_users_transaction
   wallet_users_account:
     client: full
