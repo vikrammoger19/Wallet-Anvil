@@ -91,7 +91,7 @@ class auto_topup(auto_topupTemplate):
             alert("Minimum-topup payment has been successfully added to your account.")
             self.text_box_1.text = ""
             print("minimum topup added") 
-            open_form('customer_page', user=self.user)
+            #open_form('customer_page', user=self.user)
           else:
             # No minimum top-up required
             self.user['users_minimum_topup'] = False
@@ -161,17 +161,17 @@ class auto_topup(auto_topupTemplate):
       else:
         alert("Please enable the auto-topup switch to proceed.")    
         
-    def button_on_click(self, **event_args):
-      self.user['users_auto_topup']= True
-      self.user.update()
-      self.button_on.visible = False
-      self.button_off.visible = True
-  
     def button_off_click(self, **event_args):
-      self.user['users_auto_topup']= False
+      self.user['users_auto_topup']= True
       self.user.update()
       self.button_on.visible = True
       self.button_off.visible = False
+  
+    def button_on_click(self, **event_args):
+      self.user['users_auto_topup']= False
+      self.user.update()
+      self.button_on.visible = False
+      self.button_off.visible = True
       self.minimum_balance_topup.visible=True
       self.timely_topup.visible=True
       self.card_2.visible = False
@@ -234,3 +234,7 @@ class auto_topup(auto_topupTemplate):
 
     def link_8_click(self, **event_args):
       open_form('customer.settings',user=self.user)
+
+    def button_on_click(self, **event_args):
+      """This method is called when the button is clicked"""
+      pass
