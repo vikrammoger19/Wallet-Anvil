@@ -282,8 +282,8 @@ db_schema:
     - name: users_profile_pic
       admin_ui: {width: 200, order: 24}
       type: media
-    - name: users_minimum_topup_amount
-      admin_ui: {order: 5.5, width: 262}
+    - name: users_minimum_topup_amount_below
+      admin_ui: {order: 5.5, width: 300}
       type: number
     title: wallet_users
   users:
