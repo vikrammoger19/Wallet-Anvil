@@ -155,7 +155,7 @@ class auto_topup(auto_topupTemplate):
             self.user['users_auto_topup'] = False
             anvil.alert("Auto-topup is inactive until the required time duration has expired.")
             print("Your balance is not below the limit")
-            open_form('customer_page', user=self.user)  
+            open_form('customer', user=self.user)  
         else:
           self.label_5.text = "Error: No matching accounts found for the user or invalid account number."
       else:
@@ -235,6 +235,5 @@ class auto_topup(auto_topupTemplate):
     def link_8_click(self, **event_args):
       open_form('customer.settings',user=self.user)
 
-    def button_on_click(self, **event_args):
-      """This method is called when the button is clicked"""
-      pass
+   
+ 
