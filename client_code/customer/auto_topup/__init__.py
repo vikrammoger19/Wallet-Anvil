@@ -162,13 +162,13 @@ class auto_topup(auto_topupTemplate):
         alert("Please enable the auto-topup switch to proceed.")    
         
     def button_off_click(self, **event_args):
-      self.user['users_auto_topup']= True
+      self.user['users_auto_topup']= False
       self.user.update()
       self.button_on.visible = True
       self.button_off.visible = False
   
     def button_on_click(self, **event_args):
-      self.user['users_auto_topup']= False
+      self.user['users_auto_topup']= True
       self.user.update()
       self.button_on.visible = False
       self.button_off.visible = True
