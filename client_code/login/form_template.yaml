@@ -38,7 +38,7 @@ components:
             - name: label_3
               properties: {background: '', foreground: '#990000', text: 'There were problems with input:', bold: true, font_size: 18}
               type: Label
-              layout_properties: {x: 1.799969483166933, y: 3.500004578381777, width: 264.7875061035156}
+              layout_properties: {x: 1.799969483166933, y: 3.500004578381777, width: 288}
             - name: label_4
               properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: The password field is incorrect.}
               type: Label

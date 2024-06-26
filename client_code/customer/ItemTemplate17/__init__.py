@@ -15,7 +15,7 @@ class ItemTemplate17(ItemTemplate17Template):
         self.init_components(**properties)
         # Any code you write here will run when the form opens.
         if self.item['receiver_username'] == "You're a new user, make some activity!":
-       self.label_2.visible = False
+            self.label_2.visible = False
             self.text_box_1.visible = False
             self.text_box_3.visible = False
             # self.text_box_2.visible= False

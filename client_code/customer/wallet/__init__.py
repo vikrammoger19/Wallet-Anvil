@@ -71,9 +71,9 @@ class wallet(walletTemplate):
     # Validate account number
       try:
           account_number = int(account_number)
-          if len(str(account_number)) < 9 or len(str(account_number)) > 18:
+          if len(str(account_number)) < 11 or len(str(account_number)) > 16:
               # self.label_bank_details_error.text = "Account number must be between 9 and 18 digits."
-              anvil.alert("Account number must be between 9 and 18 digits.", title="", large=True)
+              anvil.alert("Account number must be between 11 and 16 digits.", title="", large=True)
               return
       except ValueError:
           # self.label_bank_details_error.text = "Account number must be a valid number."
@@ -81,20 +81,27 @@ class wallet(walletTemplate):
           return
   
       # Validate IFSC code (assuming standard format of 4 letters followed by 7 digits)
-      if not (len(ifsc_code) == 11 and ifsc_code[:4].isalpha() and ifsc_code[4:].isdigit()):
-          # self.label_bank_details_error.text = "IFSC code must be 4 letters followed by 7 digits."
-          anvil.alert("IFSC code must be 4 letters followed by 7 digits.", title="", large=True)
-          return
+      if not (len(ifsc_code) == 11 and ifsc_code[:4].isalpha() and ifsc_code[4] == '0' and ifsc_code[5:].isalnum()):
+        # self.label_bank_details_error.text = "IFSC code must be 11 characters long, with the first 4 letters alphabetic, the 5th character '0', and the last 6 alphanumeric."
+        anvil.alert("IFSC code must be 11 characters long, with the first 4 letters alphabetic, the 5th character '0', and the last 6 alphanumeric.", title="", large=True)
+        return
 
-      search_data=app_tables.wallet_users_account.get(
+      search_bank_name=app_tables.wallet_users_account.get(
         # users_account_number=int(account_number),
         users_account_bank_name=bank_name
       )
       
-      if search_data == None:
+      if search_bank_name:
+        anvil.alert("Bank name already exists.", title="Duplicate Bank Name", large=True)
+        return
         # if bank_name and account_number and ifsc_code and account_holder_name and branch_name and account_Type:
           # Save the bank details to the 'accounts' table
-          
+      search_acc_num=app_tables.wallet_users_account.get(
+        # users_account_number=int(account_number),
+        users_account_number=account_number
+      )    
+
+      if search_acc_num==None:
           new_account = app_tables.wallet_users_account.add_row(
               users_account_phone= self.user['users_phone'],
               users_account_number=int(account_number),
@@ -111,7 +118,8 @@ class wallet(walletTemplate):
         #   anvil.alert("Please fill in all bank details", title="", large=True)
           open_form('customer.wallet',user= self.user)
       else:
-        anvil.alert("Bank name already exists.", title="Duplicate Bank Name", large=True)
+        anvil.alert("Account number already exists.", title="Duplicate Account Number", large=True)
+        return
         
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
