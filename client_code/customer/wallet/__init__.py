@@ -62,25 +62,33 @@ class wallet(walletTemplate):
       account_holder_name = self.text_box_1.text
       branch_name = self.text_box_2.text
       account_Type = self.drop_down_1.selected_value
-      
-      if bank_name and account_number and ifsc_code and account_holder_name and branch_name and account_Type:
-        # Save the bank details to the 'accounts' table
+
+      search_data=app_tables.wallet_users_account.get(
+        # users_account_number=int(account_number),
+        users_account_bank_name=bank_name
+      )
+      print(se)
+      if search_data==None:
+        if bank_name and account_number and ifsc_code and account_holder_name and branch_name and account_Type:
+          # Save the bank details to the 'accounts' table
+          
+          new_account = app_tables.wallet_users_account.add_row(
+              users_account_phone= self.user['users_phone'],
+              users_account_number=int(account_number),
+              users_account_bank_name=bank_name, 
+              users_account_ifsc_code=ifsc_code,
+              users_account_holder_name = account_holder_name,
+              users_account_branch_name = branch_name,
+              users_account_type = account_Type,
+              users_account_status_confirm=True
+          )
         
-        new_account = app_tables.wallet_users_account.add_row(
-            users_account_phone= self.user['users_phone'],
-            users_account_number=int(account_number),
-            users_account_bank_name=bank_name, 
-            users_account_ifsc_code=ifsc_code,
-            users_account_holder_name = account_holder_name,
-            users_account_branch_name = branch_name,
-            users_account_type = account_Type,
-            users_account_status_confirm=True
-        )
-       
-        self.label_bank_details_error.text = "Bank details saved successfully."
+          self.label_bank_details_error.text = "Bank details saved successfully."
+        else:
+          self.label_bank_details_error.text = "Please fill in all bank details."
+        open_form('customer.wallet',user= self.user)
       else:
-        self.label_bank_details_error.text = "Please fill in all bank details."
-      open_form('customer.wallet',user= self.user)
+        self.label_bank_details_error.text = f"{search_data} name already axist"
 
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
