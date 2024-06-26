@@ -63,12 +63,12 @@ class wallet(walletTemplate):
       branch_name = self.text_box_2.text
       account_Type = self.drop_down_1.selected_value
 
-      search_data=app_tables.wallet_users_account.get(
+      search_data=app_tables.wallet_users_account.search(
         # users_account_number=int(account_number),
         users_account_bank_name=bank_name
       )
-      print(se)
-      if search_data==None:
+      
+      if search_data == None:
         if bank_name and account_number and ifsc_code and account_holder_name and branch_name and account_Type:
           # Save the bank details to the 'accounts' table
           
@@ -88,7 +88,7 @@ class wallet(walletTemplate):
           self.label_bank_details_error.text = "Please fill in all bank details."
         open_form('customer.wallet',user= self.user)
       else:
-        self.label_bank_details_error.text = f"{search_data} name already axist"
+        self.label_bank_details_error.text = "bank name already axist"
 
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
