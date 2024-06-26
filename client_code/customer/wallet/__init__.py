@@ -53,7 +53,7 @@ class wallet(walletTemplate):
         self.drop_down_1.visible=self.bank_details_visible
         self.drop_down_2.items = anvil.server.call('get_all_banks_name')
         
-        self.label_bank_details_error.text = ""
+        # self.label_bank_details_error.text = ""
        
     def button_save_bank_details_click(self, **event_args):
       bank_name = self.drop_down_2.selected_value
@@ -83,13 +83,13 @@ class wallet(walletTemplate):
               users_account_status_confirm=True
           )
         
-          self.label_bank_details_error.text = "Bank details saved successfully."
+          anvil.alert("Bank details saved successfully.", title="", large=True)
         else:
-          self.label_bank_details_error.text = "Please fill in all bank details."
+          anvil.alert("Please fill in all bank details", title="", large=True)
         open_form('customer.wallet',user= self.user)
       else:
-        self.label_bank_details_error.text = "bank name already axist"
-
+        anvil.alert("Bank name already exists.", title="Duplicate Bank Name", large=True)
+        
     def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form("customer.walletbalance",user=self.user)
