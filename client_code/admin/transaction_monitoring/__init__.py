@@ -63,38 +63,64 @@ class transaction_monitoring(transaction_monitoringTemplate):
       for date_str in sorted_dates:
           date_info = self.grouped_transactions[date_str]
           for transaction in reversed(date_info['transactions']):
+              sender_phone=transaction['users_transaction_phone']
+              sender_type=transaction['users_transaction_type']
               fund = transaction['users_transaction_fund']
-              transaction_type = transaction['users_transaction_type']
-              receiver_phone = transaction['users_transaction_receiver_phone']
+              # transaction_type = transaction['users_transaction_type']
+              # transaction_type=''
+              # if sender_type=='Debit':
+              #   transaction_type='Debit'
+              # elif transaction['users_transaction_receiver_phone'] == current_user and transaction['users_transaction_receiver_type']=='Credit':
+              #   transaction_type='Credit' 
+              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Withdrawn':
+              #   transaction_type='Withdrawn'
+              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Deposited':
+              #   transaction_type='Deposited'
+              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Auto Topup':
+              #   transaction_type='Auto Topup'
+                
               transaction_time = transaction['users_transaction_date'].strftime("%I:%M %p")
               profile_pic = '_/theme/account.png'
-              if transaction_type == 'Withdrawn' or transaction_type == 'Deposited':
-                userr = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
-                if userr:
-                  if userr['users_profile_pic'] is not None:
-                    profile_pic = userr['users_profile_pic'] 
+            
+              if sender_type == 'Withdrawn' or sender_type == 'Deposited' or sender_type == 'Auto Topup':
+                sent_userr = app_tables.wallet_users.get(users_phone=sender_phone)
+                if sent_userr:
+                  if sent_userr['users_profile_pic'] is not None:
+                    profile_pic = sent_userr['users_profile_pic'] 
                   else:
                     profile_pic = '_/theme/account.png'
                     
-              if  transaction_type == 'Credit' or transaction_type == 'Debit':
-                trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
+              # if  transaction_type == 'Credit' : 
+              #   trans_user = app_tables.wallet_users.get(users_phone = current_user)
+              #   if trans_user :
+              #     if trans_user['users_profile_pic'] is not None:
+              #       profile_pic = trans_user['users_profile_pic'] 
+              #     else:
+              #       profile_pic = '_/theme/account.png'
+
+              if sender_type == 'Debit':
+                trans_user = app_tables.wallet_users.get(users_phone = sender_phone)
                 if trans_user :
                   if trans_user['users_profile_pic'] is not None:
                     profile_pic = trans_user['users_profile_pic'] 
                   else:
                     profile_pic = '_/theme/account.png'
               # Fetch username from wallet_user table using receiver_phone
-              receiver_user = app_tables.wallet_users.get(users_phone=receiver_phone)
-              if receiver_user:
-                  receiver_username = receiver_user['users_username']
+              sent_username=''
+              if  sender_type == 'Debit' : 
+                  _user = app_tables.wallet_users.get(users_phone=sender_phone)
+                  sent_username = _user['users_username']
+              # elif (transaction['users_transaction_receiver_phone']==current_user and transaction['users_transaction_receiver_type'] == 'Credit') :
+              #     receiver_user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
+              #     receiver_username = receiver_user['users_username']
               else:
-                  user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
-                  receiver_username = user['users_username']
+                  _user = app_tables.wallet_users.get(users_phone=sender_phone)
+                  sent_username = _user['users_username']
               
-              if transaction_type == 'Credit' or transaction_type == 'Deposited':
+              if sender_type == 'Deposited' or sender_type == 'Auto Topup': # transaction_type == 'Credit' or transaction_type
                   fund_display = "+" + str(fund)
                   fund_color = "green"
-              elif transaction_type == 'Debit' or transaction_type == 'Withdrawn':
+              elif sender_type == 'Debit' or sender_type == 'Withdrawn':
                   fund_display = "-" + str(fund)
                   fund_color = "red"
               else:
@@ -106,13 +132,92 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                               'fund': fund_display,
                                               'transaction_status': transaction['users_transaction_status'],
                                               'transaction_type':transaction['users_transaction_type'],
-                                              'receiver_username': receiver_username,
+                                              'receiver_username': sent_username,
                                               'currency_type':transaction['users_transaction_currency'],
                                               'transaction_time':transaction_time,
                                               'profile_pic':profile_pic,
                                               'fund_color': fund_color})
+
+
+      #for credits
+              
+              receiver=transaction['users_transaction_receiver_phone']
+              receiver_type=transaction['users_transaction_receiver_type']
+              # sender_phone=transaction['users_transaction_phone']
+              # sender_type=transaction['users_transaction_type']
+              # fund = transaction['users_transaction_fund']
+              # transaction_type = transaction['users_transaction_type']
+              # transaction_type=''
+              # if sender_type=='Debit':
+              #   transaction_type='Debit'
+              # elif transaction['users_transaction_receiver_phone'] == current_user and transaction['users_transaction_receiver_type']=='Credit':
+              #   transaction_type='Credit' 
+              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Withdrawn':
+              #   transaction_type='Withdrawn'
+              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Deposited':
+              #   transaction_type='Deposited'
+              # elif transaction['users_transaction_phone'] == current_user and transaction['users_transaction_type']=='Auto Topup':
+              #   transaction_type='Auto Topup'
+                
+              # receiver_phone = transaction['users_transaction_receiver_phone']
+              # transaction_time = transaction['users_transaction_date'].strftime("%I:%M %p")
+              # profile_pic = '_/theme/account.png'
+            
+              # if sender_type == 'Withdrawn' or sender_type == 'Deposited' or sender_type == 'Auto Topup':
+              #   userr = app_tables.wallet_users.get(users_phone=sender_phone)
+              #   if userr:
+              #     if userr['users_profile_pic'] is not None:
+              #       profile_pic = userr['users_profile_pic'] 
+              #     else:
+              #       profile_pic = '_/theme/account.png'
+                    
+              # if receiver_type == 'Credit' :
+              print('coming inside')
+              if receiver_type == 'Credit':
+                received_user = app_tables.wallet_users.get(users_phone = receiver)
+                if received_user :
+                  if received_user['users_profile_pic'] is not None:
+                    profile_pi = received_user['users_profile_pic'] 
+                  else:
+                    profile_pi = '_/theme/account.png'
   
-      self.repeating_panel_3.items = self.repeating_panel_items
+                # if sender_type == 'Debit':
+                #   trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
+                #   if trans_user :
+                #     if trans_user['users_profile_pic'] is not None:
+                #       profile_pic = trans_user['users_profile_pic'] 
+                #     else:
+                #       profile_pic = '_/theme/account.png'
+                # Fetch username from wallet_user table using receiver_phone
+                # received_username=''
+                # if  sender_type == 'Debit' : 
+                money_sent_user = app_tables.wallet_users.get(users_phone=receiver)
+                received_username = money_sent_user['users_username']
+                # elif (transaction['users_transaction_receiver_phone']==current_user and transaction['users_transaction_receiver_type'] == 'Credit') :
+                #     receiver_user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
+                #     receiver_username = receiver_user['users_username']
+                
+                
+                if receiver_type == 'Credit' :
+                    fund_display = "+" + str(fund)
+                    fund_color = "green"
+                else:
+                    fund_display = str(fund)
+                    fund_color = "black"
+                
+                # Append transaction details with username instead of receiver_phone
+                self.repeating_panel_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
+                                                'fund': fund_display,
+                                                'transaction_status': transaction['users_transaction_status'],
+                                                'transaction_type':receiver_type,
+                                                'receiver_username': received_username,
+                                                'currency_type':transaction['users_transaction_currency'],
+                                                'transaction_time':transaction_time,
+                                                'profile_pic':profile_pi,
+                                                'fund_color': fund_color})
+                print('appended')
+  
+      self.repeating_panel_1.items = self.repeating_panel_items
       
     def link_11_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -139,7 +244,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                             'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                             'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                             'fund_color': self.repeating_panel_items[i]['fund_color']})
-      self.repeating_panel_3.items = all
+      self.repeating_panel_1.items = all
   
     def link_12_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -166,7 +271,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
-      self.repeating_panel_3.items = received
+      self.repeating_panel_1.items = received
   
   
     def link_13_click(self, **event_args):
@@ -195,7 +300,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
-      self.repeating_panel_3.items = transfer
+      self.repeating_panel_1.items = transfer
   
     def link_14_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -222,7 +327,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
-      self.repeating_panel_3.items = withdraw
+      self.repeating_panel_1.items = withdraw
   
     def link_15_click(self, **event_args):
       """This method is called when the link is clicked"""
@@ -248,7 +353,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'transaction_type':self.repeating_panel_items[i]['transaction_type'],
                                                   'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']})
-      self.repeating_panel_3.items = deposit
+      self.repeating_panel_1.items = deposit
     
     def date_filter(self):
       transaction_type = ''
@@ -286,7 +391,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-            self.repeating_panel_3.items = datee
+            self.repeating_panel_1.items = datee
             
           if currency != '':
             datee=[]
@@ -300,7 +405,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-            self.repeating_panel_3.items = datee
+            self.repeating_panel_1.items = datee
           
         elif self.date_picker_1.date :
           only_date=[]
@@ -315,7 +420,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-            self.repeating_panel_3.items = only_date
+            self.repeating_panel_1.items = only_date
   
           if currency != '':
             for i in range(len(self.repeating_panel_items)):
@@ -328,7 +433,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-            self.repeating_panel_3.items = only_date
+            self.repeating_panel_1.items = only_date
         else:
             print('None')
           
@@ -347,7 +452,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-            self.repeating_panel_3.items = datee
+            self.repeating_panel_1.items = datee
           if  currency != '':
             datee=[]
             for i in range(len(self.repeating_panel_items)):
@@ -360,7 +465,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'currency_type':self.repeating_panel_items[i]['currency_type'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-            self.repeating_panel_3.items = datee
+            self.repeating_panel_1.items = datee
           
         elif (self.date_picker_1.date):
           only_date=[]
@@ -375,7 +480,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-            self.repeating_panel_3.items = only_date
+            self.repeating_panel_1.items = only_date
           
           if currency != '':
             only_date=[]
@@ -389,7 +494,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-            self.repeating_panel_3.items = only_date
+            self.repeating_panel_1.items = only_date
         else:
             print('None')
   
@@ -440,7 +545,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-          self.repeating_panel_3.items = days
+          self.repeating_panel_1.items = days
           
         elif self.drop_down_1.selected_value in ['past 30 days','past 60 days','past 90 days'] and currency != '':
           days_currency=[]
@@ -456,7 +561,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-          self.repeating_panel_3.items = days_currency
+          self.repeating_panel_1.items = days_currency
         else:
           print('hey there')
       else:
@@ -474,7 +579,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-          self.repeating_panel_3.items = days
+          self.repeating_panel_1.items = days
           
         elif self.drop_down_1.selected_value in ['past 30 days','past 60 days','past 90 days'] and currency != '':
           days_currency=[]
@@ -490,7 +595,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                     'transaction_time':self.repeating_panel_items[i]['transaction_time'],
                                                     'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                     'fund_color': self.repeating_panel_items[i]['fund_color']})
-          self.repeating_panel_3.items = days_currency
+          self.repeating_panel_1.items = days_currency
         else:
           print('hey there')
 
@@ -529,7 +634,7 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']}),
                                               
-          self.repeating_panel_3.items = all
+          self.repeating_panel_1.items = all
       else:
           for i in range(len(self.repeating_panel_items)):
             if self.repeating_panel_items[i]['currency_type'] == currency and self.repeating_panel_items[i]['transaction_type'] == transaction_type:
@@ -542,10 +647,10 @@ class transaction_monitoring(transaction_monitoringTemplate):
                                                   'profile_pic':self.repeating_panel_items[i]['profile_pic'],
                                                   'fund_color': self.repeating_panel_items[i]['fund_color']}),
                                               
-          self.repeating_panel_3.items = all
+          self.repeating_panel_1.items = all
 
 
-    def button_1_click(self, **event_args):
+    def button_clicked(self, **event_args):
       if self.button1_clicked:
         self.drop_down_2.visible = True
         self.button1_clicked = False

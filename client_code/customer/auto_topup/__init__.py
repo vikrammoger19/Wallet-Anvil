@@ -86,7 +86,7 @@ class auto_topup(auto_topupTemplate):
                   users_transaction_fund=money_value,
                   users_transaction_date=current_datetime,
                   users_transaction_currency=cur,
-                  users_transaction_type="Auto_Topup",
+                  users_transaction_type="Auto Topup",
                   users_transaction_status="Minimum-Topup",
                   users_transaction_receiver_phone=self.user['users_phone']
               )
@@ -146,8 +146,9 @@ class auto_topup(auto_topupTemplate):
                   users_transaction_phone=self.user['users_phone'],
                   users_transaction_fund=money_value,
                   users_transaction_date=current_datetime,
-                  users_transaction_type=f"{cur} - Auto_Topup",
+                  users_transaction_type="Auto Topup",
                   users_transaction_status="Timely-Topup",
+                  users_transaction_currency=cur,
                   users_transaction_receiver_phone=self.user['users_phone']
               )
             self.label_5.text = f"{frequency}-topup payment has been successfully added to your account."
