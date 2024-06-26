@@ -41,7 +41,7 @@ class set_limit(set_limitTemplate):
             field_to_update = 'users_daily_limit'
             text='users daily limit'
         elif limit_type == 'Monthly':
-            field_to_update = 'users_us_limit'
+            field_to_update = 'users_user_limit'
             text='users monthly limit'
         else:
             anvil.alert("Invalid limit type selected")

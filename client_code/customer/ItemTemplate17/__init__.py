@@ -56,6 +56,10 @@ class ItemTemplate17(ItemTemplate17Template):
             elif self.item['transaction_text'] == 'Withdrawn':
               name=self.item['bank_name']
               self.label_1.text = f"{name}"
+            elif self.item['transaction_text'] == 'Auto Topup':
+              name='Auto Topup by'
+              self.label_1.text = f"{name} {self.item['receiver_username']}"
+              
             self.label_2.foreground = self.item['fund_color']
             # self.text_box_2.visible= True
             self.image_1.visible = True
