@@ -63,7 +63,7 @@ class wallet(walletTemplate):
       branch_name = self.text_box_2.text
       account_Type = self.drop_down_1.selected_value
 
-      search_data=app_tables.wallet_users_account.search(
+      search_data=app_tables.wallet_users_account.get(
         # users_account_number=int(account_number),
         users_account_bank_name=bank_name
       )
