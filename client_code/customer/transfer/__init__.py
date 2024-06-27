@@ -159,13 +159,10 @@ class transfer(transferTemplate):
                       users_transaction_fund=money_value,
                       users_transaction_currency=cur,
                       users_transaction_date=current_datetime,
-                      users_transaction_type_debit="Debit",
-                      users_transaction_type_credit="Credit",
+                      users_transaction_type="Debit",
+                      users_transaction_receiver_type="Credit",
                       users_transaction_status="transferred-to",
                       users_transaction_receiver_phone=receiver_phone_number,
-
-                      users_transaction_money_sent_phone=depositor_phone_number,
-                      users_transaction_money_received_phone=receiver_phone_number,
                   )
         
                   users_text=f"You have received **{self.drop_down_2.selected_value} {self.text_box_3.text}**from {self.user['users_username']}"
@@ -224,6 +221,10 @@ class transfer(transferTemplate):
     def link_6_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('customer.auto_topup',user=self.user)
+
+    def text_box_2_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
 
   
 

@@ -111,11 +111,23 @@ class transactions(transactionsTemplate):
         date_info = self.grouped_transactions[date_str]
         for transaction in reversed(date_info['transactions']):
             fund = transaction['users_transaction_fund']
-            transaction_type = transaction['users_transaction_type']
+            # transaction_type = transaction['users_transaction_type']  instead of this below lines
+            transaction_type=''
+            if transaction['users_transaction_phone'] == self.user['users_phone'] and transaction['users_transaction_type']=='Debit':
+              transaction_type='Debit'
+            elif transaction['users_transaction_receiver_phone'] == self.user['users_phone'] and transaction['users_transaction_receiver_type']=='Credit':
+              transaction_type='Credit' 
+            elif transaction['users_transaction_phone'] == self.user['users_phone'] and transaction['users_transaction_type']=='Withdrawn':
+              transaction_type='Withdrawn'
+            elif transaction['users_transaction_phone'] == self.user['users_phone'] and transaction['users_transaction_type']=='Deposited':
+              transaction_type='Deposited'
+            elif transaction['users_transaction_phone'] == self.user['users_phone'] and transaction['users_transaction_type']=='Auto Topup':
+              transaction_type='Auto Topup'
+          
             receiver_phone = transaction['users_transaction_receiver_phone']
             transaction_time = transaction['users_transaction_date'].strftime("%I:%M %p")
             profile_pic = '_/theme/account.png'
-            if transaction_type == 'Withdrawn' or transaction_type == 'Deposited':
+            if transaction_type == 'Withdrawn' or transaction_type == 'Deposited' or transaction_type == 'Auto Topup':
               userr = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
               if userr:
                 if userr['users_profile_pic']:
@@ -123,7 +135,15 @@ class transactions(transactionsTemplate):
                 else:
                   profile_pic = '_/theme/account.png'
                   
-            if  transaction_type == 'Credit' or transaction_type == 'Debit':
+            if  transaction_type == 'Credit' : 
+              trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_phone'])
+              if trans_user :
+                if trans_user['users_profile_pic'] is not None:
+                  profile_pic = trans_user['users_profile_pic'] 
+                else:
+                  profile_pic = '_/theme/account.png'
+
+            if transaction_type == 'Debit':
               trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
               if trans_user :
                 if trans_user['users_profile_pic'] is not None:
@@ -132,13 +152,17 @@ class transactions(transactionsTemplate):
                   profile_pic = '_/theme/account.png'
               
             # Fetch username from wallet_user table using receiver_phone
-            receiver_user = app_tables.wallet_users.get(users_phone=receiver_phone)
-            if receiver_user:
+            receiver_username=''
+            if (transaction['users_transaction_phone']==self.user['users_phone'] and transaction['users_transaction_type'] == 'Debit') : 
+                receiver_user = app_tables.wallet_users.get(users_phone=receiver_phone)
+                receiver_username = receiver_user['users_username']
+            elif (transaction['users_transaction_receiver_phone']==self.user['users_phone'] and transaction['users_transaction_receiver_type'] == 'Credit') :
+                receiver_user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
                 receiver_username = receiver_user['users_username']
             else:
                 receiver_username = self.user['users_username']
             
-            if transaction_type == 'Credit' or transaction_type == 'Deposited':
+            if transaction_type == 'Credit' or transaction_type == 'Deposited' or transaction_type == 'Auto Topup':
                 fund_display = "+" + str(fund)
                 fund_color = "green"
             elif transaction_type == 'Debit' or transaction_type == 'Withdrawn':
@@ -152,7 +176,7 @@ class transactions(transactionsTemplate):
             self.repeating_panel_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
                                             'fund': fund_display,
                                             'transaction_status': transaction['users_transaction_status'],
-                                            'transaction_type':transaction['users_transaction_type'],
+                                            'transaction_type':transaction_type,
                                             'receiver_username': receiver_username,
                                             'currency_type':transaction['users_transaction_currency'],
                                             'transaction_time':transaction_time,
