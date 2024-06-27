@@ -11,6 +11,7 @@ from anvil.tables import app_tables
 from anvil import alert, open_form
 import re
 import base64
+from datetime import datetime
 class Viewprofile(ViewprofileTemplate):
     def __init__(self, user=None,password=None, **properties):
         
@@ -21,7 +22,11 @@ class Viewprofile(ViewprofileTemplate):
         self.edit_mode = False  # Initial edit mode is set to False
         self.label_1.text=self.user['users_username']
         self.label_8.text=self.user['users_email']
-        self.label_12.text=self.user['users_last_login']
+        dt = datetime.fromisoformat(str(self.user['users_last_login']))
+
+        # Extract date and time without fractional seconds and timezone
+        formatted_date_time = dt.strftime("%Y-%m-%d %H:%M:%S")
+        self.label_12.text=formatted_date_time
         if user:
             #self.label_8.text = f"Welcome to Green Gate Financial, {user['users_username']}"
             self.display_user_profile(user)  # Display user profile on form load
@@ -148,6 +153,7 @@ class Viewprofile(ViewprofileTemplate):
             user_data.update(users_profile_pic=resized_image['media_obj'])
             
             self.image_1.source=resized_image['media_obj']
+            
             # print(f"Uploaded image: {uploaded_file.name}")
           else:
             print("Uploaded file is not an image.")

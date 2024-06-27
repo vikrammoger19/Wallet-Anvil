@@ -222,6 +222,10 @@ class transfer(transferTemplate):
       """This method is called when the link is clicked"""
       open_form('customer.auto_topup',user=self.user)
 
+    def text_box_2_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
   
 
 
