@@ -39,7 +39,7 @@ components:
           properties: {text: '', align: center, bold: true, foreground: ''}
           type: Link
           layout_properties: {grid_position: 'POWOBF,LURGAG'}
-          event_bindings: {click: link_1_click}
+          event_bindings: {click: link_1_copy_click}
           components:
           - name: xy_panel_3_copy
             properties: {height: 25.79998779296875}
@@ -193,6 +193,15 @@ components:
           properties: {height: 204.5999755859375}
           type: Spacer
           layout_properties: {grid_position: 'ZCYDZV,VFTIPP'}
+    - type: XYPanel
+      properties: {height: 100}
+      name: xy_panel_1
+      layout_properties: {}
+  - type: XYPanel
+    properties: {height: 100}
+    name: xy_panel_2
+    layout_properties: {width: 474}
+    components:
     - name: content_panel_copy
       properties: {}
       type: ColumnPanel
@@ -951,3 +960,8 @@ components:
           properties: {height: 32}
           type: Spacer
           layout_properties: {grid_position: 'OFOQVN,KQDORY'}
+  - type: FlowPanel
+    properties: {}
+    name: flow_panel_1
+    layout_properties: {}
+    components: []
