@@ -1,12 +1,14 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"CVEAUV":20}', col_spacing: none}
+  properties: {col_widths: '{}', col_spacing: none}
 components:
 - name: xy_panel_4
   properties: {height: 70.42526245117188}
   type: XYPanel
-  layout_properties: {grid_position: ''}
+  layout_properties:
+    col_widths: {}
+    grid_position: KZJYOW,KREKKJ
   components:
   - name: xy_panel_2
     properties: {height: 9.96734619140625}
@@ -14,9 +16,9 @@ components:
     layout_properties: {x: 52.38029522448778, y: 4.264019012451172, width: 115.72577587890625}
     components:
     - name: label_1
-      properties: {bold: true, font_size: 15, spacing_below: none, spacing_above: none}
+      properties: {role: text, bold: true, align: left, spacing_above: none, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: none, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: ''}
       type: Label
-      layout_properties: {x: 4.7166599705815315, y: 0, width: 164.63392041015624}
+      layout_properties: {x: 10, y: 5.138889312744141, width: 164.63}
       data_bindings:
       - {property: text, code: 'self.item[''receiver_username'']', writeback: false}
   - name: xy_panel_3
@@ -25,26 +27,20 @@ components:
     layout_properties: {x: 174.00706524401903, y: 0, width: 128.2412884765625}
     components:
     - name: column_panel_2
-      properties: {}
+      properties: {col_widths: '{}'}
       type: ColumnPanel
-      layout_properties: {x: 51.022186279296875, y: 0, width: 77.20501708984375}
+      layout_properties: {x: 51.022186279296875, y: 0, width: 117.20501708984375}
       components:
       - name: spacer_3
         properties: {height: 0.266357421875}
         type: Spacer
-        layout_properties: {grid_position: 'FIQPNK,EPHYEA'}
+        layout_properties: {grid_position: 'GBXIHP,QTYDHE'}
       - name: label_2
         properties: {font_size: 15, bold: true, spacing_above: none, spacing_below: none, align: right}
         type: Label
-        layout_properties: {grid_position: 'HFPKRK,BPAEAT'}
+        layout_properties: {grid_position: 'LSYDYY,YMXYZF'}
         data_bindings:
         - {property: text, code: 'self.item[''fund'']', writeback: false}
-  - name: text_box_1
-    properties: {bold: true, font_size: 14, foreground: 'theme:Primary 500', spacing_above: none, spacing_below: none, align: right, enabled: false, border: white}
-    type: TextBox
-    layout_properties: {x: 200.90535736083984, y: 37.51459503173828, width: 107.0543349609375}
-    data_bindings:
-    - {property: text, code: 'self.item[''transaction_text'']', writeback: true}
   - name: column_panel_1
     properties: {}
     type: ColumnPanel
@@ -61,7 +57,13 @@ components:
   - name: text_box_3
     properties: {role: null, bold: true, align: left, placeholder: '', spacing_above: none, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: white, italic: false, enabled: false, font_size: 14, tooltip: '', text: ''}
     type: TextBox
-    layout_properties: {x: 55.78276104480028, y: 37.45618438720703, width: 96.34928894042969}
+    layout_properties: {x: 60.717547583007814, y: 37.430556297302246, width: 96.3426}
     data_bindings:
     - {property: text, code: 'self.item[''transaction_time'']', writeback: false}
     event_bindings: {pressed_enter: text_box_3_pressed_enter}
+  - name: text_box_1
+    properties: {bold: true, font_size: 14, foreground: 'theme:Primary 500', spacing_above: none, spacing_below: none, align: right, enabled: false, border: white}
+    type: TextBox
+    layout_properties: {grid_position: 'UBELWZ,ETGOVY', x: 226.00697326660156, y: 37.41898250579834, width: 117.188}
+    data_bindings:
+    - {property: text, code: 'self.item[''transaction_text'']', writeback: true}
