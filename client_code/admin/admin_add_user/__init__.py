@@ -14,7 +14,10 @@ class admin_add_user(admin_add_userTemplate):
     def __init__(self, user=None, **properties):
         self.user = user
         self.init_components(**properties)
-
+      
+    def text_box_4_change(self, **event_args):
+        # Convert the text in text_box_8 to uppercase as user types
+        self.text_box_8.text = self.text_box_8.text.upper()
     def button_1_click(self, **event_args): 
         count = 0
         if self.text_box_3.text != '':

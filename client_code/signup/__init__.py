@@ -20,7 +20,9 @@ class signup(signupTemplate):
     self.pan_card.visible= False 
     self.pass_card.visible = False 
     #self.text_box_3.text=anvil.server.call('load_secret_data')
-
+  def text_box_8_change(self, **event_args):
+        # Convert the text in text_box_8 to uppercase as user types
+        self.text_box_8.text = self.text_box_8.text.upper()
   def primary_color_1_click(self, **event_args):
     existing_user = anvil.server.call('get_user_by_phone', str(self.text_box_3.text).strip())
 
