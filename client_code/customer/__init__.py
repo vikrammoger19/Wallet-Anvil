@@ -24,6 +24,7 @@ class customer(customerTemplate):
         self.get_credit_debit_details()
         print(user_dict)
         self.check_profile_pic()
+        self.greet_based_on_time()
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('users_phone', None)
         default_currency = 'INR'
@@ -167,6 +168,23 @@ class customer(customerTemplate):
         # Update plot with the empty figure
         self.plot_1.data = fig.data
         self.plot_1.layout = fig.layout
+
+    
+    def greet_based_on_time(self):
+        from datetime import datetime
+        current_time = datetime.now().time()
+        
+        if current_time < datetime.strptime('12:00:00', '%H:%M:%S').time():
+          self.label_19_copy.text = "Good Morning"
+            
+        elif current_time > datetime.strptime('12:00:00', '%H:%M:%S').time() and current_time < datetime.strptime('16:00:00', '%H:%M:%S').time():
+            self.label_19_copy.text = "Good Afternoon"
+        elif current_time > datetime.strptime('16:00:00', '%H:%M:%S').time() and current_time < datetime.strptime('18:00:00', '%H:%M:%S').time():
+          self.label_19_copy.text = "Good Evening"
+        else:
+          self.label_19_copy.text = "Good Night"
+        
+
 
     def refresh_data(self):
     # Get the user's phone number
