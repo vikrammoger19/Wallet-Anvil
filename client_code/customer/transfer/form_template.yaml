@@ -885,10 +885,6 @@ components:
         name: xy_panel_1
         layout_properties: {grid_position: 'XVFHDD,AYGNAR'}
         components:
-        - name: label_8_copy
-          properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Currency:'}
-          type: Label
-          layout_properties: {grid_position: 'BCJRLN,OUNJCX UBVSXQ,YYOVNO', x: 17.986114501953125, y: 165.77546132812495, width: 183.808}
         - name: label_2000
           properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Enter Mobile No:'}
           type: Label
@@ -897,25 +893,29 @@ components:
           properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Amount to Transfer:'}
           type: Label
           layout_properties: {grid_position: 'BCJRLN,OUNJCX ZKTJKG,XJESZP', x: 22.986114501953125, y: 34.9884033203125, width: 178.808}
-        - name: drop_down_2
-          properties: {}
-          type: DropDown
-          layout_properties: {grid_position: 'BCJRLN,OUNJCX AXFNQW,MSWGDK', x: 199.98843383789062, y: 158.74997431640622, width: 425.961}
-          event_bindings: {change: drop_down_2_change}
         - name: text_box_2
           properties: {}
           type: TextBox
-          layout_properties: {grid_position: 'BCJRLN,OUNJCX CHIJGC,JIMDPD', x: 199.98843383789062, y: 89.81939697265625, width: 425.961}
+          layout_properties: {grid_position: 'BCJRLN,OUNJCX CHIJGC,JIMDPD', x: 239.79165649414062, y: 83.807861328125, width: 425.961}
           event_bindings: {pressed_enter: text_box_2_pressed_enter}
         - name: text_box_3
           properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
           type: TextBox
-          layout_properties: {grid_position: 'BCJRLN,OUNJCX ZKTJKG,OHOKZA', x: 193.98843383789062, y: 24, width: 431.9679580078125}
+          layout_properties: {x: 239.79165649414062, y: 23.25225830078125, width: 425.96099999999996}
           event_bindings: {}
+        - name: label_8_copy
+          properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Currency:'}
+          type: Label
+          layout_properties: {grid_position: 'BCJRLN,OUNJCX UBVSXQ,YYOVNO', x: 17.986114501953125, y: 148.88888066406253, width: 183.808}
+        - name: drop_down_2
+          properties: {}
+          type: DropDown
+          layout_properties: {grid_position: 'BCJRLN,OUNJCX AXFNQW,MSWGDK', x: 239.78012084960938, y: 138.7476806640625, width: 425.961}
+          event_bindings: {change: drop_down_2_change}
         - name: button_1
           properties: {role: filled-button, bold: true, align: center, spacing_above: small, background: '#2270ad', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Gray 50', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: Transfer}
           type: Button
-          layout_properties: {grid_position: 'BCJRLN,OUNJCX', x: -5.97918701171875, y: 236.45831298828125, width: 636.968}
+          layout_properties: {grid_position: 'BCJRLN,OUNJCX', x: 63.020843505859375, y: 215.4351806640625, width: 636.968}
           event_bindings: {click: button_1_click}
     - name: xy_panel_2_copy_2
       properties: {role: null, align: center, spacing_above: small, width: null, background: 'theme:Gray 200', foreground: '', spacing_below: small, visible: false, border: '', tooltip: '', height: 288.5999755859375}
