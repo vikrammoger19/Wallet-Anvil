@@ -49,31 +49,37 @@ db_schema:
     server: full
     columns:
     - name: users_transaction_date
-      admin_ui: {order: 0, width: 200}
+      admin_ui: {order: -1, width: 200}
       type: datetime
     - name: users_transaction_fund
-      admin_ui: {order: 1, width: 200}
+      admin_ui: {order: -0.5, width: 200}
       type: number
     - name: users_transaction_type
-      admin_ui: {order: 2, width: 200}
+      admin_ui: {order: 8.5, width: 200}
       type: string
     - name: users_transaction_status
-      admin_ui: {order: 3, width: 200}
+      admin_ui: {order: -0.125, width: 200}
       type: string
     - name: users_transaction_currency
-      admin_ui: {order: 4.5, width: 247}
+      admin_ui: {order: -0.375, width: 247}
       type: string
     - name: users_transaction_receiver_phone
-      admin_ui: {order: 7.5, width: 266}
+      admin_ui: {order: 1.4375, width: 266}
       type: number
     - name: users_transaction_phone
-      admin_ui: {order: 8, width: 200}
+      admin_ui: {order: 2.21875, width: 200}
       type: number
     - name: users_transaction_message
       admin_ui: {width: 200, order: 9}
       type: string
     - name: users_transaction_bank_name
-      admin_ui: {order: 6.5, width: 239}
+      admin_ui: {order: 9, width: 239}
+      type: string
+    - name: users_transaction_receiver_type
+      admin_ui: {order: 0, width: 247}
+      type: string
+    - name: users_transaction_receiver_type
+      admin_ui: {width: 200, order: 13}
       type: string
     title: wallet_users_transaction
   wallet_users_account:
@@ -171,6 +177,26 @@ db_schema:
       admin_ui: {order: 9, width: 200}
       type: date
     title: wallet_admins_create_admin_account
+  wallet_users_notifications:
+    client: full
+    server: full
+    columns:
+    - name: users_notification_text
+      admin_ui: {width: 200, order: 0}
+      type: string
+    - name: users_notification_date_time
+      admin_ui: {order: 1, width: 236}
+      type: datetime
+    - name: users_notification_phone
+      admin_ui: {width: 200, order: 2}
+      type: number
+    - name: users_notification_read
+      admin_ui: {width: 200, order: 3}
+      type: bool
+    - name: users_notification_sender
+      admin_ui: {width: 200, order: 4}
+      type: number
+    title: wallet_users_notifications
   wallet_users:
     client: full
     server: full
@@ -250,6 +276,9 @@ db_schema:
     - name: users_profile_pic
       admin_ui: {width: 200, order: 24}
       type: media
+    - name: users_minimum_topup_amount_below
+      admin_ui: {order: 5.5, width: 300}
+      type: number
     title: wallet_users
   users:
     client: none

@@ -147,6 +147,7 @@ a:hover, a:active {
 .anvil-role-text > .label-text, .anvil-role-text .link-text {
   padding-top: 0;
   padding-bottom: 0;
+  line-height: 1;
 }
 
 /* Page structure: App bar with optional left nav */

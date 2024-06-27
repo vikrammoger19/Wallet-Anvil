@@ -10,8 +10,10 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 class add_currency(add_currencyTemplate):
-  def __init__(self, **properties):
+  def __init__(self, user=None, **properties):
+    self.user = user
     self.init_components(**properties)
+    
     self.flow_panel_1.visible = False
     self.refresh_users()
 
@@ -75,29 +77,29 @@ class add_currency(add_currencyTemplate):
     open_form('admin', user=self.user)
 
   def link_8_click(self, **event_args):
-    open_form('admin')
+    open_form('admin',user=self.user)
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.report_analysis')
+    open_form('admin.report_analysis',user=self.user)
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.account_management')
+    open_form('admin.account_management',user=self.user)
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.transaction_monitoring')
+    open_form('admin.transaction_monitoring',user=self.user)
 
   def link_4_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.admin_add_user')
+    open_form('admin.admin_add_user',user=self.user)
 
   def link_5_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.audit_trail')
+    open_form('admin.audit_trail',user=self.user)
 
   def link_6_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.user_support')
+    open_form('admin.user_support',user=self.user)
 

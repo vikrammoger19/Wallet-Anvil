@@ -71,5 +71,9 @@ class ItemTemplate6(ItemTemplate6Template):
     
   #   # Open the admin_view form and pass the phone number
   #   open_form('admin.admin_view_user_details',user =self.user, phone_number=phone_number)
+
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    self.button_1.visible=True
     
     

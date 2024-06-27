@@ -135,25 +135,39 @@ class transfer(transferTemplate):
                           anvil.alert("User does not exist")
                           return
                   
+                  # new_transaction = app_tables.wallet_users_transaction.add_row(
+                  #     users_transaction_phone=depositor_phone_number,
+                  #     users_transaction_fund=money_value,
+                  #     users_transaction_currency=cur,
+                  #     users_transaction_date=current_datetime,
+                  #     users_transaction_type="Debit",
+                  #     users_transaction_status="transferred-to",
+                  #     users_transaction_receiver_phone=receiver_phone_number
+                  # )
+                  # new_transaction = app_tables.wallet_users_transaction.add_row(
+                  #     users_transaction_phone=receiver_phone_number,
+                  #     users_transaction_fund=money_value,
+                  #     users_transaction_currency=cur,
+                  #     users_transaction_date=current_datetime,
+                  #     users_transaction_type="Credit",
+                  #     users_transaction_status="received-from",
+                  #     users_transaction_receiver_phone=depositor_phone_number
+                  # )
+
                   new_transaction = app_tables.wallet_users_transaction.add_row(
                       users_transaction_phone=depositor_phone_number,
                       users_transaction_fund=money_value,
                       users_transaction_currency=cur,
                       users_transaction_date=current_datetime,
                       users_transaction_type="Debit",
+                      users_transaction_receiver_type="Credit",
                       users_transaction_status="transferred-to",
-                      users_transaction_receiver_phone=receiver_phone_number
+                      users_transaction_receiver_phone=receiver_phone_number,
                   )
-                  new_transaction = app_tables.wallet_users_transaction.add_row(
-                      users_transaction_phone=receiver_phone_number,
-                      users_transaction_fund=money_value,
-                      users_transaction_currency=cur,
-                      users_transaction_date=current_datetime,
-                      users_transaction_type="Credit",
-                      users_transaction_status="received-from",
-                      users_transaction_receiver_phone=depositor_phone_number
-                  )
-  
+        
+                  users_text=f"You have received **{self.drop_down_2.selected_value} {self.text_box_3.text}**from {self.user['users_username']}"
+                  anvil.server.call('notify',users_text,current_datetime,self.text_box_2.text,self.user['users_phone'])
+                
                   # Update the limits after successful transaction
                   depositor['users_daily_limit'] -= money_value
                   depositor['users_user_limit'] -= money_value
@@ -207,6 +221,10 @@ class transfer(transferTemplate):
     def link_6_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('customer.auto_topup',user=self.user)
+
+    def text_box_2_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
 
   
 

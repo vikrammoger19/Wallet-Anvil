@@ -17,12 +17,14 @@ class customer(customerTemplate):
         self.init_components(**properties)
         self.user = user
         self.password = password
-
+        self.link_clicked=True #changed
+        self.notifications()
         user_dict = dict(self.user)
         self.refresh_data()
         self.get_credit_debit_details()
         print(user_dict)
         self.check_profile_pic()
+        self.greet_based_on_time()
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('users_phone', None)
         default_currency = 'INR'
@@ -31,7 +33,8 @@ class customer(customerTemplate):
           default_currency = users_def_currency['users_defaultcurrency']
         if phone_number:
             # Search transactions based on the user's phone number
-            items = app_tables.wallet_users_transaction.search(users_transaction_phone=phone_number,users_transaction_currency=default_currency)
+            items = app_tables.wallet_users_transaction.search(q.any_of(users_transaction_phone=self.user['users_phone'],users_transaction_receiver_phone=self.user['users_phone']
+                                                                       ),users_transaction_currency=default_currency)
         
             # Sort transactions by date in descending order
             sorted_transactions = sorted(items, key=lambda x: x['users_transaction_date'], reverse=True)
@@ -52,18 +55,25 @@ class customer(customerTemplate):
                 max_history_entries = 4  # Maximum number of history entries to display
                 for transaction in sorted_transactions:
                     fund = transaction['users_transaction_fund']
-                    transaction_type = transaction['users_transaction_type']
+                    # transaction_type = transaction['users_transaction_type']
                     receiver_phone = transaction['users_transaction_receiver_phone']
                     transaction_time = transaction['users_transaction_date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
                     profile_pic = '_/theme/account.png'
-                    if transaction_type == 'Withdrawn' or transaction_type == 'Deposited':
+                    if (transaction['users_transaction_type'] == 'Withdrawn' or transaction['users_transaction_type'] == 'Deposited' or transaction['users_transaction_type'] == 'Auto Topup') and transaction['users_transaction_phone']==self.user['users_phone']:
                       userr = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
                       if userr:
                         if userr['users_profile_pic']:
                            profile_pic = userr['users_profile_pic']
                         else:
                           profile_pic = '_/theme/account.png'
-                    if  transaction_type == 'Credit' or transaction_type == 'Debit':
+                    if  transaction['users_transaction_type'] == 'Debit' and transaction['users_transaction_phone']==self.user['users_phone'] :
+                      trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
+                      if trans_user :
+                        if trans_user['users_profile_pic']:
+                          profile_pic = trans_user['users_profile_pic']
+                        else:
+                          profile_pic = '_/theme/account.png'
+                    if transaction['users_transaction_receiver_type'] == 'Credit' and transaction['users_transaction_receiver_phone']==self.user['users_phone'] :
                       trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
                       if trans_user :
                         if trans_user['users_profile_pic']:
@@ -71,26 +81,34 @@ class customer(customerTemplate):
                         else:
                           profile_pic = '_/theme/account.png'
                     # Fetch username from wallet_user table using receiver_phone
-                    receiver_user = app_tables.wallet_users.get(users_phone=receiver_phone)
-                    if receiver_user:
+                    
+                    if (transaction['users_transaction_phone']==self.user['users_phone'] and transaction['users_transaction_type'] == 'Debit') : 
+                        receiver_user = app_tables.wallet_users.get(users_phone=receiver_phone)
+                        receiver_username = receiver_user['users_username']
+                    elif (transaction['users_transaction_receiver_phone']==self.user['users_phone'] and transaction['users_transaction_receiver_type'] == 'Credit') :
+                        receiver_user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
                         receiver_username = receiver_user['users_username']
                     else:
                         receiver_username = self.user['users_username']
         
                     # Set the transaction text and color based on transaction type
-                    if transaction_type == 'Credit':
+                    if transaction['users_transaction_receiver_type'] == 'Credit' and transaction['users_transaction_receiver_phone']==self.user['users_phone']:
                         transaction_text = "Received"
                         fund_display = "+" + str(fund)
                         fund_color = "green"
-                    elif transaction_type == 'Debit':
+                    elif transaction['users_transaction_phone']==self.user['users_phone'] and  transaction['users_transaction_type']  == 'Debit':
                         transaction_text = "Sent"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
-                    elif transaction_type == 'Deposited':
+                    elif transaction['users_transaction_type'] == 'Deposited':  
                         transaction_text = "Deposit"
                         fund_display = "+" + str(fund)
                         fund_color = "green"
-                    elif transaction_type == 'Withdrawn':
+                    elif transaction['users_transaction_type'] == 'Auto Topup':
+                        transaction_text = "Auto Topup"
+                        fund_display = "+" + str(fund)
+                        fund_color = "green"
+                    elif transaction['users_transaction_type']== 'Withdrawn':
                         transaction_text = "Withdrawn"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
@@ -151,6 +169,23 @@ class customer(customerTemplate):
         self.plot_1.data = fig.data
         self.plot_1.layout = fig.layout
 
+    
+    def greet_based_on_time(self):
+        from datetime import datetime
+        current_time = datetime.now().time()
+        
+        if current_time < datetime.strptime('12:00:00', '%H:%M:%S').time():
+          self.label_19_copy.text = "Good Morning"
+            
+        elif current_time > datetime.strptime('12:00:00', '%H:%M:%S').time() and current_time < datetime.strptime('16:00:00', '%H:%M:%S').time():
+            self.label_19_copy.text = "Good Afternoon"
+        elif current_time > datetime.strptime('16:00:00', '%H:%M:%S').time() and current_time < datetime.strptime('18:00:00', '%H:%M:%S').time():
+          self.label_19_copy.text = "Good Evening"
+        else:
+          self.label_19_copy.text = "Good Night"
+        
+
+
     def refresh_data(self):
     # Get the user's phone number
       phone_number = self.user['users_phone']
@@ -189,24 +224,32 @@ class customer(customerTemplate):
       print("Number of transactions retrieved:", len(transactions))
   
       # Filter transactions to include only those involving the user's phone number and default currency
-      filtered_transactions = [t for t in transactions if t['users_transaction_phone'] == phone_number and t['users_transaction_currency'] == user_default_currency]
+      filtered_transactions = [t for t in transactions if (t['users_transaction_phone'] == phone_number or t['users_transaction_receiver_phone'] == phone_number) and t['users_transaction_currency'] == user_default_currency]
   
       # DEBUG: Print the number of transactions after filtering
       print("Number of transactions after filtering:", len(filtered_transactions))
   
       # Filter transactions to include only 'Credit' and 'Debit' types
-      filtered_transactions = [t for t in filtered_transactions if t['users_transaction_type'] in ['Credit', 'Debit']]
+      filtered_transactions = [t for t in filtered_transactions if (t['users_transaction_phone'] == self.user['users_phone'] and t['users_transaction_type']=='Debit') or  (t['users_transaction_receiver_phone'] == self.user['users_phone']  and t['users_transaction_receiver_type']=='Credit')]
   
       # Organize data for plotting (aggregate by date and type)
       data_for_plot = {'Credit': {}, 'Debit': {}}  # Separate dictionaries for Credit and Debit transactions
       for transaction in filtered_transactions:
           date = transaction['users_transaction_date'].strftime("%Y-%m-%d")  # Format date as string for grouping
   
-          trans_type = transaction['users_transaction_type']
+          trans_type = ''
+          if transaction['users_transaction_phone'] == self.user['users_phone'] and transaction['users_transaction_type']=='Debit':
+            trans_type='Debit'
+          elif transaction['users_transaction_receiver_phone'] == self.user['users_phone'] and transaction['users_transaction_receiver_type']=='Credit':
+            trans_type='Credit'
+            
           fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
   
-          if date not in data_for_plot[trans_type]:
-              data_for_plot[trans_type][date] = 0
+          try:
+            if date not in data_for_plot[trans_type]:
+                data_for_plot[trans_type][date] = 0
+          except Exception as e:
+            print(e)
   
           # Ensure fund is a string or a number before conversion
           if isinstance(fund, (int, float)):
@@ -318,11 +361,18 @@ class customer(customerTemplate):
       for transaction in transactions:
           date = transaction['users_transaction_date'].strftime("%Y-%m-%d")  # Format date as string for grouping
   
-          trans_type = transaction['users_transaction_type']
+          trans_type = ''
+          if transaction['users_transaction_phone'] == self.user['users_phone'] and transaction['users_transaction_type']=='Debit':
+            trans_type='Debit'
+          elif transaction['users_transaction_receiver_phone'] == self.user['users_phone'] and transaction['users_transaction_receiver_type']=='Credit':
+            trans_type='Credit'
           fund = transaction['users_transaction_fund']  # Retrieve the 'fund' field
   
-          if date not in data_for_plot[trans_type]:
-              data_for_plot[trans_type][date] = 0
+          try:
+            if date not in data_for_plot[trans_type]:
+                data_for_plot[trans_type][date] = 0
+          except Exception as e:
+            print(e)
   
           # Ensure fund is a string or a number before conversion
           if isinstance(fund, (int, float)):
@@ -365,7 +415,7 @@ class customer(customerTemplate):
         # Filter transactions based on phone number and default currency
         user_transactions = [
             t for t in transactions 
-            if t['users_transaction_phone'] == phone_number and t['users_transaction_currency'] == user_default_currency
+            if ( t['users_transaction_phone'] == phone_number or t['users_transaction_receiver_phone'] == phone_number) and t['users_transaction_currency'] == user_default_currency
         ]
         weekly_transactions = self.filter_transactions_by_period(user_transactions, 'week')
         self.plot_transactions(weekly_transactions, self.plot_1)
@@ -379,7 +429,7 @@ class customer(customerTemplate):
         # Filter transactions based on phone number and default currency
         user_transactions = [
             t for t in transactions 
-            if t['users_transaction_phone'] == phone_number and t['users_transaction_currency'] == user_default_currency
+            if (t['users_transaction_phone'] == phone_number or t['users_transaction_receiver_phone'] == phone_number) and t['users_transaction_currency'] == user_default_currency
         ]
         monthly_transactions = self.filter_transactions_by_period(user_transactions, 'month')
         self.plot_transactions(monthly_transactions, self.plot_1)
@@ -393,7 +443,7 @@ class customer(customerTemplate):
         # Filter transactions based on phone number and default currency
         user_transactions = [
             t for t in transactions 
-            if t['users_transaction_phone'] == phone_number and t['users_transaction_currency'] == user_default_currency
+            if (t['users_transaction_phone'] == phone_number or t['users_transaction_receiver_phone'] == phone_number) and t['users_transaction_currency'] == user_default_currency
         ]
         yearly_transactions = self.filter_transactions_by_period(user_transactions, 'year')
         self.plot_transactions(yearly_transactions, self.plot_1)
@@ -432,6 +482,70 @@ class customer(customerTemplate):
       """This method is called when the link is clicked"""
       open_form('customer.settings',user = self.user)
 
+    def notifications(self):
+      items=[]
+      self.repeating_panel_1.items=items
+      an=anvil.server.call('get_notifications',self.user['users_phone'])
+      so=sorted(an,key=lambda x:x['users_notification_date_time'],reverse=True)
+      # length=0
+      if so:
+        for i in so:
+          # column3=ColumnPanel(border='white',background='#87cefa')
+          if i['users_notification_read'] is None or i['users_notification_read'] is not True:
+            a=i['users_notification_text']
+            b=i['users_notification_date_time'] #.strftime("%a-%I:%M %p")
+            items.append({'text':a,
+                        'date':b,
+                          'phone':self.user['users_phone']})
+            
+        if len(items)>0:
+          self.label_2.text=len(items)
+        else:
+          self.label_2.text=''
     
+    def link_15_copy_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      items=[]
+      self.repeating_panel_1.items=items
+      
+      if self.link_clicked:
+        self.column_panel_2.visible = True
+        an=anvil.server.call('get_notifications',self.user['users_phone'])
+        so=sorted(an,key=lambda x:x['users_notification_date_time'],reverse=True)
+        length=0
+        # total_notifications=len(so)
+        for i in so:
+          if i['users_notification_read'] is None or i['users_notification_read'] is not True:
+            a=i['users_notification_text']
+            b=i['users_notification_date_time'] #.strftime("%a-%I:%M %p")
+            sender=i['users_notification_sender']
+            items.append({'text':a,
+                        'date':b,
+                          'phone':self.user['users_phone'],
+                         'sender_phone':sender})
+            length +=1
+            if length>4:
+              break
+        if len(items)>0:
+          self.repeating_panel_1.items=items
+          self.label_2.text=len(items)
+        else:
+          self.label_4.visible=True
+          self.label_2.text=''
+          self.repeating_panel_1.visible=False
+          
+        self.link_clicked=False
+      else:
+        self.column_panel_2.visible = False
+        self.notifications()
+        self.link_clicked=True
+
+    def link_11_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.notifications',user=self.user)
+
+    def link_10_copy_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer.transactions',uesr=self.user)
 
    
