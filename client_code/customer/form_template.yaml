@@ -225,9 +225,13 @@ components:
                   layout_properties: {grid_position: 'GBCBBV,XYROPB'}
                   components:
                   - type: Image
-                    properties: {height: 36}
+                    properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/bank (1).png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 31}
                     name: image_1
-                    layout_properties: {x: 21.990745544433594, y: 4.178199999999947, width: 66.963}
+                    layout_properties: {x: 27.986114501953125, y: 4.16668701171875, width: 66.9445}
+                  - type: Label
+                    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Add Bank}
+                    name: label_1
+                    layout_properties: {x: 90.98380279541016, y: 4.16668701171875, width: 159.988}
               - name: link_8_copy
                 properties: {text: '', align: center, bold: true, icon: ''}
                 type: Link
