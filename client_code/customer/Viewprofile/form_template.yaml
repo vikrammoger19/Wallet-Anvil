@@ -246,16 +246,10 @@ components:
           type: Image
           layout_properties: {x: 0, y: 0, width: 197.788}
           event_bindings: {mouse_down: image_1_mouse_down}
-        - name: file_loader_1
-          properties: {role: null, background: '', icon: 'fa:camera', underline: false, icon_align: left, foreground: '', visible: true, border: '', italic: false, enabled: true, font_size: 25, text: ''}
-          type: FileLoader
-          layout_properties: {x: 88.84998779371381, y: 132.07500457763672, width: 113}
-          event_bindings: {change: file_loader_1_change}
-          data_bindings: []
         - name: column_panel_1
-          properties: {}
+          properties: {col_widths: '{}'}
           type: ColumnPanel
-          layout_properties: {x: 220.0749633796513, y: 17.437504578381777, width: 200}
+          layout_properties: {x: 220.0749633796513, y: 17.437504578381777, width: 346.333251953125}
           components:
           - name: label_1
             properties: {text: Kohila, font_size: 26, foreground: '#258ee1', bold: true}
@@ -264,11 +258,7 @@ components:
           - name: label_8
             properties: {text: kohilain16@gmail.com, font_size: 18, foreground: 'theme:Gray 600', bold: true}
             type: Label
-            layout_properties: {grid_position: 'YEVWQV,NORFOS'}
-          - name: label_12
-            properties: {font_size: 12, text: 'Last Login: 02-06-2024', foreground: 'theme:Gray 600', bold: true}
-            type: Label
-            layout_properties: {grid_position: 'DSMJSV,CJSTAS'}
+            layout_properties: {grid_position: 'LTNHJZ,TIHKMH'}
         - type: Spacer
           properties: {height: 22}
           name: spacer_2_copy
@@ -276,21 +266,8 @@ components:
         - name: button_2
           properties: {text: Reset Password, bold: true, align: center, font_size: 16}
           type: Link
-          layout_properties: {x: 667.0124328620732, y: 30.274998474866152, width: 121}
+          layout_properties: {x: 667.0124328620732, y: 30.274998474866152, width: 134}
           event_bindings: {click: button_2_click}
-        - name: button_11
-          properties: {text: Edit, icon: 'fa:pencil', bold: true, align: center, font_size: 16}
-          type: Link
-          layout_properties: {x: 795.9001281745732, y: 31.150006104260683, width: 76.88750457763672}
-          event_bindings: {click: button_11_click}
-        - name: label_13
-          properties: {text: Edit Profile, bold: true, font_size: 25, foreground: '#258ee1'}
-          type: Label
-          layout_properties: {x: 6.675000000745058, y: 208.82502441480756, width: 137.58750915527344}
-        - name: label_14
-          properties: {text: _______________________________________________________________________________________________________________________, foreground: 'theme:Gray 600'}
-          type: Label
-          layout_properties: {x: 134.5875244140625, y: 209.92503051832318, width: 750.3875122070312}
         - name: column_panel_2
           properties: {col_widths: '{"YGNFNJ":25,"IOBAFC":10,"ELICDZ":25}'}
           type: ColumnPanel
@@ -370,3 +347,26 @@ components:
             layout_properties: {grid_position: 'HVBAHS,ELICDZ HAYCDQ,DHQCPK', x: -52, y: 276.1375045776367, width: 884.975}
             data_bindings:
             - {property: text, code: 'self.item[''pan'']', writeback: true}
+        - name: label_13
+          properties: {text: Edit Profile, bold: true, font_size: 25, foreground: '#258ee1'}
+          type: Label
+          layout_properties: {x: 17.697499999999877, y: 208.82293701171875, width: 154.24}
+        - name: button_11
+          properties: {text: Edit, icon: 'fa:pencil', bold: true, align: center, font_size: 16}
+          type: Link
+          layout_properties: {x: 808.0936000000002, y: 31.145843505859375, width: 76.8854}
+          event_bindings: {click: button_11_click}
+        - name: label_14
+          properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Gray 600', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: _____________________________________________________________________________________________}
+          type: Label
+          layout_properties: {x: 181.92706298828125, y: 208.82293701171875, width: 697.042}
+        - name: file_loader_1
+          properties: {role: null, background: '', icon: 'fa:camera', underline: false, icon_align: left, foreground: '', visible: true, border: '', italic: false, enabled: true, font_size: 25, text: ''}
+          type: FileLoader
+          layout_properties: {x: 97.07293701171875, y: 138.2815, width: 113}
+          event_bindings: {change: file_loader_1_change}
+          data_bindings: []
+        - name: label_12
+          properties: {font_size: 12, text: 'Last Login: 02-06-2024', foreground: 'theme:Gray 600', bold: true}
+          type: Label
+          layout_properties: {grid_position: 'DSMJSV,CJSTAS', x: 227.07293701171875, y: 138.2815, width: 346.323}
