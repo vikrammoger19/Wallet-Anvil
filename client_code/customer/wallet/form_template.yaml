@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: card_111
-    properties: {role: card, col_widths: '{"GVPNGK":10,"TKSRFI":5,"ULOKUC":17}'}
+    properties: {role: card, col_widths: '{"TKSRFI":5,"ULOKUC":17}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'EZCOVV,UEACLA', full_width_row: true}
     components:
@@ -247,7 +247,7 @@ components:
             layout_properties: {x: 43.98145623168946, y: 8.98150634765625, width: 40.9954}
         event_bindings: {click: help_link_click}
       - type: Spacer
-        properties: {height: 559.8148193359375}
+        properties: {height: 305.8148193359375}
         name: spacer_29
         layout_properties: {grid_position: 'SXNRDZ,LCUVEY'}
     - name: label_1000000
@@ -691,7 +691,7 @@ components:
       type: GridPanel
       layout_properties:
         col_widths: {}
-        grid_position: EKNWFM,ULOKUC RPVDGI,PRZOII
+        grid_position: EKNWFM,ULOKUC RPVDGI,NQWBHE
       components:
       - name: label_333
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 17, tooltip: '', text: 'Account Holder''s Name:'}
