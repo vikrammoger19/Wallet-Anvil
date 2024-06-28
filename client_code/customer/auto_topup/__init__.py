@@ -239,5 +239,22 @@ class auto_topup(auto_topupTemplate):
     def link_8_click(self, **event_args):
       open_form('customer.settings',user=self.user)
 
+    def link_5_withdraw_click(self, **event_args):
+     open_form('customer.withdraw',user=self.user)
+
+
+      
+
+    def help_click(self, **event_args):
+      open_form("help",user = self.user)
+
+    def link_8_copy_2_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      pass
+
+    def add_bank_click(self, **event_args):
+        open_form("customer.wallet",user = self.user)
+
+
    
  

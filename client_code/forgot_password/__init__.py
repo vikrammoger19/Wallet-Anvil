@@ -55,6 +55,16 @@ class forgot_password(forgot_passwordTemplate):
     #         self.text_box_3.visible = False
     #         self.text_box_4.visible = False
 
+  
+    def link_1_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form("login")
+
+    def link_2_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form("signup")
+
+  
     def primary_color_1_click(self, **event_args):
         if self.text_box_3.visible and self.text_box_4.visible:
             if self.text_box_3.text == self.text_box_4.text:

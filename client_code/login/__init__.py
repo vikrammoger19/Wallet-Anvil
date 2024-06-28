@@ -19,6 +19,13 @@ class login(loginTemplate):
     def text_box_3_pressed_enter(self, **event_args):
         self.primary_color_1_click()
 
+
+    def link_2_click(self, **event_args):
+      open_form('signup')
+
+    def link_1_click(self, **event_args):
+      open_form('forgot_password')
+
     def primary_color_1_click(self, **event_args):
         # Get the login input (username, phone number, or email)
         login_input = self.text_box_1.text.strip()

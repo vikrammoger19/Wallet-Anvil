@@ -204,3 +204,11 @@ class Viewprofile(ViewprofileTemplate):
 
     def link_8_click(self, **event_args):
       open_form('customer.settings',user=self.user)
+
+    def link_5_copy_click(self, **event_args):
+      open_form("help",user = self.user)
+
+    def add_bank_click(self, **event_args):
+      open_form("customer.wallet",user = self.user)
+
+    
