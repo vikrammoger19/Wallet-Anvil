@@ -235,7 +235,7 @@ components:
               - name: label_3_copy_16
                 properties: {text: Settings}
                 type: Label
-                layout_properties: {x: 94.96878587646484, y: -1, width: 71.6146}
+                layout_properties: {x: 94.96875, y: -1, width: 71.6146}
             event_bindings: {click: link_8_click}
           - name: help_click
             properties: {text: '', bold: true, align: center}
@@ -256,7 +256,7 @@ components:
               - name: label_3_copy_3
                 properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Help}
                 type: Label
-                layout_properties: {x: 94.95835, y: -10, width: 112.344}
+                layout_properties: {x: 94.95833587646484, y: -10, width: 112.344}
             event_bindings: {click: help_click}
           - type: Spacer
             properties: {height: 281.92596435546875}
