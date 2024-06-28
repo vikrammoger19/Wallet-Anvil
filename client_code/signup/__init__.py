@@ -23,6 +23,10 @@ class signup(signupTemplate):
   def text_box_8_change(self, **event_args):
         # Convert the text in text_box_8 to uppercase as user types
         self.text_box_8.text = self.text_box_8.text.upper()
+
+
+  def link_1_click(self, **event_args):
+      open_form('login')
   def primary_color_1_click(self, **event_args):
     existing_user = anvil.server.call('get_user_by_phone', str(self.text_box_3.text).strip())
 

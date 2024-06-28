@@ -224,7 +224,8 @@ components:
             properties: {text: Settings}
             type: Label
             layout_properties: {x: 94.97686004638672, y: 4.9884033203125, width: 71.6204}
-      - name: link_5
+        event_bindings: {click: link_8_copy_2_click}
+      - name: help_link
         properties: {text: '', bold: true, align: center}
         type: Link
         layout_properties:
@@ -244,6 +245,7 @@ components:
             properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer-support.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 26}
             type: Image
             layout_properties: {x: 43.99303002319336, y: 4.9884033203125, width: 40.9954}
+        event_bindings: {click: help_link_click}
       - type: Spacer
         properties: {height: 559.8148193359375}
         name: spacer_29

@@ -226,6 +226,12 @@ class transfer(transferTemplate):
       """This method is called when the user presses Enter in this text box"""
       pass
 
+    def link_8_copy_2_click(self, **event_args):
+      open_form("customer.settings",user =self.user)
+
+    def link_help_click(self, **event_args):
+      open_form("help",user = self.user)
+
   
 
 

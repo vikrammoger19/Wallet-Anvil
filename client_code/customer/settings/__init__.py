@@ -74,4 +74,14 @@ class settings(settingsTemplate):
   def link_12_click(self, **event_args):
     """This method is called when the link is clicked"""
     pass
+
+  def link_help_click(self, **event_args):
+    open_form("help",user = self.user)
+
+  def link_8_copy_click(self, **event_args):
+    open_form('customer.settings',user = self.user)
+
+  def add_bank_click(self, **event_args):
+    open_form("customer.wallet",user = self.user)
+    
   

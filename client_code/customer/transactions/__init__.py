@@ -698,3 +698,9 @@ class transactions(transactionsTemplate):
   def link_8_copy_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('customer.settings',user = self.user)
+
+  def link_3_copy_2_click(self, **event_args):
+    open_form("customer.transactions",user = self.user)
+
+  def link_1_click(self, **event_args):
+    open_form('customer.wallet',user=self.user)

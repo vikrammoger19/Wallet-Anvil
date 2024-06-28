@@ -552,4 +552,10 @@ class customer(customerTemplate):
       """This method is called when the link is clicked"""
       open_form('customer.wallet',user=self.user)
 
+    def link_add_bank_click(self, **event_args):
+      open_form("customer.wallet", user = self.user)
+
+    def link_help_click(self, **event_args):
+        open_form("help",user = self.user)
+
    

@@ -244,6 +244,7 @@ components:
             properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer-support.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 26}
             type: Image
             layout_properties: {x: 43.99303002319336, y: 4.9884033203125, width: 40.9954}
+        event_bindings: {click: link_5_copy_click}
       - type: Spacer
         properties: {height: 161}
         name: spacer_4
