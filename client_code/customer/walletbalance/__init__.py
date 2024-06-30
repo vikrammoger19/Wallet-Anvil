@@ -164,7 +164,7 @@ class walletbalance(walletbalanceTemplate):
 
     def link_4_click(self, **event_args):
         """This method is called when the link is clicked"""
-        open_form('customer.deposit', user=self.user)
+        open_form('customer.transfer', user=self.user)
 
     def link_7_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -189,3 +189,12 @@ class walletbalance(walletbalanceTemplate):
     def link_8_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form('customer.settings',user=self.user)
+
+    def link_1_copy_click(self, **event_args):
+      open_form('customer.wallet',user = self.user)
+
+    def link_5_copy_click(self, **event_args):
+      open_form("help",user=self.user)
+
+    def link_8_copy_click(self, **event_args):
+      open_form("customer.settings",user = self.user)
