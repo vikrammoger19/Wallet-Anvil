@@ -30,8 +30,11 @@ class create_admin(create_adminTemplate):
           phone_number = str(self.text_box_4.text).strip()
           if self.validate_phone_number(phone_number):
               count=count+1
+              self.label_13.visible=True
+              self.label_13.foreground = "green"
               self.label_13.text ="Phone number is correct"
           else:
+              self.label_13.visible=True
               self.label_13.text ="Please check the entered phone number"
               self.text_box_4.text=''
               self.text_box_4.focus()
@@ -122,3 +125,11 @@ class create_admin(create_adminTemplate):
 
   def link_5_copy_5_click(self, **event_args):
     open_form("admin.add_bank_account",user = self.user)
+
+  def drop_down_1_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass
+
+  def text_box_3_copy_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass

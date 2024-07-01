@@ -233,18 +233,18 @@ components:
       type: Label
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCCHCB,FJRJTH'}
     - name: spacer_1
-      properties: {height: 57}
+      properties: {height: 54}
       type: Spacer
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ OURSBK,ETQHYP'}
     - type: XYPanel
       properties: {height: 582}
       name: xy_panel_1
-      layout_properties: {grid_position: 'FRVCAC,CSXXAZ RAXRES,MAXEHB'}
+      layout_properties: {grid_position: 'FRVCAC,CSXXAZ RAXRES,FXJCYA'}
       components:
       - name: text_box_1
         properties: {role: null, bold: false, align: left, placeholder: Email, spacing_above: small, background: white, type: email, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
         type: TextBox
-        layout_properties: {grid_position: 'QOFXNP,WYYXTB', x: 353.1944580078125, y: 58.4495, width: 641.331}
+        layout_properties: {grid_position: 'QOFXNP,WYYXTB', x: 353.1944580078125, y: 58.4495, width: 384.24732568359366}
         data_bindings:
         - {code: 'self.item[''email'']', writeback: true, property: text}
       - name: label_8_copy
@@ -254,14 +254,14 @@ components:
       - name: text_box_2
         properties: {role: null, bold: false, align: left, placeholder: Username, spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
         type: TextBox
-        layout_properties: {grid_position: 'QOFXNP,WYYXTB AGYLBX,QCDREG', x: 350.16204833984375, y: 0, width: 641.32}
+        layout_properties: {grid_position: 'QOFXNP,WYYXTB AGYLBX,QCDREG', x: 350.16204833984375, y: 0, width: 387.26873535156244}
         data_bindings:
         - {code: 'self.item[''username'']', writeback: true, property: text}
         event_bindings: {show: text_box_2_show}
       - name: text_box_6
         properties: {role: null, bold: false, align: left, placeholder: Phone Number, spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
         type: TextBox
-        layout_properties: {grid_position: 'AFEVIQ,LZLMMV', x: 350.15045166015625, y: 122.43287658691406, width: 641.32}
+        layout_properties: {grid_position: 'AFEVIQ,LZLMMV', x: 350.15045166015625, y: 122.43287658691406, width: 384.23633203124984}
         data_bindings:
         - {code: 'self.item[''phone'']', writeback: true, property: text}
         event_bindings: {pressed_enter: validate_button_click}
@@ -273,13 +273,6 @@ components:
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Email:'}
         type: Label
         layout_properties: {grid_position: 'QOFXNP,XDAKWD', x: 21.516204833984375, y: 66.16667175292969, width: 215.961}
-      - name: text_box_8
-        properties: {role: null, bold: false, align: left, placeholder: Aadhar detalis, spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-        type: TextBox
-        layout_properties: {grid_position: 'IYIXYF,POIUUA', x: 350.138916015625, y: 188.86578625488283, width: 641.32}
-        data_bindings:
-        - {code: 'self.item[''aadhar'']', writeback: true, property: text}
-        event_bindings: {pressed_enter: text_box_8_pressed_enter}
       - name: label_6_copy
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Aadhar details:'}
         type: Label
@@ -300,33 +293,6 @@ components:
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Address:'}
         type: Label
         layout_properties: {grid_position: 'LFFSGV,USOIFG', x: 21.516204833984375, y: 461.1805999999999, width: 99.9769}
-      - name: text_box_5
-        properties: {role: null, bold: false, align: left, placeholder: Address, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-        type: TextBox
-        layout_properties: {grid_position: 'LFFSGV,ESREXU', x: 350.10418701171875, y: 460.45145725097655, width: 641.32}
-        data_bindings:
-        - {code: 'self.item[''address'']', writeback: true, property: text}
-      - name: text_box_4
-        properties: {role: null, bold: false, align: left, placeholder: Pan, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-        type: TextBox
-        layout_properties: {grid_position: 'NBMVZC,SCAUUE', x: 350.138916015625, y: 257.0255539306641, width: 641.32}
-        data_bindings:
-        - {code: 'self.item[''pan'']', writeback: true, property: text}
-        event_bindings: {change: text_box_4_change}
-      - name: text_box_3
-        properties: {role: null, bold: false, align: left, placeholder: Password, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: true, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-        type: TextBox
-        layout_properties: {grid_position: 'TPWBFD,NPQJWI', x: 350.10418701171875, y: 322.0370635986328, width: 969.977}
-        data_bindings:
-        - {code: 'self.item[''password'']', writeback: true, property: text}
-      - type: Label
-        properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
-        name: label_14
-        layout_properties: {grid_position: 'YAVEUB,REGCOQ', x: 350.10418701171875, y: 290.8564635986328, width: 969.977}
-      - name: text_box_7
-        properties: {role: null, bold: false, align: left, placeholder: Retype Password, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: true, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-        type: TextBox
-        layout_properties: {grid_position: 'UHEFXI,ZFZAQH', x: 350.138916015625, y: 390.48609924316406, width: 641.32}
       - name: button_3
         properties: {role: outlined-button, bold: true, align: center, spacing_above: small, background: '#1d86da', icon: 'fa:backward', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: true, enabled: true, font_size: null, tooltip: '', text: back}
         type: Button
@@ -339,16 +305,50 @@ components:
         event_bindings: {click: button_1_click}
       - type: Label
         properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
-        name: label_15
-        layout_properties: {grid_position: 'LOERGH,LCXCCH', x: 350.10418701171875, y: 157.68513791503904, width: 969.977}
-      - properties: {role: null, bold: false, align: left, spacing_above: small, background: 'theme:White', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
-        type: Label
-        layout_properties: {grid_position: 'XJRNZL,PMEOCC', x: 350.138916015625, y: 423.25929260253906, width: 969.977}
-        name: label_17
+        name: label_16
+        layout_properties: {grid_position: 'KHICVZ,AOACMB', x: 350.138916015625, y: 219.81483459472656, width: 969.977}
+      - name: text_box_8
+        properties: {role: null, bold: false, align: left, placeholder: Aadhar detalis, spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+        type: TextBox
+        layout_properties: {grid_position: 'IYIXYF,POIUUA', x: 350.10418701171875, y: 185.6088104248047, width: 387.31499999999994}
+        data_bindings:
+        - {code: 'self.item[''aadhar'']', writeback: true, property: text}
+        event_bindings: {pressed_enter: text_box_8_pressed_enter}
       - type: Label
         properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
-        name: label_16
-        layout_properties: {grid_position: 'KHICVZ,AOACMB', x: 350.138916015625, y: 219.7916717529297, width: 969.977}
+        name: label_15
+        layout_properties: {grid_position: 'LOERGH,LCXCCH', x: 350.10418701171875, y: 154.42125241699216, width: 969.977}
+      - type: Label
+        properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
+        name: label_14
+        layout_properties: {grid_position: 'YAVEUB,REGCOQ', x: 350.10418701171875, y: 283.8449249267578, width: 969.977}
+      - name: text_box_3
+        properties: {role: null, bold: false, align: left, placeholder: Password, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: true, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+        type: TextBox
+        layout_properties: {grid_position: 'TPWBFD,NPQJWI', x: 353.1828918457031, y: 315.0231475830078, width: 375.2542290039062}
+        data_bindings:
+        - {code: 'self.item[''password'']', writeback: true, property: text}
+      - name: text_box_4
+        properties: {role: null, bold: false, align: left, placeholder: Pan, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+        type: TextBox
+        layout_properties: {grid_position: 'NBMVZC,SCAUUE', x: 350.1042175292969, y: 250.9838104248047, width: 384.282}
+        data_bindings:
+        - {code: 'self.item[''pan'']', writeback: true, property: text}
+        event_bindings: {change: text_box_4_change}
+      - name: text_box_7
+        properties: {role: null, bold: false, align: left, placeholder: Retype Password, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: true, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+        type: TextBox
+        layout_properties: {grid_position: 'UHEFXI,ZFZAQH', x: 350.138916015625, y: 383.2523829345703, width: 378.31}
+      - properties: {role: null, bold: false, align: left, spacing_above: small, background: 'theme:White', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
+        type: Label
+        layout_properties: {grid_position: 'XJRNZL,PMEOCC', x: 350.10418701171875, y: 417.2292022705078, width: 969.977}
+        name: label_17
+      - name: text_box_5
+        properties: {role: null, bold: false, align: left, placeholder: Address, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+        type: TextBox
+        layout_properties: {grid_position: 'LFFSGV,ESREXU', x: 350.10418701171875, y: 448.40284426269534, width: 387.315}
+        data_bindings:
+        - {code: 'self.item[''address'']', writeback: true, property: text}
     - name: card_1
       properties: {role: card, col_widths: '{}'}
       type: ColumnPanel

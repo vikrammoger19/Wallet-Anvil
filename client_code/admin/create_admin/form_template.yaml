@@ -247,91 +247,97 @@ components:
       properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: true, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: Enter Admin Details}
       type: Label
       layout_properties: {row: XWWDDB, width_xs: 12, col_xs: 0}
-    - name: label_6
-      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Date:'}
-      type: Label
-      layout_properties: {row: OOCCMJ, width_xs: 4, col_xs: 2}
-    - name: label_12
-      properties: {text: ''}
-      type: Label
-      layout_properties: {row: OOCCMJ, width_xs: 5, col_xs: 6}
-    - name: label_7
-      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Name:'}
-      type: Label
-      layout_properties: {row: ACBDXG, width_xs: 4, col_xs: 2}
-    - name: text_box_1
-      properties: {}
-      type: TextBox
-      layout_properties: {row: ACBDXG, width_xs: 5, col_xs: 6}
-    - name: label_1
-      properties: {text: 'Email id:', bold: true}
-      type: Label
-      layout_properties: {row: SEEKAZ, width_xs: 4, col_xs: 2}
-    - name: text_box_2
-      properties: {placeholder: Enter Your Email}
-      type: TextBox
-      layout_properties: {row: SEEKAZ, width_xs: 5, col_xs: 6}
-    - name: label_2
-      properties: {text: 'Mobile Number:', bold: true}
-      type: Label
-      layout_properties: {row: QXPIRA, width_xs: 4, col_xs: 2}
-    - name: text_box_4
-      properties: {role: null, bold: false, align: left, placeholder: Mobile Number, spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-      type: TextBox
-      layout_properties: {row: QXPIRA, width_xs: 5, col_xs: 6}
-      data_bindings:
-      - {code: 'self.item[''phone'']', writeback: true, property: text}
-      event_bindings: {pressed_enter: validate_button_click}
-    - name: label_13
-      properties: {}
-      type: Label
-      layout_properties: {row: MAENDI, width_xs: 5, col_xs: 6}
-    - name: label_3
-      properties: {text: 'Date of Birth:', bold: true}
-      type: Label
-      layout_properties: {row: BWPBIK, width_xs: 4, col_xs: 2}
-    - name: date_picker_1
-      properties: {}
-      type: DatePicker
-      layout_properties: {row: BWPBIK, width_xs: 5, col_xs: 6}
-    - name: label_4
-      properties: {text: 'Gender:', bold: true}
-      type: Label
-      layout_properties: {row: JCBAOW, width_xs: 4, col_xs: 2}
-    - name: drop_down_1
-      properties:
-        items: [Choose Gender, Female, Male]
-      type: DropDown
-      layout_properties: {row: JCBAOW, width_xs: 5, col_xs: 6}
-    - name: label_10
-      properties: {text: 'Create Password:', bold: true}
-      type: Label
-      layout_properties: {row: MPAJIL, width_xs: 4, col_xs: 2}
-    - name: text_box_5
-      properties: {role: null, bold: false, align: left, placeholder: Create Password, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: true, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
-      type: TextBox
-      layout_properties: {row: MPAJIL, width_xs: 5, col_xs: 6}
-      data_bindings:
-      - {code: 'self.item[''password'']', writeback: true, property: text}
-      event_bindings: {pressed_enter: text_box_3_copy_pressed_enter}
-    - name: label_11
-      properties: {text: 'Re-Enter Password:', bold: true}
-      type: Label
-      layout_properties: {row: XVCDED, width_xs: 4, col_xs: 2}
-    - name: label_9
-      properties: {}
-      type: Label
-      layout_properties: {row: ZXNPCG, width_xs: 6, col_xs: 6}
-    - name: text_box_6
-      properties: {bold: false, align: left, placeholder: Re-Enter Password, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: true, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, tooltip: '', text: ''}
-      type: TextBox
-      layout_properties: {row: XVCDED, width_xs: 5, col_xs: 6}
-      event_bindings: {pressed_enter: text_box_6_pressed_enter}
-    - name: button_1
-      properties: {role: null, bold: true, align: center, spacing_above: small, background: '#1b7bc9', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 16, tooltip: '', text: save}
-      type: Button
-      layout_properties: {row: IAVNQX, width_xs: 10, col_xs: 1}
-      event_bindings: {click: button_1_click}
+    - type: XYPanel
+      properties: {height: 705.4814834594727}
+      name: xy_panel_1
+      layout_properties: {row: KVQZUW, width_xs: 10, col_xs: 1}
+      components:
+      - name: label_6
+        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Date:'}
+        type: Label
+        layout_properties: {row: OOCCMJ, width_xs: 4, col_xs: 2, x: 10, y: 10, width: 90.33999999999997}
+      - name: label_12
+        properties: {text: ''}
+        type: Label
+        layout_properties: {row: OOCCMJ, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 9.988418579101562, width: 412.917}
+      - name: label_7
+        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Name:'}
+        type: Label
+        layout_properties: {row: ACBDXG, width_xs: 4, col_xs: 2, x: 9.988433837890625, y: 76.17823791503906, width: 324.329}
+      - name: text_box_1
+        properties: {}
+        type: TextBox
+        layout_properties: {row: ACBDXG, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 65.4398193359375, width: 412.917}
+      - name: label_1
+        properties: {text: 'Email id:', bold: true}
+        type: Label
+        layout_properties: {row: SEEKAZ, width_xs: 4, col_xs: 2, x: 9.988433837890625, y: 148.1504669189453, width: 324.329}
+      - name: label_2
+        properties: {text: 'Mobile Number:', bold: true}
+        type: Label
+        layout_properties: {row: QXPIRA, width_xs: 4, col_xs: 2, x: 10, y: 220.62501525878906, width: 149.329}
+      - name: text_box_2
+        properties: {placeholder: Enter Your Email}
+        type: TextBox
+        layout_properties: {row: SEEKAZ, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 140.4189910888672, width: 412.917}
+      - name: text_box_4
+        properties: {role: null, bold: false, align: left, placeholder: Mobile Number, spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+        type: TextBox
+        layout_properties: {row: QXPIRA, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 210.63197326660156, width: 412.917}
+        data_bindings:
+        - {code: 'self.item[''phone'']', writeback: true, property: text}
+        event_bindings: {pressed_enter: validate_button_click}
+      - name: label_13
+        properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
+        type: Label
+        layout_properties: {row: MAENDI, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 250.63658142089844, width: 412.917}
+      - name: label_3
+        properties: {text: 'Date of Birth:', bold: true}
+        type: Label
+        layout_properties: {row: BWPBIK, width_xs: 4, col_xs: 2, x: 9.988433837890625, y: 296.63198142089846, width: 324.329}
+      - name: date_picker_1
+        properties: {}
+        type: DatePicker
+        layout_properties: {row: BWPBIK, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 296.6435427490235, width: 22.916999999999973}
+      - name: label_4
+        properties: {text: 'Gender:', bold: true}
+        type: Label
+        layout_properties: {row: JCBAOW, width_xs: 4, col_xs: 2, x: 9.988433837890625, y: 372.6551055908203, width: 324.329}
+      - name: drop_down_1
+        properties:
+          items: [Choose Gender, Female, Male]
+        type: DropDown
+        layout_properties: {row: JCBAOW, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 372.6504669189453, width: 412.917}
+        event_bindings: {change: drop_down_1_change}
+      - name: label_10
+        properties: {text: 'Create Password:', bold: true}
+        type: Label
+        layout_properties: {row: MPAJIL, width_xs: 4, col_xs: 2, x: 10, y: 450.62965393066406, width: 324.34}
+      - name: text_box_5
+        properties: {role: null, bold: false, align: left, placeholder: Create Password, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: true, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+        type: TextBox
+        layout_properties: {row: MPAJIL, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 444.62965393066406, width: 412.917}
+        data_bindings:
+        - {code: 'self.item[''password'']', writeback: true, property: text}
+        event_bindings: {pressed_enter: text_box_3_copy_pressed_enter}
+      - name: label_11
+        properties: {text: 'Re-Enter Password:', bold: true}
+        type: Label
+        layout_properties: {row: XVCDED, width_xs: 4, col_xs: 2, x: 10, y: 525.6366119384766, width: 212.33999999999997}
+      - name: text_box_6
+        properties: {bold: false, align: left, placeholder: Re-Enter Password, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: true, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, tooltip: '', text: ''}
+        type: TextBox
+        layout_properties: {row: XVCDED, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 519.6065216064453, width: 412.917}
+        event_bindings: {pressed_enter: text_box_6_pressed_enter}
+      - name: label_9
+        properties: {}
+        type: Label
+        layout_properties: {row: ZXNPCG, width_xs: 6, col_xs: 6, x: 402.9051208496094, y: 559.6296539306641, width: 412.9279999999999}
+      - name: button_1
+        properties: {role: null, bold: true, align: center, spacing_above: small, background: '#1b7bc9', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 16, tooltip: '', text: save}
+        type: Button
+        layout_properties: {row: IAVNQX, width_xs: 10, col_xs: 1, x: 209.31710815429688, y: 643.6157379150391, width: 371.806}
+        event_bindings: {click: button_1_click}
   - name: spacer_1
     properties: {height: 10.39996337890625}
     type: Spacer
