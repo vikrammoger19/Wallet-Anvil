@@ -183,6 +183,7 @@ components:
           properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/financial-audit.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 34}
           type: Image
           layout_properties: {x: 38, y: 1, width: 47}
+      event_bindings: {click: link_5_copy_click}
     - name: link_5_copy_2
       properties: {text: '', align: center, bold: true}
       type: Link
