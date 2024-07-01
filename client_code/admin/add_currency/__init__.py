@@ -103,3 +103,12 @@ class add_currency(add_currencyTemplate):
     """This method is called when the link is clicked"""
     open_form('admin.user_support',user=self.user)
 
+  def link_6_copy_2_click(self, **event_args):
+    open_form("admin.create_admin",user = self.user)
+
+  def link_6_copy_3_click(self, **event_args):
+    open_form("admin.add_currency",user = self.user)
+
+  def link_6_copy_4_click(self, **event_args):
+    open_form("admin.add_bank_account",user = self.user)
+
