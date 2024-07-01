@@ -146,7 +146,7 @@ class report_analysis(report_analysisTemplate):
 
     def link_4_click(self, **event_args):
         """This method is called when the link is clicked"""
-        open_form('admin.account_management',user=self.user)
+        open_form('admin.admin_add_user',user=self.user)
 
     def link_3_click(self, **event_args):
         """This method is called when the link is clicked"""
