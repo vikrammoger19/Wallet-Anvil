@@ -265,10 +265,6 @@ components:
         data_bindings:
         - {code: 'self.item[''phone'']', writeback: true, property: text}
         event_bindings: {pressed_enter: validate_button_click}
-      - type: Label
-        properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
-        name: label_15
-        layout_properties: {grid_position: 'LOERGH,LCXCCH', x: 350.10418701171875, y: 161.15744833984377, width: 969.977}
       - name: label_12_copy
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Phone Number:'}
         type: Label
@@ -284,10 +280,6 @@ components:
         data_bindings:
         - {code: 'self.item[''aadhar'']', writeback: true, property: text}
         event_bindings: {pressed_enter: text_box_8_pressed_enter}
-      - type: Label
-        properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
-        name: label_16
-        layout_properties: {grid_position: 'KHICVZ,AOACMB', x: 350.10418701171875, y: 227.07180075683596, width: 969.977}
       - name: label_6_copy
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Aadhar details:'}
         type: Label
@@ -314,10 +306,6 @@ components:
         layout_properties: {grid_position: 'LFFSGV,ESREXU', x: 350.10418701171875, y: 460.45145725097655, width: 641.32}
         data_bindings:
         - {code: 'self.item[''address'']', writeback: true, property: text}
-      - properties: {role: null, bold: true, align: left, spacing_above: small, background: 'theme:White', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
-        type: Label
-        layout_properties: {grid_position: 'XJRNZL,PMEOCC', x: 350.15045166015625, y: 429.27083127441404, width: 969.977}
-        name: label_17
       - name: text_box_4
         properties: {role: null, bold: false, align: left, placeholder: Pan, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
         type: TextBox
@@ -349,6 +337,18 @@ components:
         type: Button
         layout_properties: {grid_position: 'BUOVLT,MYUGAX', x: 88.52316284179688, y: 538.3333732666016, width: 578.16}
         event_bindings: {click: button_1_click}
+      - type: Label
+        properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
+        name: label_15
+        layout_properties: {grid_position: 'LOERGH,LCXCCH', x: 350.10418701171875, y: 157.68513791503904, width: 969.977}
+      - properties: {role: null, bold: false, align: left, spacing_above: small, background: 'theme:White', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
+        type: Label
+        layout_properties: {grid_position: 'XJRNZL,PMEOCC', x: 350.138916015625, y: 423.25929260253906, width: 969.977}
+        name: label_17
+      - type: Label
+        properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
+        name: label_16
+        layout_properties: {grid_position: 'KHICVZ,AOACMB', x: 350.138916015625, y: 219.7916717529297, width: 969.977}
     - name: card_1
       properties: {role: card, col_widths: '{}'}
       type: ColumnPanel
