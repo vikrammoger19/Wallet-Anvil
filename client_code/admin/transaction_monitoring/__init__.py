@@ -728,8 +728,20 @@ class transaction_monitoring(transaction_monitoringTemplate):
       pass
 
     def link_16_click(self, **event_args):
+      open_form("admin.transaction_monitoring",user = self.user)
+
+    def link6_copy_click(self, **event_args):
       """This method is called when the link is clicked"""
       pass
+
+    def link6_copy_2_click(self, **event_args):
+      open_form("admin.create_admin",user = self.user)
+
+    def link6_copy_3_click(self, **event_args):
+      open_form("admin.user_support",user = self.user)
+
+    def link6_copy_4_click(self, **event_args):
+     open_form("admin.add_bank_account",user = self.user)
     
 
     
