@@ -153,7 +153,7 @@ class admin(adminTemplate):
         open_form('admin.admin_add_user',user=self.user)
 
     def link_9_click(self, **event_args):
-        open_form('admin.create_admin',user=self.user)
+      open_form('Home', user=self.user)
 
     def link_10_click(self, **event_args):
         open_form('admin.add_currency',user=self.user)

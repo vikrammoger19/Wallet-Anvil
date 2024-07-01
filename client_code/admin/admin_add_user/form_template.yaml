@@ -233,7 +233,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCCHCB,FJRJTH'}
     - name: spacer_1
-      properties: {height: 51}
+      properties: {height: 57}
       type: Spacer
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ OURSBK,ETQHYP'}
     - name: card_1
@@ -261,6 +261,10 @@ components:
         layout_properties: {grid_position: 'QOFXNP,WYYXTB IJVBID,UIEDFP'}
         data_bindings:
         - {code: 'self.item[''email'']', writeback: true, property: text}
+      - type: Label
+        properties: {}
+        name: label_15
+        layout_properties: {grid_position: 'LOERGH,EJAKHF'}
       - name: label_12_copy
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Phone Number:'}
         type: Label
@@ -272,6 +276,10 @@ components:
         data_bindings:
         - {code: 'self.item[''phone'']', writeback: true, property: text}
         event_bindings: {pressed_enter: validate_button_click}
+      - type: Label
+        properties: {}
+        name: label_16
+        layout_properties: {grid_position: 'KHICVZ,AOACMB'}
       - name: label_6_copy
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Aadhar details:'}
         type: Label
@@ -282,6 +290,10 @@ components:
         layout_properties: {grid_position: 'IYIXYF,POIUUA'}
         data_bindings:
         - {code: 'self.item[''aadhar'']', writeback: true, property: text}
+      - type: Label
+        properties: {}
+        name: label_14
+        layout_properties: {grid_position: 'YAVEUB,REGCOQ'}
       - name: label_10_copy
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Pan No:'}
         type: Label
@@ -293,6 +305,10 @@ components:
         data_bindings:
         - {code: 'self.item[''pan'']', writeback: true, property: text}
         event_bindings: {change: text_box_4_change}
+      - type: Label
+        properties: {}
+        name: label_17
+        layout_properties: {grid_position: 'MVHAAF,PYQLXP'}
       - name: label_9_copy
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Create Password:'}
         type: Label
