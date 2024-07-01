@@ -498,9 +498,13 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_4
+    - name: spacer_29
+      properties: {height: 0.5}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY MWDDBV,YZUQPP'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY PLXYZI,VFKTCR'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_10
@@ -537,9 +541,13 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_5
+    - name: spacer_30
+      properties: {height: 0.5}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY LOZIRV,NHSLXH'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY XAIXNC,EUSYMT'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_12
@@ -576,9 +584,13 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_6
+    - name: spacer_31
+      properties: {height: 1.25}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY ZSUUFJ,JDFXKK'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY VIZCVD,VOHCDM'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_14
@@ -615,9 +627,13 @@ components:
       type: Label
       layout_properties: {grid_position: 'GIQXVY,GXWTEF CZCMYL,VFTTOE'}
       name: label_1111_copy_7
+    - name: spacer_42
+      properties: {height: 0.5}
+      type: Spacer
+      layout_properties: {grid_position: 'GIQXVY,ECBIWK ELXOTY,ICUWIJ'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'GIQXVY,ECBIWK'}
+      layout_properties: {grid_position: 'GIQXVY,ECBIWK USTNHI,UIUHCA'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_16
@@ -662,9 +678,13 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_8
+    - name: spacer_32
+      properties: {height: 1.75}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY AXOYNI,SAJCGV'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY PPORNV,HSRYGZ'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_18
@@ -701,9 +721,13 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_9
+    - name: spacer_33
+      properties: {height: 0.25}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY OVOQJK,JNPION'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY ROJGGQ,IHYIHT'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_20
@@ -740,9 +764,13 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_10
+    - name: spacer_34
+      properties: {height: 1.25}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY ROYPWG,QGQGJD'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY KPMSFV,SRZYEG'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_22
@@ -779,9 +807,13 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_11
+    - name: spacer_35
+      properties: {height: 0.25}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY MBKMJP,DZIINI'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY PBPJBY,TXWPBZ'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_24
@@ -826,9 +858,13 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_12
+    - name: spacer_40
+      properties: {height: 1.5}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY CYITSW,DJNCRV'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY VZDMAA,KAPQME'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_26
@@ -865,9 +901,13 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_13
+    - name: spacer_39
+      properties: {height: 0.5}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY AZHLON,HVRVIQ'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY MSRJAF,VXDPIF'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_28
@@ -904,9 +944,17 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_14
+    - name: spacer_37
+      properties: {height: -1}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY IYMEZF,WOPMTG'}
+    - name: spacer_41
+      properties: {height: -0.5}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY SIPPXB,NNRPCC'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY FRVQWC,UEWMWJ'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_30
@@ -943,9 +991,17 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_15
+    - name: spacer_38
+      properties: {height: -6.75}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY WEXUNY,WDDDRC'}
+    - name: spacer_36
+      properties: {height: -0.25}
+      type: Spacer
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY RRUOXU,KVCJPA'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
       type: Label
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+      layout_properties: {grid_position: 'MXJVRD,VZEOPY JMJRVK,EDLOOF'}
       data_bindings:
       - {code: 'self.item[''balance'']', writeback: false, property: text}
       name: label_32
