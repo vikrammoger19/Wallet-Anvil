@@ -98,16 +98,16 @@ class withdraw(withdrawTemplate):
     current_datetime = datetime.now()
     acc = self.drop_down_1.selected_value
     cur = self.drop_down_2.selected_value
-    money = float(self.text_box_2.text)
-    endpoint = 'convert'
-    api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
+    money_value = float(self.text_box_2.text)
+    # endpoint = 'convert'
+    # api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
 
     if acc is None or cur is None:
         alert('Please enter bank details')
     else:
-        base_currency = 'INR'
-        resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
-        money_value = resp['response']['value']
+        # base_currency = 'INR'
+        # resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
+        # money_value = resp['response']['value']
         
         if self.user:
             # Retrieve user data
@@ -132,7 +132,7 @@ class withdraw(withdrawTemplate):
             # Check if a balance row already exists for the user
             existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'], users_balance_currency_type=cur)
 
-            if existing_balance:
+            if existing_balance['users_balance'] >= money_value:
                 # Update the existing balance
                 existing_balance['users_balance'] -= money_value
             else:
@@ -144,23 +144,27 @@ class withdraw(withdrawTemplate):
                 )
 
             # Add a new transaction row
-            app_tables.wallet_users_transaction.add_row(
-                users_transaction_phone=self.user['users_phone'],
-                users_transaction_fund=money_value,
-                users_transaction_currency=cur,
-                users_transaction_date=current_datetime,
-                users_transaction_bank_name=acc,
-                users_transaction_type="Withdrawn",
-                users_transaction_status="Wallet-Withdraw",
-                users_transaction_receiver_phone=self.user['users_phone']
-            )
-
+                app_tables.wallet_users_transaction.add_row(
+                  users_transaction_phone=self.user['users_phone'],
+                  users_transaction_fund=money_value,
+                  users_transaction_currency=cur,
+                  users_transaction_date=current_datetime,
+                  users_transaction_bank_name=acc,
+                  users_transaction_type="Withdrawn",
+                  users_transaction_status="Wallet-Withdraw",
+                  users_transaction_receiver_phone=self.user['users_phone']
+                )
+                alert("Money withdrawn successfully from the account")
+          
+            # else:
+            #   alert("withdraw amount is more than sufficient balance")
+          
             # Update the limits
             user_data['users_daily_limit'] -= money_value
             user_data['users_user_limit'] -= money_value
 
             #self.label_200.text = "Money withdrawn successfully from the account"
-            alert("Money withdrawn successfully from the account")
+            #alert("Money withdrawn successfully from the account")
             self.populate_balances()
         else:
             #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."
