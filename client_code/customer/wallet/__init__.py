@@ -214,12 +214,6 @@ class wallet(walletTemplate):
       """This method is called when the link is clicked"""
       open_form('customer.auto_topup',user=self.user)
 
-    def link_8_copy_2_click(self, **event_args):
-      open_form("customer.settings",user = self.user)
-
-    def help_link_click(self, **event_args):
-        open_form("help",user = self.user)
-
 
 
 
