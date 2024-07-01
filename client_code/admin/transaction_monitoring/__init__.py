@@ -726,6 +726,10 @@ class transaction_monitoring(transaction_monitoringTemplate):
     def button_1_click(self, **event_args):
       """This method is called when the button is clicked"""
       pass
+
+    def link_16_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      pass
     
 
     
