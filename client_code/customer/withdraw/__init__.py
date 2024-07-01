@@ -99,15 +99,10 @@ class withdraw(withdrawTemplate):
     acc = self.drop_down_1.selected_value
     cur = self.drop_down_2.selected_value
     money_value = float(self.text_box_2.text)
-    # endpoint = 'convert'
-    # api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
 
     if acc is None or cur is None:
         alert('Please enter bank details')
     else:
-        # base_currency = 'INR'
-        # resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
-        # money_value = resp['response']['value']
         
         if self.user:
             # Retrieve user data
@@ -135,8 +130,8 @@ class withdraw(withdrawTemplate):
             if existing_balance['users_balance'] >= money_value:
                 # Update the existing balance
                 existing_balance['users_balance'] -= money_value
-            else:
-                # Add a new row for the user if no existing balance
+            
+                # # Add a new row for the user if no existing balance
                 app_tables.wallet_users_balance.add_row(
                     users_balance_currency_type=cur,
                     users_balance=money_value,
@@ -156,15 +151,13 @@ class withdraw(withdrawTemplate):
                 )
                 alert("Money withdrawn successfully from the account")
           
-            # else:
-            #   alert("withdraw amount is more than sufficient balance")
+            else:
+              alert("withdraw amount is more than sufficient balance")
           
             # Update the limits
             user_data['users_daily_limit'] -= money_value
             user_data['users_user_limit'] -= money_value
 
-            #self.label_200.text = "Money withdrawn successfully from the account"
-            #alert("Money withdrawn successfully from the account")
             self.populate_balances()
         else:
             #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."
