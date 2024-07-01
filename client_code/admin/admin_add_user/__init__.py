@@ -14,7 +14,7 @@ class admin_add_user(admin_add_userTemplate):
     def __init__(self, user=None, **properties):
         self.user = user
         self.init_components(**properties)
-        self.label_17.visible = False
+        
       
     def text_box_4_change(self, **event_args):
         # Convert the text in text_box_8 to uppercase as user types
