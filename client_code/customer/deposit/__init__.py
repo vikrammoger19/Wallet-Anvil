@@ -94,7 +94,8 @@ class deposit(depositTemplate):
         cur=self.drop_down_2.selected_value
         money=float(self.text_box_2.text)
         endpoint = 'convert'
-        api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
+        #api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
+        api_key = 'lPBproNAjF3AjvE2nM1obshWlRMzvdQo'
         # Set base currency and any other parameters (replace 'USD' with your desired base currency
       
         
