@@ -78,31 +78,31 @@ class add_bank_account(add_bank_accountTemplate):
     open_form('admin', user=self.user)
 
   def link_8_click(self, **event_args):
-    open_form('admin')
+    open_form('admin',user = self.user)
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.report_analysis')
+    open_form('admin.report_analysis',user = self.user)
 
   def link_2_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.account_management')
+    open_form('admin.account_management',user = self.user)
 
   def link_3_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.transaction_monitoring')
+    open_form('admin.transaction_monitoring',user = self.user)
 
   def link_5_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.audit_trail')
+    open_form('admin.audit_trail',user = self.user)
 
   def link_10_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.add_currency')
+    open_form('admin.add_currency',user = self.user)
 
   def link_6_click(self, **event_args):
     """This method is called when the link is clicked"""
-    open_form('admin.user_support')
+    open_form('admin.user_support',user = self.user)
 
   def link_6_copy_2_click(self, **event_args):
     open_form("admin.admin_add_user",user = self.user)
@@ -112,4 +112,8 @@ class add_bank_account(add_bank_accountTemplate):
 
   def link_6_copy_4_click(self, **event_args):
     open_form("admin.add_bank_account",user = self.user)
+
+  def text_box_1_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
     

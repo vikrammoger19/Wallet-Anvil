@@ -14,6 +14,7 @@ class admin_add_user(admin_add_userTemplate):
     def __init__(self, user=None, **properties):
         self.user = user
         self.init_components(**properties)
+        
       
     def text_box_4_change(self, **event_args):
         # Convert the text in text_box_8 to uppercase as user types
@@ -22,36 +23,54 @@ class admin_add_user(admin_add_userTemplate):
         count = 0
         if self.text_box_3.text != '':
             if self.text_box_3.text != self.text_box_7.text:
+
+                # self.pass_card.visible = Tr90ue
+                self.label_17.visible = True
+                self.label_17.foreground = "#990000"
                 self.label_17.text = "Passwords don't match"
                 self.text_box_3.text = ''
                 self.text_box_3.focus()
                 self.text_box_7.text = ''
                 self.text_box_7.focus()
             else:
+                self.label_17.visible = True
+                self.label_17.foreground = "green"
                 self.label_17.text = "Password matches"
                 count += 1
 
             if self.is_pan_card_detail(self.text_box_4.text):
+                self.label_14.visible = True
+                self.label_14.foreground = "green"
                 self.label_14.text = "Pan card is valid"
                 count += 1
             else:
+                self.label_14.visible = True
+                self.label_14.foreground = "#990000"
                 self.label_14.text = "Please check the entered pan card details"
                 self.text_box_4.text = ''
                 self.text_box_4.focus()
 
             if self.validate_phone_number(self.text_box_6.text):
+                self.label_15.visible = True
+                self.label_15.foreground = "green"
                 self.label_15.text = "Phone number is correct"
                 count += 1
             else:
+                self.label_15.visible = True
+                self.label_15.foreground = "#990000"
                 self.label_15.text = "Please check the entered phone number"
                 self.text_box_6.text = ''
                 self.text_box_6.focus()
 
             aadhar = str(self.text_box_8.text)
             if len(aadhar) == 12 and aadhar.isdigit():
+                self.label_16.visible = True
+                self.label_16.foreground = "green"
                 self.label_16.text = "Aadhar details correct"
                 count += 1
             else:
+                self.label_16.visible = True
+                self.label_16.foreground = "#990000"
                 self.label_16.text = "Please check the entered Aadhar details"
                 self.text_box_8.text = ''
                 self.text_box_8.focus()
@@ -137,3 +156,15 @@ class admin_add_user(admin_add_userTemplate):
 
     def link_6_copy_4_click(self, **event_args):
       open_form("admin.add_bank_account",user = self.user)
+
+    def text_box_2_show(self, **event_args):
+      """This method is called when the TextBox is shown on the screen"""
+      pass
+
+    def validate_button_click(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def text_box_8_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
