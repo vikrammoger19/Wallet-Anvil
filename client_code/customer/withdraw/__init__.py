@@ -45,7 +45,7 @@ class withdraw(withdrawTemplate):
   
           # Iterate over user balances and update card components
           for balance in user_balances:
-              generic_currency_icon = "fa:money-bill-alt"
+             
               currency_type = balance['users_balance_currency_type']
               balance_amount = round(balance['users_balance'], 2)  # Round to 2 decimal places
   
@@ -53,10 +53,7 @@ class withdraw(withdrawTemplate):
               currency_record = app_tables.wallet_admins_add_currency.get(admins_add_currency_code=currency_type)
               currency_icon = currency_record['admins_add_currency_icon'] if currency_record else None
               country = currency_record['admins_add_currency_country'] if currency_record else None
-              if currency_type == 'AUD':
-                currency_icon = "fa:usd"  # You can change this to a custom icon if needed
-              elif not currency_icon:
-                  currency_icon = generic_currency_icon      
+                   
               # Get card and components for the current index
               card = getattr(self, f'card_{card_index}', None)
               label_curr_type = getattr(self, f'label_{label_index}', None)
