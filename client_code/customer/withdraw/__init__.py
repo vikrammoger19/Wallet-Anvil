@@ -45,6 +45,7 @@ class withdraw(withdrawTemplate):
   
           # Iterate over user balances and update card components
           for balance in user_balances:
+             
               currency_type = balance['users_balance_currency_type']
               balance_amount = round(balance['users_balance'], 2)  # Round to 2 decimal places
   
@@ -52,7 +53,7 @@ class withdraw(withdrawTemplate):
               currency_record = app_tables.wallet_admins_add_currency.get(admins_add_currency_code=currency_type)
               currency_icon = currency_record['admins_add_currency_icon'] if currency_record else None
               country = currency_record['admins_add_currency_country'] if currency_record else None
-  
+                   
               # Get card and components for the current index
               card = getattr(self, f'card_{card_index}', None)
               label_curr_type = getattr(self, f'label_{label_index}', None)
@@ -103,7 +104,6 @@ class withdraw(withdrawTemplate):
     if acc is None or cur is None:
         alert('Please enter bank details')
     else:
-        
         if self.user:
             # Retrieve user data
             user_data = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
@@ -127,42 +127,33 @@ class withdraw(withdrawTemplate):
             # Check if a balance row already exists for the user
             existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'], users_balance_currency_type=cur)
 
-            if existing_balance['users_balance'] >= money_value:
+            if existing_balance and existing_balance['users_balance'] >= money_value:
                 # Update the existing balance
                 existing_balance['users_balance'] -= money_value
-            
-                # # Add a new row for the user if no existing balance
-                app_tables.wallet_users_balance.add_row(
-                    users_balance_currency_type=cur,
-                    users_balance=money_value,
-                    users_balance_phone=self.user['users_phone']
-                )
 
-            # Add a new transaction row
+                # Add a new transaction row
                 app_tables.wallet_users_transaction.add_row(
-                  users_transaction_phone=self.user['users_phone'],
-                  users_transaction_fund=money_value,
-                  users_transaction_currency=cur,
-                  users_transaction_date=current_datetime,
-                  users_transaction_bank_name=acc,
-                  users_transaction_type="Withdrawn",
-                  users_transaction_status="Wallet-Withdraw",
-                  users_transaction_receiver_phone=self.user['users_phone']
+                    users_transaction_phone=self.user['users_phone'],
+                    users_transaction_fund=money_value,
+                    users_transaction_currency=cur,
+                    users_transaction_date=current_datetime,
+                    users_transaction_bank_name=acc,
+                    users_transaction_type="Withdrawn",
+                    users_transaction_status="Wallet-Withdraw",
+                    users_transaction_receiver_phone=self.user['users_phone']
                 )
                 alert("Money withdrawn successfully from the account")
-          
             else:
-              alert("withdraw amount is more than sufficient balance")
-          
+                alert("Withdraw amount is more than the available balance")
+
             # Update the limits
             user_data['users_daily_limit'] -= money_value
             user_data['users_user_limit'] -= money_value
 
             self.populate_balances()
         else:
-            #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."
             alert("Error: No matching accounts found for the user or invalid account number.")
-  
+
   def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form("customer.walletbalance",user=self.user)
