@@ -60,10 +60,12 @@ components:
           event_bindings: {pressed_enter: text_box_9_pressed_enter}
           name: text_box_9
         - properties:
-            items: [Choose Country, Australia, Denmark, "France\t", "India\t", "Kuwait\t", "Malaysia\t", "Nepal\t", "New Zealand\t", Philippines, Qatar, Singapore, Sri Lanka, United Arab Emirates, "United Kingdom\t", United States, '']
+            items: [Australia, Denmark, "France\t", "India\t", "Kuwait\t", "Malaysia\t", "Nepal\t", "New Zealand\t", Philippines, Qatar, Singapore, Sri Lanka, United Arab Emirates, "United Kingdom\t", United States, '']
             font_size: 14
             visible: true
             background: theme:White
+            placeholder: Choose Country
+            include_placeholder: true
           type: DropDown
           layout_properties: {grid_position: 'NTNVOX,EVGLIN'}
           name: drop_down_1
