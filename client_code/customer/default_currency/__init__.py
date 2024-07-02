@@ -291,4 +291,12 @@ class default_currency(default_currencyTemplate):
       """This method is called when the link is clicked"""
       open_form("customer", user=self.user)
       pass
+
+    def link_8_copy_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form("customer.wallet", user=self.user)
+
+    def link_8_copy_2_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form("help", user=self.user)
     
