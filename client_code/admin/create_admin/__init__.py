@@ -35,17 +35,22 @@ class create_admin(create_adminTemplate):
               self.label_13.text ="Phone number is correct"
           else:
               self.label_13.visible=True
+              self.label_13.foreground = "#990000"
               self.label_13.text ="Please check the entered phone number"
               self.text_box_4.text=''
               self.text_box_4.focus()
           if self.text_box_5.text != '':
             if self.text_box_5.text != self.text_box_6.text:
+              self.label_9.visible = True
+              self.label_9.foreground = "#990000"
               self.label_9.text = "Passwords doesn't match"
               self.text_box_5.text =''
               self.text_box_5.focus()
               self.text_box_6.text =''
               self.text_box_6.focus()
             elif self.text_box_5.text == self.text_box_6.text:
+              self.label_9.visible = True
+              self.label_9.foreground = "green"
               self.label_9.text = "Password matches"  
         
               if count==1:
@@ -132,4 +137,8 @@ class create_admin(create_adminTemplate):
 
   def text_box_3_copy_pressed_enter(self, **event_args):
     """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def date_picker_1_change(self, **event_args):
+    """This method is called when the selected date changes"""
     pass

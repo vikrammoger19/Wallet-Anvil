@@ -1,7 +1,7 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"YPPEOX":10,"HPJJER":21,"KZENVR":4,"VYKYNM":10,"OZFPPV":15}'}
+  properties: {col_widths: '{"YPPEOX":2,"HPJJER":23,"KZENVR":5,"VYKYNM":10,"OZFPPV":20}'}
 components:
 - name: spacer_1
   properties: {height: 32}

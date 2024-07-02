@@ -247,49 +247,49 @@ components:
   - name: button_2
     properties: {text: Add Currency, icon: 'fa:plus-square', background: '#1d86da', foreground: 'theme:White', bold: true, italic: true}
     type: Button
-    layout_properties: {grid_position: 'BKVPBL,AXWACX BYMTRG,UEROMP'}
+    layout_properties: {grid_position: 'BKVPBL,AXWACX NVFWEA,UHKIFQ'}
     event_bindings: {click: button_2_click}
+  - name: spacer_8
+    properties: {height: 42}
+    type: Spacer
+    layout_properties: {width: 74.09088813476563, grid_position: 'BKVPBL,AXWACX HFFNQD,RLFPFQ'}
   - name: flow_panel_1
     properties: {}
     type: FlowPanel
     layout_properties: {grid_position: 'BKVPBL,AXWACX WHDZZS,MOHVAR'}
     components:
-    - name: spacer_8
-      properties: {height: 38}
-      type: Spacer
-      layout_properties: {width: 74.09088813476563}
     - name: text_box_1
-      properties: {placeholder: country}
+      properties: {role: null, bold: false, align: center, placeholder: country, spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
       type: TextBox
-      layout_properties: {width: 168.2843525390625}
+      layout_properties: {width: 290.2843525390625}
       data_bindings:
       - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
       event_bindings: {pressed_enter: text_box_1_pressed_enter}
     - name: spacer_7
       properties: {height: 37.600006103515625}
       type: Spacer
-      layout_properties: {width: 39.215905078125}
+      layout_properties: {width: 9.21590507812499}
     - name: text_box_2
-      properties: {placeholder: currency code}
+      properties: {role: null, bold: false, align: center, placeholder: currency code, spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
       type: TextBox
-      layout_properties: {width: 253.38605761718748}
+      layout_properties: {width: 193.38605761718748}
       data_bindings:
       - {property: text, code: 'self.item[''admins_add_currency_code'']', writeback: false}
     - name: spacer_9
       properties: {height: 37.199981689453125}
       type: Spacer
-      layout_properties: {width: 40.281254980468745}
+      layout_properties: {width: 84.28125498046874}
     - name: file_loader_1
       properties: {text: Upload icon}
       type: FileLoader
-      layout_properties: {width: 145.387951171875}
+      layout_properties: {width: 178.387951171875}
     - name: button_3
       properties: {text: Add, align: right, background: '#1d86da', foreground: 'theme:White', bold: true, italic: true}
       type: Button
       layout_properties: {}
       event_bindings: {click: button_3_click}
   - name: spacer_2
-    properties: {height: 32}
+    properties: {height: 44}
     type: Spacer
     layout_properties: {grid_position: 'BKVPBL,AXWACX TVDWAS,RDEESR'}
   - type: XYPanel
@@ -297,10 +297,6 @@ components:
     name: xy_panel_1
     layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,OIEJID'}
     components:
-    - name: label_3
-      properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: true, font_size: 18, tooltip: '', text: 'Currency_code:'}
-      type: Label
-      layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,GJXXMQ', x: 303.576416015625, y: 10, width: 246.389}
     - name: label_1
       properties: {text: Country_icon, italic: true, bold: true, font_size: 18}
       type: Label
@@ -308,7 +304,11 @@ components:
     - name: label_2
       properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: true, font_size: 18, tooltip: '', text: 'Country:'}
       type: Label
-      layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,CCRSQG', x: 75.99771118164062, y: 9.988433837890625, width: 180.602}
+      layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,CCRSQG', x: 53.995391845703125, y: 9.988433837890625, width: 180.602}
+    - name: label_3
+      properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: true, font_size: 18, tooltip: '', text: 'Currency_code:'}
+      type: Label
+      layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,GJXXMQ', x: 315.5694580078125, y: 9.47918701171875, width: 246.389}
   - name: repeating_panel_1
     properties: {item_template: admin.add_currency.ItemTemplate8}
     type: RepeatingPanel

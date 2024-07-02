@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: card_1
-    properties: {role: card, col_widths: '{"JNNYLP":10,"AXWACX":36,"GVCBXO":55,"JUSJXK":5,"ZMUYBE":11,"GKOTCL":20,"MVICQD":4,"FERZBM":25}'}
+    properties: {role: card, col_widths: '{"JNNYLP":10,"AXWACX":36,"GVCBXO":55,"JUSJXK":5,"ZMUYBE":11,"GKOTCL":14,"MVICQD":5,"FERZBM":30}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'DMXPJQ,PFCGDT', full_width_row: true}
     components:
@@ -254,6 +254,10 @@ components:
       type: Button
       layout_properties: {grid_position: 'BKVPBL,AXWACX BYMTRG,UEROMP'}
       event_bindings: {click: button_2_click}
+    - name: spacer_7
+      properties: {height: 57.600006103515625}
+      type: Spacer
+      layout_properties: {width: 55.45457626953125, grid_position: 'BKVPBL,AXWACX UHZQGM,SXZMYR'}
     - name: flow_panel_1
       properties: {}
       type: FlowPanel
@@ -263,10 +267,6 @@ components:
         properties: {height: 38}
         type: Spacer
         layout_properties: {width: 61.42041015625}
-      - name: spacer_7
-        properties: {height: 37.600006103515625}
-        type: Spacer
-        layout_properties: {width: 55.45457626953125}
       - type: XYPanel
         properties: {height: 53}
         name: xy_panel_1
@@ -277,17 +277,17 @@ components:
           type: Button
           layout_properties: {x: 689.9884643554688, y: 10, width: 98.29169999999999}
           event_bindings: {click: button_3_click}
-        - name: file_loader_1
-          properties: {text: Upload icon}
-          type: FileLoader
-          layout_properties: {width: 145.382, x: 432.59954833984375, y: 0}
         - name: text_box_1
           properties: {placeholder: Bank Name, italic: true}
           type: TextBox
-          layout_properties: {width: 282.512, x: 97.97454833984375, y: 9.259333837890608}
+          layout_properties: {width: 268.512, x: 116.97454833984375, y: 9.25927734375}
           data_bindings:
           - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
           event_bindings: {pressed_enter: text_box_1_pressed_enter}
+        - name: file_loader_1
+          properties: {text: Upload icon}
+          type: FileLoader
+          layout_properties: {width: 173.38, x: 409.4796208496093, y: 12.175933837890625}
     - name: spacer_2
       properties: {height: 32}
       type: Spacer

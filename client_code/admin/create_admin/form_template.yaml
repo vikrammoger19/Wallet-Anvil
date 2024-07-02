@@ -296,9 +296,10 @@ components:
         type: Label
         layout_properties: {row: BWPBIK, width_xs: 4, col_xs: 2, x: 9.988433837890625, y: 296.63198142089846, width: 324.329}
       - name: date_picker_1
-        properties: {}
+        properties: {role: null, bold: false, format: '', align: center, date: '', placeholder: '', pick_time: false, spacing_above: small, background: '', underline: false, font: '', max_date: '', foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', min_date: ''}
         type: DatePicker
-        layout_properties: {row: BWPBIK, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 296.6435427490235, width: 22.916999999999973}
+        layout_properties: {row: BWPBIK, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 296.64353942871094, width: 23.916999999999973}
+        event_bindings: {change: date_picker_1_change}
       - name: label_4
         properties: {text: 'Gender:', bold: true}
         type: Label
@@ -320,24 +321,24 @@ components:
         data_bindings:
         - {code: 'self.item[''password'']', writeback: true, property: text}
         event_bindings: {pressed_enter: text_box_3_copy_pressed_enter}
-      - name: label_11
-        properties: {text: 'Re-Enter Password:', bold: true}
-        type: Label
-        layout_properties: {row: XVCDED, width_xs: 4, col_xs: 2, x: 10, y: 525.6366119384766, width: 212.33999999999997}
       - name: text_box_6
         properties: {bold: false, align: left, placeholder: Re-Enter Password, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: true, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, tooltip: '', text: ''}
         type: TextBox
         layout_properties: {row: XVCDED, width_xs: 5, col_xs: 6, x: 402.9051208496094, y: 519.6065216064453, width: 412.917}
         event_bindings: {pressed_enter: text_box_6_pressed_enter}
       - name: label_9
-        properties: {}
+        properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: null, tooltip: '', text: ''}
         type: Label
-        layout_properties: {row: ZXNPCG, width_xs: 6, col_xs: 6, x: 402.9051208496094, y: 559.6296539306641, width: 412.9279999999999}
+        layout_properties: {row: ZXNPCG, width_xs: 6, col_xs: 6, x: 402.9051208496094, y: 559.6296539306641, width: 412.917}
       - name: button_1
         properties: {role: null, bold: true, align: center, spacing_above: small, background: '#1b7bc9', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 16, tooltip: '', text: save}
         type: Button
         layout_properties: {row: IAVNQX, width_xs: 10, col_xs: 1, x: 209.31710815429688, y: 643.6157379150391, width: 371.806}
         event_bindings: {click: button_1_click}
+      - name: label_11
+        properties: {text: 'Re-Enter Password:', bold: true}
+        type: Label
+        layout_properties: {row: XVCDED, width_xs: 4, col_xs: 2, x: 10, y: 526.3241119384766, width: 212.338}
   - name: spacer_1
     properties: {height: 10.39996337890625}
     type: Spacer
