@@ -24,7 +24,7 @@ class admin_add_user(admin_add_userTemplate):
         if self.text_box_3.text != '':
             if self.text_box_3.text != self.text_box_7.text:
 
-                # self.pass_card.visible = True
+                # self.pass_card.visible = Tr90ue
                 self.label_17.visible = True
                 self.label_17.foreground = "#990000"
                 self.label_17.text = "Passwords don't match"

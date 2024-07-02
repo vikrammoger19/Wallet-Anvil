@@ -325,7 +325,7 @@ components:
       - name: text_box_3
         properties: {role: null, bold: false, align: left, placeholder: Password, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: true, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
         type: TextBox
-        layout_properties: {grid_position: 'TPWBFD,NPQJWI', x: 353.1828918457031, y: 315.0231475830078, width: 375.2542290039062}
+        layout_properties: {grid_position: 'TPWBFD,NPQJWI', x: 353.1828918457031, y: 315.0231475830078, width: 384.2478193359375}
         data_bindings:
         - {code: 'self.item[''password'']', writeback: true, property: text}
       - name: text_box_4
@@ -338,7 +338,7 @@ components:
       - name: text_box_7
         properties: {role: null, bold: false, align: left, placeholder: Retype Password, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: true, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
         type: TextBox
-        layout_properties: {grid_position: 'UHEFXI,ZFZAQH', x: 350.138916015625, y: 383.2523829345703, width: 378.31}
+        layout_properties: {grid_position: 'UHEFXI,ZFZAQH', x: 350.138916015625, y: 383.2523829345703, width: 384.2469453124998}
       - properties: {role: null, bold: false, align: left, spacing_above: small, background: 'theme:White', icon: 'fa:exclamation-circle', underline: false, font: '', icon_align: left, foreground: '#990000', spacing_below: small, visible: false, border: '', italic: false, font_size: 14, tooltip: '', text: ''}
         type: Label
         layout_properties: {grid_position: 'XJRNZL,PMEOCC', x: 350.10418701171875, y: 417.2292022705078, width: 969.977}
@@ -346,7 +346,7 @@ components:
       - name: text_box_5
         properties: {role: null, bold: false, align: left, placeholder: Address, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
         type: TextBox
-        layout_properties: {grid_position: 'LFFSGV,ESREXU', x: 350.10418701171875, y: 448.40284426269534, width: 387.315}
+        layout_properties: {grid_position: 'LFFSGV,ESREXU', x: 350.10418701171875, y: 448.40284426269534, width: 387.3196743164062}
         data_bindings:
         - {code: 'self.item[''address'']', writeback: true, property: text}
     - name: card_1

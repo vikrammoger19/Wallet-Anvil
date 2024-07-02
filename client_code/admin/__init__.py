@@ -153,7 +153,7 @@ class admin(adminTemplate):
         open_form('admin.admin_add_user',user=self.user)
 
     def link_9_click(self, **event_args):
-      open_form('Home', user=self.user)
+      open_form('admin.create_admin', user=self.user)
 
     def link_10_click(self, **event_args):
         open_form('admin.add_currency',user=self.user)
@@ -161,5 +161,8 @@ class admin(adminTemplate):
     def plot_1_click(self, points, **event_args):
       """This method is called when a data point is clicked."""
       pass
+
+    def link_9_logout(self, **event_args):
+      open_form("Home")
 
     

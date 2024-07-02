@@ -1,38 +1,32 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"CPIXHW":5,"OXHOGY":18,"OUJISL":10,"EMRTBP":10,"MAAGXS":13,"FHGBHO":4,"IRYUGH":2}'}
+  properties: {col_widths: '{"OXHOGY":25,"OUJISL":10,"EMRTBP":17,"MAAGXS":15,"CQHDBL":5}'}
 components:
 - name: spacer_3
-  properties: {height: 32}
+  properties: {height: 16}
   type: Spacer
   layout_properties: {grid_position: 'GGBXBF,YMRKHW'}
-- name: spacer_1
-  properties: {height: 39.39996337890625}
-  type: Spacer
-  layout_properties: {grid_position: 'LYTDQS,CPIXHW'}
 - name: text_box_1
-  properties: {}
+  properties: {role: null, bold: false, align: center, placeholder: '', spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
   type: TextBox
   layout_properties: {grid_position: 'LYTDQS,MAAGXS'}
   event_bindings: {pressed_enter: text_box_1_pressed_enter}
   data_bindings:
   - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
-- name: spacer_2
-  properties: {height: 32}
-  type: Spacer
-  layout_properties: {grid_position: 'LYTDQS,FHGBHO'}
 - name: text_box_2
-  properties: {}
+  properties: {role: null, bold: false, align: center, placeholder: '', spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
   type: TextBox
   layout_properties: {grid_position: 'LYTDQS,OXHOGY'}
   data_bindings:
   - {property: text, code: 'self.item[''admins_add_currency_code'']', writeback: false}
   event_bindings: {pressed_enter: text_box_2_pressed_enter}
-- name: spacer_5
-  properties: {height: 32}
+- name: spacer_9
+  properties: {height: 37.199981689453125}
   type: Spacer
-  layout_properties: {grid_position: 'LYTDQS,IRYUGH'}
+  layout_properties:
+    col_widths: {}
+    grid_position: LYTDQS,CQHDBL
 - name: image_1
   properties: {height: 44.222198486328125}
   type: Image

@@ -231,8 +231,8 @@ components:
       - properties: {text: '', align: center, bold: true, icon: ''}
         type: Link
         layout_properties: {grid_position: 'EOQMMT,GLFTQZ'}
-        event_bindings: {click: link_9_click}
-        name: link_9_copy
+        event_bindings: {click: link_9_logout}
+        name: link_9_logout
         components:
         - properties: {height: 25.79998779296875}
           type: XYPanel

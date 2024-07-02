@@ -247,10 +247,10 @@ components:
   - name: button_2
     properties: {text: Add Currency, icon: 'fa:plus-square', background: '#1d86da', foreground: 'theme:White', bold: true, italic: true}
     type: Button
-    layout_properties: {grid_position: 'BKVPBL,AXWACX NVFWEA,UHKIFQ'}
+    layout_properties: {grid_position: 'BKVPBL,AXWACX BVQDGG,KNTAQG'}
     event_bindings: {click: button_2_click}
   - name: spacer_8
-    properties: {height: 42}
+    properties: {height: 58}
     type: Spacer
     layout_properties: {width: 74.09088813476563, grid_position: 'BKVPBL,AXWACX HFFNQD,RLFPFQ'}
   - name: flow_panel_1
@@ -261,24 +261,24 @@ components:
     - name: text_box_1
       properties: {role: null, bold: false, align: center, placeholder: country, spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
       type: TextBox
-      layout_properties: {width: 290.2843525390625}
+      layout_properties: {width: 300.2843525390625}
       data_bindings:
       - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
       event_bindings: {pressed_enter: text_box_1_pressed_enter}
     - name: spacer_7
       properties: {height: 37.600006103515625}
       type: Spacer
-      layout_properties: {width: 9.21590507812499}
+      layout_properties: {width: -1.7840949218750097}
     - name: text_box_2
       properties: {role: null, bold: false, align: center, placeholder: currency code, spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
       type: TextBox
-      layout_properties: {width: 193.38605761718748}
+      layout_properties: {width: 200.38605761718748}
       data_bindings:
       - {property: text, code: 'self.item[''admins_add_currency_code'']', writeback: false}
     - name: spacer_9
       properties: {height: 37.199981689453125}
       type: Spacer
-      layout_properties: {width: 84.28125498046874}
+      layout_properties: {width: 30.281254980468745}
     - name: file_loader_1
       properties: {text: Upload icon}
       type: FileLoader
@@ -297,18 +297,18 @@ components:
     name: xy_panel_1
     layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,OIEJID'}
     components:
-    - name: label_1
-      properties: {text: Country_icon, italic: true, bold: true, font_size: 18}
-      type: Label
-      layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,FERZBM', x: 687.27783203125, y: 9.479200000000048, width: 153.299}
-    - name: label_2
-      properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: true, font_size: 18, tooltip: '', text: 'Country:'}
-      type: Label
-      layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,CCRSQG', x: 53.995391845703125, y: 9.988433837890625, width: 180.602}
     - name: label_3
       properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: true, font_size: 18, tooltip: '', text: 'Currency_code:'}
       type: Label
       layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,GJXXMQ', x: 315.5694580078125, y: 9.47918701171875, width: 246.389}
+    - name: label_1
+      properties: {text: Country_icon, italic: true, bold: true, font_size: 18}
+      type: Label
+      layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,FERZBM', x: 635.2685546875, y: 10, width: 153.299}
+    - name: label_2
+      properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: true, font_size: 18, tooltip: '', text: 'Country:'}
+      type: Label
+      layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,CCRSQG', x: 62.97918701171875, y: 9.988433837890625, width: 180.602}
   - name: repeating_panel_1
     properties: {item_template: admin.add_currency.ItemTemplate8}
     type: RepeatingPanel
