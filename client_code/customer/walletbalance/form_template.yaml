@@ -469,7 +469,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'XKQBLK,OJSVSZ', full_width_row: true}
     name: spacer_15
-  - properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":19,"VZEOPY":41}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+  - properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":15,"VZEOPY":45}', background: '', visible: false, col_spacing: medium, spacing_above: small}
     type: ColumnPanel
     layout_properties: {grid_position: 'XKQBLK,EENMQE', full_width_row: true}
     name: card_5
@@ -499,7 +499,7 @@ components:
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_4
     - name: spacer_29
-      properties: {height: 0.5}
+      properties: {height: -0.25}
       type: Spacer
       layout_properties: {grid_position: 'MXJVRD,VZEOPY MWDDBV,YZUQPP'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
@@ -542,7 +542,7 @@ components:
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_5
     - name: spacer_30
-      properties: {height: 0.5}
+      properties: {height: -0.5}
       type: Spacer
       layout_properties: {grid_position: 'MXJVRD,VZEOPY LOZIRV,NHSLXH'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
@@ -585,7 +585,7 @@ components:
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_6
     - name: spacer_31
-      properties: {height: 1.25}
+      properties: {height: -0.25}
       type: Spacer
       layout_properties: {grid_position: 'MXJVRD,VZEOPY ZSUUFJ,JDFXKK'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
@@ -628,7 +628,7 @@ components:
       layout_properties: {grid_position: 'GIQXVY,GXWTEF CZCMYL,VFTTOE'}
       name: label_1111_copy_7
     - name: spacer_42
-      properties: {height: 0.5}
+      properties: {height: 0}
       type: Spacer
       layout_properties: {grid_position: 'GIQXVY,ECBIWK ELXOTY,ICUWIJ'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
@@ -679,7 +679,7 @@ components:
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_8
     - name: spacer_32
-      properties: {height: 1.75}
+      properties: {height: 0}
       type: Spacer
       layout_properties: {grid_position: 'MXJVRD,VZEOPY AXOYNI,SAJCGV'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
@@ -722,7 +722,7 @@ components:
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_9
     - name: spacer_33
-      properties: {height: 0.25}
+      properties: {height: -0.25}
       type: Spacer
       layout_properties: {grid_position: 'MXJVRD,VZEOPY OVOQJK,JNPION'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
@@ -765,7 +765,7 @@ components:
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_10
     - name: spacer_34
-      properties: {height: 1.25}
+      properties: {height: -0.25}
       type: Spacer
       layout_properties: {grid_position: 'MXJVRD,VZEOPY ROYPWG,QGQGJD'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
@@ -808,7 +808,7 @@ components:
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_11
     - name: spacer_35
-      properties: {height: 0.25}
+      properties: {height: -1.75}
       type: Spacer
       layout_properties: {grid_position: 'MXJVRD,VZEOPY MBKMJP,DZIINI'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
@@ -859,7 +859,7 @@ components:
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_12
     - name: spacer_40
-      properties: {height: 1.5}
+      properties: {height: -0.75}
       type: Spacer
       layout_properties: {grid_position: 'MXJVRD,VZEOPY CYITSW,DJNCRV'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
@@ -902,7 +902,7 @@ components:
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_13
     - name: spacer_39
-      properties: {height: 0.5}
+      properties: {height: -3}
       type: Spacer
       layout_properties: {grid_position: 'MXJVRD,VZEOPY AZHLON,HVRVIQ'}
     - properties: {font_size: 18, bold: true, align: left, foreground: Black}
@@ -944,10 +944,6 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_14
-    - name: spacer_37
-      properties: {height: -1}
-      type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY IYMEZF,WOPMTG'}
     - name: spacer_41
       properties: {height: -0.5}
       type: Spacer
@@ -991,10 +987,6 @@ components:
       type: Label
       layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
       name: label_1111_copy_15
-    - name: spacer_38
-      properties: {height: -6.75}
-      type: Spacer
-      layout_properties: {grid_position: 'MXJVRD,VZEOPY WEXUNY,WDDDRC'}
     - name: spacer_36
       properties: {height: -0.25}
       type: Spacer
