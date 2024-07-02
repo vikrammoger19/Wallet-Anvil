@@ -19,14 +19,30 @@ class signup(signupTemplate):
     self.aadhar_card.visible = False
     self.pan_card.visible = False 
     self.pass_card.visible = False 
+    self.html_1.content = """
+        <style>
+        .red-placeholder::placeholder {
+            color: red !important;
+        }
+        </style>
+        <script>
+        function addRedPlaceholder(element) {
+            element.classList.add("red-placeholder");
+        }
 
-  def set_placeholder_if_empty(self, text_box, field_name):
-    if not text_box.text:
-        text_box.placeholder = f"* {field_name}"
-        text_box.foreground = "#FF0000"  # Red color for the asterisk
-    else:
-        text_box.placeholder = ""
-        text_box.foreground = "#000000"  # Reset to default color
+        function removeRedPlaceholder(element) {
+            element.classList.remove("red-placeholder");
+        }
+        </script>
+        """
+
+    def set_placeholder_if_empty(self, text_box, field_name):
+        if not text_box.text:
+            text_box.placeholder = f"* {field_name}"
+            self.call_js('addRedPlaceholder', text_box)
+        else:
+            text_box.placeholder = ""
+            self.call_js('removeRedPlaceholder', text_box)
 
   def text_box_8_change(self, **event_args):
     # Convert the text in text_box_8 to uppercase as user types
