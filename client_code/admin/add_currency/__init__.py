@@ -116,3 +116,7 @@ class add_currency(add_currencyTemplate):
     """This method is called when the user presses Enter in this text box"""
     pass
 
+  def text_box_2_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
