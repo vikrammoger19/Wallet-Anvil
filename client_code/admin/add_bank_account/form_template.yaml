@@ -262,27 +262,32 @@ components:
       - name: spacer_8
         properties: {height: 38}
         type: Spacer
-        layout_properties: {width: 169.42041015625}
-      - name: text_box_1
-        properties: {placeholder: Bank Name, italic: true}
-        type: TextBox
-        layout_properties: {width: 319.5337626953125}
-        data_bindings:
-        - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
-        event_bindings: {pressed_enter: text_box_1_pressed_enter}
+        layout_properties: {width: 61.42041015625}
       - name: spacer_7
         properties: {height: 37.600006103515625}
         type: Spacer
         layout_properties: {width: 55.45457626953125}
-      - name: file_loader_1
-        properties: {text: Upload icon}
-        type: FileLoader
-        layout_properties: {width: 145.387951171875}
-      - name: button_3
-        properties: {text: Add, align: right, background: '#1d86da', foreground: 'theme:White', bold: true, italic: true}
-        type: Button
-        layout_properties: {}
-        event_bindings: {click: button_3_click}
+      - type: XYPanel
+        properties: {height: 53}
+        name: xy_panel_1
+        layout_properties: {width: 839}
+        components:
+        - name: button_3
+          properties: {text: Add, align: right, background: '#1d86da', foreground: 'theme:White', bold: true, italic: true}
+          type: Button
+          layout_properties: {x: 689.9884643554688, y: 10, width: 98.29169999999999}
+          event_bindings: {click: button_3_click}
+        - name: file_loader_1
+          properties: {text: Upload icon}
+          type: FileLoader
+          layout_properties: {width: 145.382, x: 432.59954833984375, y: 0}
+        - name: text_box_1
+          properties: {placeholder: Bank Name, italic: true}
+          type: TextBox
+          layout_properties: {width: 282.512, x: 97.97454833984375, y: 9.259333837890608}
+          data_bindings:
+          - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
+          event_bindings: {pressed_enter: text_box_1_pressed_enter}
     - name: spacer_2
       properties: {height: 32}
       type: Spacer
