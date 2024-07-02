@@ -54,7 +54,7 @@ components:
     - name: link_1
       properties: {role: null, bold: false, align: left, col_widths: '', spacing_above: small, background: '', icon: 'fa:ellipsis-v', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: right, foreground: '', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: ''}
       type: Link
-      layout_properties: {x: 64.95361328125, y: 10, width: 31.0417}
+      layout_properties: {x: 64.942138671875, y: 15.983795166015625, width: 31.0417}
       event_bindings: {click: link_1_click}
 - name: spacer_1
   properties: {height: 4}
