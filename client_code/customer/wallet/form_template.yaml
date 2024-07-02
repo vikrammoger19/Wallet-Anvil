@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: card_111
-    properties: {role: card, col_widths: '{"GVPNGK":10,"TKSRFI":3,"ULOKUC":15}'}
+    properties: {role: card, col_widths: '{"GVPNGK":10,"TKSRFI":10,"ULOKUC":34}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'ZQDGGS,QNLCWB', full_width_row: true}
     components:
@@ -38,7 +38,7 @@ components:
         event_bindings: {click: link_1_dashboard_click}
         components:
         - name: xy_panel_3_copy_copy
-          properties: {height: 30.79998779296875}
+          properties: {height: 47.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'PRINHC,DJVLGM'}
           components:
@@ -57,7 +57,7 @@ components:
         event_bindings: {click: link_2_click}
         components:
         - name: xy_panel_3_copy_2
-          properties: {height: 25.79998779296875}
+          properties: {height: 36.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'UGBIQG,ZOWGTZ'}
           components:
@@ -76,7 +76,7 @@ components:
         event_bindings: {click: link_3_click}
         components:
         - name: xy_panel_4_copy
-          properties: {height: 28.79998779296875}
+          properties: {height: 35.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'GFNOAT,RRSEJM'}
           components:
@@ -95,7 +95,7 @@ components:
         event_bindings: {click: link_10_click}
         components:
         - name: xy_panel_5_copy_copy
-          properties: {height: 25.79998779296875}
+          properties: {height: 30.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
           components:
@@ -116,7 +116,7 @@ components:
         event_bindings: {click: link_4_click}
         components:
         - name: xy_panel_5_copy_2
-          properties: {height: 25.79998779296875}
+          properties: {height: 33.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
           components:
@@ -135,7 +135,7 @@ components:
         event_bindings: {click: link_5_click}
         components:
         - name: xy_panel_6_copy
-          properties: {height: 25.79998779296875}
+          properties: {height: 33.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'WAPTBK,USGOHT'}
           components:
@@ -154,7 +154,7 @@ components:
         event_bindings: {click: link_6_click}
         components:
         - name: xy_panel_7_copy
-          properties: {height: 25.79998779296875}
+          properties: {height: 34.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'QIZNTB,ORSKYD'}
           components:
@@ -173,7 +173,7 @@ components:
         event_bindings: {click: link_7_click}
         components:
         - name: xy_panel_3_copy_5_copy
-          properties: {height: 25.79998779296875}
+          properties: {height: 31.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'COBIJQ,OESMMA'}
           components:
@@ -192,7 +192,7 @@ components:
         event_bindings: {click: link_8_click}
         components:
         - name: xy_panel_3_copy_6_copy
-          properties: {height: 25.79998779296875}
+          properties: {height: 33.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'DJMZEW,SKYWUA'}
           components:
@@ -212,7 +212,7 @@ components:
           grid_position: PKTFFG,JEIHRV
         components:
         - name: xy_panel_3_copy_6_copy_2
-          properties: {height: 25.79998779296875}
+          properties: {height: 27.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'DJMZEW,SKYWUA'}
           components:
@@ -233,7 +233,7 @@ components:
           grid_position: GFDRIL,AKDHND
         components:
         - name: xy_panel_3_copy_6_copy_3
-          properties: {height: 25.79998779296875}
+          properties: {height: 32.79998779296875}
           type: XYPanel
           layout_properties: {grid_position: 'DJMZEW,SKYWUA'}
           components:
