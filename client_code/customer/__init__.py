@@ -66,14 +66,14 @@ class customer(customerTemplate):
                            profile_pic = userr['users_profile_pic']
                         else:
                           profile_pic = '_/theme/account.png'
-                    if  transaction['users_transaction_type'] == 'Debit' and transaction['users_transaction_phone']==self.user['users_phone'] :
+                    if  transaction['users_transaction_type'] == 'Credit' and transaction['users_transaction_phone']==self.user['users_phone'] :
                       trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
                       if trans_user :
                         if trans_user['users_profile_pic']:
                           profile_pic = trans_user['users_profile_pic']
                         else:
                           profile_pic = '_/theme/account.png'
-                    if transaction['users_transaction_receiver_type'] == 'Credit' and transaction['users_transaction_receiver_phone']==self.user['users_phone'] :
+                    if transaction['users_transaction_receiver_type'] == 'Debit' and transaction['users_transaction_receiver_phone']==self.user['users_phone'] :
                       trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
                       if trans_user :
                         if trans_user['users_profile_pic']:
