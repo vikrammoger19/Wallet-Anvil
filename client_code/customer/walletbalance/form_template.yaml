@@ -27,7 +27,7 @@ components:
     event_bindings: {click: link_1_click}
     name: link_1
     components:
-    - properties: {height: 25.79998779296875}
+    - properties: {height: 32.79998779296875}
       type: XYPanel
       layout_properties: {grid_position: 'PRINHC,DJVLGM'}
       name: xy_panel_3_copy
@@ -46,7 +46,7 @@ components:
     event_bindings: {click: link_2_click}
     name: link_2
     components:
-    - properties: {height: 25.79998779296875}
+    - properties: {height: 31.79998779296875}
       type: XYPanel
       layout_properties: {grid_position: 'UGBIQG,ZOWGTZ'}
       name: xy_panel_3
@@ -65,7 +65,7 @@ components:
     event_bindings: {click: link_3_click}
     name: link_3
     components:
-    - properties: {height: 25.79998779296875}
+    - properties: {height: 32.79998779296875}
       type: XYPanel
       layout_properties: {grid_position: 'GFNOAT,RRSEJM'}
       name: xy_panel_4
@@ -84,7 +84,7 @@ components:
     event_bindings: {click: link_4_click}
     name: link_10
     components:
-    - properties: {height: 25.79998779296875}
+    - properties: {height: 34.79998779296875}
       type: XYPanel
       layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
       name: xy_panel_5_copy
@@ -105,7 +105,7 @@ components:
     event_bindings: {click: link_4_click}
     name: link_4
     components:
-    - properties: {height: 25.79998779296875}
+    - properties: {height: 27.79998779296875}
       type: XYPanel
       layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
       name: xy_panel_5
@@ -124,7 +124,7 @@ components:
     event_bindings: {click: link_5_click}
     name: link_5
     components:
-    - properties: {height: 25.79998779296875}
+    - properties: {height: 29.79998779296875}
       type: XYPanel
       layout_properties: {grid_position: 'WAPTBK,USGOHT'}
       name: xy_panel_6
@@ -143,7 +143,7 @@ components:
     event_bindings: {click: link_6_click}
     name: link_6
     components:
-    - properties: {height: 25.79998779296875}
+    - properties: {height: 30.79998779296875}
       type: XYPanel
       layout_properties: {grid_position: 'QIZNTB,ORSKYD'}
       name: xy_panel_7
@@ -162,7 +162,7 @@ components:
     event_bindings: {click: link_7_click}
     name: link_7
     components:
-    - properties: {height: 19.79998779296875}
+    - properties: {height: 37.79998779296875}
       type: XYPanel
       layout_properties: {grid_position: 'COBIJQ,OESMMA'}
       name: xy_panel_3_copy_5
@@ -183,14 +183,14 @@ components:
       grid_position: ZKDKNE,KSIJIZ
     components:
     - type: XYPanel
-      properties: {height: 38}
+      properties: {height: 49}
       name: xy_panel_2
       layout_properties: {grid_position: 'GBCBBV,XYROPB'}
       components:
       - type: Label
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Add Bank}
         name: label_1_copy_2
-        layout_properties: {x: 90.96065139770508, y: 6.180499999999938, width: 159.977}
+        layout_properties: {x: 90.96065139770508, y: 6.180499999999938, width: 115.977}
       - type: Image
         properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/bank (1).png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 31}
         name: image_1_copy
@@ -204,7 +204,7 @@ components:
       grid_position: PRKQBV,QKGBYJ
     components:
     - name: xy_panel_3_copy_9
-      properties: {height: 27.79998779296875}
+      properties: {height: 36.79998779296875}
       type: XYPanel
       layout_properties: {grid_position: 'DJMZEW,SKYWUA'}
       components:
@@ -225,7 +225,7 @@ components:
       grid_position: BIPKIJ,NYWHAY
     components:
     - name: xy_panel_6_copy
-      properties: {height: 43.79998779296875}
+      properties: {height: 45.79998779296875}
       type: XYPanel
       layout_properties: {grid_position: 'WAPTBK,USGOHT'}
       components:
