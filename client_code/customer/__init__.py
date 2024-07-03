@@ -68,12 +68,12 @@ class customer(customerTemplate):
                     if (transaction['users_transaction_type'] == 'Withdrawn' or
                         transaction['users_transaction_type'] == 'Deposited' or
                         transaction['users_transaction_type'] == 'Auto Topup') and transaction['users_transaction_phone'] == self.user['users_phone']:
-                        userr = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
-                        if userr:
-                            if userr['users_profile_pic']:
-                                profile_pic = userr['users_profile_pic']
-                            else:
-                                profile_pic = '_/theme/account.png'
+                        bank_name = transaction['users_transaction_bank_name']
+                        bank_record = app_tables.wallet_admins_add_bank.get(admins_add_bank_names=bank_name)
+                        if bank_record:
+                            profile_pic = bank_record['admins_add_bank_icons']
+                        else:
+                            profile_pic = '_/theme/account.png'
                     
                     if transaction['users_transaction_type'] == 'Debit' and transaction['users_transaction_phone'] == self.user['users_phone']:
                         trans_user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_receiver_phone'])
@@ -160,6 +160,7 @@ class customer(customerTemplate):
                     self.spacer_2.visible = False
 
                 self.repeating_panel_2.items = self.repeating_panel_2_items
+
     def inr_balance(self, balance, currency_type):
         # Iterate through the iterator to find the balance for the specified currency_type
         for row in balance:
