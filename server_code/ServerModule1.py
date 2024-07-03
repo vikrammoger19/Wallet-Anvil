@@ -13,7 +13,10 @@ import anvil.email
 import base64
 from PIL import Image,ImageDraw
 from io import BytesIO
+import requests
 #import datetime
+
+
 
 @anvil.server.callable
 def get_user_for_login(login_input):
@@ -34,23 +37,34 @@ def get_user_for_login(login_input):
             return None
 
 @anvil.server.callable
-def add_info(username, email, address, phone, aadhar, pan, password):
+def add_info(username, email, address, phone, aadhar, pan, password, currency):
     user_row = app_tables.wallet_users.add_row(
         users_username=username,
         users_email=email,
         users_address=address,
         users_phone=phone,
-        users_aadhar=int(aadhar),              
+        users_aadhar=int(aadhar),
         users_pan=pan,
-        users_password=password,   
+        users_password=password,
         users_usertype='customer',
         users_confirm_email=True,
-        users_user_limit=(100000),
-        users_daily_limit=(40000),
-        users_last_login = datetime.now()
+        users_user_limit=100000,
+        users_daily_limit=40000,
+        users_last_login=datetime.now(),
+        users_defaultcurrency=currency  # Store the currency
     )
     return user_row
 
+@anvil.server.callable
+def get_currency_by_country(country_name):
+    response = requests.get(f"https://restcountries.com/v3.1/name/{country_name}")
+    if response.status_code == 200:
+        data = response.json()
+        if data:
+            country_info = data[0]
+            currency = list(country_info['currencies'].keys())[0]
+            return currency
+    return None
 @anvil.server.callable
 def get_acc_data(phone):
     user_accounts = app_tables.wallet_users_account.search(users_account_phone=phone)
