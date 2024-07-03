@@ -385,7 +385,7 @@ def resizing_image(image_file):
         # Create a circular mask
         mask = Image.new('L', image.size, 0)
         draw = ImageDraw.Draw(mask)
-        draw.ellipse((1, 0) + image.size, fill=230)
+        draw.ellipse((0, 0) + image.size, fill=255)
         
         # Apply the mask to the image
         output_image = Image.new("RGBA", image.size)
