@@ -366,32 +366,44 @@ def generate_otp():
     return ''.join(random.choice('0123456789') for _ in range(6))
 
 @anvil.server.callable
-def resizing_image(file):
+def resizing_image(image_file):
     try:
-      # Open the image
-      byte_stream = BytesIO(file.get_bytes())
-      byte_stream.seek(0)
-      with Image.open(byte_stream) as img:
-          # dashboard_screen = self.manager.get_screen('dashboard')
-          siz = img.size
-          # print('size: ', siz)
-          # resizing the image
-          img = img.resize((250, 250), Image.Resampling.LANCZOS)
-          # img.crop((0,200,250,250))
-          mask = Image.new('L', (250, 250), 0)
-          draw = ImageDraw.Draw(mask)
-          draw.ellipse((0, 0, 250, 250), fill=255)
-  
-          # apply mask to image
-          img.putalpha(mask)
-          with BytesIO() as processed:
-            img.save(processed,format="PNG")
-            processed.seek(0)
-            media_obj = anvil.BlobMedia(f"image/png", processed.read())
-           
-      return {'media_obj':media_obj}
+        from PIL import Image, ImageDraw
+        from io import BytesIO
+        
+        # Open the image file
+        image = Image.open(BytesIO(image_file.get_bytes()))
+        
+        # Resize the image to a smaller size
+        max_size = (200, 200)  # Adjust the maximum dimensions as needed
+        image.thumbnail(max_size, Image.LANCZOS)
+        
+        # Convert image to RGBA if it has a different mode
+        if image.mode not in ("RGB", "RGBA"):
+            image = image.convert("RGBA")
+        
+        # Create a circular mask
+        mask = Image.new('L', image.size, 0)
+        draw = ImageDraw.Draw(mask)
+        draw.ellipse((0, 0) + image.size, fill=255)
+        
+        # Apply the mask to the image
+        output_image = Image.new("RGBA", image.size)
+        output_image.paste(image, (0, 0), mask=mask)
+        
+        # Save the processed image to a BytesIO object
+        output = BytesIO()
+        output_image.save(output, format="PNG")
+        
+        # Return the processed image as a media object
+        return anvil.BlobMedia("image/png", output.getvalue(), name="resized_image.png")
     except Exception as e:
-      print(e)
+        print(f"Error in resizing_image: {e}")
+        return None
+
+
+
+
 
 
 @anvil.server.callable

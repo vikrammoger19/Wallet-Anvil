@@ -145,18 +145,35 @@ class Viewprofile(ViewprofileTemplate):
       uploaded_file = self.file_loader_1.file
       print(uploaded_file)
       self.file_loader_1.text = ''
+      
       if uploaded_file:
-          # Check if the file is an image by inspecting the content type or file extension
-          if uploaded_file.content_type.startswith("image/"):
-            resized_image = anvil.server.call('resizing_image',uploaded_file)
-            user_data = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
-            user_data.update(users_profile_pic=resized_image['media_obj'])
-            
-            self.image_1.source=resized_image['media_obj']
-            
-            # print(f"Uploaded image: {uploaded_file.name}")
+          # Check if the file is an image by inspecting the file extension
+          allowed_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff']
+          file_name = uploaded_file.name.lower() if uploaded_file else ''
+          
+          if any(file_name.endswith(ext) for ext in allowed_extensions):
+              try:
+                  resized_image = anvil.server.call('resizing_image', uploaded_file)
+                  
+                  if resized_image:
+                      user_data = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
+                      
+                      if user_data:
+                          user_data.update(users_profile_pic=resized_image)
+                          self.image_1.source = resized_image
+                      else:
+                          alert("User data not found.")
+                  else:
+                      alert("Failed to process the uploaded image. Please try again.")
+              except Exception as e:
+                  print(f"Error processing image: {e}")
+                  alert("An error occurred while processing the image. Please ensure the image format is correct and try again.")
           else:
-            print("Uploaded file is not an image.")
+              alert("Uploaded file is not a supported image type. Please upload an image file with one of the following extensions: .jpg, .jpeg, .png, .gif, .bmp, .tiff.")
+      else:
+          print("No file uploaded.")
+
+
 
     def check_profile_pic(self):
       print(self.user,self.password)
