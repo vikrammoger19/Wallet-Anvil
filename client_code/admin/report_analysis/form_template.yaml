@@ -27,7 +27,7 @@ components:
     event_bindings: {click: link_8_click}
     components:
     - name: xy_panel_3_copy
-      properties: {height: 25.79998779296875}
+      properties: {height: 51.656005859375}
       type: XYPanel
       layout_properties: {grid_position: 'PRINHC,DJVLGM'}
       components:
@@ -38,7 +38,7 @@ components:
       - name: label_3_copy_8
         properties: {text: Dashboard}
         type: Label
-        layout_properties: {x: 95, y: 0, width: 73.0875}
+        layout_properties: {x: 95, y: 0, width: 82.5881828125}
   - name: link_1
     properties: {text: '', bold: true, align: center}
     type: Link
@@ -46,7 +46,7 @@ components:
     event_bindings: {click: link_1_click}
     components:
     - name: xy_panel_3
-      properties: {height: 25.79998779296875}
+      properties: {height: 48.88433837890625}
       type: XYPanel
       layout_properties: {grid_position: 'UGBIQG,ZOWGTZ'}
       components:
@@ -67,7 +67,7 @@ components:
     event_bindings: {click: link_2_click}
     components:
     - name: xy_panel_4
-      properties: {height: 25.79998779296875}
+      properties: {height: 48.78466796875}
       type: XYPanel
       layout_properties: {grid_position: 'GFNOAT,RRSEJM'}
       components:
@@ -86,7 +86,7 @@ components:
     event_bindings: {click: link_3_click}
     components:
     - name: xy_panel_5_copy
-      properties: {height: 25.79998779296875}
+      properties: {height: 51.8714599609375}
       type: XYPanel
       layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
       components:
@@ -107,7 +107,7 @@ components:
     event_bindings: {click: link_10_click}
     components:
     - name: xy_panel_6
-      properties: {height: 25.79998779296875}
+      properties: {height: 52.6077880859375}
       type: XYPanel
       layout_properties: {grid_position: 'WAPTBK,USGOHT'}
       components:
@@ -126,7 +126,7 @@ components:
     event_bindings: {click: link_4_click}
     components:
     - name: xy_panel_5
-      properties: {height: 25.79998779296875}
+      properties: {height: 48.04510498046875}
       type: XYPanel
       layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
       components:
@@ -145,7 +145,7 @@ components:
     event_bindings: {click: link_5_click}
     components:
     - name: xy_panel_7
-      properties: {height: 25.79998779296875}
+      properties: {height: 54.8232421875}
       type: XYPanel
       layout_properties: {grid_position: 'QIZNTB,ORSKYD'}
       components:
@@ -165,7 +165,7 @@ components:
       grid_position: WTBJXO,HVXPCL
     components:
     - name: xy_panel_7_copy
-      properties: {height: 25.79998779296875}
+      properties: {height: 51.2830810546875}
       type: XYPanel
       layout_properties: {grid_position: 'QIZNTB,ORSKYD'}
       components:
@@ -186,7 +186,7 @@ components:
       grid_position: LKFLEP,KKHKJF
     components:
     - name: xy_panel_7_copy_2
-      properties: {height: 25.79998779296875}
+      properties: {height: 49.864990234375}
       type: XYPanel
       layout_properties: {grid_position: 'QIZNTB,ORSKYD'}
       components:
@@ -207,7 +207,7 @@ components:
       grid_position: ZVHAOO,QMKMPL
     components:
     - name: xy_panel_7_copy_3
-      properties: {height: 25.79998779296875}
+      properties: {height: 51.7010498046875}
       type: XYPanel
       layout_properties: {grid_position: 'QIZNTB,ORSKYD'}
       components:
