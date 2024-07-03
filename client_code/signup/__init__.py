@@ -19,7 +19,7 @@ class signup(signupTemplate):
         self.aadhar_card.visible = False
         self.pan_card.visible = False
         self.pass_card.visible = False
-        self.label_18.visible = False
+        
 
     def primary_color_1_click(self, **event_args):
         existing_user = anvil.server.call('get_user_by_phone', str(self.text_box_3.text).strip())
@@ -92,9 +92,6 @@ class signup(signupTemplate):
             if self.drop_down_1.selected_value:
                 country_name = self.drop_down_1.selected_value
                 currency = self.get_currency_by_country(country_name)
-                self.label_18.text = f"Currency: {currency}"
-                self.label_18.foreground = "#008000"
-                self.label_18.visible = True
                 count += 1
             else:
                 self.label_4.text = "Please select a country"
@@ -114,6 +111,7 @@ class signup(signupTemplate):
                 )
                 alert("Thank you " + self.text_box_1.text + ", for signing up! Your account has been successfully created")
                 open_form('login')
+
 
     def get_currency_by_country(self, country_name):
         url = f"https://restcountries.com/v3.1/name/{country_name}"
