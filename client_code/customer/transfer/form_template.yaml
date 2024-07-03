@@ -986,7 +986,7 @@ components:
           properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
           type: TextBox
           layout_properties: {x: 239.79165649414062, y: 23.25225830078125, width: 425.96099999999996}
-          event_bindings: {}
+          event_bindings: {change: text_box_3_change}
         - name: label_8_copy
           properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Currency:'}
           type: Label
@@ -1092,3 +1092,6 @@ components:
         properties: {height: 46.39996337890625, source: _/theme/letter-g.png}
         type: Image
         layout_properties: {x: 43.624996948987246, y: 54.000003814697266, width: 83.5875015258789}
+- type: Timer
+  properties: {}
+  name: timer_1

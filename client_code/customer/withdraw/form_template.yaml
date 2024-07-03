@@ -996,7 +996,7 @@ components:
       properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
       type: TextBox
       layout_properties: {grid_position: 'ROLOOS,THTVNM', x: 389.79225317382827, y: 20.034758007812457, width: 375.15}
-      event_bindings: {pressed_enter: text_box_2_pressed_enter}
+      event_bindings: {pressed_enter: text_box_2_pressed_enter, change: text_box_2_change}
   - name: spacer_3
     properties: {visible: true, spacing_above: small, spacing_below: small, height: -0.66668701171875, tooltip: ''}
     type: Spacer
@@ -1092,3 +1092,6 @@ components:
       properties: {height: 46.39996337890625, source: _/theme/letter-g.png}
       type: Image
       layout_properties: {x: 43.624996948987246, y: 54.000003814697266, width: 83.5875015258789}
+- type: Timer
+  properties: {}
+  name: timer_1
