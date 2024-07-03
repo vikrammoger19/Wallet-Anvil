@@ -35,11 +35,7 @@ components:
         properties: {text: '', align: center, bold: true, foreground: ''}
         type: Link
         layout_properties: {grid_position: 'POWOBF,LURGAG'}
-
-        event_bindings: {click: link_1_copy_copyclick}
-
         event_bindings: {click: link_1_dashboard_click}
-
         components:
         - name: xy_panel_3_copy_copy
           properties: {height: 47.79998779296875}
