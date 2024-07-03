@@ -35,7 +35,11 @@ components:
         properties: {text: '', align: center, bold: true, foreground: ''}
         type: Link
         layout_properties: {grid_position: 'POWOBF,LURGAG'}
+
+        event_bindings: {click: link_1_copy_copyclick}
+
         event_bindings: {click: link_1_dashboard_click}
+
         components:
         - name: xy_panel_3_copy_copy
           properties: {height: 47.79998779296875}
@@ -405,6 +409,10 @@ components:
             properties: {height: 32}
             type: Spacer
             layout_properties: {grid_position: 'ZSXBIV,YVBQPF', full_width_row: true}
+          - name: spacer_29
+            properties: {height: 14.25}
+            type: Spacer
+            layout_properties: {grid_position: 'BQRAVH,ZKTQHL'}
           - name: spacer_20
             properties: {height: 32}
             type: Spacer
@@ -500,6 +508,10 @@ components:
             properties: {height: 32}
             type: Spacer
             layout_properties: {grid_position: 'XKQBLK,AGJJRN TSAMMX,AARDXQ', full_width_row: true}
+          - name: spacer_30
+            properties: {height: 15.5}
+            type: Spacer
+            layout_properties: {grid_position: 'VRVKFQ,LYLXMI'}
           - name: spacer_22
             properties: {height: 32}
             type: Spacer
@@ -591,6 +603,10 @@ components:
             properties: {height: 32}
             type: Spacer
             layout_properties: {grid_position: 'GDCJKQ,DQYHHJ'}
+          - name: spacer_31
+            properties: {height: 15.25}
+            type: Spacer
+            layout_properties: {grid_position: 'FVPXZD,BQVPQO'}
           - name: spacer_28
             properties: {height: 32}
             type: Spacer

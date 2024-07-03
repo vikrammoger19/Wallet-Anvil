@@ -1,7 +1,17 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {html: ''}
+  properties:
+    html: |-
+      <script>
+        function addRedPlaceholder(element) {
+          element.classList.add("red-placeholder");
+        }
+
+        function removeRedPlaceholder(element) {
+          element.classList.remove("red-placeholder");
+        }
+      </script>
 components:
 - type: ColumnPanel
   properties: {}
