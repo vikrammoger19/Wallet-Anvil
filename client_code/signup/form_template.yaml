@@ -79,6 +79,10 @@ components:
           type: DropDown
           layout_properties: {grid_position: 'NTNVOX,EVGLIN'}
           name: drop_down_1
+        - name: label_4
+          properties: {visible: false, foreground: '#990000', font_size: 14, background: 'theme:White', icon: 'fa:exclamation-circle'}
+          type: Label
+          layout_properties: {grid_position: 'RYQVOW,SIKODU'}
         - properties: {role: null, bold: false, align: left, placeholder: Phone Number, spacing_above: small, background: 'theme:White', type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 14, tooltip: '', text: ''}
           type: TextBox
           layout_properties: {grid_position: 'VFERJI,MWUYIS'}
