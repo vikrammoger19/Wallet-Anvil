@@ -227,7 +227,7 @@ components:
           layout_properties: {x: 37.99768829345703, y: 0.995361328125, width: 46.9907}
       event_bindings: {click: link6_copy_4_click}
   - name: headline_1
-    properties: {role: headline, text: Users complaint, bold: true, italic: true, align: center, background: '#1d86da', foreground: 'theme:White'}
+    properties: {role: headline, bold: true, align: left, spacing_above: small, background: '#1d86da', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: '       Users complaint'}
     type: Label
     layout_properties: {grid_position: 'XCEXLR,UFDLRC TUCKUN,UXXMWS'}
   - name: spacer_2

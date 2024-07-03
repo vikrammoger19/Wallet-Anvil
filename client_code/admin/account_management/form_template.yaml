@@ -226,7 +226,7 @@ components:
   layout_properties: {grid_position: 'CBUYOA,GPRHZV RDLBAY,LWSVJU'}
   components:
   - name: label_6
-    properties: {bold: true, font_size: 24, text: Account Management, foreground: 'theme:White'}
+    properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Account Management}
     type: Label
     layout_properties: {grid_position: 'NMGVCA,OVOJWS'}
   - type: XYPanel

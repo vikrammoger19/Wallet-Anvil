@@ -232,7 +232,7 @@ components:
     layout_properties: {grid_position: 'YIFDUG,ZXTFJH IHVQDO,UJOBCC', full_width_row: true}
     components:
     - name: label_7_copy
-      properties: {text: Audit Logs, foreground: 'theme:White', icon: '', bold: true, font_size: 24, align: center}
+      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: '    Audit Logs'}
       type: Label
       layout_properties: {grid_position: 'GIKMFA,PXYANH'}
       data_bindings: []
