@@ -19,6 +19,14 @@ class signup(signupTemplate):
         self.aadhar_card.visible = False
         self.pan_card.visible = False
         self.pass_card.visible = False
+        self.populate_country_dropdown()
+
+    def populate_country_dropdown(self):
+        # Retrieve countries from wallet_admins_add_currency table
+        countries = [row['admins_add_currency_country'] for row in app_tables.wallet_admins_add_currency.search()]
+        
+        # Set items to drop_down_1
+        self.drop_down_1.items = countries
         
 
     def primary_color_1_click(self, **event_args):
