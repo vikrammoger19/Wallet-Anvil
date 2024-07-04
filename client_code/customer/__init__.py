@@ -11,7 +11,6 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.users
 
-@form
 class customer(customerTemplate):
     def __init__(self, user=None, password=None, **properties):
         # Initialize the form

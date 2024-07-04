@@ -61,6 +61,30 @@ on_resize()
 
 window.addEventListener('resize',on_resize)
 
+@form
+class customer:
+    def __init__(self, **properties):
+        self.init_components(**properties)
+        # Any other initialization code
 
-def say_hello():
-  print("Hello, world")
+    def init_components(self, **properties):
+        # Initialize your components here
+        pass
+
+    def on_mobile(self):
+        # Define mobile-specific behavior here
+        set_css(self, 'font-size', '14px')  # Example: smaller font size for mobile
+        print("Switched to mobile view")
+
+    def on_pc(self):
+        # Define PC-specific behavior here
+        set_css(self, 'font-size', '18px')  # Example: larger font size for PC
+        print("Switched to PC view")
+
+def main():
+    # Create an instance of CustomerForm
+    customer_form = customer()
+    # Optionally, add the form to a container or display it
+    # Example: content_panel.add_component(customer_form)
+
+main()
