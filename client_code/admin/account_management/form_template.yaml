@@ -371,24 +371,24 @@ components:
     - name: xy_panel_1
       properties: {height: 46, background: '#efeff0'}
       type: XYPanel
-      layout_properties: {grid_position: 'KTNWPU,OHKMGM', full_width_row: true}
+      layout_properties: {grid_position: 'YNHOGY,XNZQJQ'}
       components:
-      - name: label_1
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Username}
-        type: Label
-        layout_properties: {x: 101.52084350585938, y: 9, width: 168.938}
-      - name: label_7
-        properties: {text: Role, bold: true, font_size: 15}
-        type: Label
-        layout_properties: {x: 388.79864501953125, y: 10, width: 132.963}
       - name: label_2
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Phone}
         type: Label
-        layout_properties: {x: 556.7454223632812, y: 8.96990966796875, width: 143.97}
+        layout_properties: {x: 518.1041666679084, y: 8.583332061767578, width: 143.95834350585938}
       - name: label_3
-        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Status}
+        properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Status}
         type: Label
-        layout_properties: {x: 751.3912963867188, y: 8.96990966796875, width: 124.977}
+        layout_properties: {x: 683.4167277030647, y: 8.583332061767578, width: 137.6041717529297}
+      - name: label_7
+        properties: {text: Role, bold: true, font_size: 15, align: left}
+        type: Label
+        layout_properties: {x: 310.20829264447093, y: 8.583332061767578, width: 132.95834350585938}
+      - name: label_1
+        properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 15, tooltip: '', text: Username}
+        type: Label
+        layout_properties: {x: 4.27085367962718, y: 8.583332061767578, width: 168.9375}
   - name: spacer_1
     properties: {height: 9.33331298828125}
     type: Spacer

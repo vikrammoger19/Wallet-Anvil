@@ -42,7 +42,7 @@ def add_info(username, email, address, phone, aadhar, pan, password, currency):
         users_username=username,
         users_email=email,
         users_address=address,
-        users_phone=phone,
+        users_phone=int(phone),
         users_aadhar=int(aadhar),
         users_pan=pan,
         users_password=password,

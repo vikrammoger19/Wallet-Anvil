@@ -428,7 +428,7 @@ components:
       type: Spacer
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ NIGVSL,TBHNCL', full_width_row: true}
     - name: card_5
-      properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":19,"VZEOPY":41}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+      properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":26,"DYNMSH":34,"TTALBD":19,"VZEOPY":41}', background: '', visible: false, col_spacing: medium, spacing_above: small}
       type: ColumnPanel
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ NIGVSL,ZRUBKX', full_width_row: true}
       components:

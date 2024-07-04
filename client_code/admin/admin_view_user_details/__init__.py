@@ -485,7 +485,12 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
       open_form("admin.transaction_monitoring",user = self.user)
 
     def link6_copy_2_click(self, **event_args):
-      open_form("admin.create_admin",user = self.user)
+      if self.user['users_usertype'] == 'super admin':
+          # Open the admin creation form
+          open_form("admin.create_admin", user=self.user)
+      else:
+          # Show an alert if the user is not a super admin
+          alert("You're not a super admin. Only super admins can perform this action.")
 
     def link6_copy_3_click(self, **event_args):
       open_form("admin.user_support",user = self.user)
