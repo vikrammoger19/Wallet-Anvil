@@ -391,7 +391,12 @@ class audit_trail(audit_trailTemplate):
       open_form('admin.add_currency',user=self.user)
 
     def link_5_copy_click(self, **event_args):
-      open_form("admin.create_admin",user = self.user)
+      if self.user['users_usertype'] == 'super admin':
+          # Open the admin creation form
+          open_form("admin.create_admin", user=self.user)
+      else:
+          # Show an alert if the user is not a super admin
+          alert("You're not a super admin. Only super admins can perform this action.")
 
     def link_5_copy_2_click(self, **event_args):
       open_form("admin.user_support",user = self.user)
