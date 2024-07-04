@@ -22,96 +22,102 @@ class signup(signupTemplate):
         
 
     def primary_color_1_click(self, **event_args):
+        # Check if phone number exists
         existing_user = anvil.server.call('get_user_by_phone', str(self.text_box_3.text).strip())
-
         if existing_user:
             self.card_4.visible = True
             self.text_box_3.text = ''
         else:
-            count = 0
-            phone_number = str(self.text_box_3.text).strip()
-            if self.validate_phone_number(phone_number):
-                count += 1
-                self.label_15.text = "Phone number is correct"
-                self.label_15.foreground = "#008000"
+            # Validate email
+            user_email = self.text_box_2.text.strip()
+            if self.check_email_exists(user_email):
+                alert("Email is already in use. Please use a different email.")
             else:
-                self.phone_card.visible = True
-                self.label_15.text = "Invalid Phone Number"
-                self.label_15.foreground = "#990000"
-                self.text_box_3.text = ''
-                self.text_box_3.focus()
+                # Validate other fields
+                count = 0
+                phone_number = str(self.text_box_3.text).strip()
+                if self.validate_phone_number(phone_number):
+                    count += 1
+                    self.label_15.text = "Phone number is correct"
+                    self.label_15.foreground = "#008000"
+                else:
+                    self.phone_card.visible = True
+                    self.label_15.text = "Invalid Phone Number"
+                    self.label_15.foreground = "#990000"
+                    self.text_box_3.text = ''
+                    self.text_box_3.focus()
 
-            aadhar = int(self.text_box_7.text)
-            if len(str(aadhar)) == 12:
-                count += 1
-                self.label_16.text = "Aadhar details correct"
-                self.label_16.foreground = "#008000"
-            else:
-                self.aadhar_card.visible = True
-                self.label_16.text = "Please verify the entered Aadhar details"
-                self.label_16.foreground = "#990000"
-                self.text_box_7.text = ''
-                self.text_box_7.focus()
+                aadhar = str(self.text_box_7.text).strip()
+                if len(aadhar) == 12 and aadhar.isdigit():
+                    count += 1
+                    self.label_16.text = "Aadhar details correct"
+                    self.label_16.foreground = "#008000"
+                else:
+                    self.aadhar_card.visible = True
+                    self.label_16.text = "Please verify the entered Aadhar details"
+                    self.label_16.foreground = "#990000"
+                    self.text_box_7.text = ''
+                    self.text_box_7.focus()
 
-            converted_text = self.text_box_8.text
-            if self.is_pan_card_detail(converted_text):
-                self.label_14.text = "Pan card is valid"
-                self.label_14.foreground = "#008000"
-                count += 1
-            else:
-                self.pan_card.visible = True
-                self.label_14.text = "Please verify the entered pan card details"
-                self.label_14.foreground = "#990000"
-                self.text_box_8.text = ''
-                self.text_box_8.focus()
-
-            password = self.text_box_5.text
-            if self.validate_password(password):
-                count += 1
-                self.label_17.text = "Password meets criteria"
-                self.label_17.foreground = "#008000"
-
-                if self.text_box_5.text != '' and self.text_box_5.text == self.text_box_6.text:
+                converted_text = self.text_box_8.text.strip().upper()
+                if self.is_pan_card_detail(converted_text):
+                    self.label_14.text = "Pan card is valid"
+                    self.label_14.foreground = "#008000"
                     count += 1
                 else:
+                    self.pan_card.visible = True
+                    self.label_14.text = "Please verify the entered pan card details"
+                    self.label_14.foreground = "#990000"
+                    self.text_box_8.text = ''
+                    self.text_box_8.focus()
+
+                password = self.text_box_5.text
+                if self.validate_password(password):
+                    count += 1
+                    self.label_17.text = "Password meets criteria"
+                    self.label_17.foreground = "#008000"
+
+                    if self.text_box_5.text != '' and self.text_box_5.text == self.text_box_6.text:
+                        count += 1
+                    else:
+                        self.pass_card.visible = True
+                        self.label_17.text = "Passwords don't match"
+                        self.label_17.foreground = "#990000"
+                        self.text_box_5.text = ''
+                        self.text_box_5.focus()
+                        self.text_box_6.text = ''
+                        self.text_box_6.focus()
+                else:
                     self.pass_card.visible = True
-                    self.label_17.text = "Passwords don't match"
+                    self.label_17.text = "Password must have at least 1 number, 1 character, 1 symbol, and be at least 8 characters long."
                     self.label_17.foreground = "#990000"
                     self.text_box_5.text = ''
-                    self.text_box_5.focus()
                     self.text_box_6.text = ''
-                    self.text_box_6.focus()
-            else:
-                self.pass_card.visible = True
-                self.label_17.text = "Password must have at least 1 number, 1 character, 1 symbol, and be at least 8 characters long."
-                self.label_17.foreground = "#990000"
-                self.text_box_5.text = ''
-                self.text_box_6.text = ''
-                self.text_box_5.focus()
+                    self.text_box_5.focus()
 
-            if self.drop_down_1.selected_value:
-                country_name = self.drop_down_1.selected_value
-                currency = self.get_currency_by_country(country_name)
-                count += 1
-            else:
-                self.label_4.text = "Please select a country"
-                self.label_4.visible = True
+                if self.drop_down_1.selected_value:
+                    country_name = self.drop_down_1.selected_value
+                    currency = self.get_currency_by_country(country_name)
+                    count += 1
+                else:
+                    self.label_4.text = "Please select a country"
+                    self.label_4.visible = True
 
-            if count == 6:
-                anvil.server.call(
-                    'add_info',
-                    self.text_box_1.text,
-                    self.text_box_2.text,
-                    self.drop_down_1.selected_value,
-                    self.text_box_3.text,
-                    self.text_box_7.text,
-                    self.text_box_8.text,
-                    self.text_box_6.text,
-                    currency  # Pass the currency to the server function
-                )
-                alert("Thank you " + self.text_box_1.text + ", for signing up! Your account has been successfully created")
-                open_form('login')
-
+                if count == 6:
+                    # Proceed with signup
+                    anvil.server.call(
+                        'add_info',
+                        self.text_box_1.text.strip(),
+                        user_email,
+                        self.drop_down_1.selected_value,
+                        phone_number,
+                        aadhar,
+                        converted_text,
+                        self.text_box_6.text.strip(),
+                        currency
+                    )
+                    alert(f"Thank you {self.text_box_1.text.strip()}, for signing up! Your account has been successfully created.")
+                    open_form('login')
 
     def get_currency_by_country(self, country_name):
         url = f"https://restcountries.com/v3.1/name/{country_name}"
@@ -201,3 +207,6 @@ class signup(signupTemplate):
           # Hide text_box_9 and proceed with account creation
           # self.text_box_9.visible = False
           # self.label_3.visible = False
+    def check_email_exists(self, email):
+        matching_users = app_tables.wallet_users.search(users_email=email)
+        return len(matching_users) > 0
