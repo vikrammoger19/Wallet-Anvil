@@ -158,6 +158,9 @@ db_schema:
     - name: users_service_email
       admin_ui: {width: 200, order: 3}
       type: string
+    - name: users_update
+      admin_ui: {width: 200, order: 4}
+      type: bool
     title: wallet_users_service
   wallet_admins_create_admin_account:
     client: none

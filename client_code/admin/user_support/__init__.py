@@ -69,9 +69,9 @@ class user_support(user_supportTemplate):
    if self.user['users_usertype'] == 'super admin':
           # Open the admin creation form
           open_form("admin.create_admin", user=self.user)
-      else:
+   else:
           # Show an alert if the user is not a super admin
-          alert("You're not a super admin. Only super admins can perform this action.")
+      alert("You're not a super admin. Only super admins can perform this action.")
 
   def link6_copy_3_click(self, **event_args):
     open_form("admin.user_support",user = self.user)
