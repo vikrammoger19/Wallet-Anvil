@@ -41,21 +41,55 @@ class ItemTemplate7(ItemTemplate7Template):
             self.image_1.source = 'path/to/default/image.png'
 
     def update_button_status(self):
-      
-          # Display button text based on users_update status
-          if self.item.get('users_update'):
-              if self.item['users_update']:
-                  self.button_1.text = 'Solved'
-                  self.button_1.foreground = 'green'
-              else:
-                  self.button_1.text = 'Unsolved'
-                  self.button_1.foreground = 'red'
-          else:
-              print("No 'users_update' field found in item data.")
-              # Assuming unsolved if 'users_update' field is missing or False
-              self.button_1.text = 'Unsolved'
-              self.button_1.foreground = 'red'
-      
-     
-  
-      
+        # Update button text based on users_update status
+        try:
+            # Fetch the row from wallet_users_service for this specific item
+            user_status_row = app_tables.wallet_users_service.get(users_service_phone=self.item['users_service_phone'])
+            
+            if user_status_row:
+                if user_status_row['users_update']:
+                    self.button_1.text = 'Solved'
+                    self.button_1.foreground = 'green'
+                else:
+                    self.button_1.text = 'Unsolved'
+                    self.button_1.foreground = 'red'
+            else:
+                print(f"No status row found for phone number: {self.item['users_service_phone']}")
+                # Assuming unsolved if no status row found
+                self.button_1.text = 'Unsolved'
+                self.button_1.foreground = 'red'
+        
+        except Exception as e:
+            print(f"Error fetching status: {e}")
+            Notification("Failed to fetch status", title="Error", style="error").show()
+
+    def button_1_click(self, **event_args):
+        # Toggle users_update status for this specific item and refresh UI
+        try:
+            # Fetch the row from wallet_users_service for this specific item
+            user_status_row = app_tables.wallet_users_service.get(users_service_phone=self.item['users_service_phone'])
+            
+            if user_status_row:
+                # Update users_update status
+                user_status_row['users_update'] = not user_status_row['users_update']
+                user_status_row.save()
+                
+                self.refresh_data()
+                self.update_button_status()
+                
+                if user_status_row['users_update']:
+                    Notification("Status updated to Solved", title="Success", style="success").show()
+                else:
+                    Notification("Status updated to Unsolved", title="Success", style="success").show()
+            
+            else:
+                print(f"No status row found for phone number: {self.item['users_service_phone']}")
+                Notification("No status row found", title="Error", style="error").show()
+        
+        except Exception as e:
+            print(f"Error updating status: {e}")
+            Notification("Failed to update status", title="Error", style="error").show()
+
+    def refresh_data(self):
+        # Implement data refresh logic here if needed
+        self.update_button_status()
