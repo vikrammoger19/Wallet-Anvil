@@ -238,12 +238,12 @@ components:
         type: Label
         layout_properties: {x: 94.94792175292969, y: -10, width: 112.344}
     event_bindings: {click: link_5_copy_click}
-- properties: {role: card, col_widths: '{"BWDONS":70}', col_spacing: tiny, background: '#258ee1'}
+- properties: {role: card, col_widths: '{"BWDONS":65,"QCZGSN":35}', col_spacing: tiny, background: '#258ee1'}
   type: ColumnPanel
   layout_properties: {grid_position: 'YAOOOQ,KAIDML TSCBBA,SQBVZH'}
   name: card_130
   components:
-  - properties: {text: Wallet Balance, bold: true, font_size: 22, align: left, foreground: 'theme:White', italic: true}
+  - properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Wallet Balance}
     type: Label
     layout_properties: {grid_position: 'UCZQZN,BWDONS'}
     name: label_111
@@ -261,7 +261,7 @@ components:
     - type: Label
       properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:White', spacing_below: small, visible: true, border: '', italic: false, font_size: 20, tooltip: '', text: username}
       name: label_656
-      layout_properties: {grid_position: 'UCZQZN,NLXXLZ', x: 85.21875, y: 4.770833969116211, width: 378.323}
+      layout_properties: {grid_position: 'UCZQZN,NLXXLZ', x: 85.21875, y: 4.770833969116211, width: 440.323}
 - properties: {height: 23.5}
   type: Spacer
   layout_properties: {grid_position: 'YAOOOQ,KAIDML CJQDFX,XJJWUA'}

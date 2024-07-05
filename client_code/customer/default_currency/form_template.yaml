@@ -251,7 +251,7 @@ components:
         layout_properties: {width: 1149.3899755859375}
         components:
         - name: label_1_copy_2
-          properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: true, font_size: 25, tooltip: '', text: Set Default Currency}
+          properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Set Default Currency}
           type: Label
           layout_properties: {grid_position: 'LPAAJH,FUZTCF', full_width_row: true}
         - name: spacer_1
