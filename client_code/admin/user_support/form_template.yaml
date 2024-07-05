@@ -235,30 +235,34 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'XCEXLR,UFDLRC NBTWQK,FHAEJV'}
   - name: card_3_copy
-    properties: {role: card, col_widths: '{"LZQPCJ":12,"JVTZFG":8,"QUSECK":20,"XIHXOC":10,"RFCJGF":22}', background: '#efeff0'}
+    properties: {role: card, col_widths: '{"LZQPCJ":10,"JVTZFG":10,"QUSECK":11,"XIHXOC":14,"XXDLSC":6,"RFCJGF":9}', background: '#efeff0'}
     type: ColumnPanel
     layout_properties: {grid_position: 'XCEXLR,UFDLRC LBTCKJ,PXAMDK', full_width_row: true}
     components:
     - name: label_6
-      properties: {bold: true, align: center, font_size: 15, text: Name}
+      properties: {bold: true, align: left, font_size: 15, text: '        Name'}
       type: Label
-      layout_properties: {grid_position: 'XZUHZG,LZQPCJ'}
+      layout_properties: {grid_position: 'XZUHZG,LZQPCJ', full_width_row: true}
     - name: label_7
-      properties: {align: center, bold: true, font_size: 15, text: Phone}
+      properties: {align: left, bold: true, font_size: 15, text: '           Phone'}
       type: Label
-      layout_properties: {grid_position: 'XZUHZG,JVTZFG'}
+      layout_properties: {grid_position: 'XZUHZG,JVTZFG', full_width_row: true}
     - name: label_8
-      properties: {align: center, bold: true, font_size: 15, text: Email}
+      properties: {align: center, bold: true, font_size: 15, text: '    Email'}
       type: Label
-      layout_properties: {grid_position: 'XZUHZG,QUSECK'}
+      layout_properties: {grid_position: 'XZUHZG,QUSECK', full_width_row: true}
     - name: label_9
-      properties: {align: center, bold: true, font_size: 15, text: Query}
+      properties: {align: center, bold: true, font_size: 15, text: ' Query'}
       type: Label
-      layout_properties: {grid_position: 'XZUHZG,XIHXOC'}
+      layout_properties: {grid_position: 'XZUHZG,XIHXOC', full_width_row: true}
+    - name: label_2
+      properties: {text: Conclusion About Query, bold: true, font_size: 15, align: center}
+      type: Label
+      layout_properties: {grid_position: 'XZUHZG,XXDLSC', full_width_row: true}
     - name: label_1
-      properties: {text: Status, bold: true, align: center}
+      properties: {text: '         Status', bold: true, align: center}
       type: Label
-      layout_properties: {grid_position: 'XZUHZG,RFCJGF'}
+      layout_properties: {grid_position: 'XZUHZG,RFCJGF', full_width_row: true}
   - name: repeating_panel_1
     properties: {item_template: admin.user_support.ItemTemplate7}
     type: RepeatingPanel
