@@ -4,7 +4,7 @@ container:
   properties: {tooltip: '', background: '', foreground: '', border: '', visible: true, role: null, html: ''}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{"DWFZLO":15,"UFDLRC":45}'}
+  properties: {col_widths: '{"DWFZLO":15,"UFDLRC":45,"VFEAKH":11,"SJTXLV":58,"SRXWQW":11}'}
   name: content_panel
   layout_properties: {slot: default}
   components:
@@ -234,6 +234,21 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'XCEXLR,UFDLRC NBTWQK,FHAEJV'}
+  - name: link_12
+    properties: {spacing_above: none, spacing_below: none, text: All}
+    type: Link
+    layout_properties: {grid_position: 'XCEXLR,UFDLRC GHCDWI,SRXWQW'}
+    event_bindings: {click: link_12_click}
+  - name: link_111
+    properties: {text: Solved}
+    type: Link
+    layout_properties: {grid_position: 'XCEXLR,UFDLRC GHCDWI,VFEAKH'}
+    event_bindings: {click: link_111_click}
+  - name: link_22
+    properties: {text: Un Solved}
+    type: Link
+    layout_properties: {grid_position: 'XCEXLR,UFDLRC GHCDWI,SJTXLV'}
+    event_bindings: {click: link_22_click}
   - name: card_3_copy
     properties: {role: card, col_widths: '{"LZQPCJ":10,"JVTZFG":10,"QUSECK":11,"XIHXOC":14,"XXDLSC":6,"RFCJGF":9}', background: '#efeff0'}
     type: ColumnPanel
