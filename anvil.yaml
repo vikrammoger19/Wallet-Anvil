@@ -161,6 +161,9 @@ db_schema:
     - name: users_update
       admin_ui: {width: 200, order: 4}
       type: bool
+    - name: users_conclusion_about_query
+      admin_ui: {order: 5, width: 200}
+      type: string
     title: wallet_users_service
   wallet_admins_create_admin_account:
     client: none
