@@ -269,7 +269,7 @@ components:
             layout_properties: {grid_position: 'EIQYIA,PTBEWF', full_width_row: true}
             components:
             - name: label_2
-              properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: true, font_size: 24, tooltip: '', text: Transactions}
+              properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Transactions}
               type: Label
               layout_properties: {grid_position: 'ZTATBN,QCRXND'}
             - type: ColumnPanel

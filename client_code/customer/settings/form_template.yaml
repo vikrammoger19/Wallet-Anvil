@@ -254,7 +254,7 @@ components:
               layout_properties: {x: 43.958335876464844, y: 9, width: 40.9896}
           event_bindings: {click: link_help_click}
     - name: label_1_copy_2_copy_4
-      properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: true, font_size: 25, tooltip: '', text: Settings}
+      properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Settings}
       type: Label
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCCHCB,FJRJTH'}
     - name: spacer_1_copy_2_copy
