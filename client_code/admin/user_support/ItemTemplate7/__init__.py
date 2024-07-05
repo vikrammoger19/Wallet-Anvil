@@ -17,7 +17,7 @@ class ItemTemplate7(ItemTemplate7Template):
     self.label_1.text = self.item['users_service_username']
     self.label_2.text = self.item['users_service_phone']
     self.label_3.text = self.item['users_service_email']
-    self.label_4.text = self.item['users_service_query']
+    self.text_area_1.text = self.item['users_service_query']
     
 
 
