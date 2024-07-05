@@ -40,3 +40,4 @@ components:
   properties: {text: unsolved, align: right}
   type: Button
   layout_properties: {grid_position: 'VJYUMV,NGIBNI', full_width_row: true}
+  event_bindings: {click: button_1_click}
