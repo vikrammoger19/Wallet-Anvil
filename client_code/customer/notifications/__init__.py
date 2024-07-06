@@ -77,3 +77,11 @@ class notifications(notificationsTemplate):
   def link_8_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form('customer.settings',user=self.user)
+
+  def add_bank_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form('customer.wallet',user=self.user)
+
+  def Help_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    open_form("help",user=self.user)

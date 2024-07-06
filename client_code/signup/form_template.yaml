@@ -1,7 +1,17 @@
 is_package: true
 container:
   type: HtmlTemplate
-  properties: {html: ''}
+  properties:
+    html: |-
+      <script>
+        function addRedPlaceholder(element) {
+          element.classList.add("red-placeholder");
+        }
+
+        function removeRedPlaceholder(element) {
+          element.classList.remove("red-placeholder");
+        }
+      </script>
 components:
 - type: ColumnPanel
   properties: {}
@@ -60,13 +70,19 @@ components:
           event_bindings: {pressed_enter: text_box_9_pressed_enter}
           name: text_box_9
         - properties:
-            items: [Choose Country, Australia, Denmark, "France\t", "India\t", "Kuwait\t", "Malaysia\t", "Nepal\t", "New Zealand\t", Philippines, Qatar, Singapore, Sri Lanka, United Arab Emirates, "United Kingdom\t", United States, '']
+            items: ['', Australia, Denmark, "France\t", "Republic of India\t", "Kuwait\t", "Malaysia\t", "Nepal\t", "New Zealand\t", Philippines, Qatar, Singapore, Sri Lanka, United Arab Emirates, "United Kingdom\t", United States, Canada, Japan, China, Brazil, South Africa]
             font_size: 14
             visible: true
             background: theme:White
+            placeholder: Choose Country
+            include_placeholder: true
           type: DropDown
-          layout_properties: {grid_position: 'NTNVOX,EVGLIN'}
+          layout_properties: {grid_position: 'HOPSSE,VZGOIF'}
           name: drop_down_1
+        - name: label_4
+          properties: {visible: false, foreground: '#990000', font_size: 14, background: 'theme:White', icon: 'fa:exclamation-circle'}
+          type: Label
+          layout_properties: {grid_position: 'RYQVOW,SIKODU'}
         - properties: {role: null, bold: false, align: left, placeholder: Phone Number, spacing_above: small, background: 'theme:White', type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 14, tooltip: '', text: ''}
           type: TextBox
           layout_properties: {grid_position: 'VFERJI,MWUYIS'}

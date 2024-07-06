@@ -30,19 +30,27 @@ class create_admin(create_adminTemplate):
           phone_number = str(self.text_box_4.text).strip()
           if self.validate_phone_number(phone_number):
               count=count+1
+              self.label_13.visible=True
+              self.label_13.foreground = "green"
               self.label_13.text ="Phone number is correct"
           else:
+              self.label_13.visible=True
+              self.label_13.foreground = "#990000"
               self.label_13.text ="Please check the entered phone number"
               self.text_box_4.text=''
               self.text_box_4.focus()
           if self.text_box_5.text != '':
             if self.text_box_5.text != self.text_box_6.text:
+              self.label_9.visible = True
+              self.label_9.foreground = "#990000"
               self.label_9.text = "Passwords doesn't match"
               self.text_box_5.text =''
               self.text_box_5.focus()
               self.text_box_6.text =''
               self.text_box_6.focus()
             elif self.text_box_5.text == self.text_box_6.text:
+              self.label_9.visible = True
+              self.label_9.foreground = "green"
               self.label_9.text = "Password matches"  
         
               if count==1:
@@ -109,4 +117,33 @@ class create_admin(create_adminTemplate):
 
   def link_6_click(self, **event_args):
     """This method is called when the link is clicked"""
+    pass
+
+  def link_5_copy_2_click(self, **event_args):
+    open_form("admin.admin_add_user",user = self.user)
+
+  def link_5_copy_3_click(self, **event_args):
+    if self.user['users_usertype'] == 'super admin':
+          # Open the admin creation form
+          open_form("admin.create_admin", user=self.user)
+    else:
+          # Show an alert if the user is not a super admin
+          alert("You're not a super admin. Only super admins can perform this action.")
+
+  def link_5_copy_4_click(self, **event_args):
+    open_form("admin.user_support",user = self.user)
+
+  def link_5_copy_5_click(self, **event_args):
+    open_form("admin.add_bank_account",user = self.user)
+
+  def drop_down_1_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass
+
+  def text_box_3_copy_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass
+
+  def date_picker_1_change(self, **event_args):
+    """This method is called when the selected date changes"""
     pass

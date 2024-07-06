@@ -1,6 +1,24 @@
 /**
  This CSS implements the Material Design look and feel for Anvil apps.
  **/
+/* Placeholder text color */
+
+/* input::placeholder {
+  color: red !important;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: red !important;
+}
+
+input::-ms-input-placeholder { /* Microsoft Edge */
+  color: red !important;
+} */
+ */
+
+/
+
+
 
 /* Stop panel-cols cutting off drop shadows */
 .anvil-panel-col {
@@ -23,7 +41,7 @@
 
 a>.anvil-component-icon.left_edge-icon,
 a>.anvil-component-icon.right_edge-icon,
-.anvil-label>.anvil-component-icon.left_edge-icon,
+.a> masternvil-label>.anvil-component-icon.left_edge-icon,
 .anvil-label>.anvil-component-icon.right_edge-icon {
   padding-top: 8px;
   padding-bottom: 8px;

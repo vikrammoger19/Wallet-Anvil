@@ -139,18 +139,18 @@ class wallet(walletTemplate):
           anvil.alert("IFSC code must be 11 characters long, with the first 4 letters alphabetic, the 5th character '0', and the last 6 alphanumeric.", title="", large=True)
           return
   
-      # Retrieve all user accounts
-      user_accounts = app_tables.wallet_users_account.search()
-      
-      # Check for duplicate bank name and account number
+      # Check for duplicate bank name and account number for the current user
+      user_accounts = app_tables.wallet_users_account.search(users_account_phone=self.user['users_phone'])
       for account in user_accounts:
-          if account['users_account_phone'] == self.user['users_phone']:
-              if account['users_account_bank_name'] == bank_name:
-                  anvil.alert("Bank already exists.", title=" Bank Name", large=True)
-                  return
-              if account['users_account_number'] == account_number:
-                  anvil.alert("Account number already exists.", title="Duplicate Account Number", large=True)
-                  return
+          if account['users_account_bank_name'] == bank_name:
+              anvil.alert("Bank already exists.", title=" Bank Name", large=True)
+              return
+  
+      # Check for duplicate account number in the entire table
+      duplicate_account = app_tables.wallet_users_account.get(users_account_number=account_number)
+      if duplicate_account:
+          anvil.alert("Account number already exists.", title="Duplicate Account Number", large=True)
+          return
   
       # Add the new account if no duplicates are found
       new_account = app_tables.wallet_users_account.add_row(
@@ -166,6 +166,7 @@ class wallet(walletTemplate):
   
       anvil.alert("Bank details saved successfully.", title="", large=True)
       open_form('customer.wallet', user=self.user)
+  
 
 
     def link_2_click(self, **event_args):
@@ -214,11 +215,21 @@ class wallet(walletTemplate):
       """This method is called when the link is clicked"""
       open_form('customer.auto_topup',user=self.user)
 
+
+    def link_1_copy_copyclick(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form('customer',user=self.user)
+
+
+    def link_1_dashboard_click(self, **event_args):
+      open_form("customer",user  = self.user)
+
     def link_8_copy_2_click(self, **event_args):
       open_form("customer.settings",user = self.user)
 
-    def help_link_click(self, **event_args):
-        open_form("help",user = self.user)
+    def link_8_copy_3_click(self, **event_args):
+       open_form("help",user = self.user)
+      
 
 
 

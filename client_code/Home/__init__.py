@@ -5,7 +5,7 @@ import anvil.google.auth, anvil.google.drive
 from anvil.google.drive import app_files
 import anvil.users
 import anvil.server
-
+import anvil.js.window
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
@@ -43,5 +43,28 @@ class Home(HomeTemplate):
 
   def button_4_click(self, **event_args):
     open_form('login')
+
+  def link_1_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    facebook_link = "https://www.facebook.com"
+    anvil.js.window.open(facebook_link)
+
+
+  def link_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    linkedin_link = "https://www.linkedin.com/company/ascend-defi-labs/"
+    anvil.js.window.open(linkedin_link)
+
+
+  def link_3_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    instagram_link = "https://www.instagram.com/ascenddefi/"
+    anvil.js.window.open(instagram_link)
+
+  def link_4_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    twitter_link = "https://www.x.com"
+    anvil.js.window.open(twitter_link)
+
 
   

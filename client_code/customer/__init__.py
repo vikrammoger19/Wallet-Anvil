@@ -17,7 +17,7 @@ class customer(customerTemplate):
         self.init_components(**properties)
         self.user = user
         self.password = password
-        self.link_clicked=True #changed
+        self.link_clicked = True  # changed
         self.notifications()
         user_dict = dict(self.user)
         self.refresh_data()
@@ -25,20 +25,26 @@ class customer(customerTemplate):
         print(user_dict)
         self.check_profile_pic()
         self.greet_based_on_time()
+
         # Assuming user has a 'phone' attribute
         phone_number = user_dict.get('users_phone', None)
         default_currency = 'INR'
         users_def_currency = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
         if users_def_currency['users_defaultcurrency'] is not None:
-          default_currency = users_def_currency['users_defaultcurrency']
+            default_currency = users_def_currency['users_defaultcurrency']
+
         if phone_number:
             # Search transactions based on the user's phone number
-            items = app_tables.wallet_users_transaction.search(q.any_of(users_transaction_phone=self.user['users_phone'],users_transaction_receiver_phone=self.user['users_phone']
-                                                                       ),users_transaction_currency=default_currency)
-        
+            items = app_tables.wallet_users_transaction.search(
+                q.any_of(
+                    users_transaction_phone=self.user['users_phone'],
+                    users_transaction_receiver_phone=self.user['users_phone']
+                ), users_transaction_currency=default_currency
+            )
+
             # Sort transactions by date in descending order
             sorted_transactions = sorted(items, key=lambda x: x['users_transaction_date'], reverse=True)
-        
+
             # Check if there are any transactions
             if not sorted_transactions:
                 self.repeating_panel_2.items = [{
@@ -55,52 +61,56 @@ class customer(customerTemplate):
                 max_history_entries = 4  # Maximum number of history entries to display
                 for transaction in sorted_transactions:
                     fund = transaction['users_transaction_fund']
-                    # transaction_type = transaction['users_transaction_type']
                     receiver_phone = transaction['users_transaction_receiver_phone']
                     transaction_time = transaction['users_transaction_date'].strftime("%a-%I:%M %p")  # Concatenate day with time (e.g., Mon-06:20 PM)
                     profile_pic = '_/theme/account.png'
-                    if (transaction['users_transaction_type'] == 'Withdrawn' or transaction['users_transaction_type'] == 'Deposited' or transaction['users_transaction_type'] == 'Auto Topup') and transaction['users_transaction_phone']==self.user['users_phone']:
-                      userr = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
-                      if userr:
-                        if userr['users_profile_pic']:
-                           profile_pic = userr['users_profile_pic']
+
+                    if (transaction['users_transaction_type'] == 'Withdrawn' or
+                        transaction['users_transaction_type'] == 'Deposited' or
+                        transaction['users_transaction_type'] == 'Auto Topup') and transaction['users_transaction_phone'] == self.user['users_phone']:
+                        bank_name = transaction['users_transaction_bank_name']
+                        bank_record = app_tables.wallet_admins_add_bank.get(admins_add_bank_names=bank_name)
+                        if bank_record:
+                            profile_pic = bank_record['admins_add_bank_icons']
                         else:
-                          profile_pic = '_/theme/account.png'
-                    if  transaction['users_transaction_type'] == 'Debit' and transaction['users_transaction_phone']==self.user['users_phone'] :
-                      trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
-                      if trans_user :
-                        if trans_user['users_profile_pic']:
-                          profile_pic = trans_user['users_profile_pic']
-                        else:
-                          profile_pic = '_/theme/account.png'
-                    if transaction['users_transaction_receiver_type'] == 'Credit' and transaction['users_transaction_receiver_phone']==self.user['users_phone'] :
-                      trans_user = app_tables.wallet_users.get(users_phone = transaction['users_transaction_receiver_phone'])
-                      if trans_user :
-                        if trans_user['users_profile_pic']:
-                          profile_pic = trans_user['users_profile_pic']
-                        else:
-                          profile_pic = '_/theme/account.png'
-                    # Fetch username from wallet_user table using receiver_phone
+                            profile_pic = '_/theme/account.png'
                     
-                    if (transaction['users_transaction_phone']==self.user['users_phone'] and transaction['users_transaction_type'] == 'Debit') : 
+                    if transaction['users_transaction_type'] == 'Debit' and transaction['users_transaction_phone'] == self.user['users_phone']:
+                        trans_user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_receiver_phone'])
+                        if trans_user:
+                            if trans_user['users_profile_pic']:
+                                profile_pic = trans_user['users_profile_pic']
+                            else:
+                                profile_pic = '_/theme/account.png'
+                    
+                    if transaction['users_transaction_receiver_type'] == 'Credit' and transaction['users_transaction_receiver_phone'] == self.user['users_phone']:
+                        trans_user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
+                        if trans_user:
+                            if trans_user['users_profile_pic']:
+                                profile_pic = trans_user['users_profile_pic']
+                            else:
+                                profile_pic = '_/theme/account.png'
+
+                    # Fetch username from wallet_user table using receiver_phone
+                    if (transaction['users_transaction_phone'] == self.user['users_phone'] and transaction['users_transaction_type'] == 'Debit'):
                         receiver_user = app_tables.wallet_users.get(users_phone=receiver_phone)
                         receiver_username = receiver_user['users_username']
-                    elif (transaction['users_transaction_receiver_phone']==self.user['users_phone'] and transaction['users_transaction_receiver_type'] == 'Credit') :
+                    elif (transaction['users_transaction_receiver_phone'] == self.user['users_phone'] and transaction['users_transaction_receiver_type'] == 'Credit'):
                         receiver_user = app_tables.wallet_users.get(users_phone=transaction['users_transaction_phone'])
                         receiver_username = receiver_user['users_username']
                     else:
                         receiver_username = self.user['users_username']
-        
+
                     # Set the transaction text and color based on transaction type
-                    if transaction['users_transaction_receiver_type'] == 'Credit' and transaction['users_transaction_receiver_phone']==self.user['users_phone']:
+                    if transaction['users_transaction_receiver_type'] == 'Credit' and transaction['users_transaction_receiver_phone'] == self.user['users_phone']:
                         transaction_text = "Received"
                         fund_display = "+" + str(fund)
                         fund_color = "green"
-                    elif transaction['users_transaction_phone']==self.user['users_phone'] and  transaction['users_transaction_type']  == 'Debit':
+                    elif transaction['users_transaction_phone'] == self.user['users_phone'] and transaction['users_transaction_type'] == 'Debit':
                         transaction_text = "Sent"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
-                    elif transaction['users_transaction_type'] == 'Deposited':  
+                    elif transaction['users_transaction_type'] == 'Deposited':
                         transaction_text = "Deposit"
                         fund_display = "+" + str(fund)
                         fund_color = "green"
@@ -108,7 +118,7 @@ class customer(customerTemplate):
                         transaction_text = "Auto Topup"
                         fund_display = "+" + str(fund)
                         fund_color = "green"
-                    elif transaction['users_transaction_type']== 'Withdrawn':
+                    elif transaction['users_transaction_type'] == 'Withdrawn':
                         transaction_text = "Withdrawn"
                         fund_display = "-" + str(fund)
                         fund_color = "red"
@@ -116,7 +126,7 @@ class customer(customerTemplate):
                         transaction_text = "Unknown"
                         fund_display = str(fund)
                         fund_color = "black"
-        
+
                     # Append transaction details with username, transaction text, time, and day
                     self.repeating_panel_2_items.append({
                         'fund': fund_display,
@@ -124,30 +134,31 @@ class customer(customerTemplate):
                         'transaction_text': transaction_text,
                         'transaction_time': transaction_time,
                         'fund_color': fund_color,
-                        'default_currency':default_currency,
-                        'profile_pic':profile_pic,
-                        'bank_name':transaction['users_transaction_bank_name']
+                        'default_currency': default_currency,
+                        'profile_pic': profile_pic,
+                        'bank_name': transaction['users_transaction_bank_name']
                     })
-        
+
                     # Limit the maximum number of history entries to display
                     if len(self.repeating_panel_2_items) >= max_history_entries:
                         break
-                # h=268.2103271484375-207.65887451171875 92.59344482421875
+
+                # Update spacer heights based on the number of history entries
                 if len(self.repeating_panel_2_items) == 1:
-                  self.spacer_3.visible = True
-                  self.spacer_3.height =9.051422119140625
-                  self.spacer_2.height =268.2103271484375
+                    self.spacer_3.visible = True
+                    self.spacer_3.height = 9.051422119140625
+                    self.spacer_2.height = 268.2103271484375
                 elif len(self.repeating_panel_2_items) == 2:
-                  self.spacer_2.height = 204.65887451171875
+                    self.spacer_2.height = 204.65887451171875
                 elif len(self.repeating_panel_2_items) == 3:
-                  self.spacer_2.height = 105.59344482421875
-                  self.spacer_3.visible = True
-                  self.spacer_3.height =3.45
+                    self.spacer_2.height = 105.59344482421875
+                    self.spacer_3.visible = True
+                    self.spacer_3.height = 3.45
                 elif len(self.repeating_panel_2_items) == 4:
-                  self.spacer_2.height =  26.799102783203125
+                    self.spacer_2.height = 26.799102783203125
                 elif len(self.repeating_panel_2_items) == 5:
-                  self.spacer_2.visible=False
-                   
+                    self.spacer_2.visible = False
+
                 self.repeating_panel_2.items = self.repeating_panel_2_items
 
     def inr_balance(self, balance, currency_type):
@@ -557,5 +568,9 @@ class customer(customerTemplate):
 
     def link_help_click(self, **event_args):
         open_form("help",user = self.user)
+
+    def clik_dashboard(self, **event_args):
+      """This method is called when the link is clicked"""
+      open_form("customer",user=self.user)
 
    

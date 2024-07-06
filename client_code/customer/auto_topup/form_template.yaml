@@ -48,7 +48,7 @@ components:
             event_bindings: {click: link_1_click}
             components:
             - name: xy_panel_3_copy_copy
-              properties: {height: 25.79998779296875}
+              properties: {height: 42.79998779296875}
               type: XYPanel
               layout_properties: {grid_position: 'PRINHC,DJVLGM'}
               components:
@@ -67,7 +67,7 @@ components:
             event_bindings: {click: link_2_click}
             components:
             - name: xy_panel_3_copy_2
-              properties: {height: 25.79998779296875}
+              properties: {height: 47.79998779296875}
               type: XYPanel
               layout_properties: {grid_position: 'UGBIQG,ZOWGTZ'}
               components:
@@ -86,7 +86,7 @@ components:
             event_bindings: {click: link_3_click}
             components:
             - name: xy_panel_4_copy
-              properties: {height: 25.79998779296875}
+              properties: {height: 53.79998779296875}
               type: XYPanel
               layout_properties: {grid_position: 'GFNOAT,RRSEJM'}
               components:
@@ -105,7 +105,7 @@ components:
             event_bindings: {click: link_10_click}
             components:
             - name: xy_panel_5_copy_copy
-              properties: {height: 25.79998779296875}
+              properties: {height: 43.79998779296875}
               type: XYPanel
               layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
               components:
@@ -126,7 +126,7 @@ components:
             event_bindings: {click: link_4_click}
             components:
             - name: xy_panel_5_copy_2
-              properties: {height: 25.79998779296875}
+              properties: {height: 52.79998779296875}
               type: XYPanel
               layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
               components:
@@ -145,7 +145,7 @@ components:
             event_bindings: {click: link_5_withdraw_click}
             components:
             - name: xy_panel_6_copy
-              properties: {height: 25.79998779296875}
+              properties: {height: 46.79998779296875}
               type: XYPanel
               layout_properties: {grid_position: 'WAPTBK,USGOHT'}
               components:
@@ -164,7 +164,7 @@ components:
             event_bindings: {click: link_6_click}
             components:
             - name: xy_panel_7_copy
-              properties: {height: 25.79998779296875}
+              properties: {height: 40.79998779296875}
               type: XYPanel
               layout_properties: {grid_position: 'QIZNTB,ORSKYD'}
               components:
@@ -183,7 +183,7 @@ components:
             event_bindings: {click: link_7_click}
             components:
             - name: xy_panel_3_copy_5_copy
-              properties: {height: 25.79998779296875}
+              properties: {height: 35.79998779296875}
               type: XYPanel
               layout_properties: {grid_position: 'COBIJQ,OESMMA'}
               components:
@@ -203,7 +203,7 @@ components:
               grid_position: AEYCLX,XESVGI
             components:
             - type: XYPanel
-              properties: {height: 38}
+              properties: {height: 52}
               name: xy_panel_2
               layout_properties: {grid_position: 'GBCBBV,XYROPB'}
               components:
@@ -224,7 +224,7 @@ components:
               grid_position: VPHCUH,VIKJXZ
             components:
             - name: xy_panel_3_copy_9
-              properties: {height: 31.79998779296875}
+              properties: {height: 53.79998779296875}
               type: XYPanel
               layout_properties: {grid_position: 'DJMZEW,SKYWUA'}
               components:
@@ -245,7 +245,7 @@ components:
               grid_position: XJHTFD,ZEMPXS
             components:
             - name: xy_panel_6
-              properties: {height: 30.79998779296875}
+              properties: {height: 36.79998779296875}
               type: XYPanel
               layout_properties: {grid_position: 'WAPTBK,USGOHT'}
               components:
@@ -263,7 +263,7 @@ components:
             name: spacer_2
             layout_properties: {grid_position: 'GIZZTS,AXMCXJ'}
       - name: label_1
-        properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: true, font_size: 25, tooltip: '', text: Auto-Topup}
+        properties: {role: null, bold: true, align: center, spacing_above: small, background: '#258ee1', icon: '', underline: false, font: '', icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 25, tooltip: '', text: Auto-Topup}
         type: Label
         layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCCHCB,FJRJTH'}
       - name: flow_panel_1

@@ -15,6 +15,8 @@ class transfer(transferTemplate):
         # Initialize self.user as a dictionary 
         self.init_components(**properties) 
         self.user = user
+        self.timer_1.interval = 3
+        self.timer_1.enabled = False
         # Set Form properties and Data Bindings.
         username = anvil.server.call('get_username', self.user['users_phone'])
         #self.label_1.text = f"Welcome to Green Gate Financial, {username}"
@@ -234,6 +236,36 @@ class transfer(transferTemplate):
 
   
 
+    def text_box_3_change(self, **event_args):
+        """This method is called when the text in this text box is edited"""
+        self.timer_1.enabled = True
+        user_input = self.text_box_3.text
+        processed_value = self.process_input(user_input)
+        self.text_box_3.text = processed_value
+  
+    
+    def process_input(self, user_input):
+      try:
+        if user_input == None: # Convert the input to a float
+          formatted_value = ''
+        else:
+          value = float(user_input)
+          # Check if the value is an integer or a float with significant digits
+          if value.is_integer():
+              # If it's an integer, format without decimals
+              formatted_value = '{:.0f}'.format(value)
+          else:
+              # If it's a float, format with significant digits
+              formatted_value = '{:.15g}'.format(value)
+          
+        
+        return formatted_value
+      except ValueError:
+        return user_input 
+  
+    def timer_1_tick(self, **event_args):
+      """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
+      pass
 
 
 

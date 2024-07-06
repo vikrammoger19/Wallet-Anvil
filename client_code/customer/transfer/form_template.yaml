@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: card_111
-    properties: {role: null, col_widths: '{"XNZCHX":15,"CSXXAZ":45,"QLXILY":2,"ODQCJM":13,"QXYOJO":2,"RYEOOA":14,"MNIDKT":3,"OVSSIU":13,"GHOKGX":2,"BJPWVR":13,"IXSDOJ":2,"TBHNCL":2,"ZRUBKX":12,"SUGFAK":2,"ROHVQF":13,"MCHCFA":3,"POJQZG":12,"UQBKCD":2,"JWFPTJ":12,"WQYXTE":2,"SGXBKF":2,"CVKESU":12,"OSPTQU":2,"GJLGIA":13,"QGGUGF":3,"BAGZVB":12,"CCJPEK":2,"SJJINH":12,"JGBGHW":2,"MRVVFP":2,"KRGWQT":12,"VSMKON":2,"ZQOFTW":13,"JPDOFS":3,"SKYSJQ":12,"JDWUXZ":2,"ALCRDU":12,"LNQZHY":2}', background: 'theme:White'}
+    properties: {role: null, col_widths: '{"XNZCHX":15,"CSXXAZ":45,"QLXILY":2,"ODQCJM":13,"QXYOJO":2,"RYEOOA":14,"MNIDKT":2,"OVSSIU":13,"GHOKGX":2,"BJPWVR":12,"IXSDOJ":4,"TBHNCL":2,"ZRUBKX":12,"SUGFAK":2,"ROHVQF":13,"MCHCFA":2,"POJQZG":12,"UQBKCD":2,"JWFPTJ":11,"WQYXTE":4,"SGXBKF":2,"CVKESU":12,"OSPTQU":2,"GJLGIA":13,"QGGUGF":2,"BAGZVB":12,"CCJPEK":2,"SJJINH":11,"JGBGHW":4,"MRVVFP":2,"KRGWQT":12,"VSMKON":2,"ZQOFTW":13,"JPDOFS":2,"SKYSJQ":12,"JDWUXZ":2,"ALCRDU":10,"LNQZHY":5}', background: 'theme:White'}
     type: ColumnPanel
     layout_properties: {grid_position: 'QFPCNU,EUESGD', full_width_row: true}
     components:
@@ -43,7 +43,7 @@ components:
           event_bindings: {click: link_1_click}
           components:
           - name: xy_panel_3_copy_copy
-            properties: {height: 25.79998779296875}
+            properties: {height: 47.79998779296875}
             type: XYPanel
             layout_properties: {grid_position: 'PRINHC,DJVLGM'}
             components:
@@ -62,7 +62,7 @@ components:
           event_bindings: {click: link_2_click}
           components:
           - name: xy_panel_3_copy_2
-            properties: {height: 25.79998779296875}
+            properties: {height: 47.79998779296875}
             type: XYPanel
             layout_properties: {grid_position: 'UGBIQG,ZOWGTZ'}
             components:
@@ -81,7 +81,7 @@ components:
           event_bindings: {click: link_3_click}
           components:
           - name: xy_panel_4_copy
-            properties: {height: 25.79998779296875}
+            properties: {height: 44.79998779296875}
             type: XYPanel
             layout_properties: {grid_position: 'GFNOAT,RRSEJM'}
             components:
@@ -100,7 +100,7 @@ components:
           event_bindings: {click: link_10_click}
           components:
           - name: xy_panel_5_copy_copy
-            properties: {height: 25.79998779296875}
+            properties: {height: 43.79998779296875}
             type: XYPanel
             layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
             components:
@@ -121,7 +121,7 @@ components:
           event_bindings: {click: link_4_click}
           components:
           - name: xy_panel_5_copy_2
-            properties: {height: 25.79998779296875}
+            properties: {height: 49.79998779296875}
             type: XYPanel
             layout_properties: {grid_position: 'WSDGDY,LLGXOK'}
             components:
@@ -134,24 +134,24 @@ components:
               type: Label
               layout_properties: {x: 95, y: 0, width: 76.625}
         - name: link_5_copy
-          properties: {text: '', bold: true, align: center}
+          properties: {text: '', bold: true, align: center, col_widths: '{}'}
           type: Link
           layout_properties: {grid_position: 'MAEOBJ,IHGTRI'}
           event_bindings: {click: link_5_click}
           components:
           - name: xy_panel_6_copy
-            properties: {height: 25.79998779296875}
+            properties: {height: 37.79998779296875, width: 310.83299999999997}
             type: XYPanel
-            layout_properties: {grid_position: 'WAPTBK,USGOHT'}
+            layout_properties: {grid_position: 'ZRFKJF,WUGIRK'}
             components:
             - name: image_4_copy_4_copy
               properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/wdraw.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 26}
               type: Image
-              layout_properties: {x: 38, y: 5, width: 41}
+              layout_properties: {x: 40, y: 5, width: 41}
             - name: label_3_copy_3_copy
               properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Withdraw money}
               type: Label
-              layout_properties: {x: 95, y: 0, width: 112.3523}
+              layout_properties: {x: 91, y: 0, width: 113.344}
         - name: link_6_copy
           properties: {text: '', align: center, bold: true}
           type: Link
@@ -159,7 +159,7 @@ components:
           event_bindings: {click: link_6_click}
           components:
           - name: xy_panel_7_copy
-            properties: {height: 25.79998779296875}
+            properties: {height: 43.79998779296875}
             type: XYPanel
             layout_properties: {grid_position: 'QIZNTB,ORSKYD'}
             components:
@@ -178,7 +178,7 @@ components:
           event_bindings: {click: link_7_click}
           components:
           - name: xy_panel_3_copy_5_copy
-            properties: {height: 25.79998779296875}
+            properties: {height: 43.79998779296875}
             type: XYPanel
             layout_properties: {grid_position: 'COBIJQ,OESMMA'}
             components:
@@ -197,7 +197,7 @@ components:
           event_bindings: {click: link_8_click}
           components:
           - name: xy_panel_3_copy_6_copy
-            properties: {height: 25.79998779296875}
+            properties: {height: 35.79998779296875}
             type: XYPanel
             layout_properties: {grid_position: 'DJMZEW,SKYWUA'}
             components:
@@ -217,7 +217,7 @@ components:
             grid_position: GNGOBJ,XTXYXW
           components:
           - name: xy_panel_3_copy_9
-            properties: {height: 25.79998779296875}
+            properties: {height: 50.79998779296875}
             type: XYPanel
             layout_properties: {grid_position: 'DJMZEW,SKYWUA'}
             components:
@@ -238,14 +238,14 @@ components:
             grid_position: BEYCOF,AEOQFG
           components:
           - name: xy_panel_6
-            properties: {height: 25.79998779296875}
+            properties: {height: 33.79998779296875}
             type: XYPanel
             layout_properties: {grid_position: 'WAPTBK,USGOHT'}
             components:
             - name: label_3_copy_3
               properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Help}
               type: Label
-              layout_properties: {x: 95, y: 0, width: 112.3523}
+              layout_properties: {x: 95, y: 0, width: 88.3523}
             - name: image_4_copy_4
               properties: {role: null, vertical_align: center, alt_text: '', spacing_above: small, background: '', horizontal_align: center, source: _/theme/customer-support.png, foreground: '', display_mode: shrink_to_fit, spacing_below: small, visible: true, border: '', tooltip: '', height: 26}
               type: Image
@@ -256,7 +256,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ GCCHCB,FJRJTH', full_width_row: true}
     - name: spacer_6
-      properties: {height: 16.5}
+      properties: {height: 20.75}
       type: Spacer
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ NWFOEJ,VQSFPW'}
     - name: spacer_14
@@ -338,7 +338,7 @@ components:
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_3_copy
-      properties: {height: 32}
+      properties: {height: 20.75}
       type: Spacer
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ SCDQUF,MNIDKT', full_width_row: true}
     - name: card_3
@@ -419,12 +419,16 @@ components:
       properties: {height: 33}
       type: Spacer
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ SCDQUF,IXSDOJ', full_width_row: true}
+    - name: spacer_1
+      properties: {height: 24.25}
+      type: Spacer
+      layout_properties: {grid_position: 'FRVCAC,CSXXAZ LNZDIL,BQYRVN'}
     - name: spacer_15
       properties: {height: 7.999969482421875}
       type: Spacer
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ NIGVSL,TBHNCL', full_width_row: true}
     - name: card_5
-      properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":20,"DYNMSH":40,"TTALBD":19,"VZEOPY":41}', background: '', visible: false, col_spacing: medium, spacing_above: small}
+      properties: {role: card, col_widths: '{"GUJCHK":20,"ZLHUGJ":26,"DYNMSH":34,"TTALBD":19,"VZEOPY":41}', background: '', visible: false, col_spacing: medium, spacing_above: small}
       type: ColumnPanel
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ NIGVSL,ZRUBKX', full_width_row: true}
       components:
@@ -452,10 +456,14 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      - name: spacer_22
+        properties: {height: -0.5}
+        type: Spacer
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY AHKBWZ,LXFORN'}
       - name: label_10
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY TEWOYZ,YPFIMP'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_17
@@ -491,10 +499,14 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      - name: spacer_13
+        properties: {height: -2.25}
+        type: Spacer
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY QRXJQQ,WAGXMR'}
       - name: label_12
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY FWKVHD,TPMBGL'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_9
@@ -530,10 +542,14 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      - name: spacer_7
+        properties: {height: -2}
+        type: Spacer
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY TXPZFY,YVQGAY'}
       - name: label_14
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY VEDBDC,QDJYWJ'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_8
@@ -569,16 +585,24 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'GIQXVY,GXWTEF CZCMYL,VFTTOE'}
+      - name: spacer_5
+        properties: {height: -1.25}
+        type: Spacer
+        layout_properties: {grid_position: 'GIQXVY,ECBIWK FPEYPJ,ULRMXS'}
       - name: label_16
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'GIQXVY,ECBIWK'}
+        layout_properties: {grid_position: 'GIQXVY,ECBIWK JAQIDA,LZYQNP'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_7_copy
       properties: {height: 8.444427490234375}
       type: Spacer
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ NIGVSL,WQYXTE', full_width_row: true}
+    - name: spacer_3
+      properties: {height: 25.75}
+      type: Spacer
+      layout_properties: {grid_position: 'FRVCAC,CSXXAZ JQFHMP,VPAYTN'}
     - name: spacer_18
       properties: {height: 4.666656494140625}
       type: Spacer
@@ -612,10 +636,14 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      - name: spacer_26
+        properties: {height: 0}
+        type: Spacer
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY ZZGJAC,DOOGYS'}
       - name: label_18
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY SEJDJY,ATCZTC'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_19
@@ -651,10 +679,14 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      - name: spacer_25
+        properties: {height: -1}
+        type: Spacer
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY XQSWEZ,KCNGIP'}
       - name: label_20
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY PXMDZQ,QIXNRT'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_10
@@ -690,10 +722,14 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      - name: spacer_24
+        properties: {height: -0.75}
+        type: Spacer
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY SNSDGI,ZMIPYG'}
       - name: label_22
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY JIHMZW,MQCRAS'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_11
@@ -729,16 +765,24 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      - name: spacer_23
+        properties: {height: -2.25}
+        type: Spacer
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY EWOGHC,HGFDRV'}
       - name: label_24
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY IHUOUF,PROZOY'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_12
       properties: {height: 7}
       type: Spacer
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ TEIZSN,JGBGHW', full_width_row: true}
+    - name: spacer_4
+      properties: {height: 27}
+      type: Spacer
+      layout_properties: {grid_position: 'FRVCAC,CSXXAZ SUKKRJ,FPCYHJ'}
     - name: spacer_20
       properties: {height: 4.666656494140625}
       type: Spacer
@@ -772,10 +816,14 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      - name: spacer_30
+        properties: {height: -0.75}
+        type: Spacer
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY TDMIOJ,AHXCTW'}
       - name: label_26
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY QPPUME,AROYWC'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_3_copy_3
@@ -811,10 +859,14 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      - name: spacer_29
+        properties: {height: -7}
+        type: Spacer
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY RGIEPZ,YEIRKM'}
       - name: label_28
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY FOUCSC,XRQSDL'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_3_copy_copy
@@ -850,10 +902,14 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      - name: spacer_28
+        properties: {height: -1}
+        type: Spacer
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY JLWBCK,HFCLGQ'}
       - name: label_30
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY CWRPUS,NLRXES'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_3_copy_2
@@ -889,10 +945,14 @@ components:
         properties: {text: 'Balance:', foreground: 'theme:Gray 600', align: left}
         type: Label
         layout_properties: {grid_position: 'MXJVRD,TTALBD GIQXVY,GXWTEF'}
+      - name: spacer_27
+        properties: {height: -0.5}
+        type: Spacer
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY YCCZFU,UGADBL'}
       - name: label_32
         properties: {font_size: 18, bold: true, align: left, foreground: Black}
         type: Label
-        layout_properties: {grid_position: 'MXJVRD,VZEOPY'}
+        layout_properties: {grid_position: 'MXJVRD,VZEOPY GZHQDX,BRIJJB'}
         data_bindings:
         - {property: text, code: 'self.item[''balance'']', writeback: false}
     - name: spacer_21
@@ -904,10 +964,6 @@ components:
       type: ColumnPanel
       layout_properties: {grid_position: 'FRVCAC,CSXXAZ KASDMD,FWDPPB'}
       components:
-      - name: label_4000
-        properties: {align: center, visible: false}
-        type: Label
-        layout_properties: {grid_position: 'MCBSJY,AEKVPR'}
       - type: XYPanel
         properties: {height: 290, width: 775.988}
         name: xy_panel_1
@@ -930,7 +986,7 @@ components:
           properties: {role: null, bold: false, align: left, placeholder: '', spacing_above: small, background: white, type: number, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: 18, tooltip: '', text: ''}
           type: TextBox
           layout_properties: {x: 239.79165649414062, y: 23.25225830078125, width: 425.96099999999996}
-          event_bindings: {}
+          event_bindings: {change: text_box_3_change}
         - name: label_8_copy
           properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 16, tooltip: '', text: 'Choose Currency:'}
           type: Label
@@ -1036,3 +1092,6 @@ components:
         properties: {height: 46.39996337890625, source: _/theme/letter-g.png}
         type: Image
         layout_properties: {x: 43.624996948987246, y: 54.000003814697266, width: 83.5875015258789}
+- type: Timer
+  properties: {}
+  name: timer_1

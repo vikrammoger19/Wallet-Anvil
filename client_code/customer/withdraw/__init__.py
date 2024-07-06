@@ -17,6 +17,8 @@ class withdraw(withdrawTemplate):
     self.user = user
     # Set Form properties and Data Bindings.
     username = anvil.server.call('get_username', self.user['users_phone'])
+    self.timer_1.interval = 3
+    self.timer_1.enabled = False
     #self.label_1.text = f"Welcome to Green Gate Financial, {username}"
     bank_names = anvil.server.call('get_user_bank_name', self.user['users_phone'])
     
@@ -45,6 +47,7 @@ class withdraw(withdrawTemplate):
   
           # Iterate over user balances and update card components
           for balance in user_balances:
+             
               currency_type = balance['users_balance_currency_type']
               balance_amount = round(balance['users_balance'], 2)  # Round to 2 decimal places
   
@@ -52,7 +55,7 @@ class withdraw(withdrawTemplate):
               currency_record = app_tables.wallet_admins_add_currency.get(admins_add_currency_code=currency_type)
               currency_icon = currency_record['admins_add_currency_icon'] if currency_record else None
               country = currency_record['admins_add_currency_country'] if currency_record else None
-  
+                   
               # Get card and components for the current index
               card = getattr(self, f'card_{card_index}', None)
               label_curr_type = getattr(self, f'label_{label_index}', None)
@@ -98,17 +101,11 @@ class withdraw(withdrawTemplate):
     current_datetime = datetime.now()
     acc = self.drop_down_1.selected_value
     cur = self.drop_down_2.selected_value
-    money = float(self.text_box_2.text)
-    endpoint = 'convert'
-    api_key = 'a2qfoReWfa7G3GiDHxeI1f9BFXYkZ2wT'
+    money_value = float(self.text_box_2.text)
 
     if acc is None or cur is None:
         alert('Please enter bank details')
     else:
-        base_currency = 'INR'
-        resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
-        money_value = resp['response']['value']
-        
         if self.user:
             # Retrieve user data
             user_data = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
@@ -132,40 +129,33 @@ class withdraw(withdrawTemplate):
             # Check if a balance row already exists for the user
             existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'], users_balance_currency_type=cur)
 
-            if existing_balance:
+            if existing_balance and existing_balance['users_balance'] >= money_value:
                 # Update the existing balance
                 existing_balance['users_balance'] -= money_value
-            else:
-                # Add a new row for the user if no existing balance
-                app_tables.wallet_users_balance.add_row(
-                    users_balance_currency_type=cur,
-                    users_balance=money_value,
-                    users_balance_phone=self.user['users_phone']
-                )
 
-            # Add a new transaction row
-            app_tables.wallet_users_transaction.add_row(
-                users_transaction_phone=self.user['users_phone'],
-                users_transaction_fund=money_value,
-                users_transaction_currency=cur,
-                users_transaction_date=current_datetime,
-                users_transaction_bank_name=acc,
-                users_transaction_type="Withdrawn",
-                users_transaction_status="Wallet-Withdraw",
-                users_transaction_receiver_phone=self.user['users_phone']
-            )
+                # Add a new transaction row
+                app_tables.wallet_users_transaction.add_row(
+                    users_transaction_phone=self.user['users_phone'],
+                    users_transaction_fund=money_value,
+                    users_transaction_currency=cur,
+                    users_transaction_date=current_datetime,
+                    users_transaction_bank_name=acc,
+                    users_transaction_type="Withdrawn",
+                    users_transaction_status="Wallet-Withdraw",
+                    users_transaction_receiver_phone=self.user['users_phone']
+                )
+                alert("Money withdrawn successfully from the account")
+            else:
+                alert("Withdraw amount is more than the available balance")
 
             # Update the limits
             user_data['users_daily_limit'] -= money_value
             user_data['users_user_limit'] -= money_value
 
-            #self.label_200.text = "Money withdrawn successfully from the account"
-            alert("Money withdrawn successfully from the account")
             self.populate_balances()
         else:
-            #self.label_200.text = "Error: No matching accounts found for the user or invalid account number."
             alert("Error: No matching accounts found for the user or invalid account number.")
-  
+
   def link_2_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form("customer.walletbalance",user=self.user)
@@ -215,4 +205,36 @@ class withdraw(withdrawTemplate):
   def link_5_click(self, **event_args):
     open_form("customer.withdraw",user = self.user)
 
+  def text_box_2_change(self, **event_args):
+    """This method is called when the text in this text box is edited"""
+    self.timer_1.enabled = True
+    user_input = self.text_box_2.text
+    processed_value = self.process_input(user_input)
+    self.text_box_2.text = processed_value
+
   
+  def process_input(self, user_input):
+    try:
+      if user_input == None: # Convert the input to a float
+        formatted_value = ''
+      else:
+        value = float(user_input)
+        # Check if the value is an integer or a float with significant digits
+        if value.is_integer():
+            # If it's an integer, format without decimals
+            formatted_value = '{:.0f}'.format(value)
+        else:
+            # If it's a float, format with significant digits
+            formatted_value = '{:.15g}'.format(value)
+        
+      
+      return formatted_value
+    except ValueError:
+      return user_input 
+
+  def timer_1_tick(self, **event_args):
+    """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
+    pass
+
+ 
+
