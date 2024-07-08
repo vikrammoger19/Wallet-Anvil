@@ -108,7 +108,7 @@ class deposit(depositTemplate):
             alert('Please choose a currency')
           else:
             base_currency = self.user['users_defaultcurrency']
-            #base_currency = 'INR'
+    
             resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
             money_value=resp['response']['value']
             if self.user :
