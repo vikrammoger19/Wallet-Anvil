@@ -16,14 +16,8 @@ class help(helpTemplate):
     self.user = user
 
     # Fetch data from wallet_users_service table and display it
-    self.display_service_data()
-
-  def display_service_data(self):
-    # Fetch data from wallet_users_service table
-    service_data = app_tables.wallet_users_service.search()
-    
-    # Bind the data to the repeating panel
-    self.repeating_panel_1.items = service_data
+    if user is not None:
+            self.repeating_panel_1.items = app_tables.wallet_users_service.search()
 
   def button_1_click(self, **event_args):
     query = self.text_area_1.text
