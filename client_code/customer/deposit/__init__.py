@@ -100,7 +100,8 @@ class deposit(depositTemplate):
         api_key = 'lPBproNAjF3AjvE2nM1obshWlRMzvdQo'
         # Set base currency and any other parameters (replace 'USD' with your desired base currency
 
-        if 
+        if money <= 0:
+          alert(f"payment must be atleast {curr}")
         
         if self.drop_down_1.selected_value == None:
           alert('Please select a bank account')
