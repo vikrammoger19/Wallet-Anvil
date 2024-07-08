@@ -10,68 +10,75 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 
 
+from ._anvil_designer import helpTemplate
+from anvil import *
+
 class help(helpTemplate):
-  def __init__(self, user=None, **properties):
-    self.init_components(**properties)
-    self.user = user
-
-    # Fetch data from wallet_users_service table and display it
-    if user is not None:
-            self.repeating_panel_1.items = app_tables.wallet_users_service.search()
-
-  def button_1_click(self, **event_args):
-    query = self.text_area_1.text
-    # Fetch user information from the "wallet_users" table
-    user_info = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
-
-    if user_info is not None:
-        # Update the "wallet_users_service" table with the query and user information
-        app_tables.wallet_users_service.add_row(
-            users_service_username=user_info['users_username'],
-            users_service_phone=user_info['users_phone'],
-            users_service_query=query,
-            users_service_email=user_info['users_email']
-        )
-        alert("Your query has been submitted, and our Technical Executive will get in touch with you")
+    def __init__(self, user=None, **properties):
+        # Set Form properties and Data Bindings.
+        self.user = user
+        self.init_components(**properties)
         
-        # Refresh the repeating panel data after submission
-        self.display_service_data()
-    else:
-        alert("User information not found.")
+        if user is not None:
+            # Fetch and display data from wallet_users_service table
+            self.refresh_repeating_panel()
 
-  def link_2_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form("customer.deposit",user=self.user)
+    def refresh_repeating_panel(self):
+        # Fetch all data from wallet_users_service and display in repeating panel
+        self.repeating_panel_1.items = app_tables.wallet_users_service.search()
 
-  def link_3_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form("customer.transfer",user=self.user)
+    def button_1_click(self, **event_args):
+        """This method is called when button 1 is clicked"""
+        query = self.text_area_1.text
+        
+        # Fetch user information from wallet_users table
+        user_info = app_tables.wallet_users.get(users_phone=self.user['users_phone'])
 
-  def link_4_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form("customer.withdraw",user=self.user)
+        if user_info is not None:
+            # Add query to wallet_users_service table
+            app_tables.wallet_users_service.add_row(
+                users_service_username=user_info['users_username'],
+                users_service_phone=user_info['users_phone'],
+                users_service_query=query,
+                users_service_email=user_info['users_email']
+            )
+            alert("Your query has been submitted. Our Technical Executive will get in touch with you.")
+            
+            # Refresh the repeating panel to show updated data
+            self.refresh_repeating_panel()
+        else:
+            alert("User information not found.")
 
-  def link_7_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form("customer", user=self.user)
+    def link_2_click(self, **event_args):
+        """This method is called when link 2 is clicked"""
+        open_form("customer.deposit", user=self.user)
 
-  def link_13_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form("Home")
+    def link_3_click(self, **event_args):
+        """This method is called when link 3 is clicked"""
+        open_form("customer.transfer", user=self.user)
 
-  # def link_8_click(self, **event_args):
-  #   """This method is called when the link is clicked"""
-  #   open_form("customer.service",user=self.user)
+    def link_4_click(self, **event_args):
+        """This method is called when link 4 is clicked"""
+        open_form("customer.withdraw", user=self.user)
 
-  def link_1_copy_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('customer.interaction',user=self.user)
-  def link_1_copy_copy_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('customer.report_bug',user=self.user)
+    def link_7_click(self, **event_args):
+        """This method is called when link 7 is clicked"""
+        open_form("customer", user=self.user)
 
-  def link_26_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    open_form('FAQ')
+    def link_13_click(self, **event_args):
+        """This method is called when link 13 is clicked"""
+        open_form("Home")
 
-  
+    def link_1_copy_click(self, **event_args):
+        """This method is called when link 1 copy is clicked"""
+        open_form('customer.interaction', user=self.user)
+
+    def link_1_copy_copy_click(self, **event_args):
+        """This method is called when link 1 copy copy is clicked"""
+        open_form('customer.report_bug', user=self.user)
+
+    def link_26_click(self, **event_args):
+        """This method is called when link 26 is clicked"""
+        open_form('FAQ')
+
+    
