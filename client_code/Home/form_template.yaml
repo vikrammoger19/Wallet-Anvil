@@ -92,10 +92,6 @@ components:
         properties: {height: 32}
         type: Spacer
         layout_properties: {row: VCGYTM, width_xs: 2, col_xs: 5}
-      - name: label_1
-        properties: {}
-        type: Label
-        layout_properties: {row: RYUSXH, width_xs: 5, col_xs: 3}
       - name: label_3_copy
         properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: a, icon_align: left, foreground: white, spacing_below: small, visible: true, border: '', italic: false, font_size: 30, tooltip: '', text: Empower your finances with G-Wallet and transcend borders with ease.}
         type: Label
