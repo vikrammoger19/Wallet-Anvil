@@ -15,7 +15,7 @@ class help(helpTemplate):
     self.init_components(**properties)
     self.user = user
 
-    # Fetch data from wallet_users_service table
+    # Fetch data from wallet_users_service table and display it
     self.display_service_data()
 
   def display_service_data(self):
