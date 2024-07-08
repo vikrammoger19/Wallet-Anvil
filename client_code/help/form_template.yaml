@@ -78,7 +78,7 @@ components:
         type: Spacer
         layout_properties: {grid_position: 'HYBODQ,UIGXHN'}
       - name: link_1
-        properties: {align: right, text: Previous Queries, spacing_below: none, foreground: '', visible: true}
+        properties: {align: right, text: Previous Queries!, spacing_below: none, foreground: '', visible: true}
         type: Link
         layout_properties: {grid_position: 'HYBODQ,GVFXAG'}
         event_bindings: {click: link_1_click}
@@ -91,18 +91,14 @@ components:
           properties: {align: center, bold: true, font_size: 30, text: 'How can we help you? '}
           type: Label
           layout_properties: {grid_position: 'TGEHVE,CGZGSJ'}
-        - name: spacer_1
-          properties: {height: 18.888885498046875}
-          type: Spacer
-          layout_properties: {grid_position: 'JWBBUZ,VWCWWM QGVTWE,JPVJHQ'}
         - name: label_1
-          properties: {align: center}
+          properties: {align: left, text: 'question?', font_size: 20}
           type: Label
-          layout_properties: {grid_position: 'JWBBUZ,VWCWWM ASSBNO,SDQHDI'}
+          layout_properties: {grid_position: 'JWBBUZ,YIWZQV UGNMOD,YMJMIA'}
         - name: text_area_1
-          properties: {height: 143.22216796875, bold: true, align: center, font_size: 20, text: Describe your issue, border: '', tooltip: ''}
+          properties: {height: 143.22216796875, bold: true, align: center, font_size: 20, text: '', border: '', tooltip: '', placeholder: Describe your issue}
           type: TextArea
-          layout_properties: {grid_position: 'JWBBUZ,YIWZQV'}
+          layout_properties: {grid_position: 'JWBBUZ,YIWZQV HEZQQM,KIKQJG'}
         - name: button_1
           properties:
             text: Submit
