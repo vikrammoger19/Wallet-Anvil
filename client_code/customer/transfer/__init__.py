@@ -107,7 +107,7 @@ class transfer(transferTemplate):
       # Use the entered phone number to identify the receiver's account
       receiver_balance = app_tables.wallet_users_balance.get(users_balance_phone=receiver_phone_number, users_balance_currency_type=cur)
       depositor_balance = app_tables.wallet_users_balance.get(users_balance_phone=depositor_phone_number, users_balance_currency_type=cur)
-      if trasfer_amount >0:
+      if transfer_amount >0:
         if depositor_balance:
             depositor = app_tables.wallet_users.get(users_phone=depositor_phone_number)
             
@@ -185,7 +185,7 @@ class transfer(transferTemplate):
     
         open_form('customer.transfer', user=self.user)
       else:
-        alert(f"payment amount must be atleast 1 {}")
+        alert(f"payment amount must be atleast 1 {cur}")
     def link_8_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form("customer.wallet",user=self.user)
