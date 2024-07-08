@@ -481,8 +481,20 @@ def get_notifications(user_phone):
   a=app_tables.wallet_users_notifications.search(users_notification_phone=user_phone)
   return a
 
+
+
 @anvil.server.callable
-def get_notification_details(phone,text,date):
-  a=app_tables.wallet_users_notifications.get(users_notification_date_time=date,users_notification_phone=phone,users_notification_text=text)
-  a.update(users_notification_read=True)
-  return a
+def update_user_status(item_id):
+    row = app_tables.wallet_users_service.get_by_id(item_id)
+    if row:
+        row['users_update'] = True
+        return row['users_update']
+    return False
+
+@anvil.server.callable
+def update_user_conclusion(item_id, conclusion):
+    row = app_tables.wallet_users_service.get_by_id(item_id)
+    if row:
+        row['users_conclusion_about_query'] = conclusion
+        return True
+    return False
