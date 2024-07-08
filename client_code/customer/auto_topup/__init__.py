@@ -73,37 +73,41 @@ class auto_topup(auto_topupTemplate):
         base_currency = 'INR'
         resp = anvil.http.request(f"https://api.currencybeacon.com/v1/{endpoint}?from={base_currency}&to={cur}&amount={money}&api_key={api_key}", json=True)
         money_value=resp['response']['value']
-        if self.user :
-          # Check if a balance row already exists for the user
-          existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur) 
-          if existing_balance['users_balance'] < int(w_bal):
-            self.user['users_minimum_topup'] = True
-            self.user['users_minimum_topup_amount_below']=int(self.drop_down_1.selected_value)
-            existing_balance['users_balance'] += money_value
-            
-            new_transaction = app_tables.wallet_users_transaction.add_row(
-                  users_transaction_phone=self.user['users_phone'],
-                  users_transaction_fund=money_value,
-                  users_transaction_date=current_datetime,
-                  users_transaction_currency=cur,
-                  users_transaction_type="Auto Topup",
-                  users_transaction_status="Minimum-Topup",
-                  users_transaction_receiver_phone=self.user['users_phone']
-              )
-            #self.label_4.text = "Minimum-topup payment has been successfully added to your account."
-            alert("Minimum-topup payment has been successfully added to your account.")
-            self.text_box_1.text = ""
-            print("minimum topup added") 
-            #open_form('customer_page', user=self.user)
+        if money >0:
+          if self.user :
+            # Check if a balance row already exists for the user
+            existing_balance = app_tables.wallet_users_balance.get(users_balance_phone=self.user['users_phone'],users_balance_currency_type=cur) 
+            if existing_balance['users_balance'] < int(w_bal):
+              self.user['users_minimum_topup'] = True
+              self.user['users_minimum_topup_amount_below']=int(self.drop_down_1.selected_value)
+              existing_balance['users_balance'] += money_value
+              
+              new_transaction = app_tables.wallet_users_transaction.add_row(
+                    users_transaction_phone=self.user['users_phone'],
+                    users_transaction_fund=money_value,
+                    users_transaction_date=current_datetime,
+                    users_transaction_currency=cur,
+                    users_transaction_type="Auto Topup",
+                    users_transaction_status="Minimum-Topup",
+                    users_transaction_receiver_phone=self.user['users_phone']
+                )
+              #self.label_4.text = "Minimum-topup payment has been successfully added to your account."
+              alert("Minimum-topup payment has been successfully added to your account.")
+              self.text_box_1.text = ""
+              print("minimum topup added") 
+              #open_form('customer_page', user=self.user)
+            else:
+              # No minimum top-up required
+              self.user['users_minimum_topup'] = False
+              anvil.alert("Auto-topup is not required.")
+              print("Your balance is not below the limit")
+              open_form('customer', user=self.user)
           else:
-            # No minimum top-up required
-            self.user['users_minimum_topup'] = False
-            anvil.alert("Auto-topup is not required.")
-            print("Your balance is not below the limit")
-            open_form('customer', user=self.user)
+            self.label_4.text = "Error: No matching accounts found for the user or invalid account number."
+            #open_form('customer', user=self.user)
         else:
-          self.label_4.text = "Error: No matching accounts found for the user or invalid account number."
-          #open_form('customer', user=self.user)
+          alert(f"topup amount must be atleast 1{cur}")
+        
       else:
         alert("Please enable the auto-topup switch to proceed.")
       

@@ -85,7 +85,8 @@ class admin_add_user(admin_add_userTemplate):
                     self.text_box_6.text,
                     self.text_box_8.text,
                     self.text_box_4.text,
-                    self.text_box_3.text
+                    self.text_box_3.text,
+                    ""
                 )
                 alert(self.text_box_2.text + ' added')
                 open_form('login')
@@ -171,5 +172,13 @@ class admin_add_user(admin_add_userTemplate):
       pass
 
     def text_box_8_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def text_box_7_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass
+
+    def text_box_3_pressed_enter(self, **event_args):
       """This method is called when the user presses Enter in this text box"""
       pass

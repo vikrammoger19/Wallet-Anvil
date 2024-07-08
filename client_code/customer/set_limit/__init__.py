@@ -29,7 +29,7 @@ class set_limit(set_limitTemplate):
         new_limit = self._get_valid_limit()
         limit_type = self.drop_down_2.selected_value
 
-        if new_limit is None:
+        if new_limit is None or new_limit <=0:
             return  # Early return if limit is invalid
 
         # Determine which limit to update based on the selection
@@ -112,3 +112,7 @@ class set_limit(set_limitTemplate):
     def primary_color_2_click(self, user=None, **event_args):
         """This method is called when the button is clicked"""
         open_form('customer.walletbalance', user=self.user)
+
+    def text_box_1_pressed_enter(self, **event_args):
+      """This method is called when the user presses Enter in this text box"""
+      pass

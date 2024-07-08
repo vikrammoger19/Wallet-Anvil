@@ -107,84 +107,85 @@ class transfer(transferTemplate):
       # Use the entered phone number to identify the receiver's account
       receiver_balance = app_tables.wallet_users_balance.get(users_balance_phone=receiver_phone_number, users_balance_currency_type=cur)
       depositor_balance = app_tables.wallet_users_balance.get(users_balance_phone=depositor_phone_number, users_balance_currency_type=cur)
-      
-      if depositor_balance:
-          depositor = app_tables.wallet_users.get(users_phone=depositor_phone_number)
+      if transfer_amount >0:
+        if depositor_balance:
+            depositor = app_tables.wallet_users.get(users_phone=depositor_phone_number)
+            
+            users_daily_limit = depositor['users_daily_limit']
+            users_user_limit = depositor['users_user_limit']
+            
+            if transfer_amount > users_daily_limit:
+                anvil.alert("Daily limit exceeded.")
+            elif transfer_amount > users_user_limit:
+                anvil.alert("Monthly limit exceeded.")
+            else:
+                money_value = transfer_amount if transfer_amount else 0.0
+                if depositor_balance['users_balance'] >= money_value:
+                    if receiver_balance:
+                        depositor_balance['users_balance'] -= money_value
+                        receiver_balance['users_balance'] += money_value
+                    else:
+                        receiver = app_tables.wallet_users.get(users_phone=receiver_phone_number)
+                        if receiver:
+                            depositor_balance['users_balance'] -= money_value
+                            app_tables.wallet_users_balance.add_row(
+                                users_balance_currency_type=cur,
+                                users_balance=money_value,
+                                users_balance_phone=receiver_phone_number
+                            )
+                        else:
+                            anvil.alert("User does not exist")
+                            return
+                    
+                    # new_transaction = app_tables.wallet_users_transaction.add_row(
+                    #     users_transaction_phone=depositor_phone_number,
+                    #     users_transaction_fund=money_value,
+                    #     users_transaction_currency=cur,
+                    #     users_transaction_date=current_datetime,
+                    #     users_transaction_type="Debit",
+                    #     users_transaction_status="transferred-to",
+                    #     users_transaction_receiver_phone=receiver_phone_number
+                    # )
+                    # new_transaction = app_tables.wallet_users_transaction.add_row(
+                    #     users_transaction_phone=receiver_phone_number,
+                    #     users_transaction_fund=money_value,
+                    #     users_transaction_currency=cur,
+                    #     users_transaction_date=current_datetime,
+                    #     users_transaction_type="Credit",
+                    #     users_transaction_status="received-from",
+                    #     users_transaction_receiver_phone=depositor_phone_number
+                    # )
+  
+                    new_transaction = app_tables.wallet_users_transaction.add_row(
+                        users_transaction_phone=depositor_phone_number,
+                        users_transaction_fund=money_value,
+                        users_transaction_currency=cur,
+                        users_transaction_date=current_datetime,
+                        users_transaction_type="Debit",
+                        users_transaction_receiver_type="Credit",
+                        users_transaction_status="transferred-to",
+                        users_transaction_receiver_phone=receiver_phone_number,
+                    )
           
-          users_daily_limit = depositor['users_daily_limit']
-          users_user_limit = depositor['users_user_limit']
-          
-          if transfer_amount > users_daily_limit:
-              anvil.alert("Daily limit exceeded.")
-          elif transfer_amount > users_user_limit:
-              anvil.alert("Monthly limit exceeded.")
-          else:
-              money_value = transfer_amount if transfer_amount else 0.0
-              if depositor_balance['users_balance'] >= money_value:
-                  if receiver_balance:
-                      depositor_balance['users_balance'] -= money_value
-                      receiver_balance['users_balance'] += money_value
-                  else:
-                      receiver = app_tables.wallet_users.get(users_phone=receiver_phone_number)
-                      if receiver:
-                          depositor_balance['users_balance'] -= money_value
-                          app_tables.wallet_users_balance.add_row(
-                              users_balance_currency_type=cur,
-                              users_balance=money_value,
-                              users_balance_phone=receiver_phone_number
-                          )
-                      else:
-                          anvil.alert("User does not exist")
-                          return
+                    users_text=f"You have received **{self.drop_down_2.selected_value} {self.text_box_3.text}**from {self.user['users_username']}"
+                    anvil.server.call('notify',users_text,current_datetime,self.text_box_2.text,self.user['users_phone'])
                   
-                  # new_transaction = app_tables.wallet_users_transaction.add_row(
-                  #     users_transaction_phone=depositor_phone_number,
-                  #     users_transaction_fund=money_value,
-                  #     users_transaction_currency=cur,
-                  #     users_transaction_date=current_datetime,
-                  #     users_transaction_type="Debit",
-                  #     users_transaction_status="transferred-to",
-                  #     users_transaction_receiver_phone=receiver_phone_number
-                  # )
-                  # new_transaction = app_tables.wallet_users_transaction.add_row(
-                  #     users_transaction_phone=receiver_phone_number,
-                  #     users_transaction_fund=money_value,
-                  #     users_transaction_currency=cur,
-                  #     users_transaction_date=current_datetime,
-                  #     users_transaction_type="Credit",
-                  #     users_transaction_status="received-from",
-                  #     users_transaction_receiver_phone=depositor_phone_number
-                  # )
-
-                  new_transaction = app_tables.wallet_users_transaction.add_row(
-                      users_transaction_phone=depositor_phone_number,
-                      users_transaction_fund=money_value,
-                      users_transaction_currency=cur,
-                      users_transaction_date=current_datetime,
-                      users_transaction_type="Debit",
-                      users_transaction_receiver_type="Credit",
-                      users_transaction_status="transferred-to",
-                      users_transaction_receiver_phone=receiver_phone_number,
-                  )
-        
-                  users_text=f"You have received **{self.drop_down_2.selected_value} {self.text_box_3.text}**from {self.user['users_username']}"
-                  anvil.server.call('notify',users_text,current_datetime,self.text_box_2.text,self.user['users_phone'])
-                
-                  # Update the limits after successful transaction
-                  depositor['users_daily_limit'] -= money_value
-                  depositor['users_user_limit'] -= money_value
-  
-                  #self.label_4.text = "Money transferred successfully to the account"
-                  alert("Money transferred successfully to the account")
-                  self.populate_balances()
-              else:
-                  anvil.alert("Insufficient balance. Please add funds")
+                    # Update the limits after successful transaction
+                    depositor['users_daily_limit'] -= money_value
+                    depositor['users_user_limit'] -= money_value
+    
+                    #self.label_4.text = "Money transferred successfully to the account"
+                    alert("Money transferred successfully to the account")
+                    self.populate_balances()
+                else:
+                    anvil.alert("Insufficient balance. Please add funds")
+        else:
+            #self.label_4.text = "Error: No matching accounts found for the user or invalid account number"
+            alert("Error: No matching accounts found for the user or invalid account number")
+    
+        open_form('customer.transfer', user=self.user)
       else:
-          #self.label_4.text = "Error: No matching accounts found for the user or invalid account number"
-          alert("Error: No matching accounts found for the user or invalid account number")
-  
-      open_form('customer.transfer', user=self.user)
-          
+        alert(f"payment amount must be atleast 1 {cur}")
     def link_8_click(self, **event_args):
       """This method is called when the link is clicked"""
       open_form("customer.wallet",user=self.user)
