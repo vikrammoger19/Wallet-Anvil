@@ -14,6 +14,7 @@ class help(helpTemplate):
         # Set Form properties and Data Bindings.
         self.user = user
         self.init_components(**properties)
+        self.card_4.visible=False
         
         if user is not None:
             # Fetch and display data from wallet_users_service table
@@ -81,3 +82,7 @@ class help(helpTemplate):
     def link_26_click(self, **event_args):
         """This method is called when link 26 is clicked"""
         open_form('FAQ')
+
+    def link_1_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      self.card_4.visible=True
