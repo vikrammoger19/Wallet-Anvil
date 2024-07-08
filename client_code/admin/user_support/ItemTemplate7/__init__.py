@@ -46,19 +46,19 @@ class ItemTemplate7(ItemTemplate7Template):
                     print(f"Profile photo set: {profile_photo}")
                 else:
                     # Log that the profile picture column is empty.
-                    self.image_1.source = 'path/to/default/image.png'  # Optional: Add a default image path here
+                      # Optional: Add a default image path here
                     print("Profile photo column is empty.")
             except KeyError:
                 # Log that the profile picture column is missing.
-                self.image_1.source = 'path/to/default/image.png'  # Optional: Add a default image path here
+                  # Optional: Add a default image path here
                 print("Profile photo column missing.")
         else:
             # Log that no user was found for the provided phone number.
-            self.image_1.source = 'path/to/default/image.png'  # Optional: Add a default image path here
+             # Optional: Add a default image path here
             print("No user found for the provided phone number.")
 
         # Optionally, you can also provide user feedback in the UI.
-        if self.image_1.source == 'path/to/default/image.png':
+        if self.image_1.source == '_/theme/account.png':
             Notification("User data is incomplete or missing", title="Error", style="error").show()
     
     def update_button_text(self):
@@ -66,7 +66,7 @@ class ItemTemplate7(ItemTemplate7Template):
             self.button_1.text = "Solved"
             self.button_1.foreground = "green"
         else:
-            self.button_1.text = "Unsolved"
+            self.button_1.text = "Pending"
             self.button_1.foreground = "red"
 
     def button_1_click(self, **event_args):
