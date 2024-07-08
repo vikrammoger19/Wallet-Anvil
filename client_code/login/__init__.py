@@ -77,3 +77,9 @@ class login(loginTemplate):
 
     def link_1_click(self, **event_args):
       open_form('forgot_password')
+
+    def link_3_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      self.text_box_3.visible=False
+      self.text_box_2.visible=True
+      self.button_1.visible=True
