@@ -9,10 +9,6 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-
-from ._anvil_designer import helpTemplate
-from anvil import *
-
 class help(helpTemplate):
     def __init__(self, user=None, **properties):
         # Set Form properties and Data Bindings.
@@ -24,8 +20,13 @@ class help(helpTemplate):
             self.refresh_repeating_panel()
 
     def refresh_repeating_panel(self):
-        # Fetch all data from wallet_users_service and display in repeating panel
-        self.repeating_panel_1.items = app_tables.wallet_users_service.search()
+        # Fetch data from wallet_users_service for the current user and display in repeating panel
+        if self.user:
+            user_phone = self.user['users_phone']
+            user_queries = app_tables.wallet_users_service.search(users_service_phone=user_phone)
+            self.repeating_panel_1.items = user_queries
+        else:
+            self.repeating_panel_1.items = []
 
     def button_1_click(self, **event_args):
         """This method is called when button 1 is clicked"""
@@ -80,5 +81,3 @@ class help(helpTemplate):
     def link_26_click(self, **event_args):
         """This method is called when link 26 is clicked"""
         open_form('FAQ')
-
-    
