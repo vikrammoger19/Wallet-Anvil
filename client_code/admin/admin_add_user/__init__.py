@@ -45,10 +45,10 @@ class admin_add_user(admin_add_userTemplate):
           return
   
       # Check if email exists
-      email = self.text_box_5.text.strip().lower()
+      email = self.text_box_2.text.strip().lower()
       email_exists = any(user['users_email'].strip().lower() == email for user in app_tables.wallet_users.search())
       if email_exists:
-          alert(f"Email '{self.text_box_5.text}' is already in use.")
+          alert(f"Email '{self.text_box_2.text}' is already in use.")
           return
   
       # Validate other fields as before
@@ -93,7 +93,7 @@ class admin_add_user(admin_add_userTemplate):
                   ""
               )
               alert(self.text_box_2.text + ' added')
-              open_form('login')
+              open_form('admin.account_management', user=self.user)
           except Exception as e:
               alert(f"Error adding user: {str(e)}")
 
