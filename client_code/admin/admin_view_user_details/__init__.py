@@ -301,18 +301,19 @@ class admin_view_user_details(admin_view_user_detailsTemplate):
             # If the user has balances, inform the admin that they cannot delete the user
             alert("User has balances. Please clear the balances before deleting.", title="Status")
 
-    def log_action(self, username, actions):
-        # Log the action to the app_tables.admin_activity_log table
-        timestamp = datetime.now()
-        action_log = ", ".join(actions)
+    def log_action(self, username, phone_number, actions):
+    # Log the action to the app_tables.admin_activity_log table
+    timestamp = datetime.now()
+    action_log = ", ".join(actions)
 
-        # Insert the log entry into the table
-        app_tables.wallet_admins_actions.add_row(
-            admins_actions_name=self.admin['users_username'],
-            admins_actions_username=username,
-            admins_actions_date=timestamp,
-            admins_actions=action_log
-        )
+    # Insert the log entry into the table
+    app_tables.wallet_admins_actions.add_row(
+        admins_actions_name=self.admin['users_username'],
+        admins_actions_username=username,
+        admins_actions_phone=phone_number,
+        admins_actions_date=timestamp,
+        admins_actions=action_log
+    )
 
     # def check_profile_pic(self):
     #     phone_number = self.phone_number

@@ -45,9 +45,12 @@ class add_currency(add_currencyTemplate):
         print(country_name)
         
         if len(currency_code) == 3 and currency_code.isalpha():
-            existing_country = app_tables.wallet_admins_add_currency.search(admins_add_currency_country=country_name) 
+            existing_entry = app_tables.wallet_admins_add_currency.search(
+                admins_add_currency_country=country_name,
+                admins_add_currency_code=currency_code.upper()
+            )
             
-            if len(existing_country) == 0:
+            if len(existing_entry) == 0:
                 # Check if an image has been uploaded
                 if self.file_loader_1.file:
                     # Save the uploaded image to the currency_icon column
@@ -70,9 +73,10 @@ class add_currency(add_currencyTemplate):
                 self.flow_panel_1.visible = False
                 alert('Currency added successfully')
             else:
-                alert('Country already exists')
+                alert('Country with this currency code already exists')
         else:
             alert('Invalid currency code')
+
   def link_8_copy_click(self, **event_args):
     open_form('admin', user=self.user)
 
