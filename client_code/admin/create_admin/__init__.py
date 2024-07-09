@@ -1,12 +1,7 @@
 from ._anvil_designer import create_adminTemplate
 from anvil import *
-import anvil.facebook.auth
-import anvil.google.auth, anvil.google.drive
-from anvil.google.drive import app_files
-import anvil.users
 import anvil.server
 import anvil.tables as tables
-import anvil.tables.query as q
 from anvil.tables import app_tables
 from datetime import datetime
 import re
@@ -23,7 +18,7 @@ class create_admin(create_adminTemplate):
         date_of_admins_account_created = datetime.now().date()
 
         # Validate phone number format
-        phone_number = str(self.text_box_4.text).strip()
+        phone_number = int(self.text_box_4.text)
         if not self.validate_phone_number(phone_number):
             self.label_13.visible = True
             self.label_13.foreground = "#990000"
@@ -37,20 +32,17 @@ class create_admin(create_adminTemplate):
             self.label_13.text = "Phone number is correct"
 
         # Check if admin with this phone number already exists in wallet_users
-        existing_users_by_phone = app_tables.wallet_users.search(
-            users_phone=int(phone_number)
-        )
-        if existing_users_by_phone:
-            alert('A user with this phone number already exists.')
-            return
+        phone_number_exists = any(user['users_phone'] == phone_number for user in app_tables.wallet_users.search())
 
-        # Check if admin with this email already exists in wallet_users
-        email = self.text_box_2.text.strip()
-        existing_users_by_email = app_tables.wallet_users.search(
-            users_email=email
-        )
-        if existing_users_by_email:
-            alert('A user with this email already exists.')
+        if phone_number_exists:
+            alert(f"Phone number '{self.text_box_4.text}' is already in use.")
+            return
+    
+        # Check if email exists
+        email = self.text_box_2.text.strip().lower()
+        email_exists = any(user['users_email'].strip().lower() == email for user in app_tables.wallet_users.search())
+        if email_exists:
+            alert(f"Email '{self.text_box_2.text}' is already in use.")
             return
 
         # Check if passwords match
@@ -94,7 +86,7 @@ class create_admin(create_adminTemplate):
 
     def validate_phone_number(self, phone_number):
         pattern = r'^[6-9]\d{9}$'
-        return re.match(pattern, phone_number)
+        return re.match(pattern, str(phone_number))
 
     def link_8_copy_click(self, **event_args):
         open_form('admin', user=self.user)
@@ -134,5 +126,3 @@ class create_admin(create_adminTemplate):
 
     def link_5_copy_5_click(self, **event_args):
         open_form("admin.add_bank_account",user=self.user)
-
-    
