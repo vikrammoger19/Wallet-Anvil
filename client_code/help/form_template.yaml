@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: content_panel_copy_2
-    properties: {col_widths: '{"ASKGOZ":11,"WLCCUL":49,"IOXFAB":9,"ADNYOD":26}'}
+    properties: {col_widths: '{"ASKGOZ":11,"WLCCUL":49,"IOXFAB":9}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'PQQZEU,TWTFJY', full_width_row: true}
     components:
@@ -247,7 +247,7 @@ components:
             type: Label
             layout_properties: {x: 94.98843002319336, y: 0, width: 71.6204}
     - name: column_panel_2
-      properties: {col_widths: '{"IBLAGV":25,"UIGXHN":35,"OXPWAJ":27,"UKEJCU":10,"XBVESD":23,"TXUZIG":5,"LUZMJP":40,"GWYBMI":37,"MCKQQZ":5,"MIHPDR":5,"TVCGOV":5,"GVFXAG":10}', spacing_above: large}
+      properties: {col_widths: '{"IBLAGV":25,"UIGXHN":35,"UKEJCU":10,"TXUZIG":5,"LUZMJP":40,"GWYBMI":37,"MCKQQZ":5,"TVCGOV":5,"GVFXAG":10,"QWJQUH":24,"TIFGDA":12,"QBHRPU":24}', spacing_above: large}
       type: ColumnPanel
       layout_properties: {grid_position: 'GSSMSC,WLCCUL', full_width_row: true}
       components:
@@ -265,7 +265,7 @@ components:
         layout_properties: {grid_position: 'HYBODQ,GVFXAG', full_width_row: true}
         event_bindings: {click: link_1_click}
       - name: card_3
-        properties: {role: card, col_widths: '{"VWCWWM":24,"YIWZQV":36}'}
+        properties: {role: card, col_widths: '{"YIWZQV":36,"MDFSHP":30,"BXGTNZ":30}'}
         type: ColumnPanel
         layout_properties: {grid_position: 'LDLBZW,LAVWYR', full_width_row: true}
         components:
@@ -276,11 +276,11 @@ components:
         - name: label_1
           properties: {align: left, text: 'question?', font_size: 20}
           type: Label
-          layout_properties: {grid_position: 'JWBBUZ,YIWZQV UGNMOD,YMJMIA'}
+          layout_properties: {grid_position: 'UGNMOD,YMJMIA'}
         - name: text_area_1
           properties: {height: 143.22216796875, bold: true, align: center, font_size: 20, text: '', border: '', tooltip: '', placeholder: Describe your issue}
           type: TextArea
-          layout_properties: {grid_position: 'JWBBUZ,YIWZQV HEZQQM,KIKQJG'}
+          layout_properties: {grid_position: 'HEZQQM,KIKQJG'}
         - name: button_1
           properties:
             text: Submit
@@ -291,6 +291,14 @@ components:
           type: Button
           layout_properties: {grid_position: 'NDLTKD,FAGTXL'}
           event_bindings: {click: button_1_click}
+        - name: image_3
+          properties: {source: _/theme/support2.png, height: 213.7523193359375}
+          type: Image
+          layout_properties: {grid_position: 'IMHZQK,MDFSHP'}
+        - name: image_2
+          properties: {source: _/theme/support1.png, height: 212.03271484375}
+          type: Image
+          layout_properties: {grid_position: 'IMHZQK,BXGTNZ'}
       - name: card_4
         properties: {role: card, visible: false}
         type: ColumnPanel
@@ -312,18 +320,10 @@ components:
           properties: {item_template: help.ItemTemplate14}
           type: RepeatingPanel
           layout_properties: {grid_position: 'ASJYJR,IPBQKS'}
-      - name: image_3
-        properties: {source: _/theme/support2.png, height: 213.7523193359375}
-        type: Image
-        layout_properties: {grid_position: 'NJPLAC,OXPWAJ', full_width_row: true}
       - name: spacer_8
         properties: {height: 32}
         type: Spacer
         layout_properties: {grid_position: 'NJPLAC,UKEJCU'}
-      - name: image_2
-        properties: {source: _/theme/support1.png, height: 212.03271484375}
-        type: Image
-        layout_properties: {grid_position: 'NJPLAC,XBVESD', full_width_row: true}
       - name: spacer_11
         properties: {height: -0.888916015625}
         type: Spacer
@@ -337,10 +337,6 @@ components:
         type: ColumnPanel
         layout_properties: {grid_position: 'XLGGFM,LUZMJP', full_width_row: true}
         components: []
-      - name: spacer_18
-        properties: {height: 32}
-        type: Spacer
-        layout_properties: {grid_position: 'XLGGFM,MIHPDR'}
       - name: spacer_19
         properties: {height: 32}
         type: Spacer
@@ -357,7 +353,7 @@ components:
       - name: card_1
         properties: {role: card}
         type: ColumnPanel
-        layout_properties: {grid_position: 'JSFDSL,QWJQUH'}
+        layout_properties: {grid_position: 'JSFDSL,QWJQUH', full_width_row: true}
         components:
         - name: label_6_copy
           properties: {text: '   If you still need help, we recommend you', bold: true, font_size: 18, underline: false, align: center, font: ''}
@@ -380,36 +376,40 @@ components:
           properties: {text: '     We are always available', align: center, bold: true}
           type: Label
           layout_properties: {grid_position: 'AJGQAP,NVIIES'}
+      - name: spacer_18
+        properties: {height: 32}
+        type: Spacer
+        layout_properties: {grid_position: 'JSFDSL,TIFGDA'}
+      - name: card_2
+        properties: {role: card}
+        type: ColumnPanel
+        layout_properties: {grid_position: 'JSFDSL,QBHRPU', full_width_row: true}
+        components:
+        - name: label_6_copy_copy
+          properties: {text: 'To report or send feed back ', bold: true, font_size: 18, underline: false, align: center, font: ''}
+          type: Label
+          layout_properties: {grid_position: 'TCMGNT,WYVWGV'}
+        - name: label_7_copy_copy
+          properties: {text: Please share below, align: center, bold: true}
+          type: Label
+          layout_properties: {grid_position: 'BNUCKP,EZKUCR'}
+        - name: image_1_copy_copy_2_copy
+          properties: {height: 70.86453247070312, source: _/theme/bug.png}
+          type: Image
+          layout_properties: {grid_position: 'AELSSB,JWEZKD'}
+        - name: link_1_copy_copy
+          properties: {text: Report here, align: center, underline: true, bold: true, font_size: 14}
+          type: Link
+          layout_properties: {grid_position: 'OVZSQV,WIBKLR'}
+          event_bindings: {click: link_1_copy_click}
+        - name: label_9_copy_copy
+          properties: {text: '     We are always available', align: center, bold: true}
+          type: Label
+          layout_properties: {grid_position: 'KDPBIV,OPRHLI'}
     - name: spacer_1
       properties: {height: 32}
       type: Spacer
       layout_properties: {grid_position: 'SEUTEZ,IOXFAB'}
-    - name: card_2
-      properties: {role: card}
-      type: ColumnPanel
-      layout_properties: {grid_position: 'SEUTEZ,ADNYOD'}
-      components:
-      - name: label_6_copy_copy
-        properties: {text: 'To report or send feed back ', bold: true, font_size: 18, underline: false, align: center, font: ''}
-        type: Label
-        layout_properties: {grid_position: 'TCMGNT,WYVWGV'}
-      - name: label_7_copy_copy
-        properties: {text: Please share below, align: center, bold: true}
-        type: Label
-        layout_properties: {grid_position: 'BNUCKP,EZKUCR'}
-      - name: image_1_copy_copy_2_copy
-        properties: {height: 70.86453247070312, source: _/theme/bug.png}
-        type: Image
-        layout_properties: {grid_position: 'AELSSB,JWEZKD'}
-      - name: link_1_copy_copy
-        properties: {text: Report here, align: center, underline: true, bold: true, font_size: 14}
-        type: Link
-        layout_properties: {grid_position: 'OVZSQV,WIBKLR'}
-        event_bindings: {click: link_1_copy_click}
-      - name: label_9_copy_copy
-        properties: {text: '     We are always available', align: center, bold: true}
-        type: Label
-        layout_properties: {grid_position: 'KDPBIV,OPRHLI'}
     - name: xy_panel_2_copy_2
       properties: {role: null, align: center, spacing_above: small, width: null, background: 'theme:Gray 200', foreground: '', spacing_below: small, visible: true, border: '', tooltip: '', height: 288.5999755859375}
       type: XYPanel
