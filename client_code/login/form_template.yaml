@@ -116,8 +116,3 @@ components:
       type: Link
       layout_properties: {grid_position: 'KYRHSI,OQSVGK HVHFOQ,AMPVNM VAYZEK,TOAEIJ'}
       event_bindings: {click: link_2_click}
-  - name: card_1
-    properties: {role: card}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'FHRLQW,ZTGUTX', full_width_row: true}
-    components: []
