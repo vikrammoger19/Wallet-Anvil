@@ -118,9 +118,9 @@ class wallet(walletTemplate):
       ifsc_code = self.textbox_ifsc_code.text
       account_holder_name = self.text_box_1.text
       branch_name = self.text_box_2.text
-      account_Type = self.drop_down_1.selected_value
+      
   
-      if not (bank_name and account_number and ifsc_code and account_holder_name and branch_name and account_Type):
+      if not (bank_name and account_number and ifsc_code and account_holder_name and branch_name):
           anvil.alert("Please fill in all bank details.", title="", large=True)
           return
   
