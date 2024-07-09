@@ -16,7 +16,10 @@ from io import BytesIO
 import requests
 #import datetime
 
-
+@anvil.server.callable
+def check_email_exists(email):
+    user = app_tables.wallet_users.get(users_email=email)
+    return user is not None
 
 @anvil.server.callable
 def get_user_for_login(login_input):
@@ -54,6 +57,20 @@ def add_info(username, email, address, phone, aadhar, pan, password, currency):
         users_defaultcurrency=currency  # Store the currency
     )
     return user_row
+@anvil.server.callable
+def send_email_otp(email):
+    otp = random.randint(100000, 999999)
+
+    from_email = "gtpltechnologies@gmail.com"  # Use your verified email address
+    subject = "OTP Verification"
+    content = f"Your OTP is: {otp}"
+
+    try:
+        anvil.email.send(to=email, from_address=from_email, subject=subject, text=content)
+        return otp  # If successful, return OTP
+    except Exception as e:
+        print(f"Error sending email: {e}")
+        return str(e)  # Return error message
 
 @anvil.server.callable
 def get_currency_by_country(country_name):
