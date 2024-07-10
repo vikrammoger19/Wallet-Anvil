@@ -62,7 +62,7 @@ class user_support(user_supportTemplate):
         open_form("admin.transaction_monitoring", user=self.user)
 
     def link6_copy_2_click(self, **event_args):
-        if self.user['users_usertype'] == 'super admin':
+        if self.user['users_usertype'] == 'super_admin':
             # Open the admin creation form
             open_form("admin.create_admin", user=self.user)
         else:

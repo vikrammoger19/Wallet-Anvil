@@ -116,7 +116,7 @@ class create_admin(create_adminTemplate):
         open_form("admin.admin_add_user",user=self.user)
 
     def link_5_copy_3_click(self, **event_args):
-        if self.user['users_usertype'] == 'super admin':
+        if self.user['users_usertype'] == 'super_admin':
             open_form("admin.create_admin", user=self.user)
         else:
             alert("You're not a super admin. Only super admins can perform this action.")

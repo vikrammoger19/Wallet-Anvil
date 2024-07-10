@@ -145,7 +145,7 @@ class account_management(account_managementTemplate):
 
     def link6_copy_2_click(self, **event_args):
         # Check if the user is a super admin
-        if self.user['users_usertype'] == 'super admin':
+        if self.user['users_usertype'] == 'super_admin':
             # Open the admin creation form
             open_form("admin.create_admin", user=self.user)
         else:
