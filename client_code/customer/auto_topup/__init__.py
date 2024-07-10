@@ -259,6 +259,54 @@ class auto_topup(auto_topupTemplate):
     def add_bank_click(self, **event_args):
         open_form("customer.wallet",user = self.user)
 
+    
+
+    def text_box_1_change(self, **event_args):
+      """This method is called when the text in this text box is edited"""
+      user_input = self.text_box_1.text
+      print("Raw input:", user_input)
+      
+      allowed_characters = "0123456789."
+  
+      # Filter out any invalid characters and allow only one decimal point
+      filtered_text = ''
+      decimal_point_count = 0
+      
+      for char in user_input:
+        if char in allowed_characters:
+          if char == '.':
+            decimal_point_count += 1
+            if decimal_point_count > 1:
+              continue
+          filtered_text += char
+  
+      # Allow empty string and string with just a decimal point
+      if filtered_text == '' or filtered_text == '.':
+        self.text_box_1.text = filtered_text
+        return
+  
+      try:
+        processed_value = self.process_input(filtered_text)
+        self.text_box_1.text = processed_value
+      except ValueError:
+        self.text_box_1.text = filtered_text
+  
+    def process_input(self, user_input):
+      # Check if the input ends with a decimal point
+      if user_input.endswith('.'):
+        return user_input
+      
+      value = float(user_input)
+      
+      if value.is_integer():
+        # If it's an integer, format without decimals
+        formatted_value = '{:.0f}'.format(value)
+      else:
+        # If it's a float, format with significant digits
+        formatted_value = '{:.15g}'.format(value)
+  
+      return formatted_value
+
 
    
  
