@@ -211,34 +211,56 @@ class deposit(depositTemplate):
       open_form("help",user=self.user)
 
     def text_box_2_change(self, **event_args):
-        """This method is called when the text in this text box is edited"""
-        self.timer_1.enabled = True
-        user_input = self.text_box_2.text
-        processed_value = self.process_input(user_input)
-        self.text_box_2.text = processed_value
+      """This method is called when the text in this text box is edited"""
+      user_input = self.text_box_2.text
+      print("Raw input:", user_input)
+      
+      allowed_characters = "0123456789."
   
-    
-    def process_input(self, user_input):
+      # Filter out any invalid characters and allow only one decimal point
+      filtered_text = ''
+      decimal_point_count = 0
+      
+      for char in user_input:
+        if char in allowed_characters:
+          if char == '.':
+            decimal_point_count += 1
+            if decimal_point_count > 1:
+              continue
+          filtered_text += char
+  
+      # Allow empty string and string with just a decimal point
+      if filtered_text == '' or filtered_text == '.':
+        self.text_box_2.text = filtered_text
+        return
+  
       try:
-        if user_input == None: # Convert the input to a float
-          formatted_value = ''
-        else:
-          value = float(user_input)
-          # Check if the value is an integer or a float with significant digits
-          if value.is_integer():
-              # If it's an integer, format without decimals
-              formatted_value = '{:.0f}'.format(value)
-          else:
-              # If it's a float, format with significant digits
-              formatted_value = '{:.15g}'.format(value)
-          
-        
-        return formatted_value
+        processed_value = self.process_input(filtered_text)
+        self.text_box_2.text = processed_value
       except ValueError:
-        return user_input 
+        self.text_box_2.text = filtered_text
+  
+    def process_input(self, user_input):
+      # Check if the input ends with a decimal point
+      if user_input.endswith('.'):
+        return user_input
+      
+      value = float(user_input)
+      
+      if value.is_integer():
+        # If it's an integer, format without decimals
+        formatted_value = '{:.0f}'.format(value)
+      else:
+        # If it's a float, format with significant digits
+        formatted_value = '{:.15g}'.format(value)
+
+      return formatted_value
   
     def timer_1_tick(self, **event_args):
       """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
       pass
+
+    
+      
 
 
