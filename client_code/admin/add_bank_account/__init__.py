@@ -108,7 +108,7 @@ class add_bank_account(add_bank_accountTemplate):
     open_form("admin.admin_add_user",user = self.user)
 
   def link_6_copy_3_click(self, **event_args):
-    if self.user['users_usertype'] == 'super admin':
+    if self.user['users_usertype'] == 'super_admin':
           # Open the admin creation form
           open_form("admin.create_admin", user=self.user)
     else:
