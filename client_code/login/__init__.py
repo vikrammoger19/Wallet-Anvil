@@ -134,3 +134,13 @@ class login(loginTemplate):
             alert("Your account is on hold/freeze. Please try again later.", title="Account On Hold")
             return
 
+        user_type = user['users_usertype']
+
+        if user_type in ['admin', 'super admin']:
+            open_form('admin', user=user)
+        elif user_type == 'customer':
+            open_form('customer', user=user)
+    else:
+        alert("User not found. Please try again.")
+
+
