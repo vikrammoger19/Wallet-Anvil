@@ -238,11 +238,21 @@ class transfer(transferTemplate):
   
 
     def text_box_3_change(self, **event_args):
-        """This method is called when the text in this text box is edited"""
-        self.timer_1.enabled = True
-        user_input = self.text_box_3.text
-        processed_value = self.process_input(user_input)
-        self.text_box_3.text = processed_value
+      """This method is called when the text in this text box is edited"""
+      
+      
+      self.timer_1.enabled = True
+      user_input = self.text_box_3.text
+      print(user_input)
+      allowed_characters = ".1234567890"
+
+      processed_value =  ''.join([char for char in user_input if char in allowed_characters])
+      # print(processed_value)
+      processed_value = self.process_input(processed_value)
+      print(processed_value)
+      
+      self.text_box_3.text = processed_value
+      
   
     
     def process_input(self, user_input):

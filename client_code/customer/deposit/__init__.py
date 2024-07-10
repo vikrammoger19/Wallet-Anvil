@@ -216,6 +216,7 @@ class deposit(depositTemplate):
         user_input = self.text_box_2.text
         processed_value = self.process_input(user_input)
         self.text_box_2.text = processed_value
+        
   
     
     def process_input(self, user_input):
@@ -240,5 +241,8 @@ class deposit(depositTemplate):
     def timer_1_tick(self, **event_args):
       """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
       pass
+
+    
+      
 
 
