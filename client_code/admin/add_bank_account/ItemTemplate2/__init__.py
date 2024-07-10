@@ -11,8 +11,16 @@ from anvil.tables import app_tables
 
 
 class ItemTemplate2(ItemTemplate2Template):
-  def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
-    self.init_components(**properties)
+    def __init__(self, bank_record=None, delete_callback=None, **properties):
+        self.init_components(**properties)
+        self.bank_record = bank_record
+        self.delete_callback = delete_callback
 
-    # Any code you write here will run before the form opens.
+        if bank_record:
+            self.text_box_1.text = bank_record['admins_add_bank_names']
+        
+
+    def button_1_click(self, **event_args):
+        """This method is called when the delete button is clicked"""
+        if self.delete_callback:
+            self.delete_callback(self.bank_record)
