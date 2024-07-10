@@ -261,7 +261,7 @@ components:
     - name: spacer_9_copy_2
       properties: {height: 37.199981689453125}
       type: Spacer
-      layout_properties: {width: 71.05557099609375, grid_position: 'BKVPBL,AXWACX HFFNQD,HWICNP'}
+      layout_properties: {width: 121.543, grid_position: 'BKVPBL,AXWACX HFFNQD,HWICNP'}
     - name: text_box_1
       properties: {role: null, bold: false, align: left, placeholder: country, spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
       type: TextBox
@@ -276,11 +276,11 @@ components:
     - name: spacer_2
       properties: {height: 44}
       type: Spacer
-      layout_properties: {grid_position: 'BKVPBL,AXWACX TVDWAS,RDEESR', width: 131.41631298828125}
+      layout_properties: {grid_position: 'BKVPBL,AXWACX TVDWAS,RDEESR', width: 127.89500000000001}
     - name: text_box_2
       properties: {role: null, bold: false, align: left, placeholder: currency code, spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
       type: TextBox
-      layout_properties: {width: 165.38605761718748}
+      layout_properties: {width: 210.121}
       data_bindings:
       - {property: text, code: 'self.item[''admins_add_currency_code'']', writeback: false}
     - name: spacer_9
