@@ -63,7 +63,7 @@ class audit_trail(audit_trailTemplate):
                 admin_action = action['admins_actions']
                 admin_action_username = action['admins_actions_username']
                 profile_pic = '_/theme/account.png'
-                userr = app_tables.wallet_users.get(users_username=action['admins_actions_username'])
+                userr = app_tables.wallet_users.get(users_phone=action['admins_actions_phone'])
                 if userr:
                     if userr['users_profile_pic']:
                         profile_pic = userr['users_profile_pic']

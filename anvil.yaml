@@ -128,6 +128,9 @@ db_schema:
     - name: admins_actions_name
       admin_ui: {width: 200}
       type: string
+    - name: admins_actions_phone
+      admin_ui: {order: 4, width: 200}
+      type: number
   wallet_users_balance:
     client: full
     server: full
