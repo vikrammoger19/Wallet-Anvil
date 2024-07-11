@@ -575,3 +575,5 @@ class customer(customerTemplate):
       open_form("customer",user=self.user)
 
    
+
+   
