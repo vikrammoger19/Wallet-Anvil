@@ -9,7 +9,7 @@ components:
   layout_properties: {slot: default}
   components:
   - name: card_1
-    properties: {role: card, col_widths: '{"JNNYLP":10,"AXWACX":36,"GVCBXO":55,"JUSJXK":5,"ZMUYBE":8,"MVICQD":2,"RJPECL":29,"WWPNGR":21}'}
+    properties: {role: card, col_widths: '{"JNNYLP":10,"AXWACX":36,"GVCBXO":50,"JUSJXK":5,"ZMUYBE":2,"MVICQD":2,"RJPECL":29,"WWPNGR":27,"YGNLZB":20,"OVJFIU":15}'}
     type: ColumnPanel
     layout_properties: {grid_position: 'ZPHYTR,TNHYFF', full_width_row: true}
     components:
@@ -239,8 +239,12 @@ components:
       properties: {height: 32}
       type: Spacer
       layout_properties: {grid_position: 'BKVPBL,AXWACX NPQYEH,RDKZHF'}
+    - name: spacer_1
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'BKVPBL,AXWACX MKEHOS,YGNLZB'}
     - name: textbox_search
-      properties: {role: null, bold: false, align: left, placeholder: Type to search, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+      properties: {role: null, bold: false, align: left, placeholder: Type to Search Bank, spacing_above: small, background: white, type: text, underline: false, font: '', hide_text: false, foreground: black, spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
       type: TextBox
       layout_properties: {grid_position: 'BKVPBL,AXWACX MKEHOS,GVCBXO'}
       event_bindings: {pressed_enter: textbox_search_pressed_enter}
@@ -249,6 +253,10 @@ components:
       type: Button
       layout_properties: {grid_position: 'BKVPBL,AXWACX MKEHOS,JUSJXK'}
       event_bindings: {click: button_1_click}
+    - name: spacer_3
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'BKVPBL,AXWACX MKEHOS,OVJFIU'}
     - name: button_2
       properties: {text: 'Add Bank ', icon: 'fa:plus-square', background: '#1d86da', foreground: 'theme:White', bold: true, italic: true}
       type: Button
@@ -263,30 +271,26 @@ components:
       type: FlowPanel
       layout_properties: {grid_position: 'BKVPBL,AXWACX WHDZZS,MOHVAR'}
       components:
-      - name: spacer_8
-        properties: {height: 38}
-        type: Spacer
-        layout_properties: {width: 54.4167}
       - type: XYPanel
-        properties: {height: 53}
+        properties: {height: 123.99996948242188, border: 1px solid black}
         name: xy_panel_1
         layout_properties: {width: 1083, expand: false}
         components:
         - name: text_box_1
-          properties: {role: null, bold: false, align: center, placeholder: Bank Name, spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
+          properties: {role: null, bold: false, align: center, placeholder: Enter Bank Name, spacing_above: small, background: '', type: text, underline: false, font: '', hide_text: false, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: ''}
           type: TextBox
-          layout_properties: {x: 183.31257120892406, y: 16.666664123535156, width: 341.8125}
+          layout_properties: {x: 130.19097900390625, y: 57.583343505859375, width: 301.007}
           data_bindings:
           - {property: text, code: 'self.item[''admins_add_currency_country'']', writeback: false}
           event_bindings: {pressed_enter: text_box_1_pressed_enter}
         - name: file_loader_1
           properties: {text: Upload icon}
           type: FileLoader
-          layout_properties: {x: 605.875071208924, y: 17, width: 173.33334350585938}
+          layout_properties: {x: 557.170166015625, y: 57.5694580078125, width: 173.316}
         - name: button_3
-          properties: {text: Add, align: right, background: '#1d86da', foreground: 'theme:White', bold: true, italic: true, role: raised}
+          properties: {text: Add, align: right, background: '#1d86da', foreground: 'theme:White', bold: true, italic: false, role: raised, icon: 'fa:plus-circle'}
           type: Button
-          layout_properties: {x: 915.395823162049, y: 17, width: 98.29167175292969}
+          layout_properties: {x: 855.7813110351562, y: 57.5694580078125, width: 103.698}
           event_bindings: {click: button_3_click}
     - name: spacer_2
       properties: {height: 32}
@@ -297,7 +301,7 @@ components:
       type: Spacer
       layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,ZMUYBE'}
     - name: label_2
-      properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: true, font_size: 18, tooltip: '', text: Bank Name}
+      properties: {role: null, bold: true, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 18, tooltip: '', text: ' Bank Name'}
       type: Label
       layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,WWPNGR'}
     - name: spacer_9
@@ -305,7 +309,7 @@ components:
       type: Spacer
       layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,MVICQD'}
     - name: label_1
-      properties: {text: Bank_Icon, italic: true, bold: true, font_size: 18}
+      properties: {role: null, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 18, tooltip: '', text: '   Bank_Icon'}
       type: Label
       layout_properties: {grid_position: 'BKVPBL,AXWACX AAZJQS,RJPECL'}
     - name: repeating_panel_1
