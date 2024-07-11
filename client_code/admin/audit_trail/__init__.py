@@ -16,7 +16,7 @@ class audit_trail(audit_trailTemplate):
         self.init_components(**properties)
         
         # Pagination variables
-        self.items_per_page = 10
+        self.items_per_page = 3
         self.current_page = 1
         
         self.repeating_panel_items = []
