@@ -1,6 +1,6 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"KFJOGA":12,"BOTJKE":48}', background: 'theme:White'}
+  properties: {col_widths: '{"KFJOGA":15,"BOTJKE":45}', background: 'theme:White'}
 components:
 - name: card_1_copy
   properties: {role: card, col_widths: '{}'}
@@ -27,7 +27,7 @@ components:
     event_bindings: {click: link_8_click}
     components:
     - name: xy_panel_3_copy
-      properties: {height: 51.656005859375}
+      properties: {height: 49.5555419921875, role: null, visible: true}
       type: XYPanel
       layout_properties: {grid_position: 'PRINHC,DJVLGM'}
       components:
