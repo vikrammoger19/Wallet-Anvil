@@ -9,7 +9,7 @@ components:
   name: column_panel_1
   components:
   - type: FlowPanel
-    properties: {}
+    properties: {role: null, vertical_align: full, align: left, spacing_above: small, background: '', foreground: '', spacing_below: small, visible: true, border: '', tooltip: '', spacing: tiny}
     layout_properties: {grid_position: 'DLUATS,TOUQXQ', full_width_row: true}
     name: navbar_links
     components:
