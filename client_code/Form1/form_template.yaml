@@ -1,11 +1,11 @@
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"SSLMTJ":11,"CJCDCN":49}'}
+  properties: {col_widths: '{"SSLMTJ":14,"CJCDCN":46}'}
 components:
 - name: card_1_copy
-  properties: {role: card, col_widths: '{"GHJHXN":5,"RETSHW":55,"XIALMA":5}', wrap_on: mobile}
+  properties: {role: card, col_widths: '{"GHJHXN":15,"RETSHW":45,"XIALMA":5}', wrap_on: mobile}
   type: ColumnPanel
-  layout_properties: {grid_position: 'GQFRQA,SSLMTJ'}
+  layout_properties: {grid_position: 'GQFRQA,SSLMTJ', full_width_row: true}
   components:
   - name: image_1_copy
     properties: {source: _/theme/letter-g.png, height: 38.363616943359375, spacing_below: none, horizontal_align: right}
@@ -16,7 +16,7 @@ components:
     type: Label
     layout_properties: {grid_position: 'IAYXLU,RETSHW'}
   - name: link_1_copy
-    properties: {text: '', align: center, bold: true, foreground: '', col_widths: '{"VKDCGW":5,"DVVCKC":55}'}
+    properties: {text: '', align: center, bold: true, foreground: '', col_widths: '{"VKDCGW":17,"DVVCKC":43}'}
     type: Link
     layout_properties: {grid_position: 'POWOBF,LURGAG'}
     event_bindings: {click: clik_dashboard}
@@ -30,9 +30,9 @@ components:
       type: Label
       layout_properties: {grid_position: 'KQKVDW,DVVCKC'}
   - name: link_2_copy
-    properties: {text: '', bold: true, align: center, col_widths: '{"ISCSRJ":5,"ZVGMLQ":55}'}
+    properties: {text: '', bold: true, align: center, col_widths: '{"ISCSRJ":16,"ZVGMLQ":44}'}
     type: Link
-    layout_properties: {grid_position: 'SPNKVJ,UWILQD'}
+    layout_properties: {grid_position: 'EQJTXY,MXSAOH'}
     event_bindings: {click: link_2_click}
     components:
     - name: image_4_copy_10
@@ -44,7 +44,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'CVATSO,ZVGMLQ'}
   - name: link_3_copy
-    properties: {text: '', align: center, bold: true, col_widths: '{"RHFMUJ":5,"DRRVSL":55}'}
+    properties: {text: '', align: center, bold: true, col_widths: '{"RHFMUJ":15,"DRRVSL":45}'}
     type: Link
     layout_properties: {grid_position: 'KVBQLQ,FSJEQI'}
     event_bindings: {click: link_3_click}
@@ -58,7 +58,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'VBFSVF,DRRVSL'}
   - name: link_10_copy
-    properties: {text: '', align: center, bold: true, col_widths: '{"NTRBUK":5,"SBZDIG":55}'}
+    properties: {text: '', align: center, bold: true, col_widths: '{"NTRBUK":15,"SBZDIG":45}'}
     type: Link
     layout_properties: {grid_position: 'XPTKGF,VKMBUX'}
     event_bindings: {click: link_10_click}
@@ -74,7 +74,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'RYTFQH,SBZDIG'}
   - name: link_4_copy
-    properties: {text: '', align: center, bold: true, col_widths: '{"HZEPMS":5,"THBHJZ":55}'}
+    properties: {text: '', align: center, bold: true, col_widths: '{"HZEPMS":15,"THBHJZ":45}'}
     type: Link
     layout_properties: {grid_position: 'AXHMPX,XIALMA'}
     event_bindings: {click: link_4_click}
@@ -88,7 +88,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'ZAWGYJ,THBHJZ'}
   - name: link_5_copy
-    properties: {text: '', bold: true, align: center, col_widths: '{"OFUFZY":5,"YVEHXY":55}'}
+    properties: {text: '', bold: true, align: center, col_widths: '{"OFUFZY":16,"YVEHXY":44}'}
     type: Link
     layout_properties: {grid_position: 'MAEOBJ,IHGTRI'}
     event_bindings: {click: link_5_click}
@@ -102,7 +102,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'RXXUYW,YVEHXY'}
   - name: link_6_copy
-    properties: {text: '', align: center, bold: true, col_widths: '{"ZCQHIE":5,"OPGZAI":55}'}
+    properties: {text: '', align: center, bold: true, col_widths: '{"ZCQHIE":15,"OPGZAI":45}'}
     type: Link
     layout_properties: {grid_position: 'MDTXBS,VWNBEZ'}
     event_bindings: {click: link_6_click}
@@ -116,7 +116,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'EPPBIO,OPGZAI'}
   - name: link_7_copy
-    properties: {text: '', bold: true, align: center, icon: '', icon_align: left, col_widths: '{"QDFMAN":5,"EAIXPB":55}'}
+    properties: {text: '', bold: true, align: center, icon: '', icon_align: left, col_widths: '{"QDFMAN":14,"EAIXPB":46}'}
     type: Link
     layout_properties: {grid_position: 'UQRVZF,KNEJJE'}
     event_bindings: {click: link_7_click}
@@ -130,7 +130,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'LIQMSV,EAIXPB'}
   - name: link_add_bank
-    properties: {col_widths: '{"WECIGH":5,"TNJYLY":55}'}
+    properties: {col_widths: '{"WECIGH":14,"TNJYLY":46}'}
     type: Link
     layout_properties: {grid_position: 'RXYUNT,QXXOUC'}
     event_bindings: {click: link_add_bank_click}
@@ -144,7 +144,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'IDDXZJ,TNJYLY'}
   - name: link_8_copy
-    properties: {text: '', align: center, bold: true, icon: '', col_widths: '{"TDUOJF":5,"FMFPOO":55}'}
+    properties: {text: '', align: center, bold: true, icon: '', col_widths: '{"TDUOJF":15,"FMFPOO":45}'}
     type: Link
     layout_properties: {grid_position: 'IBKWPS,FYAYIW'}
     event_bindings: {click: link_8_click}
@@ -158,7 +158,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'SMONAO,FMFPOO'}
   - name: link_help
-    properties: {text: '', bold: true, align: center, col_widths: '{"CMYJBR":5,"UWPUCO":55}'}
+    properties: {text: '', bold: true, align: center, col_widths: '{"CMYJBR":15,"UWPUCO":45}'}
     type: Link
     layout_properties:
       col_widths: {}
@@ -174,7 +174,7 @@ components:
       type: Label
       layout_properties: {grid_position: 'LCPTTE,UWPUCO'}
   - name: link_9_copy
-    properties: {text: '', align: center, bold: true, icon: '', col_widths: '{"GCUMMO":5,"MKAKWV":55}'}
+    properties: {text: '', align: center, bold: true, icon: '', col_widths: '{"GCUMMO":15,"MKAKWV":45}'}
     type: Link
     layout_properties: {grid_position: 'ZCYDZV,ZLEPWD'}
     event_bindings: {click: link_9_click}
@@ -194,7 +194,7 @@ components:
 - name: flow_panel_1
   properties: {}
   type: FlowPanel
-  layout_properties: {grid_position: 'GQFRQA,CJCDCN XRQIYP,JOPZDV'}
+  layout_properties: {grid_position: 'GQFRQA,CJCDCN XRQIYP,JOPZDV', full_width_row: true}
   components:
   - name: label_10_copy
     properties: {text: Dashboard, font_size: 30, bold: true, spacing_above: none}
@@ -238,7 +238,7 @@ components:
 - name: flow_panel_2
   properties: {}
   type: FlowPanel
-  layout_properties: {grid_position: 'GQFRQA,CJCDCN ITTHUZ,SVNVUN'}
+  layout_properties: {grid_position: 'GQFRQA,CJCDCN ITTHUZ,SVNVUN', full_width_row: true}
   components:
   - name: card_2_copy
     properties: {role: card, background: 'theme:Primary 500'}
@@ -246,7 +246,7 @@ components:
     layout_properties: {width: 271.33331298828125}
     components:
     - name: spacer_1
-      properties: {height: 32}
+      properties: {height: 20.666656494140625}
       type: Spacer
       layout_properties: {grid_position: 'TSOCEF,XTDSSE'}
     - name: label_12_copy
@@ -257,19 +257,23 @@ components:
       properties: {text: '₹8,67,000', foreground: 'theme:White', font_size: 28, spacing_above: none, align: left}
       type: Label
       layout_properties: {grid_position: 'DAGEGG,NFLARH'}
+    - name: spacer_6
+      properties: {height: -2}
+      type: Spacer
+      layout_properties: {grid_position: 'RBJLPI,CCDTVN'}
+    - name: spacer_8
+      properties: {height: 28.6666259765625}
+      type: Spacer
+      layout_properties: {grid_position: 'XAVBQC,TPRYUG'}
   - name: linear_panel_2
     properties: {}
     type: LinearPanel
-    layout_properties: {width: 121.33331298828125}
+    layout_properties: {width: 243.65631298828123}
     components:
     - name: card_3_copy
-      properties: {role: card, background: '', col_widths: '{"OPYGBO":9,"BFPEDO":51}'}
+      properties: {role: card, background: '', col_widths: '{"BFPEDO":51}'}
       type: ColumnPanel
       components:
-      - name: spacer_3_copy
-        properties: {height: 32}
-        type: Spacer
-        layout_properties: {grid_position: 'VLIFFI,OPYGBO'}
       - name: xy_panel_12_copy
         properties: {height: 61.79998779296875}
         type: XYPanel
@@ -283,16 +287,89 @@ components:
           properties: {align: left, text: '₹30,000', bold: true, font_size: 16}
           type: Label
           layout_properties: {x: 0, y: 28.38750457763672, width: 125.3379755859375}
-- name: xy_panel_10_copy
-  properties: {height: 923.5999755859375, width: 1088.57, role: null}
-  type: XYPanel
-  layout_properties: {grid_position: 'GQFRQA,CJCDCN ATWAHJ,FCHRPY'}
-  event_bindings: {show: xy_panel_10_copy_show}
+      - name: spacer_7
+        properties: {height: 28}
+        type: Spacer
+        layout_properties: {grid_position: 'GFLPBC,CAJZXT'}
+      - name: xy_panel_13_copy
+        properties: {height: 54.600006103515625}
+        type: XYPanel
+        layout_properties: {grid_position: 'IWGFRM,QKTHNN'}
+        components:
+        - name: label_16_copy
+          properties: {font_size: 16, text: Recieved, bold: true, align: left, foreground: 'theme:Gray 600', icon: 'fa:arrow-circle-down'}
+          type: Label
+          layout_properties: {x: 0, y: 0, width: 126.7500244140625}
+        - name: label_17_copy
+          properties: {align: left, text: '₹50,000', bold: true, font_size: 16}
+          type: Label
+          layout_properties: {x: 0, y: 28.38750457763672, width: 119.1499267578125}
+  - name: card_5_copy
+    properties: {role: card}
+    type: ColumnPanel
+    layout_properties: {width: 284.3333259765625}
+    components:
+    - name: xy_panel_14_copy
+      properties: {height: 167}
+      type: XYPanel
+      layout_properties: {grid_position: 'LGCKFE,QFGYVP'}
+      components:
+      - name: label_21_copy
+        properties: {text: Today, bold: true, align: center, foreground: ''}
+        type: Label
+        layout_properties: {x: 16.849926758557558, y: 99.23750000074506, width: 76.5875244140625}
+      - name: radio_button_1_copy
+        properties: {role: null, bold: false, align: left, selected: false, spacing_above: small, value: '', background: '', underline: false, font: '', group_name: radioGroup1, foreground: 'theme:Primary 500', spacing_below: small, visible: true, border: '', italic: false, enabled: false, font_size: null, tooltip: '', text: ''}
+        type: RadioButton
+        layout_properties: {x: 13.59954833984375, y: 100.79861450195312, width: 15.1736}
+      - name: radio_button_2_copy
+        properties: {text: ''}
+        type: RadioButton
+        layout_properties: {x: 14.399975586682558, y: 130.51249389722943, width: 14.362573242187452}
+        event_bindings: {clicked: radio_button_2_copy_clicked}
+      - name: label_22_copy
+        properties: {text: This Month, bold: true, foreground: '', align: center}
+        type: Label
+        layout_properties: {x: 18.300000000745058, y: 128.43749694898725, width: 107.3375015258789}
+      - name: label_18_copy
+        properties: {text: System Usage, font_size: 20, bold: true, icon: 'fa:ellipsis-v', icon_align: right_edge, foreground: 'theme:Gray 600'}
+        type: Label
+        layout_properties: {x: 14.387451171875, y: 0, width: 341.788}
+      - name: column_panel_2
+        properties: {visible: false, background: '#f8f8f8', border: solid white, role: card, col_widths: '{"CDCWSO":35,"GSSSKI":25}'}
+        type: ColumnPanel
+        layout_properties: {x: 14.395777385681868, y: 0, width: 299.56262597656246}
+        components:
+        - name: repeating_panel_1
+          properties: {role: null, spacing_above: small, background: '', item_template: customer.ItemTemplate3, foreground: '', items: null, spacing_below: small, visible: true, border: '', tooltip: ''}
+          type: RepeatingPanel
+          layout_properties: {grid_position: 'CXDKDC,NQSXHN'}
+        - name: label_4
+          properties: {align: center, text: No notifications, bold: true, background: '#87cefa', border: white, visible: false}
+          type: Label
+          layout_properties: {grid_position: 'OVBXAE,DDMDQX'}
+        - name: spacer_5
+          properties: {height: 5.723785400390625}
+          type: Spacer
+          layout_properties: {grid_position: 'MBTRGK,TPZWGT'}
+        - name: spacer_4
+          properties: {height: 32}
+          type: Spacer
+          layout_properties: {grid_position: 'WZMGUV,CDCWSO'}
+        - name: link_11
+          properties: {align: center, text: see all, font_size: 12}
+          type: Link
+          layout_properties: {grid_position: 'WZMGUV,GSSSKI'}
+          event_bindings: {click: link_11_click}
+- name: flow_panel_3
+  properties: {}
+  type: FlowPanel
+  layout_properties: {grid_position: 'GQFRQA,CJCDCN IFGXMH,EGMMPG', full_width_row: true}
   components:
   - name: card_6_copy
-    properties: {role: card, col_widths: '{}'}
+    properties: {role: card, col_widths: '{"WYIOUP":40,"OHEEXC":20}'}
     type: ColumnPanel
-    layout_properties: {x: 28.162506103515625, y: 338.20001220703125, width: 587.9885288085937}
+    layout_properties: {grid_position: 'GQFRQA,CJCDCN DKFBYF,EYZFTR'}
     components:
     - name: xy_panel_15_copy
       properties: {height: 420.20001220703125, width: 685.525}
@@ -352,118 +429,30 @@ components:
         type: Plot
         layout_properties: {x: 0, y: 102, width: 560}
         event_bindings: {click: plot_1_click}
-  - name: card_7_copy
-    properties: {role: card, col_widths: '{"LHYRHT":45,"SLIHOF":15}'}
-    type: ColumnPanel
-    layout_properties: {x: 643.2500457763672, y: 338.1932067871094, width: 397.6448453125002}
-    components:
-    - name: label_25_copy
-      properties: {text: Transaction History, bold: true}
-      type: Label
-      layout_properties: {grid_position: 'BDKNPZ,LHYRHT'}
-    - name: link_10_copy_2
-      properties: {role: null, bold: true, align: center, col_widths: '', spacing_above: small, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: 'theme:Primary 500', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 12, tooltip: '', text: See All}
-      type: Link
-      layout_properties: {grid_position: 'BDKNPZ,SLIHOF'}
-      event_bindings: {click: link_10_copy_click}
-    - name: spacer_3
-      properties: {height: '7.051422119140625'}
-      type: Spacer
-      layout_properties: {grid_position: 'RANDTF,ZQCOBZ'}
-    - name: repeating_panel_2
-      properties: {item_template: customer.ItemTemplate17}
-      type: RepeatingPanel
-      layout_properties: {grid_position: 'DNNVWW,YJLQRX'}
-    - name: spacer_2
-      properties: {height: 13.266387939453125}
-      type: Spacer
-      layout_properties: {grid_position: 'YDKWEL,UAZCQX'}
-  - name: card_5_copy
-    properties: {role: card}
-    type: ColumnPanel
-    layout_properties: {x: 643.2500305175781, y: 89.6500015258789, width: 397.6400000000001}
-    components:
-    - name: xy_panel_14_copy
-      properties: {height: 167}
-      type: XYPanel
-      layout_properties: {grid_position: 'LGCKFE,QFGYVP'}
+    - name: card_7_copy
+      properties: {role: card, col_widths: '{"LHYRHT":45,"SLIHOF":15}'}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'WKUECY,OHEEXC'}
       components:
-      - name: label_21_copy
-        properties: {text: Today, bold: true, align: center, foreground: ''}
+      - name: label_25_copy
+        properties: {text: Transaction History, bold: true}
         type: Label
-        layout_properties: {x: 16.849926758557558, y: 99.23750000074506, width: 76.5875244140625}
-      - name: radio_button_1_copy
-        properties: {role: null, bold: false, align: left, selected: false, spacing_above: small, value: '', background: '', underline: false, font: '', group_name: radioGroup1, foreground: 'theme:Primary 500', spacing_below: small, visible: true, border: '', italic: false, enabled: false, font_size: null, tooltip: '', text: ''}
-        type: RadioButton
-        layout_properties: {x: 13.59954833984375, y: 100.79861450195312, width: 15.1736}
-      - name: radio_button_2_copy
-        properties: {text: ''}
-        type: RadioButton
-        layout_properties: {x: 14.399975586682558, y: 130.51249389722943, width: 14.362573242187452}
-        event_bindings: {clicked: radio_button_2_copy_clicked}
-      - name: label_22_copy
-        properties: {text: This Month, bold: true, foreground: '', align: center}
-        type: Label
-        layout_properties: {x: 18.300000000745058, y: 128.43749694898725, width: 107.3375015258789}
-      - name: label_18_copy
-        properties: {text: System Usage, font_size: 20, bold: true, icon: 'fa:ellipsis-v', icon_align: right_edge, foreground: 'theme:Gray 600'}
-        type: Label
-        layout_properties: {x: 14.387451171875, y: 0, width: 341.788}
-  - name: card_4_copy
-    properties: {role: card, col_widths: '{"UWSRIP":9,"EZISWG":51}'}
-    type: ColumnPanel
-    layout_properties: {x: 392.28650610351565, y: 199.65000152587888, width: 223.863}
-    components:
-    - name: spacer_4_copy
-      properties: {height: 64}
-      type: Spacer
-      layout_properties: {grid_position: 'SIXIYT,UWSRIP'}
-    - name: xy_panel_13_copy
-      properties: {height: 54.600006103515625}
-      type: XYPanel
-      layout_properties: {grid_position: 'SIXIYT,EZISWG'}
-      components:
-      - name: label_16_copy
-        properties: {font_size: 16, text: Recieved, bold: true, align: left, foreground: 'theme:Gray 600', icon: 'fa:arrow-circle-down'}
-        type: Label
-        layout_properties: {x: 0, y: 0, width: 126.7500244140625}
-      - name: label_17_copy
-        properties: {align: left, text: '₹50,000', bold: true, font_size: 16}
-        type: Label
-        layout_properties: {x: 0, y: 28.38750457763672, width: 119.1499267578125}
-  - name: link_15_copy
-    properties: {role: null, bold: false, align: left, col_widths: '', spacing_above: small, background: '', icon: 'fa:bell-o', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 22, tooltip: '', text: ''}
-    type: Link
-    layout_properties: {x: 1010.0380305175781, y: 33.6875, width: 34}
-    event_bindings: {click: link_15_copy_click}
-  - name: column_panel_2
-    properties: {visible: false, background: '#f8f8f8', border: solid white, role: card, col_widths: '{"CDCWSO":35,"GSSSKI":25}'}
-    type: ColumnPanel
-    layout_properties: {x: 615.0700230076909, y: 72.07943577319384, width: 370.812220703125}
-    components:
-    - name: repeating_panel_1
-      properties: {role: null, spacing_above: small, background: '', item_template: customer.ItemTemplate3, foreground: '', items: null, spacing_below: small, visible: true, border: '', tooltip: ''}
-      type: RepeatingPanel
-      layout_properties: {grid_position: 'CXDKDC,NQSXHN'}
-    - name: label_4
-      properties: {align: center, text: No notifications, bold: true, background: '#87cefa', border: white, visible: false}
-      type: Label
-      layout_properties: {grid_position: 'OVBXAE,DDMDQX'}
-    - name: spacer_5
-      properties: {height: 5.723785400390625}
-      type: Spacer
-      layout_properties: {grid_position: 'MBTRGK,TPZWGT'}
-    - name: spacer_4
-      properties: {height: 32}
-      type: Spacer
-      layout_properties: {grid_position: 'WZMGUV,CDCWSO'}
-    - name: link_11
-      properties: {align: center, text: see all, font_size: 12}
-      type: Link
-      layout_properties: {grid_position: 'WZMGUV,GSSSKI'}
-      event_bindings: {click: link_11_click}
-  - name: label_2
-    properties: {foreground: red}
-    type: Label
-    layout_properties: {x: 1024.8703727722168, y: 17.0601846575737, width: 25.694446563720703}
+        layout_properties: {grid_position: 'BDKNPZ,LHYRHT'}
+      - name: link_10_copy_2
+        properties: {role: null, bold: true, align: center, col_widths: '', spacing_above: small, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: 'theme:Primary 500', url: '', spacing_below: small, visible: true, border: '', italic: false, font_size: 12, tooltip: '', text: See All}
+        type: Link
+        layout_properties: {grid_position: 'BDKNPZ,SLIHOF'}
+        event_bindings: {click: link_10_copy_click}
+      - name: spacer_3
+        properties: {height: '7.051422119140625'}
+        type: Spacer
+        layout_properties: {grid_position: 'RANDTF,ZQCOBZ'}
+      - name: repeating_panel_2
+        properties: {item_template: customer.ItemTemplate17}
+        type: RepeatingPanel
+        layout_properties: {grid_position: 'DNNVWW,YJLQRX'}
+      - name: spacer_2
+        properties: {height: 13.266387939453125}
+        type: Spacer
+        layout_properties: {grid_position: 'YDKWEL,UAZCQX'}
 is_package: true
