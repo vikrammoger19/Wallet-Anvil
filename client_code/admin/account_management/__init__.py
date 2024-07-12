@@ -18,6 +18,10 @@ class account_management(account_managementTemplate):
         if user is not None:
             self.label_656.text = user['users_username']
         
+        # Set initial page number and page size
+        self.page_number = 1
+        self.page_size = 10
+        
         self.refresh_users()  # Load all users initially
         ItemTemplate6.user = self.user
 
@@ -70,16 +74,30 @@ class account_management(account_managementTemplate):
             else:
                 user_dict['status_color'] = 'green'
             user_list.append(user_dict)
+        
+        # Pagination
+        total_pages = (len(user_list) + self.page_size - 1) // self.page_size
+        start_index = (self.page_number - 1) * self.page_size
+        end_index = start_index + self.page_size
+        paginated_users = user_list[start_index:end_index]
 
         # Set items in the repeating panel
-        self.repeating_panel_1.items = user_list
+        self.repeating_panel_1.items = paginated_users
         
         self.label_5.text =  total_customers
         self.label_10.text =  total_admins
         self.label_12.text =  total_super_admins
+        self.text_box_2.text = str(self.page_number)
+        
+        self.update_buttons(total_pages)
+
+    def update_buttons(self, total_pages):
+        self.button_111.enabled = self.page_number > 1
+        self.button_222.enabled = self.page_number < total_pages
 
     def link_8_click(self, **event_args):
         """This method is called when the link is clicked"""
+        self.page_number = 1
         self.refresh_users(filter_usertype='customer')  # Filter for customers only
 
     def link_10_copy_click(self, **event_args):
@@ -103,6 +121,7 @@ class account_management(account_managementTemplate):
 
     def link_6_click(self, **event_args):
         """This method is called when the link is clicked"""
+        self.page_number = 1
         self.refresh_users()  # Display all users
 
     def link_5_click(self, **event_args):
@@ -119,6 +138,7 @@ class account_management(account_managementTemplate):
     def drop_down_1_change(self, **event_args):
         """This method is called when an item is selected"""
         # Get the selected status filter
+        self.page_number = 1
         status_filter = self.drop_down_1.selected_value
 
         # Refresh users based on the selected status filter
@@ -126,14 +146,17 @@ class account_management(account_managementTemplate):
 
     def link_9_click(self, **event_args):
         """This method is called when the link is clicked"""
+        self.page_number = 1
         self.refresh_users(filter_usertype='admin')  # Filter for admin users only
 
     def link_10_click(self, **event_args):
         """This method is called when the link is clicked"""
+        self.page_number = 1
         self.refresh_users(filter_usertype='super_admin')  # Filter for super admin users only
 
     def text_box_1_pressed_enter(self, **event_args):
         """This method is called when the user presses Enter in this text box"""
+        self.page_number = 1
         search_value = self.text_box_1.text
         if search_value.isdigit():
             self.refresh_users(phone_filter=search_value)
@@ -157,3 +180,14 @@ class account_management(account_managementTemplate):
 
     def link6_copy_4_click(self, **event_args):
         open_form("admin.add_bank_account",user = self.user)
+
+    def button_111_click(self, **event_args):
+        """This method is called when the previous page button is clicked"""
+        if self.page_number > 1:
+            self.page_number -= 1
+            self.refresh_users()
+
+    def button_222_click(self, **event_args):
+        """This method is called when the next page button is clicked"""
+        self.page_number += 1
+        self.refresh_users()
