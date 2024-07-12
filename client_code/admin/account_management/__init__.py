@@ -20,12 +20,18 @@ class account_management(account_managementTemplate):
         
         # Set initial page number and page size
         self.page_number = 1
-        self.page_size = 10
+        self.page_size = 5
+
+        # Initialize filter variables
+        self.username_filter = None
+        self.phone_filter = None
+        self.status_filter = None
+        self.filter_usertype = None
         
         self.refresh_users()  # Load all users initially
         ItemTemplate6.user = self.user
 
-    def refresh_users(self, username_filter=None, phone_filter=None, status_filter=None, filter_usertype=None):
+    def refresh_users(self):
         # Fetch all users from the table
         users = app_tables.wallet_users.search()
         
@@ -44,24 +50,24 @@ class account_management(account_managementTemplate):
                 total_super_admins += 1
 
         # Filter users based on usertype if filter_usertype is provided
-        if filter_usertype:
-            users = [user for user in users if user['users_usertype'] == filter_usertype]
+        if self.filter_usertype:
+            users = [user for user in users if user['users_usertype'] == self.filter_usertype]
 
         # Filter users based on status if status filter is provided
-        if status_filter == "Active":
+        if self.status_filter == "Active":
             users = [user for user in users if user['users_inactive'] is None and user['users_hold'] is None]
-        elif status_filter == "Inactive":
+        elif self.status_filter == "Inactive":
             users = [user for user in users if user['users_inactive'] is True]
-        elif status_filter == "Hold":
+        elif self.status_filter == "Hold":
             users = [user for user in users if user['users_hold'] is True]
 
         # Filter users based on username if username filter is provided
-        if username_filter:
-            users = [user for user in users if user['users_username'].lower().startswith(username_filter.lower())]
+        if self.username_filter:
+            users = [user for user in users if user['users_username'].lower().startswith(self.username_filter.lower())]
 
         # Filter users based on phone number if phone filter is provided
-        if phone_filter:
-            users = [user for user in users if str(user['users_phone']).startswith(phone_filter)]
+        if self.phone_filter:
+            users = [user for user in users if str(user['users_phone']).startswith(self.phone_filter)]
 
         # Create a list of dictionaries with status color for display purposes
         user_list = []
@@ -98,7 +104,8 @@ class account_management(account_managementTemplate):
     def link_8_click(self, **event_args):
         """This method is called when the link is clicked"""
         self.page_number = 1
-        self.refresh_users(filter_usertype='customer')  # Filter for customers only
+        self.filter_usertype = 'customer'
+        self.refresh_users()  # Filter for customers only
 
     def link_10_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -122,6 +129,10 @@ class account_management(account_managementTemplate):
     def link_6_click(self, **event_args):
         """This method is called when the link is clicked"""
         self.page_number = 1
+        self.filter_usertype = None
+        self.status_filter = None
+        self.username_filter = None
+        self.phone_filter = None
         self.refresh_users()  # Display all users
 
     def link_5_click(self, **event_args):
@@ -139,29 +150,34 @@ class account_management(account_managementTemplate):
         """This method is called when an item is selected"""
         # Get the selected status filter
         self.page_number = 1
-        status_filter = self.drop_down_1.selected_value
+        self.status_filter = self.drop_down_1.selected_value
 
         # Refresh users based on the selected status filter
-        self.refresh_users(status_filter=status_filter)
+        self.refresh_users()
 
     def link_9_click(self, **event_args):
         """This method is called when the link is clicked"""
         self.page_number = 1
-        self.refresh_users(filter_usertype='admin')  # Filter for admin users only
+        self.filter_usertype = 'admin'
+        self.refresh_users()  # Filter for admin users only
 
     def link_10_click(self, **event_args):
         """This method is called when the link is clicked"""
         self.page_number = 1
-        self.refresh_users(filter_usertype='super_admin')  # Filter for super admin users only
+        self.filter_usertype = 'super_admin'
+        self.refresh_users()  # Filter for super admin users only
 
     def text_box_1_pressed_enter(self, **event_args):
         """This method is called when the user presses Enter in this text box"""
         self.page_number = 1
         search_value = self.text_box_1.text
         if search_value.isdigit():
-            self.refresh_users(phone_filter=search_value)
+            self.phone_filter = search_value
+            self.username_filter = None
         else:
-            self.refresh_users(username_filter=search_value)
+            self.username_filter = search_value
+            self.phone_filter = None
+        self.refresh_users()
 
     def link6_copy_click(self, **event_args):
         open_form("admin.transaction_monitoring",user = self.user)
