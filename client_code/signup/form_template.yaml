@@ -60,6 +60,10 @@ components:
           data_bindings:
           - {code: 'self.item[''email'']', writeback: false, property: text}
           name: text_box_2
+        - type: Label
+          properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: false, border: '', italic: false, font_size: null, tooltip: '', text: ''}
+          name: message_label
+          layout_properties: {grid_position: 'AZAQSE,TKJBPN'}
         - properties: {visible: false, font_size: 14}
           type: Label
           layout_properties: {grid_position: 'GVHZTA,PRCMUG'}
@@ -187,13 +191,13 @@ components:
         type: Spacer
         layout_properties: {x: 613.0832926444709, y: 1100, width: 200}
         name: spacer_2
-      - properties: {text: verify, foreground: white, background: '#1eb0ed', visible: false}
+      - properties: {text: verify, foreground: white, background: '#1eb0ed', visible: true}
         type: Button
-        layout_properties: {x: 828.5694376640022, y: 472.58329010009766, width: 329}
+        layout_properties: {x: 909.09375, y: 332.7395935058594, width: 120.646}
         event_bindings: {click: button_1_click}
         name: button_1
-      - properties: {text: Verify, foreground: white, background: '#1eb0ed', visible: false}
+      - properties: {text: Verify, foreground: white, background: '#1eb0ed', visible: true}
         type: Button
-        layout_properties: {x: 960.7916056327522, y: 657.694450378418, width: 99}
+        layout_properties: {x: 918.7396240234375, y: 429.1458435058594, width: 105}
         event_bindings: {click: button_2_click}
         name: button_2
