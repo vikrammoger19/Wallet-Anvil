@@ -20,6 +20,7 @@ class signup(signupTemplate):
         self.pan_card.visible = False
         self.pass_card.visible = False
         self.populate_country_dropdown()
+        self.otp = None
 
     def populate_country_dropdown(self):
         # Retrieve countries from wallet_admins_add_currency table
@@ -137,88 +138,86 @@ class signup(signupTemplate):
             return currency
         else:
             return "Unknown"
+
     def link_1_click(self, **event_args):
-      open_form('Home')
+        open_form('Home')
 
     def text_box_8_change(self, **event_args):
-      current_text = self.text_box_8.text
-      converted_text = current_text.upper()
-      self.text_box_8.text = converted_text
+        current_text = self.text_box_8.text
+        converted_text = current_text.upper()
+        self.text_box_8.text = converted_text
       
     def is_pan_card_detail(self, text):
-          if (
-              len(text) == 10 and
-              text[:5].isalpha() and
-              text[5:9].isdigit() and
-              text[9].isalpha()
-          ):
+        if (
+            len(text) == 10 and
+            text[:5].isalpha() and
+            text[5:9].isdigit() and
+            text[9].isalpha()
+        ):
             return True
-          else:
+        else:
             return False
   
     def validate_button_click(self, **event_args):
-      phone_number = str(self.text_box_3.text).strip()  
+        phone_number = str(self.text_box_3.text).strip()  
     
     def validate_phone_number(self, phone_number):
-      pattern = r'^[6-9]\d{9}$'
-      if re.match(pattern, str(phone_number)):
-          return True  
-      else:
-          return False 
-  
+        pattern = r'^[6-9]\d{9}$'
+        if re.match(pattern, str(phone_number)):
+            return True  
+        else:
+            return False 
+        
+    def text_box_9_pressed_enter(self, **event_args):
+        # Skip OTP validation
+        self.label_3.text = "OTP validation skipped."
+        self.label_3.foreground = "#008000"  # Green color
+          
     def validate_button_click(self, **event_args):
-          password = self.text_box_5.text
-          if self.validate_password(password):
-              self.label_17.text = "Password is valid"
-              self.label_17.foreground = "#008000"
-          else:
-              self.label_17.text = "Password must have at least 1 number, 1 character, 1 symbol, and be at least 8 characters long."
-              self.label_17.foreground = "#FF0000"
+        password = self.text_box_5.text
+        if self.validate_password(password):
+            self.label_17.text = "Password is valid"
+            self.label_17.foreground = "#008000"
+        else:
+            self.label_17.text = "Password must have at least 1 number, 1 character, 1 symbol, and be at least 8 characters long."
+            self.label_17.foreground = "#FF0000"
   
     def validate_password(self, password):
-          pattern = r'^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
-          if re.match(pattern, password):
-              return True
-          else:
-              return False
-  
-    def button_1_click(self, **event_args):
-          user_email = self.text_box_2.text
-          
-          # Check if the email exists in the database
-          matching_users = app_tables.wallet_users.search(users_email=user_email)
-          
-          if  matching_users == "":
-              # Email exists, generate OTP (Commented out to skip OTP generation)
-              otp = anvil.server.call('generate_otp')
-              
-              # Call the server function to send OTP via email (Commented out to skip sending OTP)
-              anvil.server.call('send_otp_email', user_email, otp)
-              
-              # Inform the user that the OTP has been sent (Commented out to skip OTP alert)
-              alert("OTP has been sent to your email.")
-              
-              # Hide text_box_2 and label_4, and show text_box_3 (Commented out to skip OTP entry)
-              self.text_box_9.visible=True
-              self.label_3.visible=True
-              alert("Email verified successfully. Please proceed with the registration.")
-              
-          else:
-              # Email doesn't exist, display an error message
-              alert("Email not found. Please enter a valid email address.")
-  
-    def text_box_9_pressed_enter(self, **event_args):
-          # Skip OTP validation
-          self.label_3.text = "OTP validation skipped."
-          self.label_3.foreground = "#008000"  # Green color
-          
-          # Hide text_box_9 and proceed with account creation
-          # self.text_box_9.visible = False
-          # self.label_3.visible = False
+        pattern = r'^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
+        if re.match(pattern, password):
+            return True
+        else:
+            return False
+
     def check_email_exists(self, email):
         matching_users = app_tables.wallet_users.search(users_email=email)
         return len(matching_users) > 0
 
     def button_2_click(self, **event_args):
-      """This method is called when the button is clicked"""
-      pass
+        """This method is called when the button is clicked"""
+        pass
+  
+    def button_1_click(self, **event_args):
+        user_email = self.text_box_2.text
+        if self.check_email_exists(user_email):
+            alert("Email is already in use. Please use a different email.")
+        else:
+            self.otp = self.send_otp_to_email(user_email)
+            alert("OTP has been sent to your email.")
+          
+    def send_otp_to_email(self, email):
+        import random
+        otp = random.randint(100000, 999999)
+        # Send email using Anvil's email service
+        anvil.email.send(to=email,
+                         subject="Your OTP Code",
+                         text=f"Your OTP code is {otp}.")
+        return otp
+
+    def verify_button_click(self, **event_args):
+        entered_otp = self.text_box_9.text.strip()
+        if entered_otp == str(self.otp):
+            alert("OTP verified successfully!")
+            # Proceed with account creation or next step
+        else:
+            alert("Invalid OTP. Please try again.")
