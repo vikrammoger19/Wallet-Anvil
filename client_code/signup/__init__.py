@@ -198,26 +198,46 @@ class signup(signupTemplate):
         pass
   
     def button_1_click(self, **event_args):
-        user_email = self.text_box_2.text
-        if self.check_email_exists(user_email):
-            alert("Email is already in use. Please use a different email.")
-        else:
-            self.otp = self.send_otp_to_email(user_email)
-            alert("OTP has been sent to your email.")
+      email = self.text_box_2.text.strip()
+      if not email:
+          alert("Please enter your email.")
+          return
+  
+      # Check if the email is registered
+      email_exists = anvil.server.call('check_email_exists', email)
+      if  email_exists:
+          alert("This email is registered.")
+          return
+  
+      # Send OTP
+      self.otp = anvil.server.call('send_email', email)
+      if self.otp:
+          alert(f"OTP has been sent to {email}")
+          self.text_box_9.visible=True
           
-    def send_otp_to_email(self, email):
-        import random
-        otp = random.randint(100000, 999999)
-        # Send email using Anvil's email service
-        anvil.email.send(to=email,
-                         subject="Your OTP Code",
-                         text=f"Your OTP code is {otp}.")
-        return otp
+    # def send_otp_to_email(self, email):
+    #     import random
+    #     otp = random.randint(100000, 999999)
+    #     # Send email using Anvil's email service
+    #     anvil.email.send(to=email,
+    #                      subject="Your OTP Code",
+    #                      text=f"Your OTP code is {otp}.")
+    #     return otp
+
+    # def verify_button_click(self, **event_args):
+    #     entered_otp = self.text_box_9.text.strip()
+    #     if entered_otp == str(self.otp):
+    #         alert("OTP verified successfully!")
+    #         # Proceed with account creation or next step
+    #     else:
+    #         alert("Invalid OTP. Please try again.")
 
     def verify_button_click(self, **event_args):
-        entered_otp = self.text_box_9.text.strip()
-        if entered_otp == str(self.otp):
-            alert("OTP verified successfully!")
-            # Proceed with account creation or next step
-        else:
-            alert("Invalid OTP. Please try again.")
+      """This method is called when the button is clicked"""
+      entered_otp = self.text_box_9.text.strip()
+      if str(self.otp) == entered_otp:
+        alert('OTP verified successfully')
+        # self.primary_color_2.enabled=True
+      else:
+        alert("Invalid OTP")
+      """This method is called when the verify OTP button is clicked"""

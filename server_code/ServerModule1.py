@@ -14,12 +14,63 @@ import base64
 from PIL import Image,ImageDraw
 from io import BytesIO
 import requests
+import string
+from validate_email import validate_email
 #import datetime
+import smtplib
+from email.message import EmailMessage
 
 @anvil.server.callable
 def check_email_exists(email):
     user = app_tables.wallet_users.get(users_email=email)
     return user is not None
+@anvil.server.callable
+def send_email(self,gmail):
+
+    
+
+    is_valid = validate_email(gmail, verify=True)
+
+    # gmail_id = app_tables.wallet_users.get(users_email=gmail)
+
+    # if gmail_id != None:
+
+    #     self.show_dialog("error", "email already exists!")
+    #     return
+    # else:
+
+    if is_valid:
+
+        self.verification_code = ''.join(random.choices(string.digits, k=6))
+        self.user_otp = self.verification_code
+
+        try:
+
+            from_mail = "gtpl.march2023@gmail.com"
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login(from_mail, "ohcz etov xtpy zhne")
+
+            msg = EmailMessage()
+            print("logged in")
+            msg['Subject'] = "OTP Verification"
+            msg['From'] = from_mail
+            msg['To'] = gmail
+            self.generate = self.verification_code
+            msg.set_content(self.generate)
+            server.send_message(msg)
+            server.quit()
+            self.enable_verification_code_input()
+            self.nav_verify()
+
+
+        except Exception as e:
+            # sel"error", f"Failed to send email")
+            print(e)
+
+    else:
+        # self.show_dialog("error", "email does not exists!")
+        return
 
 @anvil.server.callable
 def get_user_for_login(login_input):
@@ -381,13 +432,13 @@ def get_stored_otp():
     Returns the stored OTP from the server session.
     """
     return anvil.server.session.get('stored_otp')
-@anvil.server.callable
-def validate_email(email):
-    """
-    Validates if the provided email exists in the database.
-    """
-    matching_users = app_tables.wallet_users.search(users_email=email)
-    return bool(matching_users)
+# @anvil.server.callable
+# def validate_email(email):
+#     """
+#     Validates if the provided email exists in the database.
+#     """
+#     matching_users = app_tables.wallet_users.search(users_email=email)
+#     return bool(matching_users)
 
 @anvil.server.callable
 def generate_otp():
