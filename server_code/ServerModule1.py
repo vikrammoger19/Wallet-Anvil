@@ -15,7 +15,7 @@ from PIL import Image,ImageDraw
 from io import BytesIO
 import requests
 import string
-from validate_email import validate_email
+# from validate_email import validate_email
 #import datetime
 import smtplib
 from email.message import EmailMessage
@@ -25,11 +25,11 @@ def check_email_exists(email):
     user = app_tables.wallet_users.get(users_email=email)
     return user is not None
 @anvil.server.callable
-def send_email(self,gmail):
+def send_email(gmail):
 
     
 
-    is_valid = validate_email(gmail, verify=True)
+    # is_valid = validate_email(gmail, verify=True)
 
     # gmail_id = app_tables.wallet_users.get(users_email=gmail)
 
@@ -39,10 +39,10 @@ def send_email(self,gmail):
     #     return
     # else:
 
-    if is_valid:
+    if True:
 
-        self.verification_code = ''.join(random.choices(string.digits, k=6))
-        self.user_otp = self.verification_code
+        verification_code = ''.join(random.choices(string.digits, k=6))
+        user_otp = verification_code
 
         try:
 
@@ -56,12 +56,12 @@ def send_email(self,gmail):
             msg['Subject'] = "OTP Verification"
             msg['From'] = from_mail
             msg['To'] = gmail
-            self.generate = self.verification_code
-            msg.set_content(self.generate)
+            generate = verification_code
+            msg.set_content(generate)
             server.send_message(msg)
             server.quit()
-            self.enable_verification_code_input()
-            self.nav_verify()
+            # self.enable_verification_code_input()
+            # self.nav_verify()
 
 
         except Exception as e:

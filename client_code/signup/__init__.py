@@ -198,21 +198,21 @@ class signup(signupTemplate):
         pass
   
     def button_1_click(self, **event_args):
-      email = self.text_box_2.text.strip()
-      if not email:
+      gmail = self.text_box_2.text.strip()
+      if not gmail:
           alert("Please enter your email.")
           return
   
       # Check if the email is registered
-      email_exists = anvil.server.call('check_email_exists', email)
+      email_exists = anvil.server.call('check_email_exists', gmail)
       if  email_exists:
           alert("This email is registered.")
           return
   
       # Send OTP
-      self.otp = anvil.server.call('send_email', email)
+      self.otp = anvil.server.call('send_email', gmail)
       if self.otp:
-          alert(f"OTP has been sent to {email}")
+          alert(f"OTP has been sent to {gmail}")
           self.text_box_9.visible=True
           
     # def send_otp_to_email(self, email):
