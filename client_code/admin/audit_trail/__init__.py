@@ -30,9 +30,7 @@ class audit_trail(audit_trailTemplate):
 
     def check_profile_pic(self):
         if self.user and 'users_email' in self.user:
-            print(self.user)
-            print(self.user['users_email'], type(self.user['users_email']))
-            user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email']))  # changed
+            user_data = app_tables.wallet_users.get(users_email=str(self.user['users_email']))
             if user_data:
                 existing_img = user_data.get('users_profile_pic')
                 if existing_img:
@@ -51,14 +49,11 @@ class audit_trail(audit_trailTemplate):
         self.grouped_details = {}
         if actions_data:
             for item in actions_data:
-                # Extract date in YYYY-MM-DD format without time
-                date_str = item['admins_actions_date'] #.strftime("%Y-%m-%d")
+                date_str = item['admins_actions_date'].strftime("%Y-%m-%d")
                 if date_str not in self.grouped_details:
                     self.grouped_details[date_str] = {'date': item['admins_actions_date'], 'details': []}
                 self.grouped_details[date_str]['details'].append(item)
-        else:
-            return
-
+        
         # Sort dates in descending order
         sorted_dates = sorted(self.grouped_details.keys(), reverse=True)
 
@@ -70,20 +65,18 @@ class audit_trail(audit_trailTemplate):
                 admin_action_username = action['admins_actions_username']
                 profile_pic = '_/theme/account.png'
                 userr = app_tables.wallet_users.get(users_phone=action['admins_actions_phone'])
-                if userr:
-                    if userr['users_profile_pic']:
-                        profile_pic = userr['users_profile_pic']
-                    else:
-                        profile_pic = '_/theme/account.png'
-
+                if userr and userr['users_profile_pic']:
+                    profile_pic = userr['users_profile_pic']
+                
                 # Append transaction details with username instead of receiver_phone
-                self.repeating_panel_items.append({'date': date_info['date'].strftime("%Y-%m-%d"),
-                                                   'time': date_info['date'].strftime("%I:%M %p"),
-                                                   'admin_name': action['admins_actions_name'],
-                                                   'admin_action': admin_action,
-                                                   'admin_action_username': admin_action_username,
-                                                   'profile_pic': profile_pic,
-                                                   })
+                self.repeating_panel_items.append({
+                    'date': date_info['date'].strftime("%Y-%m-%d"),
+                    'time': date_info['date'].strftime("%I:%M %p"),
+                    'admin_name': action['admins_actions_name'],
+                    'admin_action': admin_action,
+                    'admin_action_username': admin_action_username,
+                    'profile_pic': profile_pic,
+                })
         self.update_pagination()
 
     def update_pagination(self):
@@ -92,7 +85,8 @@ class audit_trail(audit_trailTemplate):
         total_pages = (total_items + self.items_per_page - 1) // self.items_per_page
 
         # Update the current page display
-        self.text_box_2.text = str(total_pages)
+        self.text_box_2.text = str(self.current_page)
+        # self.label_total_pages.text = f"of {total_pages}"
         
         # Display items for the current page
         start_index = (self.current_page - 1) * self.items_per_page
@@ -120,27 +114,14 @@ class audit_trail(audit_trailTemplate):
         if self.date_picker_1.date and self.date_picker_2.date:
             for i in range(len(self.repeating_panel_items)):
                 if str(self.date_picker_1.date.strftime("%Y-%m-%d")) <= str(self.repeating_panel_items[i]['date']) <= str(self.date_picker_2.date.strftime("%Y-%m-%d")):
-                    end.append({'date': self.repeating_panel_items[i]['date'],
-                                'time': self.repeating_panel_items[i]['time'],
-                                'admin_name': self.repeating_panel_items[i]['admin_name'],
-                                'admin_action': self.repeating_panel_items[i]['admin_action'],
-                                'admin_action_username': self.repeating_panel_items[i]['admin_action_username'],
-                                'profile_pic': self.repeating_panel_items[i]['profile_pic'],
-                                })
+                    end.append(self.repeating_panel_items[i])
             self.repeating_panel_2.items = end
         elif self.date_picker_1.date:
             for i in range(len(self.repeating_panel_items)):
                 if str(self.repeating_panel_items[i]['date']) == str(self.date_picker_1.date.strftime("%Y-%m-%d")):
-                    start.append({'date': self.repeating_panel_items[i]['date'],
-                                  'time': self.repeating_panel_items[i]['time'],
-                                  'admin_name': self.repeating_panel_items[i]['admin_name'],
-                                  'admin_action': self.repeating_panel_items[i]['admin_action'],
-                                  'admin_action_username': self.repeating_panel_items[i]['admin_action_username'],
-                                  'profile_pic': self.repeating_panel_items[i]['profile_pic'],
-                                  })
+                    start.append(self.repeating_panel_items[i])
             self.repeating_panel_2.items = start
         else:
-            print('no')
             self.load_all_actions()
 
     def button_1_click(self, **event_args):
@@ -149,21 +130,11 @@ class audit_trail(audit_trailTemplate):
         users = []
         search_results = app_tables.wallet_admins_actions.search(admins_actions_username=username)
         if search_results:
-            # Perform the search for users based on the entered username
             for i in range(len(self.repeating_panel_items)):
                 if username == self.repeating_panel_items[i]['admin_action_username'].strip():
-                    users.append({'date': self.repeating_panel_items[i]['date'],
-                                  'time': self.repeating_panel_items[i]['time'],
-                                  'admin_name': self.repeating_panel_items[i]['admin_name'],
-                                  'admin_action': self.repeating_panel_items[i]['admin_action'],
-                                  'admin_action_username': self.repeating_panel_items[i]['admin_action_username'],
-                                  'profile_pic': self.repeating_panel_items[i]['profile_pic'],
-                                  })
+                    users.append(self.repeating_panel_items[i])
             self.repeating_panel_2.items = users
-        print('seeing', users)
         if not users:
-            # If the search box is empty, load all actions
-            print('reaching')
             anvil.alert('User not found.')
             self.load_all_actions()
 
@@ -188,10 +159,10 @@ class audit_trail(audit_trailTemplate):
         open_form('admin.audit_trail', user=self.user)
 
     def link_4_click(self, **event_args):
-        open_form('admin.admin_add_user',user=self.user)
+        open_form('admin.admin_add_user', user=self.user)
 
     def link_3_click(self, **event_args):
-        open_form('admin.transaction_monitoring',user=self.user)
+        open_form('admin.transaction_monitoring', user=self.user)
 
     def link_8_copy_click(self, **event_args):
         """This method is called when the link is clicked"""
@@ -201,15 +172,9 @@ class audit_trail(audit_trailTemplate):
         """This method is called when the button is clicked"""
         open_form('Login')
 
-    # def button_3_click(self, **event_args):
-    #     """This method is called when the button is clicked"""
-    #     open_form('Home')
-
     def link_8_click(self, **event_args):
         """This method is called when the link is clicked"""
         open_form('admin', user=self.user)
-
-    # Other methods remain the same
 
 
 # class audit_trail(audit_trailTemplate):
