@@ -183,21 +183,29 @@ class signup(signupTemplate):
               return False
   
     def button_1_click(self, **event_args):
-        email = self.text_box_2.text
-        
-        # Validate email format
-        if not anvil.server.call('is_valid_email', email):
-            self.message_label.text = "Invalid email format"
-            self.message_label.visible = True
-        # Check if email exists in the database
-        elif anvil.server.call('email_exists_in_db', email):
-            self.message_label.text = "Email already exists in the database"
-            self.message_label.visible = True
-        else:
-            # Send OTP
-            anvil.server.call('send_otp', email)
-            self.message_label.text = "OTP sent to your email"
-            self.message_label.visible = True
+          user_email = self.text_box_2.text
+          
+          # Check if the email exists in the database
+          matching_users = app_tables.wallet_users.search(users_email=user_email)
+          
+          if  matching_users == "":
+              # Email exists, generate OTP (Commented out to skip OTP generation)
+              otp = anvil.server.call('generate_otp')
+              
+              # Call the server function to send OTP via email (Commented out to skip sending OTP)
+              anvil.server.call('send_otp_email', user_email, otp)
+              
+              # Inform the user that the OTP has been sent (Commented out to skip OTP alert)
+              alert("OTP has been sent to your email.")
+              
+              # Hide text_box_2 and label_4, and show text_box_3 (Commented out to skip OTP entry)
+              self.text_box_9.visible=True
+              self.label_3.visible=True
+              alert("Email verified successfully. Please proceed with the registration.")
+              
+          else:
+              # Email doesn't exist, display an error message
+              alert("Email not found. Please enter a valid email address.")
   
     def text_box_9_pressed_enter(self, **event_args):
           # Skip OTP validation
@@ -214,5 +222,3 @@ class signup(signupTemplate):
     def button_2_click(self, **event_args):
       """This method is called when the button is clicked"""
       pass
-
-    

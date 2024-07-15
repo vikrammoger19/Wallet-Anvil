@@ -14,7 +14,6 @@ import base64
 from PIL import Image,ImageDraw
 from io import BytesIO
 import requests
-import re
 #import datetime
 
 @anvil.server.callable
@@ -516,19 +515,3 @@ def update_user_conclusion(item_id, conclusion):
         row['users_conclusion_about_query'] = conclusion
         return True
     return False
-@anvil.server.callable
-def is_valid_email(email):
-  regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w+$'
-  return re.search(regex, email) is not None
-
-# Server function to check if email exists in the database
-@anvil.server.callable
-def email_exists_in_db(email):
-    return app_tables.wallet_users.get(users_email=email) is not None
-
-# Server function to send OTP
-@anvil.server.callable
-def send_otp(email):
-    # Your OTP sending logic here
-    print(f"Sending OTP to {email}")
-    return True

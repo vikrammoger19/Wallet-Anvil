@@ -199,5 +199,5 @@ components:
       - properties: {text: Verify, foreground: white, background: '#1eb0ed', visible: true}
         type: Button
         layout_properties: {x: 918.7396240234375, y: 429.1458435058594, width: 105}
-        event_bindings: {click: button_2_click}
+        event_bindings: {click: verify_button_click}
         name: button_2
